@@ -1,22 +1,15 @@
 import { Lucia } from "lucia";
 import { MongodbAdapter } from "@lucia-auth/adapter-mongodb";
-import { Collection, MongoClient } from "mongodb";
+import mongoose from "mongoose";
+import userSchema from "./models/userModel";
+import sessionSchema from "./models/sessionModel";
 
-const client = new MongoClient(process.env.MONGODB_URI!);
-await client.connect();
+await mongoose.connect(process.env.MONGODB_URI!)
 
-const db = client.db();
-const User = db.collection("users") as Collection<UserDoc>;
-const Session = db.collection("sessions") as Collection<SessionDoc>;
+const User = mongoose.model('User', userSchema)
+const Session = mongoose.model('Session', sessionSchema)
 
-const adapter = new MongodbAdapter(Session, User);
-
-interface UserDoc {
-	_id: string;
-}
-
-interface SessionDoc {
-	_id: string;
-	expires_at: Date;
-	user_id: string;
-}
+const adapter = new MongodbAdapter(
+    mongoose.connection.collection("sessions"),
+    mongoose.connection.collection("users")
+)
