@@ -6,4 +6,4 @@ export const elysia = treaty<TElysiaApp>(url,{
     fetch: {
         next: {revalidate:0}
     }
-})
+}).api

@@ -1,0 +1,32 @@
+diff --git a/node_modules/arctic/dist/providers/google.d.ts b/node_modules/arctic/dist/providers/google.d.ts
+index 7e79d2d..d15df5a 100644
+--- a/node_modules/arctic/dist/providers/google.d.ts
++++ b/node_modules/arctic/dist/providers/google.d.ts
+@@ -4,7 +4,7 @@ export declare class Google {
+     private clientSecret;
+     private redirectURI;
+     constructor(clientId: string, clientSecret: string, redirectURI: string);
+-    createAuthorizationURL(state: string, codeVerifier: string, scopes: string[]): URL;
++    createAuthorizationURL(state: string, codeVerifier: string, scopes: string[], hd?: string): URL;
+     validateAuthorizationCode(code: string, codeVerifier: string): Promise<OAuth2Tokens>;
+     refreshAccessToken(refreshToken: string): Promise<OAuth2Tokens>;
+     revokeToken(token: string): Promise<void>;
+diff --git a/node_modules/arctic/dist/providers/google.js b/node_modules/arctic/dist/providers/google.js
+index 34eb862..0575788 100644
+--- a/node_modules/arctic/dist/providers/google.js
++++ b/node_modules/arctic/dist/providers/google.js
+@@ -12,12 +12,13 @@ export class Google {
+         this.clientSecret = clientSecret;
+         this.redirectURI = redirectURI;
+     }
+-    createAuthorizationURL(state, codeVerifier, scopes) {
++    createAuthorizationURL(state, codeVerifier, scopes, hd) {
+         const url = new URL(authorizationEndpoint);
+         url.searchParams.set("response_type", "code");
+         url.searchParams.set("client_id", this.clientId);
+         url.searchParams.set("state", state);
+         url.searchParams.set("scope", scopes.join(" "));
++        url.searchParams.set("hd", hd);
+         url.searchParams.set("redirect_uri", this.redirectURI);
+         const codeChallenge = createS256CodeChallenge(codeVerifier);
+         url.searchParams.set("code_challenge_method", "S256");

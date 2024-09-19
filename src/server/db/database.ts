@@ -1,15 +1,5 @@
-import { Lucia } from "lucia";
-import { MongodbAdapter } from "@lucia-auth/adapter-mongodb";
-import mongoose from "mongoose";
-import userSchema from "./models/userModel";
-import sessionSchema from "./models/sessionModel";
+import { PrismaClient } from "@prisma/client";
+import { PrismaAdapter } from "@lucia-auth/adapter-prisma";
 
-await mongoose.connect(process.env.MONGODB_URI!)
-
-const User = mongoose.model('User', userSchema)
-const Session = mongoose.model('Session', sessionSchema)
-
-const adapter = new MongodbAdapter(
-    mongoose.connection.collection("sessions"),
-    mongoose.connection.collection("users")
-)
+export const prisma = new PrismaClient();
+export const adapter = new PrismaAdapter(prisma.session, prisma.user);

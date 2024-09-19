@@ -3,11 +3,10 @@ import swagger from '@elysiajs/swagger'
 import { Logestic } from 'logestic'
 
 //Import Routers
-import helloRouter from './routers/helloRouter'
+import authorizeRoutes from './routers/authorizeRoutes'
 
 export const elysiaApp = new Elysia({ prefix: '/api' })
-    .use(Logestic.preset('common'))
     .use(swagger)
-    .use(helloRouter)
+    .use(authorizeRoutes)
 
 export type TElysiaApp = typeof elysiaApp

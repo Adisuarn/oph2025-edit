@@ -1,12 +1,18 @@
+'use client'
 import { elysia } from '../lib/api'
+import GoogleOAuthButton from '@/components/GoogleOAuthButton';
 
-export default async function HomePage() {
-  const { data } = await elysia.api.hello.index.get();
-  console.log(data);
+// Example for fetch api
+// const fetch = elysia.pathapi
+// localhost:3000/api/swagger to test api
+
+function HomePage() {
   return (
     <main>
         <h1>Home</h1>
-        <p>{data}</p>
+        <GoogleOAuthButton />
     </main>
   );
 }
+
+export default HomePage
