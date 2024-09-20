@@ -8,15 +8,16 @@ datasource db {
 }
 
 model User {
-  id       String    @id @map("_id") @default(cuid())
-  email    String    @unique
-  name     String
-  profile  String?
-  sessions Session[]
+  id        String    @id @map("_id") @default(cuid())
+  studentID String    @unique
+  email     String    @unique
+  name      String
+  profile   String?
+  sessions  Session[]
 }
 
 model Session {
-  id       String    @id @map("_id") @default(cuid())
+  id        String    @id @map("_id") @default(cuid())
   userId    String
   expiresAt DateTime
   user      User     @relation(references: [id], fields: [userId], onDelete: Cascade)

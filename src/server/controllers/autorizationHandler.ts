@@ -4,12 +4,6 @@ import { cookies } from "next/headers";
 import { prisma } from '../db/database'
 import { lucia } from '../../lib/auth'
 
-// export const logOut = async () => {
-//     const sessionCookie = await lucia.createBlankSessionCookie()
-//     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
-//     return redirect('/')
-// }
-
 export const authURLHandler = async () => {
     try {
         const state = generateState()
@@ -82,9 +76,11 @@ export const authCallbackHandler = async (req: Request) => {
     if(existingUser) {
         userId = existingUser.id
     } else {
+        const studentID = googleData.email.slice(2, googleData.email.indexOf('@'))
         const user = await prisma.user.create({
             data: {
                 name: googleData.name,
+                studentID: studentID,
                 email: googleData.email,
                 profile: googleData.picture
             }
@@ -93,6 +89,40 @@ export const authCallbackHandler = async (req: Request) => {
     }
 
     const session = await lucia.createSession(userId, {})
-    const sessionCookie = await lucia.createSessionCookie(session.id)
+    const sessionCookie = lucia.createSessionCookie(session.id)
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+}
+
+export const getUser = async () => {
+    const sessionID = cookies().get(lucia.sessionCookieName)?.value ?? null
+    if(!sessionID) {
+        return { success: false, error: 'No session cookie'}
+    }
+    const { session, user } = await lucia.validateSession(sessionID)
+    try{
+        if (session && session.fresh) {
+            const sessionCookie = await lucia.createSessionCookie(session.id)
+            cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+        }
+
+        if (!session){
+            const sessionCookie = await lucia.createBlankSessionCookie()
+            cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+        }
+
+    } catch (e) {
+        return { success: false, error: e }
+    }
+    const dbUser = await prisma.user.findUnique({
+        where: {
+            id: user?.id
+        },
+        select: {
+            name: true,
+            email: true,
+            profile: true,
+            studentID: true,
+        }
+    })
+    return { success: true, dbUser }
 }

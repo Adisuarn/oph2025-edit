@@ -1,5 +1,4 @@
 'use client'
-import { elysia } from '../lib/api'
 import GoogleOAuthButton from '@/components/GoogleOAuthButton';
 
 // Example for fetch api

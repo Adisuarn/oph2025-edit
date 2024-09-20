@@ -4,6 +4,7 @@ import { Google } from "arctic";
 
 export const lucia = new Lucia(adapter, {
 	sessionCookie: {
+        name: 'oph2025-auth-cookie',
         expires: false,
 		attributes: {
 			// set to `true` when using HTTPS
@@ -12,7 +13,9 @@ export const lucia = new Lucia(adapter, {
 	},
     getUserAttributes: (attributes) => {
         return {
+            studentID: attributes.studentID,
             email: attributes.email,
+            name: attributes.name,
             profile: attributes.profile
         }
     }
@@ -29,7 +32,9 @@ declare module "lucia" {
 	interface Register {
 		Lucia: typeof lucia;
         DatabaseUserAttributes: {
+            studentID: string;
             email: string;
+            name: string;
             profile: string;
         }
 	}
