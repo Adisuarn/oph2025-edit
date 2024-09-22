@@ -2,7 +2,8 @@
 const config = {
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": true
+    "project": true,
+    "extraFileExtensions": ['.json'],
   },
   "plugins": [
     "@typescript-eslint"

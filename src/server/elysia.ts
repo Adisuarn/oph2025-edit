@@ -1,12 +1,12 @@
 import { Elysia, t } from 'elysia'
 import swagger from '@elysiajs/swagger'
-import { Logestic } from 'logestic'
 
 //Import Routers
-import authorizeRoutes from './routers/authorizeRoutes'
+import { authRouter } from '@routes/auth.router'
 
 export const elysiaApp = new Elysia({ prefix: '/api' })
     .use(swagger)
-    .use(authorizeRoutes)
+    .use(authRouter)
+
 
 export type TElysiaApp = typeof elysiaApp

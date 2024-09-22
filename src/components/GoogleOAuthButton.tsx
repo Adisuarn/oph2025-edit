@@ -1,17 +1,17 @@
 'use client'
-import { elysia } from '../lib/api'
+import { elysia } from '@libs/api'
 import React from 'react'
 
 const GoogleOAuthButton = () => {
   return (
     <button onClick={
         async () => {
-            const res = await elysia.auth.google.get()
-            const url = res.data.url
+            const {data, error} = await elysia.auth.login.get()
+            const url = data.url
             if(url){
                 window.location.href = url
             } else {
-                console.error('Error')
+                console.error(error)
             }
         }
     }>

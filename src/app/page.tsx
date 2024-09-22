@@ -1,17 +1,20 @@
-'use client'
-import GoogleOAuthButton from '@/components/GoogleOAuthButton';
+import React from 'react'
+import GoogleOAuthButton from '@/components/GoogleOAuthButton'
+import { getUser } from '@middlewares/derive'
+import { redirect } from 'next/navigation'
 
-// Example for fetch api
-// const fetch = elysia.pathapi
-// localhost:3000/api/swagger to test api
-
-function HomePage() {
+const page = async () => {
+  const user = await getUser()
+  /// Check if user is authenticated then redirect to dashboard
+  if(user.success) {
+    redirect('/dashboard')
+  }
   return (
-    <main>
-        <h1>Home</h1>
-        <GoogleOAuthButton />
-    </main>
-  );
+    <div>
+      <p>HomePage</p>
+      <GoogleOAuthButton />
+    </div>
+  )
 }
 
-export default HomePage
+export default page

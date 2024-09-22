@@ -1,32 +1,19 @@
-'use client'
 import React from 'react'
-import { elysia } from '../../lib/api'
+import { getUser } from '@middlewares/derive'
 import { redirect } from 'next/navigation'
 
-const DashboardPage = () => {
-  const [user, setUser] = React.useState(null);
-
-  React.useEffect(() => {
-    elysia.auth.getuser.get()
-      .then(res => setUser(res.data))
-      .catch(err => {
-        console.error(err);
-        setUser(null);
-      });
-  }, []);
-  if(user && user.success === false) {
+const DashboardPage = async () => {
+  const user = await getUser()
+  /// Check if user is not authenticated then redirect to homepage
+  if(!user.success) {
     redirect('/')
   }
-  const userData = user?.dbUser
+  const userData = user.data
   return (
     <div>
         <h1>Dashboard</h1>
-        {userData && (
-            <div>
-            <h2>{userData.name}</h2>
-            <p>{userData.email}</p>
-            </div>
-        )}
+        <p>Welcome {userData?.name}</p>
+        <p>Email: {userData?.email}</p>
     </div>
   )
 }
