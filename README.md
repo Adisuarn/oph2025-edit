@@ -9,7 +9,7 @@ editting information for oph2025
     bun install
     yarn install
     npm install
-  2.Patch some modules
+  2.Patch oauth module
     yarn patch-package
     npx patch-package
   3.Start server
