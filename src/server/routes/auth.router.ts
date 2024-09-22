@@ -8,10 +8,10 @@ import {
 from '@controllers/auth.controller'
 
 import {
-  AND, OR, INVERSE,
-  IS_AUTHENTICATED
+  pipe, 
+  IS_AUTHENTICATED,
 }
-from '@middlewares/guard'
+from '@middlewares/guards'
 
 export const authRouter = new Elysia({ prefix: '/auth' })
   .get('/login', () => createAuthUrl())
@@ -19,7 +19,17 @@ export const authRouter = new Elysia({ prefix: '/auth' })
     await getGoogleUser(request)
     return redirect('http://localhost:3000/dashboard')
   })
-  .get('/logout', async ({redirect}) => {
+  .get('/logout', async () => {
     await Logout()
-    return redirect('http://localhost:3000/')
-  })
+    return {
+      status: 200,
+      success: true,
+      message: 'Logged out'
+    }
+  },
+  {
+    beforeHandle(){
+      return pipe("AND", [IS_AUTHENTICATED])
+    }
+  }
+)

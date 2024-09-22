@@ -1,6 +1,7 @@
 import React from 'react'
 import { getUser } from '@middlewares/derive'
 import { redirect } from 'next/navigation'
+import LogoutButton from '@/components/LogoutButton'
 
 const DashboardPage = async () => {
   const user = await getUser()
@@ -14,6 +15,7 @@ const DashboardPage = async () => {
         <h1>Dashboard</h1>
         <p>Welcome {userData?.name}</p>
         <p>Email: {userData?.email}</p>
+        <LogoutButton />
     </div>
   )
 }
