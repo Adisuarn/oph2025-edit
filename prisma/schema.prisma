@@ -13,7 +13,15 @@ model User {
   email     String    @unique
   name      String
   picture   String?
+  TUCMC     Boolean?  @default(false)
   sessions  Session[]
+}
+
+model Group {
+  id        String    @id @map("_id") @default(cuid())
+  studentId String    @unique
+  email     String    @unique
+  isAdmin   Boolean   @default(false)
 }
 
 model Session {

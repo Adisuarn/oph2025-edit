@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { lucia } from "@libs/auth";
+import { prisma } from '@utils/db'
 
 export const pipe = (condition: "OR" | "AND" = "AND", guards: ((...args: unknown[]) => Promise<unknown>)[]) => {
     const checkInstance = async(...args: unknown[]): Promise<void> => 
@@ -34,6 +35,23 @@ export const INVERSE = (fn: (...args: unknown[]) => boolean) => {
 export const IS_AUTHENTICATED = async(): Promise<boolean> => {
   const session = cookies().get(lucia.sessionCookieName)?.value
   return session ?  true : false
+}
+
+export const IS_TUCMC = async(): Promise<boolean> => {
+  const session = cookies().get(lucia.sessionCookieName)?.value
+  if(!session) return false
+  const { user } = await lucia.validateSession(session)
+  const dbUser = await prisma.user.findUnique({
+    where: {
+      id: user?.id
+    },
+    select: {
+      studentId: true,
+      TUCMC: true
+    }
+  })
+  if(!dbUser) return false
+  return dbUser?.TUCMC ? true : false
 }
 
 export const test = async(): Promise<boolean> => {

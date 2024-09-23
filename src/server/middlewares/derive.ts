@@ -31,6 +31,7 @@ export const getUser = async() => {
       email: true,
       picture: true,
       studentId: true,
+      TUCMC: true
     }
   })
   return { success: true, data: dbUser }
