@@ -1,9 +1,9 @@
 import React from 'react'
 import GoogleOAuthButton from '@/components/GoogleOAuthButton'
-import { checkUserAndRedirect } from '@/libs/utils'
+//import { checkUserAndRedirect } from '@/libs/utils'
 
 const page = async () => {
-  await checkUserAndRedirect('/account')
+  //await checkUserAndRedirect('/account')
   return (
     <div>
       <p>Login Page</p>
@@ -13,3 +13,4 @@ const page = async () => {
 }
 
 export default page
+

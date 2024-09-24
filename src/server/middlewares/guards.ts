@@ -6,7 +6,6 @@ export const pipe = (condition: "OR" | "AND" = "AND", guards: ((...args: unknown
     const checkInstance = async(...args: unknown[]): Promise<void> => 
     {
       const result = await Promise.all(guards.map((guard) => guard(...args)))
-      console.log(result)
       let allowed = true;
       switch (condition) {
         case "AND": {
