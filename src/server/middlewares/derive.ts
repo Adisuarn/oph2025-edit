@@ -10,6 +10,7 @@ export const getUser = cache(async () => {
       id: user?.id
     },
     select: {
+      id: true,
       name: true,
       email: true,
       picture: true,

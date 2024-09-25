@@ -15,24 +15,28 @@ model User {
   picture   String?
   TUCMC     Boolean?  @default(false)
   sessions  Session[]
-}
-
-model Group {
-  id           String          @id @default(cuid()) @map("_id")
-  studentId    String          @unique
-  email        String          @unique
-  isAdmin      Boolean         @default(false)
-  group        String
-  groupName    String
-  organization Organizations[]
+  organizations Organizations[]
+  gifted Gifted[]
 }
 
 model Organizations {
-  id      String  @id @default(cuid()) @map("_id")
-  name    String  @unique
-  Group   Group?  @relation(fields: [groupId], references: [id])
-  groupId String?
+  id        String      @id @default(cuid()) @map("_id")
+  userId    String
+  studentId String      @unique
+  isAdmin   Boolean     @default(false)
+  name      String      @unique
+  user      User        @relation(references: [id], fields: [userId], onDelete: Cascade)
 }
+
+model Gifted {
+  id        String      @id @default(cuid()) @map("_id")
+  userId    String
+  studentId String      @unique
+  isAdmin   Boolean     @default(false)
+  name      String      @unique
+  user      User        @relation(references: [id], fields: [userId], onDelete: Cascade)
+}
+
 
 model Session {
   id        String   @id @default(cuid()) @map("_id")
