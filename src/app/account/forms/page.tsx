@@ -8,7 +8,6 @@ const FormPage = () => {
     <>
       <h1>Hello, World!</h1>
       <h2>Branch</h2>
-      <h2>Change user name</h2>
     </>
   )
 }
