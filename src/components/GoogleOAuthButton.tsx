@@ -14,11 +14,11 @@ const GoogleOAuthButton = () => {
                 console.error(error)
             }
         }
-    }>
+    } 
+    className='underline mt-5 bg-pink-300 py-4 px-6 rounded-full text-xl'>
         Sign in with Google
     </button>
   )
 }
-
 
 export default GoogleOAuthButton

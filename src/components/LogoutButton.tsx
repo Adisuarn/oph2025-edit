@@ -11,7 +11,8 @@ const LogoutButton = () => {
           window.location.href = '/'
         }
       }
-    }>
+    }
+    className='bg-red-500 text-white '>
       Logout
     </button>
   )
