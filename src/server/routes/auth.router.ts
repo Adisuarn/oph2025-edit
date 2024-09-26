@@ -31,5 +31,9 @@ export const authRouter = new Elysia({ prefix: '/auth' })
     beforeHandle(){
       return pipe("AND", [IS_AUTHENTICATED])
     }
-  }
-)
+  })
+  .get('/test', () => 'test router', {
+    beforeHandle(){
+      return pipe("AND", [IS_AUTHENTICATED])
+    }
+  })

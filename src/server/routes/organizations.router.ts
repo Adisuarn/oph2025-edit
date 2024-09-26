@@ -3,6 +3,7 @@ import { Elysia, t } from 'elysia'
 import {
   createOrganization,
   getOrganizationByName,
+  updateOrganizationData,
   //update/add OrganizationData,
 }
 from '@/server/controllers/organizations.controller'
@@ -22,11 +23,22 @@ export const groupRouter = new Elysia({ prefix: '/organizations' })
       name: t.String(),
     }),
   })
-  .get('/get/:name', async ({ params }) => {
+  .get('/:name', async ({ params }) => {
     return await getOrganizationByName(params.name)
+  }, 
+  {
+    params: t.Object({
+      name: t.String(),
+    }),
+  })
+  .patch('/:name', async ({ params, body }) => {
+    return await updateOrganizationData(params.name, body)
   },
   {
     params: t.Object({
       name: t.String(),
+    }),
+    body: t.Object({
+      description: t.String(),
     }),
   })

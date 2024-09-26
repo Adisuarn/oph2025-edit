@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["omitApi"]
 }
 
 datasource db {
@@ -23,6 +24,9 @@ model Organizations {
   isAdmin Boolean   @default(false)
   studentId String  @unique
   name    String    @unique
+  description String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   organization   User?   @relation(fields: [organizationId], references: [id])
   organizationId String?
 }

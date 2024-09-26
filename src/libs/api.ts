@@ -7,3 +7,10 @@ export const elysia = treaty<TElysiaApp>(url,{
         next: {revalidate:0}
     }
 }).api
+
+// For axios
+// export const elysia = treaty<TElysiaApp>(url,{
+//     fetcher(url, options) {
+//         return fetch(url, options)
+//     }
+// }).api
