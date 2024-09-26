@@ -3,7 +3,7 @@ import swagger from '@elysiajs/swagger'
 
 //Import Routers
 import { authRouter } from '@routes/auth.router'
-import { groupRouter } from '@routes/group.router'
+import { groupRouter } from '@/server/routes/organizations.router'
 
 export const elysiaApp = new Elysia({ prefix: '/api' })
     .use(swagger)

@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["omitApi"]
 }
 
 datasource db {
@@ -15,23 +16,19 @@ model User {
   picture   String?
   TUCMC     Boolean?  @default(false)
   sessions  Session[]
-}
-
-model Group {
-  id           String          @id @default(cuid()) @map("_id")
-  studentId    String          @unique
-  email        String          @unique
-  isAdmin      Boolean         @default(false)
-  group        String
-  groupName    String
-  organization Organizations[]
+  organizations     Organizations[]
 }
 
 model Organizations {
-  id      String  @id @default(cuid()) @map("_id")
-  name    String  @unique
-  Group   Group?  @relation(fields: [groupId], references: [id])
-  groupId String?
+  id      String    @id @default(cuid()) @map("_id")
+  isAdmin Boolean   @default(false)
+  studentId String  @unique
+  name    String    @unique
+  description String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  organization   User?   @relation(fields: [organizationId], references: [id])
+  organizationId String?
 }
 
 model Session {
