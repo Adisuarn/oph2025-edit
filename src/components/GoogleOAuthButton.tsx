@@ -15,7 +15,7 @@ const GoogleOAuthButton = () => {
             }
         }
     } 
-    className='underline mt-5  py-4 px-6 rounded-full text-xl shadow-lg transition-all duration-500 bg-gradient-to-tl to-pink-400 via-pink-300 from-pink-500 bg-size-200 bg-pos-0 hover:bg-pos-100'>
+    className='underline mt-5 py-4 px-6 rounded-full text-xl shadow-lg transition-all duration-500 bg-gradient-to-tl to-pink-400 via-pink-300 from-pink-500 bg-size-200 bg-pos-0 hover:bg-pos-100'>
         Sign in with Google
     </button>
   )

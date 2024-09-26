@@ -2,6 +2,9 @@ import React from 'react'
 import LogoutButton from '@/components/LogoutButton'
 import { getUser } from '@/server/middlewares/derive'
 import { redirect } from 'next/navigation'
+import { MdOutlineAccountCircle } from "react-icons/md";
+import { FaWpforms } from "react-icons/fa6";
+
 
 const AccountPage = async () => {
   const user = await getUser()
@@ -10,14 +13,22 @@ const AccountPage = async () => {
   }
   const data = user.data
   return (
-    <section className='bg-gradient-to-tr from-cyan-500 to-blue-500 text-black flex just w-full text-center h-screen items-center'>
+    <section className='bg-gradient-to-tl from-blue-500 to-blue-400 text-white flex just w-full h-screen items-center'>
       <div className='w-full flex justify-center'>
-        <div className='bg-indigo-300 w-fit px-10 py-12 rounded-[20px] leading-7 font-roboto text-lg'>
-        <h1 className='underline cursor-pointer'>Account Page</h1>
-        <p>Welcome {data?.name}</p>
-        <p>Email: {data?.email}</p>
-        <p className='underline cursor-pointer'><a href="/account/forms">Go To Form Page</a></p>
-        <LogoutButton />
+        <div className='border rounded-md p-10 font-roboto'>
+          <p className='font-semibold text-3xl'>Welcome {data?.name}</p>
+          <p className='font-semibold text-3xl'>Email: {data?.email}</p>
+        <div className='flex justify-around mt-5'>
+          <div>
+            <MdOutlineAccountCircle size={20} className='inline'/>
+            <p className='underline cursor-pointer inline'>Account Page</p>
+          </div>
+          <div>
+            <FaWpforms size={20} className='inline'/>
+            <p className='underline cursor-pointer inline'><a href="/account/forms">Go To Form Page</a></p>
+          </div>
+        </div>
+          <LogoutButton />
         </div>
       </div>
     </section>  
