@@ -1,139 +1,174 @@
 import { prisma } from '@utils/db'
 import { getUser, getOrganization } from '../middlewares/derive'
+import { CustomError } from '@utils/error'
+import { uploadImage } from '@utils/uploadimg'
+import { AllData } from '@libs/data'
 
-type organizationCreate = {
+type Organization = {
+  name: "TUCMC" | "TUSC" | "AIC" | "TUPRO"
+}
+
+interface OrganizationData {
   name: string,
+  thainame: string,
+  status?: string,
+  members: string,
+  ig: string,
+  fb: string,
+  others: string,
+  organizationdo: string,
+  position: string,
+  working: string,
+  captureimg1: File,
+  captureimg2: File,
+  captureimg3: File,
 }
 
-type organizationData = {
-  description: string,
+interface reviewData {
+  orgname: string,
+  profileReview: File,
+  nameReview: string,
+  nickReview: string,
+  genReview: string,
+  contactReview: string,
+  contentReview: string,
 }
 
-export const createOrganization = async (body: organizationCreate) => {
-  const user = await getUser()
-  if (!user.success) return 'User not found' // redirect to login page
-  const userData = user?.data
-  // Check if the user already has an organization && the organization are already created
-  // Created at
-  const organization = await getOrganization()
-  if (organization.success) {
-    return 'User already created an organization'
-  }
+export const createOrganization = async (body: Organization) => {
+  const userData = (await getUser()).data
+  const existingOrganization = await getOrganization(body.name)
+  if (existingOrganization.success) throw new CustomError('Organization already exists', 400)
+  const userOrganization = await prisma.organizations.findUnique({
+    where: { studentId: userData?.studentId }
+  })
+
+  if (userOrganization) throw new CustomError('User already created an organization', 400)
   try {
-    const existingOrganization = await prisma.organizations.findUnique({
-      where: { name: body.name },
-    })
-    if (existingOrganization) {
-      return {
-        success: false,
-        message: 'Organization already exists'
-      }
-    }
     const organization = await prisma.organizations.create({
-      omit: {
-        organizationId: true,
-      },
+      omit: { organizationId: true },
       data: {
         studentId: userData?.studentId ?? '',
         name: body.name,
-        description: '',
+        thainame: AllData.องค์กรนักเรียน[body.name],
+        ig: '',
+        fb: '',
+        others: '',
+        organizationdo: '',
+        position: '',
+        working: '',
+        captureimg1: '',
+        captureimg2: '',
+        captureimg3: '',
       }
     })
-    return {
-      success: true,
-      message: 'creating organization successfully',
-      data: organization
-    }
+    return { success: true, message: 'Creating organization successfully', data: organization }
   } catch (err) {
-    return {
-      success: false,
-      message: 'Failed to create organization', err
-    }
+    return { success: false, message: 'Failed to create organization', err }
   }
 }
 
 export const getOrganizationByName = async (name: string) => {
-  const user = await getUser()
-  if (!user.success) return 'User not found'
-  const userData = user?.data
-  const organization = await getOrganization()
-  if (!organization.success) return 'Organization not found'
-  const organizationData = organization?.data
+  const userData = (await getUser()).data
+  const organization = await getOrganization(name)
+  if (!organization.success) throw new CustomError('Organization not found', 404)
+  const organizationData = organization.data
+
   if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData?.studentId)) {
     try {
-      const organizationData = await prisma.organizations.findUnique({
-        omit: {
-          organizationId: true,
-        },
-        where: { name: name },
-      })
-      if (!organizationData) {
-        return {
-          success: false,
-          message: 'Organization not found'
-        }
-      }
-      return {
-        success: true,
-        message: 'Getting organization successfully',
-        data: organizationData
-      }
+      return { success: true, message: 'Getting organization successfully', data: organizationData }
     } catch (err) {
-      return {
-        success: false,
-        message: 'Failed to get organization', err
-      }
+      return { success: false, message: 'Failed to get organization', err }
     }
   } else {
-    return 'Unauthorized'
+    throw new CustomError('Unauthorized', 401)
   }
 }
 
-export const updateOrganizationData = async (name: string, body: organizationData) => {
-  // Check if isAdmin is true && user is the owner of the organization
-  // Check if the organization exists
-  // Update the organization data
-  // Return the updated organization data
-  // NEW updated at
-  const user = await getUser()
-  if (!user.success) return 'User not found'
-  const userData = user?.data
-  const organization = await getOrganization()
-  if (!organization.success) return 'Organization not found'
-  const organizationData = organization?.data
+export const updateOrganizationData = async (name: keyof typeof AllData.องค์กรนักเรียน, body: OrganizationData) => {
+  const userData = (await getUser()).data
+  const organization = await getOrganization(name)
+  if (!organization.success) throw new CustomError('Organization not found', 404)
+  const organizationData = organization.data
 
-  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData?.studentId)) {
+  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
     try {
-      const organizationData = await prisma.organizations.findUnique({
-        omit: { organizationId: true },
-        where: { name: name },
-      })
-      if (!organizationData) {
-        return {
-          success: false,
-          message: 'Organization not found'
-        }
-      }
-
-      const updatedOrganizationData = await prisma.organizations.update({
-        omit: { organizationId: true },
+      const updatedOrganization = await prisma.organizations.update({
+        omit: { organizationId: true, createdAt: true },
         where: { name: name },
         data: {
-          description: body.description,
+          name: body.name,
+          thainame: body.thainame,
+          members: body.members,
+          ig: body.ig,
+          fb: body.fb,
+          others: body.others,
+          organizationdo: body.organizationdo,
+          position: body.position,
+          working: body.working,
+          captureimg1: await uploadImage(body.captureimg1),
+          captureimg2: await uploadImage(body.captureimg2),
+          captureimg3: await uploadImage(body.captureimg3),
         }
       })
-      return {
-        success: true,
-        message: 'Updating organization data successfully',
-        data: updatedOrganizationData
-      }
+      return { success: true, message: 'Updating organization data successfully', data: updatedOrganization }
     } catch (err) {
-      return {
-        success: false,
-        message: 'Failed to update organization data', err
-      }
+      return { success: false, message: 'Failed to update organization data', err }
     }
   } else {
-    return 'Unauthorized'
+    throw new CustomError('Unauthorized', 401)
+  }
+}
+
+export const createReview = async (name: keyof typeof AllData.องค์กรนักเรียน) => {
+  const userData = (await getUser()).data
+  const organization = await getOrganization(name)
+  if (!organization.success) throw new CustomError('Organization not found', 404)
+  const organizationData = organization.data
+  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
+    try {
+      const review = await prisma.reviews.create({
+        omit: { reviewId: true },
+        data: {
+          studentId: userData?.studentId ?? '',
+          count: ((await prisma.reviews.count({ where: { studentId: userData?.studentId } })) + 1).toString(),
+          orgname: name,
+          profile: '',
+          name: '',
+          nick: '',
+          gen: '',
+          contact: '',
+          content: '',
+        }
+      })
+      return { success: true, message: 'Creating review successfully', data: review }
+    } catch (err) {
+      return { success: false, message: 'Failed to create review', err }
+    }
+  }
+}
+
+export const updateReview = async (name: keyof typeof AllData.องค์กรนักเรียน, count: string, body: reviewData) => {
+  const userData = (await getUser()).data
+  const organization = await getOrganization(name)
+  if (!organization.success) throw new CustomError('Organization not found', 404)
+  const organizationData = organization.data
+  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
+    try {
+      const review = await prisma.reviews.update({
+        omit: { reviewId: true },
+        where: { studentId: userData?.studentId, count: count },
+        data: {
+          profile: await uploadImage(body.profileReview),
+          name: body.nameReview,
+          nick: body.nickReview,
+          gen: body.genReview,
+          contact: body.contactReview,
+          content: body.contentReview,
+        }
+      })
+      return { success: true, message: 'Updating review successfully', data: review }
+    } catch (err) {
+      return { success: false, message: 'Failed to update review', err }
+    }
   }
 }

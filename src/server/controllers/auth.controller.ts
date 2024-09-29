@@ -20,8 +20,8 @@ export const createAuthUrl = () => {
     const authUrl = google.createAuthorizationURL(state, codeVerifier, scope, process.env.HOSTED_DOMAIN);
     return { success: true, url: authUrl.toString()}
     
-  } catch (error) {
-    return { success: false, error: error }
+  } catch (err) {
+    return { success: false, error: err }
   }
 }
 
@@ -63,12 +63,11 @@ export const getGoogleUser = async (req: Request) => {
       name: string,
       picture: string
     }
+
     let userId: string
     
     const existingUser = await prisma.user.findUnique({
-      where: {
-        email: googleData.email
-      }
+      where: { email: googleData.email }
     })
     if(existingUser) {
       userId = existingUser.id

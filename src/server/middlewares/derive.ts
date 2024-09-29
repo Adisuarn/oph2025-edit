@@ -1,10 +1,11 @@
 import { checkSession } from "@utils/session";
 import { prisma } from "@utils/db";
 import { cache } from "react";
-import exp from "constants";
+import { CustomError } from "@utils/error";
 
 export const getUser = cache(async () => {
   const { data } = await checkSession()
+  if(!data) throw new CustomError('User not found', 404)
   const user = data?.user
   const dbUser = await prisma.user.findUnique({
     where: {
@@ -21,16 +22,16 @@ export const getUser = cache(async () => {
   return { success: true, data: dbUser }
 })
 
-export const getOrganization = cache(async () => {
-  const { data } = await checkSession()
-  const user = data?.user
+export const getOrganization = cache(async (name: string) => {
   const organization = await prisma.organizations.findUnique({
+    omit: {
+      organizationId: true
+    },
     where: {
-      studentId: user?.studentId
-    }
-  })
+      name: name
+    }})
   if(!organization) {
-    return { success: false, message: 'User have not created organization yet' }
+    return { success: false, message: 'Organization not found' }
   }
   return { success: true, data: organization }
 })
