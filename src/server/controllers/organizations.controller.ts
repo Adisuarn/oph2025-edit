@@ -40,7 +40,7 @@ export const createOrganization = async (body: Organization) => {
   if (existingOrganization.success) throw new CustomError('Organization already exists', 400)
   const userOrganization = await prisma.organizations.findUnique({
     where: { studentId: userData?.studentId }
-  })
+  })  
 
   if (userOrganization) throw new CustomError('User already created an organization', 400)
   try {
@@ -63,11 +63,11 @@ export const createOrganization = async (body: Organization) => {
     })
     return { success: true, message: 'Creating organization successfully', data: organization }
   } catch (err) {
-    return { success: false, message: 'Failed to create organization', err }
+    throw new CustomError('Failed to create organization', 500)
   }
 }
 
-export const getOrganizationByName = async (name: string) => {
+export const getOrganizationByName = async (name: Organization["name"]) => {
   const userData = (await getUser()).data
   const organization = await getOrganization(name)
   if (!organization.success) throw new CustomError('Organization not found', 404)
@@ -77,7 +77,7 @@ export const getOrganizationByName = async (name: string) => {
     try {
       return { success: true, message: 'Getting organization successfully', data: organizationData }
     } catch (err) {
-      return { success: false, message: 'Failed to get organization', err }
+      throw new CustomError('Failed to get organization', 500)
     }
   } else {
     throw new CustomError('Unauthorized', 401)
@@ -112,7 +112,7 @@ export const updateOrganizationData = async (name: keyof typeof AllData.อง�
       })
       return { success: true, message: 'Updating organization data successfully', data: updatedOrganization }
     } catch (err) {
-      return { success: false, message: 'Failed to update organization data', err }
+      throw new CustomError('Failed to update organization data', 500)
     }
   } else {
     throw new CustomError('Unauthorized', 401)
@@ -142,7 +142,7 @@ export const createReview = async (name: keyof typeof AllData.องค์กร
       })
       return { success: true, message: 'Creating review successfully', data: review }
     } catch (err) {
-      return { success: false, message: 'Failed to create review', err }
+      throw new CustomError('Failed to create review', 500)
     }
   }
 }
@@ -168,7 +168,7 @@ export const updateReview = async (name: keyof typeof AllData.องค์กร
       })
       return { success: true, message: 'Updating review successfully', data: review }
     } catch (err) {
-      return { success: false, message: 'Failed to update review', err }
+      throw new CustomError('Failed to update review', 500)
     }
   }
 }

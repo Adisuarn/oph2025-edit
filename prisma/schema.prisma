@@ -39,7 +39,7 @@ model Organizations {
   reviews        Reviews[]
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
-  organization   User?     @relation(fields: [organizationId], references: [id])
+  organization   User?     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   organizationId String?
 }
 

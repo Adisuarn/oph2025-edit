@@ -1,4 +1,4 @@
-import { adapter } from "../server/utils/db";
+import { adapter } from "@/server/utils/db";
 import { Lucia } from "lucia";
 import { Google } from "arctic";
 

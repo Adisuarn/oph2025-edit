@@ -1,9 +1,7 @@
 import React from 'react'
 import GoogleOAuthButton from '@/components/GoogleOAuthButton'
-//import { checkUserAndRedirect } from '@/libs/utils'
 
 export default async function page (){
-  //await checkUserAndRedirect('/account')
   return (
     <section className='flex justify-center items-center w-full text-center bg-gradient-to-b from-cyan-500 to-blue-500 py-9 text-white font-roboto h-screen'>
       <div className='border rounded-md p-5'>
