@@ -2,16 +2,6 @@ import { Elysia, t } from 'elysia'
 import { CustomError } from '@utils/error'
 
 import {
-  createOrganization,
-  getOrganizationByName,
-  updateOrganizationData,
-  createReview,
-  updateReview,
-  deleteReview
-}
-from '@/server/controllers/organizations.controller'
-
-import {
   UnionField,
   StringField,
   VerifyEnv
@@ -23,6 +13,16 @@ import {
   IS_AUTHENTICATED,
 }
 from '@middlewares/guards'
+
+import {
+  createOrganization,
+  getOrganizationByName,
+  updateOrganizationData,
+  createReview,
+  updateReview,
+  deleteReview
+}
+from '@/server/controllers/organizations.controller'
 
 export const groupRouter = new Elysia({ prefix: '/organizations' })
   .guard({

@@ -1,8 +1,8 @@
 import { prisma } from '@utils/db'
-import { getUser, getOrganization } from '../middlewares/derive'
 import { CustomError } from '@utils/error'
 import { uploadImage } from '@utils/uploadimg'
 import { AllData } from '@libs/data'
+import { getUser, getOrganization } from '@middlewares/derive'
 
 type Organization = {
   name: "TUCMC" | "TUSC" | "AIC" | "TUPRO"
