@@ -1,4 +1,5 @@
 import { Elysia, t } from 'elysia'
+import { CustomError } from '@utils/error'
 
 import {
   createOrganization,
@@ -6,12 +7,14 @@ import {
   updateOrganizationData,
   createReview,
   updateReview,
+  deleteReview
 }
 from '@/server/controllers/organizations.controller'
 
 import {
   UnionField,
-  StringField
+  StringField,
+  VerifyEnv
 }
 from '@/libs/validate'
 
@@ -23,7 +26,9 @@ from '@middlewares/guards'
 
 export const groupRouter = new Elysia({ prefix: '/organizations' })
   .guard({
-    beforeHandle(){
+    beforeHandle({ headers }) {
+      const verified = VerifyEnv({ headers })
+      if(!verified) throw new CustomError('Unauthorized', 401)
       return pipe('AND', [IS_AUTHENTICATED])
     }
   })
@@ -39,16 +44,16 @@ export const groupRouter = new Elysia({ prefix: '/organizations' })
       name: UnionField(true, 'Invalid Organization Name' , ['TUCMC', 'TUSC', 'AIC', 'TUPRO'])
     })
   })
-  .get('/:name', async ({ params }) => {
-    return await getOrganizationByName(params.name)
+  .get('/:name', async ({ params: { name }}) => {
+    return await getOrganizationByName(name)
   }, 
   {
     params: t.Object({
       name: UnionField(true, 'Invalid Organization Name' , ['TUCMC', 'TUSC', 'AIC', 'TUPRO'])
     })
   })
-  .patch('/:name', async ({ params, body }) => {
-    return await updateOrganizationData(params.name, body)
+  .patch('/:name', async ({ params: { name }, body }) => {
+    return await updateOrganizationData(name, body)
   },
   {
     params: t.Object({
@@ -69,8 +74,8 @@ export const groupRouter = new Elysia({ prefix: '/organizations' })
        captureimg3: t.File(),
      }),
   })
-  .post('/:name/review', async({ params, set }) => {
-    const response = await createReview(params.name)
+  .post('/:name/review', async({ params: { name }, set }) => {
+    const response = await createReview(name)
     if(response?.success) {
       set.status = 201
       return response
@@ -80,8 +85,8 @@ export const groupRouter = new Elysia({ prefix: '/organizations' })
       name: UnionField(true, 'Invalid Organization Name' , ['TUCMC', 'TUSC', 'AIC', 'TUPRO'])
     })
   })
-  .patch('/:name/review/:id', async({ params, body }) => {
-    return await updateReview(params.name, params.id, body)
+  .patch('/:name/review/:id', async({ params: { name, id }, body }) => {
+    return await updateReview(name, id, body)
   },{
     params: t.Object({
       name: UnionField(true, 'Invalid Organization Name' , ['TUCMC', 'TUSC', 'AIC', 'TUPRO']),
@@ -95,5 +100,13 @@ export const groupRouter = new Elysia({ prefix: '/organizations' })
       genReview: t.String(),
       contactReview: t.String(),
       contentReview: t.String(),
+    })
+  })
+  .delete('/:name/review/:id', async({ params: { name, id } }) => {
+    return await deleteReview(name, id)
+  },{
+    params: t.Object({
+      name: UnionField(true, 'Invalid Organization Name' , ['TUCMC', 'TUSC', 'AIC', 'TUPRO']),
+      id: StringField(true, 'Invalid Review ID')
     })
   })

@@ -172,3 +172,29 @@ export const updateReview = async (name: keyof typeof AllData.องค์กร
     }
   }
 }
+
+export const deleteReview = async (name: keyof typeof AllData.องค์กรนักเรียน, count: string) => {
+  const userData = (await getUser()).data
+  const organization = await getOrganization(name)
+  if (!organization.success) throw new CustomError('Organization not found', 404)
+  const organizationData = organization.data
+  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
+    try {
+      await prisma.reviews.update({
+        omit: { reviewId: true },
+        where: { studentId: userData?.studentId, count: count },
+        data: {
+          profile: '',
+          name: '',
+          nick: '',
+          gen: '',
+          contact: '',
+          content: '',
+        }
+      })
+      return { success: true, message: 'Deleting review successfully' }
+    } catch (err) {
+      throw new CustomError('Failed to delete review', 500)
+    }
+  }
+}
