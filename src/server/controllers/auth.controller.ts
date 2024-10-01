@@ -2,6 +2,7 @@ import { google, lucia } from "@libs/auth";
 import { prisma } from '@utils/db'
 import { generateCodeVerifier, generateState } from "arctic";
 import { cookies } from "next/headers";
+import { CustomError } from "@utils/error";
 
 export const createAuthUrl = () => {
   try {
@@ -20,8 +21,8 @@ export const createAuthUrl = () => {
     const authUrl = google.createAuthorizationURL(state, codeVerifier, scope, process.env.HOSTED_DOMAIN);
     return { success: true, url: authUrl.toString()}
     
-  } catch (error) {
-    return { success: false, error: error }
+  } catch (err) {
+    return { success: false, error: err }
   }
 }
 
@@ -41,13 +42,11 @@ export const getGoogleUser = async (req: Request) => {
     const savedState = cookies().get('state')?.value
 
     if(!codeVerifier || !savedState) {
-      console.error('Not found codeVerifier or state')
-      return new Response('Invalid request', { status: 400 })
+      throw new CustomError('CodeVerifier or State not found', 400)
     }
 
     if(state !== savedState) {
-      console.error('State mismatch')
-      return new Response('Invalid request', { status: 400 })
+      throw new CustomError('State mismatch', 400)
     }
 
     const tokens = await google.validateAuthorizationCode(code, codeVerifier)
@@ -63,12 +62,11 @@ export const getGoogleUser = async (req: Request) => {
       name: string,
       picture: string
     }
+
     let userId: string
     
     const existingUser = await prisma.user.findUnique({
-      where: {
-        email: googleData.email
-      }
+      where: { email: googleData.email }
     })
     if(existingUser) {
       userId = existingUser.id
@@ -91,8 +89,7 @@ export const getGoogleUser = async (req: Request) => {
     return new Response('Login success', { status: 200 })
 
   } catch (error) {
-    console.error(error)
-    return new Response('Internal Server Error', { status: 500 })
+    throw new CustomError('Internal Server Error', 500)
   }
 }
 

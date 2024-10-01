@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["omitApi"]
 }
 
@@ -9,26 +9,55 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(cuid()) @map("_id")
-  studentId String    @unique
-  email     String    @unique
-  name      String
-  picture   String?
-  TUCMC     Boolean?  @default(false)
-  sessions  Session[]
-  organizations     Organizations[]
+  id            String          @id @default(cuid()) @map("_id")
+  studentId     String          @unique
+  email         String          @unique
+  name          String
+  picture       String?
+  TUCMC         Boolean?        @default(false)
+  sessions      Session[]
+  organizations Organizations[]
 }
 
 model Organizations {
-  id      String    @id @default(cuid()) @map("_id")
-  isAdmin Boolean   @default(false)
-  studentId String  @unique
-  name    String    @unique
-  description String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  organization   User?   @relation(fields: [organizationId], references: [id])
+  id             String    @id @default(cuid()) @map("_id")
+  isAdmin        Boolean   @default(false)
+  studentId      String    @unique
+  name           String    @unique
+  thainame       String    @unique
+  status         String    @default("pending")
+  members        String    @default("0")
+  ig             String?
+  fb             String?
+  others         String?
+  organizationdo String?
+  position       String?
+  working        String?
+  captureimg1    String?
+  captureimg2    String?
+  captureimg3    String?
+  reviews        Reviews[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  organization   User?     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   organizationId String?
+}
+
+model Reviews {
+  id          String         @id @default(cuid()) @map("_id")
+  studentId   String         @unique
+  count       String?
+  orgname     String         @unique
+  profile     String?
+  name        String
+  nick        String
+  gen         String
+  contact     String
+  content     String
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  reviews     Organizations? @relation(fields: [reviewId], references: [id])
+  reviewId    String?
 }
 
 model Session {
