@@ -1,5 +1,6 @@
 import { Elysia, t } from 'elysia'
 import { CustomError } from '@utils/error'
+import { isCreated } from '@middlewares/derive'
 
 import {
   UnionField,
@@ -26,8 +27,9 @@ from '@/server/controllers/organizations.controller'
 
 export const groupRouter = new Elysia({ prefix: '/organizations' })
   .guard({
-    beforeHandle({ headers }) {
-      const verified = VerifyEnv({ headers })
+    async beforeHandle({ request: { headers } }) {
+      await isCreated()
+      const verified = VerifyEnv(headers)
       if(!verified) throw new CustomError('Unauthorized', 401)
       return pipe('AND', [IS_AUTHENTICATED])
     }
@@ -36,7 +38,7 @@ export const groupRouter = new Elysia({ prefix: '/organizations' })
     const response = await createOrganization(body)
     if(response.success) {
       set.status = 201
-      return response
+      return response.data
     }
   },
   {
