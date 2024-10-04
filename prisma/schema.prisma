@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["omitApi"]
 }
 
 datasource db {
@@ -8,30 +9,83 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(cuid()) @map("_id")
-  studentId String    @unique
-  email     String    @unique
-  name      String
-  picture   String?
-  TUCMC     Boolean?  @default(false)
-  sessions  Session[]
-}
-
-model Group {
-  id           String          @id @default(cuid()) @map("_id")
-  studentId    String          @unique
-  email        String          @unique
-  isAdmin      Boolean         @default(false)
-  group        String
-  groupName    String
-  organization Organizations[]
+  id            String          @id @default(cuid()) @map("_id")
+  studentId     String          @unique
+  email         String          @unique
+  name          String
+  picture       String?
+  TUCMC         Boolean?        @default(false)
+  sessions      Session[]
+  organizations Organizations[]
+  clubs         Clubs[]
 }
 
 model Organizations {
-  id      String  @id @default(cuid()) @map("_id")
-  name    String  @unique
-  Group   Group?  @relation(fields: [groupId], references: [id])
-  groupId String?
+  id             String    @id @default(cuid()) @map("_id")
+  isAdmin        Boolean   @default(false)
+  studentId      String    @unique
+  name           String?   @unique
+  thainame       String    @unique
+  status         String    @default("pending")
+  members        String    @default("0")
+  ig             String?
+  fb             String?
+  others         String?
+  organizationdo String?
+  position       String?
+  working        String?
+  captureimg1    String?
+  captureimg2    String?
+  captureimg3    String?
+  reviews        Reviews[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  organization   User?     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  organizationId String?
+}
+
+model Clubs {
+  id             String    @id @default(cuid()) @map("_id")
+  isAdmin        Boolean   @default(false)
+  studentId      String    @unique
+  clubKey        String    @unique
+  name           String?   @unique
+  thainame       String    @unique
+  status         String    @default("pending")
+  members        String    @default("0")
+  ig             String?
+  fb             String?
+  others         String?
+  activities     String?
+  benefits       String?
+  working        String?
+  captureimg1    String?
+  captureimg2    String?
+  captureimg3    String?
+  logo           String?
+  reviews        Reviews[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  club           User?     @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  clubId         String?
+}
+
+model Reviews {
+  id          String         @id @default(cuid()) @map("_id")
+  studentId   String         @unique
+  count       String?
+  orgname     String         @unique
+  profile     String?
+  name        String
+  nick        String
+  gen         String
+  contact     String
+  content     String
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  reviewsOrg  Organizations? @relation(fields: [reviewId], references: [id])
+  reviewsClub Clubs?         @relation(fields: [reviewId], references: [id])
+  reviewId    String?
 }
 
 model Session {

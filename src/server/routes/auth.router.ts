@@ -20,16 +20,15 @@ export const authRouter = new Elysia({ prefix: '/auth' })
     return redirect('http://localhost:3000/account')
   })
   .get('/logout', async () => {
-    await Logout()
-    return {
-      status: 200,
-      success: true,
-      message: 'Logged out'
-    }
+    return await Logout()
   },
   {
     beforeHandle(){
       return pipe("AND", [IS_AUTHENTICATED])
     }
-  }
-)
+  })
+  .get('/test', () => 'test router', {
+    beforeHandle(){
+      return pipe("AND", [IS_AUTHENTICATED])
+    }
+  })

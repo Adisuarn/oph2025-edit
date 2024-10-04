@@ -2,6 +2,7 @@ import { google, lucia } from "@libs/auth";
 import { prisma } from '@utils/db'
 import { generateCodeVerifier, generateState } from "arctic";
 import { cookies } from "next/headers";
+import { CustomError } from "@utils/error";
 
 export const createAuthUrl = () => {
   try {
@@ -21,7 +22,7 @@ export const createAuthUrl = () => {
     return { success: true, url: authUrl.toString()}
     
   } catch (error) {
-    return { success: false, error: error }
+    throw new CustomError('Internal Server Error', 500)
   }
 }
 
@@ -32,23 +33,17 @@ export const getGoogleUser = async (req: Request) => {
     const state = url.searchParams.get('state')
     const hd = url.searchParams.get('hd')
 
-    if(!code || !state || !hd) {
-      console.error('Not found code, state or hd')
-      return new Response('Invalid request', { status: 400 })
-    }
+    if(!code || !state || !hd) 
+      throw new CustomError('Code, state or hd not found', 404)
 
     const codeVerifier = cookies().get('codeVerifier')?.value
     const savedState = cookies().get('state')?.value
 
-    if(!codeVerifier || !savedState) {
-      console.error('Not found codeVerifier or state')
-      return new Response('Invalid request', { status: 400 })
-    }
+    if(!codeVerifier || !savedState)
+      throw new CustomError('Code Verifier or State not found', 404)
 
-    if(state !== savedState) {
-      console.error('State mismatch')
-      return new Response('Invalid request', { status: 400 })
-    }
+    if(state !== savedState) 
+      throw new CustomError('State mismatch', 400)
 
     const tokens = await google.validateAuthorizationCode(code, codeVerifier)
     const accessToken = tokens.accessToken()
@@ -63,12 +58,11 @@ export const getGoogleUser = async (req: Request) => {
       name: string,
       picture: string
     }
+
     let userId: string
     
     const existingUser = await prisma.user.findUnique({
-      where: {
-        email: googleData.email
-      }
+      where: { email: googleData.email }
     })
     if(existingUser) {
       userId = existingUser.id
@@ -88,15 +82,14 @@ export const getGoogleUser = async (req: Request) => {
     const sessionCookie = lucia.createSessionCookie(session.id)
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 
-    return new Response('Login success', { status: 200 })
+    return { success: true, message: 'Login success' }
 
   } catch (error) {
-    console.error(error)
-    return new Response('Internal Server Error', { status: 500 })
+    throw new CustomError('Internal Server Error', 500)
   }
 }
 
-export const Logout = async () => {  
+export const Logout = () => {  
   const sessionCookie = lucia.createBlankSessionCookie()
   cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
   return { success: true, message: 'Logout success' }
