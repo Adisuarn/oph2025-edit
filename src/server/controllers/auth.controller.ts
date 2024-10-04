@@ -21,8 +21,8 @@ export const createAuthUrl = () => {
     const authUrl = google.createAuthorizationURL(state, codeVerifier, scope, process.env.HOSTED_DOMAIN);
     return { success: true, url: authUrl.toString()}
     
-  } catch (err) {
-    return { success: false, error: err }
+  } catch (error) {
+    throw new CustomError('Internal Server Error', 500)
   }
 }
 
@@ -33,21 +33,17 @@ export const getGoogleUser = async (req: Request) => {
     const state = url.searchParams.get('state')
     const hd = url.searchParams.get('hd')
 
-    if(!code || !state || !hd) {
-      console.error('Not found code, state or hd')
-      return new Response('Invalid request', { status: 400 })
-    }
+    if(!code || !state || !hd) 
+      throw new CustomError('Code, state or hd not found', 404)
 
     const codeVerifier = cookies().get('codeVerifier')?.value
     const savedState = cookies().get('state')?.value
 
-    if(!codeVerifier || !savedState) {
-      throw new CustomError('CodeVerifier or State not found', 400)
-    }
+    if(!codeVerifier || !savedState)
+      throw new CustomError('Code Verifier or State not found', 404)
 
-    if(state !== savedState) {
+    if(state !== savedState) 
       throw new CustomError('State mismatch', 400)
-    }
 
     const tokens = await google.validateAuthorizationCode(code, codeVerifier)
     const accessToken = tokens.accessToken()
@@ -86,14 +82,14 @@ export const getGoogleUser = async (req: Request) => {
     const sessionCookie = lucia.createSessionCookie(session.id)
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 
-    return new Response('Login success', { status: 200 })
+    return { success: true, message: 'Login success' }
 
   } catch (error) {
     throw new CustomError('Internal Server Error', 500)
   }
 }
 
-export const Logout = async () => {  
+export const Logout = () => {  
   const sessionCookie = lucia.createBlankSessionCookie()
   cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
   return { success: true, message: 'Logout success' }
