@@ -7,7 +7,7 @@ import {
   StringField,
   VerifyEnv
 }
-from '@/libs/validate'
+from '@libs/validate'
 
 import {
   pipe,
@@ -23,7 +23,7 @@ import {
   updateReview,
   deleteReview
 }
-from '@/server/controllers/organizations.controller'
+from '@controllers/organizations.controller'
 
 export const groupRouter = new Elysia({ prefix: '/organizations' })
   .guard({

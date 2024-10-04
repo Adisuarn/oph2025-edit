@@ -1,6 +1,6 @@
 import { Elysia, t } from 'elysia'
 import { CustomError } from '@utils/error'
-import { AllData } from '@/libs/data'
+import { AllData } from '@libs/data'
 import { isCreated } from '@middlewares/derive'
 
 import {
