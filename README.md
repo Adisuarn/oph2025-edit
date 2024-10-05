@@ -6,14 +6,15 @@ editting information for oph2025
 
 ```bash
   1.Install dependencies
-    bun install
+    bun install (recommend)
     yarn install
     npm install
   2.Patch oauth module
+    bun patch-package (recommend)
     yarn patch-package
     npx patch-package
   3.Start server
-    bun dev
+    bun dev (recommend)
     yarn run dev
     npm run dev
 ```
