@@ -69,9 +69,7 @@ export const createOrganization = async (body: Organization) => {
 
 export const getOrganizationByName = async (name: Organization["name"]) => {
   const userData = (await getUser()).data
-  const organization = await getOrganization(name)
-  if (!organization.success) throw new CustomError('Organization not found', 404)
-  const organizationData = organization.data
+  const organizationData = (await getOrganization(name)).data
 
   if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData?.studentId)) {
     try {
@@ -86,9 +84,7 @@ export const getOrganizationByName = async (name: Organization["name"]) => {
 
 export const updateOrganizationData = async (name: keyof typeof AllData.Organizations, body: OrganizationData) => {
   const userData = (await getUser()).data
-  const organization = await getOrganization(name)
-  if (!organization.success) throw new CustomError('Organization not found', 404)
-  const organizationData = organization.data
+  const organizationData = (await getOrganization(name)).data
 
   if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
     try {
@@ -121,9 +117,8 @@ export const updateOrganizationData = async (name: keyof typeof AllData.Organiza
 
 export const createReview = async (name: keyof typeof AllData.Organizations) => {
   const userData = (await getUser()).data
-  const organization = await getOrganization(name)
-  if (!organization.success) throw new CustomError('Organization not found', 404)
-  const organizationData = organization.data
+  const organizationData = (await getOrganization(name)).data
+
   if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
     try {
       const review = await prisma.reviews.create({
@@ -149,9 +144,8 @@ export const createReview = async (name: keyof typeof AllData.Organizations) => 
 
 export const updateReview = async (name: keyof typeof AllData.Organizations, count: string, body: reviewData) => {
   const userData = (await getUser()).data
-  const organization = await getOrganization(name)
-  if (!organization.success) throw new CustomError('Organization not found', 404)
-  const organizationData = organization.data
+  const organizationData = (await getOrganization(name)).data
+
   if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
     try {
       const review = await prisma.reviews.update({
@@ -175,9 +169,8 @@ export const updateReview = async (name: keyof typeof AllData.Organizations, cou
 
 export const deleteReview = async (name: keyof typeof AllData.Organizations, id: string) => {
   const userData = (await getUser()).data
-  const organization = await getOrganization(name)
-  if (!organization.success) throw new CustomError('Organization not found', 404)
-  const organizationData = organization.data
+  const organizationData = (await getOrganization(name)).data
+
   if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
     try {
       await prisma.reviews.update({

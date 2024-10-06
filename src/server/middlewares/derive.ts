@@ -3,19 +3,6 @@ import { prisma } from "@utils/db";
 import { cache } from "react";
 import { CustomError } from "@utils/error";
 
-export const isCreated = async (): Promise<void> => {
-  const { data } = await checkSession()
-  if(!data) throw new CustomError('User not found', 404)
-  const user = data?.user
-  const organization = await prisma.organizations.findUnique({
-    where: { studentId: user?.studentId }
-  })
-  const club = await prisma.clubs.findUnique({
-    where: { studentId: user?.studentId}
-  })
-  if(organization || club) throw new CustomError('User already created something', 400)
-}
-
 export const getUser = cache(async () => {
   const { data } = await checkSession()
   if(!data) throw new CustomError('User not found', 404)
@@ -39,7 +26,7 @@ export const getOrganization = cache(async (name: string) => {
     where: { name: name }
   })
   if(!organization) {
-    return { success: false, message: 'Organization not found' }
+    throw new CustomError('Organization not found', 404)
   }
   return { success: true, data: organization }
 })
@@ -50,7 +37,7 @@ export const getClub = cache(async (clubKey: string) => {
     where: { clubKey: clubKey }
   })
   if(!club) {
-    return { success: false, message: 'Club not found' }
+    throw new CustomError('Club not found', 404)
   }
   return { success: true, data: club }
 })

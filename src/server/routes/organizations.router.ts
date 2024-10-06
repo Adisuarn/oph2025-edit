@@ -7,7 +7,7 @@ import {
   StringField,
   VerifyEnv
 }
-from '@libs/validate'
+from '@/server/utils/validate'
 
 import {
   pipe,

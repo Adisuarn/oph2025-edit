@@ -1,6 +1,8 @@
 import { cookies } from "next/headers";
 import { lucia } from "@libs/auth";
 import { prisma } from '@utils/db'
+import { CustomError } from "@utils/error";
+import { checkSession } from "@utils/session";
 
 export const pipe = (condition: "OR" | "AND" = "AND", guards: ((...args: unknown[]) => Promise<unknown>)[]) => {
     const checkInstance = async(...args: unknown[]): Promise<void> => 
@@ -53,6 +55,21 @@ export const IS_TUCMC = async(): Promise<boolean> => {
   return dbUser?.TUCMC ? true : false
 }
 
+export const IS_USERCREATED = async (): Promise<boolean> => {
+  const { data } = await checkSession()
+  if(!data) throw new CustomError('User not found', 404)
+  const user = data?.user
+  const organization = await prisma.organizations.findUnique({
+    where: { studentId: user?.studentId }
+  })
+  const club = await prisma.clubs.findUnique({
+    where: { studentId: user?.studentId}
+  })
+  if(organization || club){
+    return true
+  }
+  return false
+}
 export const test = async(): Promise<boolean> => {
   return true
 }

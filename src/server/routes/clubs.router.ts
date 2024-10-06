@@ -8,7 +8,7 @@ import {
   StringField,
   VerifyEnv
 }
-from '@libs/validate'
+from '@/server/utils/validate'
 
 import {
   pipe,
@@ -18,6 +18,8 @@ from '@middlewares/guards'
 
 import {
   createClubs,
+  getClubByKey,
+  updateClub,
 }
 from '@controllers/clubs.controller'
 
@@ -40,5 +42,26 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
   {
     body: t.Object({
       clubKey: UnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
+    })
+  })
+  .patch('/key', async ({ params: { key }, body }) => {
+    return await updateClub(key, body)
+  }, {
+    params: t.Object({
+      key: UnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
+    }),
+    body: t.Object({
+      name: StringField(true, 'Invalid Name'),
+      thainame: StringField(true, 'Invalid Thai Name'),
+      members: StringField(true, 'Invalid Member'),
+      ig: StringField(true, 'Invalid Instagram'),
+      fb: StringField(true, 'Invalid Facebook'),
+      others: StringField(true, 'Invalid Others'),
+      activities: StringField(true, 'Invalid Activities'),
+      benefits: StringField(true, 'Invalid Benefits'),
+      working: StringField(true, 'Invalid Working'),
+      captureimg1: t.File(),
+      captureimg2: t.File(),
+      captureimg3: t.File(),
     })
   })
