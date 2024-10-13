@@ -1,10 +1,11 @@
 import { t } from 'elysia'
 
-export function VerifyEnv({ headers }: { headers: Record<string, string | undefined | null> }): any {
-  if(!headers) return { success: false, error: 'Headers not found' }
-  if(!headers['x-api-key']) return { success: false, error: 'API Key not found' }
-  if(!process.env.NEXT_PUBLIC_API_KEY) return { success: false, error: 'ENV not found' }
-  return headers['x-api-key'] === process.env.NEXT_PUBLIC_API_KEY
+export function VerifyEnv(headers: Headers): any {
+  if(headers.get('x-api-key') === process.env.NEXT_PUBLIC_API_KEY) {
+    return { success: true, message: "API key verified"}
+  } else {
+    return { success: false, message: "API key not verified", status: 401}
+  }
 }
  
 export function UnionField(required: boolean, errorMsg: string, fields: string[]){

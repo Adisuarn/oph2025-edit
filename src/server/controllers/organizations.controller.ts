@@ -41,15 +41,15 @@ export const createOrganization = async (body: Organization) => {
   const userOrganization = await prisma.organizations.findUnique({
     where: { studentId: userData?.studentId }
   })  
-
   if (userOrganization) throw new CustomError('User already created an organization', 400)
+
   try {
     const organization = await prisma.organizations.create({
-      omit: { organizationId: true },
+      omit: { organizationId: true, updatedAt: true },
       data: {
         studentId: userData?.studentId ?? '',
         name: body.name,
-        thainame: AllData.องค์กรนักเรียน[body.name],
+        thainame: AllData.Organizations[body.name],
         ig: '',
         fb: '',
         others: '',
@@ -84,7 +84,7 @@ export const getOrganizationByName = async (name: Organization["name"]) => {
   }
 }
 
-export const updateOrganizationData = async (name: keyof typeof AllData.องค์กรนักเรียน, body: OrganizationData) => {
+export const updateOrganizationData = async (name: keyof typeof AllData.Organizations, body: OrganizationData) => {
   const userData = (await getUser()).data
   const organization = await getOrganization(name)
   if (!organization.success) throw new CustomError('Organization not found', 404)
@@ -119,7 +119,7 @@ export const updateOrganizationData = async (name: keyof typeof AllData.อง�
   }
 }
 
-export const createReview = async (name: keyof typeof AllData.องค์กรนักเรียน) => {
+export const createReview = async (name: keyof typeof AllData.Organizations) => {
   const userData = (await getUser()).data
   const organization = await getOrganization(name)
   if (!organization.success) throw new CustomError('Organization not found', 404)
@@ -127,7 +127,7 @@ export const createReview = async (name: keyof typeof AllData.องค์กร
   if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
     try {
       const review = await prisma.reviews.create({
-        omit: { reviewId: true },
+        omit: { reviewId: true, updatedAt: true },
         data: {
           studentId: userData?.studentId ?? '',
           count: ((await prisma.reviews.count({ where: { studentId: userData?.studentId } })) + 1).toString(),
@@ -147,7 +147,7 @@ export const createReview = async (name: keyof typeof AllData.องค์กร
   }
 }
 
-export const updateReview = async (name: keyof typeof AllData.องค์กรนักเรียน, count: string, body: reviewData) => {
+export const updateReview = async (name: keyof typeof AllData.Organizations, count: string, body: reviewData) => {
   const userData = (await getUser()).data
   const organization = await getOrganization(name)
   if (!organization.success) throw new CustomError('Organization not found', 404)
@@ -155,7 +155,7 @@ export const updateReview = async (name: keyof typeof AllData.องค์กร
   if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
     try {
       const review = await prisma.reviews.update({
-        omit: { reviewId: true },
+        omit: { reviewId: true, createdAt: true },
         where: { studentId: userData?.studentId, count: count },
         data: {
           profile: await uploadImage(body.profileReview),
@@ -173,7 +173,7 @@ export const updateReview = async (name: keyof typeof AllData.องค์กร
   }
 }
 
-export const deleteReview = async (name: keyof typeof AllData.องค์กรนักเรียน, count: string) => {
+export const deleteReview = async (name: keyof typeof AllData.Organizations, id: string) => {
   const userData = (await getUser()).data
   const organization = await getOrganization(name)
   if (!organization.success) throw new CustomError('Organization not found', 404)
@@ -182,7 +182,7 @@ export const deleteReview = async (name: keyof typeof AllData.องค์กร
     try {
       await prisma.reviews.update({
         omit: { reviewId: true },
-        where: { studentId: userData?.studentId, count: count },
+        where: { studentId: userData?.studentId, count: id },
         data: {
           profile: '',
           name: '',
