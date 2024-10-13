@@ -4,6 +4,8 @@ import { getUser } from '@/server/middlewares/derive'
 import { redirect } from 'next/navigation'
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa6";
+import Link from 'next/link'
+import { get } from 'http';
 
 
 const AccountPage = async () => {
@@ -25,7 +27,7 @@ const AccountPage = async () => {
           </div>
           <div>
             <FaWpforms size={20} className='inline'/>
-            <p className='underline cursor-pointer inline'><a href="/account/forms">Go To Form Page</a></p>
+            <Link href={'/account/forms'} className='underline cursor-pointer inline'>Go To Form Page</Link>
           </div>
         </div>
           <LogoutButton />
