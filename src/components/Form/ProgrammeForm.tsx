@@ -26,37 +26,41 @@ const onSubmit = (values: typeof initialValues, { setSubmitting, resetForm }: { 
 
 const ProgrammeForm: React.FC<{}> = () => {
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {({ isSubmitting }) => (
-      <Form className=' flex flex-col justify-center items-center space-y-4 p-5 bg-blue-100 h-screen'>
-        <div>
-          <label htmlFor="textField1">การสมัครและการสอบเข้า:</label>
-          <Field type="text" name="textField1" className=' bg-green-200 rounded-xl' />
-          <ErrorMessage name="textField1" />
-        </div>
+    <section>
+      <button>ย้อนกลับ</button>
 
-        <div>
-          <label htmlFor="textField2">วิชาหรือหลักสูตรที่เรียนเพิ่มเติม:</label>
-          <Field type="text" name="textField2" className=' bg-green-200 rounded-xl' />
-          <ErrorMessage name="textField2" />
-        </div>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {({ isSubmitting }) => (
+        <Form className=' flex flex-col justify-center items-center space-y-4 p-5 bg-blue-100'>
+          <div>
+            <label htmlFor="textField1">การสมัครและการสอบเข้า:</label>
+            <Field type="text" name="textField1" className=' bg-green-200 rounded-xl' />
+            <ErrorMessage name="textField1" />
+          </div>
 
-        <div>
-          <label htmlFor="textField3">ความน่าสนใจ:</label>
-          <Field type="text" name="textField3" className=' bg-green-200 rounded-xl' />
-          <ErrorMessage name="textField3" />
-        </div>
+          <div>
+            <label htmlFor="textField2">วิชาหรือหลักสูตรที่เรียนเพิ่มเติม:</label>
+            <Field type="text" name="textField2" className=' bg-green-200 rounded-xl' />
+            <ErrorMessage name="textField2" />
+          </div>
 
-        <button type="submit" disabled={isSubmitting}>
-        Submit
-        </button>
-      </Form>
-      )}
-    </Formik>
+          <div>
+            <label htmlFor="textField3">ความน่าสนใจ:</label>
+            <Field type="text" name="textField3" className=' bg-green-200 rounded-xl' />
+            <ErrorMessage name="textField3" />
+          </div>
+
+          <button type="submit" disabled={isSubmitting}>
+          Submit
+          </button>
+        </Form>
+        )}
+      </Formik>
+    </section>
   );
 };
 
