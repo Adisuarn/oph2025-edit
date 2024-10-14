@@ -6,7 +6,7 @@ import * as Yup from "yup";
 export default function GiftedForm(){
     return (
         <div>
-            <h1>This is a Gifted Form</h1>
+            <h1>This is a Gifted Form test</h1>
             <Formik
                 initialValues={{ name: '', email: '', age: '', password: '' }}
                 onSubmit={(values) => {
