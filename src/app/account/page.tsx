@@ -22,12 +22,12 @@ const AccountPage = async () => {
           <p className='font-semibold text-3xl'>Email: {data?.email}</p>
         <div className='flex justify-around mt-5'>
           <div>
-            <MdOutlineAccountCircle size={20} className='inline'/>
-            <p className='underline cursor-pointer inline'>Account Page</p>
-          </div>
-          <div>
             <FaWpforms size={20} className='inline'/>
             <Link href={'/account/forms'} className='underline cursor-pointer inline'>Go To Form Page</Link>
+          <div>
+            <MdOutlineAccountCircle size={20} className='inline'/>
+            <Link href={'/editingform'} className='underline cursor-pointer inline'>Edit your Form</Link>
+          </div>
           </div>
         </div>
           <LogoutButton />

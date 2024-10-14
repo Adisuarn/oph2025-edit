@@ -2,8 +2,15 @@
 
 import { Formik, Form, Field, ErrorMessage } from "Formik";
 import * as Yup from "yup";
-import { getUser } from '@/server/middlewares/derive'
-import { redirect } from 'next/navigation'
+import { getUser } from "@/server/middlewares/derive";
+import { redirect } from "next/navigation";
+import { useState, useEffect } from "react";
+import Data from "./pageData";
+import navBar from "@/app/navBar";
+import apiFunction from "@/components/api";
+
+// x cross sign
+import { RxCross2 } from "react-icons/rx";
 
 //   const user = await getUser()
 //   if(!user.success){
@@ -12,48 +19,87 @@ import { redirect } from 'next/navigation'
 
 //   const data = user.data
 
-const FormikControl =  () => {
+type UserData = {
+  email: string;
+  picture: string | null;
+  name: string;
+  studentId: string;
+  TUCMC: boolean | null;
+} | null;
+
+const FormikControl = () => {
+  // useEffect(() => {
+  // }, []);
+  const [userData, setUserData] = useState<UserData>(null);
+
+  const fetchData = async () => {
+    try {
+      const fetchedUserData = await Data();
+      setUserData(fetchedUserData);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const radioOptions = [
-    { key: "สายการเรียน", value: "rOption1" },
-    { key: "ชมรม", value: "rOption2" },
-    { key: "โครงการพัฒนาความสามารถ", value: "rOption3" },
-    { key: "องค์กรนักเรียน", value: "rOption4" },
+    { key: "สายการเรียน", value: "สายการเรียน" },
+    { key: "ชมรม", value: "ชมรม" },
+    { key: "โครงการพัฒนาความสามารถ", value: "โครงการพัฒนาความสามารถ" },
+    { key: "องค์กรนักเรียน", value: "องค์กรนักเรียน" },
   ];
 
   const getSelectOptions = (radioOption: string) => {
     switch (radioOption) {
-      case "rOption1":
+      case "สายการเรียน":
         return [
           { key: "กรุณาเลือก", value: "" },
-          { key: "วิทยาศาสตร์-คณิตศาสตร์", value: "Option1sP" },
-          { key: "ภาษา-คณิตศาสตร์", value: "Option2sP" },
-          { key: "ภาษา-ภาษาฝรั่งเศส", value: "Option3sP" },
-          { key: "ภาษา-ภาษาเยอรมัน", value: "Option4sP" },
-          { key: "ภาษา-ภาษาญี่ปุ่น", value: "Option5sP" },
-          { key: "ภาษา-ภาษาจีน", value: "Option6sP" },
-          { key: "ภาษา-ภาษาสเปน", value: "Option7sP" },
-          { key: "ภาษา-ภาษาเกาหลี", value: "Option8sP" },
+          { key: "วิทยาศาสตร์-คณิตศาสตร์", value: "วิทยาศาสตร์-คณิตศาสตร์" },
+          { key: "ภาษา-คณิตศาสตร์", value: "ภาษา-คณิตศาสตร์" },
+          { key: "ภาษา-ภาษาฝรั่งเศส", value: "ภาษา-ภาษาฝรั่งเศส" },
+          { key: "ภาษา-ภาษาเยอรมัน", value: "ภาษา-ภาษาเยอรมัน" },
+          { key: "ภาษา-ภาษาญี่ปุ่น", value: "ภาษา-ภาษาญี่ปุ่น" },
+          { key: "ภาษา-ภาษาจีน", value: "ภาษา-ภาษาจีน" },
+          { key: "ภาษา-ภาษาสเปน", value: "ภาษา-ภาษาสเปน" },
+          { key: "ภาษา-ภาษาเกาหลี", value: "ภาษา-ภาษาเกาหลี" },
         ];
-      case "rOption2":
+      case "ชมรม":
         return [
           { key: "กรุณาเลือก", value: "" },
-          { key: "ชมรม", value: "Option1sC" },
+          { key: "ชมรม", value: "ชมรม" },
         ];
-      case "rOption3":
+      case "โครงการพัฒนาความสามารถ":
         return [
           { key: "กรุณาเลือก", value: "" },
-          { key: "โครงการพัฒนาความสามารถพิเศษด้านคณิตศาสตร์", value: "Option1sG" },
-          { key: "โครงการพัฒนาความสามารถพิเศษด้านวิทยาศาสตร์", value: "Option2sG" },
-          { key: "โครงการพัฒนาความสามารถพิเศษด้านภาษาอังกฤษ", value: "Option3sG" },
-          { key: "โครงการพัฒนาความสามารถพิเศษด้านภาษาไทย", value: "Option4sG" },
+          {
+            key: "โครงการพัฒนาความสามารถพิเศษด้านคณิตศาสตร์",
+            value: "โครงการพัฒนาความสามารถพิเศษด้านคณิตศาสตร์",
+          },
+          {
+            key: "โครงการพัฒนาความสามารถพิเศษด้านวิทยาศาสตร์",
+            value: "โครงการพัฒนาความสามารถพิเศษด้านวิทยาศาสตร์",
+          },
+          {
+            key: "โครงการพัฒนาความสามารถพิเศษด้านภาษาอังกฤษ",
+            value: "โครงการพัฒนาความสามารถพิเศษด้านภาษาอังกฤษ",
+          },
+          {
+            key: "โครงการพัฒนาความสามารถพิเศษด้านภาษาไทย",
+            value: "โครงการพัฒนาความสามารถพิเศษด้านภาษาไทย",
+          },
         ];
-      case "rOption4":
+      case "องค์กรนักเรียน":
         return [
           { key: "กรุณาเลือก", value: "" },
-          { key: "คณะกรรมการนักเรียน", value: "Option1sO" },
-          { key: "นักเรียนผู้ช่วยงานประชาสัมพันธ์ (ปชส.)", value: "cOption2sO" },
-          { key: "กลุ่มนักเรียน AIC (กอ.)", value: "cOption3sO" },
+          { key: "คณะกรรมการนักเรียน", value: "คณะกรรมการนักเรียน" },
+          {
+            key: "นักเรียนผู้ช่วยงานประชาสัมพันธ์ (ปชส.)",
+            value: "นักเรียนผู้ช่วยงานประชาสัมพันธ์ (ปชส.)",
+          },
+          { key: "กลุ่มนักเรียน AIC (กอ.)", value: "กลุ่มนักเรียน AIC (กอ.)" },
         ];
       default:
         return [{ key: "กรุณาเลือก", value: "" }];
@@ -65,56 +111,87 @@ const FormikControl =  () => {
     clubOptions: Yup.string().required("Please select an option"),
   });
 
-  const onSubmit = (values: { radioOptions: string; clubOptions: string }) => {
-    console.log(values)
+  const onSubmit = async (values: {
+    radioOptions: string;
+    clubOptions: string;
+  }) => {
+    console.log(values);
+    await apiFunction("POST", `/api`, {
+      data1: values.radioOptions,
+      data2: values.clubOptions,
+    });
   };
 
   return (
-    <Formik
-      initialValues={{ radioOptions: "", clubOptions: "" }}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {({ values, setFieldValue }) => (
-        <Form className="flex flex-col bg-blue-100 justify-center items-center py-8 space-y-4">
-          <p>Hello </p>
+    <>
+      <section className="flex h-screen items-center justify-center bg-gradient-to-tr from-grumpyGreen-500 to-emerald-500">
+        <Formik
+          initialValues={{ radioOptions: "", clubOptions: "" }}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {({ values, setFieldValue }) => (
+            <Form>
+              <div className="space-y-4 rounded-3xl bg-grumpyGreen-100 p-1 md:p-4 text-2xl shadow-xl sm:space-y-8 sm:p-16">
+                <p className="text-center text-lg font-bold text-grumpyGreen-700 sm:text-xl md:text-3xl">
+                  Registration Form
+                </p>
+                <p className="text-lg">Signed in as: {userData?.email || ""}</p>
 
-          {radioOptions.map((option) => (
-            <div key={option.value}>
-              <Field
-                type="radio"
-                id={option.value}
-                name="radioOptions"
-                value={option.value}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setFieldValue("radioOptions", e.target.value);
-                  setFieldValue("clubOptions", ""); // Reset select when radio changes
-                }}
-              />
-              <label htmlFor={option.value}>{option.key}</label>
-            </div>
-          ))}
+                {radioOptions.map((option) => (
+                    <div key={option.value} className="flex items-center space-x-2">
+                    <Field
+                      className="mr-2 text-grumpyGreen-600 focus:ring-grumpyGreen-500 border-grumpyGreen-500 rounded"
+                      type="radio"
+                      id={option.value}
+                      name="radioOptions"
+                      value={option.value}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      setFieldValue("radioOptions", e.target.value);
+                      setFieldValue("clubOptions", ""); // Reset select when radio changes
+                      }}
+                    />
+                    <label htmlFor={option.value} className=" text-sm ">
+                      {option.key}
+                    </label>
+                    </div>
+                ))}
 
-          <Field as="select" name="clubOptions" className="form-select">
-            {getSelectOptions(values.radioOptions).map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.key}
-              </option>
-            ))}
-          </Field>
+                <Field
+                  as="select"
+                  name="clubOptions"
+                  className="block bg-cream text-sm py-1 w-24 rounded-xl md:py-2 md:pl-2 md:pr-25 md:w-80"
+                >
+                  {getSelectOptions(values.radioOptions).map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.key}
+                    </option>
+                  ))}
+                </Field>
 
-          <ErrorMessage name="radioOptions" component="div" className="text-red-500" />
-          <ErrorMessage name="clubOptions" component="div" className="text-red-500" />
+                <ErrorMessage
+                  name="radioOptions"
+                  component="div"
+                  className="text-red-800"
+                />
+                <ErrorMessage
+                  name="clubOptions"
+                  component="div"
+                  className="text-red-800"
+                />
 
-          <button
-            className="bg-orange-400 rounded-lg py-2 px-4 transition-all hover:bg-purple-400 hover:text-white hover:-translate-y-2"
-            type="submit"
-          >
-            Submit
-          </button>
-        </Form>
-      )}
-    </Formik>
+                <button
+                  className="rounded-lg text-sm bg-cream px-2 md:px-4 md:py-2 transition-all hover:bg-oldyGoldy hover:text-white active:opacity-50"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </section>
+    </>
   );
 };
 

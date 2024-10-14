@@ -11,6 +11,8 @@ export default {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
         roboto: ["Roboto",],
+        sansThai: ['"Noto Sans Thai"'],
+        Thai:['Noto Sans Thai']
       },
       backgroundSize: {
         'size-200': '200% 200%',
@@ -21,13 +23,15 @@ export default {
       },
       colors: {
         'grumpyGreen': {
+          100: '#85AF97',
           300: '#5E8C7B',
-          500: '#39675D'
+          500: '#39675D',
+          700: '#21443E'
         },
         'oldyGoldy': '#E5A827',
         'cream': '#F7EFC2',
         'redWine': '#A72305'
-      }
+      },
     },
   },
   plugins: [],

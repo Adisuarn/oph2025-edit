@@ -1,63 +1,46 @@
-"use client";
+"use client"
 
-import { Formik, Form, Field, ErrorMessage } from 'Formik';
-import * as Yup from 'yup'
-//import TextError from '../FormControl/TextError';
+import { Formik, Form, Field, ErrorMessage } from "Formik";
+import * as Yup from "yup";
 
+export default function GiftedForm(){
+    return (
+        <div>
+            <h1>This is a Gifted Form</h1>
+            <Formik
+                initialValues={{ name: '', email: '', age: '', password: '' }}
+                onSubmit={(values) => {
+                    console.log(values);
+                }}
+            >
+              {({ isSubmitting }) => (
+                <Form className="flex flex-col justify-center items-center">
+                  <div>
+                    <label htmlFor="name">Name</label>
+                    <Field type="text" id="name" name="name" className=" bg-cream pb-40 pr-28" />
+                    <ErrorMessage name="name" />
+                  </div>
+                  <div>
+                    <label htmlFor="email">Email</label>
+                    <Field type="email" id="email" name="email" />
+                    <ErrorMessage name="email" />
+                  </div>
+                  <div>
+                    <label htmlFor="age">Age</label>
+                    <Field type="number" id="age" name="age" />
+                    <ErrorMessage name="age" />
+                  </div>
+                  <div>
+                    <label htmlFor="password">Password</label>
+                    <Field type="password" id="password" name="password" />
+                    <ErrorMessage name="password" />
+                  </div>
 
-const initialValues = {
-  textField1: '',
-  textField2: '',
-  textField3: '',
+                  <input type="file" name="file" accept=".png"/>
+                  <button type="submit" disabled={isSubmitting}>Submit</button>
+                </Form>
+              )}
+            </Formik>
+        </div>
+    )
 }
-
-const validationSchema = Yup.object({
-  textField1: Yup.string().required('Required Description'),
-  textField2: Yup.string().required('Required Description'),
-  textField3: Yup.string().required('Required Description'),
-})
-
-const onSubmit = (values: typeof initialValues, { setSubmitting, resetForm }: { setSubmitting: (isSubmitting: boolean) => void, resetForm: () => void }) => {
-  console.log('Form data', values);
-  setSubmitting(false);
-  resetForm();
-};
-
-const GiftedForm: React.FC<{}> = () => {
-
-  return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {({ isSubmitting }) => (
-      <Form className=' flex flex-col justify-center items-center space-y-4 p-5 bg-blue-100'>
-        <div>
-          <label htmlFor="textField1">การสมัครและการสอบเข้า:</label>
-          <Field type="text" name="textField1" className=' bg-green-200 rounded-xl' />
-          <ErrorMessage name="textField1" />
-        </div>
-
-        <div>
-          <label htmlFor="textField2">วิชาหรือหลักสูตรที่เรียนเพิ่มเติม:</label>
-          <Field type="text" name="textField2" className=' bg-green-200 rounded-xl' />
-          <ErrorMessage name="textField2" />
-        </div>
-
-        <div>
-          <label htmlFor="textField3">ความน่าสนใจ:</label>
-          <Field type="text" name="textField3" className=' bg-green-200 rounded-xl' />
-          <ErrorMessage name="textField3" />
-        </div>
-
-        <button type="submit" disabled={isSubmitting}>
-        Submit
-        </button>
-      </Form>
-      )}
-    </Formik>
-  );
-};
-
-export default GiftedForm
