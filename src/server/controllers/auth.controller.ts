@@ -33,8 +33,10 @@ export const getGoogleUser = async (req: Request) => {
     const state = url.searchParams.get('state')
     const hd = url.searchParams.get('hd')
 
-    if(!code || !state || !hd) 
-      throw new CustomError('Code, state or hd not found', 404)
+    if(!code || !state || !hd) {
+      console.error('Not found code, state or hd')
+      return new Response('Invalid request', { status: 400 })
+    }
 
     const codeVerifier = cookies().get('codeVerifier')?.value
     const savedState = cookies().get('state')?.value
