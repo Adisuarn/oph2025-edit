@@ -19,6 +19,15 @@ export default {
         'pos-0': '0% 0%',
         'pos-100': '100% 100%',
       },
+      colors: {
+        'grumpyGreen': {
+          300: '#5E8C7B',
+          500: '#39675D'
+        },
+        'oldyGoldy': '#E5A827',
+        'cream': '#F7EFC2',
+        'redWine': '#A72305'
+      }
     },
   },
   plugins: [],

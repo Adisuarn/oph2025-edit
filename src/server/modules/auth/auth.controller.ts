@@ -2,7 +2,7 @@ import { google, lucia } from "@libs/auth";
 import { prisma } from '@utils/db'
 import { generateCodeVerifier, generateState } from "arctic";
 import { cookies } from "next/headers";
-import { CustomError } from "@utils/error";
+import { error } from 'elysia'
 
 export const createAuthUrl = () => {
   try {
@@ -21,8 +21,8 @@ export const createAuthUrl = () => {
     const authUrl = google.createAuthorizationURL(state, codeVerifier, scope, process.env.HOSTED_DOMAIN);
     return { success: true, url: authUrl.toString()}
     
-  } catch (error) {
-    throw new CustomError('Internal Server Error', 500)
+  } catch (err) {
+    throw error(500, 'Internal Server Error')
   }
 }
 
@@ -34,16 +34,16 @@ export const getGoogleUser = async (req: Request) => {
     const hd = url.searchParams.get('hd')
 
     if(!code || !state || !hd) 
-      throw new CustomError('Code, state or hd not found', 404)
+      throw error(400, 'Invalid request')
 
     const codeVerifier = cookies().get('codeVerifier')?.value
     const savedState = cookies().get('state')?.value
 
     if(!codeVerifier || !savedState)
-      throw new CustomError('Code Verifier or State not found', 404)
+      throw error(404, 'Code or State Not Found')
 
     if(state !== savedState) 
-      throw new CustomError('State mismatch', 400)
+      throw error(400, 'State mismatch')
 
     const tokens = await google.validateAuthorizationCode(code, codeVerifier)
     const accessToken = tokens.accessToken()
@@ -67,13 +67,13 @@ export const getGoogleUser = async (req: Request) => {
     if(existingUser) {
       userId = existingUser.id
     } else {
-      const studentId = googleData.email.slice(2, googleData.email.indexOf('@'))
       const user = await prisma.user.create({
         data: {
-          studentId: studentId,
           email: googleData.email,
           name: googleData.name,
           picture: googleData.picture,
+          tag: '',
+          key: ''
         }
       })
       userId = user.id
@@ -84,8 +84,8 @@ export const getGoogleUser = async (req: Request) => {
 
     return { success: true, message: 'Login success' }
 
-  } catch (error) {
-    throw new CustomError('Internal Server Error', 500)
+  } catch (err) {
+    throw error(500, 'Internal Server Error')
   }
 }
 

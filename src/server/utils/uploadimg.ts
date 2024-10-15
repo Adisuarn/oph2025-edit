@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CustomError } from '@utils/error'
+import { error } from 'elysia'
 
 interface ImgurResponse {
   data: {
@@ -9,7 +9,7 @@ interface ImgurResponse {
 
 export const uploadImage = async(file: File): Promise<string | undefined> => {
   try {
-    if (!file) throw new CustomError('No file uploaded', 400)
+    if (!file) throw new Error('No file provided')
     const response = await axios.post<ImgurResponse>('https://api.imgur.com/3/image', await file.arrayBuffer(), {
       headers: {
         Authorization: `Client-ID ${process.env.IMGUR_CLIENT_ID}`,
@@ -17,6 +17,6 @@ export const uploadImage = async(file: File): Promise<string | undefined> => {
       }})
     return response.data.data.link
   } catch (err) {
-    throw new CustomError('Failed to upload image', 500)
+    throw error(500, 'Error while uploading image')
   }
 }
