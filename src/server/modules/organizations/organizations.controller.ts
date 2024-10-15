@@ -1,12 +1,9 @@
 import { prisma } from '@utils/db'
-import { CustomError } from '@utils/error'
 import { uploadImage } from '@utils/uploadimg'
 import { AllData } from '@libs/data'
-import { getUser, getOrganization } from '@middlewares/derive'
-
-type Organization = {
-  name: "TUCMC" | "TUSC" | "AIC" | "TUPRO"
-}
+import { getOrganization } from '@middlewares/derive'
+import type { Organization } from '@utils/type'
+import { error } from 'elysia'
 
 interface OrganizationData {
   name: string,
@@ -20,174 +17,175 @@ interface OrganizationData {
   position: string,
   working: string,
   captureimg1: File,
+  descimg1: string,
   captureimg2: File,
+  descimg2: string,
   captureimg3: File,
+  descimg3: string
 }
 
 interface reviewData {
-  orgname: string,
-  profileReview: File,
-  nameReview: string,
-  nickReview: string,
-  genReview: string,
-  contactReview: string,
-  contentReview: string,
+  profile: File,
+  name: string,
+  nick: string,
+  gen: string,
+  contact: string,
+  content: string,
 }
 
 export const createOrganization = async (body: Organization) => {
-  const userData = (await getUser()).data
-  const existingOrganization = await getOrganization(body.name)
-  if (existingOrganization.success) throw new CustomError('Organization already exists', 400)
-  const userOrganization = await prisma.organizations.findUnique({
-    where: { studentId: userData?.studentId }
-  })  
-  if (userOrganization) throw new CustomError('User already created an organization', 400)
-
+  if ((await prisma.organizations.count({ where: { email: body.email } }) > 0))
+    throw error(400, 'User already created an organization')
   try {
     const organization = await prisma.organizations.create({
       omit: { organizationId: true, updatedAt: true },
       data: {
-        studentId: userData?.studentId ?? '',
-        name: body.name,
-        thainame: AllData.Organizations[body.name],
+        key: body.key,
+        email: body.email,
+        name: body.key,
+        thainame: AllData.Organizations[body.key],
         ig: '',
         fb: '',
         others: '',
-        organizationdo: '',
+        activities: '',
+        benefits: '',
         position: '',
         working: '',
         captureimg1: '',
+        descimg1: '',
         captureimg2: '',
+        descimg2: '',
         captureimg3: '',
+        descimg3: '',
+        logo: '',
+      }
+    })
+    await prisma.user.update({
+      where: { email: body.email },
+      data: {
+        tag: body.tag,
+        key: body.key,
       }
     })
     return { success: true, message: 'Creating organization successfully', data: organization }
   } catch (err) {
-    throw new CustomError('Failed to create organization', 500)
+    throw error(500, 'Error while creating organization')
   }
 }
 
-export const getOrganizationByName = async (name: Organization["name"]) => {
-  const userData = (await getUser()).data
+export const getOrganizationByName = async (name: Organization["key"]) => {
   const organizationData = (await getOrganization(name)).data
-
-  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData?.studentId)) {
-    try {
-      return { success: true, message: 'Getting organization successfully', data: organizationData }
-    } catch (err) {
-      throw new CustomError('Failed to get organization', 500)
-    }
-  } else {
-    throw new CustomError('Unauthorized', 401)
+  try {
+    return { success: true, message: 'Getting organization successfully', data: organizationData }
+  } catch (err) {
+    throw error(500, 'Error while getting organization')
   }
 }
 
 export const updateOrganizationData = async (name: keyof typeof AllData.Organizations, body: OrganizationData) => {
-  const userData = (await getUser()).data
-  const organizationData = (await getOrganization(name)).data
+  try {
+    const updatedOrganization = await prisma.organizations.update({
+      omit: { organizationId: true, createdAt: true },
+      where: { name: name },
+      data: {
+        name: body.name,
+        thainame: body.thainame,
+        members: body.members,
+        ig: body.ig,
+        fb: body.fb,
+        others: body.others,
+        activities: body.organizationdo,
+        position: body.position,
+        working: body.working,
+        captureimg1: await uploadImage(body.captureimg1),
+        descimg1: body.descimg1,
+        captureimg2: await uploadImage(body.captureimg2),
+        descimg2: body.descimg2,
+        captureimg3: await uploadImage(body.captureimg3),
+        descimg3: body.descimg3,
+      }
+    })
+    return { success: true, message: 'Updating organization data successfully', data: updatedOrganization }
+  } catch (err) {
+    throw error(500, 'Error while updating organization data')
+  }
+}
 
-  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
-    try {
-      const updatedOrganization = await prisma.organizations.update({
-        omit: { organizationId: true, createdAt: true },
-        where: { name: name },
-        data: {
-          name: body.name,
-          thainame: body.thainame,
-          members: body.members,
-          ig: body.ig,
-          fb: body.fb,
-          others: body.others,
-          organizationdo: body.organizationdo,
-          position: body.position,
-          working: body.working,
-          captureimg1: await uploadImage(body.captureimg1),
-          captureimg2: await uploadImage(body.captureimg2),
-          captureimg3: await uploadImage(body.captureimg3),
-        }
-      })
-      return { success: true, message: 'Updating organization data successfully', data: updatedOrganization }
-    } catch (err) {
-      throw new CustomError('Failed to update organization data', 500)
-    }
-  } else {
-    throw new CustomError('Unauthorized', 401)
+export const getReviews = async(name: keyof typeof AllData.Organizations) => {
+  const organizationData = (await getOrganization(name)).data
+  try {
+    const reviewData = await prisma.reviews.findMany({
+      omit: { reviewId: true, id: true },
+      where: { key: organizationData.key }
+    })
+    return { success: true, message: 'Getting reviews successfully', data: reviewData}
+  } catch (err) {
+    throw error(500, 'Error while getting reviews')
   }
 }
 
 export const createReview = async (name: keyof typeof AllData.Organizations) => {
-  const userData = (await getUser()).data
   const organizationData = (await getOrganization(name)).data
-
-  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
-    try {
-      const review = await prisma.reviews.create({
-        omit: { reviewId: true, updatedAt: true },
-        data: {
-          studentId: userData?.studentId ?? '',
-          count: ((await prisma.reviews.count({ where: { studentId: userData?.studentId } })) + 1).toString(),
-          orgname: name,
-          profile: '',
-          name: '',
-          nick: '',
-          gen: '',
-          contact: '',
-          content: '',
-        }
-      })
-      return { success: true, message: 'Creating review successfully', data: review }
-    } catch (err) {
-      throw new CustomError('Failed to create review', 500)
-    }
+  if((await prisma.reviews.count({ where: { email: organizationData.email }})) >= 3) throw error(400, 'Review reachs limit')
+  try {
+    const review = await prisma.reviews.create({
+      omit: { reviewId: true, updatedAt: true },
+      data: {
+        key: organizationData.key,
+        email: organizationData.email,
+        count: ((await prisma.reviews.count({ where: { email: organizationData.email } })) + 1).toString(),
+        profile: '',
+        name: '',
+        nick: '',
+        gen: '',
+        contact: '',
+        content: '',
+      }
+    })
+    return { success: true, message: 'Creating review successfully', data: review }
+  } catch (err) {
+    throw error(500, 'Error while creating review')
   }
 }
 
 export const updateReview = async (name: keyof typeof AllData.Organizations, count: string, body: reviewData) => {
-  const userData = (await getUser()).data
   const organizationData = (await getOrganization(name)).data
-
-  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
     try {
       const review = await prisma.reviews.update({
         omit: { reviewId: true, createdAt: true },
-        where: { studentId: userData?.studentId, count: count },
+        where: { email: organizationData.email, count: count },
         data: {
-          profile: await uploadImage(body.profileReview),
-          name: body.nameReview,
-          nick: body.nickReview,
-          gen: body.genReview,
-          contact: body.contactReview,
-          content: body.contentReview,
+          profile: await uploadImage(body.profile),
+          name: body.name,
+          nick: body.nick,
+          gen: body.gen,
+          contact: body.contact,
+          content: body.content,
         }
       })
       return { success: true, message: 'Updating review successfully', data: review }
     } catch (err) {
-      throw new CustomError('Failed to update review', 500)
+      throw error(500, 'Error while updating review')
     }
-  }
 }
 
 export const deleteReview = async (name: keyof typeof AllData.Organizations, id: string) => {
-  const userData = (await getUser()).data
   const organizationData = (await getOrganization(name)).data
-
-  if (userData?.TUCMC || (organizationData?.isAdmin && userData?.studentId === organizationData.studentId)) {
-    try {
-      await prisma.reviews.update({
-        omit: { reviewId: true },
-        where: { studentId: userData?.studentId, count: id },
-        data: {
-          profile: '',
-          name: '',
-          nick: '',
-          gen: '',
-          contact: '',
-          content: '',
-        }
-      })
-      return { success: true, message: 'Deleting review successfully' }
-    } catch (err) {
-      throw new CustomError('Failed to delete review', 500)
-    }
+  try {
+    await prisma.reviews.update({
+      omit: { reviewId: true },
+      where: { email: organizationData.email, count: id },
+      data: {
+        profile: '',
+        name: '',
+        nick: '',
+        gen: '',
+        contact: '',
+        content: '',
+      }
+    })
+    return { success: true, message: 'Deleting review successfully' }
+  } catch (err) {
+    throw error(500, 'Error while deleting review')
   }
 }

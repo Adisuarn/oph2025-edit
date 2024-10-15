@@ -12,10 +12,11 @@ export const lucia = new Lucia(adapter, {
 	},
     getUserAttributes: (attributes) => {
         return {
-            studentId: attributes.studentId,
+            tag: attributes.tag,
+            key: attributes.key,
             email: attributes.email,
             name: attributes.name,
-            profile: attributes.profile,
+            picture: attributes.picture,
             TUCMC: attributes.TUCMC
         }
     }
@@ -32,10 +33,11 @@ declare module "lucia" {
 	interface Register {
 		Lucia: typeof lucia;
         DatabaseUserAttributes: {
-            studentId: string;
+            tag: string;
+            key: string;
             email: string;
             name: string;
-            profile: string;
+            picture: string;
             TUCMC: boolean;
         }
 	}
