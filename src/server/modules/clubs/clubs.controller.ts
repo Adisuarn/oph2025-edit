@@ -62,7 +62,7 @@ export const createClub = async (body: Club) => {
       }
     })
     await prisma.user.update({
-      where: { email: body?.email },
+      where: { email: body.email },
       data: {
         tag: body.tag,
         key: body.key,
