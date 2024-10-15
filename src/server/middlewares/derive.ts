@@ -30,3 +30,12 @@ export const getClub = cache(async (clubKey: string) => {
   if(!club) throw error(404, 'Club not found')
   return { success: true, data: club }
 })
+
+export const getGifted = cache(async (name: string) => {
+  const gifted = await prisma.gifted.findUnique({
+    omit: { giftedId: true },
+    where: { name: name}
+  })
+  if (!gifted) throw error(404, 'Organization not found')
+  return { success: true, data: gifted}
+})
