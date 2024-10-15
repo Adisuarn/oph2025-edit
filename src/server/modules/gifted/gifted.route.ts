@@ -1,0 +1,139 @@
+﻿import { Elysia, t } from "elysia";
+import { AllData } from "@libs/data";
+
+import { UnionField, StringField } from "@utils/validate";
+
+import { getUser, getGifted } from "@middlewares/derive";
+
+import {
+  getGiftedByName,
+  updateGiftedData,
+  getReviews,
+  createReview,
+  updateReview,
+  deleteReview,
+} from "@modules/gifted/gifted.controller";
+
+
+export const giftedRouter = new Elysia({ prefix: "/gifted" })
+  .get(
+    "/:name",
+    async ({ params: { name } }) => {
+      return await getGiftedByName(name);
+    },
+    {
+      params: t.Object({
+        name: UnionField(
+          true,
+          "Invalid Gifted Name",
+          Object.keys(AllData.Gifted),
+        ),
+      }),
+    },
+  )
+  .patch(
+    "/:name",
+    async ({ params: { name }, body }) => {
+      return await updateGiftedData(name, body);
+    },
+    {
+      params: t.Object({
+        name: UnionField(
+          true,
+          "Invalid Gifted Name",
+          Object.keys(AllData.Gifted),
+        ),
+      }),
+      body: t.Object({
+        name: t.String(),
+        thainame: t.String(),
+        members: t.String(),
+        ig: t.String(),
+        fb: t.String(),
+        others: t.String(),
+        admissions: t.String(),
+        courses: t.String(),
+        interests: t.String(),
+        captureimg1: t.File(),
+        descimg1: t.String(),
+        captureimg2: t.File(),
+        descimg2: t.String(),
+        captureimg3: t.File(),
+        descimg3: t.String(),
+      }),
+    },
+  )
+  .get(
+    "/:name/review",
+    async ({ params: { name } }) => {
+      return await getReviews(name);
+    },
+    {
+      params: t.Object({
+        name: UnionField(
+          true,
+          "Invalid Gifted Name",
+          Object.keys(AllData.Gifted),
+        ),
+      }),
+    },
+  )
+  .post(
+    "/:name/review",
+    async ({ params: { name }, set }) => {
+      const response = await createReview(name);
+      if (response?.success) {
+        set.status = 201;
+        return response;
+      }
+    },
+    {
+      params: t.Object({
+        name: UnionField(
+          true,
+          "Invalid Gifted Name",
+          Object.keys(AllData.Gifted),
+        ),
+      }),
+    },
+  )
+  .patch(
+    "/:name/review/:id",
+    async ({ params: { name, id }, body }) => {
+      return await updateReview(name, id, body);
+    },
+    {
+      params: t.Object({
+        name: UnionField(
+          true,
+          "Invalid Organization Name",
+          Object.keys(AllData.Gifted),
+        ),
+        id: StringField(true, "Invalid Review ID"),
+      }),
+      body: t.Object({
+        profile: t.File(),
+        name: t.String(),
+        nick: t.String(),
+        gen: t.String(),
+        contact: t.String(),
+        content: t.String(),
+      }),
+    },
+  )
+  .delete(
+    "/:name/review/:id",
+    async ({ params: { name, id } }) => {
+      return await deleteReview(name, id);
+    },
+    {
+      params: t.Object({
+        name: UnionField(
+          true,
+          "Invalid Gifted Name",
+          Object.keys(AllData.Gifted),
+        ),
+        id: StringField(true, "Invalid Review ID"),
+      }),
+    },
+  );

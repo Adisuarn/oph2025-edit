@@ -39,3 +39,12 @@ export const getProgram = cache(async (name: string) => {
   if(!program) throw error(404, 'Program not found')
   return { success: true, data: program }
 })
+
+export const getGifted = cache(async (name: string) => {
+  const gifted = await prisma.gifted.findUnique({
+    omit: { giftedId: true },
+    where: { key: name}
+  })
+  if (!gifted) throw error(404, 'Organization not found')
+  return { success: true, data: gifted}
+})
