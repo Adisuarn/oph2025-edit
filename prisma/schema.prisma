@@ -19,6 +19,8 @@ model User {
   sessions      Session[]
   organizations Organizations[]
   clubs         Clubs[]
+  programs      Programs[]
+  gifted        Gifted[]
 }
 
 model Organizations {
@@ -52,52 +54,114 @@ model Organizations {
 }
 
 model Clubs {
-  id             String    @id @default(cuid()) @map("_id")
-  isAdmin        Boolean   @default(false)
-  key            String    @unique
-  clubKey        String    @unique
-  email          String    @unique
-  name           String?   @unique
-  thainame       String    @unique
-  status         String    @default("pending")
-  members        String    @default("0")
-  ig             String?
-  fb             String?
-  others         String?
-  activities     String?
-  benefits       String?
-  position       String?
-  working        String?
-  captureimg1    String?
-  descimg1       String?
-  captureimg2    String?
-  descimg2       String?
-  captureimg3    String?
-  descimg3       String?
-  logo           String?
-  reviews        Reviews[]
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-  club           User?     @relation(fields: [clubId], references: [id], onDelete: Cascade)
-  clubId         String?
+  id          String    @id @default(cuid()) @map("_id")
+  isAdmin     Boolean   @default(false)
+  key         String    @unique
+  clubKey     String    @unique
+  email       String    @unique
+  name        String?   @unique
+  thainame    String    @unique
+  status      String    @default("pending")
+  members     String    @default("0")
+  ig          String?
+  fb          String?
+  others      String?
+  activities  String?
+  benefits    String?
+  position    String?
+  working     String?
+  captureimg1 String?
+  descimg1    String?
+  captureimg2 String?
+  descimg2    String?
+  captureimg3 String?
+  descimg3    String?
+  logo        String?
+  reviews     Reviews[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  club        User?     @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  clubId      String?
+}
+
+model Programs {
+  id          String    @id @default(cuid()) @map("_id")
+  isAdmin     Boolean   @default(false)
+  key         String    @unique
+  email       String    @unique
+  name        String?   @unique
+  thainame    String    @unique
+  status      String    @default("pending")
+  members     String    @default("0")
+  ig          String?
+  fb          String?
+  others      String?
+  activities  String?
+  benefits    String?
+  position    String?
+  working     String?
+  captureimg1 String?
+  descimg1    String?
+  captureimg2 String?
+  descimg2    String?
+  captureimg3 String?
+  descimg3    String?
+  logo        String?
+  reviews     Reviews[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  program     User?     @relation(fields: [programId], references: [id], onDelete: Cascade)
+  programId   String?
+}
+
+model Gifted {
+  id          String    @id @default(cuid()) @map("_id")
+  isAdmin     Boolean   @default(false)
+  key         String    @unique
+  email       String    @unique
+  name        String?   @unique
+  thainame    String    @unique
+  status      String    @default("pending")
+  members     String    @default("0")
+  ig          String?
+  fb          String?
+  others      String?
+  activities  String?
+  benefits    String?
+  position    String?
+  working     String?
+  captureimg1 String?
+  descimg1    String?
+  captureimg2 String?
+  descimg2    String?
+  captureimg3 String?
+  descimg3    String?
+  logo        String?
+  reviews     Reviews[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  gifted      User?     @relation(fields: [giftedId], references: [id], onDelete: Cascade)
+  giftedId    String?
 }
 
 model Reviews {
-  id          String         @id @default(cuid()) @map("_id")
-  key         String
-  email       String         @unique
-  count       String?
-  profile     String?
-  name        String
-  nick        String
-  gen         String
-  contact     String
-  content     String
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
-  reviewsOrg  Organizations? @relation(fields: [reviewId], references: [id], onDelete: Cascade)
-  reviewsClub Clubs?         @relation(fields: [reviewId], references: [id], onDelete: Cascade)
-  reviewId    String?
+  id             String         @id @default(cuid()) @map("_id")
+  key            String
+  email          String         @unique
+  count          String?
+  profile        String?
+  name           String
+  nick           String
+  gen            String
+  contact        String
+  content        String
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  reviewsOrg     Organizations? @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  reviewsClub    Clubs?         @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  reviewsProgram Programs?      @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  reviewsGifted  Gifted?        @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  reviewId       String?
 }
 
 model Session {
