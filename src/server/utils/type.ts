@@ -9,11 +9,17 @@ export type Club = {
 export type Organization = {
   email: string,
   tag: 'organization',
-  key: "TUCMC" | "TUSC" | "AIC" | "TUPRO"
+  key: keyof typeof AllData.Organizations
 }
 
 export type Gifted = {
   email: string,
   tag: 'gifted',
   key: "gifted-math" | "gifted-science" | "gifted-english" | "gifted-thai"
+}
+
+export type Program = {
+  email: string,
+  tag: 'program',
+  key: keyof typeof AllData.Programs
 }
