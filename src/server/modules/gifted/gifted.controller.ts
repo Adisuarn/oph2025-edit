@@ -79,9 +79,9 @@ export const createGifted = async (body: Gifted) => {
 export const getGiftedByName = async (name: Gifted["key"]) => {
   const giftedData = (await getGifted(name)).data;
   try {
-    return { success: false };
+    return { success: false, message: 'Getting organization successfully', data: giftedData };
   } catch (err) {
-    throw error(500, "Error while getting gifted");
+    throw error(500, "Error while getting gifted")
   }
 };
 
