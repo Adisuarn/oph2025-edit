@@ -94,7 +94,7 @@ model Programs {
   ig          String?
   fb          String?
   others      String?
-  admission  String?
+  admissions  String?
   courses    String?
   interests    String?
   captureimg1 String?

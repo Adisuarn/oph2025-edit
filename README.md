@@ -6,19 +6,16 @@ editting information for oph2025
 
 ```bash
   1.Install dependencies
-    bun install (recommend)
+    bun install (recommended)
     yarn install
     npm install
   2.Patch oauth module
-    bun patch-package (recommend)
-    yarn patch-package
-    npx patch-package
+    bun postinstall (recommended)
+    yarn postinstall
+    npx postinstall
   3.Start server
-    bun dev (recommend)
+    bun dev (recommended)
     yarn run dev
     npm run dev
-  4.Generate Prisma
-    bunx generate prisma
-```
 
 
