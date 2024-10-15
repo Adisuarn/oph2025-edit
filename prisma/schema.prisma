@@ -10,7 +10,8 @@ datasource db {
 
 model User {
   id            String          @id @default(cuid()) @map("_id")
-  studentId     String          @unique
+  tag           String          @unique
+  key           String          @unique
   email         String          @unique
   name          String
   picture       String?
@@ -23,7 +24,8 @@ model User {
 model Organizations {
   id             String    @id @default(cuid()) @map("_id")
   isAdmin        Boolean   @default(false)
-  studentId      String    @unique
+  key            String    @unique
+  email          String    @unique
   name           String?   @unique
   thainame       String    @unique
   status         String    @default("pending")
@@ -31,12 +33,17 @@ model Organizations {
   ig             String?
   fb             String?
   others         String?
-  organizationdo String?
+  activities     String?
+  benefits       String?
   position       String?
   working        String?
   captureimg1    String?
+  descimg1       String?
   captureimg2    String?
+  descimg2       String?
   captureimg3    String?
+  descimg3       String?
+  logo           String?
   reviews        Reviews[]
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
@@ -47,8 +54,9 @@ model Organizations {
 model Clubs {
   id             String    @id @default(cuid()) @map("_id")
   isAdmin        Boolean   @default(false)
-  studentId      String    @unique
+  key            String    @unique
   clubKey        String    @unique
+  email          String    @unique
   name           String?   @unique
   thainame       String    @unique
   status         String    @default("pending")
@@ -58,10 +66,14 @@ model Clubs {
   others         String?
   activities     String?
   benefits       String?
+  position       String?
   working        String?
   captureimg1    String?
+  descimg1       String?
   captureimg2    String?
+  descimg2       String?
   captureimg3    String?
+  descimg3       String?
   logo           String?
   reviews        Reviews[]
   createdAt      DateTime  @default(now())
@@ -72,9 +84,9 @@ model Clubs {
 
 model Reviews {
   id          String         @id @default(cuid()) @map("_id")
-  studentId   String         @unique
+  key         String
+  email       String         @unique
   count       String?
-  orgname     String         @unique
   profile     String?
   name        String
   nick        String
@@ -83,8 +95,8 @@ model Reviews {
   content     String
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
-  reviewsOrg  Organizations? @relation(fields: [reviewId], references: [id])
-  reviewsClub Clubs?         @relation(fields: [reviewId], references: [id])
+  reviewsOrg  Organizations? @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  reviewsClub Clubs?         @relation(fields: [reviewId], references: [id], onDelete: Cascade)
   reviewId    String?
 }
 

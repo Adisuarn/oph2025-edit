@@ -68,7 +68,6 @@ const FormikControl =  () => {
   const onSubmit = (values: { radioOptions: string; clubOptions: string }) => {
     console.log(values)
   };
-
   return (
     <Formik
       initialValues={{ radioOptions: "", clubOptions: "" }}
