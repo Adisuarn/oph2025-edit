@@ -36,7 +36,6 @@ model Organizations {
   fb             String?
   others         String?
   activities     String?
-  benefits       String?
   position       String?
   working        String?
   captureimg1    String?
@@ -68,7 +67,6 @@ model Clubs {
   others      String?
   activities  String?
   benefits    String?
-  position    String?
   working     String?
   captureimg1 String?
   descimg1    String?
@@ -96,17 +94,15 @@ model Programs {
   ig          String?
   fb          String?
   others      String?
-  activities  String?
-  benefits    String?
-  position    String?
-  working     String?
+  admission  String?
+  courses    String?
+  interests    String?
   captureimg1 String?
   descimg1    String?
   captureimg2 String?
   descimg2    String?
   captureimg3 String?
   descimg3    String?
-  logo        String?
   reviews     Reviews[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
