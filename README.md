@@ -17,6 +17,8 @@ editting information for oph2025
     bun dev (recommend)
     yarn run dev
     npm run dev
+  4.Generate Prisma
+    bunx generate prisma
 ```
 
 
