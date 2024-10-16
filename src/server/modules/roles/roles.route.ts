@@ -3,9 +3,11 @@ import { StringField, UnionField, DecodedUnionField } from '@utils/validate'
 import { createOrganization } from '@modules/organizations/organizations.controller'
 import { createClub } from '@modules/clubs/clubs.controller'
 import { createProgram } from '@modules/programs/programs.controller'
+import { createGifted } from '@modules/gifted/gifted.controller'
 import { AllData } from '@libs/data'
-import type { Organization, Club, Program } from '@utils/type'
+import type { Organization, Club, Program, Gifted } from '@utils/type'
 
+//TODO USE SWUTCH CASE INSTEAD OF IF ELSE
 export const rolesRouter = new Elysia({ prefix: '/roles' })
   .post('/record', async ({ body, set }) => {
     if(!body.email.includes('student.triamudom.ac.th')) return error(400, 'Provided Email Not Triam Udom')
@@ -28,6 +30,14 @@ export const rolesRouter = new Elysia({ prefix: '/roles' })
     if(body.tag === 'program') {
       if(AllData.Programs[body.key] === undefined) return error(400, 'Invalid Program Key')
       const response = await createProgram(body as Program)
+      if(response.success) {
+        set.status = 201
+        return response
+      }
+    }
+    if(body.tag === 'gifted') {
+      if(AllData.Gifted[body.key] === undefined) return error(400, 'Invalid Gifted Key')
+      const response = await createGifted(body as Gifted)
       if(response.success) {
         set.status = 201
         return response
