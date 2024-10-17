@@ -15,7 +15,7 @@ export type Organization = {
 export type Gifted = {
   email: string,
   tag: 'gifted',
-  key: "gifted-math" | "gifted-science" | "gifted-english" | "gifted-thai"
+  key: keyof typeof AllData.Gifted
 }
 
 export type Program = {
