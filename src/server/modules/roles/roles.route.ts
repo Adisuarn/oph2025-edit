@@ -52,6 +52,3 @@ export const rolesRouter = new Elysia({ prefix: '/roles' })
       key: DecodedUnionField(true, 'Invalid Key', [...Object.keys(AllData.Organizations), ...Object.keys(AllData.Clubs), ...Object.keys(AllData.Programs), ...Object.keys(AllData.Gifted)]),
     })
   })
-  .get('/info', async() => {
-    console.log('This is a info path')
-  })
