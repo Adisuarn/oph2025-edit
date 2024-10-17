@@ -1,6 +1,6 @@
 import { Elysia, t, error } from 'elysia'
 import { getAllData, getDataByKey, updateStatus, updateError } from '@modules/tucmc/tucmc.controller'
-import { DecodedUnionField, EncodedUnionField, UnionField } from '@/server/utils/validate'
+import { EncodedUnionField, StringField } from '@/server/utils/validate'
 import { AllData } from '@libs/data'
 import { Tag, Status, ReviewData } from '@utils/type'
 import { updateClubData, updateClubReview,ClubData } from '@modules/clubs/clubs.controller'
@@ -78,11 +78,11 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
       id: t.String()
     }),
     body: t.Object({
-      profile: t.File(),
-      name: t.String(),
-      nick: t.String(),
-      gen: t.String(),
-      contact: t.String(),
-      content: t.String()
+      profile: t.Optional(t.File({ error () { return error(400, 'Invalid Profile') }})),
+      name: StringField(true, 'Invalid Name'),
+      nick: StringField(true, 'Invalid Nick'),
+      gen: StringField(true, 'Invalid Gen'),
+      contact: StringField(true, 'Invalid Contact'),
+      content: StringField(true, 'Invalid Content'),
     })
   })

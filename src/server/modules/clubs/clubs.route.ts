@@ -48,6 +48,7 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
     }),
     body: t.Object({
+      error: StringField(true, 'Invalid Error'),
       name: StringField(true, 'Invalid Name'),
       thainame: StringField(true, 'Invalid Thai Name'),
       members: StringField(true, 'Invalid Member'),
@@ -63,7 +64,7 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
       descimg2: StringField(true, 'Invalid Description Image'),
       captureimg3: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
       descimg3: StringField(true, 'Invalid Description Image'),
-      logo: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
+      logo: t.File({ error() { return error(400, 'Invalid Logo') } }),
     })
   })
   .get('/:key/review', async ({ params: { key } }) => {
@@ -92,12 +93,12 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
       id: StringField(true, 'Invalid Review ID')
     }),
     body: t.Object({
-      profile: t.File(),
-      name: t.String(),
-      nick: t.String(),
-      gen: t.String(),
-      contact: t.String(),
-      content: t.String(),
+      profile: t.File({ error() { return error(400, 'Invalid Profile') } }),
+      name: StringField(true, 'Invalid Name'),
+      nick: StringField(true, 'Invalid Nickname'),
+      gen: StringField(true, 'Invalid Generation'),
+      contact: StringField(true, 'Invalid Contact'),
+      content: StringField(true, 'Invalid Content'),
     })
   })
   .delete('/:key/review/:id', async ({ params: { key, id } }) => {

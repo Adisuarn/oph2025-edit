@@ -52,21 +52,22 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
         name: UnionField(true, 'Invalid Organization Name', Object.keys(AllData.Organizations))
       }),
       body: t.Object({
-        name: t.String(),
-        thainame: t.String(),
-        members: t.String(),
-        ig: t.String(),
-        fb: t.String(),
-        others: t.String(),
-        activities: t.String(),
-        position: t.String(),
-        working: t.String(),
+        error: StringField(true, 'Invalid Error'),
+        name: StringField(true, 'Invalid Name'),
+        thainame: StringField(true, 'Invalid Thai Name'),
+        members: StringField(true, 'Invalid Member'),
+        ig: StringField(true, 'Invalid Instagram'),
+        fb: StringField(true, 'Invalid Facebook'),
+        others: StringField(true, 'Invalid Others'),
+        activities: StringField(true, 'Invalid Activities'),
+        position: StringField(true, 'Invalid Position'),
+        working: StringField(true, 'Invalid Working'),
         captureimg1: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
-        descimg1: t.String(),
+        descimg1: StringField(true, 'Invalid Description Image'),
         captureimg2: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
-        descimg2: t.String(),
+        descimg2: StringField(true, 'Invalid Description Image'),
         captureimg3: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
-        descimg3: t.String()
+        descimg3: StringField(true, 'Invalid Description Image'),
       }),
     })
   .get('/:name/review', async ({ params: { name } }) => {
@@ -95,12 +96,12 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
       id: StringField(true, 'Invalid Review ID')
     }),
     body: t.Object({
-      profile: t.File(),
-      name: t.String(),
-      nick: t.String(),
-      gen: t.String(),
-      contact: t.String(),
-      content: t.String(),
+      profile: t.File({ error() { return error(400, 'Invalid Profile') } }),
+      name: StringField(true, 'Invalid Name'),
+      nick: StringField(true, 'Invalid Nickname'),
+      gen: StringField(true, 'Invalid Generation'),
+      contact: StringField(true, 'Invalid Contact'),
+      content: StringField(true, 'Invalid Content'),
     })
   })
   .delete('/:name/review/:id', async ({ params: { name, id } }) => {

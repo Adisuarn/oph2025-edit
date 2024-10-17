@@ -83,6 +83,8 @@ export const updateGiftedData = async (
   name: keyof typeof AllData.Gifted,
   body: GiftedData,
 ) => {
+  const giftedData = (await getGifted(name)).data
+  if(giftedData.status === 'approved') throw error(400, 'Gifted already approved')
   try {
     const updatedGifted = await prisma.gifted.update({
       omit: { giftedId: true, createdAt: true },
@@ -98,11 +100,11 @@ export const updateGiftedData = async (
         admissions: body.admissions,
         courses: body.courses,
         interests: body.interests,
-        captureimg1: await uploadImage(body.captureimg1),
+        captureimg1: await uploadImage(body.captureimg1) ?? giftedData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: await uploadImage(body.captureimg2),
+        captureimg2: await uploadImage(body.captureimg2) ?? giftedData.captureimg2,
         descimg2: body.descimg2,
-        captureimg3: await uploadImage(body.captureimg3),
+        captureimg3: await uploadImage(body.captureimg3) ?? giftedData.captureimg3,
         descimg3: body.descimg3,
       },
     });
@@ -176,12 +178,13 @@ export const updateGiftedReview = async (
   body: ReviewData,
 ) => {
   const giftedData = (await getGifted(name)).data;
+  const reviewData = await prisma.reviews.findFirst({ where: { email: giftedData.email, count: count } })
   try {
     const review = await prisma.reviews.update({
       omit: { reviewId: true, createdAt: true },
       where: { email: giftedData.email, count: count },
       data: {
-        profile: await uploadImage(body.profile),
+        profile: await uploadImage(body.profile) ?? reviewData?.profile,
         name: body.name,
         nick: body.nick,
         gen: body.gen,
