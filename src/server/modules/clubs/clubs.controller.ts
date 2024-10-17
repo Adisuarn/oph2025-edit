@@ -4,8 +4,10 @@ import { uploadImage } from '@utils/uploadimg'
 import type { Club } from '@utils/type'
 import { AllData } from '@libs/data'
 import { getClub } from '@middlewares/derive'
+import { ReviewData } from '@utils/type'
 
-interface ClubData {
+export interface ClubData {
+  error: string,
   name: string,
   thainame: string,
   status?: string,
@@ -25,15 +27,6 @@ interface ClubData {
   logo: File
 }
 
-interface reviewData {
-  profile: File,
-  name: string,
-  nick: string,
-  gen: string,
-  contact: string,
-  content: string,
-}
-
 export const createClub = async (body: Club) => {
   if ((await prisma.clubs.count({ where: { email: body.email } }) > 0)) 
     throw error(400, 'User already created a club')
@@ -41,6 +34,7 @@ export const createClub = async (body: Club) => {
     const club = await prisma.clubs.create({
       omit: { clubId: true, updatedAt: true },
       data: {
+        error: '',
         key: body.key,
         email: body.email,
         clubKey: body.key,
@@ -100,11 +94,11 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
         activities: body.activities,
         benefits: body.benefits,
         working: body.working,
-        captureimg1: await uploadImage(body.captureimg1),
+        captureimg1: await uploadImage(body.captureimg1) ?? clubData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: await uploadImage(body.captureimg2),
+        captureimg2: await uploadImage(body.captureimg2) ?? clubData.captureimg2,
         descimg2: body.descimg2,
-        captureimg3: await uploadImage(body.captureimg3),
+        captureimg3: await uploadImage(body.captureimg3) ?? clubData.captureimg3,
         descimg3: body.descimg3,
         logo: await uploadImage(body.logo)
       }
@@ -115,7 +109,7 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
   }
 }
 
-export const getReviews = async (key: keyof typeof AllData.Clubs) => {
+export const getClubReviews = async (key: keyof typeof AllData.Clubs) => {
   const clubData = (await getClub(key)).data
   try {
     const reviews = await prisma.reviews.findMany({
@@ -128,9 +122,9 @@ export const getReviews = async (key: keyof typeof AllData.Clubs) => {
   }
 }
 
-export const createReview = async (key: keyof typeof AllData.Clubs) => {
+export const createClubReview = async (key: keyof typeof AllData.Clubs) => {
   const clubData = (await getClub(key)).data
-  if((await prisma.reviews.count({ where: { email: clubData?.email }})) >= 3) throw error(400, 'Review reachs limit')
+  if((await prisma.reviews.count({ where: { email: clubData.email }})) >= 3) throw error(400, 'Review reachs limit')
   try {
     const review = await prisma.reviews.create({
       omit: { reviewId: true, updatedAt: true },
@@ -152,14 +146,15 @@ export const createReview = async (key: keyof typeof AllData.Clubs) => {
   }
 }
 
-export const updateReview = async (key: keyof typeof AllData.Clubs, count: string, body: reviewData) => {
+export const updateClubReview = async (key: keyof typeof AllData.Clubs, count: string, body: ReviewData) => {
   const clubData = (await getClub(key)).data
+  const reviewData = await prisma.reviews.findFirst({ where: { email: clubData.email, count: count } })
     try {
       const review = await prisma.reviews.update({
         omit: { reviewId: true, createdAt: true },
         where: { email: clubData.email, count: count },
         data: {
-          profile: await uploadImage(body.profile),
+          profile: await uploadImage(body.profile) ?? reviewData?.profile,
           name: body.name,
           nick: body.nick,
           gen: body.gen,
@@ -173,7 +168,7 @@ export const updateReview = async (key: keyof typeof AllData.Clubs, count: strin
     }
 }
 
-export const deleteReview = async (key: keyof typeof AllData.Clubs, id: string) => {
+export const deleteClubReview = async (key: keyof typeof AllData.Clubs, id: string) => {
   const clubData = (await getClub(key)).data
   try {
     await prisma.reviews.update({

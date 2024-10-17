@@ -23,3 +23,25 @@ export type Program = {
   tag: 'program',
   key: keyof typeof AllData.Programs
 }
+
+export enum Tag {
+  CLUB = "club",
+  ORGANIZATION = "organization",
+  GIFTED = "gifted",
+  PROGRAM = "program"
+}
+
+export enum Status {
+  APPROVED = "approved",
+  PENDING = "pending",
+  REJECTED = "rejected"
+}
+
+export interface ReviewData {
+  profile: File,
+  name: string,
+  nick: string,
+  gen: string,
+  contact: string,
+  content: string,
+}

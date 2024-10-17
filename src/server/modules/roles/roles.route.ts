@@ -1,11 +1,12 @@
 import { Elysia, t, error } from 'elysia'
-import { StringField, UnionField, DecodedUnionField } from '@utils/validate'
+import { StringField, DecodedUnionField } from '@utils/validate'
 import { createOrganization } from '@modules/organizations/organizations.controller'
 import { createClub } from '@modules/clubs/clubs.controller'
 import { createProgram } from '@modules/programs/programs.controller'
 import { createGifted } from '@modules/gifted/gifted.controller'
 import { AllData } from '@libs/data'
 import type { Organization, Club, Program, Gifted } from '@utils/type'
+import { Tag } from '@utils/type'
 
 //TODO USE SWUTCH CASE INSTEAD OF IF ELSE
 export const rolesRouter = new Elysia({ prefix: '/roles' })
@@ -47,7 +48,7 @@ export const rolesRouter = new Elysia({ prefix: '/roles' })
   {
     body: t.Object({
       email: StringField(true, 'Invalid Email', 'email'),
-      tag: UnionField(true, 'Invalid Tag', ['organization', 'club', 'program', 'gifted']),
+      tag: t.Enum(Tag, {error(){ return error(400, 'Invalid Tag') }}),
       key: DecodedUnionField(true, 'Invalid Key', [...Object.keys(AllData.Organizations), ...Object.keys(AllData.Clubs), ...Object.keys(AllData.Programs), ...Object.keys(AllData.Gifted)]),
     })
   })

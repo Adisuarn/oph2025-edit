@@ -3,6 +3,7 @@ import { lucia } from "@libs/auth";
 import { prisma } from '@utils/db'
 import { checkSession } from "@utils/session";
 import { error } from 'elysia'
+import { getUser } from "./derive";
 
 export const pipe = (condition: "OR" | "AND" = "AND", guards: ((...args: any[]) => Promise<{ status: number, message: string } | true>)[], headers?: Headers) => {
   const checkInstance = async (...args: unknown[]): Promise<void> => {
@@ -50,15 +51,8 @@ export const IS_AUTHENTICATED = async () => {
 }
 
 export const IS_TUCMC = async () => {
-  const session = cookies().get(lucia.sessionCookieName)?.value
-  if (!session) return false
-  const { user } = await lucia.validateSession(session)
-  const dbUser = await prisma.user.findUnique({
-    where: { id: user?.id },
-    select: { TUCMC: true}
-  })
-  if (!dbUser) return { status: 404, message: 'User not found' }
-  if (dbUser.TUCMC) return true
+  const userData = (await getUser()).data
+  if (userData?.TUCMC) return true
   else return { status: 401, message: 'Not TUCMC' }
 }
 
