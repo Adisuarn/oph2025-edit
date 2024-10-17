@@ -12,10 +12,10 @@ import { getUser, getOrganization } from '@middlewares/derive'
 import {
   getOrganizationByName,
   updateOrganizationData,
-  getReviews,
-  createReview,
-  updateReview,
-  deleteReview
+  getOrganizationReviews,
+  createOrganizationReview,
+  updateOrganizationReview,
+  deleteOrganizationReview
 }
   from '@modules/organizations/organizations.controller'
 
@@ -61,23 +61,23 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
         activities: t.String(),
         position: t.String(),
         working: t.String(),
-        captureimg1: t.File(),
+        captureimg1: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
         descimg1: t.String(),
-        captureimg2: t.File(),
+        captureimg2: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
         descimg2: t.String(),
-        captureimg3: t.File(),
+        captureimg3: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
         descimg3: t.String()
       }),
     })
   .get('/:name/review', async ({ params: { name } }) => {
-    return await getReviews(name)
+    return await getOrganizationReviews(name)
   }, {
     params: t.Object({
       name: UnionField(true, 'Invalid Organization Name', Object.keys(AllData.Organizations))
     })
   })
   .post('/:name/review', async ({ params: { name }, set }) => {
-    const response = await createReview(name)
+    const response = await createOrganizationReview(name)
     if (response?.success) {
       set.status = 201
       return response
@@ -88,7 +88,7 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     })
   })
   .patch('/:name/review/:id', async ({ params: { name, id }, body }) => {
-    return await updateReview(name, id, body)
+    return await updateOrganizationReview(name, id, body)
   }, {
     params: t.Object({
       name: UnionField(true, 'Invalid Organization Name', Object.keys(AllData.Organizations)),
@@ -104,7 +104,7 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     })
   })
   .delete('/:name/review/:id', async ({ params: { name, id } }) => {
-    return await deleteReview(name, id)
+    return await deleteOrganizationReview(name, id)
   },
     {
       params: t.Object({

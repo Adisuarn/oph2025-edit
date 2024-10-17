@@ -8,10 +8,10 @@ import { getUser, getGifted } from "@middlewares/derive";
 import {
   getGiftedByName,
   updateGiftedData,
-  getReviews,
-  createReview,
-  updateReview,
-  deleteReview,
+  getGiftedReviews,
+  createGiftedReview,
+  updateGiftedReview,
+  deleteGiftedReview,
 } from "@modules/gifted/gifted.controller";
 
 
@@ -82,7 +82,7 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .get(
     "/:name/review",
     async ({ params: { name } }) => {
-      return await getReviews(name);
+      return await getGiftedReviews(name);
     },
     {
       params: t.Object({
@@ -97,7 +97,7 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .post(
     "/:name/review",
     async ({ params: { name }, set }) => {
-      const response = await createReview(name);
+      const response = await createGiftedReview(name);
       if (response?.success) {
         set.status = 201;
         return response;
@@ -116,7 +116,7 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .patch(
     "/:name/review/:id",
     async ({ params: { name, id }, body }) => {
-      return await updateReview(name, id, body);
+      return await updateGiftedReview(name, id, body);
     },
     {
       params: t.Object({
@@ -140,7 +140,7 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .delete(
     "/:name/review/:id",
     async ({ params: { name, id } }) => {
-      return await deleteReview(name, id);
+      return await deleteGiftedReview(name, id);
     },
     {
       params: t.Object({

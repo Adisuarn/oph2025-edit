@@ -4,8 +4,10 @@ import { AllData } from '@libs/data'
 import { getProgram } from '@middlewares/derive'
 import type { Program } from '@utils/type'
 import { error } from 'elysia'
+import { ReviewData } from '@utils/type'
 
-interface ProgramData {
+export interface ProgramData {
+  error: string,
   name: string,
   thainame: string,
   status?: string,
@@ -24,15 +26,6 @@ interface ProgramData {
   descimg3: string
 }
 
-interface reviewData {
-  profile: File,
-  name: string,
-  nick: string,
-  gen: string,
-  contact: string,
-  content: string,
-}
-
 export const createProgram = async(body: Program) => {
   if((await prisma.programs.count({ where: { email: body.email } }) > 0))
     throw error(400, 'User already created a program')
@@ -40,6 +33,7 @@ export const createProgram = async(body: Program) => {
     const program = await prisma.programs.create({
       omit: { programId: true, updatedAt: true},
       data: {
+        error: '',
         key: body.key,
         email: body.email,
         name: body.key,
@@ -109,7 +103,7 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
   }
 }
 
-export const getReviews = async(name: keyof typeof AllData.Programs) => {
+export const getProgramReviews = async(name: keyof typeof AllData.Programs) => {
   const programData = (await getProgram(name)).data
   try {
     const reviewData = await prisma.reviews.findMany({
@@ -122,7 +116,7 @@ export const getReviews = async(name: keyof typeof AllData.Programs) => {
   }
 }
 
-export const createReview = async (name: keyof typeof AllData.Programs) => {
+export const createProgramReview = async (name: keyof typeof AllData.Programs) => {
   const programData = (await getProgram(name)).data
   if((await prisma.reviews.count({ where: { email: programData.email }})) >= 3) throw error(400, 'Review reachs limit')
   try {
@@ -146,7 +140,7 @@ export const createReview = async (name: keyof typeof AllData.Programs) => {
   }
 }
 
-export const updateReview = async (name: keyof typeof AllData.Programs, count: string, body: reviewData) => {
+export const updateProgramReview = async (name: keyof typeof AllData.Programs, count: string, body: ReviewData) => {
   const programData = (await getProgram(name)).data
     try {
       const review = await prisma.reviews.update({
@@ -167,7 +161,7 @@ export const updateReview = async (name: keyof typeof AllData.Programs, count: s
     }
 }
 
-export const deleteReview = async (name: keyof typeof AllData.Organizations, id: string) => {
+export const deleteProgramReview = async (name: keyof typeof AllData.Organizations, id: string) => {
   const programData = (await getProgram(name)).data
   try {
     await prisma.reviews.update({

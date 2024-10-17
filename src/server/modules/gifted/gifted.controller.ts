@@ -4,8 +4,10 @@ import { AllData } from "@libs/data";
 import { getGifted } from "@middlewares/derive";
 import type { Gifted } from "@utils/type";
 import { error } from "elysia";
+import { ReviewData } from "@utils/type";
 
-interface GiftedData {
+export interface GiftedData {
+  error: string;
   name: string;
   thainame: string;
   status?: string;
@@ -24,15 +26,6 @@ interface GiftedData {
   descimg3: string;
 }
 
-interface reviewData {
-    profile: File,
-    name: string,
-    nick: string,
-    gen: string,
-    contact: string,
-    content: string,
-}
-
 export const createGifted = async (body: Gifted) => {
   if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
     throw error(400, "User already created an organization");
@@ -41,6 +34,7 @@ export const createGifted = async (body: Gifted) => {
     const gifted = await prisma.gifted.create({
       omit: { giftedId: true, updatedAt: true },
       data: {
+        error: "",
         key: body.key,
         email: body.email,
         name: body.key,
@@ -122,7 +116,7 @@ export const updateGiftedData = async (
   }
 };
 
-export const getReviews = async (name: keyof typeof AllData.Gifted) => {
+export const getGiftedReviews = async (name: keyof typeof AllData.Gifted) => {
   const giftedData = (await getGifted(name)).data;
   try {
     const reviewData = await prisma.reviews.findMany({
@@ -139,7 +133,7 @@ export const getReviews = async (name: keyof typeof AllData.Gifted) => {
   }
 };
 
-export const createReview = async (name: keyof typeof AllData.Gifted) => {
+export const createGiftedReview = async (name: keyof typeof AllData.Gifted) => {
   const giftedData = (await getGifted(name)).data;
   if (
     (await prisma.reviews.count({
@@ -176,10 +170,10 @@ export const createReview = async (name: keyof typeof AllData.Gifted) => {
   }
 };
 
-export const updateReview = async (
+export const updateGiftedReview = async (
   name: keyof typeof AllData.Gifted,
   count: string,
-  body: reviewData,
+  body: ReviewData,
 ) => {
   const giftedData = (await getGifted(name)).data;
   try {
@@ -205,7 +199,7 @@ export const updateReview = async (
   }
 };
 
-export const deleteReview = async (
+export const deleteGiftedReview = async (
   name: keyof typeof AllData.Gifted,
   id: string,
 ) => {

@@ -12,10 +12,10 @@ import { getUser, getProgram } from '@middlewares/derive'
 import {
   getProgramByName,
   updateProgramData,
-  getReviews,
-  createReview,
-  updateReview,
-  deleteReview
+  getProgramReviews,
+  createProgramReview,
+  updateProgramReview,
+  deleteProgramReview
 }
 from '@modules/programs/programs.controller'
 
@@ -70,14 +70,14 @@ export const programRouter = new Elysia({ prefix: '/programs' })
       }),
     })
   .get('/:name/review', async ({ params: { name } }) => {
-    return await getReviews(name)
+    return await getProgramReviews(name)
   }, {
     params: t.Object({
       name: UnionField(true, 'Invalid Program Name', Object.keys(AllData.Programs))
     })
   })
   .post('/:name/review', async ({ params: { name }, set }) => {
-    const response = await createReview(name)
+    const response = await createProgramReview(name)
     if (response?.success) {
       set.status = 201
       return response
@@ -88,7 +88,7 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     })
   })
   .patch('/:name/review/:id', async ({ params: { name, id }, body }) => {
-    return await updateReview(name, id, body)
+    return await updateProgramReview(name, id, body)
   }, {
     params: t.Object({
       name: UnionField(true, 'Invalid Program Name', Object.keys(AllData.Programs)),
@@ -104,7 +104,7 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     })
   })
   .delete('/:name/review/:id', async ({ params: { name, id } }) => {
-    return await deleteReview(name, id)
+    return await deleteProgramReview(name, id)
   },
     {
       params: t.Object({

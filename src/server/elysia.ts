@@ -5,6 +5,7 @@ import { clubRouter } from '@modules/clubs/clubs.route'
 import { organizationRouter } from '@modules/organizations/organizations.route'
 import { programRouter } from '@modules/programs/programs.route'
 import { giftedRouter } from '@modules/gifted/gifted.route'
+import { tucmcRouter } from '@modules/tucmc/tucmc.route'
 import { rolesRouter } from '@modules/roles/roles.route'
 import { GlobalGuard } from '@middlewares/globalguard'
 
@@ -17,6 +18,7 @@ export const elysiaApp = new Elysia({ prefix: '/api' })
     .use(organizationRouter)
     .use(programRouter)
     .use(giftedRouter)
+    .use(tucmcRouter)
     .use(rolesRouter)
 
 export type TElysiaApp = typeof elysiaApp
