@@ -16,7 +16,7 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
     return await getDataByKey(tag, decodeURIComponent(key))
   },{
     params: t.Object({
-      tag: t.Enum(Tag, {error(){ return error(400, 'Invalid Tag') }}),
+      tag: t.Enum(Tag, {error(){ return 'Invalid Tag' }}),
       key: EncodedUnionField(true, 'Invalid Key', [...Object.keys(AllData.Organizations), ...Object.keys(AllData.Clubs), ...Object.keys(AllData.Programs), ...Object.keys(AllData.Gifted)]),
     })
   })
@@ -24,11 +24,11 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
     return await updateStatus(tag, decodeURIComponent(key), body.status)
   },{
     params: t.Object({
-      tag: t.Enum(Tag, {error(){ return error(400, 'Invalid Tag') }}),
+      tag: t.Enum(Tag, {error(){ return 'Invalid Tag' }}),
       key: EncodedUnionField(true, 'Invalid Key', [...Object.keys(AllData.Organizations), ...Object.keys(AllData.Clubs), ...Object.keys(AllData.Programs), ...Object.keys(AllData.Gifted)]),
     }),
     body: t.Object({
-      status: t.Enum(Status, {error(){ return error(400, 'Invalid Status') }})
+      status: t.Enum(Status, {error(){ return 'Invalid Status' }})
     })
   })
   .patch('/data/:tag/:key/edit', async ({ params: { tag,key }, body }) => {
@@ -54,7 +54,7 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
     }
   },{
     params: t.Object({
-      tag: t.Enum(Tag, {error(){ return error(400, 'Invalid Tag') }}),
+      tag: t.Enum(Tag, {error(){ return 'Invalid Tag' }}),
       key: EncodedUnionField(true, 'Invalid Key', [...Object.keys(AllData.Organizations), ...Object.keys(AllData.Clubs), ...Object.keys(AllData.Programs), ...Object.keys(AllData.Gifted)]),
     }),
   })
@@ -78,7 +78,7 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
       id: t.String()
     }),
     body: t.Object({
-      profile: t.Optional(t.File({ error () { return error(400, 'Invalid Profile') }})),
+      profile: t.Optional(t.File({ error () { return 'Invalid Profile' }})),
       name: StringField(true, 'Invalid Name'),
       nick: StringField(true, 'Invalid Nick'),
       gen: StringField(true, 'Invalid Gen'),

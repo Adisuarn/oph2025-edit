@@ -47,7 +47,7 @@ export const rolesRouter = new Elysia({ prefix: '/roles' })
   {
     body: t.Object({
       email: StringField(true, 'Invalid Email', 'email'),
-      tag: t.Enum(Tag, {error(){ return error(400, 'Invalid Tag') }}),
+      tag: t.Enum(Tag, {error(){ return 'Invalid Tag' }}),
       key: DecodedUnionField(true, 'Invalid Key', [...Object.keys(AllData.Organizations), ...Object.keys(AllData.Clubs), ...Object.keys(AllData.Programs), ...Object.keys(AllData.Gifted)]),
     })
   })
