@@ -53,6 +53,53 @@ export const updateStatus = async (tag: Tag, key: string, status: Status) => {
   }
 }
 
+// export const getAllData = async () => {
+//   let data: {
+//     clubs: any[],
+//     organizations: any[],
+//     programs: any[],
+//     gifted: any[]
+//   } = {
+//     clubs: [],
+//     organizations: [],
+//     programs: [],
+//     gifted: []
+//   }
+//   try {
+//     const programs = await prisma.programs.findMany({
+//       omit: { programId: true, id: true }
+//     })
+//     for (const program of programs) {
+//       const reviews = await getProgramReviews(program.key as keyof typeof AllData.Programs)
+//       data.programs.push({ ...program, reviews: reviews.data })
+//     }
+//     const gifted = await prisma.gifted.findMany({
+//       omit: { giftedId: true, id: true }
+//     })
+//     for (const gift of gifted) {
+//       const reviews = await getGiftedReviews(gift.key as keyof typeof AllData.Gifted)
+//       data.gifted.push({ ...gift, reviews: reviews.data })
+//     }
+//     const clubs = await prisma.clubs.findMany({
+//       omit: { clubId: true, id: true }
+//     })
+//     for (const club of clubs) {
+//       const reviews = await getClubReviews(club.key as keyof typeof AllData.Clubs)
+//       data.clubs.push({ ...club, reviews: reviews.data })
+//     }
+//     const organizations = await prisma.organizations.findMany({
+//       omit: { organizationId: true, id: true }
+//     })
+//     for (const organization of organizations) {
+//       const reviews = await getOrganizationReviews(organization.key as keyof typeof AllData.Organizations)
+//       data.organizations.push({ ...organization, reviews: reviews.data })
+//     }
+//   } catch (err) {
+//     throw error(500, 'Error while getting all data')
+//   }
+//   return { success: true, message: 'Getting all data successfully', data }
+// }
+
 export const getAllData = async () => {
   let data: {
     clubs: any[],
@@ -66,33 +113,21 @@ export const getAllData = async () => {
     gifted: []
   }
   try {
-    const programs = await prisma.programs.findMany({
-      omit: { programId: true, id: true }
-    })
+    const programs = await prisma.programs.findMany({ select: { key: true, thainame: true, status: true } })
     for (const program of programs) {
-      const reviews = await getProgramReviews(program.key as keyof typeof AllData.Programs)
-      data.programs.push({ ...program, reviews: reviews.data })
+      data.programs.push({ ...program })
     }
-    const gifted = await prisma.gifted.findMany({
-      omit: { giftedId: true, id: true }
-    })
+    const gifted = await prisma.gifted.findMany({ select: { key: true, thainame: true, status: true } })
     for (const gift of gifted) {
-      const reviews = await getGiftedReviews(gift.key as keyof typeof AllData.Gifted)
-      data.gifted.push({ ...gift, reviews: reviews.data })
+      data.gifted.push({ ...gift })
     }
-    const clubs = await prisma.clubs.findMany({
-      omit: { clubId: true, id: true }
-    })
+    const clubs = await prisma.clubs.findMany({ select: { key: true, thainame: true, status: true } })
     for (const club of clubs) {
-      const reviews = await getClubReviews(club.key as keyof typeof AllData.Clubs)
-      data.clubs.push({ ...club, reviews: reviews.data })
+      data.clubs.push({ ...club })
     }
-    const organizations = await prisma.organizations.findMany({
-      omit: { organizationId: true, id: true }
-    })
+    const organizations = await prisma.organizations.findMany({ select: { key: true, thainame: true, status: true } })
     for (const organization of organizations) {
-      const reviews = await getOrganizationReviews(organization.key as keyof typeof AllData.Organizations)
-      data.organizations.push({ ...organization, reviews: reviews.data })
+      data.organizations.push({ ...organization })
     }
   } catch (err) {
     throw error(500, 'Error while getting all data')
