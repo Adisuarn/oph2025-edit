@@ -2,15 +2,6 @@
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { getUser } from '@/server/middlewares/derive'
-import { redirect } from 'next/navigation'
-
-//   const user = await getUser()
-//   if(!user.success){
-//     redirect('/')
-//   }
-
-//   const data = user.data
 
 const FormikControl =  () => {
 
