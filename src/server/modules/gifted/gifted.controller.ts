@@ -1,10 +1,10 @@
 ﻿import { prisma } from "@utils/db";
 import { uploadImage } from "@utils/uploadimg";
 import { AllData } from "@libs/data";
-import { getGifted } from "@middlewares/derive";
+import { getGifted, getUser } from "@middlewares/derive";
 import type { Gifted } from "@utils/type";
 import { error } from "elysia";
-import { ReviewData } from "@utils/type";
+import { ReviewData, Status } from "@utils/type";
 
 export interface GiftedData {
   error: string;
@@ -84,6 +84,7 @@ export const updateGiftedData = async (
   body: GiftedData,
 ) => {
   const giftedData = (await getGifted(name)).data
+  const userData = (await getUser()).data
   if(giftedData.status === 'approved') throw error(400, 'Gifted already approved')
   try {
     const updatedGifted = await prisma.gifted.update({
@@ -108,6 +109,7 @@ export const updateGiftedData = async (
         descimg3: body.descimg3,
       },
     });
+    if(userData?.email === giftedData.email) await prisma.gifted.update({ where: { key: name}, data: { status: Status.PENDING }}) 
     return {
       success: true,
       message: "Updating gifted data successfully",

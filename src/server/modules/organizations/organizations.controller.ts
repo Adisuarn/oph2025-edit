@@ -1,10 +1,10 @@
 import { prisma } from '@utils/db'
 import { uploadImage } from '@utils/uploadimg'
 import { AllData } from '@libs/data'
-import { getOrganization } from '@middlewares/derive'
+import { getOrganization, getUser } from '@middlewares/derive'
 import type { Organization } from '@utils/type'
 import { error } from 'elysia'
-import { ReviewData } from '@utils/type'
+import { ReviewData, Status } from '@utils/type'
 
 export interface OrganizationData {
   error: string,
@@ -76,6 +76,7 @@ export const getOrganizationByName = async (name: Organization["key"]) => {
 
 export const updateOrganizationData = async (name: keyof typeof AllData.Organizations, body: OrganizationData) => {
   const organizationData = (await getOrganization(name)).data
+  const userData = (await getUser()).data
   if(organizationData.status === 'approved') throw error(400, 'Organization already approved')
   try {
     const updatedOrganization = await prisma.organizations.update({
@@ -99,6 +100,7 @@ export const updateOrganizationData = async (name: keyof typeof AllData.Organiza
         descimg3: body.descimg3,
       }
     })
+    if(userData?.email === organizationData.email) await prisma.organizations.update({ where: { key: name }, data: { status: Status.PENDING } })
     return { success: true, message: 'Updating organization data successfully', data: updatedOrganization }
   } catch (err) {
     throw error(500, 'Error while updating organization data')

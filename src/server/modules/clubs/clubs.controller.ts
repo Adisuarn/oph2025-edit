@@ -3,8 +3,8 @@ import { error } from 'elysia'
 import { uploadImage } from '@utils/uploadimg'
 import type { Club } from '@utils/type'
 import { AllData } from '@libs/data'
-import { getClub } from '@middlewares/derive'
-import { ReviewData } from '@utils/type'
+import { getClub, getUser } from '@middlewares/derive'
+import { ReviewData, Status } from '@utils/type'
 
 export interface ClubData {
   error: string,
@@ -79,6 +79,7 @@ export const getClubByKey = async (key: keyof typeof AllData.Clubs) => {
 
 export const updateClubData = async (key: keyof typeof AllData.Clubs, body: ClubData) => {
   const clubData = (await getClub(key)).data
+  const userData = (await getUser()).data
   if (clubData.status === 'approved') throw error(400, 'Club was already approved')
   try {
     const updatedClub = await prisma.clubs.update({
@@ -103,6 +104,7 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
         logo: (!body.logo === undefined) ? await uploadImage(body.logo) : clubData.logo
       }
     })
+    if(userData?.email === clubData.email) await prisma.clubs.update({ where: { key: key }, data: { status: Status.PENDING } })
     return { success: true, message: 'Updated club successfully', data: updatedClub }
   } catch (err) {
     throw error(500, 'Error while updating club')
