@@ -45,7 +45,6 @@ model Organizations {
   descimg2       String?
   captureimg3    String?
   descimg3       String?
-  logo           String?
   reviews        Reviews[]
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt

@@ -8,7 +8,6 @@ import { AllData } from '@libs/data'
 import type { Organization, Club, Program, Gifted } from '@utils/type'
 import { Tag } from '@utils/type'
 
-//TODO USE SWUTCH CASE INSTEAD OF IF ELSE
 export const rolesRouter = new Elysia({ prefix: '/roles' })
   .post('/record', async ({ body, set }) => {
     if(!body.email.includes('student.triamudom.ac.th')) return error(400, 'Provided Email Not Triam Udom')

@@ -16,24 +16,28 @@ export const getUser = cache(async () => {
 export const getOrganization = cache(async (name: string) => {
   const organization = await prisma.organizations.findUnique({
     omit: { organizationId: true},
-    where: { name: name }
+    where: { key: name }
   })
   if(!organization) throw error(404, 'Organization not found')
   return { success: true, data: organization }
 })
 
 export const getClub = cache(async (clubKey: string) => {
-  const club = await prisma.clubs.findUnique({
-    omit: { clubId: true },
-    where: { key: clubKey }
-  })
-  if(!club) throw error(404, 'Club not found')
-  return { success: true, data: club }
+  try {
+    const club = await prisma.clubs.findUnique({
+      omit: { clubId: true, id: true },
+      where: { key: clubKey }
+    })
+    if(!club) throw error(404, 'Club not found')
+    return { success: true, data: club }
+  } catch (err) {
+    throw error(500, 'Internal Server Error')
+  }
 })
 
 export const getProgram = cache(async (name: string) => {
   const program = await prisma.programs.findUnique({
-    omit: { programId: true },
+    omit: { programId: true, id: true },
     where: { key: name }
   })
   if(!program) throw error(404, 'Program not found')
@@ -42,7 +46,7 @@ export const getProgram = cache(async (name: string) => {
 
 export const getGifted = cache(async (name: string) => {
   const gifted = await prisma.gifted.findUnique({
-    omit: { giftedId: true },
+    omit: { giftedId: true, id: true },
     where: { key: name}
   })
   if (!gifted) throw error(404, 'Organization not found')

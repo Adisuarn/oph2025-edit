@@ -20,6 +20,7 @@ import {
 from '@modules/programs/programs.controller'
 
 import { prisma } from '@utils/db'
+import { ReviewData } from '@/server/utils/type'
 
 export const programRouter = new Elysia({ prefix: '/programs' })
   .guard({
@@ -52,7 +53,7 @@ export const programRouter = new Elysia({ prefix: '/programs' })
         name: UnionField(true, 'Invalid Program Name', Object.keys(AllData.Programs))
       }),
       body: t.Object({
-        error: StringField(true, 'Invalid Error'),
+        error: StringField(false, 'Invalid Error'),
         name: StringField(true, 'Invalid Name'),
         thainame: StringField(true, 'Invalid Thai Name'),
         members: StringField(true, 'Invalid Member'),
@@ -62,11 +63,11 @@ export const programRouter = new Elysia({ prefix: '/programs' })
         admission: StringField(true, 'Invalid Admission'),
         courses: StringField(true, 'Invalid Courses'),
         interests: StringField(true, 'Invalid Interests'),
-        captureimg1: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
+        captureimg1: t.File({ error() { return 'Invalid Capture Image' } }),
         descimg1: StringField(true, 'Invalid Description Image'),
-        captureimg2: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
+        captureimg2: t.File({ error() { return 'Invalid Capture Image' } }),
         descimg2: StringField(true, 'Invalid Description Image'),
-        captureimg3: t.File({ error() { return error(400, 'Invalid Capture Image') } }),
+        captureimg3: t.File({ error() { return 'Invalid Capture Image' } }),
         descimg3: StringField(true, 'Invalid Description Image'),
       }),
     })
@@ -89,14 +90,14 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     })
   })
   .patch('/:name/review/:id', async ({ params: { name, id }, body }) => {
-    return await updateProgramReview(name, id, body)
+    return await updateProgramReview(name, id, body as ReviewData)
   }, {
     params: t.Object({
       name: UnionField(true, 'Invalid Program Name', Object.keys(AllData.Programs)),
       id: StringField(true, 'Invalid Review ID')
     }),
     body: t.Object({
-      profile: t.File({ error() { return error(400, 'Invalid Profile') } }),
+      profile: t.Optional(t.File({ error() { return 'Invalid Profile' } })),
       name: StringField(true, 'Invalid Name'),
       nick: StringField(true, 'Invalid Nickname'),
       gen: StringField(true, 'Invalid Generation'),

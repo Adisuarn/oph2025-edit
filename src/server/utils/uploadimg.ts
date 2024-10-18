@@ -7,7 +7,7 @@ interface ImgurResponse {
   }
 }
 
-export const uploadImage = async(file: File): Promise<string | undefined> => {
+export const uploadImage = async(file: File | undefined): Promise<string | undefined> => {
   try {
     if (!file) throw new Error('No file provided')
     const response = await axios.post<ImgurResponse>('https://api.imgur.com/3/image', await file.arrayBuffer(), {

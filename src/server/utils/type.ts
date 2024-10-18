@@ -38,7 +38,7 @@ export enum Status {
 }
 
 export interface ReviewData {
-  profile: File,
+  profile: File | undefined,
   name: string,
   nick: string,
   gen: string,

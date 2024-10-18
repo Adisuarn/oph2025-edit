@@ -31,7 +31,7 @@ export const createProgram = async(body: Program) => {
     throw error(400, 'User already created a program')
   try {
     const program = await prisma.programs.create({
-      omit: { programId: true, updatedAt: true},
+      omit: { programId: true, updatedAt: true, id:true },
       data: {
         error: '',
         key: body.key,
@@ -79,7 +79,7 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
   if(programData.status === 'approved') throw error(400, 'Program already approved')
   try {
     const updatedOrganization = await prisma.programs.update({
-      omit: { programId: true, createdAt: true },
+      omit: { programId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
         name: body.name,
@@ -91,11 +91,11 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
         admissions: body.admission,
         courses: body.courses,
         interests: body.interests,
-        captureimg1: await uploadImage(body.captureimg1) ?? programData.captureimg1,
+        captureimg1: (!body.captureimg1 === undefined ) ? await uploadImage(body.captureimg1) : programData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: await uploadImage(body.captureimg2) ?? programData.captureimg2,
+        captureimg2: (!body.captureimg2 === undefined ) ? await uploadImage(body.captureimg2) : programData.captureimg2,
         descimg2: body.descimg2,
-        captureimg3: await uploadImage(body.captureimg3) ?? programData.captureimg3,
+        captureimg3: (!body.captureimg3 === undefined) ? await uploadImage(body.captureimg3) : programData.captureimg3,
         descimg3: body.descimg3,
       }
     })
@@ -123,7 +123,7 @@ export const createProgramReview = async (name: keyof typeof AllData.Programs) =
   if((await prisma.reviews.count({ where: { email: programData.email }})) >= 3) throw error(400, 'Review reachs limit')
   try {
     const review = await prisma.reviews.create({
-      omit: { reviewId: true, updatedAt: true },
+      omit: { reviewId: true, updatedAt: true, id: true },
       data: {
         key: programData.key,
         email: programData.email,
@@ -147,10 +147,10 @@ export const updateProgramReview = async (name: keyof typeof AllData.Programs, c
   const reviewData = await prisma.reviews.findUnique({ where: { email: programData.email, count }})
     try {
       const review = await prisma.reviews.update({
-        omit: { reviewId: true, createdAt: true },
+        omit: { reviewId: true, createdAt: true, id: true },
         where: { email: programData.email, count: count },
         data: {
-          profile: await uploadImage(body.profile) ?? reviewData?.profile,
+          profile: (!body.profile === undefined) ? await uploadImage(body.profile) : reviewData?.profile,
           name: body.name,
           nick: body.nick,
           gen: body.gen,
@@ -168,7 +168,6 @@ export const deleteProgramReview = async (name: keyof typeof AllData.Organizatio
   const programData = (await getProgram(name)).data
   try {
     await prisma.reviews.update({
-      omit: { reviewId: true },
       where: { email: programData.email, count: id },
       data: {
         profile: '',
