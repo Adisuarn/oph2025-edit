@@ -5,8 +5,6 @@ import { redirect } from 'next/navigation'
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa6";
 import Link from 'next/link'
-import { get } from 'http';
-
 
 const AccountPage = async () => {
   const user = await getUser()
