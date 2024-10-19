@@ -5,13 +5,11 @@ import { redirect } from 'next/navigation'
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa6";
 import Link from 'next/link'
+import apiFunction from '@/components/api';
 
 const AccountPage = async () => {
-  const user = await getUser()
-  if(!user.success){
-    redirect('/')
-  }
-  const data = user.data
+  const response = await apiFunction('GET', '/user', {})
+  const data = response.data
   return (
     <section className='bg-gradient-to-tl from-blue-500 to-blue-400 text-white flex just w-full h-screen items-center'>
       <div className='w-full flex justify-center'>

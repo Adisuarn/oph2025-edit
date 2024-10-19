@@ -78,9 +78,9 @@ export const getClubByKey = async (key: keyof typeof AllData.Clubs) => {
   }
 }
 
-export const updateClubData = async (key: keyof typeof AllData.Clubs, body: ClubData) => {
+export const updateClubData = async (key: keyof typeof AllData.Clubs, body: ClubData, headers: Headers) => {
   const clubData = (await getClub(key)).data
-  const userData = (await getUser()).data
+  const userData = (await getUser(headers)).data
   if (clubData.status === 'approved') throw error(400, 'Club was already approved')
   try {
     const updatedClub = await prisma.clubs.update({

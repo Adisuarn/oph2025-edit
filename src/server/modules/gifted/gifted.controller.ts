@@ -83,9 +83,10 @@ export const getGiftedByName = async (name: Gifted["key"]) => {
 export const updateGiftedData = async (
   name: keyof typeof AllData.Gifted,
   body: GiftedData,
+  headers: Headers,
 ) => {
   const giftedData = (await getGifted(name)).data
-  const userData = (await getUser()).data
+  const userData = (await getUser(headers)).data
   if(giftedData.status === 'approved') throw error(400, 'Gifted already approved')
   try {
     const updatedGifted = await prisma.gifted.update({

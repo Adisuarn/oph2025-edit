@@ -17,8 +17,8 @@ import {
 
 export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .guard({
-    async beforeHandle() {
-      const userData = (await getUser()).data;
+    async beforeHandle({ request: { headers } }) {
+      const userData = (await getUser(headers)).data;
       const organization = await prisma.gifted.findUnique({
         where: { email: userData?.email },
         select: { name: true },
@@ -49,8 +49,8 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
   )
   .patch(
     "/:name",
-    async ({ params: { name }, body }) => {
-      return await updateGiftedData(name, body);
+    async ({ params: { name }, body, request: { headers } }) => {
+      return await updateGiftedData(name, body, headers);
     },
     {
       params: t.Object({

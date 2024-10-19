@@ -24,8 +24,8 @@ import { ReviewData } from '@/server/utils/type'
 
 export const programRouter = new Elysia({ prefix: '/programs' })
   .guard({
-    async beforeHandle() {
-      const userData = (await getUser()).data
+    async beforeHandle({ request: { headers } }) {
+      const userData = (await getUser(headers)).data
       const program  = await prisma.programs.findUnique({
         where: { email: userData?.email },
         select: { name: true }
@@ -45,8 +45,8 @@ export const programRouter = new Elysia({ prefix: '/programs' })
         name: UnionField(true, 'Invalid Program Name', Object.keys(AllData.Programs))
       })
     })
-  .patch('/:name', async ({ params: { name }, body }) => {
-    return await updateProgramData(name, body)
+  .patch('/:name', async ({ params: { name }, body, request: { headers }}) => {
+    return await updateProgramData(name, body, headers)
   },
     {
       params: t.Object({

@@ -22,6 +22,7 @@ export const createAuthUrl = () => {
     return { success: true, url: authUrl.toString()}
     
   } catch (err) {
+    console.log(err)
     throw error(500, 'Internal Server Error')
   }
 }
@@ -32,7 +33,6 @@ export const getGoogleUser = async (req: Request) => {
     const code = url.searchParams.get('code')
     const state = url.searchParams.get('state')
     const hd = url.searchParams.get('hd')
-
 
     if(!code || !state || !hd) 
       throw error(400, 'Invalid request')
@@ -59,7 +59,6 @@ export const getGoogleUser = async (req: Request) => {
       name: string,
       picture: string
     }
-
     let userId: string
     
     const existingUser = await prisma.user.findUnique({
@@ -82,9 +81,7 @@ export const getGoogleUser = async (req: Request) => {
     const session = await lucia.createSession(userId, {})
     const sessionCookie = lucia.createSessionCookie(session.id)
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
-
     return { success: true, message: 'Login success' }
-
   } catch (err) {
     throw error(500, 'Internal Server Error')
   }

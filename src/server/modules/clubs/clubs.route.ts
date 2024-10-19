@@ -22,8 +22,8 @@ import { ReviewData } from '@/server/utils/type'
 
 export const clubRouter = new Elysia({ prefix: '/clubs' })
   .guard({
-    async beforeHandle() {
-      const userData = (await getUser()).data
+    async beforeHandle({ request: { headers } }) {
+      const userData = (await getUser(headers)).data
       const club = await prisma.clubs.findUnique({
         where: { email: userData?.email },
         select: { key: true }
@@ -42,8 +42,8 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
     })
   })
-  .patch('/:key', async ({ params: { key }, body }) => {
-    return await updateClubData(decodeURIComponent(key) as keyof typeof AllData.Clubs, body)
+  .patch('/:key', async ({ params: { key }, body, request: { headers } }) => {
+    return await updateClubData(decodeURIComponent(key) as keyof typeof AllData.Clubs, body, headers)
   }, {
     params: t.Object({
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))

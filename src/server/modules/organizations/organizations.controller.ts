@@ -75,9 +75,9 @@ export const getOrganizationByName = async (name: Organization["key"]) => {
   }
 }
 
-export const updateOrganizationData = async (name: keyof typeof AllData.Organizations, body: OrganizationData) => {
+export const updateOrganizationData = async (name: keyof typeof AllData.Organizations, body: OrganizationData, headers: Headers) => {
   const organizationData = (await getOrganization(name)).data
-  const userData = (await getUser()).data
+  const userData = (await getUser(headers)).data
   if(organizationData.status === 'approved') throw error(400, 'Organization already approved')
   try {
     const updatedOrganization = await prisma.organizations.update({

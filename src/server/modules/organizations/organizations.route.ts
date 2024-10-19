@@ -23,8 +23,8 @@ import { prisma } from '@utils/db'
 
 export const organizationRouter = new Elysia({ prefix: '/organizations' })
   .guard({
-    async beforeHandle() {
-      const userData = (await getUser()).data
+    async beforeHandle({ request: { headers } }) {
+      const userData = (await getUser(headers)).data
       const organization = await prisma.organizations.findUnique({
         where: { email: userData?.email },
         select: { name: true }
@@ -44,8 +44,8 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
         name: UnionField(true, 'Invalid Organization Name', Object.keys(AllData.Organizations))
       })
     })
-  .patch('/:name', async ({ params: { name }, body }) => {
-    return await updateOrganizationData(name, body)
+  .patch('/:name', async ({ params: { name }, body, request: { headers } }) => {
+    return await updateOrganizationData(name, body, headers)
   },
     {
       params: t.Object({

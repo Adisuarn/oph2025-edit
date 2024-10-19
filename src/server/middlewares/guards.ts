@@ -8,7 +8,7 @@ import { getUser } from "./derive";
 export const pipe = (condition: "OR" | "AND" = "AND", guards: ((...args: any[]) => Promise<{ status: number, message: string } | true>)[], headers?: Headers) => {
   const checkInstance = async (...args: unknown[]): Promise<void> => {
     const result = await Promise.all(guards.map((guard) => {
-      if (guard === IS_VERIFIED && headers) {
+      if (((guard === IS_VERIFIED) || (guard === IS_AUTHENTICATED)) && headers) {
         return guard(headers);
       }
       return guard(...args);
@@ -45,19 +45,20 @@ export const IS_VERIFIED = async (headers: Headers) => {
   else return { status: 401, message: 'API Key not found' }
 }
 
-export const IS_AUTHENTICATED = async () => {
-  if (cookies().get(lucia.sessionCookieName)?.value) return true
+export const IS_AUTHENTICATED = async (headers: Headers) => {
+  if(headers.get('Authorization')) return true
+  else if (cookies().get(lucia.sessionCookieName)?.value) return true
   else return { status: 401, message: 'Unauthorized' }
 }
 
-export const IS_TUCMC = async () => {
-  const userData = (await getUser()).data
+export const IS_TUCMC = async (headers: Headers) => {
+  const userData = (await getUser(headers)).data
   if (userData?.TUCMC) return true
   else return { status: 401, message: 'Not TUCMC' }
 }
 
-export const IS_USERCREATED = async () => {
-  const { data } = await checkSession()
+export const IS_USERCREATED = async (headers: Headers) => {
+  const { data } = await checkSession(headers)
   if (!data) throw error(404, 'User Not Found')
   const user = data?.user
   const organization = await prisma.organizations.findUnique({

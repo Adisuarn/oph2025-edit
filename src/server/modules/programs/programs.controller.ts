@@ -75,9 +75,9 @@ export const getProgramByName = async (name: Program["key"]) => {
   }
 }
 
-export const updateProgramData = async (name: keyof typeof AllData.Programs, body: ProgramData) => {
+export const updateProgramData = async (name: keyof typeof AllData.Programs, body: ProgramData, headers: Headers) => {
   const programData = (await getProgram(name)).data
-  const userData = (await getUser()).data
+  const userData = (await getUser(headers)).data
   if(programData.status === 'approved') throw error(400, 'Program already approved')
   try {
     const updatedOrganization = await prisma.programs.update({

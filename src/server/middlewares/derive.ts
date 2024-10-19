@@ -3,8 +3,8 @@ import { prisma } from "@utils/db";
 import { cache } from "react";
 import { error } from 'elysia'
 
-export const getUser = cache(async () => {
-  const { data } = await checkSession()
+export const getUser = cache(async (headers: Headers) => {
+  const { data } = await checkSession(headers)
   if(!data) throw error(404, 'User Not Found')
   const user = data?.user
   const dbUser = await prisma.user.findUnique({

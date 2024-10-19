@@ -11,7 +11,7 @@ export const authRouter = new Elysia({ prefix: '/auth' })
   .get('/login', () => createAuthUrl())
   .get('/callback', async ({ request }) => {
     await getGoogleUser(request)
-    return redirect(process.env.NEXT_PUBLIC_URL! + '/account')
+    return redirect('http://localhost:3000/account')
   })
   .get('/logout', async () => {
     return Logout()
