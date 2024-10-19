@@ -238,7 +238,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                     className="from-heroMiddle to-greenText inline-block bg-gradient-to-b bg-clip-text text-xl font-bold text-transparent"
                   >
                     ความน่าสนใจ /<br />
-                    ของ
+                    ของk
                     <br />
                     สายการเรียน
                   </label>
