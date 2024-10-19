@@ -11,8 +11,9 @@ export default {
       fontFamily: {
         sans: ["var(--font-geist-sans)", ...fontFamily.sans],
         roboto: ["Roboto",],
-        sansThai: ['"Noto Sans Thai"'],
-        Thai:['Noto Sans Thai']
+        sansThai: ["Noto Sans Thai"],
+        Thai:['Noto Sans Thai'],
+        inter: ['Inter'],
       },
       backgroundSize: {
         'size-200': '200% 200%',
