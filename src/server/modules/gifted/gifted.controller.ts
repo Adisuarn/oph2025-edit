@@ -31,8 +31,9 @@ export const createGifted = async (body: Gifted) => {
     throw error(400, "User already created an organization");
 
   try {
-    const gifted = await prisma.gifted.create({
+    const gifted = await prisma.gifted.update({
       omit: { giftedId: true, updatedAt: true, id: true },
+      where: { key: body.key },
       data: {
         error: "",
         key: body.key,
