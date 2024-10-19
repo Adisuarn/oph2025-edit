@@ -30,9 +30,8 @@
       "@components/*": ["./src/components/*"],
       "@libs/*": ["./src/libs/*"],
       "@utils/*": ["./src/server/utils/*"],
-      "@routes/*": ["./src/server/routes/*"],
-      "@controllers/*": ["./src/server/controllers/*"],
       "@middlewares/*": ["./src/server/middlewares/*"],
+      "@modules/*": ["./src/server/modules/*"],
     }
   },
   "include": [
