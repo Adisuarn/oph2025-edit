@@ -8,6 +8,7 @@ import { AllData } from '@libs/data'
 import type { Organization, Club, Program, Gifted } from '@utils/type'
 import { Tag } from '@utils/type'
 import { prisma } from '@utils/db'
+import { createEverything } from '@utils/create'
 
 export const rolesRouter = new Elysia({ prefix: '/roles' })
   .post('/record', async ({ body, set }) => {
@@ -56,3 +57,6 @@ export const rolesRouter = new Elysia({ prefix: '/roles' })
       key: DecodedUnionField(true, 'Invalid Key', [...Object.keys(AllData.Organizations), ...Object.keys(AllData.Clubs), ...Object.keys(AllData.Programs), ...Object.keys(AllData.Gifted)]),
     })
   })
+  // .post('/all', async() => {
+  //   return createEverything()
+  // })

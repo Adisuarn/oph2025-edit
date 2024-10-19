@@ -30,8 +30,9 @@ export const createOrganization = async (body: Organization) => {
   if ((await prisma.organizations.count({ where: { email: body.email } }) > 0))
     throw error(400, 'User already created an organization')
   try {
-    const organization = await prisma.organizations.create({
+    const organization = await prisma.organizations.update({
       omit: { organizationId: true, updatedAt: true, id: true },
+      where: { key: body.key },
       data: {
         error: '',
         key: body.key,

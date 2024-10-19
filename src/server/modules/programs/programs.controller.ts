@@ -30,8 +30,9 @@ export const createProgram = async(body: Program) => {
   if((await prisma.programs.count({ where: { email: body.email } }) > 0))
     throw error(400, 'User already created a program')
   try {
-    const program = await prisma.programs.create({
+    const program = await prisma.programs.update({
       omit: { programId: true, updatedAt: true, id:true },
+      where: { key: body.key },
       data: {
         error: '',
         key: body.key,
