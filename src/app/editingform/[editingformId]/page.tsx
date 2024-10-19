@@ -15,8 +15,6 @@ export default function Form({
       {params.editingformId === "organization" && <OrganizationForm />}
       {params.editingformId === "programme" && <ProgrammeForm />}
       {params.editingformId === "gifted" && <GiftedForm />}
-
-      <Link href={"/editingform"}>Go back to editing form page</Link>
     </div>
   );
 }

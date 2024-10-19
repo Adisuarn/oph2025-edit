@@ -31,7 +31,12 @@ export default {
         },
         'oldyGoldy': '#E5A827',
         'cream': '#F7EFC2',
-        'redWine': '#A72305'
+        'redWine': '#A72305',
+        'greenText': '#0C453E',
+        'buttonMiddle': '#15786C',
+        'buttonFirst': '#ADDB64',
+        'heroFirst': '#ADDB64',
+        'heroMiddle': '#15786C'
       },
     },
   },

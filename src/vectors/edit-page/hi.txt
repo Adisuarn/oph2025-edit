@@ -11,8 +11,6 @@ import Lamp from "@/vectors/Lamp";
 import BackArrow from "@/vectors/edit-page/BackArrow";
 import GalleryIcon from "@/vectors/edit-page/GalleryIcon";
 import { FaPen } from "react-icons/fa";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-
 //import Tower from "@/vectors/Tower";
 //import TextError from '../FormControl/TextError';
 
@@ -20,8 +18,6 @@ const initialValues = {
   textField1: "Last year info",
   textField2: "Your description here",
   textField3: "Cristiano Ronaldo",
-  textField4: "Your description here",
-  textField5: "Your description here",
 };
 
 const validationSchema = Yup.object({
@@ -73,25 +69,23 @@ const ProgrammeForm: React.FC<{}> = () => {
 
   return (
     <main className="mx-10 mt-16">
-      <section className="flex flex-col items-start space-y-3 font-sansThai">
+      <section className="flex w-screen flex-col items-start space-y-3 font-sansThai">
         <div className="flex items-center justify-center space-x-1">
-          <Link href='/account'><BackArrow className="h-5 w-5 sm:h-8 sm:w-8 md:h-12 md:w-12" /></Link>
-          <Link href='/account' className="text-greenText text-xs font-inter sm:text-lg md:text-2xl">ย้อนกลับ</Link>
+          <BackArrow className="h-5 w-5" />
+          <p className="text-greenText text-xs">ย้อนกลับ</p>
         </div>
         <div>
-            <div className="flex justify-between">
-            <p className="text-greenText font-inter text-xs sm:text-lg md:text-2xl">
-              สถานะ : approved
-            </p>
-            <div className="flex space-x-4">
-              <Link href='/preview/oranization' className="text-greenText border-greenText hover:bg-greenText rounded-full border px-4 text-xs transition-all hover:text-white md:text-md">
-              preview
-              </Link>
+          <div className="flex w-screen justify-between">
+            <p className="text-greenText text-xs">สถานะ : approved</p>
+            <div className="flex space-x-3">
+              <button className="text-greenText border-greenText hover:bg-greenText rounded-full border px-4 text-xs transition-all hover:text-white">
+                preview
+              </button>
               <button className="from-buttonFirst via-buttonMiddle to-greenText rounded-full border bg-gradient-to-r px-4 text-xs font-extralight text-white">
-              ส่งการแก้ไข
+                ส่งการแก้ไข
               </button>
             </div>
-            </div>
+          </div>
         </div>
       </section>
 
@@ -151,7 +145,8 @@ const ProgrammeForm: React.FC<{}> = () => {
                             <GalleryIcon />
                           </div>
                           <input
-                            name="uploadeImage1"
+                            name="uploadeImage"
+                            id="dropzone-file"
                             type="file"
                             className="hidden"
                             onChange={handleFileSelect}
@@ -159,9 +154,9 @@ const ProgrammeForm: React.FC<{}> = () => {
                         </label>
                       </div>
                     )}
-                    <div className="flex justify-center items-center">
+                    <div className="flex">
                       <p className="text-xs font-normal">คำอธิบายใต้รูปภาพ</p>
-                      <FaPen className="h-2" />
+                      <FaPen className="h-2"/>
                     </div>
                   </div>
                 </div>
@@ -172,39 +167,44 @@ const ProgrammeForm: React.FC<{}> = () => {
                 />
                 <ErrorMessage name="textField1" />
               </div>
+            </Form>
+          )}
+        </Formik>
+      </section>
 
+      <section>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
               <div className="flex flex-col p-4">
-                <div className="flex justify-between sm:justify-around items-center space-x-2">
-                  <div className="flex flex-col justify-center items-center">
+                <div className="flex justify-between">
+                  <div className="flex flex-col items-center">
                     {displayImage ? (
-                      <div>
-                        <input
-                            name="uploadeImage2"
-                            type="file"
-                            className="hidden"
-                            onChange={handleFileSelect}
-                          />
-                        <Image
+                      <Image
                         className="mb-3"
                         src={imageUrl || ""}
-                        alt="photo2"
+                        alt="photo1"
                         width={100}
                         height={100}
                         style={{
-                          width: "12rem",
-                          height: "7rem",
+                          width: "8rem",
+                          height: "6rem",
                           borderRadius: "1rem",
                         }}
                       />
-                      </div> 
                     ) : (
-                      <div className=" flex w-full items-center justify-center">
-                        <label className="flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
+                      <div className="mb-3 flex w-full items-center justify-center">
+                        <label className="flex h-24 w-32 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon />
                           </div>
                           <input
-                            name="uploadeImage2"
+                            name="uploadeImage"
+                            id="dropzone-file"
                             type="file"
                             className="hidden"
                             onChange={handleFileSelect}
@@ -212,32 +212,48 @@ const ProgrammeForm: React.FC<{}> = () => {
                         </label>
                       </div>
                     )}
-                    <div className="flex justify-center items-center mb-3">
-                      <p className="text-xs font-normal text-greenText sm:text-sm md:text-lg">คำอธิบายใต้รูปภาพ</p>
-                      <FaPen className="h-2 text-greenText" />
+                    <div className="flex">
+                      <p className="text-xs font-normal">คำอธิบายใต้รูปภาพ</p>
+                      <FaPen className="h-2"/>
                     </div>
                   </div>
-                  <div className="from-heroMiddle to-greenText inline-block bg-gradient-to-b bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
-                    <p>วิชา/</p>
-                    <p>หลักสูตรเพิ่มเติม</p>
-                    <p>ที่เรียน</p>
-                  </div>
+                  <label
+                    htmlFor="textField1"
+                    className="from-heroMiddle to-greenText inline-block bg-gradient-to-b bg-clip-text text-xl font-bold text-transparent"
+                  >
+                    วิชา /<br />
+                    หลักสูตรเพิ่มเติม
+                    <br />
+                    ที่เรียน
+                  </label>
                 </div>
                 <Field
                   type="text"
-                  name="textField2"
-                  className="text-greenText border-greenText rounded-xl border pb-28 pl-3 pt-3 shadow-lg text-xs sm:text-lg md:text-xl"
+                  name="textField1"
+                  className="border-greenText rounded-xl border pb-28 pl-3 pt-3 shadow-lg"
                 />
-                <ErrorMessage name="textField2" className="text-red-300" />
+                <ErrorMessage name="textField1" />
               </div>
+            </Form>
+          )}
+        </Formik>
+      </section>
 
+      <section>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
               <div className="flex flex-col p-4">
                 <div className="flex justify-between">
                   <label
-                    htmlFor="textField3"
+                    htmlFor="textField1"
                     className="from-heroMiddle to-greenText inline-block bg-gradient-to-b bg-clip-text text-xl font-bold text-transparent"
                   >
-                    ความน่าสนใจ /<br />
+                    ความน่าสนใจ <br />
                     ของ
                     <br />
                     สายการเรียน
@@ -263,7 +279,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                             <GalleryIcon />
                           </div>
                           <input
-                            name="uploadeImage3"
+                            name="uploadeImage"
                             id="dropzone-file"
                             type="file"
                             className="hidden"
@@ -272,88 +288,27 @@ const ProgrammeForm: React.FC<{}> = () => {
                         </label>
                       </div>
                     )}
-                    <div className="flex justify-center items-center">
+                    <div className="flex">
                       <p className="text-xs font-normal">คำอธิบายใต้รูปภาพ</p>
-                      <FaPen className="h-2" />
+                      <FaPen className="h-2"/>
                     </div>
                   </div>
                 </div>
                 <Field
                   type="text"
-                  name="textField3"
+                  name="textField1"
                   className="border-greenText rounded-xl border pb-28 pl-3 pt-3 shadow-lg"
                 />
-                <ErrorMessage name="textField3" />
-              </div>
-
-              <div className="flex items-center justify-center space-x-4 mb-4">
-                <p className="from-heroMiddle to-greenText inline-block bg-gradient-to-b bg-clip-text text-center text-xl font-bold text-transparent">
-                  รีวิวจากรุ่นพี่
-                </p>
-                <AiOutlineInfoCircle className="text-greenText" />
-              </div>
-
-              <div className="flex justify-center mb-4 space-x-2">
-                <div className="flex flex-col">
-                  <div className="mb-3 flex w-full items-center justify-center">
-                    <label className="flex h-24 w-32 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
-                      <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                        <GalleryIcon />
-                      </div>
-                      <input
-                        name="uploadeImage4"
-                        id="dropzone-file"
-                        type="file"
-                        className="hidden"
-                        onChange={handleFileSelect}
-                      />
-                    </label>
-                  </div>
-                  <p className="text-greenText">ชื่อ</p>
-                  <p className="text-heroMiddle">เตรียมอุดม</p>
-                  <p className="text-heroMiddle">ช่องทาการติดตาม</p>
-                </div>
-                <Field
-                  type="text"
-                  name="textField4"
-                  className="border-greenText rounded-xl border pb-28 pl-3 pt-3 shadow-lg"
-                />
-                <ErrorMessage name="textField4" />
-              </div>
-
-              <div className="flex justify-center mb-4 space-x-2">
-              <Field
-                  type="text"
-                  name="textField5"
-                  className="border-greenText rounded-xl border pb-28 pl-3 pt-3 shadow-lg"
-                />
-                <ErrorMessage name="textField5" />
-                <div className="flex flex-col">
-                  <div className="mb-3 flex w-full items-center justify-center">
-                    <label className="flex h-24 w-32 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
-                      <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                        <GalleryIcon />
-                      </div>
-                      <input
-                        name="uploadeImage5"
-                        id="dropzone-file"
-                        type="file"
-                        className="hidden"
-                        onChange={handleFileSelect}
-                      />
-                    </label>
-                  </div>
-                  <p className="text-greenText">ชื่อ</p>
-                  <p className="text-heroMiddle">เตรียมอุดม</p>
-                  <p className="text-heroMiddle">ช่องทาการติดตาม</p>
-                </div>
+                <ErrorMessage name="textField1" />
               </div>
             </Form>
           )}
         </Formik>
       </section>
 
-      <section></section>
+      <section>
+        <div>1</div>
+      </section>
     </main>
   );
 };
