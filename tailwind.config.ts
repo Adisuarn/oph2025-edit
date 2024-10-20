@@ -36,8 +36,18 @@ export default {
         'buttonMiddle': '#15786C',
         'buttonFirst': '#ADDB64',
         'heroFirst': '#ADDB64',
-        'heroMiddle': '#15786C'
+        'heroMiddle': '#15786C',
+        'gray': '#D9D9D9'
       },
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(101deg, #0C453E -1.64%, #15786C 55.02%, #ADDB64 128.53%)',
+        'custom-gradient-inverse': 'linear-gradient(101deg, #ADDB64 -1.64%, #15786C 55.02%, #0C453E 128.53%)',
+      },
+      transitionProperty: {
+        'width': 'width',
+        'spacnig': 'margin, padding',
+        'transform': 'transform',
+      }
     },
   },
   plugins: [],

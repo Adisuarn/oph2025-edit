@@ -27,13 +27,12 @@ export interface GiftedData {
 }
 
 export const createGifted = async (body: Gifted) => {
-  if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
-    throw error(400, "User already created an organization");
-
+  // if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
+  //   throw error(400, "User already created an organization");
   try {
-    const gifted = await prisma.gifted.update({
+    const gifted = await prisma.gifted.create({
       omit: { giftedId: true, updatedAt: true, id: true },
-      where: { key: body.key },
+      //where: { key: body.key },
       data: {
         error: "",
         key: body.key,
@@ -54,13 +53,13 @@ export const createGifted = async (body: Gifted) => {
         descimg3: "",
       },
     });
-    await prisma.user.update({
-      where: { email: body.email },
-      data: {
-        tag: body.tag,
-        key: body.key,
-      },
-    });
+    // await prisma.user.update({
+    //   where: { email: body.email },
+    //   data: {
+    //     tag: body.tag,
+    //     key: body.key,
+    //   },
+    // });
     return {
       success: true,
       message: "Creating gifted successful",
@@ -91,7 +90,7 @@ export const updateGiftedData = async (
   try {
     const updatedGifted = await prisma.gifted.update({
       omit: { giftedId: true, createdAt: true, id: true },
-      where: { name: name },
+      where: { key: name },
       data: {
         name: body.name,
         thainame: body.thainame,

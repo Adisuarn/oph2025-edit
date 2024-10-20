@@ -30,9 +30,9 @@ export const createProgram = async(body: Program) => {
   if((await prisma.programs.count({ where: { email: body.email } }) > 0))
     throw error(400, 'User already created a program')
   try {
-    const program = await prisma.programs.update({
+    const program = await prisma.programs.create({
       omit: { programId: true, updatedAt: true, id:true },
-      where: { key: body.key },
+      //where: { key: body.key },
       data: {
         error: '',
         key: body.key,
@@ -53,13 +53,13 @@ export const createProgram = async(body: Program) => {
         descimg3: '',
       }
     })
-    await prisma.user.update({
-      where: { email: body.email },
-      data: {
-        tag: body.tag,
-        key: body.key,
-      }
-    })
+    // await prisma.user.update({
+    //   where: { email: body.email },
+    //   data: {
+    //     tag: body.tag,
+    //     key: body.key,
+    //   }
+    // })
     return { success: true, message: 'Creating program successfully', data: program }
   } catch (err) {
     throw error(500, 'Error while creating program')

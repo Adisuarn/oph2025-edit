@@ -27,12 +27,12 @@ export interface OrganizationData {
 }
 
 export const createOrganization = async (body: Organization) => {
-  if ((await prisma.organizations.count({ where: { email: body.email } }) > 0))
-    throw error(400, 'User already created an organization')
+  // if ((await prisma.organizations.count({ where: { email: body.email } }) > 0))
+  //   throw error(400, 'User already created an organization')
   try {
-    const organization = await prisma.organizations.update({
+    const organization = await prisma.organizations.create({
       omit: { organizationId: true, updatedAt: true, id: true },
-      where: { key: body.key },
+      //where: { key: body.key },
       data: {
         error: '',
         key: body.key,
@@ -53,13 +53,13 @@ export const createOrganization = async (body: Organization) => {
         descimg3: '',
       }
     })
-    await prisma.user.update({
-      where: { email: body.email },
-      data: {
-        tag: body.tag,
-        key: body.key,
-      }
-    })
+    // await prisma.user.update({
+    //   where: { email: body.email },
+    //   data: {
+    //     tag: body.tag,
+    //     key: body.key,
+    //   }
+    // })
     return { success: true, message: 'Creating organization successfully', data: organization }
   } catch (err) {
     throw error(500, 'Error while creating organization')

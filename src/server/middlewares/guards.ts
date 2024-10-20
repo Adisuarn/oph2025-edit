@@ -8,10 +8,7 @@ import { getUser } from "./derive";
 export const pipe = (condition: "OR" | "AND" = "AND", guards: ((...args: any[]) => Promise<{ status: number, message: string } | true>)[], headers?: Headers) => {
   const checkInstance = async (...args: unknown[]): Promise<void> => {
     const result = await Promise.all(guards.map((guard) => {
-      if (((guard === IS_VERIFIED) || (guard === IS_AUTHENTICATED)) && headers) {
-        return guard(headers);
-      }
-      return guard(...args);
+      return guard(headers, ...args);
     }));
     let allowed = true;
     switch (condition) {
@@ -52,8 +49,8 @@ export const IS_AUTHENTICATED = async (headers: Headers) => {
 }
 
 export const IS_TUCMC = async (headers: Headers) => {
-  const userData = (await getUser(headers)).data
-  if (userData?.TUCMC) return true
+  const user = await getUser(headers)
+  if(user?.data?.TUCMC) return true
   else return { status: 401, message: 'Not TUCMC' }
 }
 

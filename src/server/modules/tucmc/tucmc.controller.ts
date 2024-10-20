@@ -113,19 +113,19 @@ export const getAllData = async () => {
     gifted: []
   }
   try {
-    const programs = await prisma.programs.findMany({ select: { key: true, thainame: true, status: true } })
+    const programs = await prisma.programs.findMany({ select: { key: true, tag:true, thainame: true, status: true } })
     for (const program of programs) {
       data.programs.push({ ...program })
     }
-    const gifted = await prisma.gifted.findMany({ select: { key: true, thainame: true, status: true } })
+    const gifted = await prisma.gifted.findMany({ select: { key: true, tag:true, thainame: true, status: true } })
     for (const gift of gifted) {
       data.gifted.push({ ...gift })
     }
-    const clubs = await prisma.clubs.findMany({ select: { key: true, thainame: true, status: true } })
+    const clubs = await prisma.clubs.findMany({ select: { key: true, tag:true, thainame: true, status: true } })
     for (const club of clubs) {
       data.clubs.push({ ...club })
     }
-    const organizations = await prisma.organizations.findMany({ select: { key: true, thainame: true, status: true } })
+    const organizations = await prisma.organizations.findMany({ select: { key: true, tag:true, thainame: true, status: true } })
     for (const organization of organizations) {
       data.organizations.push({ ...organization })
     }

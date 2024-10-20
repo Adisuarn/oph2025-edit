@@ -28,12 +28,12 @@ export interface ClubData {
 }
 
 export const createClub = async (body: Club) => {
-  if ((await prisma.clubs.count({ where: { email: body.email } }) > 0)) 
-    throw error(400, 'User already created a club')
+  // if ((await prisma.clubs.count({ where: { email: body.email } }) > 0)) 
+  //   throw error(400, 'User already created a club')
   try {
-    const club = await prisma.clubs.update({
+    const club = await prisma.clubs.create({
       omit: { clubId: true, updatedAt: true, id: true },
-      where: { key: body.key },
+      //where: { key: body.key },
       data: {
         error: '',
         key: body.key,
@@ -56,13 +56,13 @@ export const createClub = async (body: Club) => {
         logo: '',
       }
     })
-    await prisma.user.update({
-      where: { email: body.email },
-      data: {
-        tag: body.tag,
-        key: body.key,
-      }
-    })
+    // await prisma.user.update({
+    //   where: { email: body.email },
+    //   data: {
+    //     tag: body.tag,
+    //     key: body.key,
+    //   }
+    // })
     return { success: true, message: "Created club successfully", data: club }
   } catch (err) {
     throw error(500, 'Error while creating club')
