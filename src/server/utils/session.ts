@@ -3,8 +3,8 @@ import { lucia } from "@libs/auth";
 import { cache } from "react";
 import { error } from 'elysia' 
 
-export const checkSession = cache(async() => {
-  const sessionId = cookies().get(lucia.sessionCookieName)?.value
+export const checkSession = cache(async(headers: Headers) => {
+  const sessionId = cookies().get(lucia.sessionCookieName) ? cookies().get(lucia.sessionCookieName)?.value : headers.get('Authorization')
   if(!sessionId) return { success: false, error: 'Not found session cookie' }
   try {
     const { session, user } = await lucia.validateSession(sessionId)

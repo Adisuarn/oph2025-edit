@@ -1,9 +1,10 @@
 "use client";
 
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "Formik";
 import * as Yup from "yup";
 import { getUser } from '@/server/middlewares/derive'
 import { redirect } from 'next/navigation'
+import { AllData } from "@/libs/data";
 
 //   const user = await getUser()
 //   if(!user.success){
@@ -11,49 +12,53 @@ import { redirect } from 'next/navigation'
 //   }
 
 //   const data = user.data
+const programes = AllData.Programs;
+const clubs = AllData.Clubs;
+const gifted = AllData.Gifted;
+const organizations = AllData.Organizations;
 
 const FormikControl =  () => {
 
   const radioOptions = [
-    { key: "สายการเรียน", value: "rOption1" },
-    { key: "ชมรม", value: "rOption2" },
-    { key: "โครงการพัฒนาความสามารถ", value: "rOption3" },
-    { key: "องค์กรนักเรียน", value: "rOption4" },
+    { key: "สายการเรียน", value: "สายการเรียน" },
+    { key: "ชมรม", value: "ชมรม" },
+    { key: "โครงการพัฒนาความสามารถ", value: "โครงการพัฒนาความสามารถ" },
+    { key: "องค์กรนักเรียน", value: "องค์กรนักเรียน" },
   ];
 
   const getSelectOptions = (radioOption: string) => {
     switch (radioOption) {
-      case "rOption1":
+      case "สายการเรียน":
         return [
           { key: "กรุณาเลือก", value: "" },
-          { key: "วิทยาศาสตร์-คณิตศาสตร์", value: "Option1sP" },
-          { key: "ภาษา-คณิตศาสตร์", value: "Option2sP" },
-          { key: "ภาษา-ภาษาฝรั่งเศส", value: "Option3sP" },
-          { key: "ภาษา-ภาษาเยอรมัน", value: "Option4sP" },
-          { key: "ภาษา-ภาษาญี่ปุ่น", value: "Option5sP" },
-          { key: "ภาษา-ภาษาจีน", value: "Option6sP" },
-          { key: "ภาษา-ภาษาสเปน", value: "Option7sP" },
-          { key: "ภาษา-ภาษาเกาหลี", value: "Option8sP" },
+          ...Object.entries(programes).map(([code, name]) => ({
+            key: name,
+            value: code,
+          })),
         ];
-      case "rOption2":
+      case "ชมรม":
         return [
           { key: "กรุณาเลือก", value: "" },
-          { key: "ชมรม", value: "Option1sC" },
+          ...Object.entries(clubs).map(([code, name]) => ({
+            key: name,
+            value: code,
+          })),
         ];
-      case "rOption3":
+      case "โครงการพัฒนาความสามารถ":
         return [
           { key: "กรุณาเลือก", value: "" },
-          { key: "โครงการพัฒนาความสามารถพิเศษด้านคณิตศาสตร์", value: "Option1sG" },
-          { key: "โครงการพัฒนาความสามารถพิเศษด้านวิทยาศาสตร์", value: "Option2sG" },
-          { key: "โครงการพัฒนาความสามารถพิเศษด้านภาษาอังกฤษ", value: "Option3sG" },
-          { key: "โครงการพัฒนาความสามารถพิเศษด้านภาษาไทย", value: "Option4sG" },
+          ...Object.entries(gifted).map(([code, name]) => ({
+            key: name,
+            value: code,
+          })),
         ];
-      case "rOption4":
+      case "องค์กรนักเรียน":
         return [
           { key: "กรุณาเลือก", value: "" },
-          { key: "คณะกรรมการนักเรียน", value: "Option1sO" },
-          { key: "นักเรียนผู้ช่วยงานประชาสัมพันธ์ (ปชส.)", value: "cOption2sO" },
-          { key: "กลุ่มนักเรียน AIC (กอ.)", value: "cOption3sO" },
+          ...Object.entries(organizations).map(([code, name]) => ({
+            key: name,
+            value: code,
+          })),
         ];
       default:
         return [{ key: "กรุณาเลือก", value: "" }];
@@ -68,6 +73,7 @@ const FormikControl =  () => {
   const onSubmit = (values: { radioOptions: string; clubOptions: string }) => {
     console.log(values)
   };
+
   return (
     <Formik
       initialValues={{ radioOptions: "", clubOptions: "" }}

@@ -1,21 +1,37 @@
-﻿import { Elysia, t } from "elysia";
+﻿import { Elysia, t, error } from "elysia";
 import { AllData } from "@libs/data";
-
+import { prisma } from "@utils/db";
 import { UnionField, StringField } from "@utils/validate";
-
+import { ReviewData } from "@utils/type";
 import { getUser, getGifted } from "@middlewares/derive";
 
 import {
   getGiftedByName,
   updateGiftedData,
-  getReviews,
-  createReview,
-  updateReview,
-  deleteReview,
+  getGiftedReviews,
+  createGiftedReview,
+  updateGiftedReview,
+  deleteGiftedReview,
 } from "@modules/gifted/gifted.controller";
 
 
 export const giftedRouter = new Elysia({ prefix: "/gifted" })
+  .guard({
+    async beforeHandle({ request: { headers } }) {
+      const userData = (await getUser(headers)).data;
+      const organization = await prisma.gifted.findUnique({
+        where: { email: userData?.email },
+        select: { name: true },
+      });
+      const name = organization?.name;
+      if (!name) return error(404, "Organization Not Found");
+      if (typeof name !== "string")
+        return error(400, "Invalid Organization Name");
+      const organizationData = (await getGifted(name)).data;
+      if (!userData?.TUCMC && userData?.email !== organizationData.email)
+        return error(401, "Unauthorized");
+    },
+  })
   .get(
     "/:name",
     async ({ params: { name } }) => {
@@ -33,8 +49,8 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
   )
   .patch(
     "/:name",
-    async ({ params: { name }, body }) => {
-      return await updateGiftedData(name, body);
+    async ({ params: { name }, body, request: { headers } }) => {
+      return await updateGiftedData(name, body, headers);
     },
     {
       params: t.Object({
@@ -45,28 +61,29 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
         ),
       }),
       body: t.Object({
-        name: t.String(),
-        thainame: t.String(),
-        members: t.String(),
-        ig: t.String(),
-        fb: t.String(),
-        others: t.String(),
-        admissions: t.String(),
-        courses: t.String(),
-        interests: t.String(),
-        captureimg1: t.File(),
-        descimg1: t.String(),
-        captureimg2: t.File(),
-        descimg2: t.String(),
-        captureimg3: t.File(),
-        descimg3: t.String(),
+        error: StringField(false, "Invalid Error"),
+        name: StringField(true, "Invalid Name"),
+        thainame: StringField(true, "Invalid Thai Name"),
+        members: StringField(true, "Invalid Member"),
+        ig: StringField(true, "Invalid Instagram"),
+        fb: StringField(true, "Invalid Facebook"),
+        others: StringField(true, "Invalid Others"),
+        admissions: StringField(true, "Invalid Admissions"),
+        courses: StringField(true, "Invalid Courses"),
+        interests: StringField(true, "Invalid Interests"),
+        captureimg1: t.File({ error() { return  "Invalid Capture Image" } }),
+        descimg1: StringField(true, "Invalid Description Image"),
+        captureimg2: t.File({ error() { return "Invalid Capture Image" } }),
+        descimg2: StringField(true, "Invalid Description Image"),
+        captureimg3: t.File({ error() { return "Invalid Capture Image" } }),
+        descimg3: StringField(true, "Invalid Description Image"),
       }),
     },
   )
   .get(
     "/:name/review",
     async ({ params: { name } }) => {
-      return await getReviews(name);
+      return await getGiftedReviews(name);
     },
     {
       params: t.Object({
@@ -81,7 +98,7 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .post(
     "/:name/review",
     async ({ params: { name }, set }) => {
-      const response = await createReview(name);
+      const response = await createGiftedReview(name);
       if (response?.success) {
         set.status = 201;
         return response;
@@ -100,7 +117,7 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .patch(
     "/:name/review/:id",
     async ({ params: { name, id }, body }) => {
-      return await updateReview(name, id, body);
+      return await updateGiftedReview(name, id, body as ReviewData);
     },
     {
       params: t.Object({
@@ -112,19 +129,19 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
         id: StringField(true, "Invalid Review ID"),
       }),
       body: t.Object({
-        profile: t.File(),
-        name: t.String(),
-        nick: t.String(),
-        gen: t.String(),
-        contact: t.String(),
-        content: t.String(),
+        profile: t.Optional(t.File({ error() { return "Invalid Profile" } })),
+        name: StringField(true, "Invalid Name"),
+        nick: StringField(true, "Invalid Nickname"),
+        gen: StringField(true, "Invalid Generation"),
+        contact: StringField(true, "Invalid Contact"),
+        content: StringField(true, "Invalid Content"),
       }),
     },
   )
   .delete(
     "/:name/review/:id",
     async ({ params: { name, id } }) => {
-      return await deleteReview(name, id);
+      return await deleteGiftedReview(name, id);
     },
     {
       params: t.Object({

@@ -1,11 +1,13 @@
 ﻿import { prisma } from "@utils/db";
 import { uploadImage } from "@utils/uploadimg";
 import { AllData } from "@libs/data";
-import { getGifted } from "@middlewares/derive";
+import { getGifted, getUser } from "@middlewares/derive";
 import type { Gifted } from "@utils/type";
 import { error } from "elysia";
+import { ReviewData, Status } from "@utils/type";
 
-interface GiftedData {
+export interface GiftedData {
+  error: string;
   name: string;
   thainame: string;
   status?: string;
@@ -24,23 +26,15 @@ interface GiftedData {
   descimg3: string;
 }
 
-interface reviewData {
-    profile: File,
-    name: string,
-    nick: string,
-    gen: string,
-    contact: string,
-    content: string,
-}
-
 export const createGifted = async (body: Gifted) => {
-  if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
-    throw error(400, "User already created an organization");
-
+  // if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
+  //   throw error(400, "User already created an organization");
   try {
     const gifted = await prisma.gifted.create({
-      omit: { giftedId: true, updatedAt: true },
+      omit: { giftedId: true, updatedAt: true, id: true },
+      //where: { key: body.key },
       data: {
+        error: "",
         key: body.key,
         email: body.email,
         name: body.key,
@@ -59,13 +53,13 @@ export const createGifted = async (body: Gifted) => {
         descimg3: "",
       },
     });
-    await prisma.user.update({
-      where: { email: body.email },
-      data: {
-        tag: body.tag,
-        key: body.key,
-      },
-    });
+    // await prisma.user.update({
+    //   where: { email: body.email },
+    //   data: {
+    //     tag: body.tag,
+    //     key: body.key,
+    //   },
+    // });
     return {
       success: true,
       message: "Creating gifted successful",
@@ -79,20 +73,24 @@ export const createGifted = async (body: Gifted) => {
 export const getGiftedByName = async (name: Gifted["key"]) => {
   const giftedData = (await getGifted(name)).data;
   try {
-    return { success: false };
+    return { success: false, message: 'Getting gifted successfully', data: giftedData };
   } catch (err) {
-    throw error(500, "Error while getting gifted");
+    throw error(500, "Error while getting gifted")
   }
 };
 
 export const updateGiftedData = async (
   name: keyof typeof AllData.Gifted,
   body: GiftedData,
+  headers: Headers,
 ) => {
+  const giftedData = (await getGifted(name)).data
+  const userData = (await getUser(headers)).data
+  if(giftedData.status === 'approved') throw error(400, 'Gifted already approved')
   try {
     const updatedGifted = await prisma.gifted.update({
-      omit: { giftedId: true, createdAt: true },
-      where: { name: name },
+      omit: { giftedId: true, createdAt: true, id: true },
+      where: { key: name },
       data: {
         name: body.name,
         thainame: body.thainame,
@@ -104,14 +102,15 @@ export const updateGiftedData = async (
         admissions: body.admissions,
         courses: body.courses,
         interests: body.interests,
-        captureimg1: await uploadImage(body.captureimg1),
+        captureimg1: (!body.captureimg1 === undefined ) ? await uploadImage(body.captureimg1) : giftedData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: await uploadImage(body.captureimg2),
+        captureimg2: (!body.captureimg2 === undefined ) ? await uploadImage(body.captureimg2) : giftedData.captureimg2,
         descimg2: body.descimg2,
-        captureimg3: await uploadImage(body.captureimg3),
+        captureimg3: (!body.captureimg3 === undefined ) ? await uploadImage(body.captureimg3) : giftedData.captureimg3,
         descimg3: body.descimg3,
       },
     });
+    if(userData?.email === giftedData.email) await prisma.gifted.update({ where: { key: name}, data: { status: Status.PENDING }}) 
     return {
       success: true,
       message: "Updating gifted data successfully",
@@ -122,7 +121,7 @@ export const updateGiftedData = async (
   }
 };
 
-export const getReviews = async (name: keyof typeof AllData.Gifted) => {
+export const getGiftedReviews = async (name: keyof typeof AllData.Gifted) => {
   const giftedData = (await getGifted(name)).data;
   try {
     const reviewData = await prisma.reviews.findMany({
@@ -139,7 +138,7 @@ export const getReviews = async (name: keyof typeof AllData.Gifted) => {
   }
 };
 
-export const createReview = async (name: keyof typeof AllData.Gifted) => {
+export const createGiftedReview = async (name: keyof typeof AllData.Gifted) => {
   const giftedData = (await getGifted(name)).data;
   if (
     (await prisma.reviews.count({
@@ -149,7 +148,7 @@ export const createReview = async (name: keyof typeof AllData.Gifted) => {
     throw error(400, "Review reachs limit");
   try {
     const review = await prisma.reviews.create({
-      omit: { reviewId: true, updatedAt: true },
+      omit: { reviewId: true, updatedAt: true, id:true },
       data: {
         key: giftedData.key,
         email: giftedData.email,
@@ -176,18 +175,19 @@ export const createReview = async (name: keyof typeof AllData.Gifted) => {
   }
 };
 
-export const updateReview = async (
+export const updateGiftedReview = async (
   name: keyof typeof AllData.Gifted,
   count: string,
-  body: reviewData,
+  body: ReviewData,
 ) => {
   const giftedData = (await getGifted(name)).data;
+  const reviewData = await prisma.reviews.findFirst({ where: { email: giftedData.email, count: count } })
   try {
     const review = await prisma.reviews.update({
-      omit: { reviewId: true, createdAt: true },
+      omit: { reviewId: true, createdAt: true, id:true },
       where: { email: giftedData.email, count: count },
       data: {
-        profile: await uploadImage(body.profile),
+        profile: (!body.profile) ? await uploadImage(body.profile) : reviewData?.profile,
         name: body.name,
         nick: body.nick,
         gen: body.gen,
@@ -205,14 +205,13 @@ export const updateReview = async (
   }
 };
 
-export const deleteReview = async (
+export const deleteGiftedReview = async (
   name: keyof typeof AllData.Gifted,
   id: string,
 ) => {
   const giftedData = (await getGifted(name)).data;
   try {
     await prisma.reviews.update({
-      omit: { reviewId: true },
       where: { email: giftedData.email, count: id },
       data: {
         profile: "",

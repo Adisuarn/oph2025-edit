@@ -12,17 +12,18 @@ from '@/server/utils/validate'
 import {
   getClubByKey,
   updateClubData,
-  getReviews,
-  createReview,
-  updateReview,
-  deleteReview
+  getClubReviews,
+  createClubReview,
+  updateClubReview,
+  deleteClubReview
 }
 from '@modules/clubs/clubs.controller'
+import { ReviewData } from '@/server/utils/type'
 
 export const clubRouter = new Elysia({ prefix: '/clubs' })
   .guard({
-    async beforeHandle() {
-      const userData = (await getUser()).data
+    async beforeHandle({ request: { headers } }) {
+      const userData = (await getUser(headers)).data
       const club = await prisma.clubs.findUnique({
         where: { email: userData?.email },
         select: { key: true }
@@ -41,13 +42,14 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
     })
   })
-  .patch('/:key', async ({ params: { key }, body }) => {
-    return await updateClubData(decodeURIComponent(key) as keyof typeof AllData.Clubs, body)
+  .patch('/:key', async ({ params: { key }, body, request: { headers } }) => {
+    return await updateClubData(decodeURIComponent(key) as keyof typeof AllData.Clubs, body, headers)
   }, {
     params: t.Object({
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
     }),
     body: t.Object({
+      error: StringField(false, 'Invalid Error'),
       name: StringField(true, 'Invalid Name'),
       thainame: StringField(true, 'Invalid Thai Name'),
       members: StringField(true, 'Invalid Member'),
@@ -57,24 +59,24 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
       activities: StringField(true, 'Invalid Activities'),
       benefits: StringField(true, 'Invalid Benefits'),
       working: StringField(true, 'Invalid Working'),
-      captureimg1: t.File(),
+      captureimg1: t.File({ error() { return 'Invalid Capture Image' } }),
       descimg1: StringField(true, 'Invalid Description Image'),
-      captureimg2: t.File(),
+      captureimg2: t.File({ error() { return 'Invalid Capture Image' } }),
       descimg2: StringField(true, 'Invalid Description Image'),
-      captureimg3: t.File(),
+      captureimg3: t.File({ error() { return 'Invalid Capture Image' } }),
       descimg3: StringField(true, 'Invalid Description Image'),
-      logo: t.File()
+      logo: t.File({error() { return 'Invalid Logo' }}),
     })
   })
   .get('/:key/review', async ({ params: { key } }) => {
-    return await getReviews(decodeURIComponent(key) as keyof typeof AllData.Clubs)
+    return await getClubReviews(decodeURIComponent(key) as keyof typeof AllData.Clubs)
   },{
     params: t.Object({
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
     })
   })
   .post('/:key/review', async ({ params: { key }, set }) => {
-    const response = await createReview(decodeURIComponent(key) as keyof typeof AllData.Clubs)
+    const response = await createClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs)
     if (response?.success) {
       set.status = 201
       return response
@@ -85,23 +87,23 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
     })
   })
   .patch('/:key/review/:id', async ({ params: { key, id }, body }) => {
-    return await updateReview(decodeURIComponent(key) as keyof typeof AllData.Clubs, id, body)
+    return await updateClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs, id, body as ReviewData)
   }, {
     params: t.Object({
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs)),
       id: StringField(true, 'Invalid Review ID')
     }),
     body: t.Object({
-      profile: t.File(),
-      name: t.String(),
-      nick: t.String(),
-      gen: t.String(),
-      contact: t.String(),
-      content: t.String(),
+      profile: t.Optional(t.File({ error() { return 'Invalid Profile' } })),
+      name: StringField(true, 'Invalid Name'),
+      nick: StringField(true, 'Invalid Nickname'),
+      gen: StringField(true, 'Invalid Generation'),
+      contact: StringField(true, 'Invalid Contact'),
+      content: StringField(true, 'Invalid Content'),
     })
   })
   .delete('/:key/review/:id', async ({ params: { key, id } }) => {
-    return await deleteReview(decodeURIComponent(key) as keyof typeof AllData.Clubs, id)
+    return await deleteClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs, id)
   },
     {
       params: t.Object({

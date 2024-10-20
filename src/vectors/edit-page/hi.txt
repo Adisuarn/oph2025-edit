@@ -1,0 +1,315 @@
+"use client";
+
+import { Formik, Form, Field, ErrorMessage } from "Formik";
+import * as Yup from "yup";
+import Link from "next/link";
+import { uploadImage } from "@/server/utils/uploadimg";
+import { useState, useEffect } from "react";
+import { objectInputType } from "zod";
+import Image from "next/image";
+import Lamp from "@/vectors/Lamp";
+import BackArrow from "@/vectors/edit-page/BackArrow";
+import GalleryIcon from "@/vectors/edit-page/GalleryIcon";
+import { FaPen } from "react-icons/fa";
+//import Tower from "@/vectors/Tower";
+//import TextError from '../FormControl/TextError';
+
+const initialValues = {
+  textField1: "Last year info",
+  textField2: "Your description here",
+  textField3: "Cristiano Ronaldo",
+};
+
+const validationSchema = Yup.object({
+  textField1: Yup.string().required("Required Description"),
+  textField2: Yup.string().required("Required Description"),
+  textField3: Yup.string().required("Required Description"),
+  textField4: Yup.string().required("Required Description"),
+  textField5: Yup.string().required("Required Description"),
+});
+
+const onSubmit = (
+  values: typeof initialValues,
+  {
+    setSubmitting,
+    resetForm,
+  }: { setSubmitting: (isSubmitting: boolean) => void; resetForm: () => void },
+) => {
+  console.log("Form data", values);
+  setSubmitting(false);
+  resetForm();
+};
+
+const ProgrammeForm: React.FC<{}> = () => {
+  const [image, setImage] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [displayImage, setDisplayImage] = useState<boolean>(false);
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const selectedFile = e.target.files[0];
+
+      if (!selectedFile.type.startsWith("image/")) {
+        alert("Please select a valid image file (png, jpg, jpeg).");
+        return;
+      }
+
+      setImage(selectedFile);
+      setDisplayImage(true);
+    }
+  };
+
+  useEffect(() => {
+    if (image) {
+      const imageUrl = URL.createObjectURL(image);
+      setImageUrl(imageUrl);
+      return () => URL.revokeObjectURL(imageUrl);
+    }
+  }, [image]);
+
+  return (
+    <main className="mx-10 mt-16">
+      <section className="flex w-screen flex-col items-start space-y-3 font-sansThai">
+        <div className="flex items-center justify-center space-x-1">
+          <BackArrow className="h-5 w-5" />
+          <p className="text-greenText text-xs">ย้อนกลับ</p>
+        </div>
+        <div>
+          <div className="flex w-screen justify-between">
+            <p className="text-greenText text-xs">สถานะ : approved</p>
+            <div className="flex space-x-3">
+              <button className="text-greenText border-greenText hover:bg-greenText rounded-full border px-4 text-xs transition-all hover:text-white">
+                preview
+              </button>
+              <button className="from-buttonFirst via-buttonMiddle to-greenText rounded-full border bg-gradient-to-r px-4 text-xs font-extralight text-white">
+                ส่งการแก้ไข
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="from-heroFirst via-heroMiddle to-greenText mt-8 flex h-36 flex-col items-center justify-center space-y-2 rounded-2xl bg-gradient-to-br text-xs text-white shadow-xl">
+        <p className="rounded-full border border-white px-6 py-1">
+          สายการเรียน ภาษา-ภาษาจีน
+        </p>
+        <p>สายการเรียน 80 คน</p>
+        <div>
+          <p>IG</p>
+          <p>FB</p>
+          <p>อื่น ๆ</p>
+        </div>
+      </section>
+
+      <section>
+        <div></div>
+      </section>
+
+      <section>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <div className="flex flex-col p-4">
+                <div className="flex justify-between">
+                  <label
+                    htmlFor="textField1"
+                    className="from-heroMiddle to-greenText inline-block bg-gradient-to-b bg-clip-text text-xl font-bold text-transparent"
+                  >
+                    การรับสมัคร <br />
+                    และ
+                    <br />
+                    การสอบเข้า
+                  </label>
+                  <div className="flex flex-col items-center">
+                    {displayImage ? (
+                      <Image
+                        className="mb-3"
+                        src={imageUrl || ""}
+                        alt="photo1"
+                        width={100}
+                        height={100}
+                        style={{
+                          width: "8rem",
+                          height: "6rem",
+                          borderRadius: "1rem",
+                        }}
+                      />
+                    ) : (
+                      <div className="mb-3 flex w-full items-center justify-center">
+                        <label className="flex h-24 w-32 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
+                          <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                            <GalleryIcon />
+                          </div>
+                          <input
+                            name="uploadeImage"
+                            id="dropzone-file"
+                            type="file"
+                            className="hidden"
+                            onChange={handleFileSelect}
+                          />
+                        </label>
+                      </div>
+                    )}
+                    <div className="flex">
+                      <p className="text-xs font-normal">คำอธิบายใต้รูปภาพ</p>
+                      <FaPen className="h-2"/>
+                    </div>
+                  </div>
+                </div>
+                <Field
+                  type="text"
+                  name="textField1"
+                  className="border-greenText rounded-xl border pb-28 pl-3 pt-3 shadow-lg"
+                />
+                <ErrorMessage name="textField1" />
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </section>
+
+      <section>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <div className="flex flex-col p-4">
+                <div className="flex justify-between">
+                  <div className="flex flex-col items-center">
+                    {displayImage ? (
+                      <Image
+                        className="mb-3"
+                        src={imageUrl || ""}
+                        alt="photo1"
+                        width={100}
+                        height={100}
+                        style={{
+                          width: "8rem",
+                          height: "6rem",
+                          borderRadius: "1rem",
+                        }}
+                      />
+                    ) : (
+                      <div className="mb-3 flex w-full items-center justify-center">
+                        <label className="flex h-24 w-32 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
+                          <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                            <GalleryIcon />
+                          </div>
+                          <input
+                            name="uploadeImage"
+                            id="dropzone-file"
+                            type="file"
+                            className="hidden"
+                            onChange={handleFileSelect}
+                          />
+                        </label>
+                      </div>
+                    )}
+                    <div className="flex">
+                      <p className="text-xs font-normal">คำอธิบายใต้รูปภาพ</p>
+                      <FaPen className="h-2"/>
+                    </div>
+                  </div>
+                  <label
+                    htmlFor="textField1"
+                    className="from-heroMiddle to-greenText inline-block bg-gradient-to-b bg-clip-text text-xl font-bold text-transparent"
+                  >
+                    วิชา /<br />
+                    หลักสูตรเพิ่มเติม
+                    <br />
+                    ที่เรียน
+                  </label>
+                </div>
+                <Field
+                  type="text"
+                  name="textField1"
+                  className="border-greenText rounded-xl border pb-28 pl-3 pt-3 shadow-lg"
+                />
+                <ErrorMessage name="textField1" />
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </section>
+
+      <section>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={onSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <div className="flex flex-col p-4">
+                <div className="flex justify-between">
+                  <label
+                    htmlFor="textField1"
+                    className="from-heroMiddle to-greenText inline-block bg-gradient-to-b bg-clip-text text-xl font-bold text-transparent"
+                  >
+                    ความน่าสนใจ <br />
+                    ของ
+                    <br />
+                    สายการเรียน
+                  </label>
+                  <div className="flex flex-col items-center">
+                    {displayImage ? (
+                      <Image
+                        className="mb-3"
+                        src={imageUrl || ""}
+                        alt="photo1"
+                        width={100}
+                        height={100}
+                        style={{
+                          width: "8rem",
+                          height: "6rem",
+                          borderRadius: "1rem",
+                        }}
+                      />
+                    ) : (
+                      <div className="mb-3 flex w-full items-center justify-center">
+                        <label className="flex h-24 w-32 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
+                          <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                            <GalleryIcon />
+                          </div>
+                          <input
+                            name="uploadeImage"
+                            id="dropzone-file"
+                            type="file"
+                            className="hidden"
+                            onChange={handleFileSelect}
+                          />
+                        </label>
+                      </div>
+                    )}
+                    <div className="flex">
+                      <p className="text-xs font-normal">คำอธิบายใต้รูปภาพ</p>
+                      <FaPen className="h-2"/>
+                    </div>
+                  </div>
+                </div>
+                <Field
+                  type="text"
+                  name="textField1"
+                  className="border-greenText rounded-xl border pb-28 pl-3 pt-3 shadow-lg"
+                />
+                <ErrorMessage name="textField1" />
+              </div>
+            </Form>
+          )}
+        </Formik>
+      </section>
+
+      <section>
+        <div>1</div>
+      </section>
+    </main>
+  );
+};
+export default ProgrammeForm;

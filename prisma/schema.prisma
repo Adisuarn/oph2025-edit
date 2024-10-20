@@ -27,6 +27,8 @@ model Organizations {
   id             String    @id @default(cuid()) @map("_id")
   isAdmin        Boolean   @default(false)
   key            String    @unique
+  tag            String    @default("organization")
+  error          String
   email          String    @unique
   name           String?   @unique
   thainame       String    @unique
@@ -44,7 +46,6 @@ model Organizations {
   descimg2       String?
   captureimg3    String?
   descimg3       String?
-  logo           String?
   reviews        Reviews[]
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
@@ -56,6 +57,8 @@ model Clubs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
   key         String    @unique
+  tag         String    @default("club")
+  error       String
   clubKey     String    @unique
   email       String    @unique
   name        String?   @unique
@@ -86,6 +89,8 @@ model Programs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
   key         String    @unique
+  tag         String    @default("program")
+  error       String
   email       String    @unique
   name        String?   @unique
   thainame    String    @unique
@@ -94,7 +99,7 @@ model Programs {
   ig          String?
   fb          String?
   others      String?
-  admission  String?
+  admissions  String?
   courses    String?
   interests    String?
   captureimg1 String?
@@ -114,6 +119,8 @@ model Gifted {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
   key         String    @unique
+  tag         String    @default("gifted")
+  error       String
   email       String    @unique
   name        String?   @unique
   thainame    String    @unique
