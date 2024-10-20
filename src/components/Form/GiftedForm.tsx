@@ -13,9 +13,12 @@ import GalleryIcon from "@/vectors/edit-page/GalleryIcon";
 import { FaPen } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosInformationCircleOutline } from "react-icons/io";
+import apiFunction from "../api";
 
 //import Tower from "@/vectors/Tower";
 //import TextError from '../FormControl/TextError';
+
+// const user = await apiFunction("GET", "/api/user", "" );
 
 const initialValues = {
   textField1: "Your description here 1",
@@ -28,6 +31,9 @@ const initialValues = {
   photoDescription3: "Your description here 3",
   photoDescription4: "Your description here 4",
   photoDescription5: "Your description here 5",
+  IG: "Your IG here",
+  FB: "Your FB here",
+  others: "Your Others here"
 };
 
 const validationSchema = Yup.object({
@@ -41,6 +47,8 @@ const validationSchema = Yup.object({
   photoDescription3: Yup.string().required("Required Description"),
   photoDescription4: Yup.string().required("Required Description"),
   photoDescription5: Yup.string().required("Required Description"),
+  IG: Yup.string().required("Required Instagram account"),
+  FB: Yup.string().required("Required Facebook account"),
 });
 
 const onSubmit = (
@@ -222,12 +230,12 @@ const ProgrammeForm: React.FC<{}> = () => {
                   <div className="flex space-x-4">
                     <Link
                       href="/preview/oranization"
-                      className="md:text-md rounded-full border border-greenText px-4 text-xs text-greenText transition-all hover:bg-greenText hover:text-white"
+                      className="md:text-md rounded-full border border-greenText px-4 text-xs text-greenText transition-all hover:bg-greenText hover:text-white sm:text-lg"
                     >
                       preview
                     </Link>
                     <button
-                      className="rounded-full border bg-gradient-to-r from-buttonFirst via-buttonMiddle to-greenText px-4 font-Thai text-xs font-extralight text-white"
+                      className="rounded-full border bg-gradient-to-r from-buttonFirst via-buttonMiddle to-greenText px-4 font-Thai text-xs font-extralight text-white sm:text-lg"
                       type="submit"
                     >
                       ส่งการแก้ไข
@@ -237,15 +245,39 @@ const ProgrammeForm: React.FC<{}> = () => {
               </div>
             </section>
 
-            <div className="mt-8 flex h-36 flex-col items-center justify-center space-y-2 rounded-2xl bg-gradient-to-br from-heroFirst via-heroMiddle to-greenText font-Thai text-xs text-white shadow-xl md:mx-auto md:w-3/5">
+            <div className="mt-8 flex h-40 flex-col items-center justify-center space-y-2 rounded-2xl bg-gradient-to-br from-heroFirst via-heroMiddle to-greenText font-Thai text-xs text-white shadow-xl md:mx-auto md:w-3/5">
               <p className="rounded-full border border-white px-6 py-1 text-lg font-extrabold">
                 สายการเรียน ภาษา-ภาษาจีน
               </p>
               <p>สายการเรียน 80 คน</p>
-              <div>
-                <p>IG</p>
-                <p>FB</p>
-                <p>อื่น ๆ</p>
+              <div className="text-start space-y-1">
+                <div className="flex">
+                  <p>IG: </p>
+                <Field
+                  type="text"
+                  name="IG"
+                  className="text-center text-xs text-white bg-transparent"
+                />
+                <FaPen className="h-2 text-white" />
+                </div>
+                <div className="flex">
+                  <p>FB: </p>
+                <Field
+                  type="text"
+                  name="FB"
+                  className="text-center text-xs text-white bg-transparent"
+                />
+                <FaPen className="h-2 text-white" />
+                </div>
+                <div className="flex">
+                  <p>อื่นๆ: </p>
+                <Field
+                  type="text"
+                  name="others"
+                  className="text-center text-xs text-white bg-transparent"
+                />
+                <FaPen className="h-2 text-white" />
+                </div>
               </div>
             </div>
 
@@ -290,7 +322,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                     </div>
                   ) : (
                     <div className="flex w-full items-center justify-center">
-                      <label className="flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
+                      <label className="bg-gray-300 hover:bg-gray-500 flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
                           <GalleryIcon className="h-3 w-3 text-greenText" />
                         </div>
@@ -348,7 +380,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                     </div>
                   ) : (
                     <div className="flex w-full items-center justify-center">
-                      <label className="flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
+                      <label className="bg-gray-300 hover:bg-gray-500 flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
                           <GalleryIcon className="h-3 w-3 text-greenText" />
                         </div>
@@ -434,7 +466,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                     </div>
                   ) : (
                     <div className="flex w-full items-center justify-center">
-                      <label className="flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
+                      <label className="bg-gray-300 hover:bg-gray-500 flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
                           <GalleryIcon className="h-3 w-3 text-greenText" />
                         </div>
@@ -507,7 +539,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                     </div>
                   ) : (
                     <div className="flex w-full items-center justify-center">
-                      <label className="flex h-16 w-16 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
+                      <label className="bg-gray-300 hover:bg-gray-500 flex h-16 w-16 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
                           <UserIcon className="h-3 w-3 text-greenText" />
                         </div>
@@ -521,9 +553,9 @@ const ProgrammeForm: React.FC<{}> = () => {
                   )}
                 </div>
                 <div className="pr-8">
-                  <p className="text-greenText text-lg font-bold">ชื่อ</p>
-                  <p className="text-heroMiddle text-xs">เตรียมอุมดม xx</p>
-                  <p className="text-heroMiddle text-xs">ช่องทางการติดตาม</p>
+                  <p className="text-lg font-bold text-greenText">ชื่อ</p>
+                  <p className="text-xs text-heroMiddle">เตรียมอุมดม xx</p>
+                  <p className="text-xs text-heroMiddle">ช่องทางการติดตาม</p>
                 </div>
               </div>
               <Field
@@ -567,7 +599,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                     </div>
                   ) : (
                     <div className="flex w-full items-center justify-center">
-                      <label className="flex h-16 w-16 cursor-pointer flex-col items-center justify-center rounded-lg border-2 bg-gray-300 hover:bg-gray-500">
+                      <label className="bg-gray-300 hover:bg-gray-500 flex h-16 w-16 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
                           <UserIcon className="h-3 w-3 text-greenText" />
                         </div>
@@ -581,9 +613,9 @@ const ProgrammeForm: React.FC<{}> = () => {
                   )}
                 </div>
                 <div>
-                  <p className="text-greenText text-lg font-bold">ชื่อ</p>
-                  <p className="text-heroMiddle text-xs">เตรียมอุมดม xx</p>
-                  <p className="text-heroMiddle text-xs">ช่องทางการติดตาม</p>
+                  <p className="text-lg font-bold text-greenText">ชื่อ</p>
+                  <p className="text-xs text-heroMiddle">เตรียมอุมดม xx</p>
+                  <p className="text-xs text-heroMiddle">ช่องทางการติดตาม</p>
                 </div>
               </div>
             </div>

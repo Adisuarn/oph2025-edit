@@ -36,7 +36,8 @@ export default {
         'buttonFirst': '#ADDB64',
         'heroFirst': '#ADDB64',
         'heroMiddle': '#15786C',
-        'gray': '#D9D9D9'
+        'gray': '#D9D9D9',
+        'formText': '#141547'
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(101deg, #0C453E -1.64%, #15786C 55.02%, #ADDB64 128.53%)',
@@ -51,3 +52,4 @@ export default {
   },
   plugins: [],
 } satisfies Config;
+

@@ -1,36 +1,59 @@
-import React from 'react'
-import LogoutButton from '@/components/LogoutButton'
-import { getUser } from '@/server/middlewares/derive'
-import { redirect } from 'next/navigation'
+import React from "react";
+import LogoutButton from "@/components/LogoutButton";
+import { getUser } from "@/server/middlewares/derive";
+import { redirect } from "next/navigation";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa6";
-import Link from 'next/link'
-import apiFunction from '@/components/api';
+import Link from "next/link";
+import apiFunction from "@/components/api";
+import Section from "@/vectors/dashboard/Section";
+import { FaPen } from "react-icons/fa";
 
 const AccountPage = async () => {
-  const response = await apiFunction('GET', '/user', {})
-  const data = response.data
-  return (
-    <section className='bg-gradient-to-tl from-blue-500 to-blue-400 text-white flex just w-full h-screen items-center'>
-      <div className='w-full flex justify-center'>
-        <div className='border rounded-md p-10 font-roboto'>
-          <p className='font-semibold text-3xl'>Welcome {data?.name}</p>
-          <p className='font-semibold text-3xl'>Email: {data?.email}</p>
-        <div className='flex justify-around mt-5'>
-          <div>
-            <FaWpforms size={20} className='inline'/>
-            <Link href={'/account/forms'} className='underline cursor-pointer inline'>Go To Form Page</Link>
-          <div>
-            <MdOutlineAccountCircle size={20} className='inline'/>
-            <Link href={'/editingform'} className='underline cursor-pointer inline'>Edit your Form</Link>
-          </div>
-          </div>
-        </div>
-          <LogoutButton />
-        </div>
-      </div>
-    </section>  
-  )
-}
+  const response = await apiFunction("GET", "/user", {});
+  const data = response.data;
 
-export default AccountPage
+  const test = {
+    name: "Ronaldo",
+    key: "gifted",
+    members: 30,
+  };
+
+  const submittedInit = true;
+  const submittedForm = true;
+
+  console.log(data);
+  return (
+    <section className="flex h-screen flex-col items-center justify-center space-y-4 text-formText">
+      {submittedInit ? <p>ข้อมูลหน่วยงาน</p> : <p className="text-xl">ยินดีตอนรับ</p>}
+      <p className="relative -space-y-2 bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
+        {submittedInit ? <>{test.name}</> : <>{data.name}</>}
+      </p>
+      {submittedInit ? <p className="opacity-70">จำนวนสมาชิก {test.members} คน</p> : ''}
+      <Section />
+      {submittedInit ? (
+        <Link href={`/editingform/${test.key}`}>
+          <div className="to-91% flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText px-20 py-2 text-white">
+            <p>แก้ไข</p>
+            <FaPen className="h-3 w-3" />
+          </div>
+        </Link>
+      ) : (
+        <Link href={`/account/forms`}>
+          <div className="to-91% flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText px-20 py-2 text-white">
+            <p>เลือกหน่วยงานที่รับผิดชอบ</p>
+            <FaPen className="h-3 w-3" />
+          </div>
+        </Link>
+      )}
+
+      {submittedForm ? <p>submitted :</p> : <p>สถานะ :</p>}
+      <div>
+        <p className="text-2xl">แก้ไข้ข้อมูลหน่วยงาน</p>
+        <p className="opacity-70">ข้อมูลจะแสดงผลในหน้าเว็บไซต์</p>
+      </div>
+    </section>
+  );
+};
+
+export default AccountPage;
