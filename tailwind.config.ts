@@ -9,10 +9,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        sans: ["Noto Sans Thai"],
         roboto: ["Roboto",],
-        sansThai: ["Noto Sans Thai"],
-        Thai:['Noto Sans Thai'],
+        Thai: ["Noto Sans Thai"],
         inter: ['Inter'],
       },
       backgroundSize: {
