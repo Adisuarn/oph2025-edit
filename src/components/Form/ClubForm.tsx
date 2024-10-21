@@ -12,7 +12,6 @@ import UserIcon from "@/vectors/edit-page/UserIcon";
 import GalleryIcon from "@/vectors/edit-page/GalleryIcon";
 import { FaPen } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { IoIosInformationCircleOutline } from "react-icons/io";
 import apiFunction from "../api";
 
 //import Tower from "@/vectors/Tower";
@@ -311,13 +310,13 @@ const ProgrammeForm: React.FC<{}> = () => {
                 </div>
 
                 <div className="flex flex-col items-center justify-center md:space-y-4">
-                  <p className="rounded-full border border-white px-6 py-1 text-xs font-extrabold sm:text-lg md:text-2xl">
+                  <p className="rounded-full border border-white px-4 py-1 text-xs font-extrabold sm:text-lg md:text-2xl">
                     ชมรมแซลมอนเลิฟเวอร์
                   </p>
                   <p className="opacity-70 md:text-md">ชมรม 80 คน</p>
                   <div className="space-y-1 text-start">
                     <div className="flex">
-                      <p className="sm:text-md text-xs md:text-lg md:mr-2">IG: </p>
+                      <p className="sm:text-md text-xs md:text-lg md:mr-2">IG : </p>
                       <Field
                         type="text"
                         name="IG"
@@ -326,7 +325,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                       <FaPen className="h-2 text-white" />
                     </div>
                     <div className="flex">
-                      <p className="sm:text-md md:text-lg text-xs md:mr-2">FB: </p>
+                      <p className="sm:text-md md:text-lg text-xs md:mr-2">FB : </p>
                       <Field
                         type="text"
                         name="FB"
@@ -335,7 +334,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                       <FaPen className="h-2 text-white" />
                     </div>
                     <div className="flex">
-                      <p className="sm:text-md md:text-lg pr-2 text-xs md:mr-2">อื่น ๆ: </p>
+                      <p className="sm:text-md md:text-lg pr-2 text-xs md:mr-2">อื่น ๆ : </p>
                       <Field
                         type="text"
                         name="others"
@@ -353,17 +352,8 @@ const ProgrammeForm: React.FC<{}> = () => {
             <div className="flex flex-col p-4 md:mt-4">
               <div className="flex items-start sm:items-center md:flex-col justify-between space-x-2 sm:justify-around">
                 <div className="relative -space-y-2 sm:space-y-0 bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
-                  <p className="text-xl sm:text-2xl md:text-4xl">ชมรมนี้</p>
+                  <p className="text-xl sm:text-2xl md:text-4xl leading-10">ชมรมนี้</p>
                   <p className="text-xl sm:text-2xl md:text-4xl">ทำอะไร</p>
-                  <IoIosInformationCircleOutline
-                    className="mt-3 h-3 w-3 text-greenText md:h-6 md:w-6"
-                    onClick={() => setShowTooltip1(!showTooltip1)}
-                  />
-                  {showTooltip2 && (
-                    <div className="absolute bottom-0 z-10 rounded-md bg-grumpyGreen-700 px-2 py-1 text-xs text-white shadow-lg">
-                      Hello World
-                    </div>
-                  )}
                 </div>
                 <div className="flex flex-col items-center justify-center">
                   {displayImage1 ? (
@@ -390,7 +380,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                     <div className="flex w-full items-center justify-center">
                         <label className="flex h-28 w-48 md:h-[20vw] md:w-[60vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9]">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                          <GalleryIcon className="h-3 w-3 text-greenText" />
+                          <GalleryIcon className="sm:h-5 sm:w-5 text-greenText" />
                         </div>
                         <input
                           type="file"
@@ -410,12 +400,13 @@ const ProgrammeForm: React.FC<{}> = () => {
                   </div>
                 </div>
               </div>
+              <div className="w-full flex justify-center">
               <Field
                 type="text"
                 name="textField1"
                 className="rounded-xl border md:h-[20vw] md:w-[60vw] md:border-none border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
               />
-              <ErrorMessage name="textField1" className="text-red-300" />
+              <ErrorMessage name="textField1" className="text-red-300" /></div>
             </div>
 
             {/* section2 */}
@@ -472,15 +463,6 @@ const ProgrammeForm: React.FC<{}> = () => {
                   <p className="text-2xl sm:mb-0">ประโยชน์</p>
                   <p className="text-sm sm:text-2xl">ที่ได้รับ</p>
                   <p className="text-xs sm:text-2xl">จากการเข้าชมรม</p>
-                  <IoIosInformationCircleOutline
-                    className="h-3 w-3 text-greenText md:h-6 md:w-6"
-                    onClick={() => setShowTooltip2(!showTooltip2)}
-                  />
-                  {showTooltip2 && (
-                    <div className="absolute bottom-0 z-10 rounded-md bg-grumpyGreen-700 px-2 py-1 text-xs text-white shadow-lg">
-                      Hello World
-                    </div>
-                  )}
                 </div>
               </div>
               <Field
@@ -498,15 +480,6 @@ const ProgrammeForm: React.FC<{}> = () => {
                 <div className="relative inline-block -space-y-2 sm:space-y-0 bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
                   <p className="text-2xl sm:text-2xl">ผลงาน</p>
                   <p className="text-sm sm:text-2xl">ของชมรม</p>
-                  <IoIosInformationCircleOutline
-                    className="h-3 w-3 space-y-2 text-greenText md:h-6 md:w-6"
-                    onClick={() => setShowTooltip3(!showTooltip3)}
-                  />
-                  {showTooltip3 && (
-                    <div className="absolute bottom-0 z-10 rounded-md bg-grumpyGreen-700 px-2 py-1 text-xs text-white shadow-lg">
-                      Hello World
-                    </div>
-                  )}
                 </div>
                 <div className="flex flex-col items-center justify-center">
                   {displayImage3 ? (
@@ -558,24 +531,15 @@ const ProgrammeForm: React.FC<{}> = () => {
                 name="textField3"
                 className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
               />
-              <ErrorMessage name="textField3" className="text-red-300" />
+              <ErrorMessage name="textField3" component="div" className="text-red-600" />
             </div>
 
             {/* end section3 */}
 
             <div className="mb-4 flex items-center justify-center space-x-4">
-              <p className="inline-block bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl">
+              <p className="inline-block bg-gradient-to-b leading-10 from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl">
                 รีวิวจากรุ่นพี่
               </p>
-              <AiOutlineInfoCircle
-                className="text-greenText"
-                onClick={() => setShowTooltipP(!showTooltipP)}
-              />
-              {showTooltipP && (
-                <div className="absolute bottom-0 z-10 rounded-md bg-grumpyGreen-700 px-2 py-1 text-xs text-white shadow-lg">
-                  Hello World
-                </div>
-              )}
             </div>
 
             <section className="flex flex-col space-y-4">

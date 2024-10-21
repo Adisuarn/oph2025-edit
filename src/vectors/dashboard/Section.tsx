@@ -7,6 +7,7 @@ const Section: FC<{
     <svg
       width="616"
       height="89"
+      className={`${className}`}
       viewBox="0 0 616 89"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

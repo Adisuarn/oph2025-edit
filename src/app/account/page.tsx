@@ -8,9 +8,13 @@ import Link from "next/link";
 import apiFunction from "@/components/api";
 import Section from "@/vectors/dashboard/Section";
 import { FaPen } from "react-icons/fa";
+import { useState } from "react";
+
 
 const AccountPage = async () => {
   const response = await apiFunction("GET", "/user", {});
+  const clubResponse = await apiFunction("GET", "/clubs/ก30927", {})
+  console.log(clubResponse)
   const data = response.data;
 
   const test = {
@@ -19,7 +23,10 @@ const AccountPage = async () => {
     members: 30,
   };
 
-  const submittedInit = true;
+  const tag = data.tag 
+  const key = data.key
+
+  const submittedInit = (tag === "" || tag === null || tag === undefined ) ? true : true;
   const submittedForm = false;
   const checked = true;
   const passed = true;
@@ -30,10 +37,10 @@ const AccountPage = async () => {
       {submittedInit ? (
         <p>ข้อมูลหน่วยงาน</p>
       ) : (
-        <p className="text-xl">ยินดีตอนรับ</p>
+        <p className="text-xl">ยินดีต้อนรับ</p>
       )}
       <p className="relative -space-y-2 bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
-        {submittedInit ? <>{test.name}</> : <>{data.name}</>}
+        {submittedInit ? <>{key}</> : <>{data.name}</>}
       </p>
       {submittedInit ? (
         <p className="opacity-70">จำนวนสมาชิก {test.members} คน</p>
@@ -43,14 +50,14 @@ const AccountPage = async () => {
       <Section />
       {submittedInit ? (
         <Link href={`/editingform/${test.key}`}>
-          <div className="to-91% flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText px-20 py-2 text-white">
+          <div className="to-91% flex items-center justify-center space-x-2 rounded-full transition-all duration-500 bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText bg-size-200 bg-pos-0 hover:bg-pos-100 px-20 py-2 text-white">
             <p>แก้ไข</p>
             <FaPen className="h-3 w-3" />
           </div>
         </Link>
       ) : (
         <Link href={`/account/forms`}>
-          <div className="to-91% flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText px-20 py-2 text-white">
+          <div className="to-91% flex items-center justify-center space-x-2 rounded-full transition-all duration-500 bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText bg-size-200 bg-pos-0 hover:bg-pos-100 px-20 py-2 text-white">
             <p>เลือกหน่วยงานที่รับผิดชอบ</p>
             <FaPen className="h-3 w-3" />
           </div>

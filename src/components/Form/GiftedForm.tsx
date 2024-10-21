@@ -13,12 +13,11 @@ import GalleryIcon from "@/vectors/edit-page/GalleryIcon";
 import { FaPen } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosInformationCircleOutline } from "react-icons/io";
-import apiFunction from "../api";
+// import apiFunction from "../api";
+// import { useRouter } from "next/router";
 
-//import Tower from "@/vectors/Tower";
-//import TextError from '../FormControl/TextError';
 
-// const user = await apiFunction("GET", "/api/user", "" );
+//const Router = useRouter();
 
 const initialValues = {
   textField1: "Your description here 1",
@@ -51,7 +50,7 @@ const validationSchema = Yup.object({
   FB: Yup.string().required("Required Facebook account"),
 });
 
-const onSubmit = (
+const onSubmit = async (
   values: typeof initialValues,
   {
     setSubmitting,
@@ -61,12 +60,16 @@ const onSubmit = (
   const userConfirmed = window.confirm("ยืนยันการส่งข้อมูลหรือไม่?");
 
   if (userConfirmed) {
-    console.log("Form data", values);
-    setSubmitting(false);
-    resetForm();
-  } else {
-    setSubmitting(false);
-  }
+      try {
+        // await apiFunction("POST", "path", {
+        //   textField1: values.textField1,
+        // })
+        //Router.push("/account")
+        console.log(values)
+      } catch (error) {
+        console.error("Error updating status:", error)
+      }
+    };
 };
 
 const ProgrammeForm: React.FC<{}> = () => {
@@ -237,6 +240,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                     <button
                       className="rounded-full border bg-gradient-to-r from-buttonFirst via-buttonMiddle to-greenText px-4 font-Thai text-xs font-extralight text-white sm:text-lg"
                       type="submit"
+                      disabled={isSubmitting}
                     >
                       ส่งการแก้ไข
                     </button>

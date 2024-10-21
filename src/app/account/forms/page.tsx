@@ -2,9 +2,16 @@
 
 import { Formik, Form, Field, ErrorMessage } from "Formik";
 import * as Yup from "yup";
-import { getUser } from '@/server/middlewares/derive'
-import { redirect } from 'next/navigation'
+import { getUser } from "@/server/middlewares/derive";
+import { redirect } from "next/navigation";
 import { AllData } from "@/libs/data";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import FlowerVase from "@/vectors/forms/FlowerVase";
+import Table from "@/vectors/forms/Table";
+import BigLamp from "@/vectors/forms/BigLamp";
+import FormLeft from "@/vectors/forms/FormLeft";
+// import apiFunction from "@/components/api";
 
 //   const user = await getUser()
 //   if(!user.success){
@@ -17,8 +24,9 @@ const clubs = AllData.Clubs;
 const gifted = AllData.Gifted;
 const organizations = AllData.Organizations;
 
-const FormikControl =  () => {
+// const Router = useRouter()
 
+const FormikControl: React.FC = () => {
   const radioOptions = [
     { key: "สายการเรียน", value: "สายการเรียน" },
     { key: "ชมรม", value: "ชมรม" },
@@ -70,56 +78,88 @@ const FormikControl =  () => {
     clubOptions: Yup.string().required("Please select an option"),
   });
 
-  const onSubmit = (values: { radioOptions: string; clubOptions: string }) => {
-    console.log(values)
+  const onSubmit = async (values: {
+    radioOptions: string;
+    clubOptions: string;
+  }) => {
+    console.log(values);
+    // try {
+    //   await apiFunction("POST", "path", {
+    //     status: values.radioOptions,
+    //     club: values.clubOptions,
+    //   })
+    //   Router.push("/account")
+    // } catch (error) {
+    //   console.error("Error updating status:", error)
+    // }
   };
 
   return (
-    <Formik
-      initialValues={{ radioOptions: "", clubOptions: "" }}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {({ values, setFieldValue }) => (
-        <Form className="flex flex-col bg-blue-100 justify-center items-center py-8 space-y-4">
-          <p>Hello </p>
+    <main className="flex h-screen items-center justify-center bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">
+      <div className="absolute -left-20 bottom-0 z-40 sm:-left-10">
+        <FormLeft className="h-screen" />
+      </div>
+      <div className="absolute bottom-0 right-0 z-20">
+        <BigLamp className="" />
+      </div>
+      <Formik
+        initialValues={{ radioOptions: "", clubOptions: "" }}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {({ values, setFieldValue }) => (
+          <Form>
+            <div className="flex flex-col items-center justify-center">
+              <p>Hello </p>
 
-          {radioOptions.map((option) => (
-            <div key={option.value}>
-              <Field
-                type="radio"
-                id={option.value}
+              {radioOptions.map((option) => (
+                <div key={option.value}>
+                  <Field
+                    type="radio"
+                    id={option.value}
+                    name="radioOptions"
+                    value={option.value}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      setFieldValue("radioOptions", e.target.value);
+                      setFieldValue("clubOptions", ""); // Reset select when radio changes
+                    }}
+                  />
+                  <label htmlFor={option.value}>{option.key}</label>
+                </div>
+              ))}
+
+              <Field as="select" name="clubOptions" className="form-select">
+                {getSelectOptions(values.radioOptions).map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.key}
+                  </option>
+                ))}
+              </Field>
+
+              <ErrorMessage
                 name="radioOptions"
-                value={option.value}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setFieldValue("radioOptions", e.target.value);
-                  setFieldValue("clubOptions", ""); // Reset select when radio changes
-                }}
+                component="div"
+                className="text-red-500"
               />
-              <label htmlFor={option.value}>{option.key}</label>
+              <ErrorMessage
+                name="clubOptions"
+                component="div"
+                className="text-red-500"
+              />
+
+              <button
+                className="rounded-lg bg-orange-400 px-4 py-2 transition-all hover:-translate-y-2 hover:bg-purple-400 hover:text-white"
+                type="submit"
+              >
+                Submit
+              </button>
             </div>
-          ))}
-
-          <Field as="select" name="clubOptions" className="form-select">
-            {getSelectOptions(values.radioOptions).map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.key}
-              </option>
-            ))}
-          </Field>
-
-          <ErrorMessage name="radioOptions" component="div" className="text-red-500" />
-          <ErrorMessage name="clubOptions" component="div" className="text-red-500" />
-
-          <button
-            className="bg-orange-400 rounded-lg py-2 px-4 transition-all hover:bg-purple-400 hover:text-white hover:-translate-y-2"
-            type="submit"
-          >
-            Submit
-          </button>
-        </Form>
-      )}
-    </Formik>
+          </Form>
+        )}
+      </Formik>
+      <div className="absolute bottom-0 h-44 w-screen bg-[#ECF5C8]"></div>
+      <div className="absolute bottom-36 z-10 h-2 w-screen bg-[#6AB692]"></div>
+    </main>
   );
 };
 
