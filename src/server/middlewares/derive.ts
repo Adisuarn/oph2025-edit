@@ -49,6 +49,6 @@ export const getGifted = cache(async (name: string) => {
     omit: { giftedId: true, id: true },
     where: { key: name}
   })
-  if (!gifted) throw error(404, 'Organization not found')
+  if (!gifted) throw error(404, 'Gifted not found')
   return { success: true, data: gifted}
 })

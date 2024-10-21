@@ -19,14 +19,14 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .guard({
     async beforeHandle({ request: { headers } }) {
       const userData = (await getUser(headers)).data;
-      const organization = await prisma.gifted.findUnique({
+      const gifted = await prisma.gifted.findUnique({
         where: { email: userData?.email },
-        select: { name: true },
+        select: { key: true },
       });
-      const name = organization?.name;
-      if (!name) return error(404, "Organization Not Found");
+      const name = gifted?.key;
+      if (!name) return error(404, "Gifted Not Found");
       if (typeof name !== "string")
-        return error(400, "Invalid Organization Name");
+        return error(400, "Invalid Gifted Name");
       const organizationData = (await getGifted(name)).data;
       if (!userData?.TUCMC && userData?.email !== organizationData.email)
         return error(401, "Unauthorized");

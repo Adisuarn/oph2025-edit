@@ -27,9 +27,9 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
       const userData = (await getUser(headers)).data
       const organization = await prisma.organizations.findUnique({
         where: { email: userData?.email },
-        select: { name: true }
+        select: { key: true }
       })
-      const name = organization?.name
+      const name = organization?.key
       if (!name) return error(404, 'Organization Not Found')
       if (typeof name !== 'string') return error(400, 'Invalid Organization Name')
       const organizationData = (await getOrganization(name)).data

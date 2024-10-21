@@ -27,7 +27,7 @@ model Organizations {
   id             String    @id @default(cuid()) @map("_id")
   isAdmin        Boolean   @default(false)
   key            String    @unique
-  tag            String    @default("organization")
+  tag            String    @default("organizations")
   error          String
   email          String    @unique
   name           String?   @unique
@@ -57,7 +57,7 @@ model Clubs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
   key         String    @unique
-  tag         String    @default("club")
+  tag         String    @default("clubs")
   error       String
   clubKey     String    @unique
   email       String    @unique
@@ -89,7 +89,7 @@ model Programs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
   key         String    @unique
-  tag         String    @default("program")
+  tag         String    @default("programs")
   error       String
   email       String    @unique
   name        String?   @unique

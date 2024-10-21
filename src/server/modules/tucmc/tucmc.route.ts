@@ -33,19 +33,19 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
   })
   .patch('/data/:tag/:key/edit', async ({ params: { tag,key }, body, request: { headers } }) => {
     switch (tag) {
-      case 'club':
+      case Tag.CLUB:
         const updatedClub = await updateClubData(decodeURIComponent(key) as keyof typeof AllData.Clubs, body as ClubData, headers)
         const err1 = await updateError(tag, decodeURIComponent(key) as keyof typeof AllData.Clubs, body as ClubData['error'])
         return { updatedClub, err1 }
-      case 'organization':
+      case Tag.ORGANIZATION:
         const updatedOrganization = await updateOrganizationData(key as keyof typeof AllData.Organizations, body as OrganizationData, headers)
         const err2 = await updateError(tag, key as keyof typeof AllData.Organizations, body as OrganizationData['error'])
         return { updatedOrganization, err2 }
-      case 'program':
+      case Tag.PROGRAM:
         const updatedProgram = await updateProgramData(key as keyof typeof AllData.Programs, body as ProgramData, headers)
         const err3 = await updateError(tag, key as keyof typeof AllData.Programs, body as ProgramData['error'])
         return { updatedProgram, err3 }
-      case 'gifted':
+      case Tag.GIFTED:
         const updatedGifted = await updateGiftedData(key as keyof typeof AllData.Gifted, body as GiftedData, headers)
         const err4 = await updateError(tag, key as keyof typeof AllData.Gifted, body as GiftedData['error'])
         return { updatedGifted, err4 }
@@ -60,13 +60,13 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
   })
   .patch('/data/:tag/:key/review/:id', async ({ params: { tag, key, id }, body }) => {
     switch (tag){
-      case 'club':
+      case Tag.CLUB:
         return await updateClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs, id, body as ReviewData)
-      case 'organization':
+      case Tag.ORGANIZATION:
         return await updateOrganizationReview(key as keyof typeof AllData.Organizations, id, body as ReviewData)
-      case 'program':
+      case Tag.PROGRAM:
         return await updateProgramReview(key as keyof typeof AllData.Programs, id, body as ReviewData)
-      case 'gifted':
+      case Tag.GIFTED:
         return await updateGiftedReview(key as keyof typeof AllData.Gifted, id, body as ReviewData)
       default:
         throw error(400, 'Invalid tag')

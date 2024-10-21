@@ -36,6 +36,7 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
     }
   })
   .get('/:key', async ({ params: { key } }) => {
+    console.log(decodeURIComponent(key))
     return (await getClubByKey(decodeURIComponent(key) as keyof typeof AllData.Clubs))
   }, {
     params: t.Object({

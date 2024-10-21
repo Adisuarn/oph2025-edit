@@ -21,25 +21,25 @@ import {
 export const updateStatus = async (tag: Tag, key: string, status: Status) => {
   try {
     switch (tag) {
-      case 'club':
+      case Tag.CLUB:
         await prisma.clubs.update({
           where: { key },
           data: { status: status }
         })
         return { success: true, message: `Updating status: ${status} successfully` }
-      case 'organization':
+      case Tag.ORGANIZATION:
         await prisma.organizations.update({
           where: { key },
           data: { status: status }
         })
         return { success: true, message: `Updating status: ${status} successfully` }
-      case 'program':
+      case Tag.PROGRAM:
         await prisma.programs.update({
           where: { key },
           data: { status: status }
         })
         return { success: true, message: `Updating status: ${status} successfully` }
-      case 'gifted':
+      case Tag.GIFTED:
         await prisma.gifted.update({
           where: { key },
           data: { status: status }
@@ -139,28 +139,28 @@ export const getDataByKey = async (tag: string, key: string) => {
   let data: any
   try {
     switch (tag) {
-      case 'club':
+      case Tag.CLUB:
         data = await prisma.clubs.findUnique({
           omit: { clubId: true, id: true },
           where: { key }
         })
         data.reviews = await getClubReviews(key as keyof typeof AllData.Clubs)
         break
-      case 'organization':
+      case Tag.ORGANIZATION:
         data = await prisma.organizations.findUnique({
           omit: { organizationId: true, id: true },
           where: { key }
         })
         data.reviews = await getOrganizationReviews(key as keyof typeof AllData.Organizations)
         break
-      case 'program':
+      case Tag.PROGRAM:
         data = await prisma.programs.findUnique({
           omit: { programId: true, id: true },
           where: { key }
         })
         data.reviews = await getProgramReviews(key as keyof typeof AllData.Programs)
         break
-      case 'gifted':
+      case Tag.GIFTED:
         data = await prisma.gifted.findUnique({
           omit: { giftedId: true, id: true },
           where: { key }
@@ -179,25 +179,25 @@ export const getDataByKey = async (tag: string, key: string) => {
 export const updateError = async (tag: Tag, key: string, body: any) => {
   try {
     switch (tag) {
-      case 'club':
+      case Tag.CLUB:
         await prisma.clubs.update({
           where: { key },
           data: { error: body.error }
         })
         return { success: true, message: `Updating error: ${body.error} successfully` }
-      case 'organization':
+      case Tag.ORGANIZATION:
         await prisma.organizations.update({
           where: { key },
           data: { error: body.error }
         })
         return { success: true, message: `Updating error: ${body.error} successfully` }
-      case 'program':
+      case Tag.PROGRAM:
         await prisma.programs.update({
           where: { key },
           data: { error: body.error }
         })
         return { success: true, message: `Updating error: ${body.error} successfully` }
-      case 'gifted':
+      case Tag.GIFTED:
         await prisma.gifted.update({
           where: { key },
           data: { error: body.error }

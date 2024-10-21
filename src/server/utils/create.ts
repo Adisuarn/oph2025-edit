@@ -3,6 +3,7 @@ import { createGifted } from "@modules/gifted/gifted.controller";
 import { createProgram } from "@modules/programs/programs.controller";
 import { createClub } from "@modules/clubs/clubs.controller";
 import { AllData } from "@libs/data";
+import { Tag } from "@utils/type";
 
 export const createEverything = async () => {
   const createdOrganizations = await Promise.all(
@@ -10,7 +11,7 @@ export const createEverything = async () => {
       const organization = await createOrganization({
         email: "",
         key: key as keyof typeof AllData.Organizations,
-        tag: "organization",
+        tag: Tag.ORGANIZATION,
       });
       return organization.data.thainame;
     })
@@ -20,7 +21,7 @@ export const createEverything = async () => {
       const club = await createClub({
         email: "",
         key: key as keyof typeof AllData.Clubs,
-        tag: "club",
+        tag: Tag.CLUB,
       });
       return club.data.thainame;
     })
@@ -30,7 +31,7 @@ export const createEverything = async () => {
       const program = await createProgram({
         email: "",
         key: key as keyof typeof AllData.Programs,
-        tag: "program",
+        tag: Tag.PROGRAM,
       });
       return program.data.thainame;
     })
@@ -40,7 +41,7 @@ export const createEverything = async () => {
       const gifted = await createGifted({
         email: "",
         key: key as keyof typeof AllData.Gifted,
-        tag: "gifted",
+        tag: Tag.GIFTED,
       });
       return gifted.data.thainame;
     })

@@ -28,9 +28,9 @@ export const programRouter = new Elysia({ prefix: '/programs' })
       const userData = (await getUser(headers)).data
       const program  = await prisma.programs.findUnique({
         where: { email: userData?.email },
-        select: { name: true }
+        select: { key: true }
       })
-      const name = program?.name
+      const name = program?.key
       if (!name) return error(404, 'Program Not Found')
       if (typeof name !== 'string') return error(400, 'Invalid Program Name')
       const programData = (await getProgram(name)).data
