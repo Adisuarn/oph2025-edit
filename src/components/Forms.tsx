@@ -12,13 +12,6 @@ import { log } from "console";
 import postInfo from "./Forms.action";
 import { Tag } from "@utils/type"
 
-//   const user = await getUser()
-//   if(!user.success){
-//     redirect('/')
-//   }
-
-//   const data = user.data
-
 type FormProps = {
   dataRecord: any;
 };
@@ -31,7 +24,6 @@ const organizations = AllData.Organizations;
 
 const Forms: React.FC<FormProps> = ({dataRecord}) => {
   const Router = useRouter()
-  const [data, setData] = useState('')
 
   const tagOptions = [
     { key: "สายการเรียน", value: Tag.PROGRAM },
@@ -91,21 +83,14 @@ const Forms: React.FC<FormProps> = ({dataRecord}) => {
     try {
       dataRecord.tag = values.tagOptions
       dataRecord.key = values.keyOptions
-      setData(dataRecord)
+      await postInfo(dataRecord)
+      Router.push('/account')
     } catch (error) {
       console.log(error)
-    } finally {
-      Router.push('/account')
     }
   };
-  
-  useEffect(() => {
-    const postData = async () => {
-      await postInfo(data)
-    }
-    postData()
-  }, [data])
 
+  
   return (
     <main className="flex h-screen items-center justify-center bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">
       <div className="absolute -left-20 bottom-0 z-40 sm:-left-10">

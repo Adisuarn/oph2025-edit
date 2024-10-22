@@ -1,9 +1,10 @@
 import Link from "next/link";
 import ClubForm from "@/components/Form/ClubForm";
 import OrganizationForm from "@/components/Form/OrganizationForm";
-import ProgrammeForm from "@/components/Form/ProgrammeForm";
+import ProgrameForm from "@/components/Form/ProgrameForm";
 import GiftedForm from "@/components/Form/GiftedForm";
 import apiFunction from "@/components/api";
+import { Status, Tag } from "@/server/utils/type";
 
 export default async function Form({
   params,
@@ -17,10 +18,10 @@ export default async function Form({
 
   return (
     <div>
-      {params.editingformId === "clubs" && <ClubForm key={key} />}
-      {params.editingformId === "organization" && <OrganizationForm key={key} />}
-      {params.editingformId === "programme" && <ProgrammeForm key={key} />}
-      {params.editingformId === "gifted" && <GiftedForm key={key} />}
+      {params.editingformId === Tag.CLUB && <ClubForm key={key} />}
+      {params.editingformId === Tag.ORGANIZATION && <OrganizationForm key={key} />}
+      {params.editingformId === Tag.PROGRAM && <ProgrameForm key={key} />}
+      {params.editingformId === Tag.GIFTED && <GiftedForm key={key} />}
     </div>
   );
 }

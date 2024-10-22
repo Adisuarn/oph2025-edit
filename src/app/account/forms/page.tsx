@@ -5,11 +5,10 @@ import Forms from "@/components/Forms"
 const FormikControl: React.FC = async () => {
 
   const response = await apiFunction("GET", "/user", {});
-  const data = response.data;
   let dataRecord = {
-    email: data.email,
-    tag: "",
-    key: ""
+    email: response.data.email,
+    tag: '',
+    key: ''
   }
 
   return (

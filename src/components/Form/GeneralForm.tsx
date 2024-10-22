@@ -29,8 +29,10 @@ const validationSchema = Yup.object({
   photoDescription3: Yup.string().required("Required Description"),
   photoDescription4: Yup.string().required("Required Description"),
   photoDescription5: Yup.string().required("Required Description"),
+  Members: Yup.string().required("Required Members"),
   IG: Yup.string().required("Required Instagram account"),
   FB: Yup.string().required("Required Facebook account"),
+  others: Yup.string().required("Required Others"),
 });
 
 const onSubmit = async (
@@ -55,7 +57,14 @@ const onSubmit = async (
   }
 };
 
-const GeneralForm: React.FC<{ name: string, status:string, members:string, ig:string, fb:string  }> = ({ name, status, members, ig, fb} ) => {
+const GeneralForm: React.FC<{
+  name: string;
+  status: string;
+  members: string;
+  ig: string;
+  fb: string;
+  others: string;
+}> = ({ name, status, members, ig, fb, others }) => {
   const [image1, setImage1] = useState<File | null>(null);
   const [imageUrl1, setImageUrl1] = useState<string | null>(null);
   const [displayImage1, setDisplayImage1] = useState<boolean>(false);
@@ -196,12 +205,15 @@ const GeneralForm: React.FC<{ name: string, status:string, members:string, ig:st
           photoDescription3: "Your description here 3",
           photoDescription4: "Your description here 4",
           photoDescription5: "Your description here 5",
-          IG: {ig},
-          FB: "Your FB here",
-          others: "Your Others here",
+          Members: members,
+          IG: ig,
+          FB: fb,
+          others: others,
         }}
         validationSchema={validationSchema}
-        onSubmit={onSubmit}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout;
+        }}
       >
         {({ isSubmitting }) => (
           <Form>
@@ -219,7 +231,7 @@ const GeneralForm: React.FC<{ name: string, status:string, members:string, ig:st
               </div>
               <div>
                 <div className="flex w-[80vw] justify-between">
-                  {status ? '' : ''}
+                  {status ? "" : ""}
                   <div className="flex space-x-4">
                     <Link
                       href="/preview/oranization"
@@ -250,6 +262,7 @@ const GeneralForm: React.FC<{ name: string, status:string, members:string, ig:st
                     <p>IG: </p>
                     <Field
                       type="text"
+                      placeholder="type your ig here"
                       name="IG"
                       className="sm:text-md bg-transparent text-center text-xs text-white"
                     />
@@ -278,7 +291,7 @@ const GeneralForm: React.FC<{ name: string, status:string, members:string, ig:st
             </div>
 
             {/* section1 */}
-            <div className="mt-3 flex flex-col sm:mt-5 md:mt-8 mb-14 md:mb-20">
+            <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
               <div className="flex flex-col items-start justify-between sm:flex-row">
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                   <p className="sm:text-3xl md:text-4xl lg:text-5xl">
@@ -346,7 +359,7 @@ const GeneralForm: React.FC<{ name: string, status:string, members:string, ig:st
               />
             </div>
             {/* section 2 */}
-            <div className="mt-3 flex flex-col sm:mt-5 md:mt-8 mb-14 md:mb-20">
+            <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
               <div className="flex flex-col items-start justify-between sm:flex-row">
                 <div className="sm:w-[50vw] md:w-[60vw]">
                   {displayImage1 ? (
@@ -410,7 +423,7 @@ const GeneralForm: React.FC<{ name: string, status:string, members:string, ig:st
               />
             </div>
             {/* section 3 */}
-            <div className="mt-3 flex flex-col sm:mt-5 md:mt-8 mb-14 md:mb-20">
+            <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
               <div className="flex flex-col items-start justify-between sm:flex-row">
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                   <p className="sm:text-3xl md:text-4xl lg:text-5xl">
@@ -487,7 +500,7 @@ const GeneralForm: React.FC<{ name: string, status:string, members:string, ig:st
               </p>
             </div>
 
-            <section className="flex flex-col md:space-y-4 sm:h-[40vh] sm:justify-around md:h-[60vh]">
+            <section className="flex flex-col sm:h-[40vh] sm:justify-around md:h-[60vh] md:space-y-4">
               <div className="flex w-full items-center justify-around">
                 <div className="flex flex-col">
                   <div className="flex flex-col items-center justify-center">

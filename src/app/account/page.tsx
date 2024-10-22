@@ -15,23 +15,14 @@ import { tucmcRouter } from "@/server/modules/tucmc/tucmc.route";
 const AccountPage = async () => {
   const userResponse = await apiFunction("GET", "/user", {});
   const userData = userResponse.data;
+  if(userData.tag === "") redirect('/account/forms')
   const userForm = await apiFunction("GET", `/${userData.tag}/${userData.key}/`, {});
-
   console.log(userForm)
 
-  const test = {
-    name: "ชมรมไพ่เพื่อการเรียนรู้",
-    key: "gifted",
-    members: 30,
-  };
-
-  const tag = userData.tag
-  const key = userData.key
-
-  const submittedInit = (tag === "" || tag === null || tag === undefined ) ? false : true;
-  const submittedForm = (userForm.status === "" || userForm.status === null || userForm.status === undefined ) ? true : false;
-  const checked = (userForm.status = Status.PENDING) ? false : true;
-  const passed = (userForm.status = Status.APPROVED) ? true : false;
+  const submittedInit = (userData.tag === "" || userData.tag === null || userData.tag === undefined ) ? false : true;
+  const submittedForm = (userForm.data.data.sendForm) ? true : false;
+  const checked = (userForm.data.data.status = Status.PENDING) ? false : true;
+  const passed = (userForm.data.data.status = Status.APPROVED) ? true : false;
 
   return (
     <section className="flex h-screen flex-col items-center justify-center sm:space-y-4 text-formText">
@@ -41,16 +32,16 @@ const AccountPage = async () => {
         <p className="text-xs sm:text-lg mb-2 sm:mb-0">ยินดีต้อนรับ</p>
       )}
       <p className="relative -space-y-2 bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
-        {submittedInit ? <>Ronaldo is the GOAT</> : <>{userData.name}</>}
+        {submittedInit ? <>{userForm.data.data.thainame}</> : <>{userData.name}</>}
       </p>
       {submittedInit ? (
-        <p className="opacity-70">จำนวนสมาชิก {test.members} คน</p>
+        <p className="opacity-70">จำนวนสมาชิก {userForm.data.data.members} คน</p>
       ) : (
         ""
       )}
       <Section className="w-[80vw] sm:w-full" />
       {submittedInit ? (
-        <Link href={`/editingform/${test.key}`}>
+        <Link href={`/editingform/${userData.tag}`}>
           <div className="to-91% flex items-center justify-center space-x-2 rounded-full transition-all duration-500 bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText bg-size-200 bg-pos-0 hover:bg-pos-100 px-8 sm:px-20 py-1 sm:py-2 text-white">
             <p>แก้ไข</p>
             <FaPen className="h-2 w-2 sm:h-3 sm:w-3" />
