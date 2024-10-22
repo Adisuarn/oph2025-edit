@@ -32,7 +32,11 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
       if (!key) return error(404, 'Club Not Found')
       if (typeof key !== 'string') return error(400, 'Invalid Club Key')
       const clubData = (await getClub(key)).data
-      if (!userData?.TUCMC || (userData?.email !== clubData.email)) return error(401, 'Unauthorized')
+      if(userData?.TUCMC === true) {
+        return
+      } else if (userData?.email !== clubData.email) {
+        return error(401, 'Unauthorized')
+      }
     }
   })
   .get('/:key', async ({ params: { key } }) => {
