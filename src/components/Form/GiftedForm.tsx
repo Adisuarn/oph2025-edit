@@ -16,7 +16,6 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 // import apiFunction from "../api";
 // import { useRouter } from "next/router";
 
-
 //const Router = useRouter();
 
 const initialValues = {
@@ -32,7 +31,7 @@ const initialValues = {
   photoDescription5: "Your description here 5",
   IG: "Your IG here",
   FB: "Your FB here",
-  others: "Your Others here"
+  others: "Your Others here",
 };
 
 const validationSchema = Yup.object({
@@ -60,19 +59,19 @@ const onSubmit = async (
   const userConfirmed = window.confirm("ยืนยันการส่งข้อมูลหรือไม่?");
 
   if (userConfirmed) {
-      try {
-        // await apiFunction("POST", "path", {
-        //   textField1: values.textField1,
-        // })
-        //Router.push("/account")
-        console.log(values)
-      } catch (error) {
-        console.error("Error updating status:", error)
-      }
-    };
+    try {
+      // await apiFunction("POST", "path", {
+      //   textField1: values.textField1,
+      // })
+      //Router.push("/account")
+      console.log(values);
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
+  }
 };
 
-const ProgrammeForm: React.FC<{}> = () => {
+const ProgrammeForm: React.FC<{ key: string }> = ({ key }) => {
   const [image1, setImage1] = useState<File | null>(null);
   const [imageUrl1, setImageUrl1] = useState<string | null>(null);
   const [displayImage1, setDisplayImage1] = useState<boolean>(false);
@@ -205,7 +204,7 @@ const ProgrammeForm: React.FC<{}> = () => {
   }, [image5]);
 
   return (
-    <main className="mx-10 mt-16">
+    <main className="mx-10 mt-16 sm:mx-24">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -226,7 +225,7 @@ const ProgrammeForm: React.FC<{}> = () => {
                 </Link>
               </div>
               <div>
-                <div className="flex w-[80vw] justify-between sm:w-[90vw]">
+                <div className="flex w-[80vw] justify-between">
                   <p className="font-Thai text-xs text-greenText sm:text-lg md:text-2xl">
                     สถานะ : approved
                   </p>
@@ -249,61 +248,57 @@ const ProgrammeForm: React.FC<{}> = () => {
               </div>
             </section>
 
-            <div className="mt-8 flex h-40 flex-col items-center justify-center space-y-2 rounded-2xl bg-gradient-to-br from-heroFirst via-heroMiddle to-greenText font-Thai text-xs text-white shadow-xl md:mx-auto md:w-3/5">
-              <p className="rounded-full border border-white px-6 py-1 text-lg font-extrabold">
-                สายการเรียน ภาษา-ภาษาจีน
+            <div className="mt-8 flex h-40 flex-col items-center justify-center space-y-2 rounded-2xl bg-gradient-to-br from-heroFirst via-heroMiddle to-greenText font-Thai text-xs text-white shadow-xl sm:h-60 sm:space-y-4 md:mx-auto md:w-3/5">
+              <p className="sm:border-3 rounded-full border border-white px-6 py-1 text-lg font-extrabold sm:text-2xl">
+                {key}
               </p>
-              <p>สายการเรียน 80 คน</p>
-              <div className="text-start space-y-1">
-                <div className="flex">
-                  <p>IG: </p>
-                <Field
-                  type="text"
-                  name="IG"
-                  className="text-center text-xs text-white bg-transparent"
-                />
-                <FaPen className="h-2 text-white" />
-                </div>
-                <div className="flex">
-                  <p>FB: </p>
-                <Field
-                  type="text"
-                  name="FB"
-                  className="text-center text-xs text-white bg-transparent"
-                />
-                <FaPen className="h-2 text-white" />
-                </div>
-                <div className="flex">
-                  <p>อื่นๆ: </p>
-                <Field
-                  type="text"
-                  name="others"
-                  className="text-center text-xs text-white bg-transparent"
-                />
-                <FaPen className="h-2 text-white" />
+              <p className="sm:text-lg">สายการเรียน 80 คน</p>
+              <div className="sm:space-y-2">
+                <div className="space-y-1 text-start sm:text-lg">
+                  <div className="flex">
+                    <p>IG: </p>
+                    <Field
+                      type="text"
+                      name="IG"
+                      className="sm:text-md bg-transparent text-center text-xs text-white"
+                    />
+                    <FaPen className="h-2 text-white" />
+                  </div>
+                  <div className="flex">
+                    <p>FB: </p>
+                    <Field
+                      type="text"
+                      name="FB"
+                      className="sm:text-md bg-transparent text-center text-xs text-white"
+                    />
+                    <FaPen className="h-2 text-white" />
+                  </div>
+                  <div className="flex">
+                    <p>อื่นๆ: </p>
+                    <Field
+                      type="text"
+                      name="others"
+                      className="sm:text-md bg-transparent text-center text-xs text-white"
+                    />
+                    <FaPen className="h-2 text-white" />
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* section1 */}
-
-            <div className="flex flex-col p-4">
-              <div className="flex items-start justify-between space-x-2 sm:justify-around">
-                <div className="relative -space-y-2 bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
-                  <p className="text-sm">การรับสมัคร</p>
-                  <p className="text-xl md:text-2xl">และ</p>
-                  <p className="text-sm md:text-2xl">การสอบเข้า</p>
-                  <IoIosInformationCircleOutline
-                    className="mt-3 h-3 w-3 text-greenText md:h-6 md:w-6"
-                    onClick={() => setShowTooltip1(!showTooltip1)}
-                  />
-                  {showTooltip2 && (
-                    <div className="absolute bottom-0 z-10 rounded-md bg-grumpyGreen-700 px-2 py-1 text-xs text-white shadow-lg">
-                      Hello World
-                    </div>
-                  )}
+            <div className="mt-3 flex flex-col sm:mt-5 md:mt-8 mb-14 md:mb-20">
+              <div className="flex flex-col items-start justify-between sm:flex-row">
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                    การรับสมัคร
+                  </p>
+                  <p className="sm:text-5xl md:text-6xl lg:text-7xl">และ</p>
+                  <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                    การสอบเข้า
+                  </p>
                 </div>
-                <div className="flex flex-col items-center justify-center">
+                <div className="sm:w-[50vw] md:w-[60vw]">
                   {displayImage1 ? (
                     <div>
                       <input
@@ -312,28 +307,23 @@ const ProgrammeForm: React.FC<{}> = () => {
                         onChange={handleFileSelect1}
                       />
                       <Image
-                        className="mb-3"
+                        className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
                         src={imageUrl1 || ""}
-                        alt="photo2"
-                        width={100}
-                        height={100}
-                        style={{
-                          width: "12rem",
-                          height: "7rem",
-                          borderRadius: "1rem",
-                        }}
+                        alt="uploaded photo"
+                        width={0}
+                        height={0}
                       />
                     </div>
                   ) : (
                     <div className="flex w-full items-center justify-center">
-                      <label className="bg-gray-300 hover:bg-gray-500 flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
+                      <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                          <GalleryIcon className="h-3 w-3 text-greenText" />
+                          <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                         </div>
                         <input
                           type="file"
                           className="hidden"
-                          onChange={handleFileSelect2}
+                          onChange={handleFileSelect1}
                         />
                       </label>
                     </div>
@@ -342,9 +332,14 @@ const ProgrammeForm: React.FC<{}> = () => {
                     <Field
                       type="text"
                       name="photoDescription1"
-                      className="text-center text-xs text-greenText"
+                      className="md:text-md text-center text-xs text-greenText sm:text-sm"
                     />
                     <FaPen className="h-2 text-greenText" />
+                    <ErrorMessage
+                      name="photoDescription1"
+                      component="div"
+                      className="text-red-400"
+                    />
                   </div>
                 </div>
               </div>
@@ -353,46 +348,41 @@ const ProgrammeForm: React.FC<{}> = () => {
                 name="textField1"
                 className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
               />
-              <ErrorMessage name="textField1" className="text-red-300" />
+              <ErrorMessage
+                name="textField1"
+                component="div"
+                className="text-red-400"
+              />
             </div>
-
-            {/* section2 */}
-
-            <div className="flex flex-col p-4">
-              <div className="flex items-start justify-between space-x-2 sm:justify-around">
-                <div className="flex flex-col items-center justify-center">
-                  {displayImage2 ? (
+            {/* section 2 */}
+            <div className="mt-3 flex flex-col sm:mt-5 md:mt-8 mb-14 md:mb-20">
+              <div className="flex flex-col items-start justify-between sm:flex-row">
+                <div className="sm:w-[50vw] md:w-[60vw]">
+                  {displayImage1 ? (
                     <div>
                       <input
-                        name="uploadeImage2"
                         type="file"
                         className="hidden"
-                        onChange={handleFileSelect2}
+                        onChange={handleFileSelect1}
                       />
                       <Image
-                        className="mb-3"
-                        src={imageUrl2 || ""}
-                        alt="photo2"
-                        width={100}
-                        height={100}
-                        style={{
-                          width: "12rem",
-                          height: "7rem",
-                          borderRadius: "1rem",
-                        }}
+                        className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                        src={imageUrl1 || ""}
+                        alt="uploaded photo"
+                        width={0}
+                        height={0}
                       />
                     </div>
                   ) : (
                     <div className="flex w-full items-center justify-center">
-                      <label className="bg-gray-300 hover:bg-gray-500 flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
+                      <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                          <GalleryIcon className="h-3 w-3 text-greenText" />
+                          <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                         </div>
                         <input
-                          name="uploadeImage2"
                           type="file"
                           className="hidden"
-                          onChange={handleFileSelect2}
+                          onChange={handleFileSelect1}
                         />
                       </label>
                     </div>
@@ -400,84 +390,72 @@ const ProgrammeForm: React.FC<{}> = () => {
                   <div className="mb-3 flex items-center justify-center">
                     <Field
                       type="text"
-                      name="photoDescription2"
-                      className="text-center text-xs text-greenText"
+                      name="photoDescription1"
+                      className="md:text-md text-center text-xs text-greenText sm:text-sm"
                     />
                     <FaPen className="h-2 text-greenText" />
+                    <ErrorMessage
+                      name="photoDescription1"
+                      component="div"
+                      className="text-red-400"
+                    />
                   </div>
                 </div>
-                <div className="relative bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
-                  <p className="-mb-2 text-2xl sm:mb-0">วิชา/</p>
-                  <p className="text-xs md:text-2xl">หลักสูตรเพิ่มเติม</p>
-                  <p className="text-xs md:text-2xl">ที่เรียน</p>
-                  <IoIosInformationCircleOutline
-                    className="h-3 w-3 text-greenText md:h-6 md:w-6"
-                    onClick={() => setShowTooltip2(!showTooltip2)}
-                  />
-                  {showTooltip2 && (
-                    <div className="absolute bottom-0 z-10 rounded-md bg-grumpyGreen-700 px-2 py-1 text-xs text-white shadow-lg">
-                      Hello World
-                    </div>
-                  )}
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="sm:text-3xl md:text-7xl">วิชา /</p>
+                  <p className="sm:text-xl md:text-2xl">หลักสูตรเพิ่มเติม</p>
+                  <p className="sm:text-xl md:text-2xl">ที่เรียน</p>
                 </div>
               </div>
               <Field
                 type="text"
-                name="textField2"
+                name="textField1"
                 className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
               />
-              <ErrorMessage name="textField2" className="text-red-300" />
+              <ErrorMessage
+                name="textField1"
+                component="div"
+                className="text-red-400"
+              />
             </div>
-
-            {/* section3 */}
-
-            <div className="flex flex-col p-4">
-              <div className="flex items-start justify-between space-x-2 sm:justify-around">
-                <div className="relative inline-block -space-y-2 bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
-                  <p className="text-sm md:text-2xl">ความน่าสนใจ</p>
-                  <p className="text-2xl md:text-2xl">ของ</p>
-                  <p className="text-sm md:text-2xl">สายการเรียน</p>
-                  <IoIosInformationCircleOutline
-                    className="h-3 w-3 space-y-2 text-greenText md:h-6 md:w-6"
-                    onClick={() => setShowTooltip3(!showTooltip3)}
-                  />
-                  {showTooltip3 && (
-                    <div className="absolute bottom-0 z-10 rounded-md bg-grumpyGreen-700 px-2 py-1 text-xs text-white shadow-lg">
-                      Hello World
-                    </div>
-                  )}
+            {/* section 3 */}
+            <div className="mt-3 flex flex-col sm:mt-5 md:mt-8 mb-14 md:mb-20">
+              <div className="flex flex-col items-start justify-between sm:flex-row">
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                    ความน่าสนใจ
+                  </p>
+                  <p className="sm:text-5xl md:text-6xl lg:text-7xl">ของ</p>
+                  <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                    สายการเรียน
+                  </p>
                 </div>
-                <div className="flex flex-col items-center justify-center">
-                  {displayImage3 ? (
+                <div className="sm:w-[50vw] md:w-[60vw]">
+                  {displayImage1 ? (
                     <div>
                       <input
                         type="file"
                         className="hidden"
-                        onChange={handleFileSelect3}
+                        onChange={handleFileSelect1}
                       />
                       <Image
-                        className="mb-3"
-                        src={imageUrl3 || ""}
-                        alt="photo2"
-                        width={100}
-                        height={100}
-                        style={{
-                          width: "12rem",
-                          height: "7rem",
-                          borderRadius: "1rem",
-                        }}
+                        className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                        src={imageUrl1 || ""}
+                        alt="uploaded photo"
+                        width={0}
+                        height={0}
                       />
                     </div>
                   ) : (
                     <div className="flex w-full items-center justify-center">
-                      <label className="bg-gray-300 hover:bg-gray-500 flex h-28 w-48 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
+                      <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                          <GalleryIcon className="h-3 w-3 text-greenText" />
+                          <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                         </div>
                         <input
                           type="file"
                           className="hidden"
-                          onChange={handleFileSelect3}
+                          onChange={handleFileSelect1}
                         />
                       </label>
                     </div>
@@ -485,144 +463,158 @@ const ProgrammeForm: React.FC<{}> = () => {
                   <div className="mb-3 flex items-center justify-center">
                     <Field
                       type="text"
-                      name="photoDescription3"
-                      className="text-center text-xs text-greenText"
+                      name="photoDescription1"
+                      className="md:text-md text-center text-xs text-greenText sm:text-sm"
                     />
                     <FaPen className="h-2 text-greenText" />
+                    <ErrorMessage
+                      name="photoDescription1"
+                      component="div"
+                      className="text-red-400"
+                    />
                   </div>
                 </div>
               </div>
               <Field
                 type="text"
-                name="textField3"
+                name="textField1"
                 className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
               />
-              <ErrorMessage name="textField3" className="text-red-300" />
+              <ErrorMessage
+                name="textField1"
+                component="div"
+                className="text-red-400"
+              />
             </div>
+            {/* section 3 */}
 
             {/* end section3 */}
 
             <div className="mb-4 flex items-center justify-center space-x-4">
-              <p className="inline-block bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold text-transparent sm:text-3xl">
+              <p className="inline-block bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-10 text-transparent sm:text-4xl">
                 รีวิวจากรุ่นพี่
               </p>
-              <AiOutlineInfoCircle
-                className="text-greenText"
-                onClick={() => setShowTooltipP(!showTooltipP)}
-              />
-              {showTooltipP && (
-                <div className="absolute bottom-0 z-10 rounded-md bg-grumpyGreen-700 px-2 py-1 text-xs text-white shadow-lg">
-                  Hello World
-                </div>
-              )}
             </div>
 
-            {/* sectionP1 */}
-            <div className="flex items-center justify-center">
-              <div className="flex flex-col">
-                <div className="flex flex-col items-center justify-center">
-                  {displayImage4 ? (
-                    <div>
-                      <input
-                        type="file"
-                        className="hidden"
-                        onChange={handleFileSelect4}
-                      />
-                      <Image
-                        className="mb-3"
-                        src={imageUrl4 || ""}
-                        alt="photo4"
-                        width={100}
-                        height={100}
-                        style={{
-                          width: "12rem",
-                          height: "7rem",
-                          borderRadius: "1rem",
-                        }}
-                      />
-                    </div>
-                  ) : (
-                    <div className="flex w-full items-center justify-center">
-                      <label className="bg-gray-300 hover:bg-gray-500 flex h-16 w-16 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
-                        <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                          <UserIcon className="h-3 w-3 text-greenText" />
-                        </div>
+            <section className="flex flex-col md:space-y-4 sm:h-[40vh] sm:justify-around md:h-[60vh]">
+              <div className="flex w-full items-center justify-around">
+                <div className="flex flex-col">
+                  <div className="flex flex-col items-center justify-center">
+                    {displayImage4 ? (
+                      <div>
                         <input
                           type="file"
                           className="hidden"
                           onChange={handleFileSelect4}
                         />
-                      </label>
-                    </div>
-                  )}
+                        <Image
+                          className="mb-3"
+                          src={imageUrl4 || ""}
+                          alt="photo4"
+                          width={100}
+                          height={100}
+                          style={{
+                            width: "2rem",
+                            height: "2rem",
+                            borderRadius: "1rem",
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex w-full items-center justify-center">
+                        <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24">
+                          <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                            <UserIcon className="h-3w-3 text-greenText" />
+                          </div>
+                          <input
+                            type="file"
+                            className="hidden"
+                            onChange={handleFileSelect4}
+                          />
+                        </label>
+                      </div>
+                    )}
+                  </div>
+                  <div className="mt-2">
+                    <p className="text-sm font-bold text-greenText sm:text-lg">
+                      ชื่อ
+                    </p>
+                    <p className="text-[8px] text-heroMiddle sm:text-sm">
+                      เตรียมอุมดม xx
+                    </p>
+                    <p className="text-[8px] text-heroMiddle sm:text-sm">
+                      ช่องทางการติดตาม
+                    </p>
+                  </div>
                 </div>
-                <div className="pr-8">
-                  <p className="text-lg font-bold text-greenText">ชื่อ</p>
-                  <p className="text-xs text-heroMiddle">เตรียมอุมดม xx</p>
-                  <p className="text-xs text-heroMiddle">ช่องทางการติดตาม</p>
-                </div>
+                <Field
+                  type="text"
+                  name="textField4"
+                  className="w-3/5 rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
+                />
+                <ErrorMessage name="textField4" className="text-red-300" />
               </div>
-              <Field
-                type="text"
-                name="textField4"
-                className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
-              />
-              <ErrorMessage name="textField4" className="text-red-300" />
-            </div>
 
-            {/* sectionP2 */}
+              {/* reviewP2 */}
 
-            <div className="flex items-center justify-center">
-              <Field
-                type="text"
-                name="textField5"
-                className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
-              />
-              <ErrorMessage name="textField5" className="text-red-300" />
-              <div className="flex flex-col">
-                <div className="flex flex-col items-center justify-center">
-                  {displayImage5 ? (
-                    <div>
-                      <input
-                        type="file"
-                        className="hidden"
-                        onChange={handleFileSelect5}
-                      />
-                      <Image
-                        className="mb-3"
-                        src={imageUrl5 || ""}
-                        alt="photo4"
-                        width={100}
-                        height={100}
-                        style={{
-                          width: "12rem",
-                          height: "7rem",
-                          borderRadius: "1rem",
-                        }}
-                      />
-                    </div>
-                  ) : (
-                    <div className="flex w-full items-center justify-center">
-                      <label className="bg-gray-300 hover:bg-gray-500 flex h-16 w-16 cursor-pointer flex-col items-center justify-center rounded-lg border-2">
-                        <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                          <UserIcon className="h-3 w-3 text-greenText" />
-                        </div>
+              <div className="flex w-full items-center justify-around">
+                <Field
+                  type="text"
+                  name="textField4"
+                  className="w-3/5 rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
+                />
+                <ErrorMessage name="textField4" className="text-red-300" />
+                <div className="flex flex-col">
+                  <div className="flex flex-col items-center justify-center">
+                    {displayImage4 ? (
+                      <div>
                         <input
                           type="file"
                           className="hidden"
-                          onChange={handleFileSelect5}
+                          onChange={handleFileSelect4}
                         />
-                      </label>
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <p className="text-lg font-bold text-greenText">ชื่อ</p>
-                  <p className="text-xs text-heroMiddle">เตรียมอุมดม xx</p>
-                  <p className="text-xs text-heroMiddle">ช่องทางการติดตาม</p>
+                        <Image
+                          className="mb-3"
+                          src={imageUrl4 || ""}
+                          alt="photo4"
+                          width={100}
+                          height={100}
+                          style={{
+                            width: "2rem",
+                            height: "2rem",
+                            borderRadius: "1rem",
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex w-full items-center justify-center">
+                        <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24">
+                          <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                            <UserIcon className="h-3w-3 text-greenText" />
+                          </div>
+                          <input
+                            type="file"
+                            className="hidden"
+                            onChange={handleFileSelect4}
+                          />
+                        </label>
+                      </div>
+                    )}
+                  </div>
+                  <div className="mt-2">
+                    <p className="text-sm font-bold text-greenText sm:text-lg">
+                      ชื่อ
+                    </p>
+                    <p className="text-[8px] text-heroMiddle sm:text-sm">
+                      เตรียมอุมดม xx
+                    </p>
+                    <p className="text-[8px] text-heroMiddle sm:text-sm">
+                      ช่องทางการติดตาม
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </section>
           </Form>
         )}
       </Formik>

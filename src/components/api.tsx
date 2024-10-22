@@ -15,7 +15,6 @@ export default async function apiFunction(method: string, url: string, body: any
   };
 
   try {
-    axios.defaults.withCredentials = true;
     const response = await axios.request(options);
     return response;
   } catch (error: any) {

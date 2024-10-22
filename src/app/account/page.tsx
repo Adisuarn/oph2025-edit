@@ -9,13 +9,15 @@ import apiFunction from "@/components/api";
 import Section from "@/vectors/dashboard/Section";
 import { FaPen } from "react-icons/fa";
 import { useState } from "react";
-
+import { Status } from "@utils/type";
+import { tucmcRouter } from "@/server/modules/tucmc/tucmc.route";
 
 const AccountPage = async () => {
-  const response = await apiFunction("GET", "/user", {});
-  const clubResponse = await apiFunction("GET", "/clubs/ก30927", {})
-  console.log(clubResponse)
-  const data = response.data;
+  const userResponse = await apiFunction("GET", "/user", {});
+  const userData = userResponse.data;
+  const userForm = await apiFunction("GET", `/${userData.tag}/${userData.key}/`, {});
+
+  console.log(userForm)
 
   const test = {
     name: "ชมรมไพ่เพื่อการเรียนรู้",
@@ -23,43 +25,42 @@ const AccountPage = async () => {
     members: 30,
   };
 
-  const tag = data.tag 
-  const key = data.key
+  const tag = userData.tag
+  const key = userData.key
 
-  const submittedInit = (tag === "" || tag === null || tag === undefined ) ? true : true;
-  const submittedForm = false;
-  const checked = true;
-  const passed = true;
+  const submittedInit = (tag === "" || tag === null || tag === undefined ) ? false : true;
+  const submittedForm = (userForm.status === "" || userForm.status === null || userForm.status === undefined ) ? true : false;
+  const checked = (userForm.status = Status.PENDING) ? false : true;
+  const passed = (userForm.status = Status.APPROVED) ? true : false;
 
-  console.log(data);
   return (
-    <section className="flex h-screen flex-col items-center justify-center space-y-4 text-formText">
+    <section className="flex h-screen flex-col items-center justify-center sm:space-y-4 text-formText">
       {submittedInit ? (
-        <p>ข้อมูลหน่วยงาน</p>
+        <p className="text-xs sm:text-lg mb-2 sm:mb-0">ข้อมูลหน่วยงาน</p>
       ) : (
-        <p className="text-xl">ยินดีต้อนรับ</p>
+        <p className="text-xs sm:text-lg mb-2 sm:mb-0">ยินดีต้อนรับ</p>
       )}
       <p className="relative -space-y-2 bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
-        {submittedInit ? <>{key}</> : <>{data.name}</>}
+        {submittedInit ? <>Ronaldo is the GOAT</> : <>{userData.name}</>}
       </p>
       {submittedInit ? (
         <p className="opacity-70">จำนวนสมาชิก {test.members} คน</p>
       ) : (
         ""
       )}
-      <Section />
+      <Section className="w-[80vw] sm:w-full" />
       {submittedInit ? (
         <Link href={`/editingform/${test.key}`}>
-          <div className="to-91% flex items-center justify-center space-x-2 rounded-full transition-all duration-500 bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText bg-size-200 bg-pos-0 hover:bg-pos-100 px-20 py-2 text-white">
+          <div className="to-91% flex items-center justify-center space-x-2 rounded-full transition-all duration-500 bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText bg-size-200 bg-pos-0 hover:bg-pos-100 px-8 sm:px-20 py-1 sm:py-2 text-white">
             <p>แก้ไข</p>
-            <FaPen className="h-3 w-3" />
+            <FaPen className="h-2 w-2 sm:h-3 sm:w-3" />
           </div>
         </Link>
       ) : (
         <Link href={`/account/forms`}>
-          <div className="to-91% flex items-center justify-center space-x-2 rounded-full transition-all duration-500 bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText bg-size-200 bg-pos-0 hover:bg-pos-100 px-20 py-2 text-white">
-            <p>เลือกหน่วยงานที่รับผิดชอบ</p>
-            <FaPen className="h-3 w-3" />
+          <div className="to-91% flex items-center justify-center space-x-2 rounded-full transition-all duration-500 bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText bg-size-200 bg-pos-0 hover:bg-pos-100 px-8 sm:px-20 py-1 sm:py-2 text-white">
+            <p className="text-sm sm:text-lg">เลือกหน่วยงานที่รับผิดชอบ</p>
+            <FaPen className="h-2 w-2 sm:h-3 sm:w-3" />
           </div>
         </Link>
       )}
@@ -68,32 +69,32 @@ const AccountPage = async () => {
         submittedForm ? (
           checked ? (
             passed ? (
-              <div className="flex items-center justify-center space-x-1">
-                <div className="h-4 w-4 rounded-full bg-[#19C57C]"></div>
-                <p className="text-[#19C57C]">ผ่านการตรวจสอบ</p>
+              <div className="flex items-center justify-center mt-2 sm:mt-0 space-x-1">
+                <div className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 rounded-full bg-[#19C57C]"></div>
+                <p className="text-[#19C57C] sm:text-lg md:text-2xl">ผ่านการตรวจสอบ</p>
               </div>
             ) : (
-              <div className="flex items-center justify-center space-x-1">
-                <div className="h-4 w-4 rounded-full bg-[#E80808]"></div>
-                <p className="text-[#E80808]">ไม่ผ่านการตรวจสอบ</p>
+              <div className="flex items-center justify-center mt-2 sm:mt-0 space-x-1">
+                <div className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6  rounded-full bg-[#E80808]"></div>
+                <p className="text-[#E80808] sm:text-lg md:text-2xl">ไม่ผ่านการตรวจสอบ</p>
               </div>
             )
           ) : (
-            <div className="flex items-center justify-center space-x-1">
-              <div className="h-4 w-4 rounded-full bg-[#FCB52B]"></div>
-              <p className="text-[#FCB52B]">อยู่ระหว่างการตรวจสอบ</p>
+            <div className="flex items-center justify-center mt-2 sm:mt-0 space-x-1">
+              <div className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6  rounded-full bg-[#FCB52B]"></div>
+              <p className="text-[#FCB52B] sm:text-lg md:text-2xl">อยู่ระหว่างการตรวจสอบ</p>
             </div>
           )
         ) : (
-          <p>ยังไม่ได้ส่งแบบฟอร์ม</p>
+          <p className="mt-2 sm:mt-0">ยังไม่ได้ส่งแบบฟอร์ม</p>
         )
       ) : (
         ""
       )}
 
-      <div>
-        <p className="text-2xl">แก้ไข้ข้อมูลหน่วยงาน</p>
-        <p className="opacity-70">ข้อมูลจะแสดงผลในหน้าเว็บไซต์</p>
+      <div className="text-center mt-2 sm:mt-0">
+        <p className="sm:text-2xl text-md">แก้ไข้ข้อมูลหน่วยงาน</p>
+        <p className="opacity-70 text-xs sm:text-sm md:text-md">ข้อมูลจะแสดงผลในหน้าเว็บไซต์</p>
       </div>
     </section>
   );
