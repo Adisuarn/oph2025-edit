@@ -27,12 +27,12 @@ export interface OrganizationData {
 }
 
 export const createOrganization = async (body: Organization) => {
-  // if ((await prisma.organizations.count({ where: { email: body.email } }) > 0))
-  //   throw error(400, 'User already created an organization')
+  if ((await prisma.organizations.count({ where: { email: body.email } }) > 0))
+    throw error(400, 'User already created an organization')
   try {
-    const organization = await prisma.organizations.create({
+    const organization = await prisma.organizations.update({
       omit: { organizationId: true, updatedAt: true, id: true },
-      //where: { key: body.key },
+      where: { key: body.key },
       data: {
         error: '',
         key: body.key,
@@ -53,13 +53,13 @@ export const createOrganization = async (body: Organization) => {
         descimg3: '',
       }
     })
-    // await prisma.user.update({
-    //   where: { email: body.email },
-    //   data: {
-    //     tag: body.tag,
-    //     key: body.key,
-    //   }
-    // })
+    await prisma.user.update({
+      where: { email: body.email },
+      data: {
+        tag: body.tag,
+        key: body.key,
+      }
+    })
     return { success: true, message: 'Creating organization successfully', data: organization }
   } catch (err) {
     throw error(500, 'Error while creating organization')
@@ -93,11 +93,11 @@ export const updateOrganizationData = async (name: keyof typeof AllData.Organiza
         activities: body.activities,
         position: body.position,
         working: body.working,
-        captureimg1: (!body.captureimg1 === undefined ) ? await uploadImage(body.captureimg1) : organizationData.captureimg1,
+        captureimg1: (body.captureimg1 !== undefined ) ? await uploadImage(body.captureimg1) : organizationData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: (!body.captureimg2 === undefined ) ? await uploadImage(body.captureimg2) : organizationData.captureimg2,
+        captureimg2: (body.captureimg2 !== undefined ) ? await uploadImage(body.captureimg2) : organizationData.captureimg2,
         descimg2: body.descimg2,
-        captureimg3: (!body.captureimg3 === undefined ) ? await uploadImage(body.captureimg3) : organizationData.captureimg3,
+        captureimg3: (body.captureimg3 !== undefined ) ? await uploadImage(body.captureimg3) : organizationData.captureimg3,
         descimg3: body.descimg3,
       }
     })
@@ -153,7 +153,7 @@ export const updateOrganizationReview = async (name: keyof typeof AllData.Organi
         omit: { reviewId: true, createdAt: true, id: true },
         where: { email: organizationData.email, count: count },
         data: {
-          profile: (!body.profile === undefined ) ? await uploadImage(body.profile) : reviewData?.profile,
+          profile: (body.profile !== undefined) ? await uploadImage(body.profile) : reviewData?.profile,
           name: body.name,
           nick: body.nick,
           gen: body.gen,

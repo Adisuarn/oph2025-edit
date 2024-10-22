@@ -87,7 +87,6 @@ const DashboardTUCMC = () => {
   };
 
   const handleViewData = async (tag: string, key: string, type: 'organization' | 'program' | 'club' | 'gifted') => {
-    // Determine the current name based on the type
     const currentName = type === 'organization' 
       ? organizations.find(org => org.key === key)?.thainame 
       : type === 'program'
@@ -96,15 +95,22 @@ const DashboardTUCMC = () => {
           ? clubs.find(club => club.key === key)?.thainame 
           : gifted.find(gifted => gifted.key === key)?.thainame;
   
-    // Check if the viewData is already showing the selected item
     if (viewData && viewData.type === type && viewData.data.data.thainame === currentName) {
-      setViewData(null); // Close the ViewData if it is already open
+      setViewData(null); 
     } else {
-      const data = await viewHandler(tag, key); // Fetch new data
-      setViewData({ type, data }); // Update state with the new data
+      const data = await viewHandler(tag, key);
+      
+      // Transform data based on type
+      const transformedData = type === 'gifted' || type === 'program' ? {
+        ...data.data,
+        activities: data.data.admissions,
+        benefits: data.data.courses,
+        working: data.data.interests,
+      } : data.data;
+  
+      setViewData({ type, data: { data: transformedData } }); 
     }
   };
-
   return (
     <div className="flex items-center justify-center m-10">
       <div className="max-w-6xl w-full">
@@ -150,7 +156,7 @@ const DashboardTUCMC = () => {
                   </button>
                 </li>
                 {viewData && viewData.type === 'organization' && viewData.data.data.thainame === organization.thainame && (
-                  <ViewData data={viewData.data} />
+                  <ViewData data={viewData.data} type={viewData.type}/>
                 )}
               </div>
             ))}
@@ -169,7 +175,7 @@ const DashboardTUCMC = () => {
                   </button>
                 </li>
                 {viewData && viewData.type === 'program' && viewData.data.data.thainame === program.thainame && (
-                  <ViewData data={viewData.data} />
+                  <ViewData data={viewData.data} type={viewData.type} />
                 )}
               </div>
             ))}
@@ -188,7 +194,7 @@ const DashboardTUCMC = () => {
                   </button>
                 </li>
                 {viewData && viewData.type === 'club' && viewData.data.data.thainame === club.thainame && (
-                  <ViewData data={viewData.data} />
+                  <ViewData data={viewData.data} type={viewData.type} />
                 )}
               </div>
             ))}
@@ -207,7 +213,7 @@ const DashboardTUCMC = () => {
                   </button>
                 </li>
                 {viewData && viewData.type === 'gifted' && viewData.data.data.thainame === gifted.thainame && (
-                  <ViewData data={viewData.data} />
+                  <ViewData data={viewData.data} type={viewData.type} />
                 )}
               </div>
             ))}

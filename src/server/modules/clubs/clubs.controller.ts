@@ -28,12 +28,12 @@ export interface ClubData {
 }
 
 export const createClub = async (body: Club) => {
-  // if ((await prisma.clubs.count({ where: { email: body.email } }) > 0)) 
-  //   throw error(400, 'User already created a club')
+  if ((await prisma.clubs.count({ where: { email: body.email } }) > 0)) 
+    throw error(400, 'User already created a club')
   try {
-    const club = await prisma.clubs.create({
+    const club = await prisma.clubs.update({
       omit: { clubId: true, updatedAt: true, id: true },
-      //where: { key: body.key },
+      where: { key: body.key },
       data: {
         error: '',
         key: body.key,
@@ -56,13 +56,13 @@ export const createClub = async (body: Club) => {
         logo: '',
       }
     })
-    // await prisma.user.update({
-    //   where: { email: body.email },
-    //   data: {
-    //     tag: body.tag,
-    //     key: body.key,
-    //   }
-    // })
+    await prisma.user.update({
+      where: { email: body.email },
+      data: {
+        tag: body.tag,
+        key: body.key,
+      }
+    })
     return { success: true, message: "Created club successfully", data: club }
   } catch (err) {
     throw error(500, 'Error while creating club')
@@ -96,9 +96,9 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
         activities: body.activities,
         benefits: body.benefits,
         working: body.working,
-        captureimg1: (!body.captureimg1 === undefined) ? await uploadImage(body.captureimg1) : clubData.captureimg1,
+        captureimg1: (body.captureimg1 !== undefined) ? await uploadImage(body.captureimg1) : clubData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: (!body.captureimg2 === undefined) ? await uploadImage(body.captureimg2) : clubData.captureimg2,
+        captureimg2: (body.captureimg2 !== undefined) ? await uploadImage(body.captureimg2) : clubData.captureimg2, 
         descimg2: body.descimg2,
         captureimg3: (!body.captureimg3 === undefined) ? await uploadImage(body.captureimg3) : clubData.captureimg3,
         descimg3: body.descimg3,
