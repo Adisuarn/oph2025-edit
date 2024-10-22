@@ -33,8 +33,12 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
       if (!name) return error(404, 'Organization Not Found')
       if (typeof name !== 'string') return error(400, 'Invalid Organization Name')
       const organizationData = (await getOrganization(name)).data
-      if (!userData?.TUCMC || (userData?.email !== organizationData.email)) return error(401, 'Unauthorized')
+      if (userData?.TUCMC === true) {
+        return
+      } else if (userData?.email !== organizationData.email) {
+        return error(401, 'Unauthorized')
     }
+  }
   })
   .get('/:name', async ({ params: { name } }) => {
     return await getOrganizationByName(name)

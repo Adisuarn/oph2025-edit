@@ -34,8 +34,11 @@ export const programRouter = new Elysia({ prefix: '/programs' })
       if (!name) return error(404, 'Program Not Found')
       if (typeof name !== 'string') return error(400, 'Invalid Program Name')
       const programData = (await getProgram(name)).data
-      if (!userData?.TUCMC || (userData?.email !== programData.email)) return error(401, 'Unauthorized')
-    }
+      if (userData?.TUCMC === true) {
+        return
+      } else if (userData?.email !== programData.email) {
+        return error(401, 'Unauthorized')
+    }}
   })
   .get('/:name', async ({ params: { name } }) => {
     return await getProgramByName(name)

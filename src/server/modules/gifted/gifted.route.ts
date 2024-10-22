@@ -27,9 +27,13 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
       if (!name) return error(404, "Gifted Not Found");
       if (typeof name !== "string")
         return error(400, "Invalid Gifted Name");
-      const organizationData = (await getGifted(name)).data;
-      if (!userData?.TUCMC || (userData?.email !== organizationData.email))
+      const giftedData = (await getGifted(name)).data;
+      console.log(userData?.email !== giftedData.email)
+      if (userData?.TUCMC === true) {
+        return
+      } else if (userData?.email !== giftedData.email) {
         return error(401, "Unauthorized");
+      }
     },
   })
   .get(
@@ -71,7 +75,7 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
         admissions: StringField(true, "Invalid Admissions"),
         courses: StringField(true, "Invalid Courses"),
         interests: StringField(true, "Invalid Interests"),
-        captureimg1: t.File({ error() { return  "Invalid Capture Image" } }),
+        captureimg1: t.File({ error() { return "Invalid Capture Image" } }),
         descimg1: StringField(true, "Invalid Description Image"),
         captureimg2: t.File({ error() { return "Invalid Capture Image" } }),
         descimg2: StringField(true, "Invalid Description Image"),

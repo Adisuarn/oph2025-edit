@@ -104,7 +104,7 @@ const DashboardTUCMC = () => {
   };
 
   if(!user) return <div>Loading...</div>;
-  if(user.TUCMC === true) router.push('/403')
+  //if(user.TUCMC === true) router.push('/403')
 
   const handleViewData = async (tag: string, key: string, type: 'organization' | 'program' | 'club' | 'gifted') => {
     const currentName = type === 'organization'
