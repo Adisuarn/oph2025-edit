@@ -28,7 +28,7 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
       if (typeof name !== "string")
         return error(400, "Invalid Gifted Name");
       const organizationData = (await getGifted(name)).data;
-      if (!userData?.TUCMC && userData?.email !== organizationData.email)
+      if (!userData?.TUCMC || (userData?.email !== organizationData.email))
         return error(401, "Unauthorized");
     },
   })

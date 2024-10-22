@@ -84,6 +84,7 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
       omit: { programId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
+        sendForm: true,
         name: body.name,
         thainame: body.thainame,
         members: body.members,

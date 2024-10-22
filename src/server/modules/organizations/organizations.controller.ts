@@ -84,6 +84,7 @@ export const updateOrganizationData = async (name: keyof typeof AllData.Organiza
       omit: { organizationId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
+        sendForm: true,
         name: body.name,
         thainame: body.thainame,
         members: body.members,
