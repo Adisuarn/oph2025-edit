@@ -26,6 +26,7 @@ model User {
 model Organizations {
   id             String    @id @default(cuid()) @map("_id")
   isAdmin        Boolean   @default(false)
+  sendForm       Boolean   @default(false)
   key            String    @unique
   tag            String    @default("organizations")
   error          String
@@ -56,6 +57,7 @@ model Organizations {
 model Clubs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
+  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("clubs")
   error       String
@@ -88,6 +90,7 @@ model Clubs {
 model Programs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
+  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("programs")
   error       String
@@ -118,6 +121,7 @@ model Programs {
 model Gifted {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
+  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("gifted")
   error       String

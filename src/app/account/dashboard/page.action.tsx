@@ -8,8 +8,10 @@ export async function handler() {
   const programs = data.data.data.programs;
   const clubs = data.data.data.clubs;
   const gifted = data.data.data.gifted;
+  const userData = user.data
   return {
     props: {
+      userData,
       organizations,
       programs,
       clubs,

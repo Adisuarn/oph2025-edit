@@ -92,6 +92,7 @@ export const updateGiftedData = async (
       omit: { giftedId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
+        sendForm: true,
         name: body.name,
         thainame: body.thainame,
         status: body.status,
