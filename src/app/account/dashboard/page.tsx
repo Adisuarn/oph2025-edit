@@ -87,7 +87,7 @@ const DashboardTUCMC: React.FC = () => {
       const fetchedData = await viewHandler(tag, key);
       const transformedData = {
         ...fetchedData.data,
-        ...(type === 'gifted' || type === 'program' ? { activities: fetchedData.data.admissions, benefits: fetchedData.data.benefits } : {}),
+        ...(type === 'gifted' || type === 'program' ? { activities: fetchedData.data.admissions, benefits: fetchedData.data.courses, working: fetchedData.data.interests } : {}),
         ...(type === 'organization' ? { benefits: fetchedData.data.position } : {}),
       };
       setViewData({ type, data: { data: transformedData } });

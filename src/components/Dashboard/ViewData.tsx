@@ -15,6 +15,7 @@ import Reviews from '@components/Dashboard/Reviews';
 const MySwal = withReactContent(Swal);
 
 const ViewData = ({ data, type, onStatusUpdate }: any) => {
+  console.log(data)
   const handleApproval = () => {
     MySwal.fire({
       title: 'อนุมัติข้อมูลนี้',
