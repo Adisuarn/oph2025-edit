@@ -118,7 +118,6 @@ export const getProgramReviews = async(name: keyof typeof AllData.Programs) => {
     })
     return { success: true, message: 'Getting reviews successfully', data: reviewData}
   } catch (err) {
-    console.log(err)
     throw error(500, 'Error while getting reviews')
   }
 }

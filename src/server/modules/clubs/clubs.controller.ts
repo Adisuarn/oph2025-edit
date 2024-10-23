@@ -88,8 +88,6 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
       where: { key: key },
       data: {
         sendForm: true,
-        name: body.name,
-        thainame: body.thainame,
         members: body.members,
         ig: body.ig,
         fb: body.fb,
