@@ -38,7 +38,9 @@ export default {
         'heroFirst': '#ADDB64',
         'heroMiddle': '#15786C',
         'gray': '#D9D9D9',
-        'formText': '#141547'
+        'formText': '#141547',
+        'greenishCream': '#ECF5C8',
+        'landingGreen': 'ADDB64'
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(101deg, #0C453E -1.64%, #15786C 55.02%, #ADDB64 128.53%)',

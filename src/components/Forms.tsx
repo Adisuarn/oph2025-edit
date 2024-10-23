@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import BigLamp from "@/vectors/forms/BigLamp";
 import FormLeft from "@/vectors/forms/FormLeft";
+import SmallFormLeft from "@/vectors/forms/SmallFormLeft";
+import Frames from "@/vectors/forms/Frames";
 import LogoutButton from "@/components/LogoutButton";
 import { log } from "console";
 import postInfo from "./Forms.action";
@@ -92,12 +94,18 @@ const Forms: React.FC<FormProps> = ({dataRecord}) => {
 
   
   return (
-    <main className="flex h-screen items-center justify-center bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">
+    <main className="flex h-screen w-screen items-center justify-center bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">
       <div className="absolute -left-20 bottom-0 z-40 sm:-left-10">
-        <FormLeft className="md:h-screen" />
+        <FormLeft className="hidden sm:h-screen" />
+      </div>
+      <div className="absolute -left-24 bottom-0 z-40 sm:-left-10">
+        <SmallFormLeft className="h-screen sm:hidden" />
       </div>
       <div className="absolute bottom-0 right-0 z-20">
-        <BigLamp className="" />
+        <BigLamp className="hidden sm:h-full" />
+      </div>
+      <div className="absolute top-16 -right-20 z-20">
+        <Frames className="h-[50vh] sm:hidden" />
       </div>
       <Formik
         initialValues={{ tagOptions: "", keyOptions: "" }}
@@ -106,10 +114,10 @@ const Forms: React.FC<FormProps> = ({dataRecord}) => {
       >
         {({ values, setFieldValue }) => (
           <Form>
-            <div className="-mt-14 flex h-[60vh] w-[50vw] flex-col items-center justify-center space-y-5 rounded-2xl bg-white relative z-50 shadow-xl">
+            <div className="-mt-14 flex h-[60vh] w-[80vw] sm:w-[50vw] flex-col items-center justify-center space-y-5 rounded-2xl bg-white relative z-50 shadow-xl">
               <p className="text-3xl font-bold">กรอกข้อมูล </p>
-              <div className="w-3/5 rounded-md border border-gray py-2 pl-2 pr-12">
-                <p className="text-gray">Hello! {dataRecord.email}</p>
+              <div className="sm:w-3/5 w-4/5 rounded-md border border-gray py-2 pl-2 pr-12">
+                <p className="text-gray text-xs sm:text-md md:text-lg">Hello! {dataRecord.email}</p>
               </div>
               <div className="flex flex-col space-y-2">
                 <p>ประเภท</p>

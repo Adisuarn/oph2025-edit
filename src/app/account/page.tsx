@@ -20,9 +20,9 @@ const AccountPage = async () => {
   console.log(userForm)
 
   const submittedInit = (userData.tag === "" || userData.tag === null || userData.tag === undefined ) ? false : true;
-  const submittedForm = (userForm.data.data.sendForm) ? true : false;
+  const submittedForm = (userForm.data?.data.sendForm) ? true : false;
   const checked = (userForm.data.data.status = Status.PENDING) ? false : true;
-  const passed = (userForm.data.data.status = Status.APPROVED) ? true : false;
+  const approved = (userForm.data.data.status = Status.APPROVED) ? true : false;
 
   return (
     <section className="flex h-screen flex-col items-center justify-center sm:space-y-4 text-formText">
@@ -59,7 +59,7 @@ const AccountPage = async () => {
       {submittedInit ? (
         submittedForm ? (
           checked ? (
-            passed ? (
+            approved ? (
               <div className="flex items-center justify-center mt-2 sm:mt-0 space-x-1">
                 <div className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 rounded-full bg-[#19C57C]"></div>
                 <p className="text-[#19C57C] sm:text-lg md:text-2xl">ผ่านการตรวจสอบ</p>

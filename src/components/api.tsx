@@ -16,6 +16,7 @@ export default async function apiFunction(method: string, url: string, body: any
 
   try {
     const response = await axios.request(options);
+    console.log(response.data)
     return response;
   } catch (error: any) {
     return error;
