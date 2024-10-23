@@ -1,314 +1,231 @@
-'use client';
-import React, { useState, useEffect, use } from 'react';
+'use client'
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon';
 import BookIcon from '@/vectors/dashboard/BookIcon';
-import HamburgerMenu from '@/components/Dashboard/Hamburger';
+import HamburgerMenu from '@/components/Dashboard/Hamburger'; // Import your HamburgerMenu component
 import { handler, viewHandler } from './page.action';
 import { Toaster, toast } from 'react-hot-toast';
 import ViewData from '@/components/Dashboard/ViewData';
 import { updateStatus } from '@/components/Dashboard/ViewData.action';
-import { Status } from '@/server/utils/type';
-import { useRouter } from 'next/navigation';
+import { Status } from '@utils/type';
 
-interface Organization {
-  id: string;
-  key: string;
-  tag: string;
-  thainame: string;
-  status: string;
+interface DashboardData {
+  organizations: Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>;
+  programs: Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>;
+  clubs: Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>;
+  gifted: Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>;
 }
 
-interface Program {
-  id: string;
-  key: string;
-  tag: string;
-  thainame: string;
-  status: string;
-}
-
-const DashboardTUCMC = () => {
-  const router = useRouter();
-  const [organizations, setOrganizations] = useState<Organization[]>([]);
-  const [programs, setPrograms] = useState<Program[]>([]);
-  const [clubs, setClubs] = useState<any[]>([]);
-  const [gifted, setGifted] = useState<any[]>([]);
+const DashboardTUCMC: React.FC = () => {
+  const [data, setData] = useState<DashboardData>({
+    organizations: [],
+    programs: [],
+    clubs: [],
+    gifted: [],
+  });
   const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
-  const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
-  const [viewData, setViewData] = useState<{ type: 'organization' | 'program' | 'club' | 'gifted'; data: any } | null>(null);
+  const [selectedStatus, setSelectedStatus] = useState<Status | null>(Status.PENDING);
+  const [viewData, setViewData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [user, setUser] = useState<any>(null);
+  const [activeButton, setActiveButton] = useState<{ type: string; key: string } | null>(null);
 
-  const fetchData = async () => {
+  // Fetch data function
+  const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const data = await handler();
-      setUser(data.props.userData);
-      setOrganizations(data.props.organizations);
-      setPrograms(data.props.programs);
-      setClubs(data.props.clubs);
-      setGifted(data.props.gifted);
+      const result = await handler();
+      setData(result.props);
     } catch (error) {
-      console.error("Error fetching data:", error);
-      toast.error("Failed to load data.");
+      toast.error("ไม่สามารถโหลดข้อมูลได้");
     } finally {
       setLoading(false);
     }
-  };
-
-  useEffect(() => {
-    fetchData();
   }, []);
 
-  const handleStatusUpdate = async (data: any, status: Status) => {
-    await updateStatus(data, status);
-    fetchData(); // Refresh data after status update
-  };
+  // Initial data fetch
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
-  const filterByStatus = (items: any[]) => {
-    if (!selectedStatus) return items;
-    return items.filter(item => item.status === selectedStatus);
-  };
-
-  const filteredOrganizations = () => {
-    const filtered = organizations.filter(org => !selectedFilter || org.tag === selectedFilter);
-    return filterByStatus(filtered);
-  };
-
-  const filteredPrograms = () => {
-    const filtered = programs.filter(program => !selectedFilter || program.tag === selectedFilter);
-    return filterByStatus(filtered);
-  };
-
-  const filteredClubs = () => {
-    const filtered = clubs.filter(club => !selectedFilter || club.tag === selectedFilter);
-    return filterByStatus(filtered);
-  };
-
-  const filteredGifted = () => {
-    const filtered = gifted.filter(gifted => !selectedFilter || gifted.tag === selectedFilter);
-    return filterByStatus(filtered);
-  };
-
-  const handleFilterSelect = (filter: string) => {
-    if (filter === selectedFilter) {
-      clearFilter();
-    } else {
-      setSelectedFilter(filter);
+  // Automatically set the initial status to PENDING if data is fetched
+  useEffect(() => {
+    if (data.organizations.length > 0) {
+      setSelectedStatus(Status.PENDING);
     }
-  };
+  }, [data]);
 
-  const clearFilter = () => {
-    setSelectedFilter(null);
-    setSelectedStatus(null);
-    setViewData(null);
-  };
+  // Handle status update
+  const handleStatusUpdate = useCallback(async (item: any, status: Status) => {
+    await updateStatus(item, status);
+    fetchData();
+  }, [fetchData]);
 
-  if(!user) return <div>Loading...</div>;
-  //if(user.TUCMC === true) router.push('/403')
+  // Filter data based on selected filter and status
+  const filterData = useCallback((items: any[]) => {
+    return items.filter(item => {
+      const matchesFilter = !selectedFilter || item.tag === selectedFilter;
+      const matchesStatus = selectedStatus === null || item.status === selectedStatus;
+      return matchesFilter && matchesStatus;
+    });
+  }, [selectedFilter, selectedStatus]);
 
-  const handleViewData = async (tag: string, key: string, type: 'organization' | 'program' | 'club' | 'gifted') => {
-    const currentName = type === 'organization'
-      ? organizations.find(org => org.key === key)?.thainame
-      : type === 'program'
-        ? programs.find(prog => prog.key === key)?.thainame
-        : type === 'club'
-          ? clubs.find(club => club.key === key)?.thainame
-          : gifted.find(gifted => gifted.key === key)?.thainame;
+  // Memoized filtered data
+  const filteredOrganizations = useMemo(() => filterData(data.organizations), [data.organizations, filterData]);
+  const filteredPrograms = useMemo(() => filterData(data.programs), [data.programs, filterData]);
+  const filteredClubs = useMemo(() => filterData(data.clubs), [data.clubs, filterData]);
+  const filteredGifted = useMemo(() => filterData(data.gifted), [data.gifted, filterData]);
 
-    if (viewData && viewData.type === type && viewData.data.data.thainame === currentName) {
+  // Handle view data
+  const handleViewData = useCallback(async (tag: string, key: string, type: 'organization' | 'program' | 'club' | 'gifted') => {
+    const currentData = (data[type + 's' as keyof DashboardData] as Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>)
+      .find((item) => item.key === key);
+
+    if (viewData && viewData.type === type && viewData.data.data.thainame === currentData?.thainame) {
       setViewData(null);
+      setActiveButton(null);
     } else {
-      const data = await viewHandler(tag, key);
-      const transformedData: any = type === 'gifted' || type === 'program' ? {
-          ...data.data,
-          activities: data.data.admissions,
-          benefits: data.data.benefits,
-        } : type === 'organization' ? {
-          ...data.data,
-          benefits: data.data.position,
-        } : data.data;
+      const fetchedData = await viewHandler(tag, key);
+      const transformedData = {
+        ...fetchedData.data,
+        ...(type === 'gifted' || type === 'program' ? { activities: fetchedData.data.admissions, benefits: fetchedData.data.benefits } : {}),
+        ...(type === 'organization' ? { benefits: fetchedData.data.position } : {}),
+      };
       setViewData({ type, data: { data: transformedData } });
+      setActiveButton({ type, key });
     }
+  }, [data, viewData]);
+
+  // Clear filter and reset state
+  const clearFilter = useCallback(() => {
+    setSelectedFilter(null);
+    setSelectedStatus(Status.PENDING);
+    setViewData(null);
+  }, []);
+
+  // Render items (organizations, programs, etc.)
+  const renderItem = useCallback((item: any, type: 'organization' | 'program' | 'club' | 'gifted') => {
+    const isVisible = viewData && viewData.type === type && viewData.data.data.thainame === item.thainame;
+
+    return (
+      <div key={item.id}>
+        <li className="flex justify-between items-center mb-4 p-5 border border-gray-300 rounded-2xl">
+          <div className="flex items-center">
+            {type === 'organization' ? <PeopleIcon className="mr-2 w-6 h-6" /> : <BookIcon className="mr-2 w-6 h-6" />}
+            <span className="font-Thai font-medium text-lg ml-4">{item.thainame}</span>
+          </div>
+          <button
+            className={`ml-4 p-2 px-6 text-white rounded-3xl font-Thai transition-all duration-300 
+              ${activeButton && activeButton.type === type && activeButton.key === item.key
+                ? 'bg-custom-gradient-inverse hover:opacity-75 hover:scale-105'
+                : 'bg-custom-gradient hover:opacity-75 hover:scale-105'
+              }`}
+            onClick={() => {
+              const isActive = activeButton && activeButton.type === type && activeButton.key === item.key;
+              if (isActive) {
+                handleViewData(item.tag, item.key, type);
+              } else {
+                toast.promise(handleViewData(item.tag, item.key, type), {
+                  loading: 'กำลังโหลดข้อมูล...',
+                  success: 'ดูข้อมูลสำเร็จ!',
+                  error: 'เกิดข้อผิดพลาด!',
+                });
+              }
+            }}
+          >
+            {activeButton && activeButton.type === type && activeButton.key === item.key
+              ? 'คลิกเพื่อปิด'
+              : `ดูข้อมูล${type === 'organization' ? 'หน่วยงาน' : type === 'program' ? 'สายการเรียน' : type === 'club' ? 'ชมรม' : 'โครงการพัฒนาฯ'}`}
+          </button>
+        </li>
+        {isVisible && (
+          <div className={`overflow-hidden`}>
+            <ViewData data={viewData.data} type={viewData.type} onStatusUpdate={handleStatusUpdate} />
+          </div>
+        )}
+      </div>
+    );
+  }, [activeButton, handleStatusUpdate, viewData]);
+
+  // Function to handle filter selection from HamburgerMenu
+  const handleFilterSelect = (filter: string) => {
+    setSelectedFilter(filter);
   };
+
+  // Function to handle status selection
+  const handleStatusSelect = (status: Status) => {
+    setSelectedStatus(status);
+  };
+
   return (
     <>
-      <div><Toaster /></div>
+      <Toaster position="top-center" />
       <div className="flex items-center justify-center m-10">
         <div className="max-w-6xl w-full">
           <div className="mb-16">
             <p className="text-center text-2xl font-bold font-Thai">ตรวจสอบข้อมูลหน่วยงานบนเว็บไซต์</p>
           </div>
 
-          <div className="flex justify-between mt-4">
-            <div className="flex items-center">
-                {(
-                  <p>{
-                  (() => {
-                    switch (selectedStatus) {
-                    case 'pending':
-                      return (
-                        <div className="flex items-center">
-                          <p className="w-4 h-4 bg-[#FCB528] rounded-full mr-3"></p>
-                          <p className="font-Thai text-lg">หน่วยงานที่มีสถานะรอการตรวจสอบ</p>
-                        </div>
-                      )
-                    case 'approved':
-                      return (
-                        <div className="flex items-center">
-                          <p className="w-4 h-4 bg-[#19C57C] rounded-full mr-3"></p>
-                          <p className="font-Thai text-lg">หน่วยงานที่มีสถานผ่านการตรวจสอบ</p>
-                        </div>
-                      )
-                    case 'rejected':
-                      return (
-                        <div className="flex items-center">
-                          <p className="w-4 h-4 bg-[#F83E3E] rounded-full mr-3"></p>
-                          <p className="font-Thai text-lg">หน่วยงานที่มีสถานไม่ผ่านการตรวจสอบ</p>
-                        </div>
-                      )
-                    default:
-                      return ''
-                    }
-                  })()
-                  }</p>
-                )}
+          {loading ? (
+            <div className="flex flex-col justify-center items-center h-64">
+              <div className="loader border-4 border-t-4 border-gray-200 border-t-[#FCB528] rounded-full w-16 h-16 animate-spin"></div>
+              <p className="mt-5">กำลังโหลดข้อมูล...</p>
             </div>
-            <div className="flex">
-              {selectedFilter && (
+          ) : (
+            <>
+              <div className="flex justify-between mt-4">
                 <div className="flex items-center">
-                  <button onClick={clearFilter} className="p-2 px-4 bg-red-500 text-white rounded-md transition-opacity duration-500 hover:opacity-75">Clear Filter</button>
-                  <p className="font-Thai text-lg mx-7">{selectedFilter}</p>
+                  <div className="flex items-center">
+                    <p className={`w-4 h-4 rounded-full mr-3 ${selectedStatus === Status.PENDING ? 'bg-[#FCB528]' : selectedStatus === Status.APPROVED ? 'bg-[#19C57C]' : 'bg-[#F83E3E]'}`}></p>
+                    <p className="font-Thai text-lg">
+                      {selectedStatus === Status.PENDING ? 'รอดำเนินการ' : selectedStatus === Status.APPROVED ? 'อนุมัติ' : 'ไม่อนุมัติ'}
+                    </p>
+                  </div>
                 </div>
-              )}
-              <HamburgerMenu onFilterSelect={handleFilterSelect} selectedFilter={selectedFilter} />
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <select
-              value={selectedStatus || 'pending'}
-              onChange={e => setSelectedStatus(e.target.value)}
-              className="p-2 border border-gray-300 rounded-md"
-            >
-              <option value="pending">รอการตรวจสอบ</option>
-              <option value="approved">ผ่านการตรวจสอบ</option>
-              <option value="rejected">ไม่ผ่านการตรวจสอบ</option>
-            </select>
-          </div>
-
-          <hr className="my-7" />
-
-          <div>
-            {loading ? (
-              <div className="flex flex-col justify-center items-center h-64">
-                <div className="loader border-4 border-t-4 border-gray-200 border-t-[#FCB528] rounded-full w-16 h-16 animate-spin"></div>
-                <p className="mt-5">กำลังโหลดข้อมูล...</p>
+                <div className="flex ">
+                  <div className="flex">
+                    <button onClick={clearFilter} className="text-[#FCB528] text-lg font-Thai hover:underline mr-5">
+                      เคลียร์การกรอง
+                    </button>
+                    <HamburgerMenu
+                      onFilterSelect={handleFilterSelect}
+                      selectedFilter={selectedFilter}
+                    />
+                  </div>
+                  
+                </div>
               </div>
-            ) : (
-              <ul>
-                {filteredOrganizations().map(organization => (
-                  <div key={organization.id}>
-                    <li className="flex justify-between items-center mb-4 p-5 border border-[gray] rounded-2xl">
-                      <div className="flex items-center">
-                        <PeopleIcon className="mr-2 w-6 h-6" />
-                        <span className="font-Thai font-medium text-lg ml-4">{organization.thainame}</span>
-                      </div>
-                      <button
-                        className="ml-4 p-2 px-6 text-white bg-custom-gradient rounded-3xl font-Thai transition-opacity duration-500 hover:opacity-75"
-                        onClick={() => {
-                          toast.promise(handleViewData(organization.tag, organization.key, 'organization'),
-                            {
-                              loading: 'กำลังโหลดข้อมูล...',
-                              success: (viewData === null) ? 'ดูข้อมูลสำเร็จ' : 'ปิดข้อมูล',
-                              error: 'เกิดข้อผิดพลาด!'
-                            })
-                        }}
-                      >
-                        ดูข้อมูลหน่วยงาน
-                      </button>
-                    </li>
-                    {viewData && viewData.type === 'organization' && viewData.data.data.thainame === organization.thainame && (
-                      <ViewData data={viewData.data} type={viewData.type} onStatusUpdate={handleStatusUpdate} />
-                    )}
-                  </div>
-                ))}
-                {filteredPrograms().map(program => (
-                  <div key={program.id}>
-                    <li className="flex justify-between items-center mb-4 p-5 border border-[gray] rounded-2xl">
-                      <div className="flex items-center">
-                        <BookIcon className="mr-2 w-6 h-6" />
-                        <span className="font-Thai font-medium text-lg ml-4">{program.thainame}</span>
-                      </div>
-                      <button
-                        className="ml-4 p-2 px-6 text-white bg-custom-gradient rounded-3xl font-Thai transition-opacity duration-500 hover:opacity-75"
-                        onClick={() => {
-                          toast.promise(handleViewData(program.tag, program.key, 'program'), {
-                            loading: 'กำลังโหลดข้อมูล...',
-                            success: (viewData === null) ? 'ดูข้อมูลสำเร็จ' : 'ปิดข้อมูล',
-                            error: 'เกิดข้อผิดพลาด!'
-                          })
-                        }}
-                      >
-                        ดูข้อมูลหน่วยงาน
-                      </button>
-                    </li>
-                    {viewData && viewData.type === 'program' && viewData.data.data.thainame === program.thainame && (
-                      <ViewData data={viewData.data} type={viewData.type} onStatusUpdate={handleStatusUpdate} />
-                    )}
-                  </div>
-                ))}
-                {filteredClubs().map(club => (
-                  <div key={club.id}>
-                    <li className="flex justify-between items-center mb-4 p-5 border border-[gray] rounded-2xl">
-                      <div className="flex items-center">
-                        <BookIcon className="mr-2 w-6 h-6" />
-                        <span className="font-Thai font-medium text-lg ml-4">{club.thainame}</span>
-                      </div>
-                      <button
-                        className="ml-4 p-2 px-6 text-white bg-custom-gradient rounded-3xl font-Thai transition-opacity duration-500 hover:opacity-75"
-                        onClick={() => {
-                          toast.promise(handleViewData(club.tag, club.key, 'club'), {
-                            loading: 'กำลังโหลดข้อมูล...',
-                            success: (viewData === null) ? 'ดูข้อมูลสำเร็จ' : 'ปิดข้อมูล',
-                            error: 'เกิดข้อผิดพลาด!'
-                          })
-                        }}
-                      >
-                        ดูข้อมูลหน่วยงาน
-                      </button>
-                    </li>
-                    {viewData && viewData.type === 'club' && viewData.data.data.thainame === club.thainame && (
-                      <ViewData data={viewData.data} type={viewData.type} onStatusUpdate={handleStatusUpdate} />
-                    )}
-                  </div>
-                ))}
-                {filteredGifted().map(gifted => (
-                  <div key={gifted.id}>
-                    <li className="flex justify-between items-center mb-4 p-5 border border-[gray] rounded-2xl">
-                      <div className="flex items-center">
-                        <PeopleIcon className="mr-2 w-6 h-6" />
-                        <span className="font-Thai font-medium text-lg ml-4">{gifted.thainame}</span>
-                      </div>
-                      <button
-                        className="ml-4 p-2 px-6 text-white bg-custom-gradient rounded-3xl font-Thai transition-opacity duration-500 hover:opacity-75"
-                        onClick={() => {
-                          toast.promise(handleViewData(gifted.tag, gifted.key, 'gifted'), {
-                            loading: 'กำลังโหลดข้อมูล...',
-                            success: (viewData === null) ? 'ดูข้อมูลสำเร็จ' : 'ปิดข้อมูล',
-                            error: 'เกิดข้อผิดพลาด!'
-                          })
-                        }}
-                      >
-                        ดูข้อมูลหน่วยงาน
-                      </button>
-                    </li>
-                    {viewData && viewData.type === 'gifted' && viewData.data.data.thainame === gifted.thainame && (
-                      <ViewData data={viewData.data} type={viewData.type} onStatusUpdate={handleStatusUpdate} />
-                    )}
-                  </div>
-                ))}
-              </ul>)}
-          </div>
+
+              {/* Status Selection Buttons */}
+              <div className="flex space-x-4 mt-4">
+                <button
+                  className={`p-2 rounded-lg ${selectedStatus === Status.PENDING ? 'bg-[#FCB528]' : 'bg-gray-200'}`}
+                  onClick={() => handleStatusSelect(Status.PENDING)}
+                >
+                  รอดำเนินการ
+                </button>
+                <button
+                  className={`p-2 rounded-lg ${selectedStatus === Status.APPROVED ? 'bg-[#19C57C]' : 'bg-gray-200'}`}
+                  onClick={() => handleStatusSelect(Status.APPROVED)}
+                >
+                  อนุมัติ
+                </button>
+                <button
+                  className={`p-2 rounded-lg ${selectedStatus === Status.REJECTED ? 'bg-[#F83E3E]' : 'bg-gray-200'}`}
+                  onClick={() => handleStatusSelect(Status.REJECTED)}
+                >
+                  ไม่อนุมัติ
+                </button>
+              </div>
+              <hr className="my-5" />
+              {/* Data List */}
+              <ul className="mt-5">
+                {filteredOrganizations.map(item => renderItem(item, 'organization'))}
+                {filteredPrograms.map(item => renderItem(item, 'program'))}
+                {filteredClubs.map(item => renderItem(item, 'club'))}
+                {filteredGifted.map(item => renderItem(item, 'gifted'))}
+              </ul>
+            </>
+          )}
         </div>
       </div>
     </>

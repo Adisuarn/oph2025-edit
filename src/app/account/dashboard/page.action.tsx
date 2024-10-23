@@ -1,8 +1,12 @@
 'use server'
+import { redirect } from "next/navigation";
 import apiFunction from "@/components/api"
 
 export async function handler() {
   const user = await apiFunction('GET', '/user', {});
+  if(!user.data.TUCMC) {
+    redirect('/403')
+  }
   const data = await apiFunction('GET', '/tucmc/data', {});
   const organizations = data.data.data.organizations;
   const programs = data.data.data.programs;

@@ -13,6 +13,7 @@ export default {
         roboto: ["Roboto",],
         Thai: ["Noto Sans Thai"],
         inter: ['Inter'],
+        BaiJamjuree: ['Bai Jamjuree'],
       },
       backgroundSize: {
         'size-200': '200% 200%',
@@ -47,7 +48,16 @@ export default {
         'width': 'width',
         'spacnig': 'margin, padding',
         'transform': 'transform',
-      }
+      },
+      animation: {
+        'fade-in': 'fade 0.5s ease-in-out',
+      },
+      keyframes: {
+        fade: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        }
+      },
     },
   },
   plugins: [],

@@ -137,7 +137,6 @@ export const createClubReview = async (key: keyof typeof AllData.Clubs) => {
         email: clubData.email,
         count: ((await prisma.reviews.count({ where: { email: clubData?.email } })) + 1).toString(),
         profile: '',
-        name: '',
         nick: '',
         gen: '',
         contact: '',
@@ -159,7 +158,6 @@ export const updateClubReview = async (key: keyof typeof AllData.Clubs, count: s
         where: { email: clubData.email, count: count },
         data: {
           profile: (!body.profile === undefined ) ? await uploadImage(body.profile) : reviewData?.profile,
-          name: body.name,
           nick: body.nick,
           gen: body.gen,
           contact: body.contact,
@@ -179,7 +177,6 @@ export const deleteClubReview = async (key: keyof typeof AllData.Clubs, id: stri
       where: { email: clubData.email, count: id },
       data: {
         profile: '',
-        name: '',
         nick: '',
         gen: '',
         contact: '',

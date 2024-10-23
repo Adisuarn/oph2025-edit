@@ -155,7 +155,6 @@ model Reviews {
   email          String         @unique
   count          String?
   profile        String?
-  name           String
   nick           String
   gen            String
   contact        String

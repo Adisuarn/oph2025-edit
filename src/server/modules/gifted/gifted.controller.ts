@@ -159,7 +159,6 @@ export const createGiftedReview = async (name: keyof typeof AllData.Gifted) => {
           })) + 1
         ).toString(),
         profile: "",
-        name: "",
         nick: "",
         gen: "",
         contact: "",
@@ -189,7 +188,6 @@ export const updateGiftedReview = async (
       where: { email: giftedData.email, count: count },
       data: {
         profile: (body.profile !== undefined ) ? await uploadImage(body.profile) : reviewData?.profile,
-        name: body.name,
         nick: body.nick,
         gen: body.gen,
         contact: body.contact,
@@ -216,7 +214,6 @@ export const deleteGiftedReview = async (
       where: { email: giftedData.email, count: id },
       data: {
         profile: "",
-        name: "",
         nick: "",
         gen: "",
         contact: "",

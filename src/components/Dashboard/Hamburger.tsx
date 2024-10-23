@@ -4,41 +4,38 @@ import Hamburger from '@/vectors/dashboard/Hamburger';
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon';
 import BookIcon from '@/vectors/dashboard/BookIcon'; 
 
-const HamburgerMenu = ({ onFilterSelect, selectedFilter }: { onFilterSelect: (filter: string) => void, selectedFilter: string | null }) => {
+interface HamburgerMenuProps {
+  onFilterSelect: (filter: string) => void;
+  selectedFilter: string | null;
+}
+
+const HamburgerMenu: React.FC<HamburgerMenuProps> = ({ onFilterSelect, selectedFilter }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(prev => !prev);
-  };
-
   const filters = [
-    { name: "องค์กรนักเรียน", icon: <PeopleIcon className="inline w-4 h-4 mr-4" /> },
-    { name: "สายการเรียน", icon: <BookIcon className="inline w-4 h-4 mr-4" /> },
-    { name: "โครงการพัฒนาความสามารถ", icon: <PeopleIcon className="inline w-4 h-4 mr-4" /> },
-    { name: "ชมรม", icon: <BookIcon className="inline w-4 h-4 mr-4" /> },
+    { name: "องค์กรนักเรียน", icon: <PeopleIcon className="inline w-4 h-4 mr-4" />, key: "organizations" },
+    { name: "สายการเรียน", icon: <BookIcon className="inline w-4 h-4 mr-4" />, key: "programs" },
+    { name: "โครงการพัฒนาความสามารถ", icon: <PeopleIcon className="inline w-4 h-4 mr-4" />, key: "gifted" },
+    { name: "ชมรม", icon: <BookIcon className="inline w-4 h-4 mr-4" />, key: "clubs" },
   ];
 
   const handleFilterClick = (selectedCategory: string) => {
     onFilterSelect(selectedCategory);
-    setIsMenuOpen(false); // Ensure this only closes the menu
+    setIsMenuOpen(false); // Close the menu after selection
   };
 
   return (
     <div className="relative">
-      <button onClick={toggleMenu}>
+      <button onClick={() => setIsMenuOpen(prev => !prev)}>
         <Hamburger />
       </button>
-      <div
-        className={`${
-          isMenuOpen ? 'visible' : 'invisible'
-        } absolute left-full top-0 bg-white p-4 shadow-lg border border-gray-300 rounded transition-transform duration-300 min-w-64`}
-      >
-        {filters.map(({ name, icon }) => (
+      <div className={`${isMenuOpen ? 'visible' : 'invisible'} absolute left-full top-0 bg-white p-4 shadow-lg border border-gray-300 rounded transition-transform duration-300 min-w-64`}>
+        {filters.map(({ name, icon, key }) => (
           <button
             key={name}
-            onClick={() => handleFilterClick(name)}
+            onClick={() => handleFilterClick(key)}
             className={`w-full text-left p-2 mb-2 rounded transition-colors duration-300 
-              ${selectedFilter === name ? 'bg-blue-500 text-white' : 'hover:bg-gray'}
+              ${selectedFilter === key ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}
             `}
           >
             <div className="flex items-center">
