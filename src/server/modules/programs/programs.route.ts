@@ -63,7 +63,7 @@ export const programRouter = new Elysia({ prefix: '/programs' })
         ig: StringField(false, 'Invalid Instagram'),
         fb: StringField(false, 'Invalid Facebook'),
         others: StringField(false, 'Invalid Others'),
-        admission: StringField(true, 'Invalid Admission'),
+        admissions: StringField(true, 'Invalid Admission'),
         courses: StringField(true, 'Invalid Courses'),
         interests: StringField(true, 'Invalid Interests'),
         captureimg1: t.File({ error() { return 'Invalid Capture Image' } }),
