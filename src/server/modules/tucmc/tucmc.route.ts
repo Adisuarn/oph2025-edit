@@ -7,6 +7,13 @@ import { updateClubData, updateClubReview,ClubData } from '@modules/clubs/clubs.
 import { updateOrganizationData, updateOrganizationReview,OrganizationData } from '@modules/organizations/organizations.controller'
 import { updateProgramData, updateProgramReview,ProgramData } from '@modules/programs/programs.controller'
 import { updateGiftedData, updateGiftedReview, GiftedData } from '@modules/gifted/gifted.controller'
+import { createEverything } from '@utils/create'
+import { 
+  importClubData,
+  importGiftedData,
+  importOrganizationData,
+  importProgramData,
+ } from '@/server/utils/importdata'
 
 export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
   .get('/data', async () => {
@@ -85,4 +92,14 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
       contact: StringField(true, 'Invalid Contact'),
       content: StringField(true, 'Invalid Content'),
     })
+  })
+  .post('/all', async() => {
+    return createEverything()
+  })
+  .patch('/import', async() => {
+    await importClubData();
+    await importGiftedData();
+    await importOrganizationData();
+    await importProgramData();
+    return { success: true };
   })

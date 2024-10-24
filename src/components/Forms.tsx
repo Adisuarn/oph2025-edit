@@ -1,6 +1,6 @@
 "use client";
 
-import { Formik, Form, Field, ErrorMessage } from "Formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { AllData } from "@/libs/data";
 import { useRouter } from "next/navigation";

@@ -28,7 +28,6 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
       if (typeof name !== "string")
         return error(400, "Invalid Gifted Name");
       const giftedData = (await getGifted(name)).data;
-      console.log(userData?.email !== giftedData.email)
       if (userData?.TUCMC === true) {
         return
       } else if (userData?.email !== giftedData.email) {

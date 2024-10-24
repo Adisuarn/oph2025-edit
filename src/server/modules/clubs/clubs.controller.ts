@@ -39,21 +39,6 @@ export const createClub = async (body: Club) => {
         key: body.key,
         email: body.email,
         clubKey: body.key,
-        name: '',
-        thainame: AllData.Clubs[body.key],
-        ig: '',
-        fb: '',
-        others: '',
-        activities: '',
-        benefits: '',
-        working: '',
-        captureimg1: '',
-        descimg1: '',
-        captureimg2: '',
-        descimg2: '',
-        captureimg3: '',
-        descimg3: '',
-        logo: '',
       }
     })
     await prisma.user.update({

@@ -37,20 +37,6 @@ export const createOrganization = async (body: Organization) => {
         error: '',
         key: body.key,
         email: body.email,
-        name: body.key,
-        thainame: AllData.Organizations[body.key],
-        ig: '',
-        fb: '',
-        others: '',
-        activities: '',
-        position: '',
-        working: '',
-        captureimg1: '',
-        descimg1: '',
-        captureimg2: '',
-        descimg2: '',
-        captureimg3: '',
-        descimg3: '',
       }
     })
     await prisma.user.update({

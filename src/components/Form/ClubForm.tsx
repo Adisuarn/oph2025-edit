@@ -1,6 +1,6 @@
 "use client";
 
-import { Formik, Form, Field, ErrorMessage } from "Formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import { uploadImage } from "@/server/utils/uploadimg";

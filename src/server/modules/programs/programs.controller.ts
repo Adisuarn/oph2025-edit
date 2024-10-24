@@ -37,20 +37,6 @@ export const createProgram = async(body: Program) => {
         error: '',
         key: body.key,
         email: body.email,
-        name: body.key,
-        thainame: AllData.Programs[body.key],
-        ig: '',
-        fb: '',
-        others: '',
-        admissions: '',
-        courses: '',
-        interests: '',
-        captureimg1: '',
-        descimg1: '',
-        captureimg2: '',
-        descimg2: '',
-        captureimg3: '',
-        descimg3: '',
       }
     })
     await prisma.user.update({
