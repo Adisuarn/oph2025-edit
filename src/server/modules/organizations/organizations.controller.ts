@@ -18,11 +18,11 @@ export interface OrganizationData {
   activities: string,
   position: string,
   working: string,
-  captureimg1: File,
+  captureimg1?: File,
   descimg1: string,
-  captureimg2: File,
+  captureimg2?: File,
   descimg2: string,
-  captureimg3: File,
+  captureimg3?: File,
   descimg3: string
 }
 

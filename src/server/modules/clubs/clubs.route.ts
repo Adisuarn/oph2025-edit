@@ -64,13 +64,13 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
       activities: StringField(true, 'Invalid Activities'),
       benefits: StringField(true, 'Invalid Benefits'),
       working: StringField(true, 'Invalid Working'),
-      captureimg1: t.File({ error() { return 'Invalid Capture Image' } }),
+      captureimg1: t.Optional(t.File({ error() { return 'Invalid Capture Image' } })),
       descimg1: StringField(true, 'Invalid Description Image'),
-      captureimg2: t.File({ error() { return 'Invalid Capture Image' } }),
+      captureimg2: t.Optional(t.File({ error() { return 'Invalid Capture Image' } })),
       descimg2: StringField(true, 'Invalid Description Image'),
-      captureimg3: t.File({ error() { return 'Invalid Capture Image' } }),
+      captureimg3: t.Optional(t.File({ error() { return 'Invalid Capture Image' } })),
       descimg3: StringField(true, 'Invalid Description Image'),
-      logo: t.File({error() { return 'Invalid Logo' }}),
+      logo: t.Optional(t.File({error() { return 'Invalid Logo' }})),
     })
   })
   .get('/:key/review', async ({ params: { key } }) => {
