@@ -11,57 +11,52 @@ const FormikControl: React.FC = async () => {
     {},
   );
   console.log(userData);
-  // const userReview = await apiFunction(
-  //   "GET",
-  //   `/${userData.tag}/${userData.key}/${userData.}`,
-  //    {}
-  // )
-
-  const submittedForm = userForm.data?.data.sendForm;
-  const checked = (userForm.data.data.status = Status.PENDING) ? false : true;
-  const approved = (userForm.data.data.status = Status.APPROVED) ? true : false;
-
-  const name = userForm.data.data.thainame;
-  const status = userForm.data.data.status;
-  const members = userForm.data.data.members;
-  const tag = 'โครงการพัฒนาความสามารถพิเศษ';
-  const ig = userForm.data.data.ig;
-  const fb = userForm.data.data.fb;
-  const others = userForm.data.data.others;
+  const userReview = await apiFunction(
+    "GET",
+    `/${userData.tag}/${userData.key}/review`,
+     {}
+  )
+  console.log(userForm)
+  console.log(userReview.data)
 
   let editFormData = {
-    members: '',
-    ig: '',
-    fb: '',
-    others: '',
-    admission: '',
-    courses: '',
-    interests: '',
-    captureimg1: '',
+    thainame: userForm.data.data.thainame,
+    tag: 'โครงการพัฒนาความสามารถพิเศษ',
+    submittedForm: userForm.data?.data.sendForm,
+    members: userForm.data.data.members,
+    ig: userForm.data.data.ig,
+    fb: userForm.data.data.fb,
+    others: userForm.data.data.others,
+    admissions: userForm.data.data.admissions,
+    courses: userForm.data.data.courses,
+    interests: userForm.data.data.interests,
+    status: userForm.data.data.status,
+    captureimg1: userForm.data.data.captureimg1,
     descimg1: '',
-    captureimg2: '',
+    captureimg2: userForm.data.data.captureimg2,
     descimg2: '',
-    captureimg3: '',
+    captureimg3: userForm.data.data.captureimg3,
     descimg3: '',
   };
 
-  let review = {
-
-  }
+  let review1 = {};
+  if (userReview.data.count === 1) {
+  review1 = {
+    count1: userReview.data.count,
+    profile1: userReview.data.profile,  
+    nick1: userReview.data.nick,      
+    gen1: userReview.data.gen,
+    contact1: userReview.data.contact,
+    content1: userReview.data.content,
+  };
+}
+console.log(review1)
+  
 
   return (
     <GeneralForm
-      name={name}
-      status={status}
-      members={members}
-      tag={tag}
-      ig={ig}
-      fb={fb}
-      others={others}
-      submittedForm={submittedForm}
-      checked={checked}
-      approved={approved}
       editFormData={editFormData}
+      review1={review1}
     />
   );
 };
