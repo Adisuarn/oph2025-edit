@@ -1,6 +1,6 @@
 "use client";
 
-import { Formik, Form, Field, ErrorMessage } from "Formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import { uploadImage } from "@/server/utils/uploadimg";
@@ -12,7 +12,7 @@ import UserIcon from "@/vectors/edit-page/UserIcon";
 import GalleryIcon from "@/vectors/edit-page/GalleryIcon";
 import { FaPen } from "react-icons/fa";
 import Trash from "@/vectors/edit-page/Trash";
-import postInfo from "./Forms.action"
+import postInfo from "./Forms.action";
 import { useRouter } from "next/router";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosInformationCircleOutline } from "react-icons/io";
@@ -297,9 +297,9 @@ const GeneralForm: React.FC<{
               editFormData.admission = values.textField1;
               editFormData.courses = values.textField2;
               editFormData.interests = values.textField3;
-              editFormData.captureimg1 = image1!
-              editFormData.captureimg2 = image2!
-              editFormData.captureimg3 = image3!
+              editFormData.captureimg1 = image1!;
+              editFormData.captureimg2 = image2!;
+              editFormData.captureimg3 = image3!;
               editFormData.descimg1 = values.photoDescription1;
               editFormData.descimg2 = values.photoDescription2;
               editFormData.descimg3 = values.photoDescription3;
@@ -653,7 +653,7 @@ const GeneralForm: React.FC<{
                 </p>
               </div>
 
-              <section className="flex flex-col space-y-10 ">
+              <section className="flex flex-col space-y-10">
                 <div className="flex flex-col items-center justify-center space-y-3">
                   <div className="flex w-full items-start justify-around">
                     <div className="flex flex-col">
@@ -911,13 +911,15 @@ const GeneralForm: React.FC<{
                   </div>
                 )}
               </section>
-              <div className="w-full flex flex-col items-center space-y-3 mb-10">
-                <div
-                  onClick={decrementReview}
-                  className="flex h-8 w-8 items-center justify-center rounded-full shadow-xl"
-                >
-                  <Trash className="h-3 w-3 sm:h-6 sm:w-6" />
-                </div>
+              <div className="mb-10 flex w-full flex-col items-center space-y-3">
+                {ReviewAmount !== 1 && (
+                  <div
+                    onClick={decrementReview}
+                    className="flex h-8 w-8 items-center justify-center rounded-full shadow-xl"
+                  >
+                    <Trash className="h-3 w-3 sm:h-6 sm:w-6" />
+                  </div>
+                )}
                 <div>
                   {ReviewAmount !== 3 && (
                     <button
