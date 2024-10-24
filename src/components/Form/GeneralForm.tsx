@@ -1,6 +1,6 @@
 "use client";
 
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "Formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import { uploadImage } from "@/server/utils/uploadimg";
@@ -20,8 +20,6 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 // import { useRouter } from "next/router";
 
 // const Router = useRouter();
-
-let dataForm = {};
 
 const GeneralForm: React.FC<{
   name: string;
