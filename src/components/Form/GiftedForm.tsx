@@ -10,7 +10,12 @@ const FormikControl: React.FC = async () => {
     `/${userData.tag}/${userData.key}/`,
     {},
   );
-  console.log(userForm);
+  console.log(userData);
+  // const userReview = await apiFunction(
+  //   "GET",
+  //   `/${userData.tag}/${userData.key}/${userData.}`,
+  //    {}
+  // )
 
   const submittedForm = userForm.data?.data.sendForm;
   const checked = (userForm.data.data.status = Status.PENDING) ? false : true;
