@@ -17,12 +17,12 @@ const AccountPage = async () => {
   const userData = userResponse.data;
   if(userData.tag === "") redirect('/account/forms')
   const userForm = await apiFunction("GET", `/${userData.tag}/${userData.key}/`, {});
-  console.log(userForm)
 
   const submittedInit = (userData.tag === "" || userData.tag === null || userData.tag === undefined ) ? false : true;
-  const submittedForm = (userForm.data?.data.sendForm) ? true : false;
+  const submittedForm = (userForm.data.data.sendForm) ? true : false;
   const checked = (userForm.data.data.status = Status.PENDING) ? false : true;
   const approved = (userForm.data.data.status = Status.APPROVED) ? true : false;
+
 
   return (
     <section className="flex h-screen flex-col items-center justify-center sm:space-y-4 text-formText">

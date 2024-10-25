@@ -96,13 +96,13 @@ const Forms: React.FC<FormProps> = ({dataRecord}) => {
   return (
     <main className="flex h-screen w-screen items-center justify-center bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">
       <div className="absolute -left-20 bottom-0 z-40 sm:-left-10">
-        <FormLeft className="hidden sm:h-screen" />
+        <FormLeft className="hidden sm:block sm:h-screen" />
       </div>
       <div className="absolute -left-24 bottom-0 z-40 sm:-left-10">
         <SmallFormLeft className="h-screen sm:hidden" />
       </div>
       <div className="absolute bottom-0 right-0 z-20">
-        <BigLamp className="hidden sm:h-full" />
+        <BigLamp className="hidden sm:block sm:h-full" />
       </div>
       <div className="absolute top-16 -right-20 z-20">
         <Frames className="h-[50vh] sm:hidden" />
