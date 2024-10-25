@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ClubForm from "@/components/Form/ClubForm";
 import OrganizationForm from "@/components/Form/OrganizationForm";
-import ProgrameForm from "@/components/Form/ProgrameForm";
+import ProgramForm from "@/components/Form/ProgramForm";
 import GiftedForm from "@/components/Form/GiftedForm";
 import apiFunction from "@/components/api";
 import { Status, Tag } from "@/server/utils/type";
@@ -20,7 +20,7 @@ export default async function Form({
     <div>
       {params.editingformId === Tag.CLUB && <ClubForm key={key} />}
       {params.editingformId === Tag.ORGANIZATION && <OrganizationForm key={key} />}
-      {params.editingformId === Tag.PROGRAM && <ProgrameForm key={key} />}
+      {params.editingformId === Tag.PROGRAM && <ProgramForm key={key} />}
       {params.editingformId === Tag.GIFTED && <GiftedForm key={key} />}
     </div>
   );

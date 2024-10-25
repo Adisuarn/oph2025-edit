@@ -18,10 +18,13 @@ const FormikControl: React.FC = async () => {
   )
   console.log(userForm)
   console.log(userReview.data)
+  console.log(userReview.data.data[0])
+
 
   let editFormData = {
     thainame: userForm.data.data.thainame,
-    tag: 'โครงการพัฒนาความสามารถพิเศษ',
+    tag: userForm.data.data.tag,
+    tagThai: 'โครงการพัฒนาความสามารถพิเศษ',
     submittedForm: userForm.data?.data.sendForm,
     members: userForm.data.data.members,
     ig: userForm.data.data.ig,
@@ -39,24 +42,39 @@ const FormikControl: React.FC = async () => {
     descimg3: '',
   };
 
-  let review1 = {};
-  if (userReview.data.count === 1) {
-  review1 = {
-    count1: userReview.data.count,
-    profile1: userReview.data.profile,  
-    nick1: userReview.data.nick,      
-    gen1: userReview.data.gen,
-    contact1: userReview.data.contact,
-    content1: userReview.data.content,
+  let review1 = {
+    count: userReview.data.data[0].count,
+    profile: userReview.data.data[0].profile,
+    nick: userReview.data.data[0].nick,
+    gen: userReview.data.data[0].gen,
+    contact: userReview.data.data[0].contact,
+    content: userReview.data.data[0].content,
   };
-}
-console.log(review1)
-  
+
+  let review2 = {
+    count: userReview.data.data[1].count,
+    profile: userReview.data.data[1].profile,
+    nick: userReview.data.data[1].nick,
+    gen: userReview.data.data[1].gen,
+    contact: userReview.data.data[1].contact,
+    content: userReview.data.data[1].content,
+  };
+
+  let review3 = {
+    count: userReview.data.data[2].count,
+    profile: userReview.data.data[2].profile,
+    nick: userReview.data.data[2].nick,
+    gen: userReview.data.data[2].gen,
+    contact: userReview.data.data[2].contact,
+    content: userReview.data.data[2].content,
+  };
 
   return (
     <GeneralForm
       editFormData={editFormData}
       review1={review1}
+      review2={review2}
+      review3={review3}
     />
   );
 };
