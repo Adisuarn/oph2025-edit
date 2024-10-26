@@ -5,7 +5,7 @@ const userData = userResponse.data;
 console.log(userData)
 export default async function postInfo (data : any){
     try {
-        const response = await apiFunction("POST", `/${userData.tag}/${userData.key}`, data)
+        const response = await apiFunction("PATCH", `/${userData.tag}/${userData.key}`, data)
       } catch (error) {
         console.log(error)
       }

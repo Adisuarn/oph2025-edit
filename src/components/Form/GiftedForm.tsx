@@ -18,7 +18,6 @@ const FormikControl: React.FC = async () => {
   )
   console.log(userForm)
   console.log(userReview.data)
-  console.log(userReview.data.data[0])
 
 
   let editFormData = {

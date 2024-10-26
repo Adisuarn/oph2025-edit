@@ -16,9 +16,9 @@ const PreviewGiftedForm: React.FC = async () => {
     `/${userData.tag}/${userData.key}/review`,
      {}
   )
-  console.log(userForm)
-  console.log(userReview.data)
-  console.log(userReview.data.data[0])
+  // console.log(userForm)
+  // console.log(userReview.data)
+  // console.log(userReview.data.data[0])
 
 
   let editFormData = {
@@ -34,14 +34,15 @@ const PreviewGiftedForm: React.FC = async () => {
     courses: userForm.data.data.courses,
     interests: userForm.data.data.interests,
     status: userForm.data.data.status,
-    captureimg1: userForm.data.data.captureimg1,
+    // captureimg1: userForm.data.data.captureimg1,
     descimg1: '',
-    captureimg2: userForm.data.data.captureimg2,
+    // captureimg2: userForm.data.data.captureimg2,
     descimg2: '',
-    captureimg3: userForm.data.data.captureimg3,
+    // captureimg3: userForm.data.data.captureimg3,
     descimg3: '',
   };
 
+  
   let review1 = {
     count: userReview.data.data[0].count,
     profile: userReview.data.data[0].profile,
@@ -50,7 +51,7 @@ const PreviewGiftedForm: React.FC = async () => {
     contact: userReview.data.data[0].contact,
     content: userReview.data.data[0].content,
   };
-
+  
   let review2 = {
     count: userReview.data.data[1].count,
     profile: userReview.data.data[1].profile,
@@ -59,7 +60,7 @@ const PreviewGiftedForm: React.FC = async () => {
     contact: userReview.data.data[1].contact,
     content: userReview.data.data[1].content,
   };
-
+  
   let review3 = {
     count: userReview.data.data[2].count,
     profile: userReview.data.data[2].profile,
@@ -68,7 +69,8 @@ const PreviewGiftedForm: React.FC = async () => {
     contact: userReview.data.data[2].contact,
     content: userReview.data.data[2].content,
   };
-
+  
+  let reviews = [review1, review2, review3];
   return (
     <PreviewGeneralForm
       editFormData={editFormData}

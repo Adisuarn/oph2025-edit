@@ -13,11 +13,12 @@ import GalleryIcon from "@/vectors/edit-page/GalleryIcon";
 import { FaPen } from "react-icons/fa";
 import Trash from "@/vectors/edit-page/Trash";
 import postInfo from "./Forms.action";
+import postReview from "./Forms.action.review";
 import { Status } from "@utils/type";
 import { useRouter } from "next/router";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosInformationCircleOutline } from "react-icons/io";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import apiFunction from "../api";
 // import { useRouter } from "next/router";
@@ -30,28 +31,29 @@ const GeneralForm: React.FC<{
   review2: any;
   review3: any;
 }> = ({ editFormData, review1, review2, review3 }) => {
-  // const notifySuccess = () =>
-  //   toast.success("Successfully Sent!", {
-  //     position: "top-right",
-  //     autoClose: 3000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "colored",
-  //   });
-  // const notifyError = () =>
-  //   toast.error("There was an error!", {
-  //     position: "top-right",
-  //     autoClose: 3000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "colored",
-  //   });
+  const notifySuccess = () =>
+    toast.success("Successfully Sent!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+    });
+  const notifyError = () =>
+    toast.error("There was an error!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
 
   const [image1, setImage1] = useState<File | null>(null);
   const [imageUrl1, setImageUrl1] = useState<string | null>(null);
@@ -213,48 +215,51 @@ const GeneralForm: React.FC<{
     }
   }, [image6]);
 
+  let reviews = [review1, review2, review3];
+
   return (
     <section className="mx-10 mt-16 sm:mx-24">
+      <ToastContainer />
       <Formik
         initialValues={{
           textField1: editFormData.admissions,
           textField2: editFormData.courses,
           textField3: editFormData.interests,
-          textField4: review1.content,
-          textField5: review2.content,
-          textField6: review3.content,
-          // image1: "",
-          image2: editFormData.captureimg2,
-          // image3: "",
-            image4: review1.profile,
-            image5: review2.profile,
-            image6: review3.profile,
-            photoDescription1: "Photo description",
-            photoDescription2: "Photo description",
-            photoDescription3: "Photo description",
-            P1Name: review1.nick,
-            P2Name: review2.nick,
-            P3Name: review3.nick,
-            P1Gen: `เตรียมอุดม ${review1.gen}`,
-            P2Gen: `เตรียมอุดม ${review2.gen}`,
-            P3Gen: `เตรียมอุดม ${review3.gen}`,
-            P1Contact: review1.contact,
-            P2Contact: review2.contact,
-            P3Contact: review3.contact,
-            Members: editFormData.members,
-            IG: editFormData.ig,
-            FB: editFormData.fb,
-            others: editFormData.others,
-            submitError: "",
-            }}
-            validationSchema={Yup.object({
+          textField4: "",
+          textField5: "",
+          textField6: "",
+          photoDescription1: "",
+          photoDescription2: "",
+          photoDescription3: "",
+          P1Name: "",
+          P2Name: "",
+          P3Name: "",
+          P1Gen: "",
+          P2Gen: "",
+          P3Gen: "",
+          P1Contact: "",
+          P2Contact: "",
+          P3Contact: "",
+          Members: editFormData.members,
+          IG: editFormData.ig,
+          FB: editFormData.fb,
+          others: editFormData.others,
+          submitError: "",
+        }}
+        validationSchema={Yup.object({
           //.min(150, "Required More than 150 words ")
-          textField1: Yup.string().required("Required Description"),
-          textField2: Yup.string().required("Required Description"),
-          textField3: Yup.string().required("Required Description"),
+          textField1: Yup.string()
+            .min(150, "Required More than 150 words ")
+            .required("Required Description"),
+          textField2: Yup.string()
+            .min(150, "Required More than 150 words ")
+            .required("Required Description"),
+          textField3: Yup.string()
+            .min(150, "Required More than 150 words ")
+            .required("Required Description"),
           textField4: Yup.string().required("Required Description"),
-          textField5: Yup.string().required("Required Description"),
-          textField6: Yup.string().required("Required Description"),
+          // textField5: Yup.string().required("Required Description"),
+          // textField6: Yup.string().required("Required Description"),
           photoDescription1: Yup.string().required("Required Description"),
           photoDescription2: Yup.string().required("Required Description"),
           photoDescription3: Yup.string().required("Required Description"),
@@ -267,7 +272,7 @@ const GeneralForm: React.FC<{
           P1Contact: Yup.string().required("Required Contact"),
           // P2Contact: Yup.string().required("Required Contact"),
           // P3Contact: Yup.string().required("Required Contact"),
-          // Members: Yup.string().required("Required Members"),
+          Members: Yup.string().required("Required Members"),
         })}
         onSubmit={async (
           values: {
@@ -277,11 +282,14 @@ const GeneralForm: React.FC<{
             textField4: string;
             textField5: string;
             textField6: string;
-            // image1: File;
-            photoDescription1: string;
-            image2: any;
-            photoDescription2: string;
+            // image1: File
+            // image2: File;
             // image3: File;
+            // image4: File;
+            // image5: File;
+            // image6: File;
+            photoDescription1: string;
+            photoDescription2: string;
             photoDescription3: string;
             P1Name: string;
             P2Name: string;
@@ -296,7 +304,7 @@ const GeneralForm: React.FC<{
             IG: string;
             FB: string;
             others: string;
-          },
+          }, 
           { setSubmitting },
         ) => {
           const userConfirmed = window.confirm("ยืนยันการส่งข้อมูลหรือไม่?");
@@ -309,21 +317,37 @@ const GeneralForm: React.FC<{
               editFormData.admission = values.textField1;
               editFormData.courses = values.textField2;
               editFormData.interests = values.textField3;
-              editFormData.captureimg1 = image1!;
-              editFormData.captureimg2 = image2!;
-              editFormData.captureimg3 = image3!;
+              editFormData.captureimg1 = image1;
+              editFormData.captureimg2 = image2;
+              editFormData.captureimg3 = image3;
+              review1.profile = image4;
+              review2.profile = image5;
+              review3.profile = image6;
+              review1.nick = values.P1Name;
+              review2.nick = values.P2Name;
+              review3.nick = values.P3Name;
+              review1.gen = values.P1Gen;
+              review2.gen = values.P2Gen;
+              review3.gen = values.P3Gen;
+              review1.contact = values.P1Contact;
+              review2.contact = values.P2Contact;
+              review3.contact = values.P3Contact;
+              review1.content = values.textField4;
+              review2.content = values.textField5;
+              review3.content = values.textField6;
               editFormData.descimg1 = values.photoDescription1;
               editFormData.descimg2 = values.photoDescription2;
               editFormData.descimg3 = values.photoDescription3;
+              console.log(editFormData, reviews);
               await postInfo(editFormData);
+              await postReview(reviews);
               // Router.push("/account");
-              console.log(values);
             } catch (error) {
               console.log(error);
-              // notifyError();
+              notifyError();
             } finally {
               setSubmitting(false);
-              // notifySuccess();
+              notifySuccess()
             }
           } else {
             setSubmitting(false);
@@ -468,48 +492,24 @@ const GeneralForm: React.FC<{
                     </p>
                   </div>
                   <div className="sm:w-[50vw] md:w-[60vw]">
-                    {editFormData.captureimg2 ? (
-                      <div>
-                        <input
-                          type="file"
-                          className="hidden"
-                          onChange={handleFileSelect2}
-                          id="fileInput2" // Add an id to the input
-                        />
-                        <label htmlFor="fileInput2" className="cursor-pointer">
-                          {" "}
-                          {/* Use label with for attribute */}
+                    <div className="flex w-full items-center justify-center">
+                      {displayImage1 ? (
+                        <div className="relative w-full">
                           <Image
                             className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                            src={editFormData.captureimg1 || ""}
+                            src={imageUrl1 || ""}
                             alt="uploaded photo"
                             width={0}
                             height={0}
                           />
-                        </label>
-                      </div>
-                    ) : displayImage2 ? (
-                      <div>
-                        <input
-                          type="file"
-                          className="hidden"
-                          onChange={handleFileSelect2}
-                          id="fileInput2" // Add an id to the input
-                        />
-                        <label htmlFor="fileInput2" className="cursor-pointer">
-                          {" "}
-                          {/* Use label with for attribute */}
-                          <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                            src={imageUrl2 || ""}
-                            alt="uploaded photo"
-                            width={0}
-                            height={0}
-                          />
-                        </label>
-                      </div>
-                    ) : (
-                      <div className="flex w-full items-center justify-center">
+                          <button
+                            onClick={() => setDisplayImage1(false)} // Replace with your deletion logic
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
+                          >
+                            X
+                          </button>
+                        </div>
+                      ) : (
                         <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
@@ -517,16 +517,17 @@ const GeneralForm: React.FC<{
                           <input
                             type="file"
                             className="hidden"
-                            onChange={handleFileSelect2}
+                            onChange={handleFileSelect1}
                           />
                         </label>
-                      </div>
-                    )}
+                      )}
+                    </div>
                     <div className="mb-3 flex items-center justify-center">
                       <Field
                         type="text"
                         name="photoDescription1"
                         className="md:text-md text-center text-xs text-greenText sm:text-sm"
+                        placeholder="Photo description"
                       />
                       <FaPen className="h-2 text-greenText" />
                       <ErrorMessage
@@ -543,7 +544,6 @@ const GeneralForm: React.FC<{
                   className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
                   placeholder="Your description here"
                   rows="5"
-                  // style={{ width: "100%", whiteSpace: "pre-wrap" }} // Ensure text wraps without scrolling
                 />
                 <ErrorMessage
                   name="textField1"
@@ -560,67 +560,43 @@ const GeneralForm: React.FC<{
                     <p className="sm:text-lg md:text-2xl">ที่เรียน</p>
                   </div>
                   <div className="sm:w-[50vw] md:w-[60vw]">
-                    {displayImage2 ? (
-                      <div>
-                        <input
-                          type="file"
-                          className="hidden"
-                          onChange={handleFileSelect2}
-                          id="fileInput2" // Link to label for clickability
-                        />
-                        <label htmlFor="fileInput2" className="cursor-pointer">
+                    <div className="flex w-full items-center justify-center">
+                      {displayImage2 ? (
+                        <div className="relative w-full">
                           <Image
                             className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                            src={imageUrl2 || ''} // Fallback to imageUrl2 if captureimg2 is empty
+                            src={imageUrl2 || ""}
                             alt="uploaded photo"
                             width={0}
                             height={0}
                           />
-                        </label>
-                      </div>
-                    ) : (
-                      <div className="flex w-full items-center justify-center">
-                        {image2 ? ( // Check if captureimg2 has an image to display
-                          <div>
-                            <input
-                              type="file"
-                              className="hidden"
-                              onChange={handleFileSelect2}
-                              id="fileInput2" // Link to label for clickability
-                            />
-                            <label
-                              htmlFor="fileInput2"
-                              className="cursor-pointer"
-                            >
-                              <Image
-                              className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                              src={image2 || ''} // Display existing image or fallback
-                              alt="uploaded photo"
-                              width={0}
-                              height={0}
-                              />
-                            </label>
+                          <button
+                            onClick={() => setDisplayImage2(false)} // Replace with your deletion logic
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
+                          >
+                            X
+                          </button>
+                        </div>
+                      ) : (
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
+                          <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                            <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
-                        ) : (
-                          <label className="flex h-44 w-[80vw] cursor-pointer flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
-                            <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                              <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
-                            </div>
-                            <input
-                              type="file"
-                              className="hidden"
-                              onChange={handleFileSelect2}
-                            />
-                          </label>
-                        )}
-                      </div>
-                    )}
+                          <input
+                            type="file"
+                            className="hidden"
+                            onChange={handleFileSelect2}
+                          />
+                        </label>
+                      )}
+                    </div>
 
                     <div className="mb-3 flex items-center justify-center">
                       <Field
                         type="text"
                         name="photoDescription2"
                         className="md:text-md text-center text-xs text-greenText sm:text-sm"
+                        placeholder="Photo description"
                       />
                       <FaPen className="h-2 text-greenText" />
                       <ErrorMessage
@@ -639,12 +615,6 @@ const GeneralForm: React.FC<{
                   rows="5"
                   // style={{ width: "100%", whiteSpace: "pre-wrap" }} // Ensure text wraps without scrolling
                 />
-                <ErrorMessage
-                  name="textField2"
-                  component="div"
-                  className="text-red-400"
-                />
-
                 <ErrorMessage
                   name="textField2"
                   component="div"
@@ -664,48 +634,24 @@ const GeneralForm: React.FC<{
                     </p>
                   </div>
                   <div className="sm:w-[50vw] md:w-[60vw]">
-                    {editFormData.captureimg3 ? (
-                      <div>
-                        <input
-                          type="file"
-                          className="hidden"
-                          onChange={handleFileSelect3}
-                          id="fileInput2" // Add an id to the input
-                        />
-                        <label htmlFor="fileInput2" className="cursor-pointer">
-                          {" "}
-                          {/* Use label with for attribute */}
+                    <div className="flex w-full items-center justify-center">
+                      {displayImage3 ? (
+                        <div className="relative w-full">
                           <Image
                             className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                            src={editFormData.captureimg2 || ""}
+                            src={imageUrl3 || ""}
                             alt="uploaded photo"
                             width={0}
                             height={0}
                           />
-                        </label>
-                      </div>
-                    ) : displayImage3 ? (
-                      <div>
-                        <input
-                          type="file"
-                          className="hidden"
-                          onChange={handleFileSelect3}
-                          id="fileInput2" // Add an id to the input
-                        />
-                        <label htmlFor="fileInput2" className="cursor-pointer">
-                          {" "}
-                          {/* Use label with for attribute */}
-                          <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                            src={imageUrl2 || ""}
-                            alt="uploaded photo"
-                            width={0}
-                            height={0}
-                          />
-                        </label>
-                      </div>
-                    ) : (
-                      <div className="flex w-full items-center justify-center">
+                          <button
+                            onClick={() => setDisplayImage3(false)} // Replace with your deletion logic
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
+                          >
+                            X
+                          </button>
+                        </div>
+                      ) : (
                         <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
@@ -713,17 +659,18 @@ const GeneralForm: React.FC<{
                           <input
                             type="file"
                             className="hidden"
-                            onChange={handleFileSelect2}
+                            onChange={handleFileSelect3}
                           />
                         </label>
-                      </div>
-                    )}
+                      )}
+                    </div>
 
                     <div className="mb-3 flex items-center justify-center">
                       <Field
                         type="text"
                         name="photoDescription3"
                         className="md:text-md text-center text-xs text-greenText sm:text-sm"
+                        placeholder="Photo description"
                       />
                       <FaPen className="h-2 text-greenText" />
                       <ErrorMessage
@@ -764,30 +711,26 @@ const GeneralForm: React.FC<{
                     <div className="flex flex-col">
                       <div className="flex flex-col items-center justify-center">
                         {displayImage4 ? (
-                          <div>
-                            <input
-                              type="file"
-                              className="hidden"
-                              onChange={handleFileSelect4}
-                            />
+                          <div className="relative w-full">
                             <Image
-                              className="mb-3"
+                              className="mb-3 rounded-md h-12 w-12 sm:h-24 sm:w-24 md:h-36 md:w-36"
                               src={imageUrl4 || ""}
                               alt="photo4"
-                              width={100}
-                              height={100}
-                              style={{
-                                width: "3rem",
-                                height: "3rem",
-                                borderRadius: "0.5rem",
-                              }}
+                              width={0}
+                              height={0}
                             />
+                            <button
+                            onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
+                            className="absolute right-4 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white"
+                          >
+                            X
+                          </button>
                           </div>
                         ) : (
-                          <div className="flex w-full items-center justify-center">
-                            <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24">
+                          <div className="flex w-full items-center justify-start">
+                            <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
                               <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                                <UserIcon className="h-3w-3 text-greenText" />
+                                <UserIcon className="h-3 w-3 sm:h-6 sm:w-6 text-greenText" />
                               </div>
                               <input
                                 type="file"
@@ -802,7 +745,8 @@ const GeneralForm: React.FC<{
                         <Field
                           type="text"
                           name="P1Name"
-                          className="w-16 text-sm font-bold text-greenText sm:text-lg"
+                          className="w-16 text-sm sm:w-24 font-bold text-greenText sm:text-lg"
+                          placeholder="ชื่อเล่น"
                         />
                         <ErrorMessage
                           name="P1Name"
@@ -813,6 +757,7 @@ const GeneralForm: React.FC<{
                           type="text"
                           name="P1Gen"
                           className="w-16 text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
+                          placeholder="เตรียมอุุดม xx"
                         />
                         <ErrorMessage
                           name="P1Gen"
@@ -823,6 +768,7 @@ const GeneralForm: React.FC<{
                           type="text"
                           name="P1Contact"
                           className="w-20 text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
+                          placeholder="contact"
                         />
                         <ErrorMessage
                           name="P1Contact"
@@ -831,76 +777,78 @@ const GeneralForm: React.FC<{
                         />
                       </div>
                     </div>
-                    <Field
-                      as="textarea"
-                      name="textField4"
-                      className="w-3/5 rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
-                      placeholder="Your description here"
-                      rows="5"
-                    />
-                    <ErrorMessage
-                      name="textField4"
-                      component="div"
-                      className="text-red-300"
-                    />
+                    <div className="flex w-3/5 flex-col items-center justify-center">
+                      <Field
+                        as="textarea"
+                        name="textField4"
+                        className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
+                        rows="5"
+                        placeholder="รีวิวจากรุ่นพี่"
+                      />
+                      <ErrorMessage
+                        name="textField4"
+                        component="div"
+                        className="text-red-300"
+                      />
+                    </div>
                   </div>
                 </div>
                 {ReviewAmount >= 2 && (
                   <div className="flex flex-col items-center justify-center space-y-3">
-                    <div className="flex w-full items-center justify-around">
-                      <Field
-                        as="textarea"
-                        name="textField5"
-                        className="w-3/5 rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
-                        rows="5"
-                      />
-                      <ErrorMessage
-                        name="textField5"
-                        component="div"
-                        className="text-red-300"
-                      />
-                      <div className="flex flex-col">
+                    <div className="flex w-full items-start justify-around">
+                      <div className="flex w-3/5 flex-col items-center justify-center">
+                        <Field
+                          as="textarea"
+                          name="textField5"
+                          className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
+                          rows="5"
+                          placeholder="รีวิวจากรุ่นพี่"
+                        />
+                        <ErrorMessage
+                          name="textField5"
+                          component="div"
+                          className="text-red-300"
+                        />
+                      </div>
+                      <div className="flex flex-col items-end justify-end">
                         <div className="flex flex-col items-center justify-center">
-                          {displayImage5 ? (
-                            <div>
+                        {displayImage5 ? (
+                          <div className="relative w-full">
+                            <Image
+                              className="mb-3 rounded-md h-12 w-12 sm:h-24 sm:w-24 md:h-36 md:w-36"
+                              src={imageUrl5 || ""}
+                              alt="photo5"
+                              width={0}
+                              height={0}
+                            />
+                            <button
+                            onClick={() => setDisplayImage5(false)} // Replace with your deletion logic
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white"
+                          >
+                            X
+                          </button>
+                          </div>
+                        ) : (
+                          <div className="flex w-full items-center justify-end">
+                            <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
+                              <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                                <UserIcon className="h-3 w-3 sm:h-6 sm:w-6 text-greenText" />
+                              </div>
                               <input
                                 type="file"
                                 className="hidden"
                                 onChange={handleFileSelect5}
                               />
-                              <Image
-                                className="mb-3"
-                                src={imageUrl5 || ""}
-                                alt="photo4"
-                                width={100}
-                                height={100}
-                                style={{
-                                  width: "3rem",
-                                  height: "3rem",
-                                  borderRadius: "0.5rem",
-                                }}
-                              />
-                            </div>
-                          ) : (
-                            <div className="flex w-full items-center justify-center">
-                              <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24">
-                                <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                                  <UserIcon className="h-3w-3 text-greenText" />
-                                </div>
-                                <input
-                                  type="file"
-                                  className="hidden"
-                                  onChange={handleFileSelect5}
-                                />
-                              </label>
-                            </div>
-                          )}
+                            </label>
+                          </div>
+                        )}
                         </div>
                         <div className="mt-2 flex flex-col items-end">
                           <Field
                             type="text"
                             name="P2Name"
-                            className="w-16 text-sm font-bold text-greenText sm:text-lg"
+                            className="w-16 text-end text-sm font-bold text-greenText sm:w-24 sm:text-lg"
+                            placeholder="ชื่อเล่น"
                           />
                           <ErrorMessage
                             name="P2Name"
@@ -910,7 +858,8 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P2Gen"
-                            className="w-16 text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
+                            className="w-16 text-end text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
+                            placeholder="เตรียมอุุดม xx"
                           />
                           <ErrorMessage
                             name="P2Gen"
@@ -920,7 +869,8 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P2Contact"
-                            className="w-20 text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
+                            className="w-16 text-end text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
+                            placeholder="contact"
                           />
                           <ErrorMessage
                             name="P2Contact"
@@ -937,46 +887,43 @@ const GeneralForm: React.FC<{
                     <div className="flex w-full items-start justify-around">
                       <div className="flex flex-col">
                         <div className="flex flex-col items-center justify-center">
-                          {displayImage6 ? (
-                            <div>
+                        {displayImage6 ? (
+                          <div className="relative w-full">
+                            <Image
+                              className="mb-3 rounded-md h-12 w-12 sm:h-24 sm:w-24 md:h-36 md:w-36"
+                              src={imageUrl6 || ""}
+                              alt="photo6"
+                              width={0}
+                              height={0}
+                            />
+                            <button
+                            onClick={() => setDisplayImage6(false)} // Replace with your deletion logic
+                            className="absolute right-4 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white"
+                          >
+                            X
+                          </button>
+                          </div>
+                        ) : (
+                          <div className="flex w-full items-center justify-start">
+                            <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
+                              <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                                <UserIcon className="h-3 w-3 sm:h-6 sm:w-6 text-greenText" />
+                              </div>
                               <input
                                 type="file"
                                 className="hidden"
                                 onChange={handleFileSelect6}
                               />
-                              <Image
-                                className="mb-3"
-                                src={imageUrl6 || ""}
-                                alt="photo4"
-                                width={100}
-                                height={100}
-                                style={{
-                                  width: "3rem",
-                                  height: "3rem",
-                                  borderRadius: "0.5rem",
-                                }}
-                              />
-                            </div>
-                          ) : (
-                            <div className="flex w-full items-center justify-center">
-                              <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24">
-                                <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                                  <UserIcon className="h-3w-3 text-greenText" />
-                                </div>
-                                <input
-                                  type="file"
-                                  className="hidden"
-                                  onChange={handleFileSelect6}
-                                />
-                              </label>
-                            </div>
-                          )}
+                            </label>
+                          </div>
+                        )}
                         </div>
                         <div className="mt-2 flex flex-col">
                           <Field
                             type="text"
                             name="P3Name"
-                            className="w-16 text-sm font-bold text-greenText sm:text-lg"
+                            className="w-16 text-sm font-bold text-greenText sm:w-24 sm:text-lg"
+                            placeholder="ชื่อเล่น"
                           />
                           <ErrorMessage
                             name="P3Name"
@@ -987,6 +934,7 @@ const GeneralForm: React.FC<{
                             type="text"
                             name="P3Gen"
                             className="w-16 text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
+                            placeholder="เตรียมอุุดม xx"
                           />
                           <ErrorMessage
                             name="P3Gen"
@@ -997,6 +945,7 @@ const GeneralForm: React.FC<{
                             type="text"
                             name="P3Contact"
                             className="w-20 text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
+                            placeholder="contact"
                           />
                           <ErrorMessage
                             name="P3Contact"
@@ -1005,17 +954,20 @@ const GeneralForm: React.FC<{
                           />
                         </div>
                       </div>
-                      <Field
-                        as="textarea"
-                        name="textField6"
-                        className="w-3/5 rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:pt-0 sm:text-lg md:text-xl"
-                        rows="5"
-                      />
-                      <ErrorMessage
-                        name="textField6"
-                        component="div"
-                        className="text-red-300"
-                      />
+                      <div className="flex w-3/5 flex-col items-center justify-center">
+                        <Field
+                          as="textarea"
+                          name="textField6"
+                          className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
+                          rows="5"
+                          placeholder="รีวิวจากรุ่นพี่"
+                        />
+                        <ErrorMessage
+                          name="textField6"
+                          component="div"
+                          className="text-red-300"
+                        />
+                      </div>
                     </div>
                   </div>
                 )}
