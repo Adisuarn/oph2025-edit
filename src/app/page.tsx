@@ -5,29 +5,27 @@ import apiFunction from "@/components/api";
 import Brick from "@/vectors/landing/Brick";
 import NiceStuff from "@/vectors/landing/NiceStuff";
 import Window from "@/vectors/landing/Window";
+import Windowphone from "@/vectors/landing/Windowphone";
 import Super from "@/vectors/landing/Super";
 
 const page = async () => {
   const clubRes = await apiFunction("GET", "/clubs/ก30927-1", {});
   return (
     <main className="via-21% to-77% relative -z-[100] h-screen w-screen bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0">
-      <div className="absolute bottom-0 left-1/2 -z-[99] -translate-x-1/2 sm:hidden">
-        <Super className="h-screen" />
+      <div className="w-[110vw] sm:w-[70vw] right-0 absolute sm:-right-20 top-10 sm:top-20 -z-10">
+        <Window className="h-[50vh] w-full sm:h-40 md:h-[75vh]" />
       </div>
-      <div className="absolute right-0 top-20 z-20">
-        <Window className="hidden sm:block sm:h-60 md:h-[75vh]" />
-      </div>
-      <div className="absolute bottom-0 hidden sm:block">
+      <div className="absolute bottom-0 -z-20">
         <Brick className="hidden sm:block sm:h-[30vh] sm:w-screen" />
       </div>
-      <div className="flex h-full flex-col items-center justify-end space-y-10 text-center sm:flex sm:items-start sm:justify-center sm:pl-32">
-        <div className="items-center sm:flex sm:flex-col sm:justify-center sm:space-y-4">
+      <div className="flex h-[80vh] sm:h-full flex-col items-center justify-end  text-center sm:flex sm:items-start sm:justify-center md:pl-16 lg:pl-16 xl:pl-32">
+        <div className="items-center sm:flex sm:flex-col sm:justify-center space-y-4">
           <div className="flex flex-col">
-            <p className="bg-gradient-to-br from-[#ADDB64] to-[#ECF5C8] bg-clip-text text-6xl font-bold leading-normal text-transparent sm:leading-relaxed md:text-8xl">
+            <p className="bg-gradient-to-br from-[#ADDB64] to-[#ECF5C8] bg-clip-text text-6xl font-bold leading-normal text-transparent sm:leading-loose md:text-8xl">
               Register
             </p>
 
-            <div className="-mb-12 -mt-12 flex items-center justify-center space-x-3">
+            <div className="-mb-12 -mt-12 md:-mt-8 flex items-center justify-center space-x-3">
               <NiceStuff className="h-28 w-32 sm:h-32 sm:w-36" />
               <p className="from-24% bg-gradient-to-br from-greenishCream to-[#ADDB64] bg-clip-text text-4xl font-bold text-transparent md:text-6xl">
                 ลงทะเบียน
@@ -49,12 +47,6 @@ const page = async () => {
           </div>
         </div>
       </div>
-      {/* <div className="absolute -bottom-40">
-      <Brick className="w-screen" />
-      </div> */}
-      {/* <div className="relative z-10">
-        <GoogleOAuthButton />
-      </div> */}
     </main>
   );
 };

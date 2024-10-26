@@ -12,7 +12,6 @@ export default function Form({
 }) {
   return (
     <div>
-        <Link href='/account'>back to account page</Link>
       {params.previewformId === Tag.CLUB && <PreviewClubForm />}
       {params.previewformId === Tag.ORGANIZATION && <PreviewOrganizationForm />}
       {params.previewformId === Tag.PROGRAM && <PreviewProgramForm />}
