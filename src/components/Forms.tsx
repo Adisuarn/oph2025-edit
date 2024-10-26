@@ -94,7 +94,7 @@ const Forms: React.FC<FormProps> = ({dataRecord}) => {
 
   
   return (
-    <main className="flex h-screen w-screen items-center justify-center bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">
+    <main className="flex h-screen w-screen items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">
       <div className="absolute -left-20 bottom-0 z-40 sm:-left-10">
         <FormLeft className="hidden sm:block sm:h-screen" />
       </div>

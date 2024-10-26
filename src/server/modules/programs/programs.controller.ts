@@ -92,6 +92,7 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
     if(userData?.email === programData.email) await prisma.programs.update({ where: { key: name }, data: { status: Status.PENDING }})
     return { success: true, message: 'Updating program data successfully', data: updatedOrganization }
   } catch (err) {
+    console.log(err)
     throw error(500, 'Error while updating program data')
   }
 }

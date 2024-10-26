@@ -339,8 +339,8 @@ const GeneralForm: React.FC<{
               editFormData.descimg2 = values.photoDescription2;
               editFormData.descimg3 = values.photoDescription3;
               console.log(editFormData, reviews);
-              // await postInfo(editFormData);
-              // await postReview(reviews);
+              await postInfo(editFormData);
+              await postReview(reviews);
               // Router.push("/account");
             } catch (error) {
               console.log(error);

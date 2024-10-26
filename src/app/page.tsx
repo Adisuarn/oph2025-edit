@@ -7,16 +7,20 @@ import NiceStuff from "@/vectors/landing/NiceStuff";
 import Window from "@/vectors/landing/Window";
 import Windowphone from "@/vectors/landing/Windowphone";
 import Super from "@/vectors/landing/Super";
+import BrickSmall from "@/vectors/landing/BrickSmall";
 
 const page = async () => {
   const clubRes = await apiFunction("GET", "/clubs/ก30927-1", {});
   return (
-    <main className="via-21% to-77% relative -z-[100] h-screen w-screen bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0">
+    <main className="via-21% to-77% relative -z-[100] h-screen w-screen overflow-hidden bg-gradient-to-b sm:bg-gradient-to-r from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0">
       <div className="w-[110vw] sm:w-[70vw] right-0 absolute sm:-right-20 top-10 sm:top-20 -z-10">
         <Window className="h-[50vh] w-full sm:h-40 md:h-[75vh]" />
       </div>
       <div className="absolute bottom-0 -z-20">
         <Brick className="hidden sm:block sm:h-[30vh] sm:w-screen" />
+      </div>
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-20">
+        <BrickSmall className="h-[55vh] sm:hidden" />
       </div>
       <div className="flex h-[80vh] sm:h-full flex-col items-center justify-end  text-center sm:flex sm:items-start sm:justify-center md:pl-16 lg:pl-16 xl:pl-32">
         <div className="items-center sm:flex sm:flex-col sm:justify-center space-y-4">
