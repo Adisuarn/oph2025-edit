@@ -1,13 +1,8 @@
 import { Elysia, t, error } from 'elysia'
 import { AllData } from '@libs/data'
 import { getUser, getClub } from '@middlewares/derive'
-import { prisma } from '@utils/db'
-
-import {
-  EncodedUnionField,
-  StringField,
-}
-from '@/server/utils/validate'
+import { ReviewData } from '@/server/utils/type'
+import { EncodedUnionField,StringField } from '@/server/utils/validate'
 
 import {
   getClubByKey,
@@ -16,31 +11,30 @@ import {
   createClubReview,
   updateClubReview,
   deleteClubReview
-}
-from '@modules/clubs/clubs.controller'
-import { ReviewData } from '@/server/utils/type'
+} from '@modules/clubs/clubs.controller'
 
 export const clubRouter = new Elysia({ prefix: '/clubs' })
   .guard({
-    async beforeHandle({ request: { headers } }) {
+    async  beforeHandle({ request: { headers }, params: { key, id }} )   {
       const userData = (await getUser(headers)).data
-      const club = await prisma.clubs.findUnique({
-        where: { email: userData?.email },
-        select: { key: true }
-      })
-      const key = club?.key
-      if (!key) return error(404, 'Club Not Found')
-      if (typeof key !== 'string') return error(400, 'Invalid Club Key')
-      const clubData = (await getClub(key)).data
+      const clubData = (await getClub(decodeURIComponent(key))).data
       if(userData?.TUCMC === true) {
         return
       } else if (userData?.email !== clubData.email) {
-        return error(401, 'Unauthorized')
+        return error(403, 'Forbidden')
       }
-    }
+    },
+    params: t.Object({
+      key: EncodedUnionField(
+        true, 
+        'Invalid Club Key', 
+        Object.keys(AllData.Clubs)
+      ),
+      id: StringField(false, 'Invalid Review ID')
+    })
+
   })
   .get('/:key', async ({ params: { key } }) => {
-    console.log(decodeURIComponent(key))
     return (await getClubByKey(decodeURIComponent(key) as keyof typeof AllData.Clubs))
   }, {
     params: t.Object({

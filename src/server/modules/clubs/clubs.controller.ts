@@ -134,11 +134,11 @@ export const createClubReview = async (key: keyof typeof AllData.Clubs) => {
 
 export const updateClubReview = async (key: keyof typeof AllData.Clubs, count: string, body: ReviewData) => {
   const clubData = (await getClub(key)).data
-  const reviewData = await prisma.reviews.findFirst({ where: { email: clubData.email, count: count } })
+  const reviewData = await prisma.reviews.findUnique({ where: { key: clubData.key, count: count } })
     try {
       const review = await prisma.reviews.update({
         omit: { reviewId: true, createdAt: true, id: true },
-        where: { email: clubData.email, count: count },
+        where: { key: clubData.key, count: count },
         data: {
           profile: (!body.profile === undefined ) ? await uploadImage(body.profile) : reviewData?.profile,
           nick: body.nick,
@@ -149,6 +149,7 @@ export const updateClubReview = async (key: keyof typeof AllData.Clubs, count: s
       })
       return { success: true, message: 'Updating review successfully', data: review }
     } catch (err) {
+      console.log(err)
       throw error(500, 'Error while updating review')
     }
 }

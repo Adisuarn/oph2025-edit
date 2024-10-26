@@ -8,12 +8,7 @@ import { updateOrganizationData, updateOrganizationReview,OrganizationData } fro
 import { updateProgramData, updateProgramReview,ProgramData } from '@modules/programs/programs.controller'
 import { updateGiftedData, updateGiftedReview, GiftedData } from '@modules/gifted/gifted.controller'
 import { createEverything } from '@utils/create'
-import { 
-  importClubData,
-  importGiftedData,
-  importOrganizationData,
-  importProgramData,
- } from '@/server/utils/importdata'
+import { importClubData, importGiftedData, importOrganizationData, importProgramData } from '@/server/utils/importdata'
 
 export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
   .get('/data', async () => {

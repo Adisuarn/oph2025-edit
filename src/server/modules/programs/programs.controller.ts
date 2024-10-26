@@ -135,11 +135,11 @@ export const createProgramReview = async (name: keyof typeof AllData.Programs) =
 
 export const updateProgramReview = async (name: keyof typeof AllData.Programs, count: string, body: ReviewData) => {
   const programData = (await getProgram(name)).data
-  const reviewData = await prisma.reviews.findUnique({ where: { email: programData.email, count }})
+  const reviewData = await prisma.reviews.findUnique({ where: { key: programData.key, count }})
     try {
       const review = await prisma.reviews.update({
         omit: { reviewId: true, createdAt: true, id: true },
-        where: { email: programData.email, count: count },
+        where: { key: programData.key, count: count },
         data: {
           profile: (body.profile !== undefined) ? await uploadImage(body.profile) : reviewData?.profile,
           nick: body.nick,

@@ -4,8 +4,8 @@ import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "oph2025-edit",
-  description: "Edit your OPH2025 profile",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  description: "Editting your OPH2025 information",
+  icons: [{ rel: "icon", url: "/public/favicon.ico" }],
 };
 
 export default function RootLayout({

@@ -22,7 +22,6 @@ export const createAuthUrl = () => {
     return { success: true, url: authUrl.toString()}
     
   } catch (err) {
-    console.log(err)
     throw error(500, 'Internal Server Error')
   }
 }

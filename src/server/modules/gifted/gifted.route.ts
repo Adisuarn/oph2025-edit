@@ -1,6 +1,5 @@
 ﻿import { Elysia, t, error } from "elysia";
 import { AllData } from "@libs/data";
-import { prisma } from "@utils/db";
 import { UnionField, StringField } from "@utils/validate";
 import { ReviewData } from "@utils/type";
 import { getUser, getGifted } from "@middlewares/derive";
@@ -17,16 +16,8 @@ import {
 
 export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .guard({
-    async beforeHandle({ request: { headers } }) {
+    async beforeHandle({ request: { headers }, params: { name } }) {
       const userData = (await getUser(headers)).data;
-      const gifted = await prisma.gifted.findUnique({
-        where: { email: userData?.email },
-        select: { key: true },
-      });
-      const name = gifted?.key;
-      if (!name) return error(404, "Gifted Not Found");
-      if (typeof name !== "string")
-        return error(400, "Invalid Gifted Name");
       const giftedData = (await getGifted(name)).data;
       if (userData?.TUCMC === true) {
         return
@@ -34,6 +25,13 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
         return error(401, "Unauthorized");
       }
     },
+    params: t.Object({
+      name: UnionField(
+        true,
+        "Invalid Gifted Name",
+        Object.keys(AllData.Gifted),
+      ),
+    }),
   })
   .get(
     "/:name",

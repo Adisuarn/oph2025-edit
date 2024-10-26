@@ -1,12 +1,7 @@
 import { Elysia, t, error } from 'elysia'
 import { AllData } from '@libs/data'
 import { ReviewData } from '@utils/type'
-import {
-  UnionField,
-  StringField,
-}
-  from '@utils/validate'
-
+import { UnionField, StringField } from '@utils/validate'
 import { getUser, getOrganization } from '@middlewares/derive'
 
 import {
@@ -16,29 +11,26 @@ import {
   createOrganizationReview,
   updateOrganizationReview,
   deleteOrganizationReview
-}
-  from '@modules/organizations/organizations.controller'
-
-import { prisma } from '@utils/db'
+} from '@modules/organizations/organizations.controller'
 
 export const organizationRouter = new Elysia({ prefix: '/organizations' })
   .guard({
-    async beforeHandle({ request: { headers } }) {
+    async beforeHandle({ request: { headers }, params: { name}}) {
       const userData = (await getUser(headers)).data
-      const organization = await prisma.organizations.findUnique({
-        where: { email: userData?.email },
-        select: { key: true }
-      })
-      const name = organization?.key
-      if (!name) return error(404, 'Organization Not Found')
-      if (typeof name !== 'string') return error(400, 'Invalid Organization Name')
       const organizationData = (await getOrganization(name)).data
       if (userData?.TUCMC === true) {
         return
       } else if (userData?.email !== organizationData.email) {
         return error(401, 'Unauthorized')
-    }
-  }
+      }
+    },
+    params: t.Object({
+      name: UnionField(
+        true, 
+        'Invalid Organization Name', 
+        Object.keys(AllData.Organizations)
+      )
+    })
   })
   .get('/:name', async ({ params: { name } }) => {
     return await getOrganizationByName(name)

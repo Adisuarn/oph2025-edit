@@ -167,11 +167,11 @@ export const updateGiftedReview = async (
   body: ReviewData,
 ) => {
   const giftedData = (await getGifted(name)).data;
-  const reviewData = await prisma.reviews.findFirst({ where: { email: giftedData.email, count: count } })
+  const reviewData = await prisma.reviews.findUnique({ where: { key: giftedData.key, count: count } })
   try {
     const review = await prisma.reviews.update({
       omit: { reviewId: true, createdAt: true, id:true },
-      where: { email: giftedData.email, count: count },
+      where: { key: giftedData.key, count: count },
       data: {
         profile: (body.profile !== undefined ) ? await uploadImage(body.profile) : reviewData?.profile,
         nick: body.nick,
