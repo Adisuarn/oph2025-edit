@@ -18,51 +18,36 @@ export interface ClubData {
   activities: string,
   benefits: string,
   working: string,
-  captureimg1: File,
+  captureimg1?: File,
   descimg1: string,
-  captureimg2: File,
+  captureimg2?: File,
   descimg2: string,
-  captureimg3: File,
+  captureimg3?: File,
   descimg3: string,
-  logo: File
+  logo?: File
 }
 
 export const createClub = async (body: Club) => {
-  // if ((await prisma.clubs.count({ where: { email: body.email } }) > 0)) 
-  //   throw error(400, 'User already created a club')
-  try {
-    const club = await prisma.clubs.create({
+  if ((await prisma.clubs.count({ where: { email: body.email } }) > 0)) 
+    throw error(400, 'User already created a club')
+  try { 
+    const club = await prisma.clubs.update({
       omit: { clubId: true, updatedAt: true, id: true },
-      //where: { key: body.key },
+      where: { key: body.key },
       data: {
         error: '',
         key: body.key,
         email: body.email,
         clubKey: body.key,
-        name: '',
-        thainame: AllData.Clubs[body.key],
-        ig: '',
-        fb: '',
-        others: '',
-        activities: '',
-        benefits: '',
-        working: '',
-        captureimg1: '',
-        descimg1: '',
-        captureimg2: '',
-        descimg2: '',
-        captureimg3: '',
-        descimg3: '',
-        logo: '',
       }
     })
-    // await prisma.user.update({
-    //   where: { email: body.email },
-    //   data: {
-    //     tag: body.tag,
-    //     key: body.key,
-    //   }
-    // })
+    await prisma.user.update({
+      where: { email: body.email },
+      data: {
+        tag: body.tag,
+        key: body.key,
+      }
+    })
     return { success: true, message: "Created club successfully", data: club }
   } catch (err) {
     throw error(500, 'Error while creating club')
@@ -87,8 +72,7 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
       omit: { clubId: true, createdAt: true, id: true },
       where: { key: key },
       data: {
-        name: body.name,
-        thainame: body.thainame,
+        sendForm: true,
         members: body.members,
         ig: body.ig,
         fb: body.fb,
@@ -96,9 +80,9 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
         activities: body.activities,
         benefits: body.benefits,
         working: body.working,
-        captureimg1: (!body.captureimg1 === undefined) ? await uploadImage(body.captureimg1) : clubData.captureimg1,
+        captureimg1: (body.captureimg1 !== undefined) ? await uploadImage(body.captureimg1) : clubData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: (!body.captureimg2 === undefined) ? await uploadImage(body.captureimg2) : clubData.captureimg2,
+        captureimg2: (body.captureimg2 !== undefined) ? await uploadImage(body.captureimg2) : clubData.captureimg2, 
         descimg2: body.descimg2,
         captureimg3: (!body.captureimg3 === undefined) ? await uploadImage(body.captureimg3) : clubData.captureimg3,
         descimg3: body.descimg3,
@@ -136,7 +120,6 @@ export const createClubReview = async (key: keyof typeof AllData.Clubs) => {
         email: clubData.email,
         count: ((await prisma.reviews.count({ where: { email: clubData?.email } })) + 1).toString(),
         profile: '',
-        name: '',
         nick: '',
         gen: '',
         contact: '',
@@ -151,14 +134,13 @@ export const createClubReview = async (key: keyof typeof AllData.Clubs) => {
 
 export const updateClubReview = async (key: keyof typeof AllData.Clubs, count: string, body: ReviewData) => {
   const clubData = (await getClub(key)).data
-  const reviewData = await prisma.reviews.findFirst({ where: { email: clubData.email, count: count } })
+  const reviewData = await prisma.reviews.findUnique({ where: { key: clubData.key, count: count } })
     try {
       const review = await prisma.reviews.update({
         omit: { reviewId: true, createdAt: true, id: true },
-        where: { email: clubData.email, count: count },
+        where: { key: clubData.key, count: count },
         data: {
           profile: (!body.profile === undefined ) ? await uploadImage(body.profile) : reviewData?.profile,
-          name: body.name,
           nick: body.nick,
           gen: body.gen,
           contact: body.contact,
@@ -167,6 +149,7 @@ export const updateClubReview = async (key: keyof typeof AllData.Clubs, count: s
       })
       return { success: true, message: 'Updating review successfully', data: review }
     } catch (err) {
+      console.log(err)
       throw error(500, 'Error while updating review')
     }
 }
@@ -178,7 +161,6 @@ export const deleteClubReview = async (key: keyof typeof AllData.Clubs, id: stri
       where: { email: clubData.email, count: id },
       data: {
         profile: '',
-        name: '',
         nick: '',
         gen: '',
         contact: '',

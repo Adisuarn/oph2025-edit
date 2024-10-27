@@ -26,8 +26,9 @@ model User {
 model Organizations {
   id             String    @id @default(cuid()) @map("_id")
   isAdmin        Boolean   @default(false)
+  sendForm       Boolean   @default(false)
   key            String    @unique
-  tag            String    @default("organization")
+  tag            String    @default("organizations")
   error          String
   email          String    @unique
   name           String?   @unique
@@ -56,8 +57,9 @@ model Organizations {
 model Clubs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
+  sendForm    Boolean   @default(false)
   key         String    @unique
-  tag         String    @default("club")
+  tag         String    @default("clubs")
   error       String
   clubKey     String    @unique
   email       String    @unique
@@ -88,8 +90,9 @@ model Clubs {
 model Programs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
+  sendForm    Boolean   @default(false)
   key         String    @unique
-  tag         String    @default("program")
+  tag         String    @default("programs")
   error       String
   email       String    @unique
   name        String?   @unique
@@ -118,6 +121,7 @@ model Programs {
 model Gifted {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
+  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("gifted")
   error       String
@@ -147,11 +151,10 @@ model Gifted {
 
 model Reviews {
   id             String         @id @default(cuid()) @map("_id")
-  key            String
+  key            String         @unique
   email          String         @unique
   count          String?
   profile        String?
-  name           String
   nick           String
   gen            String
   contact        String

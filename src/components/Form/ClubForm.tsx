@@ -1,66 +1,77 @@
-"use client";
+import GeneralForm from "./GeneralForm";
+import apiFunction from "@/components/api";
 
-import { Formik, Form, Field, ErrorMessage } from 'Formik';
-import * as Yup from 'yup'
-//import TextError from '../FormControl/TextError';
+const FormikControl: React.FC = async () => {
+  const response = await apiFunction("GET", "/user", {});
+  const userData = response.data;
+  const userForm = await apiFunction(
+    "GET",
+    `/${userData.tag}/${userData.key}/`,
+    {},
+  );
+  const userReview = await apiFunction(
+    "GET",
+    `/${userData.tag}/${userData.key}/review`,
+     {}
+  )
 
-// interface ClubFormProps {
-//   name: string;
-// }
+  let editFormData = {
+    thainame: userForm.data.data.thainame,
+    tag: userForm.data.data.tag,
+    tagThai: 'ชมรม',
+    submittedForm: userForm.data?.data.sendForm,
+    members: userForm.data.data.members,
+    ig: userForm.data.data.ig,
+    fb: userForm.data.data.fb,
+    others: userForm.data.data.others,
+    admissions: userForm.data.data.admissions,
+    courses: userForm.data.data.courses,
+    interests: userForm.data.data.interests,
+    status: userForm.data.data.status,
+    captureimg1: userForm.data.data.captureimg1,
+    descimg1: '',
+    captureimg2: userForm.data.data.captureimg2,
+    descimg2: '',
+    captureimg3: userForm.data.data.captureimg3,
+    descimg3: '',
+  };
 
-const initialValues = {
-  textField1: '',
-  textField2: '',
-  textField3: '',
-}
+  let review1 = {
+    count: userReview.data.data[0].count,
+    profile: userReview.data.data[0].profile,
+    nick: userReview.data.data[0].nick,
+    gen: userReview.data.data[0].gen,
+    contact: userReview.data.data[0].contact,
+    content: userReview.data.data[0].content,
+  };
 
-const validationSchema = Yup.object({
-  textField1: Yup.string().required('Required Description'),
-  textField2: Yup.string().required('Required Description'),
-  textField3: Yup.string().required('Required Description'),
-})
+  let review2 = {
+    count: userReview.data.data[1].count,
+    profile: userReview.data.data[1].profile,
+    nick: userReview.data.data[1].nick,
+    gen: userReview.data.data[1].gen,
+    contact: userReview.data.data[1].contact,
+    content: userReview.data.data[1].content,
+  };
 
-const onSubmit = (values: typeof initialValues, { setSubmitting, resetForm }: { setSubmitting: (isSubmitting: boolean) => void, resetForm: () => void }) => {
-  console.log('Form data', values);
-  setSubmitting(false);
-  resetForm();
-};
+  let review3 = {
+    count: userReview.data.data[2].count,
+    profile: userReview.data.data[2].profile,
+    nick: userReview.data.data[2].nick,
+    gen: userReview.data.data[2].gen,
+    contact: userReview.data.data[2].contact,
+    content: userReview.data.data[2].content,
+  };
 
-const ClubForm: React.FC<{}> = (props) => {
-  // const { name } = props;
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {({ isSubmitting }) => (
-      <Form className=' flex flex-col justify-center items-center space-y-4 p-5 bg-blue-100'>
-        <div>
-          <label htmlFor="textField1">ชมรมนี้ทำอะไร:</label>
-          <Field type="text" name="textField1" className=' bg-green-200 rounded-xl' />
-          <ErrorMessage name="textField1" />
-        </div>
-
-        <div>
-          <label htmlFor="textField2">ประโยชน์ที่ได้รับจากการเข้าชมรม:</label>
-          <Field type="text" name="textField2" className=' bg-green-200 rounded-xl' />
-          <ErrorMessage name="textField2" />
-        </div>
-
-        <div>
-          <label htmlFor="textField3">ผลงานของชมรม:</label>
-          <Field type="text" name="textField3" className=' bg-green-200 rounded-xl' />
-          <ErrorMessage name="textField3" />
-        </div>
-
-        <button type="submit" disabled={isSubmitting}>
-        Submit
-        </button>
-      </Form>
-      )}
-    </Formik>
+    <GeneralForm
+      userData={userData}
+      editFormData={editFormData}
+      review1={review1}
+      review2={review2}
+      review3={review3}
+    />
   );
 };
 
-export default ClubForm
+export default FormikControl;

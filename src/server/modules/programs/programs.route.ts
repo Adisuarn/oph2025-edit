@@ -1,12 +1,7 @@
 import { Elysia, t, error } from 'elysia'
 import { AllData } from '@libs/data'
-
-import {
-  UnionField,
-  StringField,
-}
-  from '@utils/validate'
-
+import { ReviewData } from '@/server/utils/type'
+import { UnionField,StringField } from '@utils/validate'
 import { getUser, getProgram } from '@middlewares/derive'
 
 import {
@@ -19,23 +14,23 @@ import {
 }
 from '@modules/programs/programs.controller'
 
-import { prisma } from '@utils/db'
-import { ReviewData } from '@/server/utils/type'
-
 export const programRouter = new Elysia({ prefix: '/programs' })
   .guard({
-    async beforeHandle({ request: { headers } }) {
+    async beforeHandle({ request: { headers }, params: { name } }) {
       const userData = (await getUser(headers)).data
-      const program  = await prisma.programs.findUnique({
-        where: { email: userData?.email },
-        select: { name: true }
-      })
-      const name = program?.name
-      if (!name) return error(404, 'Program Not Found')
-      if (typeof name !== 'string') return error(400, 'Invalid Program Name')
       const programData = (await getProgram(name)).data
-      if (!userData?.TUCMC && (userData?.email !== programData.email)) return error(401, 'Unauthorized')
-    }
+      if (userData?.TUCMC === true) {
+        return
+      } else if (userData?.email !== programData.email) {
+        return error(401, 'Unauthorized')
+    }},
+    params: t.Object({
+      name: UnionField(
+        true,
+        'Invalid Program Name',
+        Object.keys(AllData.Programs)
+      )
+    })
   })
   .get('/:name', async ({ params: { name } }) => {
     return await getProgramByName(name)
@@ -54,20 +49,20 @@ export const programRouter = new Elysia({ prefix: '/programs' })
       }),
       body: t.Object({
         error: StringField(false, 'Invalid Error'),
-        name: StringField(true, 'Invalid Name'),
-        thainame: StringField(true, 'Invalid Thai Name'),
+        name: StringField(false, 'Invalid Name'),
+        thainame: StringField(false, 'Invalid Thai Name'),
         members: StringField(true, 'Invalid Member'),
-        ig: StringField(true, 'Invalid Instagram'),
-        fb: StringField(true, 'Invalid Facebook'),
-        others: StringField(true, 'Invalid Others'),
-        admission: StringField(true, 'Invalid Admission'),
+        ig: StringField(false, 'Invalid Instagram'),
+        fb: StringField(false, 'Invalid Facebook'),
+        others: StringField(false, 'Invalid Others'),
+        admissions: StringField(true, 'Invalid Admission'),
         courses: StringField(true, 'Invalid Courses'),
         interests: StringField(true, 'Invalid Interests'),
-        captureimg1: t.File({ error() { return 'Invalid Capture Image' } }),
+        captureimg1: t.Optional(t.File({ error() { return 'Invalid Capture Image 1' } })),
         descimg1: StringField(true, 'Invalid Description Image'),
-        captureimg2: t.File({ error() { return 'Invalid Capture Image' } }),
+        captureimg2: t.Optional(t.File({ error() { return 'Invalid Capture Image 2' } })),
         descimg2: StringField(true, 'Invalid Description Image'),
-        captureimg3: t.File({ error() { return 'Invalid Capture Image' } }),
+        captureimg3: t.Optional(t.File({ error() { return 'Invalid Capture Image 3' } })),
         descimg3: StringField(true, 'Invalid Description Image'),
       }),
     })
@@ -98,7 +93,6 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     }),
     body: t.Object({
       profile: t.Optional(t.File({ error() { return 'Invalid Profile' } })),
-      name: StringField(true, 'Invalid Name'),
       nick: StringField(true, 'Invalid Nickname'),
       gen: StringField(true, 'Invalid Generation'),
       contact: StringField(true, 'Invalid Contact'),

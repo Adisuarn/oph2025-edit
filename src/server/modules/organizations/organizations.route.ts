@@ -1,12 +1,7 @@
 import { Elysia, t, error } from 'elysia'
 import { AllData } from '@libs/data'
 import { ReviewData } from '@utils/type'
-import {
-  UnionField,
-  StringField,
-}
-  from '@utils/validate'
-
+import { UnionField, StringField } from '@utils/validate'
 import { getUser, getOrganization } from '@middlewares/derive'
 
 import {
@@ -16,25 +11,26 @@ import {
   createOrganizationReview,
   updateOrganizationReview,
   deleteOrganizationReview
-}
-  from '@modules/organizations/organizations.controller'
-
-import { prisma } from '@utils/db'
+} from '@modules/organizations/organizations.controller'
 
 export const organizationRouter = new Elysia({ prefix: '/organizations' })
   .guard({
-    async beforeHandle({ request: { headers } }) {
+    async beforeHandle({ request: { headers }, params: { name}}) {
       const userData = (await getUser(headers)).data
-      const organization = await prisma.organizations.findUnique({
-        where: { email: userData?.email },
-        select: { name: true }
-      })
-      const name = organization?.name
-      if (!name) return error(404, 'Organization Not Found')
-      if (typeof name !== 'string') return error(400, 'Invalid Organization Name')
       const organizationData = (await getOrganization(name)).data
-      if (!userData?.TUCMC && (userData?.email !== organizationData.email)) return error(401, 'Unauthorized')
-    }
+      if (userData?.TUCMC === true) {
+        return
+      } else if (userData?.email !== organizationData.email) {
+        return error(401, 'Unauthorized')
+      }
+    },
+    params: t.Object({
+      name: UnionField(
+        true, 
+        'Invalid Organization Name', 
+        Object.keys(AllData.Organizations)
+      )
+    })
   })
   .get('/:name', async ({ params: { name } }) => {
     return await getOrganizationByName(name)
@@ -53,20 +49,20 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
       }),
       body: t.Object({
         error: StringField(false, 'Invalid Error'),
-        name: StringField(true, 'Invalid Name'),
-        thainame: StringField(true, 'Invalid Thai Name'),
+        name: StringField(false, 'Invalid Name'),
+        thainame: StringField(false, 'Invalid Thai Name'),
         members: StringField(true, 'Invalid Member'),
-        ig: StringField(true, 'Invalid Instagram'),
-        fb: StringField(true, 'Invalid Facebook'),
-        others: StringField(true, 'Invalid Others'),
+        ig: StringField(false, 'Invalid Instagram'),
+        fb: StringField(false, 'Invalid Facebook'),
+        others: StringField(false, 'Invalid Others'),
         activities: StringField(true, 'Invalid Activities'),
         position: StringField(true, 'Invalid Position'),
         working: StringField(true, 'Invalid Working'),
-        captureimg1: t.File({ error() { return 'Invalid Capture Image' } }),
+        captureimg1: t.Optional(t.File({ error() { return 'Invalid Capture Image 1' } })),
         descimg1: StringField(true, 'Invalid Description Image'),
-        captureimg2: t.File({ error() { return 'Invalid Capture Image' } }),
+        captureimg2: t.Optional(t.File({ error() { return 'Invalid Capture Image 2' } })),
         descimg2: StringField(true, 'Invalid Description Image'),
-        captureimg3: t.File({ error() { return 'Invalid Capture Image' } }),
+        captureimg3: t.Optional(t.File({ error() { return 'Invalid Capture Image 3' } })),
         descimg3: StringField(true, 'Invalid Description Image'),
       }),
     })
@@ -97,7 +93,6 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     }),
     body: t.Object({
       profile: t.Optional(t.File({ error() { return 'Invalid Profile' } })),
-      name: StringField(true, 'Invalid Name'),
       nick: StringField(true, 'Invalid Nickname'),
       gen: StringField(true, 'Invalid Generation'),
       contact: StringField(true, 'Invalid Contact'),

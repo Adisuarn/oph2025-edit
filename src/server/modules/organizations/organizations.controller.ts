@@ -18,48 +18,34 @@ export interface OrganizationData {
   activities: string,
   position: string,
   working: string,
-  captureimg1: File,
+  captureimg1?: File,
   descimg1: string,
-  captureimg2: File,
+  captureimg2?: File,
   descimg2: string,
-  captureimg3: File,
+  captureimg3?: File,
   descimg3: string
 }
 
 export const createOrganization = async (body: Organization) => {
-  // if ((await prisma.organizations.count({ where: { email: body.email } }) > 0))
-  //   throw error(400, 'User already created an organization')
+  if ((await prisma.organizations.count({ where: { email: body.email } }) > 0))
+    throw error(400, 'User already created an organization')
   try {
-    const organization = await prisma.organizations.create({
+    const organization = await prisma.organizations.update({
       omit: { organizationId: true, updatedAt: true, id: true },
-      //where: { key: body.key },
+      where: { key: body.key },
       data: {
         error: '',
         key: body.key,
         email: body.email,
-        name: body.key,
-        thainame: AllData.Organizations[body.key],
-        ig: '',
-        fb: '',
-        others: '',
-        activities: '',
-        position: '',
-        working: '',
-        captureimg1: '',
-        descimg1: '',
-        captureimg2: '',
-        descimg2: '',
-        captureimg3: '',
-        descimg3: '',
       }
     })
-    // await prisma.user.update({
-    //   where: { email: body.email },
-    //   data: {
-    //     tag: body.tag,
-    //     key: body.key,
-    //   }
-    // })
+    await prisma.user.update({
+      where: { email: body.email },
+      data: {
+        tag: body.tag,
+        key: body.key,
+      }
+    })
     return { success: true, message: 'Creating organization successfully', data: organization }
   } catch (err) {
     throw error(500, 'Error while creating organization')
@@ -84,6 +70,7 @@ export const updateOrganizationData = async (name: keyof typeof AllData.Organiza
       omit: { organizationId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
+        sendForm: true,
         name: body.name,
         thainame: body.thainame,
         members: body.members,
@@ -93,11 +80,11 @@ export const updateOrganizationData = async (name: keyof typeof AllData.Organiza
         activities: body.activities,
         position: body.position,
         working: body.working,
-        captureimg1: (!body.captureimg1 === undefined ) ? await uploadImage(body.captureimg1) : organizationData.captureimg1,
+        captureimg1: (body.captureimg1 !== undefined ) ? await uploadImage(body.captureimg1) : organizationData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: (!body.captureimg2 === undefined ) ? await uploadImage(body.captureimg2) : organizationData.captureimg2,
+        captureimg2: (body.captureimg2 !== undefined ) ? await uploadImage(body.captureimg2) : organizationData.captureimg2,
         descimg2: body.descimg2,
-        captureimg3: (!body.captureimg3 === undefined ) ? await uploadImage(body.captureimg3) : organizationData.captureimg3,
+        captureimg3: (body.captureimg3 !== undefined ) ? await uploadImage(body.captureimg3) : organizationData.captureimg3,
         descimg3: body.descimg3,
       }
     })
@@ -132,7 +119,6 @@ export const createOrganizationReview = async (name: keyof typeof AllData.Organi
         email: organizationData.email,
         count: ((await prisma.reviews.count({ where: { email: organizationData.email } })) + 1).toString(),
         profile: '',
-        name: '',
         nick: '',
         gen: '',
         contact: '',
@@ -147,14 +133,13 @@ export const createOrganizationReview = async (name: keyof typeof AllData.Organi
 
 export const updateOrganizationReview = async (name: keyof typeof AllData.Organizations, count: string, body: ReviewData) => {
   const organizationData = (await getOrganization(name)).data
-  const reviewData = await prisma.reviews.findFirst({ where: { email: organizationData.email, count: count } })
+  const reviewData = await prisma.reviews.findUnique({ where: { key: organizationData.key, count: count } })
     try {
       const review = await prisma.reviews.update({
         omit: { reviewId: true, createdAt: true, id: true },
-        where: { email: organizationData.email, count: count },
+        where: { key: organizationData.key, count: count },
         data: {
-          profile: (!body.profile === undefined ) ? await uploadImage(body.profile) : reviewData?.profile,
-          name: body.name,
+          profile: (body.profile !== undefined) ? await uploadImage(body.profile) : reviewData?.profile,
           nick: body.nick,
           gen: body.gen,
           contact: body.contact,
@@ -174,7 +159,6 @@ export const deleteOrganizationReview = async (name: keyof typeof AllData.Organi
       where: { email: organizationData.email, count: id },
       data: {
         profile: '',
-        name: '',
         nick: '',
         gen: '',
         contact: '',

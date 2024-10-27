@@ -18,48 +18,34 @@ export interface GiftedData {
   admissions: string;
   courses: string;
   interests: string;
-  captureimg1: File;
+  captureimg1?: File;
   descimg1: string;
-  captureimg2: File;
+  captureimg2?: File;
   descimg2: string;
-  captureimg3: File;
+  captureimg3?: File;
   descimg3: string;
 }
 
 export const createGifted = async (body: Gifted) => {
-  // if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
-  //   throw error(400, "User already created an organization");
+   if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
+     throw error(400, "User already created an organization");
   try {
-    const gifted = await prisma.gifted.create({
+    const gifted = await prisma.gifted.update({
       omit: { giftedId: true, updatedAt: true, id: true },
-      //where: { key: body.key },
+      where: { key: body.key },
       data: {
         error: "",
         key: body.key,
         email: body.email,
-        name: body.key,
-        thainame: AllData.Gifted[body.key],
-        ig: "",
-        fb: "",
-        others: "",
-        admissions: "",
-        courses: "",
-        interests: "",
-        captureimg1: "",
-        descimg1: "",
-        captureimg2: "",
-        descimg2: "",
-        captureimg3: "",
-        descimg3: "",
       },
     });
-    // await prisma.user.update({
-    //   where: { email: body.email },
-    //   data: {
-    //     tag: body.tag,
-    //     key: body.key,
-    //   },
-    // });
+    await prisma.user.update({
+      where: { email: body.email },
+      data: {
+        tag: body.tag,
+        key: body.key,
+      },
+    });
     return {
       success: true,
       message: "Creating gifted successful",
@@ -92,6 +78,7 @@ export const updateGiftedData = async (
       omit: { giftedId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
+        sendForm: true,
         name: body.name,
         thainame: body.thainame,
         status: body.status,
@@ -102,11 +89,11 @@ export const updateGiftedData = async (
         admissions: body.admissions,
         courses: body.courses,
         interests: body.interests,
-        captureimg1: (!body.captureimg1 === undefined ) ? await uploadImage(body.captureimg1) : giftedData.captureimg1,
+        captureimg1: (body.captureimg1 !== undefined ) ? await uploadImage(body.captureimg1) : giftedData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: (!body.captureimg2 === undefined ) ? await uploadImage(body.captureimg2) : giftedData.captureimg2,
+        captureimg2: (body.captureimg2 !== undefined ) ? await uploadImage(body.captureimg2) : giftedData.captureimg2,
         descimg2: body.descimg2,
-        captureimg3: (!body.captureimg3 === undefined ) ? await uploadImage(body.captureimg3) : giftedData.captureimg3,
+        captureimg3: (body.captureimg3 !== undefined ) ? await uploadImage(body.captureimg3) : giftedData.captureimg3,
         descimg3: body.descimg3,
       },
     });
@@ -158,7 +145,6 @@ export const createGiftedReview = async (name: keyof typeof AllData.Gifted) => {
           })) + 1
         ).toString(),
         profile: "",
-        name: "",
         nick: "",
         gen: "",
         contact: "",
@@ -181,14 +167,13 @@ export const updateGiftedReview = async (
   body: ReviewData,
 ) => {
   const giftedData = (await getGifted(name)).data;
-  const reviewData = await prisma.reviews.findFirst({ where: { email: giftedData.email, count: count } })
+  const reviewData = await prisma.reviews.findUnique({ where: { key: giftedData.key, count: count } })
   try {
     const review = await prisma.reviews.update({
       omit: { reviewId: true, createdAt: true, id:true },
-      where: { email: giftedData.email, count: count },
+      where: { key: giftedData.key, count: count },
       data: {
-        profile: (!body.profile) ? await uploadImage(body.profile) : reviewData?.profile,
-        name: body.name,
+        profile: (body.profile !== undefined ) ? await uploadImage(body.profile) : reviewData?.profile,
         nick: body.nick,
         gen: body.gen,
         contact: body.contact,
@@ -215,7 +200,6 @@ export const deleteGiftedReview = async (
       where: { email: giftedData.email, count: id },
       data: {
         profile: "",
-        name: "",
         nick: "",
         gen: "",
         contact: "",

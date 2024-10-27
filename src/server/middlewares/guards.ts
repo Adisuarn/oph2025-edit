@@ -32,8 +32,8 @@ export const pipe = (condition: "OR" | "AND" = "AND", guards: ((...args: any[]) 
   return checkInstance()
 }
 
-export const INVERSE = async (arg: Function) => {
-  if (await arg() === true) return { status: 400, message: `Inversing ${arg.name}` }
+export const INVERSE = async (arg: Function, headers: Headers) => {
+  if (await arg(headers) === true) return { status: 400, message: `Inversing ${arg.name}` }
   else return true
 }
 
@@ -55,16 +55,20 @@ export const IS_TUCMC = async (headers: Headers) => {
 }
 
 export const IS_USERCREATED = async (headers: Headers) => {
-  const { data } = await checkSession(headers)
-  if (!data) throw error(404, 'User Not Found')
-  const user = data?.user
+  const user = (await getUser(headers)).data
   const organization = await prisma.organizations.findUnique({
     where: { email: user?.email }
   })
   const club = await prisma.clubs.findUnique({
     where: { email: user?.email }
   })
-  return (organization || club) ? true : { status: 400, message: 'User doesnt create anything yet' }
+  const program = await prisma.programs.findUnique({
+    where: { email: user?.email }
+  })
+  const gifted = await prisma.gifted.findUnique({
+    where: { email: user?.email }
+  })
+  return (organization || club || gifted || program ) ? true : {  message: 'User doesnt create anything yet' }
 }
 
 export const test = async (): Promise<boolean> => {

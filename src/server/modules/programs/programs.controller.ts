@@ -15,14 +15,14 @@ export interface ProgramData {
   ig: string,
   fb: string,
   others: string,
-  admission: string,
+  admissions: string,
   courses: string,
   interests: string,
-  captureimg1: File,
+  captureimg1?: File,
   descimg1: string,
-  captureimg2: File,
+  captureimg2?: File,
   descimg2: string,
-  captureimg3: File,
+  captureimg3?: File,
   descimg3: string
 }
 
@@ -30,36 +30,22 @@ export const createProgram = async(body: Program) => {
   if((await prisma.programs.count({ where: { email: body.email } }) > 0))
     throw error(400, 'User already created a program')
   try {
-    const program = await prisma.programs.create({
+    const program = await prisma.programs.update({
       omit: { programId: true, updatedAt: true, id:true },
-      //where: { key: body.key },
+      where: { key: body.key },
       data: {
         error: '',
         key: body.key,
         email: body.email,
-        name: body.key,
-        thainame: AllData.Programs[body.key],
-        ig: '',
-        fb: '',
-        others: '',
-        admissions: '',
-        courses: '',
-        interests: '',
-        captureimg1: '',
-        descimg1: '',
-        captureimg2: '',
-        descimg2: '',
-        captureimg3: '',
-        descimg3: '',
       }
     })
-    // await prisma.user.update({
-    //   where: { email: body.email },
-    //   data: {
-    //     tag: body.tag,
-    //     key: body.key,
-    //   }
-    // })
+    await prisma.user.update({
+      where: { email: body.email },
+      data: {
+        tag: body.tag,
+        key: body.key,
+      }
+    })
     return { success: true, message: 'Creating program successfully', data: program }
   } catch (err) {
     throw error(500, 'Error while creating program')
@@ -84,26 +70,28 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
       omit: { programId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
+        sendForm: true,
         name: body.name,
         thainame: body.thainame,
         members: body.members,
         ig: body.ig,
         fb: body.fb,
         others: body.others,
-        admissions: body.admission,
+        admissions: body.admissions,
         courses: body.courses,
         interests: body.interests,
-        captureimg1: (!body.captureimg1 === undefined ) ? await uploadImage(body.captureimg1) : programData.captureimg1,
+        captureimg1: (body.captureimg1 !== undefined ) ? await uploadImage(body.captureimg1) : programData.captureimg1,
         descimg1: body.descimg1,
-        captureimg2: (!body.captureimg2 === undefined ) ? await uploadImage(body.captureimg2) : programData.captureimg2,
+        captureimg2: (body.captureimg2 !== undefined ) ? await uploadImage(body.captureimg2) : programData.captureimg2,
         descimg2: body.descimg2,
-        captureimg3: (!body.captureimg3 === undefined) ? await uploadImage(body.captureimg3) : programData.captureimg3,
+        captureimg3: (body.captureimg3 !== undefined) ? await uploadImage(body.captureimg3) : programData.captureimg3,
         descimg3: body.descimg3,
       }
     })
     if(userData?.email === programData.email) await prisma.programs.update({ where: { key: name }, data: { status: Status.PENDING }})
     return { success: true, message: 'Updating program data successfully', data: updatedOrganization }
   } catch (err) {
+    console.log(err)
     throw error(500, 'Error while updating program data')
   }
 }
@@ -117,6 +105,7 @@ export const getProgramReviews = async(name: keyof typeof AllData.Programs) => {
     })
     return { success: true, message: 'Getting reviews successfully', data: reviewData}
   } catch (err) {
+    console.log(err)
     throw error(500, 'Error while getting reviews')
   }
 }
@@ -132,7 +121,6 @@ export const createProgramReview = async (name: keyof typeof AllData.Programs) =
         email: programData.email,
         count: ((await prisma.reviews.count({ where: { email: programData.email } })) + 1).toString(),
         profile: '',
-        name: '',
         nick: '',
         gen: '',
         contact: '',
@@ -147,14 +135,13 @@ export const createProgramReview = async (name: keyof typeof AllData.Programs) =
 
 export const updateProgramReview = async (name: keyof typeof AllData.Programs, count: string, body: ReviewData) => {
   const programData = (await getProgram(name)).data
-  const reviewData = await prisma.reviews.findUnique({ where: { email: programData.email, count }})
+  const reviewData = await prisma.reviews.findUnique({ where: { key: programData.key, count }})
     try {
       const review = await prisma.reviews.update({
         omit: { reviewId: true, createdAt: true, id: true },
-        where: { email: programData.email, count: count },
+        where: { key: programData.key, count: count },
         data: {
-          profile: (!body.profile === undefined) ? await uploadImage(body.profile) : reviewData?.profile,
-          name: body.name,
+          profile: (body.profile !== undefined) ? await uploadImage(body.profile) : reviewData?.profile,
           nick: body.nick,
           gen: body.gen,
           contact: body.contact,
@@ -174,7 +161,6 @@ export const deleteProgramReview = async (name: keyof typeof AllData.Organizatio
       where: { email: programData.email, count: id },
       data: {
         profile: '',
-        name: '',
         nick: '',
         gen: '',
         contact: '',

@@ -2,13 +2,13 @@ import { AllData } from "@libs/data"
 
 export type Club = {
   email: string;
-  tag: "club";
+  tag: "clubs";
   key: keyof typeof AllData.Clubs;
 };
 
 export type Organization = {
   email: string,
-  tag: 'organization',
+  tag: 'organizations',
   key: keyof typeof AllData.Organizations
 }
 
@@ -20,15 +20,15 @@ export type Gifted = {
 
 export type Program = {
   email: string,
-  tag: 'program',
+  tag: 'programs',
   key: keyof typeof AllData.Programs
 }
 
 export enum Tag {
-  CLUB = "club",
-  ORGANIZATION = "organization",
+  CLUB = "clubs",
+  ORGANIZATION = "organizations",
   GIFTED = "gifted",
-  PROGRAM = "program"
+  PROGRAM = "programs"
 }
 
 export enum Status {

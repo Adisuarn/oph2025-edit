@@ -5,7 +5,7 @@ import { error } from 'elysia'
 
 export const getUser = cache(async (headers: Headers) => {
   const { data } = await checkSession(headers)
-  if(!data) throw error(404, 'User Not Found')
+  if(!data) return { success: false, data: null }
   const user = data?.user
   const dbUser = await prisma.user.findUnique({
     where: { id: user?.id },
@@ -49,6 +49,6 @@ export const getGifted = cache(async (name: string) => {
     omit: { giftedId: true, id: true },
     where: { key: name}
   })
-  if (!gifted) throw error(404, 'Organization not found')
+  if (!gifted) throw error(404, 'Gifted not found')
   return { success: true, data: gifted}
 })
