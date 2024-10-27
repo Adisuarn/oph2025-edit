@@ -5,8 +5,8 @@ import Google from '@/vectors/landing/Google'
 
 const GoogleOAuthButton = () => {
   return (
-    <div className='flex justify-center items-center bg-gradient-to-b from-white to-white to-72% rounded-full shadow-xl sm:px-5 py-3 space-x-3 hover:opacity-75'>
-        <Google className='h-4 w-4'/>
+    <div className='flex justify-center items-center bg-gradient-to-b from-white to-white to-72% rounded-full shadow-xl sm:px-5 md:px-14 md:py-5 md:text-xl py-3 space-x-3 hover:opacity-75'>
+        <Google className='h-4 w-4 md:h-6 md:w-6'/>
         <button onClick={
         async () => {
             const {data, error} = await client.auth.login.get()
