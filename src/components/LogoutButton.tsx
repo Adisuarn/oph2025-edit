@@ -8,7 +8,9 @@ const LogoutButton = () => {
       async () => {
         const { data } = await client.auth.logout.get()
         if(data.success){
-          window.location.href = '/'
+          if (typeof window !== "undefined") {
+            window.location.href = '/'
+          }
         }
       }
     }
