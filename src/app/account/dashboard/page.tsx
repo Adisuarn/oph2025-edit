@@ -2,12 +2,13 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon';
 import BookIcon from '@/vectors/dashboard/BookIcon';
-import HamburgerMenu from '@/components/Dashboard/Hamburger'; // Import your HamburgerMenu component
+const HamburgerMenu = dynamic(() => import('@components/Dashboard/Hamburger'), { ssr: false });
 import { handler, viewHandler } from './page.action';
 import { Toaster, toast } from 'react-hot-toast';
-import ViewData from '@/components/Dashboard/ViewData';
-import { updateStatus } from '@/components/Dashboard/ViewData.action';
+const ViewData = dynamic(() => import('@components/Dashboard/ViewData'), { ssr: false });
+import { updateStatus } from '@components/Dashboard/ViewData.action';
 import { Status } from '@utils/type';
+import dynamic from 'next/dynamic';
 
 interface DashboardData {
   organizations: Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>;
@@ -44,7 +45,9 @@ const DashboardTUCMC: React.FC = () => {
 
   // Initial data fetch
   useEffect(() => {
-    fetchData();
+    if (typeof window !== "undefined") {
+      fetchData();
+    }
   }, [fetchData]);
 
   // Automatically set the initial status to PENDING if data is fetched
@@ -74,6 +77,7 @@ const DashboardTUCMC: React.FC = () => {
   const filteredPrograms = useMemo(() => filterData(data.programs), [data.programs, filterData]);
   const filteredClubs = useMemo(() => filterData(data.clubs), [data.clubs, filterData]);
   const filteredGifted = useMemo(() => filterData(data.gifted), [data.gifted, filterData]);
+
   // Handle view data
   const handleViewData = useCallback(async (tag: string, key: string, type: 'organization' | 'program' | 'club' | 'gifted') => {
     const currentData = (data[(type === "gifted" ? type : type + 's') as keyof DashboardData] as Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>)

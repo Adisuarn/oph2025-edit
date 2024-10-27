@@ -20,6 +20,9 @@ import "react-toastify/dist/ReactToastify.css";
 import apiFunction from "../api";
 import { useCookies } from "next-client-cookies";
 import axios from "axios";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
 
 const GeneralForm: React.FC<{
   userData: any;
@@ -28,6 +31,7 @@ const GeneralForm: React.FC<{
   review2: any;
   review3: any;
 }> = ({ userData, editFormData, review1, review2, review3 }) => {
+  const MySwal = withReactContent(Swal);
   const cookies = useCookies();
   const notifySuccess = () =>
     toast.success("Successfully Sent!", {
@@ -305,8 +309,14 @@ const GeneralForm: React.FC<{
           },
           { setSubmitting },
         ) => {
-          const userConfirmed = window.confirm("ยืนยันการส่งข้อมูลหรือไม่?");
-          if (userConfirmed) {
+          const userConfirmed = await Swal.fire({
+            title: 'ยืนยันการส่งข้อมูลหรือไม่?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'ยืนยัน',
+            cancelButtonText: 'ยกเลิก',
+          })
+          if (userConfirmed.isConfirmed) {
             try {
               editFormData.members = values.Members;
               editFormData.ig = values.IG;

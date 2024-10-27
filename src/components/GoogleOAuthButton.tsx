@@ -12,7 +12,9 @@ const GoogleOAuthButton = () => {
             const {data, error} = await client.auth.login.get()
             const url = data.url
             if(url){
-                window.location.href = url
+                if (typeof window !== "undefined") {
+                    window.location.href = url
+                }
             } else {
                 console.error(error)
             }
