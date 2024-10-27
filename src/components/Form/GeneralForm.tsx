@@ -20,6 +20,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Data } from "./Forms.action";
 // import apiFunction from "../api";
 // import { useRouter } from "next/router";
 
@@ -304,7 +305,7 @@ const GeneralForm: React.FC<{
             IG: string;
             FB: string;
             others: string;
-          }, 
+          },
           { setSubmitting },
         ) => {
           const userConfirmed = window.confirm("ยืนยันการส่งข้อมูลหรือไม่?");
@@ -339,15 +340,30 @@ const GeneralForm: React.FC<{
               editFormData.descimg2 = values.photoDescription2;
               editFormData.descimg3 = values.photoDescription3;
               console.log(editFormData, reviews);
-              await postInfo(editFormData);
-              await postReview(reviews);
-              // Router.push("/account");
+
+              const formData = new FormData();
+              formData.append("members", editFormData.members);
+              formData.append("ig", editFormData.ig);
+              formData.append("fb", editFormData.fb);
+              formData.append("others", editFormData.others);
+              formData.append("admissions", editFormData.admissions);
+              formData.append("courses", editFormData.courses);
+              formData.append("interests", editFormData.interests);
+              formData.append("captureimg1", editFormData.captureimg1.files[0]);
+              formData.append("captureimg2", editFormData.captureimg2.files[0]);
+              formData.append("captureimg3", editFormData.captureimg3.files[0]);
+              formData.append("descimg1", editFormData.descimg1);
+              formData.append("descimg2", editFormData.descimg2);
+              formData.append("descimg3", editFormData.descimg3);
+              await postInfo(formData as Data);
+              // await postReview(reviews);
             } catch (error) {
               console.log(error);
               notifyError();
             } finally {
               setSubmitting(false);
-              notifySuccess()
+              // Router.push("/account");
+              notifySuccess();
             }
           } else {
             setSubmitting(false);
@@ -699,8 +715,8 @@ const GeneralForm: React.FC<{
 
               {/* end section3 */}
 
-              <div className="mb-4 flex items-center justify-center space-x-4">
-                <p className="inline-block bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-10 text-transparent sm:text-4xl">
+              <div className="flex h-24 items-center justify-center space-x-4">
+                <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold text-transparent sm:text-4xl">
                   รีวิวจากรุ่นพี่
                 </p>
               </div>
@@ -713,24 +729,24 @@ const GeneralForm: React.FC<{
                         {displayImage4 ? (
                           <div className="relative w-full">
                             <Image
-                              className="mb-3 rounded-md h-12 w-12 sm:h-24 sm:w-24 md:h-36 md:w-36"
+                              className="mb-3 h-12 w-12 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
                               src={imageUrl4 || ""}
                               alt="photo4"
                               width={0}
                               height={0}
                             />
                             <button
-                            onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
-                            className="absolute right-4 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white"
-                          >
-                            X
-                          </button>
+                              onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
+                              className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0"
+                            >
+                              X
+                            </button>
                           </div>
                         ) : (
                           <div className="flex w-full items-center justify-start">
                             <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
                               <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                                <UserIcon className="h-3 w-3 sm:h-6 sm:w-6 text-greenText" />
+                                <UserIcon className="h-3 w-3 text-greenText sm:h-6 sm:w-6" />
                               </div>
                               <input
                                 type="file"
@@ -745,7 +761,7 @@ const GeneralForm: React.FC<{
                         <Field
                           type="text"
                           name="P1Name"
-                          className="w-16 text-sm sm:w-24 font-bold text-greenText sm:text-lg"
+                          className="w-16 text-sm font-bold text-greenText sm:w-24 sm:text-lg"
                           placeholder="ชื่อเล่น"
                         />
                         <ErrorMessage
@@ -753,16 +769,21 @@ const GeneralForm: React.FC<{
                           component="div"
                           className="text-[8px] text-red-400"
                         />
-                        <Field
-                          type="text"
-                          name="P1Gen"
-                          className="w-16 text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
-                          placeholder="เตรียมอุุดม xx"
-                        />
+                        <div className="flex">
+                          <p className="text-xs text-gray sm:text-sm">
+                            เตรียมอุดม{" "}
+                          </p>
+                          <Field
+                            type="text"
+                            name="P1Gen"
+                            className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
+                            placeholder="xx"
+                          />
+                        </div>
                         <ErrorMessage
                           name="P1Gen"
                           component="div"
-                          className="text-[8px] text-red-400"
+                          className="block text-[8px] text-red-400"
                         />
                         <Field
                           type="text"
@@ -812,36 +833,36 @@ const GeneralForm: React.FC<{
                       </div>
                       <div className="flex flex-col items-end justify-end">
                         <div className="flex flex-col items-center justify-center">
-                        {displayImage5 ? (
-                          <div className="relative w-full">
-                            <Image
-                              className="mb-3 rounded-md h-12 w-12 sm:h-24 sm:w-24 md:h-36 md:w-36"
-                              src={imageUrl5 || ""}
-                              alt="photo5"
-                              width={0}
-                              height={0}
-                            />
-                            <button
-                            onClick={() => setDisplayImage5(false)} // Replace with your deletion logic
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white"
-                          >
-                            X
-                          </button>
-                          </div>
-                        ) : (
-                          <div className="flex w-full items-center justify-end">
-                            <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
-                              <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                                <UserIcon className="h-3 w-3 sm:h-6 sm:w-6 text-greenText" />
-                              </div>
-                              <input
-                                type="file"
-                                className="hidden"
-                                onChange={handleFileSelect5}
+                          {displayImage5 ? (
+                            <div className="relative w-full">
+                              <Image
+                                className="mb-3 h-12 w-12 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
+                                src={imageUrl5 || ""}
+                                alt="photo5"
+                                width={0}
+                                height={0}
                               />
-                            </label>
-                          </div>
-                        )}
+                              <button
+                                onClick={() => setDisplayImage5(false)} // Replace with your deletion logic
+                                className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0"
+                              >
+                                X
+                              </button>
+                            </div>
+                          ) : (
+                            <div className="flex w-full items-center justify-end">
+                              <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
+                                <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                                  <UserIcon className="h-3 w-3 text-greenText sm:h-6 sm:w-6" />
+                                </div>
+                                <input
+                                  type="file"
+                                  className="hidden"
+                                  onChange={handleFileSelect5}
+                                />
+                              </label>
+                            </div>
+                          )}
                         </div>
                         <div className="mt-2 flex flex-col items-end">
                           <Field
@@ -855,12 +876,17 @@ const GeneralForm: React.FC<{
                             component="div"
                             className="text-[8px] text-red-400"
                           />
-                          <Field
-                            type="text"
-                            name="P2Gen"
-                            className="w-16 text-end text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
-                            placeholder="เตรียมอุุดม xx"
-                          />
+                          <div className="flex items-center justify-end">
+                            <p className="text-[8px] text-gray sm:text-sm">
+                              เตรียมอุดม{" "}
+                            </p>
+                            <Field
+                              type="text"
+                              name="P2Gen"
+                              className="w-5 text-end text-[8px] text-heroMiddle sm:text-sm"
+                              placeholder="xx"
+                            />
+                          </div>
                           <ErrorMessage
                             name="P2Gen"
                             component="div"
@@ -887,36 +913,36 @@ const GeneralForm: React.FC<{
                     <div className="flex w-full items-start justify-around">
                       <div className="flex flex-col">
                         <div className="flex flex-col items-center justify-center">
-                        {displayImage6 ? (
-                          <div className="relative w-full">
-                            <Image
-                              className="mb-3 rounded-md h-12 w-12 sm:h-24 sm:w-24 md:h-36 md:w-36"
-                              src={imageUrl6 || ""}
-                              alt="photo6"
-                              width={0}
-                              height={0}
-                            />
-                            <button
-                            onClick={() => setDisplayImage6(false)} // Replace with your deletion logic
-                            className="absolute right-4 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white"
-                          >
-                            X
-                          </button>
-                          </div>
-                        ) : (
-                          <div className="flex w-full items-center justify-start">
-                            <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
-                              <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                                <UserIcon className="h-3 w-3 sm:h-6 sm:w-6 text-greenText" />
-                              </div>
-                              <input
-                                type="file"
-                                className="hidden"
-                                onChange={handleFileSelect6}
+                          {displayImage6 ? (
+                            <div className="relative w-full">
+                              <Image
+                                className="mb-3 h-12 w-12 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
+                                src={imageUrl6 || ""}
+                                alt="photo6"
+                                width={0}
+                                height={0}
                               />
-                            </label>
-                          </div>
-                        )}
+                              <button
+                                onClick={() => setDisplayImage6(false)} // Replace with your deletion logic
+                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0"
+                              >
+                                X
+                              </button>
+                            </div>
+                          ) : (
+                            <div className="flex w-full items-center justify-start">
+                              <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
+                                <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                                  <UserIcon className="h-3 w-3 text-greenText sm:h-6 sm:w-6" />
+                                </div>
+                                <input
+                                  type="file"
+                                  className="hidden"
+                                  onChange={handleFileSelect6}
+                                />
+                              </label>
+                            </div>
+                          )}
                         </div>
                         <div className="mt-2 flex flex-col">
                           <Field
@@ -930,12 +956,17 @@ const GeneralForm: React.FC<{
                             component="div"
                             className="text-[8px] text-red-400"
                           />
-                          <Field
-                            type="text"
-                            name="P3Gen"
-                            className="w-16 text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
-                            placeholder="เตรียมอุุดม xx"
-                          />
+                          <div className="flex">
+                            <p className="text-xs text-gray sm:text-sm">
+                              เตรียมอุดม{" "}
+                            </p>
+                            <Field
+                              type="text"
+                              name="P3Gen"
+                              className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
+                              placeholder="xx"
+                            />
+                          </div>
                           <ErrorMessage
                             name="P3Gen"
                             component="div"

@@ -7,7 +7,10 @@ export default {
     "./src/components/**/*.tsx"
   ],
   theme: {
-    extend: {
+    extend: { 
+    lineHeight: {
+        'extra-loose': '3'
+      },
       fontFamily: {
         sans: ["Noto Sans Thai"],
         roboto: ["Roboto",],

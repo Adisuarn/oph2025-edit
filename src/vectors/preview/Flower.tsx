@@ -7,6 +7,7 @@ const Flower: FC<{
     <svg
       width="187"
       height="390"
+      className={`${className}`}
       viewBox="0 0 187 390"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

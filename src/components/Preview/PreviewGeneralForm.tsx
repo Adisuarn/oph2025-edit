@@ -11,8 +11,21 @@ import Section from "@/vectors/dashboard/Section";
 import DoubleQuoteUp from "@/vectors/preview/DoubleQuoteUp";
 import DoubleQuoteDown from "@/vectors/preview/DoubleQuoteDown";
 import Uppercurve from "@/vectors/preview/Uppercurve";
+import SLamp1 from "@/vectors/preview/SLamp1";
+import SLamp2 from "@/vectors/preview/SLamp2";
+import SLamp3 from "@/vectors/preview/SLamp3";
+import FallingLamp from "@/vectors/preview/FallingLamp";
+import Stainedglass from "@/vectors/preview/Stainedglass";
+import Flower from "@/vectors/preview/Flower";
+import Lamp from "@/vectors/preview/Lamp";
+import Frames from "@/vectors/preview/Frames";
+import Lowercurve from "@/vectors/preview/Lowercurve";
+import Vase from "@/vectors/preview/Vase";
+import Footer from "@/vectors/preview/Footer"; 
 
 const ReviewAmount = 3;
+const imageUrl =
+  "https://alpenjournal.de/storage/2024/03/1200-grindelwald-schweiz.jpg";
 
 const PreviewGeneralForm: React.FC<{
   editFormData: any;
@@ -21,12 +34,14 @@ const PreviewGeneralForm: React.FC<{
   review3: any;
 }> = ({ editFormData, review1, review2, review3 }) => {
   return (
-    <section>
-      {/* <div className="absolute -top-8">
-        <Uppercurve className="w-full" />
-      </div> */}
-    <section className="bg-gradient-to-b from-[#ECF5C8] to-[#1B9A8A]">
-      <section className="mx-10 mt-14 sm:mx-20">
+    <section className="relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] to-[#1B9A8A]">
+      <div className="absolute -top-44 left-1/2 z-10 -translate-x-1/2">
+        <Uppercurve className="w-[100vw]" />
+      </div>
+      <div className="absolute -top-[76px]">
+        <FallingLamp className="w-[100vw]" />
+      </div>
+      <section className="mx-12 pt-36 sm:mx-20">
         <section className="flex items-center justify-between">
           <div className="flex items-center justify-center space-x-1">
             <Link href="/account">
@@ -52,11 +67,11 @@ const PreviewGeneralForm: React.FC<{
                 {editFormData.thainame}
               </p>
             </div>
-            <div className="flex items-start justify-center space-x-4">
+            <div className="ml-6 flex items-center justify-center space-x-4">
               <div className="flex items-center justify-center">
                 <Profile className="h-10 w-10 text-greenText sm:h-12 sm:w-12 md:h-20 md:w-20" />
                 <div className="flex flex-col items-center">
-                  <p className="bg-gradient-to-b from-buttonMiddle to-greenText bg-clip-text text-lg font-bold text-transparent">
+                  <p className="text-md bg-gradient-to-b from-buttonMiddle to-greenText bg-clip-text font-bold text-transparent sm:text-lg">
                     สมาชิก
                   </p>
                   <p className="bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent">
@@ -64,20 +79,32 @@ const PreviewGeneralForm: React.FC<{
                   </p>
                 </div>
               </div>
-              <div className="mx-6 h-16 w-[2px] rounded-full bg-greenText"></div>
+              <div className="h-16 w-[2px] rounded-full bg-greenText"></div>
               <div className="sm:space-y-2">
-                <div className="bg-gradient-to-b from-greenText to-heroMiddle bg-clip-text text-xs text-transparent sm:text-sm">
-                  {editFormData.ig && <p>IG : {editFormData.ig}</p>}
-                  {editFormData.fb && <p>FB : {editFormData.fb}</p>}
-                  {editFormData.others && <p>อื่น ๆ : {editFormData.others}</p>}
+                <div>
+                  {editFormData.ig && (
+                    <p className="bg-gradient-to-b from-greenText to-heroMiddle bg-clip-text text-xs text-transparent sm:text-sm">
+                      IG : {editFormData.ig}
+                    </p>
+                  )}
+                  {editFormData.fb && (
+                    <p className="bg-gradient-to-b from-greenText to-heroMiddle bg-clip-text text-xs text-transparent sm:text-sm">
+                      FB : {editFormData.fb}
+                    </p>
+                  )}
+                  {editFormData.others && (
+                    <p className="bg-gradient-to-b from-greenText to-heroMiddle bg-clip-text text-xs text-transparent sm:text-sm">
+                      อื่น ๆ : {editFormData.others}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
-            <Section className="h-8 sm:h-16" />
+            <Section className="h-12 sm:h-16" />
           </section>
 
           {/* section1 */}
-          <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
+          <div className="mb-14 mt-12 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col items-center justify-between sm:flex-row md:mb-8">
               <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                 <p className="sm:text-xs md:text-4xl lg:text-5xl">
@@ -85,17 +112,25 @@ const PreviewGeneralForm: React.FC<{
                 </p>
                 <p className="sm:text-3xl md:text-6xl lg:text-7xl">และ</p>
                 <p className="sm:text-xl md:text-4xl lg:text-5xl">การสอบเข้า</p>
+                <div className="flex justify-center">
+                  <SLamp1 className="hidden sm:block" />
+                </div>
               </div>
-              <div className="sm:w-[50vw] md:w-[60vw]">
-                {/* <Image
-                      className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                      src={imageUrl1 || ""}
-                      alt="uploaded photo"
-                      width={0}
-                      height={0}
-                    /> */}
+              <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
+                <div className="absolute -left-12 -top-32 -z-10">
+                  <Stainedglass className="w-16" />
+                </div>
+                <Image
+                  className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                  src={imageUrl || ""}
+                  alt="uploaded photo"
+                  width={0}
+                  height={0}
+                />
                 <div className="mb-3 flex items-center justify-center">
-                  <p className="text-greenText">photo description 1 data</p>
+                  <p className="text-xs text-greenText sm:text-sm">
+                    photo description 1 data
+                  </p>
                 </div>
               </div>
             </div>
@@ -111,14 +146,17 @@ const PreviewGeneralForm: React.FC<{
                 <p className="sm:text-lg md:text-2xl">หลักสูตรเพิ่มเติม</p>
                 <p className="sm:text-lg md:text-2xl">ที่เรียน</p>
               </div>
-              <div className="sm:w-[50vw] md:w-[60vw]">
-                {/* <Image
+              <div className="relative sm:w-[50vw] md:w-[60vw]">
+              <div className="absolute -right-12 -top-52 z-10">
+                  <Flower className="w-16" />
+                </div>
+                <Image
                       className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                      src={imageUrl2 || ""}
+                      src={imageUrl || ""}
                       alt="uploaded photo"
                       width={0}
                       height={0}
-                    /> */}
+                    />
 
                 <div className="mb-3 flex items-center justify-center">
                   <p className="text-greenText">photo description 2 data</p>
@@ -141,9 +179,21 @@ const PreviewGeneralForm: React.FC<{
                   สายการเรียน
                 </p>
               </div>
-              <div className="sm:w-[50vw] md:w-[60vw]">
+              <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
+                <div className="absolute -left-12 -top-60 -z-10">
+                  <Lamp className="w-32" />
+                </div>
+                <Image
+                  className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                  src={imageUrl || ""}
+                  alt="uploaded photo"
+                  width={0}
+                  height={0}
+                />
                 <div className="mb-3 flex items-center justify-center">
-                  <p className="text-greenText">photo description 3</p>
+                  <p className="text-xs text-greenText sm:text-sm">
+                    photo description 3 data
+                  </p>
                 </div>
               </div>
             </div>
@@ -156,36 +206,36 @@ const PreviewGeneralForm: React.FC<{
           {/* end section3 */}
 
           <div className="mb-4 flex items-center justify-center space-x-4">
-            <p className="inline-block bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-10 text-transparent sm:text-4xl">
+          <div className="h-[2px] w-16 rounded-full bg-greenText"></div>
+            <p className="inline-block bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-extra-loose text-transparent sm:text-4xl">
               รีวิวจากรุ่นพี่
             </p>
+            <div className="h-[2px] w-16 rounded-full bg-greenText"></div>
           </div>
 
           <section className="flex flex-col space-y-10">
             <div className="flex flex-col items-center justify-center space-y-5">
               <div className="flex w-full items-start justify-around">
                 <div className="flex flex-col">
-                  <div className="flex flex-col items-center justify-center">
-                    {/* <Image
-                        className="mb-3"
-                        src={imageUrl4 || ""}
-                        alt="photo4"
+                <div className="flex flex-col items-center justify-center">
+                    <Image
+                        className="mb-3 rounded-md h-16 w-16 sm:h-24 sm:w-24 md:h-36 md:w-36"
+                        src={imageUrl || ""}
+                        alt="photo"
                         width={100}
                         height={100}
-                        style={{
-                          width: "3rem",
-                          height: "3rem",
-                          borderRadius: "0.5rem",
-                        }}
-                      /> */}
+                      />
                   </div>
                   <div className="mt-2 flex flex-col text-greenText">
                     <p className="text-lg font-bold">{review1.nick}</p>
-                    <p className="text-xs">{review1.gen}</p>
+                    <p className="text-xs">เตรียมอุดม {review1.gen}</p>
                     <p className="text-xs">{review1.contact}</p>
                   </div>
                 </div>
-                <div className="relative w-3/5 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
+                <div className="relative w-4/6 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
+                  <div className="absolute -top-36 -right-14">
+                    <Frames className="w-16" />
+                  </div>
                   <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                     <DoubleQuoteUp className="h-4 w-4 text-greenText" />
                   </div>
@@ -199,7 +249,10 @@ const PreviewGeneralForm: React.FC<{
             {ReviewAmount >= 2 && (
               <div className="flex flex-col items-center justify-center space-y-5">
                 <div className="flex w-full items-start justify-around">
-                  <div className="relative w-3/5 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
+                  <div className="relative w-4/6 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
+                  <div className="absolute -top-60 -left-14">
+                    <Vase className="w-16" />
+                  </div>
                     <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                       <DoubleQuoteUp className="h-4 w-4 text-greenText" />
                     </div>
@@ -209,23 +262,18 @@ const PreviewGeneralForm: React.FC<{
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <div className="flex flex-col items-center justify-center">
-                      {/* <Image
-                        className="mb-3"
-                        src={imageUrl4 || ""}
-                        alt="photo4"
+                    <div className="flex flex-col items-end justify-center">
+                    <Image
+                        className="mb-3 rounded-md h-16 w-16 sm:h-24 sm:w-24 md:h-36 md:w-36"
+                        src={imageUrl || ""}
+                        alt="photo"
                         width={100}
                         height={100}
-                        style={{
-                          width: "3rem",
-                          height: "3rem",
-                          borderRadius: "0.5rem",
-                        }}
-                      /> */}
+                      />
                     </div>
-                    <div className="mt-2 flex flex-col text-greenText">
+                    <div className="mt-2 flex flex-col items-end text-greenText">
                       <p className="text-lg font-bold">{review2.nick}</p>
-                      <p className="text-xs">{review2.gen}</p>
+                      <p className="text-xs">เตรียมอุดม {review2.gen}</p>
                       <p className="text-xs">{review2.contact}</p>
                     </div>
                   </div>
@@ -237,26 +285,21 @@ const PreviewGeneralForm: React.FC<{
                 <div className="flex w-full items-start justify-around">
                   <div className="flex flex-col">
                     <div className="flex flex-col items-center justify-center">
-                      {/* <Image
-                        className="mb-3"
-                        src={imageUrl4 || ""}
-                        alt="photo4"
+                    <Image
+                        className="mb-3 rounded-md h-16 w-16 sm:h-24 sm:w-24 md:h-36 md:w-36"
+                        src={imageUrl || ""}
+                        alt="photo"
                         width={100}
                         height={100}
-                        style={{
-                          width: "3rem",
-                          height: "3rem",
-                          borderRadius: "0.5rem",
-                        }}
-                      /> */}
+                      />
                     </div>
                     <div className="mt-2 flex flex-col text-greenText">
                       <p className="text-lg font-bold">{review3.nick}</p>
-                      <p className="text-xs">{review3.gen}</p>
+                      <p className="text-xs">เตรียมอุดม {review3.gen}</p>
                       <p className="text-xs">{review3.contact}</p>
                     </div>
                   </div>
-                  <div className="relative w-3/5 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
+                  <div className="relative w-4/6 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
                     <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                       <DoubleQuoteUp className="h-4 w-4 text-greenText" />
                     </div>
@@ -269,10 +312,19 @@ const PreviewGeneralForm: React.FC<{
               </div>
             )}
           </section>
+
         </section>
       </section>
+        
+      <div className="pb-48">
+            <div className="absolute -bottom-48">
+              <Lowercurve className="w-full" />
+            </div>
+            {/* <div className="absolute z-20 -bottom-48">
+          <Footer className="w-full"/>
+        </div> */}
+      </div>
     </section>
-   </section>
   );
 };
 

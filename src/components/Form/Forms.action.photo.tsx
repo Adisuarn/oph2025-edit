@@ -3,7 +3,7 @@ import apiFunction from "../api"
 const userResponse = await apiFunction("GET", "/user", {});
 const userData = userResponse.data;
 console.log(userData)
-export interface Data {
+interface FormData {
   members: string;
   ig: string;
   fb: string;
@@ -19,7 +19,7 @@ export interface Data {
   captureimg3: File;
 }
 
-export default async function postInfo (data : Data){
+export default async function postInfo (data : FormData){
   // const formData = new FormData();
   // formData.append('members', data.members);
   // formData.append('ig', data.ig);
@@ -37,7 +37,6 @@ export default async function postInfo (data : Data){
     try {
         const response = await apiFunction("PATCH", `/${userData.tag}/${userData.key}`, data)
         console.log(response)
-        console.log(typeof data.captureimg1)
       } catch (error) {
         console.log(error)
       }
