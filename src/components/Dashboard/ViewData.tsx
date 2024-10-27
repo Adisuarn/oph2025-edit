@@ -14,6 +14,21 @@ import Reviews from '@components/Dashboard/Reviews';
 
 const MySwal = withReactContent(Swal);
 const ViewData = ({ data, type, onStatusUpdate }: any) => {
+  const dateString = data.data.updatedAt;
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: 'Asia/Bangkok',
+    day: '2-digit',
+    month: '2-digit',
+    year: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  };
+
+  let formattedDate = new Intl.DateTimeFormat('en-GB', options).format(date);
+  formattedDate = formattedDate.replace(/am|pm/g, match => match.toUpperCase());
+
   const handleApproval = () => {
     MySwal.fire({
       title: 'อนุมัติข้อมูลนี้',
@@ -114,6 +129,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
         {/* Main Content */}
         <div className="pt-5 flex flex-col items-center mt-10">
           {/* Header Content Section */}
+          <div className="text-[#2f2f2f]"> ข้อมูลอัปเดต {formattedDate}</div>
           <Header type={type} data={data} />
           {/* Conditional Content Based on Type */}
           <div className="mt-24 mx-44 flex flex-col content-center justif-between">

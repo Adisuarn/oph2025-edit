@@ -74,12 +74,10 @@ const DashboardTUCMC: React.FC = () => {
   const filteredPrograms = useMemo(() => filterData(data.programs), [data.programs, filterData]);
   const filteredClubs = useMemo(() => filterData(data.clubs), [data.clubs, filterData]);
   const filteredGifted = useMemo(() => filterData(data.gifted), [data.gifted, filterData]);
-
   // Handle view data
   const handleViewData = useCallback(async (tag: string, key: string, type: 'organization' | 'program' | 'club' | 'gifted') => {
-    const currentData = (data[type + 's' as keyof DashboardData] as Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>)
-      .find((item) => item.key === key);
-
+    const currentData = (data[(type === "gifted" ? type : type + 's') as keyof DashboardData] as Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>)
+    .find((item) => item.key === key);
     if (viewData && viewData.type === type && viewData.data.data.thainame === currentData?.thainame) {
       setViewData(null);
       setActiveButton(null);
@@ -101,7 +99,6 @@ const DashboardTUCMC: React.FC = () => {
     setSelectedStatus(Status.PENDING);
     setViewData(null);
   }, []);
-
   // Render items (organizations, programs, etc.)
   const renderItem = useCallback((item: any, type: 'organization' | 'program' | 'club' | 'gifted') => {
     const isVisible = viewData && viewData.type === type && viewData.data.data.thainame === item.thainame;

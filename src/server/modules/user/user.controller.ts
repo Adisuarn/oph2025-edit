@@ -1,5 +1,4 @@
 import { getUser } from '@middlewares/derive'
-import { error } from 'elysia'
 
 export const getUserData = async (headers: Headers) => {
   try {
