@@ -34,12 +34,12 @@ const PreviewGiftedForm: React.FC = async () => {
     courses: userForm.data.data.courses,
     interests: userForm.data.data.interests,
     status: userForm.data.data.status,
-    // captureimg1: userForm.data.data.captureimg1,
-    descimg1: '',
-    // captureimg2: userForm.data.data.captureimg2,
-    descimg2: '',
-    // captureimg3: userForm.data.data.captureimg3,
-    descimg3: '',
+    captureimg1: userForm.data.data.captureimg1,
+    descimg1: userForm.data.data.descimg1,
+    captureimg2: userForm.data.data.captureimg2,
+    descimg2: userForm.data.data.descimg2,
+    captureimg3: userForm.data.data.captureimg3,
+    descimg3: userForm.data.data.descimg3,
   };
 
   

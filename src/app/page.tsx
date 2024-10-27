@@ -42,7 +42,7 @@ const page = async () => {
             <p className="from-24% bg-gradient-to-b from-greenishCream to-[#ADDB64] bg-clip-text text-4xl font-bold text-transparent">
               กช.
             </p>
-            <div className="mx-3 h-12 w-[2px] rounded-full bg-greenishCream sm:h-16 md:h-20"></div>
+            <div className="mx-3 h-12 w-[2px] rounded-full bg-greenishCream sm:h-12 md:h-14"></div>
             <div className="from-24% flex flex-col bg-gradient-to-bl from-greenishCream to-[#ADDB64] bg-clip-text text-xs font-bold text-transparent">
               <p>งานกิจกรรมพัฒนาผู้เรียน</p>
               <p>โรงเรียนเตรียมอุดมศึกษา</p>

@@ -13,7 +13,7 @@ export default async function Form({
 }) {
   const response = await apiFunction("GET", "/user", {});
   // const clubResponse = await apiFunction("GET", "/clubs/ก30927", {})
-
+  console.log(response)
   const key = response.key 
 
   return (

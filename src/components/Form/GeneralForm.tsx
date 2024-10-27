@@ -18,7 +18,7 @@ import { IoIosInformationCircleOutline } from "react-icons/io";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import apiFunction from "../api";
-import { useCookies } from 'next-client-cookies'
+import { useCookies } from "next-client-cookies";
 import axios from "axios";
 
 const GeneralForm: React.FC<{
@@ -358,10 +358,25 @@ const GeneralForm: React.FC<{
                   Authorization: `${cookies.get("oph2025-auth-cookie")}`,
                 },
                 data: formData,
+              };
+              const optionsReview = {
+                method: "PATCH",
+                url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review`,
+                headers: {
+                  "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+                  Authorization: `${cookies.get("oph2025-auth-cookie")}`,
+                },
+                data: {
+                  review1: review1,
+                  review2: review2,
+                  review3: review3,
+                },
               }
               try {
                 const response = await axios.request(options);
+                const responseReview = await axios.request(optionsReview);
                 return response;
+                return responseReview;
               } catch (error) {
                 console.log(error);
               }
@@ -506,15 +521,35 @@ const GeneralForm: React.FC<{
               {/* section1 */}
               <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
                 <div className="flex flex-col items-start justify-between sm:flex-row">
-                  <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  {editFormData.tagThai === "ชมรม" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                     <p className="sm:text-xs md:text-4xl lg:text-5xl">
-                      การรับสมัคร
+                      ชมรมนี้
                     </p>
-                    <p className="sm:text-3xl md:text-6xl lg:text-7xl">และ</p>
                     <p className="sm:text-xl md:text-4xl lg:text-5xl">
-                      การสอบเข้า
+                      ทำอะไร
+                    </p>
+                  </div>) : (
+                  editFormData.tagThai === "องค์กร" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
+                    <p className="sm:text-xs md:text-4xl lg:text-5xl leading-extra-loose">
+                      องค์กรนี้
+                    </p>
+                    <p className="sm:text-xl md:text-4xl lg:text-5xl">
+                      ทำอะไร
                     </p>
                   </div>
+                  ) : (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-xs md:text-4xl lg:text-5xl">
+                        การรับสมัคร
+                      </p>
+                      <p className="sm:text-3xl md:text-6xl lg:text-7xl">และ</p>
+                      <p className="sm:text-xl md:text-4xl lg:text-5xl">
+                        การสอบเข้า
+                      </p>
+                    </div>
+                  )
+                )}
                   <div className="sm:w-[50vw] md:w-[60vw]">
                     <div className="flex w-full items-center justify-center">
                       {displayImage1 ? (
@@ -578,11 +613,20 @@ const GeneralForm: React.FC<{
               {/* section 2 */}
               <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
                 <div className="flex flex-col items-start justify-between sm:flex-row-reverse">
-                  <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                    <p className="sm:text-2xl md:text-7xl">วิชา /</p>
-                    <p className="sm:text-lg md:text-2xl">หลักสูตรเพิ่มเติม</p>
-                    <p className="sm:text-lg md:text-2xl">ที่เรียน</p>
-                  </div>
+                  {editFormData.tagThai === "ชมรม" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                    <p className="sm:text-2xl md:text-7xl">ประโยชน์</p>
+                    <p className="sm:text-lg md:text-2xl">ที่ได้รับ</p>
+                    <p className="sm:text-lg md:text-2xl">จากการเข้าชมรม</p>
+                  </div>) : (
+                    editFormData.tagThai === "องค์กร" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-lg md:text-2xl">ตำแหน่ง</p>
+                      <p className="sm:text-lg md:text-2xl">/หน้าที่</p>
+                    </div>) : (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-2xl md:text-7xl">วิชา /</p>
+                      <p className="sm:text-lg md:text-2xl">หลักสูตรเพิ่มเติม</p>
+                      <p className="sm:text-lg md:text-2xl">ที่เรียน</p>
+                    </div>)
+                  )}
                   <div className="sm:w-[50vw] md:w-[60vw]">
                     <div className="flex w-full items-center justify-center">
                       {displayImage2 ? (
@@ -648,7 +692,19 @@ const GeneralForm: React.FC<{
               {/* section 3 */}
               <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
                 <div className="flex flex-col items-start justify-between sm:flex-row">
-                  <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  {editFormData.tagThai === "ชมรม" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                    <p className="sm:text-5xl md:text-6xl lg:text-7xl">ผลงาน</p>
+                    <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                      ชมรม
+                    </p>
+                  </div>) : (
+                    editFormData.tagThai === "องค์กร" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-5xl md:text-6xl lg:text-7xl">ผลงาน</p>
+                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                        ขององค์กร 
+                      </p>
+                    </div>) : (
+                      <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                     <p className="sm:text-3xl md:text-4xl lg:text-5xl">
                       ความน่าสนใจ
                     </p>
@@ -657,6 +713,8 @@ const GeneralForm: React.FC<{
                       สายการเรียน
                     </p>
                   </div>
+                    )
+                  )}
                   <div className="sm:w-[50vw] md:w-[60vw]">
                     <div className="flex w-full items-center justify-center">
                       {displayImage3 ? (
