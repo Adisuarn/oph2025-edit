@@ -84,6 +84,7 @@ const AccountPage = async () => {
         <p className="sm:text-2xl text-md">แก้ไข้ข้อมูลหน่วยงาน</p>
         <p className="opacity-70 text-xs sm:text-sm md:text-md">ข้อมูลจะแสดงผลในหน้าเว็บไซต์</p>
       </div>
+      <LogoutButton />
     </section>
   );
 };
