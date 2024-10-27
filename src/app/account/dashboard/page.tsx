@@ -100,11 +100,11 @@ const DashboardTUCMC: React.FC = () => {
     setViewData(null);
   }, []);
   // Render items (organizations, programs, etc.)
-  const renderItem = useCallback((item: any, type: 'organization' | 'program' | 'club' | 'gifted') => {
+  const renderItem = useCallback((item: any, type: 'organization' | 'program' | 'club' | 'gifted', index: any) => {
     const isVisible = viewData && viewData.type === type && viewData.data.data.thainame === item.thainame;
 
     return (
-      <div key={item.id}>
+      <div key={index}>
         <li className="flex justify-between items-center mb-4 p-5 border border-gray-300 rounded-2xl">
           <div className="flex items-center">
             {type === 'organization' ? <PeopleIcon className="mr-2 w-6 h-6" /> : <BookIcon className="mr-2 w-6 h-6" />}
@@ -216,10 +216,10 @@ const DashboardTUCMC: React.FC = () => {
               <hr className="my-5" />
               {/* Data List */}
               <ul className="mt-5">
-                {filteredOrganizations.map(item => renderItem(item, 'organization'))}
-                {filteredPrograms.map(item => renderItem(item, 'program'))}
-                {filteredClubs.map(item => renderItem(item, 'club'))}
-                {filteredGifted.map(item => renderItem(item, 'gifted'))}
+                {filteredOrganizations.map((item, index )=> renderItem(item, 'organization', index))}
+                {filteredPrograms.map((item, index) => renderItem(item, 'program', index))}
+                {filteredClubs.map((item, index) => renderItem(item, 'club', index))}
+                {filteredGifted.map((item, index) => renderItem(item, 'gifted', index))}
               </ul>
             </>
           )}

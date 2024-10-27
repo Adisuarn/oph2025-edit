@@ -6,9 +6,9 @@ const Reviews = ({ data } : any) => {
   return (
     <div className="flex flex-col items-center mt-16 mb-20">
       <p className="font-semibold text-6xl text-[#0C453E]">รีวิวจากรุ่นพี่</p>
-      {reviewData.map((review: any) => (
+      {reviewData.map((review: any, index: any) => (
         review.count % 2 === 0 ? (
-          <div key={review.id} className="mx-44 mt-28 flex">
+          <div key={index} className="mx-44 mt-28 flex">
             <div className="flex justify-between">
               <div className="p-8 border rounded-3xl w-2/3">
                 <p>{review.content}</p>
@@ -24,7 +24,7 @@ const Reviews = ({ data } : any) => {
             </div>
           </div>
         ) : (
-          <div key={review.id} className="mx-44 mt-28 flex">
+          <div key={index} className="mx-44 mt-28 flex">
             <div className="flex justify-between">
               <div>
                 <div className="rounded-2xl overflow-hidden mb-5 w-[150px] h-[150px]">
