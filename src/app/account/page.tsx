@@ -1,6 +1,5 @@
 import React from "react";
 import LogoutButton from "@/components/LogoutButton";
-import { getUser } from "@/server/middlewares/derive";
 import { redirect } from "next/navigation";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { FaLessThanEqual, FaWpforms } from "react-icons/fa6";
@@ -10,7 +9,6 @@ import Section from "@/vectors/dashboard/Section";
 import { FaPen } from "react-icons/fa";
 import { useState } from "react";
 import { Status } from "@utils/type";
-import { tucmcRouter } from "@/server/modules/tucmc/tucmc.route";
 
 const AccountPage = async () => {
   const userResponse = await apiFunction("GET", "/user", {});

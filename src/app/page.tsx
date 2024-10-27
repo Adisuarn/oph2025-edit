@@ -1,6 +1,5 @@
 import React from "react";
 import GoogleOAuthButton from "@/components/GoogleOAuthButton";
-import { client } from "@/libs/api";
 import apiFunction from "@/components/api";
 import Brick from "@/vectors/landing/Brick";
 import NiceStuff from "@/vectors/landing/NiceStuff";
@@ -8,9 +7,14 @@ import Window from "@/vectors/landing/Window";
 import Windowphone from "@/vectors/landing/Windowphone";
 import Super from "@/vectors/landing/Super";
 import BrickSmall from "@/vectors/landing/BrickSmall";
+import { redirect } from "next/navigation";
 
 const page = async () => {
-  const clubRes = await apiFunction("GET", "/clubs/ก30927-1", {});
+  const userData = await apiFunction("GET", "/user", {});
+  console.log(userData);
+  if (userData?.data !== null || undefined) {
+    redirect("/account");
+  }
   return (
     <main className="via-21% to-77% relative -z-[100] h-screen w-screen overflow-hidden bg-gradient-to-b sm:bg-gradient-to-r from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0">
       <div className="w-[110vw] sm:w-[70vw] right-0 absolute sm:-right-20 top-10 sm:top-20 -z-10">

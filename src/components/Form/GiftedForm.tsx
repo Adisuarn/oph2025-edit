@@ -1,6 +1,5 @@
 import GeneralForm from "./GeneralForm";
 import apiFunction from "@/components/api";
-import { Status } from "@utils/type";
 
 const FormikControl: React.FC = async () => {
   const response = await apiFunction("GET", "/user", {});
@@ -10,15 +9,11 @@ const FormikControl: React.FC = async () => {
     `/${userData.tag}/${userData.key}/`,
     {},
   );
-  console.log(userData);
   const userReview = await apiFunction(
     "GET",
     `/${userData.tag}/${userData.key}/review`,
      {}
   )
-  // console.log(userForm)
-  // console.log(userReview.data)
-
 
   let editFormData = {
     thainame: userForm.data.data.thainame,
@@ -70,6 +65,7 @@ const FormikControl: React.FC = async () => {
 
   return (
     <GeneralForm
+      userData={userData}
       editFormData={editFormData}
       review1={review1}
       review2={review2}

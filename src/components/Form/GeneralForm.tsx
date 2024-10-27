@@ -3,7 +3,6 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
-import { uploadImage } from "@/server/utils/uploadimg";
 import { useState, useEffect } from "react";
 import { objectInputType } from "zod";
 import Image from "next/image";
@@ -12,26 +11,24 @@ import UserIcon from "@/vectors/edit-page/UserIcon";
 import GalleryIcon from "@/vectors/edit-page/GalleryIcon";
 import { FaPen } from "react-icons/fa";
 import Trash from "@/vectors/edit-page/Trash";
-import postInfo from "./Forms.action";
-import postReview from "./Forms.action.review";
 import { Status } from "@utils/type";
 import { useRouter } from "next/router";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosInformationCircleOutline } from "react-icons/io";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Data } from "./Forms.action";
-// import apiFunction from "../api";
-// import { useRouter } from "next/router";
-
-// const Router = useRouter();
+import apiFunction from "../api";
+import { useCookies } from 'next-client-cookies'
+import axios from "axios";
 
 const GeneralForm: React.FC<{
+  userData: any;
   editFormData: any;
   review1: any;
   review2: any;
   review3: any;
-}> = ({ editFormData, review1, review2, review3 }) => {
+}> = ({ userData, editFormData, review1, review2, review3 }) => {
+  const cookies = useCookies();
   const notifySuccess = () =>
     toast.success("Successfully Sent!", {
       position: "top-right",
@@ -315,7 +312,7 @@ const GeneralForm: React.FC<{
               editFormData.ig = values.IG;
               editFormData.fb = values.FB;
               editFormData.others = values.others;
-              editFormData.admission = values.textField1;
+              editFormData.admissions = values.textField1;
               editFormData.courses = values.textField2;
               editFormData.interests = values.textField3;
               editFormData.captureimg1 = image1;
@@ -339,8 +336,6 @@ const GeneralForm: React.FC<{
               editFormData.descimg1 = values.photoDescription1;
               editFormData.descimg2 = values.photoDescription2;
               editFormData.descimg3 = values.photoDescription3;
-              console.log(editFormData, reviews);
-
               const formData = new FormData();
               formData.append("members", editFormData.members);
               formData.append("ig", editFormData.ig);
@@ -349,14 +344,27 @@ const GeneralForm: React.FC<{
               formData.append("admissions", editFormData.admissions);
               formData.append("courses", editFormData.courses);
               formData.append("interests", editFormData.interests);
-              formData.append("captureimg1", editFormData.captureimg1.files[0]);
-              formData.append("captureimg2", editFormData.captureimg2.files[0]);
-              formData.append("captureimg3", editFormData.captureimg3.files[0]);
+              if (image1) formData.append("captureimg1", image1);
+              if (image2) formData.append("captureimg2", image2);
+              if (image3) formData.append("captureimg3", image3);
               formData.append("descimg1", editFormData.descimg1);
               formData.append("descimg2", editFormData.descimg2);
               formData.append("descimg3", editFormData.descimg3);
-              await postInfo(formData as Data);
-              // await postReview(reviews);
+              const options = {
+                method: "PATCH",
+                url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
+                headers: {
+                  "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+                  Authorization: `${cookies.get("oph2025-auth-cookie")}`,
+                },
+                data: formData,
+              }
+              try {
+                const response = await axios.request(options);
+                return response;
+              } catch (error) {
+                console.log(error);
+              }
             } catch (error) {
               console.log(error);
               notifyError();

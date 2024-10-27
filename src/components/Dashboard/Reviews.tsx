@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 const Reviews = ({ data } : any) => {
   const reviewData = data.data.reviews.data // Array of reviews
-  console.log(reviewData)
   return (
     <div className="flex flex-col items-center mt-16 mb-20">
       <p className="font-semibold text-6xl text-[#0C453E]">รีวิวจากรุ่นพี่</p>
@@ -19,7 +18,7 @@ const Reviews = ({ data } : any) => {
                   <Image src={review.profile} alt="Image" width={150} height={150} />
                 </div>
                 <p className="font-bold">{review.nick}</p>
-                <p>TU {review.gen}</p>
+                <p>เตรียมอุดม {review.gen}</p>
                 <p>{review.contact}</p>
               </div>
             </div>
@@ -32,7 +31,7 @@ const Reviews = ({ data } : any) => {
                   <Image src={review.profile} alt="Image" width={150} height={150} />
                 </div>
                 <p className="font-bold">{review.nick}</p>
-                <p>TU {review.gen}</p>
+                <p>เตรียมอุดม {review.gen}</p>
                 <p>{review.contact}</p>
               </div>
               <div className="p-8 border rounded-3xl w-2/3">

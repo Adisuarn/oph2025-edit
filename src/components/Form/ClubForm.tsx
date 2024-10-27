@@ -60,7 +60,6 @@ const onSubmit = (
   const userConfirmed = window.confirm("ยืนยันการส่งข้อมูลหรือไม่?");
 
   if (userConfirmed) {
-    console.log("Form data", values);
     setSubmitting(false);
     resetForm();
   } else {

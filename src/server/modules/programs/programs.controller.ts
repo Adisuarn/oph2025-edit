@@ -66,7 +66,6 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
   const userData = (await getUser(headers)).data
   if(programData.status === 'approved') throw error(400, 'Program already approved')
   try {
-    console.log(body.captureimg1)
     const updatedOrganization = await prisma.programs.update({
       omit: { programId: true, createdAt: true, id: true },
       where: { key: name },
