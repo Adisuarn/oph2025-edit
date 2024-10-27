@@ -7,6 +7,7 @@ const LeftFrames: FC<{
     <svg
       width="309"
       height="801"
+      className={`${className}`}
       viewBox="0 0 309 801"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

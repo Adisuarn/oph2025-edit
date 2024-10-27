@@ -7,8 +7,8 @@ const Footer: FC<{
     <svg
       width="1208"
       height="112"
-      className={`${className}`}
       viewBox="0 0 1208 112"
+      className={`${className}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
