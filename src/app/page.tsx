@@ -11,8 +11,7 @@ import { redirect } from "next/navigation";
 
 const page = async () => {
   const userData = await apiFunction("GET", "/user", {});
-  console.log(userData);
-  if (userData?.data !== null || undefined) {
+  if (userData?.data.success !== false) {
     redirect("/account");
   }
   return (

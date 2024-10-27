@@ -13,7 +13,6 @@ import Passage3 from '@components/Dashboard/Passage3';
 import Reviews from '@components/Dashboard/Reviews';
 
 const MySwal = withReactContent(Swal);
-
 const ViewData = ({ data, type, onStatusUpdate }: any) => {
   const handleApproval = () => {
     MySwal.fire({

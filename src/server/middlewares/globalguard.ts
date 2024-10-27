@@ -10,6 +10,7 @@ import {
 
 export const GlobalGuard = new Elysia()
   .onBeforeHandle(async ({ request: { headers } , path }) => {
+    if(path.includes('/api/user')) return
     if(path.includes('/api/auth/callback')) return
     if(path.includes('/api/swagger')) return
     if(path === '/api/auth/login') return pipe('AND', [IS_VERIFIED], headers)
