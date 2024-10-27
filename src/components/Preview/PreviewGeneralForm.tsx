@@ -127,7 +127,7 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               </div>
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -left-12 -top-20 sm:-left-[344px] md:-left-[460px] -z-10">
+                <div className="absolute -left-12 -top-32 sm:-left-[344px] md:-left-[460px] -z-10">
                   <Stainedglass className="w-16 sm:w-32" />
                 </div>
                 <Image
@@ -152,7 +152,7 @@ const PreviewGeneralForm: React.FC<{
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col-reverse items-center justify-between sm:flex-row md:mb-8">
               <div className="relative sm:w-[50vw] md:w-[60vw]">
-              <div className="absolute -right-12 sm:-right-[264px] -top-16 z-10">
+              <div className="absolute -right-12 sm:-right-[264px] -top-52 z-10">
                   <Flower className="w-16 sm:w-28" />
                 </div>
                 <Image
@@ -196,7 +196,7 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               </div>
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -left-12 -top-60 -z-10">
+                <div className="absolute -left-10 -top-60 -z-10">
                   <Lamp className="w-32 sm:hidden" />
                 </div>
                 <div className="absolute -left-[344px] -top-48">
@@ -340,7 +340,10 @@ const PreviewGeneralForm: React.FC<{
         
       <div className="pb-48">
             <div className="absolute -bottom-48 left-1/2 z-10 -translate-x-1/2 overflow-hidden">
-              <Lowercurve className="w-full sm:w-[100vw]" />
+              <Lowercurve className="w-[100vw] sm:w-[100vw]" />
+            </div>
+            <div className="absolute">
+              <Footer className="w-full"/>
             </div>
             {/* <div className="absolute z-20 -bottom-48">
           <Footer className="w-full"/>
