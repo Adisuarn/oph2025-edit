@@ -7,7 +7,6 @@ import Link from "next/link";
 import apiFunction from "@/components/api";
 import Section from "@/vectors/dashboard/Section";
 import { FaPen } from "react-icons/fa";
-import { useState } from "react";
 import { Status } from "@utils/type";
 
 const AccountPage = async () => {
