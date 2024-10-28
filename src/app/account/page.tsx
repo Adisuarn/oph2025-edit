@@ -58,18 +58,18 @@ const AccountPage = async () => {
           checked ? (
             approved ? (
               <div className="flex items-center justify-center mt-2 sm:mt-0 space-x-1">
-                <div className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 rounded-full bg-[#19C57C]"></div>
+                <div className="h-4 w-4 rounded-full bg-[#19C57C]"></div>
                 <p className="text-[#19C57C] sm:text-lg md:text-2xl">ผ่านการตรวจสอบ</p>
               </div>
             ) : (
               <div className="flex items-center justify-center mt-2 sm:mt-0 space-x-1">
-                <div className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6  rounded-full bg-[#E80808]"></div>
+                <div className="h-4 w-4 rounded-full bg-[#E80808]"></div>
                 <p className="text-[#E80808] sm:text-lg md:text-2xl">ไม่ผ่านการตรวจสอบ</p>
               </div>
             )
           ) : (
             <div className="flex items-center justify-center mt-2 sm:mt-0 space-x-1">
-              <div className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6  rounded-full bg-[#FCB52B]"></div>
+              <div className="h-4 w-4 rounded-full bg-[#FCB52B]"></div>
               <p className="text-[#FCB52B] sm:text-lg md:text-2xl">อยู่ระหว่างการตรวจสอบ</p>
             </div>
           )

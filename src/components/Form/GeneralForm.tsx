@@ -20,9 +20,8 @@ import "react-toastify/dist/ReactToastify.css";
 import apiFunction from "../api";
 import { useCookies } from "next-client-cookies";
 import axios from "axios";
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
-
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const GeneralForm: React.FC<{
   userData: any;
@@ -56,9 +55,23 @@ const GeneralForm: React.FC<{
       progress: undefined,
       theme: "colored",
     });
+  const notifyWarning = () =>
+    toast.warn("Some field is still missing!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
 
   const [image1, setImage1] = useState<File | null>(null);
-  const [imageUrl1, setImageUrl1] = useState<string | null>(null);
+  const [imageUrl1, setImageUrl1] = useState<string | null>(
+    editFormData.captureimg1,
+  );
   const [displayImage1, setDisplayImage1] = useState<boolean>(false);
   const [image2, setImage2] = useState<File | null>(null);
   const [imageUrl2, setImageUrl2] = useState<string | null>(null);
@@ -75,8 +88,12 @@ const GeneralForm: React.FC<{
   const [image6, setImage6] = useState<File | null>(null);
   const [imageUrl6, setImageUrl6] = useState<string | null>(null);
   const [displayImage6, setDisplayImage6] = useState<boolean>(false);
-  const [successDataSent, setSuccessDataSent] = useState<boolean>(false);
+  const [clubLogo, setClubLogo] = useState<File | null>(null);
+  const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(null);
+  const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(false);
+  // const [successDataSent, setSuccessDataSent] = useState<boolean>(false);
   const [ReviewAmount, setReviewAmount] = useState<number>(3);
+  const [loading, setLoading] = useState(false);
 
   const incrementReview = () => {
     setReviewAmount(ReviewAmount + 1);
@@ -217,7 +234,27 @@ const GeneralForm: React.FC<{
     }
   }, [image6]);
 
-  let reviews = [review1, review2, review3];
+  const handleFileSelectClub = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      const selectedFile = e.target.files[0];
+
+      if (!selectedFile.type.startsWith("image/")) {
+        alert("Please select a valid image file (png, jpg, jpeg).");
+        return;
+      }
+
+      setClubLogo(selectedFile);
+      setDisplayClubLogo(true);
+    }
+  };
+
+  useEffect(() => {
+    if (clubLogo) {
+      const clubLogoUrl = URL.createObjectURL(clubLogo);
+      setClubLogoUrl(clubLogoUrl);
+      return () => URL.revokeObjectURL(clubLogoUrl);
+    }
+  }, [clubLogo]);
 
   return (
     <section className="mx-10 mt-16 sm:mx-24">
@@ -310,14 +347,15 @@ const GeneralForm: React.FC<{
           { setSubmitting },
         ) => {
           const userConfirmed = await Swal.fire({
-            title: 'ยืนยันการส่งข้อมูลหรือไม่?',
-            icon: 'warning',
+            title: "ยืนยันการส่งข้อมูลหรือไม่?",
+            icon: "warning",
             showCancelButton: true,
-            confirmButtonText: 'ยืนยัน',
-            cancelButtonText: 'ยกเลิก',
-          })
+            confirmButtonText: "ยืนยัน",
+            cancelButtonText: "ยกเลิก",
+          });
           if (userConfirmed.isConfirmed) {
             try {
+              setLoading(true);
               editFormData.members = values.Members;
               editFormData.ig = values.IG;
               editFormData.fb = values.FB;
@@ -357,6 +395,8 @@ const GeneralForm: React.FC<{
               if (image1) formData.append("captureimg1", image1);
               if (image2) formData.append("captureimg2", image2);
               if (image3) formData.append("captureimg3", image3);
+              if (editFormData.tagThai === "ชมรม" && clubLogo)
+                formData.append("logo", clubLogo);
               formData.append("descimg1", editFormData.descimg1);
               formData.append("descimg2", editFormData.descimg2);
               formData.append("descimg3", editFormData.descimg3);
@@ -373,7 +413,18 @@ const GeneralForm: React.FC<{
               try {
                 const response = await axios.request(options);
                 const reviews = [review1, review2, review3];
-                reviews.map( async (review) => {
+                reviews.map(async (review) => {
+                  if (review.profile === null || review.profile === "") return;
+                  const reviewData = new FormData();
+                  if (!image4) {
+                    () => notifyWarning();
+                  } else {
+                    reviewData.append("profile", review.profile);
+                  }
+                  reviewData.append("nick", review.nick);
+                  reviewData.append("gen", review.gen);
+                  reviewData.append("contact", review.contact);
+                  reviewData.append("content", review.content);
                   const optionsReview = {
                     method: "PATCH",
                     url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${review.count}`,
@@ -381,18 +432,12 @@ const GeneralForm: React.FC<{
                       "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
                       Authorization: `${cookies.get("oph2025-auth-cookie")}`,
                     },
-                    data: {
-                      profile: review.profile,
-                      nick: review.nick,
-                      gen: review.gen,
-                      contact: review.contact,
-                      content: review.content,
-                    },
-                  }
-                  const responseReview =  await axios.request(optionsReview);
+                    data: reviewData,
+                  };
+                  const responseReview = await axios.request(optionsReview);
                   console.log(review);
-                  return responseReview
-                })
+                  return responseReview;
+                });
                 //return response;
               } catch (error) {
                 console.log(error);
@@ -404,6 +449,7 @@ const GeneralForm: React.FC<{
               setSubmitting(false);
               // Router.push("/account");
               notifySuccess();
+              setLoading(false);
             }
           } else {
             setSubmitting(false);
@@ -412,6 +458,12 @@ const GeneralForm: React.FC<{
       >
         {({ isSubmitting }) => (
           <Form>
+            
+            {loading && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                <div className="loader h-16 w-16"></div>
+              </div>
+            )}
             <section className="mb-8 flex flex-col items-start space-y-3">
               <div className="flex items-center justify-center space-x-1">
                 <Link href="/account">
@@ -425,23 +477,23 @@ const GeneralForm: React.FC<{
                 </Link>
               </div>
               <div>
-                <div className="flex w-[80vw] items-center justify-between">
+                <div className="flex w-[80vw] items-center justify-between md:w-[85vw] xl:w-[90vw]">
                   <div className="flex items-center justify-center space-x-2">
                     <p className="md:text-md text-xs sm:text-sm lg:text-lg">
-                      สถานะ : {" "}
+                      สถานะ :{" "}
                     </p>
                     {editFormData.submittedForm ? (
                       editFormData.status !== Status.PENDING ? (
                         editFormData.status === Status.APPROVED ? (
                           <div className="flex items-center justify-center space-x-1 sm:mt-0">
-                            <div className="h-2 w-2 rounded-full bg-[#19C57C] sm:h-5 sm:w-5"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#19C57C] sm:h-3 sm:w-3"></div>
                             <p className="md:text-md text-xs text-[#19C57C] sm:text-sm">
                               ผ่านการตรวจสอบ
                             </p>
                           </div>
                         ) : (
                           <div className="flex items-center justify-center space-x-1 sm:mt-0">
-                            <div className="h-2 w-2 rounded-full bg-[#E80808] sm:h-5 sm:w-5"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#E80808] sm:h-3 sm:w-3"></div>
                             <p className="md:text-md text-xs text-[#E80808] sm:text-sm">
                               ไม่ผ่านการตรวจสอบ
                             </p>
@@ -449,7 +501,7 @@ const GeneralForm: React.FC<{
                         )
                       ) : (
                         <div className="flex items-center justify-center space-x-1 sm:mt-0">
-                          <div className="h-2 w-2 rounded-full bg-[#FCB52B] sm:h-5 sm:w-5"></div>
+                          <div className="h-2 w-2 rounded-full bg-[#FCB52B] sm:h-3 sm:w-3"></div>
                           <p className="md:text-md text-xs text-[#FCB52B] sm:text-sm">
                             อยู่ระหว่างการตรวจสอบ
                           </p>
@@ -486,75 +538,160 @@ const GeneralForm: React.FC<{
             {/* Hero */}
             <section className="w-full sm:mx-7">
               <section className="w-full rounded-2xl bg-gradient-to-br from-heroFirst via-heroMiddle to-greenText shadow-xl">
-                <div className="flex h-40 w-full flex-col items-center justify-center space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto">
-                  <p className="sm:border-3 rounded-full border border-white px-6 py-1 text-lg font-extrabold sm:text-2xl">
-                    {editFormData.thainame}
-                  </p>
-                  <div className="flex">
-                    <p>{editFormData.tagThai}</p>
-                    <Field
-                      type="text"
-                      name="Members"
-                      className="sm:text-md w-12 bg-transparent text-center text-xs text-white"
-                    />
-                    <FaPen className="h-2 text-white" />
-                    <p>คน</p>
-                  </div>
-                  <div className="sm:space-y-2">
-                    <div className="space-y-1 text-start sm:text-lg">
-                      <div className="flex">
-                        <p>IG : </p>
-                        <Field
-                          type="text"
-                          placeholder="type your ig here"
-                          name="IG"
-                          className="sm:text-md bg-transparent text-center text-xs text-white"
-                        />
-                        <FaPen className="h-2 text-white" />
-                      </div>
-                      <div className="flex">
-                        <p>FB : </p>
-                        <Field
-                          type="text"
-                          name="FB"
-                          className="sm:text-md bg-transparent text-center text-xs text-white"
-                        />
-                        <FaPen className="h-2 text-white" />
-                      </div>
-                      <div className="flex">
-                        <p>อื่น ๆ : </p>
-                        <Field
-                          type="text"
-                          name="others"
-                          className="sm:text-md bg-transparent text-center text-xs text-white"
-                        />
-                        <FaPen className="h-2 text-white" />
+                {editFormData.tagThai !== "ชมรม" ? (
+                  <div className="flex h-40 w-full flex-col items-center justify-center space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto">
+                    <p className="sm:border-3 rounded-full border border-white px-6 py-1 text-lg font-extrabold sm:text-2xl">
+                      {editFormData.thainame}
+                    </p>
+                    <div className="flex items-center justify-center">
+                      <p className="sm:text-md text-xs md:text-lg">
+                        {editFormData.tagThai}
+                      </p>
+                      <Field
+                        type="text"
+                        name="Members"
+                        className="sm:text-md w-12 bg-transparent text-center text-xs text-white md:text-lg"
+                      />
+                      <FaPen className="-mt-4 h-2 text-white" />
+                      <p className="sm:text-md text-xs md:text-lg">คน</p>
+                    </div>
+                    <div className="sm:space-y-2">
+                      <div className="space-y-1 text-start sm:text-lg">
+                        <div className="flex">
+                          <p>IG : </p>
+                          <Field
+                            type="text"
+                            name="IG"
+                            className="sm:text-lg bg-transparent text-start pl-3 text-xs text-white"
+                          />
+                          <FaPen className="h-2 text-white" />
+                        </div>
+                        <div className="flex">
+                          <p>FB : </p>
+                          <Field
+                            type="text"
+                            name="FB"
+                            className="sm:text-lg bg-transparent text-start pl-3 text-xs text-white"
+                          />
+                          <FaPen className="h-2 text-white" />
+                        </div>
+                        <div className="flex">
+                          <p>อื่น ๆ : </p>
+                          <Field
+                            type="text"
+                            name="others"
+                            className="sm:text-lg bg-transparent text-center pl-3 text-xs text-white"
+                          />
+                          <FaPen className="h-2 text-white" />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="flex h-40 w-full items-center justify-between space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto md:w-[60vw]">
+                    {displayClubLogo ? (
+                      <div className="relative flex w-1/2 flex-col items-center justify-center sm:w-full">
+                        <Image
+                          className="mx-auto flex h-28 w-28 items-center justify-center rounded-lg object-cover md:h-40 md:w-40 lg:h-52 lg:w-52"
+                          src={clubLogoUrl || ""}
+                          alt="uploaded photo"
+                          width={400}
+                          height={600}
+                          quality={100}
+                        />
+                        <button
+                          onClick={() => setDisplayClubLogo(false)}
+                          className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
+                        >
+                          X
+                        </button>
+                      </div>
+                    ) : (
+                      <label className="flex h-28 w-28 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] md:h-40 md:w-40 lg:h-52 lg:w-52">
+                        <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                          <GalleryIcon className="h-6 w-6 text-greenText sm:h-8 sm:w-8 md:h-16 md:w-16" />
+                        </div>
+                        <input
+                          type="file"
+                          className="hidden"
+                          onChange={handleFileSelectClub}
+                        />
+                      </label>
+                    )}
+                    <div className="h-36 w-[2px] rounded-full bg-white lg:h-48 lg:w-[4px]"></div>
+                    <div className="flex w-1/2 flex-col items-center justify-center lg:space-y-2">
+                      <p className="rounded-full border border-white px-[8px] text-[10px] font-bold md:text-lg md:font-extrabold lg:px-4 lg:py-2 lg:text-2xl">
+                        {editFormData.thainame}
+                      </p>
+                      <div className="flex items-center justify-center">
+                        <p className="sm:text-md text-[8px] md:text-lg">
+                          {editFormData.tagThai}
+                        </p>
+                        <Field
+                          type="text"
+                          name="Members"
+                          className="sm:text-md w-5 bg-transparent text-center text-[8px] text-white sm:w-12 md:text-lg"
+                        />
+                        <FaPen className="-mt-4 h-1 text-white sm:h-2" />
+                        <p className="sm:text-md text-[8px] md:text-lg">คน</p>
+                      </div>
+                      <div className="flex items-center justify-center sm:space-y-2">
+                        <div className="items-center justify-center space-y-1 text-start sm:text-lg">
+                          <div className="flex">
+                            <p className="text-[8px] sm:text-lg">IG : </p>
+                            <Field
+                              type="text"
+                              name="IG"
+                              className="w-8 bg-transparent text-center text-xs text-white sm:text-lg md:w-32"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
+                          <div className="flex">
+                            <p className="text-[8px] sm:text-lg">FB : </p>
+                            <Field
+                              type="text"
+                              name="FB"
+                              className="w-8 bg-transparent text-center text-xs text-white sm:text-lg md:w-32"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
+                          <div className="flex">
+                            <p className="text-[8px] sm:text-lg">อื่น ๆ : </p>
+                            <Field
+                              type="text"
+                              name="others"
+                              className="w-8 bg-transparent text-center text-xs text-white sm:text-lg md:w-32"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </section>
 
               {/* section1 */}
               <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
                 <div className="flex flex-col items-start justify-between sm:flex-row">
-                  {editFormData.tagThai === "ชมรม" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                    <p className="sm:text-xs md:text-4xl lg:text-5xl">
-                      ชมรมนี้
-                    </p>
-                    <p className="sm:text-xl md:text-4xl lg:text-5xl">
-                      ทำอะไร
-                    </p>
-                  </div>) : (
-                  editFormData.tagThai === "องค์กร" ? (
+                  {editFormData.tagThai === "ชมรม" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-3xl md:text-5xl lg:text-7xl">
+                        ชมรมนี้
+                      </p>
+                      <p className="sm:text-3xl md:text-5xl lg:text-7xl">
+                        ทำอะไร
+                      </p>
+                    </div>
+                  ) : editFormData.tagThai === "องค์กร" ? (
                     <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
-                    <p className="sm:text-xs md:text-4xl lg:text-5xl leading-extra-loose">
-                      องค์กรนี้
-                    </p>
-                    <p className="sm:text-xl md:text-4xl lg:text-5xl">
-                      ทำอะไร
-                    </p>
-                  </div>
+                      <p className="sm:text-xs md:text-5xl lg:text-6xl">
+                        องค์กรนี้
+                      </p>
+                      <p className="sm:text-xl md:text-4xl lg:text-5xl">
+                        ทำอะไร
+                      </p>
+                    </div>
                   ) : (
                     <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                       <p className="sm:text-xs md:text-4xl lg:text-5xl">
@@ -565,8 +702,7 @@ const GeneralForm: React.FC<{
                         การสอบเข้า
                       </p>
                     </div>
-                  )
-                )}
+                  )}
                   <div className="sm:w-[50vw] md:w-[60vw]">
                     <div className="flex w-full items-center justify-center">
                       {displayImage1 ? (
@@ -575,11 +711,12 @@ const GeneralForm: React.FC<{
                             className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
                             src={imageUrl1 || ""}
                             alt="uploaded photo"
-                            width={0}
-                            height={0}
+                            width={800}
+                            height={600}
+                            quality={100}
                           />
                           <button
-                            onClick={() => setDisplayImage1(false)} // Replace with your deletion logic
+                            onClick={() => setDisplayImage1(false)}
                             className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
                           >
                             X
@@ -630,19 +767,35 @@ const GeneralForm: React.FC<{
               {/* section 2 */}
               <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
                 <div className="flex flex-col items-start justify-between sm:flex-row-reverse">
-                  {editFormData.tagThai === "ชมรม" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                    <p className="sm:text-2xl md:text-7xl">ประโยชน์</p>
-                    <p className="sm:text-lg md:text-2xl">ที่ได้รับ</p>
-                    <p className="sm:text-lg md:text-2xl">จากการเข้าชมรม</p>
-                  </div>) : (
-                    editFormData.tagThai === "องค์กร" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                      <p className="sm:text-lg md:text-2xl">ตำแหน่ง</p>
-                      <p className="sm:text-lg md:text-2xl">/หน้าที่</p>
-                    </div>) : (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  {editFormData.tagThai === "ชมรม" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-4xl md:text-5xl lg:text-7xl">
+                        ประโยชน์
+                      </p>
+                      <p className="sm:text-lg md:text-2xl lg:text-4xl">
+                        ที่ได้รับ
+                      </p>
+                      <p className="sm:-mt-2 sm:text-lg md:text-lg lg:text-3xl">
+                        จากการเข้าชมรม
+                      </p>
+                    </div>
+                  ) : editFormData.tagThai === "องค์กร" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-lg md:text-5xl lg:text-6xl">
+                        ตำแหน่ง
+                      </p>
+                      <p className="sm:text-lg md:text-2xl lg:text-4xl">
+                        /หน้าที่
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                       <p className="sm:text-2xl md:text-7xl">วิชา /</p>
-                      <p className="sm:text-lg md:text-2xl">หลักสูตรเพิ่มเติม</p>
+                      <p className="sm:text-lg md:text-2xl">
+                        หลักสูตรเพิ่มเติม
+                      </p>
                       <p className="sm:text-lg md:text-2xl">ที่เรียน</p>
-                    </div>)
+                    </div>
                   )}
                   <div className="sm:w-[50vw] md:w-[60vw]">
                     <div className="flex w-full items-center justify-center">
@@ -652,11 +805,12 @@ const GeneralForm: React.FC<{
                             className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
                             src={imageUrl2 || ""}
                             alt="uploaded photo"
-                            width={0}
-                            height={0}
+                            width={800}
+                            height={600}
+                            quality={100}
                           />
                           <button
-                            onClick={() => setDisplayImage2(false)} // Replace with your deletion logic
+                            onClick={() => setDisplayImage2(false)}
                             className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
                           >
                             X
@@ -698,7 +852,6 @@ const GeneralForm: React.FC<{
                   className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
                   placeholder="Your description here"
                   rows="5"
-                  // style={{ width: "100%", whiteSpace: "pre-wrap" }} // Ensure text wraps without scrolling
                 />
                 <ErrorMessage
                   name="textField2"
@@ -709,28 +862,34 @@ const GeneralForm: React.FC<{
               {/* section 3 */}
               <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
                 <div className="flex flex-col items-start justify-between sm:flex-row">
-                  {editFormData.tagThai === "ชมรม" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                    <p className="sm:text-5xl md:text-6xl lg:text-7xl">ผลงาน</p>
-                    <p className="sm:text-3xl md:text-4xl lg:text-5xl">
-                      ชมรม
-                    </p>
-                  </div>) : (
-                    editFormData.tagThai === "องค์กร" ? (<div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                      <p className="sm:text-5xl md:text-6xl lg:text-7xl">ผลงาน</p>
-                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
-                        ขององค์กร 
+                  {editFormData.tagThai === "ชมรม" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-5xl md:text-6xl lg:text-7xl">
+                        ผลงาน
                       </p>
-                    </div>) : (
-                      <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                    <p className="sm:text-3xl md:text-4xl lg:text-5xl">
-                      ความน่าสนใจ
-                    </p>
-                    <p className="sm:text-5xl md:text-6xl lg:text-7xl">ของ</p>
-                    <p className="sm:text-3xl md:text-4xl lg:text-5xl">
-                      สายการเรียน
-                    </p>
-                  </div>
-                    )
+                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                        ของชมรม
+                      </p>
+                    </div>
+                  ) : editFormData.tagThai === "องค์กร" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
+                      <p className="sm:text-5xl md:text-4xl lg:text-5xl">
+                        ผลงาน
+                      </p>
+                      <p className="sm:text-3xl md:text-3xl lg:text-5xl">
+                        ขององค์กร
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                        ความน่าสนใจ
+                      </p>
+                      <p className="sm:text-5xl md:text-6xl lg:text-7xl">ของ</p>
+                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                        สายการเรียน
+                      </p>
+                    </div>
                   )}
                   <div className="sm:w-[50vw] md:w-[60vw]">
                     <div className="flex w-full items-center justify-center">
@@ -740,11 +899,12 @@ const GeneralForm: React.FC<{
                             className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
                             src={imageUrl3 || ""}
                             alt="uploaded photo"
-                            width={0}
-                            height={0}
+                            width={800}
+                            height={600}
+                            quality={100}
                           />
                           <button
-                            onClick={() => setDisplayImage3(false)} // Replace with your deletion logic
+                            onClick={() => setDisplayImage3(false)}
                             className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
                           >
                             X
@@ -786,7 +946,6 @@ const GeneralForm: React.FC<{
                   className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
                   placeholder="Your description here"
                   rows="5"
-                  // style={{ width: "100%", whiteSpace: "pre-wrap" }} // Ensure text wraps without scrolling
                 />
                 <ErrorMessage
                   name="textField3"
@@ -794,9 +953,6 @@ const GeneralForm: React.FC<{
                   className="text-red-400"
                 />
               </div>
-              {/* section 3 */}
-
-              {/* end section3 */}
 
               <div className="flex h-24 items-center justify-center space-x-4">
                 <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold text-transparent sm:text-4xl">
@@ -853,11 +1009,15 @@ const GeneralForm: React.FC<{
                           className="text-[8px] text-red-400"
                         />
                         <div className="flex">
-                          <p className="text-xs text-gray sm:text-sm">
+                          <label
+                            className="text-xs text-gray sm:text-sm"
+                            htmlFor="P1Gen"
+                          >
                             เตรียมอุดม{" "}
-                          </p>
+                          </label>
                           <Field
                             type="text"
+                            id="P1Gen"
                             name="P1Gen"
                             className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
                             placeholder="xx"
@@ -960,11 +1120,15 @@ const GeneralForm: React.FC<{
                             className="text-[8px] text-red-400"
                           />
                           <div className="flex items-center justify-end">
-                            <p className="text-[8px] text-gray sm:text-sm">
+                            <label
+                              className="text-xs text-gray sm:text-sm"
+                              htmlFor="P2Gen"
+                            >
                               เตรียมอุดม{" "}
-                            </p>
+                            </label>
                             <Field
                               type="text"
+                              id="P2Gen"
                               name="P2Gen"
                               className="w-5 text-end text-[8px] text-heroMiddle sm:text-sm"
                               placeholder="xx"
@@ -1040,11 +1204,15 @@ const GeneralForm: React.FC<{
                             className="text-[8px] text-red-400"
                           />
                           <div className="flex">
-                            <p className="text-xs text-gray sm:text-sm">
+                            <label
+                              className="text-xs text-gray sm:text-sm"
+                              htmlFor="P3Gen"
+                            >
                               เตรียมอุดม{" "}
-                            </p>
+                            </label>
                             <Field
                               type="text"
+                              id="P3Gen"
                               name="P3Gen"
                               className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
                               placeholder="xx"

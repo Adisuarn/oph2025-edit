@@ -242,7 +242,7 @@ const PreviewGeneralForm: React.FC<{
                   <div className="flex flex-col items-center justify-center">
                     <Image
                       className="mb-3 h-16 w-16 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
-                      src={imageUrl || ""}
+                      src={review1.profile || ""}
                       alt="photo"
                       width={100}
                       height={100}
@@ -290,7 +290,7 @@ const PreviewGeneralForm: React.FC<{
                     <div className="flex flex-col items-end justify-center">
                       <Image
                         className="mb-3 h-16 w-16 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
-                        src={imageUrl || ""}
+                        src={review2.profile || ""}
                         alt="photo"
                         width={100}
                         height={100}
@@ -312,7 +312,7 @@ const PreviewGeneralForm: React.FC<{
                     <div className="flex flex-col items-center justify-center">
                       <Image
                         className="mb-3 h-16 w-16 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
-                        src={imageUrl || ""}
+                        src={review3.profile || ""}
                         alt="photo"
                         width={100}
                         height={100}
