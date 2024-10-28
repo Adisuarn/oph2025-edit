@@ -7,7 +7,6 @@ import Link from "next/link";
 import apiFunction from "@/components/api";
 import Section from "@/vectors/dashboard/Section";
 import { FaPen } from "react-icons/fa";
-import { useState } from "react";
 import { Status } from "@utils/type";
 
 const AccountPage = async () => {
@@ -85,6 +84,7 @@ const AccountPage = async () => {
         <p className="sm:text-2xl text-md">แก้ไขข้อมูลหน่วยงาน</p>
         <p className="opacity-70 text-xs sm:text-sm md:text-md">ข้อมูลจะแสดงผลในหน้าเว็บไซต์</p>
       </div>
+      <LogoutButton />
     </section>
   );
 };

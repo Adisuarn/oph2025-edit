@@ -16,7 +16,7 @@ import {
 
 export const giftedRouter = new Elysia({ prefix: "/gifted" })
   .guard({
-    async beforeHandle({ request: { headers }, params: { name } }) {
+    async beforeHandle({ request: { headers }, params: { name, id } }) {
       const userData = (await getUser(headers)).data;
       const giftedData = (await getGifted(name)).data;
       if (userData?.TUCMC === true) {
@@ -31,6 +31,7 @@ export const giftedRouter = new Elysia({ prefix: "/gifted" })
         "Invalid Gifted Name",
         Object.keys(AllData.Gifted),
       ),
+      id: StringField(false, "Invalid Review ID"),
     }),
   })
   .get(

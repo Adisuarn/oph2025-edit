@@ -16,7 +16,7 @@ from '@modules/programs/programs.controller'
 
 export const programRouter = new Elysia({ prefix: '/programs' })
   .guard({
-    async beforeHandle({ request: { headers }, params: { name } }) {
+    async beforeHandle({ request: { headers }, params: { name, id } }) {
       const userData = (await getUser(headers)).data
       const programData = (await getProgram(name)).data
       if (userData?.TUCMC === true) {
@@ -29,7 +29,8 @@ export const programRouter = new Elysia({ prefix: '/programs' })
         true,
         'Invalid Program Name',
         Object.keys(AllData.Programs)
-      )
+      ),
+      id: StringField(false, 'Invalid Review ID')
     })
   })
   .get('/:name', async ({ params: { name } }) => {

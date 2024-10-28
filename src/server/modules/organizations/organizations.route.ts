@@ -15,7 +15,7 @@ import {
 
 export const organizationRouter = new Elysia({ prefix: '/organizations' })
   .guard({
-    async beforeHandle({ request: { headers }, params: { name}}) {
+    async beforeHandle({ request: { headers }, params: { name, id }}) {
       const userData = (await getUser(headers)).data
       const organizationData = (await getOrganization(name)).data
       if (userData?.TUCMC === true) {
@@ -29,7 +29,8 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
         true, 
         'Invalid Organization Name', 
         Object.keys(AllData.Organizations)
-      )
+      ),
+      id: StringField(false, 'Invalid Review')
     })
   })
   .get('/:name', async ({ params: { name } }) => {
