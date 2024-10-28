@@ -228,11 +228,11 @@ const PreviewGeneralForm: React.FC<{
           {/* end section3 */}
 
           <div className="mb-4 flex items-center justify-center space-x-4">
-            <div className="h-[2px] w-16 rounded-full bg-greenText"></div>
+            <div className="h-[2px] w-16 rounded-full md:w-28 lg:w-36 bg-greenText"></div>
             <p className="inline-block bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-extra-loose text-transparent sm:text-4xl">
               รีวิวจากรุ่นพี่
             </p>
-            <div className="h-[2px] w-16 rounded-full bg-greenText"></div>
+            <div className="h-[2px] w-16 rounded-full md:w-28 lg:w-36 bg-greenText"></div>
           </div>
 
           <section className="flex flex-col space-y-10">

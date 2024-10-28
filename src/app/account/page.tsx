@@ -81,7 +81,7 @@ const AccountPage = async () => {
       )}
 
       <div className="text-center mt-2 sm:mt-0">
-        <p className="sm:text-2xl text-md">แก้ไข้ข้อมูลหน่วยงาน</p>
+        <p className="sm:text-2xl text-md">แก้ไขข้อมูลหน่วยงาน</p>
         <p className="opacity-70 text-xs sm:text-sm md:text-md">ข้อมูลจะแสดงผลในหน้าเว็บไซต์</p>
       </div>
       <LogoutButton />

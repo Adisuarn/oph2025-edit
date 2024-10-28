@@ -30,7 +30,7 @@ const Forms: React.FC<FormProps> = ({dataRecord}) => {
   const tagOptions = [
     { key: "สายการเรียน", value: Tag.PROGRAM },
     { key: "ชมรม", value: Tag.CLUB },
-    { key: "โครงการพัฒนาความสามารถ", value: Tag.GIFTED },
+    { key: "โครงการพัฒนาความสามารถพิเศษ", value: Tag.GIFTED },
     { key: "องค์กรนักเรียน", value: Tag.ORGANIZATION },
   ];
 

@@ -15,7 +15,7 @@ const page = async () => {
     redirect("/account");
   }
   return (
-    <main className="via-21% to-77% relative -z-[100] h-screen w-screen overflow-hidden bg-gradient-to-b sm:bg-gradient-to-r from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0">
+    <main className="via-21% to-77% relative -z-[100] h-screen w-screen overflow-hidden bg-gradient-to-b sm:bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0">
       <div className="w-[110vw] sm:w-[70vw] right-0 absolute sm:-right-20 top-10 sm:top-20 md:-right-40 -z-10">
         <Window className="h-[50vh] w-full sm:h-40 md:h-[75vh]" />
       </div>
@@ -42,7 +42,7 @@ const page = async () => {
             <p className="from-24% bg-gradient-to-b from-greenishCream to-[#ADDB64] bg-clip-text text-4xl font-bold text-transparent">
               กช.
             </p>
-            <div className="mx-3 h-12 w-[2px] rounded-full bg-greenishCream sm:h-12 md:h-14"></div>
+            <div className="mx-3 h-6 w-[2px] rounded-full bg-greenishCream sm:h-6 md:h-8"></div>
             <div className="from-24% flex flex-col bg-gradient-to-bl from-greenishCream to-[#ADDB64] bg-clip-text text-xs font-bold text-transparent">
               <p>งานกิจกรรมพัฒนาผู้เรียน</p>
               <p>โรงเรียนเตรียมอุดมศึกษา</p>
