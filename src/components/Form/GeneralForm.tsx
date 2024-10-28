@@ -369,24 +369,31 @@ const GeneralForm: React.FC<{
                 },
                 data: formData,
               };
-              const optionsReview = {
-                method: "PATCH",
-                url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review`,
-                headers: {
-                  "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-                  Authorization: `${cookies.get("oph2025-auth-cookie")}`,
-                },
-                data: {
-                  review1: review1,
-                  review2: review2,
-                  review3: review3,
-                },
-              }
+
               try {
                 const response = await axios.request(options);
-                const responseReview = await axios.request(optionsReview);
-                return response;
-                return responseReview;
+                const reviews = [review1, review2, review3];
+                reviews.map( async (review) => {
+                  const optionsReview = {
+                    method: "PATCH",
+                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${review.count}`,
+                    headers: {
+                      "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+                      Authorization: `${cookies.get("oph2025-auth-cookie")}`,
+                    },
+                    data: {
+                      profile: review.profile,
+                      nick: review.nick,
+                      gen: review.gen,
+                      contact: review.contact,
+                      content: review.content,
+                    },
+                  }
+                  const responseReview =  await axios.request(optionsReview);
+                  console.log(review);
+                  return responseReview
+                })
+                //return response;
               } catch (error) {
                 console.log(error);
               }
@@ -421,20 +428,20 @@ const GeneralForm: React.FC<{
                 <div className="flex w-[80vw] items-center justify-between">
                   <div className="flex items-center justify-center space-x-2">
                     <p className="md:text-md text-xs sm:text-sm lg:text-lg">
-                      สถานะ:{" "}
+                      สถานะ : {" "}
                     </p>
-                    {editFormData.sendData ? (
+                    {editFormData.submittedForm ? (
                       editFormData.status !== Status.PENDING ? (
                         editFormData.status === Status.APPROVED ? (
                           <div className="flex items-center justify-center space-x-1 sm:mt-0">
-                            <div className="h-2 w-2 rounded-full bg-[#19C57C] sm:h-5 sm:w-5 md:h-6 md:w-6"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#19C57C] sm:h-5 sm:w-5"></div>
                             <p className="md:text-md text-xs text-[#19C57C] sm:text-sm">
                               ผ่านการตรวจสอบ
                             </p>
                           </div>
                         ) : (
                           <div className="flex items-center justify-center space-x-1 sm:mt-0">
-                            <div className="h-2 w-2 rounded-full bg-[#E80808] sm:h-5 sm:w-5 md:h-6 md:w-6"></div>
+                            <div className="h-2 w-2 rounded-full bg-[#E80808] sm:h-5 sm:w-5"></div>
                             <p className="md:text-md text-xs text-[#E80808] sm:text-sm">
                               ไม่ผ่านการตรวจสอบ
                             </p>
@@ -442,7 +449,7 @@ const GeneralForm: React.FC<{
                         )
                       ) : (
                         <div className="flex items-center justify-center space-x-1 sm:mt-0">
-                          <div className="h-2 w-2 rounded-full bg-[#FCB52B] sm:h-5 sm:w-5 md:h-6 md:w-6"></div>
+                          <div className="h-2 w-2 rounded-full bg-[#FCB52B] sm:h-5 sm:w-5"></div>
                           <p className="md:text-md text-xs text-[#FCB52B] sm:text-sm">
                             อยู่ระหว่างการตรวจสอบ
                           </p>

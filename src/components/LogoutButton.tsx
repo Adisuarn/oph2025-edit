@@ -15,7 +15,7 @@ const LogoutButton = () => {
       }
     }
     className='underline text-neutral-500 text-xs'>
-      Logout
+      Log out
     </button>
   )
 }
