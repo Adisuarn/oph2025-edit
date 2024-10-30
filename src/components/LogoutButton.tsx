@@ -22,7 +22,7 @@ const LogoutButton = () => {
 }
   return (
     <button onClick={handleLogoutClick} className='underline text-neutral-500 text-xs'>
-      Logout
+      Log out
     </button>
   )
 }

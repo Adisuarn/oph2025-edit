@@ -3,8 +3,7 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { objectInputType } from "zod";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import BackArrow from "@/vectors/edit-page/BackArrow";
 import UserIcon from "@/vectors/edit-page/UserIcon";
@@ -13,15 +12,25 @@ import { FaPen } from "react-icons/fa";
 import Trash from "@/vectors/edit-page/Trash";
 import { Status } from "@utils/type";
 import { useRouter } from "next/router";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-import { IoIosInformationCircleOutline } from "react-icons/io";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import apiFunction from "../api";
 import { useCookies } from "next-client-cookies";
 import axios from "axios";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import dynamic from "next/dynamic";
+import "react-quill/dist/quill.snow.css";
+
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+
+const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => (
+  <ReactQuill
+    value={field.value}
+    onChange={(value) => form.setFieldValue(field.name, value)}
+    onBlur={() => form.setFieldTouched(field.name, true)}
+    theme="snow"
+  />
+);
 
 const GeneralForm: React.FC<{
   userData: any;
@@ -72,28 +81,59 @@ const GeneralForm: React.FC<{
   const [imageUrl1, setImageUrl1] = useState<string | null>(
     editFormData.captureimg1,
   );
-  const [displayImage1, setDisplayImage1] = useState<boolean>(false);
+  const [displayImage1, setDisplayImage1] = useState<boolean>(
+    editFormData.captureimg1,
+  );
   const [image2, setImage2] = useState<File | null>(null);
-  const [imageUrl2, setImageUrl2] = useState<string | null>(null);
-  const [displayImage2, setDisplayImage2] = useState<boolean>(false);
+  const [imageUrl2, setImageUrl2] = useState<string | null>(
+    editFormData.captureimg2,
+  );
+  const [displayImage2, setDisplayImage2] = useState<boolean>(
+    editFormData.captureimg2,
+  );
   const [image3, setImage3] = useState<File | null>(null);
-  const [imageUrl3, setImageUrl3] = useState<string | null>(null);
-  const [displayImage3, setDisplayImage3] = useState<boolean>(false);
+  const [imageUrl3, setImageUrl3] = useState<string | null>(
+    editFormData.captureimg3,
+  );
+  const [displayImage3, setDisplayImage3] = useState<boolean>(
+    editFormData.captureimg3,
+  );
   const [image4, setImage4] = useState<File | null>(null);
-  const [imageUrl4, setImageUrl4] = useState<string | null>(null);
-  const [displayImage4, setDisplayImage4] = useState<boolean>(false);
+  const [imageUrl4, setImageUrl4] = useState<string | null>(
+    review1.profile,
+  );
+  const [displayImage4, setDisplayImage4] = useState<boolean>(
+    review1.profile,
+  );
   const [image5, setImage5] = useState<File | null>(null);
-  const [imageUrl5, setImageUrl5] = useState<string | null>(null);
-  const [displayImage5, setDisplayImage5] = useState<boolean>(false);
+  const [imageUrl5, setImageUrl5] = useState<string | null>(
+    review2.profile,
+  );
+  const [displayImage5, setDisplayImage5] = useState<boolean>(
+    review2.profile,
+  );
   const [image6, setImage6] = useState<File | null>(null);
-  const [imageUrl6, setImageUrl6] = useState<string | null>(null);
-  const [displayImage6, setDisplayImage6] = useState<boolean>(false);
+  const [imageUrl6, setImageUrl6] = useState<string | null>(
+    review3.profile,
+  );
+  const [displayImage6, setDisplayImage6] = useState<boolean>(
+    review3.profile,
+  );
   const [clubLogo, setClubLogo] = useState<File | null>(null);
-  const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(null);
-  const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(false);
+  const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(editFormData.logo);
+  const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(editFormData.logo);
   // const [successDataSent, setSuccessDataSent] = useState<boolean>(false);
-  const [ReviewAmount, setReviewAmount] = useState<number>(3);
+  const [ReviewAmount, setReviewAmount] = useState<number>(0);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    let Count = 0;
+    if (review1.nick !== '') Count += 1;
+    if (review2.nick !== '') Count += 1;
+    if (review3.nick !== '') Count += 1;
+
+    setReviewAmount(Count);
+  }, []);
 
   const incrementReview = () => {
     setReviewAmount(ReviewAmount + 1);
@@ -264,37 +304,36 @@ const GeneralForm: React.FC<{
           textField1: editFormData.admissions,
           textField2: editFormData.courses,
           textField3: editFormData.interests,
-          textField4: "",
-          textField5: "",
-          textField6: "",
+          textField4: review1.content,
+          textField5: review2.content,
+          textField6: review3.content,
           photoDescription1: "",
           photoDescription2: "",
           photoDescription3: "",
-          P1Name: "",
-          P2Name: "",
-          P3Name: "",
-          P1Gen: "",
-          P2Gen: "",
-          P3Gen: "",
-          P1Contact: "",
-          P2Contact: "",
-          P3Contact: "",
+          P1Name: review1.nick,
+          P2Name: review2.nick,
+          P3Name: review3.nick,
+          P1Gen: review1.gen,
+          P2Gen: review2.gen,
+          P3Gen: review3.gen,
+          P1Contact: review1.contact,
+          P2Contact: review2.contact,
+          P3Contact: review3.contact,
           Members: editFormData.members,
           IG: editFormData.ig,
           FB: editFormData.fb,
           others: editFormData.others,
-          submitError: "",
         }}
         validationSchema={Yup.object({
           //.min(150, "Required More than 150 words ")
           textField1: Yup.string()
-            .min(150, "Required More than 150 words ")
+            // .min(150, "Required More than 150 words ")
             .required("Required Description"),
           textField2: Yup.string()
-            .min(150, "Required More than 150 words ")
+            // .min(150, "Required More than 150 words ")
             .required("Required Description"),
           textField3: Yup.string()
-            .min(150, "Required More than 150 words ")
+            // .min(150, "Required More than 150 words ")
             .required("Required Description"),
           textField4: Yup.string().required("Required Description"),
           // textField5: Yup.string().required("Required Description"),
@@ -302,16 +341,16 @@ const GeneralForm: React.FC<{
           photoDescription1: Yup.string().required("Required Description"),
           photoDescription2: Yup.string().required("Required Description"),
           photoDescription3: Yup.string().required("Required Description"),
-          P1Name: Yup.string().required("Required Name"),
+          P1Name: Yup.string().required("Required Description"),
           // P2Name: Yup.string().required("Required Name"),
           // P3Name: Yup.string().required("Required Name"),
-          P1Gen: Yup.string().required("Required Triamudom Gen"),
+          P1Gen: Yup.string().required("Required Description"),
           // P2Gen: Yup.string().required("Required Triamudom Gen"),
           // P3Gen: Yup.string().required("Required Triamudom Gen"),
-          P1Contact: Yup.string().required("Required Contact"),
+          P1Contact: Yup.string().required("Required Description"),
           // P2Contact: Yup.string().required("Required Contact"),
           // P3Contact: Yup.string().required("Required Contact"),
-          Members: Yup.string().required("Required Members"),
+          Members: Yup.string().required("Required Description"),
         })}
         onSubmit={async (
           values: {
@@ -355,6 +394,7 @@ const GeneralForm: React.FC<{
           });
           if (userConfirmed.isConfirmed) {
             try {
+              // if(!allDataSent){console.log('hi')}
               setLoading(true);
               editFormData.members = values.Members;
               editFormData.ig = values.IG;
@@ -458,7 +498,6 @@ const GeneralForm: React.FC<{
       >
         {({ isSubmitting }) => (
           <Form>
-            
             {loading && (
               <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
                 <div className="loader h-16 w-16"></div>
@@ -519,12 +558,12 @@ const GeneralForm: React.FC<{
                   <div className="flex items-center justify-center space-x-2 sm:space-x-4">
                     <Link
                       href={`/preview/${editFormData.tag}`}
-                      className="md:text-md rounded-full border border-greenText px-2 text-xs text-greenText transition-all hover:bg-greenText hover:text-white sm:px-4 sm:text-lg"
+                      className="md:text-md rounded-full border border-greenText px-2 text-[10px] text-greenText transition-all hover:bg-greenText hover:text-white sm:px-4 sm:text-lg"
                     >
                       preview
                     </Link>
                     <button
-                      className="rounded-full border bg-gradient-to-r from-buttonFirst via-buttonMiddle to-greenText px-2 font-Thai text-xs font-extralight text-white sm:px-4 sm:text-lg"
+                      className="rounded-full border bg-gradient-to-r from-buttonFirst via-buttonMiddle to-greenText px-2 font-Thai text-[10px] font-extralight text-white sm:px-4 sm:text-lg"
                       type="submit"
                       disabled={isSubmitting}
                     >
@@ -562,7 +601,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="IG"
-                            className="sm:text-lg bg-transparent text-start pl-3 text-xs text-white"
+                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg"
                           />
                           <FaPen className="h-2 text-white" />
                         </div>
@@ -571,7 +610,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="FB"
-                            className="sm:text-lg bg-transparent text-start pl-3 text-xs text-white"
+                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg"
                           />
                           <FaPen className="h-2 text-white" />
                         </div>
@@ -580,7 +619,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="others"
-                            className="sm:text-lg bg-transparent text-center pl-3 text-xs text-white"
+                            className="bg-transparent pl-3 text-center text-xs text-white sm:text-lg"
                           />
                           <FaPen className="h-2 text-white" />
                         </div>
@@ -588,11 +627,11 @@ const GeneralForm: React.FC<{
                     </div>
                   </div>
                 ) : (
-                  <div className="flex h-40 w-full items-center justify-between space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto md:w-[60vw]">
-                    {displayClubLogo ? (
-                      <div className="relative flex w-1/2 flex-col items-center justify-center sm:w-full">
+                  <div className="flex h-40 w-full items-center justify-around space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto md:w-[60vw]">
+  {displayClubLogo ? (
+                      <div className="relative flex  flex-col items-center justify-center">
                         <Image
-                          className="mx-auto flex h-28 w-28 items-center justify-center rounded-lg object-cover md:h-40 md:w-40 lg:h-52 lg:w-52"
+                          className="flex h-28 w-28 rounded-lg object-cover md:h-40 md:w-40 lg:h-52 lg:w-52"
                           src={clubLogoUrl || ""}
                           alt="uploaded photo"
                           width={400}
@@ -601,7 +640,7 @@ const GeneralForm: React.FC<{
                         />
                         <button
                           onClick={() => setDisplayClubLogo(false)}
-                          className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
+                          className="absolute -top-2 -right-2 sm:-right-5 lg:-right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white"
                         >
                           X
                         </button>
@@ -642,7 +681,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="IG"
-                              className="w-8 bg-transparent text-center text-xs text-white sm:text-lg md:w-32"
+                              className="w-8 text-[8px] sm:text-lg bg-transparent text-center text-white"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -651,7 +690,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="FB"
-                              className="w-8 bg-transparent text-center text-xs text-white sm:text-lg md:w-32"
+                              className="w-8 bg-transparent text-[8px] sm:text-lg text-center text-xs text-white md:w-32"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -660,7 +699,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="others"
-                              className="w-8 bg-transparent text-center text-xs text-white sm:text-lg md:w-32"
+                              className="w-8 bg-transparent text-[8px] sm:text-lg text-center text-xs text-white  md:w-32"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -676,18 +715,20 @@ const GeneralForm: React.FC<{
                 <div className="flex flex-col items-start justify-between sm:flex-row">
                   {editFormData.tagThai === "ชมรม" ? (
                     <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                      <p className="sm:text-3xl md:text-5xl lg:text-7xl">
+                      <p className="sm:py-1 sm:text-3xl sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.5] lg:py-2 lg:text-7xl lg:leading-[1.3]">
                         ชมรมนี้
                       </p>
+
                       <p className="sm:text-3xl md:text-5xl lg:text-7xl">
                         ทำอะไร
                       </p>
                     </div>
                   ) : editFormData.tagThai === "องค์กร" ? (
                     <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
-                      <p className="sm:text-xs md:text-5xl lg:text-6xl">
+                      <p className="-mb-2 sm:py-1 sm:text-xs sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.4] lg:py-2 lg:text-6xl lg:leading-[1.3]">
                         องค์กรนี้
                       </p>
+
                       <p className="sm:text-xl md:text-4xl lg:text-5xl">
                         ทำอะไร
                       </p>
@@ -754,6 +795,7 @@ const GeneralForm: React.FC<{
                 <Field
                   as="textarea"
                   name="textField1"
+                  component={QuillField}
                   className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
                   placeholder="Your description here"
                   rows="5"
@@ -849,6 +891,7 @@ const GeneralForm: React.FC<{
                 <Field
                   as="textarea"
                   name="textField2"
+                  component={QuillField}
                   className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
                   placeholder="Your description here"
                   rows="5"
@@ -882,7 +925,7 @@ const GeneralForm: React.FC<{
                     </div>
                   ) : (
                     <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                      <p className="-mb-3 sm:text-xl sm:leading-[2] md:text-4xl md:leading-[1.7] lg:text-5xl lg:leading-[1.5]">
                         ความน่าสนใจ
                       </p>
                       <p className="sm:text-5xl md:text-6xl lg:text-7xl">ของ</p>
@@ -943,6 +986,7 @@ const GeneralForm: React.FC<{
                 <Field
                   as="textarea"
                   name="textField3"
+                  component={QuillField}
                   className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
                   placeholder="Your description here"
                   rows="5"
@@ -955,108 +999,111 @@ const GeneralForm: React.FC<{
               </div>
 
               <div className="flex h-24 items-center justify-center space-x-4">
-                <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold text-transparent sm:text-4xl">
+                <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-[1.85] text-transparent sm:text-4xl sm:leading-[1.6]">
                   รีวิวจากรุ่นพี่
                 </p>
               </div>
 
               <section className="flex flex-col space-y-10">
-                <div className="flex flex-col items-center justify-center space-y-5">
-                  <div className="flex w-full items-start justify-around">
-                    <div className="flex flex-col">
-                      <div className="flex flex-col items-center justify-center">
-                        {displayImage4 ? (
-                          <div className="relative w-full">
-                            <Image
-                              className="mb-3 h-12 w-12 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
-                              src={imageUrl4 || ""}
-                              alt="photo4"
-                              width={0}
-                              height={0}
-                            />
-                            <button
-                              onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
-                              className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0"
-                            >
-                              X
-                            </button>
-                          </div>
-                        ) : (
-                          <div className="flex w-full items-center justify-start">
-                            <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
-                              <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                                <UserIcon className="h-3 w-3 text-greenText sm:h-6 sm:w-6" />
-                              </div>
-                              <input
-                                type="file"
-                                className="hidden"
-                                onChange={handleFileSelect4}
+                {ReviewAmount >= 1 && (
+                  <div className="flex flex-col items-center justify-center space-y-5">
+                    <div className="flex w-full items-start justify-around">
+                      <div className="flex flex-col">
+                        <div className="flex flex-col items-center justify-center">
+                          {displayImage4 ? (
+                            <div className="relative w-full">
+                              <Image
+                                className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                                src={imageUrl4 || ""}
+                                alt="photo4"
+                                width={800}
+                                height={600}
                               />
-                            </label>
-                          </div>
-                        )}
-                      </div>
-                      <div className="mt-2 flex flex-col">
-                        <Field
-                          type="text"
-                          name="P1Name"
-                          className="w-16 text-sm font-bold text-greenText sm:w-24 sm:text-lg"
-                          placeholder="ชื่อเล่น"
-                        />
-                        <ErrorMessage
-                          name="P1Name"
-                          component="div"
-                          className="text-[8px] text-red-400"
-                        />
-                        <div className="flex">
-                          <label
-                            className="text-xs text-gray sm:text-sm"
-                            htmlFor="P1Gen"
-                          >
-                            เตรียมอุดม{" "}
-                          </label>
+                              <button
+                                onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
+                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0"
+                              >
+                                X
+                              </button>
+                            </div>
+                          ) : (
+                            <div className="flex w-full items-center justify-start">
+                              <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
+                                <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                                  <UserIcon className="h-3 w-3 text-greenText sm:h-6 sm:w-6" />
+                                </div>
+                                <input
+                                  type="file"
+                                  className="hidden"
+                                  onChange={handleFileSelect4}
+                                />
+                              </label>
+                            </div>
+                          )}
+                        </div>
+                        <div className="mt-2 flex flex-col">
                           <Field
                             type="text"
-                            id="P1Gen"
+                            name="P1Name"
+                            className="w-16 text-sm font-bold text-greenText sm:w-24 sm:text-lg"
+                            placeholder="ชื่อเล่น"
+                          />
+                          <ErrorMessage
+                            name="P1Name"
+                            component="div"
+                            className="text-[8px] text-red-400"
+                          />
+                          <div className="flex">
+                            <label
+                              className="text-xs text-gray sm:text-sm"
+                              htmlFor="P1Gen"
+                            >
+                              เตรียมอุดม{" "}
+                            </label>
+                            <Field
+                              type="text"
+                              id="P1Gen"
+                              name="P1Gen"
+                              className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
+                              placeholder="xx"
+                            />
+                          </div>
+                          <ErrorMessage
                             name="P1Gen"
-                            className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
-                            placeholder="xx"
+                            component="div"
+                            className="block text-[8px] text-red-400"
+                          />
+                          <Field
+                            type="text"
+                            name="P1Contact"
+                            className="w-20 text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
+                            placeholder="contact"
+                          />
+                          <ErrorMessage
+                            name="P1Contact"
+                            component="div"
+                            className="text-[8px] text-red-400"
                           />
                         </div>
-                        <ErrorMessage
-                          name="P1Gen"
-                          component="div"
-                          className="block text-[8px] text-red-400"
-                        />
+                      </div>
+                      <div className="flex w-3/5 flex-col items-center justify-center">
                         <Field
-                          type="text"
-                          name="P1Contact"
-                          className="w-20 text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
-                          placeholder="contact"
+                          as="textarea"
+                          name="textField4"
+                          component={QuillField}
+                          className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
+                          rows="5"
+                          placeholder="รีวิวจากรุ่นพี่"
                         />
                         <ErrorMessage
-                          name="P1Contact"
+                          name="textField4"
                           component="div"
-                          className="text-[8px] text-red-400"
+                          className="text-red-300"
                         />
                       </div>
                     </div>
-                    <div className="flex w-3/5 flex-col items-center justify-center">
-                      <Field
-                        as="textarea"
-                        name="textField4"
-                        className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
-                        rows="5"
-                        placeholder="รีวิวจากรุ่นพี่"
-                      />
-                      <ErrorMessage
-                        name="textField4"
-                        component="div"
-                        className="text-red-300"
-                      />
-                    </div>
                   </div>
-                </div>
+                )}
                 {ReviewAmount >= 2 && (
                   <div className="flex flex-col items-center justify-center space-y-3">
                     <div className="flex w-full items-start justify-around">
@@ -1064,6 +1111,7 @@ const GeneralForm: React.FC<{
                         <Field
                           as="textarea"
                           name="textField5"
+                          component={QuillField}
                           className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
                           rows="5"
                           placeholder="รีวิวจากรุ่นพี่"
@@ -1079,11 +1127,11 @@ const GeneralForm: React.FC<{
                           {displayImage5 ? (
                             <div className="relative w-full">
                               <Image
-                                className="mb-3 h-12 w-12 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
+                                className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                                 src={imageUrl5 || ""}
                                 alt="photo5"
-                                width={0}
-                                height={0}
+                                width={800}
+                                height={600}
                               />
                               <button
                                 onClick={() => setDisplayImage5(false)} // Replace with your deletion logic
@@ -1163,11 +1211,11 @@ const GeneralForm: React.FC<{
                           {displayImage6 ? (
                             <div className="relative w-full">
                               <Image
-                                className="mb-3 h-12 w-12 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
+                                className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                                 src={imageUrl6 || ""}
                                 alt="photo6"
-                                width={0}
-                                height={0}
+                                width={800}
+                                height={600}
                               />
                               <button
                                 onClick={() => setDisplayImage6(false)} // Replace with your deletion logic
@@ -1240,6 +1288,7 @@ const GeneralForm: React.FC<{
                         <Field
                           as="textarea"
                           name="textField6"
+                          component={QuillField}
                           className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
                           rows="5"
                           placeholder="รีวิวจากรุ่นพี่"
@@ -1255,7 +1304,7 @@ const GeneralForm: React.FC<{
                 )}
               </section>
               <div className="my-10 flex w-full flex-col items-center space-y-3">
-                {ReviewAmount !== 1 && (
+                {ReviewAmount > 0 && (
                   <div
                     onClick={decrementReview}
                     className="flex h-8 w-8 items-center justify-center rounded-full shadow-xl"
@@ -1276,6 +1325,56 @@ const GeneralForm: React.FC<{
                 </div>
               </div>
             </section>
+            <ErrorMessage
+              name="textField1"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
+            <ErrorMessage
+              name="textField2"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
+            <ErrorMessage
+              name="textField3"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
+            <ErrorMessage
+              name="textField4"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
+            <ErrorMessage
+              name="photoDescription1"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
+            <ErrorMessage
+              name="photoDescription2"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
+            <ErrorMessage
+              name="photoDescription3"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
+            <ErrorMessage
+              name="P1Name"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
+            <ErrorMessage
+              name="P1Gen"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
+            <ErrorMessage
+              name="P1Contact"
+              component="div"
+              className="absolute left-1/2 top-5 -translate-x-1/2 transform text-xs text-red-400 sm:text-lg"
+            />
           </Form>
         )}
       </Formik>

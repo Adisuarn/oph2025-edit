@@ -29,31 +29,37 @@ import BigUppercurve from "@/vectors/preview/BigUppercurve";
 import BigFooter from "@/vectors/preview/BigFooter";
 import BigLowercurve from "@/vectors/preview/BigLowercurve";
 
-const ReviewAmount = 3;
-const imageUrl =
-  "https://alpenjournal.de/storage/2024/03/1200-grindelwald-schweiz.jpg";
-
 const PreviewGeneralForm: React.FC<{
   editFormData: any;
   review1: any;
   review2: any;
   review3: any;
 }> = ({ editFormData, review1, review2, review3 }) => {
+  const [ReviewAmount, setReviewAmount] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    if (review1.nick !== "") count++;
+    if (review2.nick !== "") count++;
+    if (review3.nick !== "") count++;
+    setReviewAmount(count);
+  }, [review1, review2, review3]);
+
   return (
-    <section className="relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] to-[#1B9A8A]">
+    <section className="via-41% relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] via-[#91CDAD] to-[#C8E5BD]">
       <div className="absolute -top-44 left-1/2 z-10 -translate-x-1/2 sm:-top-20">
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
-      <div className="absolute -top-36 left-1/2 overflow-hidden -translate-x-1/2">
-        <BigUppercurve className="hidden w-[100vw] lg:block" />
+      <div className="absolute -top-36 left-1/2 -translate-x-1/2 overflow-hidden">
+        <BigUppercurve className="hidden w-[100vw] 2xl:w-[120vw] lg:block" />
       </div>
       <div className="absolute -top-[76px]">
         <FallingLamp className="w-[100vw] sm:hidden" />
       </div>
-      <div className="absolute sm:top-[146px] right-0">
-        <ClubFallingLamp className="hidden sm:block w-2"/>
+      <div className="absolute right-0 sm:top-[146px]">
+        <ClubFallingLamp className="hidden w-2 sm:block" />
       </div>
-      <section className="mx-12 pt-36 sm:mx-28 md:mx-36 sm:pt-72 md:pt-[400px] lg:mx-48">
+      <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[400px] 2xl:pt-[520px] lg:mx-48">
         <section className="flex items-center justify-between">
           <div className="flex items-center justify-center space-x-1">
             <Link href="/account">
@@ -74,8 +80,8 @@ const PreviewGeneralForm: React.FC<{
         {/* Hero */}
         <section className="w-full sm:mx-7">
           <section className="flex w-full flex-col items-center justify-center">
-            <div className="flex h-20 w-full flex-col items-center justify-center md:mx-auto">
-              <p className="bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-2xl sm:text-xl font-bold text-transparent sm:font-extrabold md:text-5xl">
+            <div className="relative z-20 flex h-20 w-full flex-col items-center justify-center md:mx-auto">
+              <p className="bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-2xl font-bold text-transparent sm:text-xl sm:font-extrabold md:text-5xl">
                 {editFormData.thainame}
               </p>
             </div>
@@ -187,9 +193,11 @@ const PreviewGeneralForm: React.FC<{
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col items-end justify-between sm:flex-row md:mb-8 md:items-center">
               <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                <p className="sm:text-xl md:text-4xl lg:text-5xl">
-                  ความน่าสนใจ
-                </p>
+              <p className="sm:text-xl sm:leading-[2] md:text-4xl md:leading-[1.7] lg:text-5xl lg:leading-[1.5] sm:py-2 md:py-2 lg:py-2">
+  ความน่าสนใจ
+</p>
+
+
                 <p className="sm:text-3xl md:text-6xl lg:text-7xl">ของ</p>
                 <p className="sm:text-xl md:text-4xl lg:text-5xl">
                   สายการเรียน
@@ -228,11 +236,11 @@ const PreviewGeneralForm: React.FC<{
           {/* end section3 */}
 
           <div className="mb-4 flex items-center justify-center space-x-4">
-            <div className="h-[2px] w-16 rounded-full md:w-28 lg:w-36 bg-greenText"></div>
-            <p className="inline-block bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-extra-loose text-transparent sm:text-4xl">
+            <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36"></div>
+            <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-[1.85] text-transparent sm:text-4xl sm:leading-[1.6]">
               รีวิวจากรุ่นพี่
             </p>
-            <div className="h-[2px] w-16 rounded-full md:w-28 lg:w-36 bg-greenText"></div>
+            <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36"></div>
           </div>
 
           <section className="flex flex-col space-y-10">
@@ -241,7 +249,7 @@ const PreviewGeneralForm: React.FC<{
                 <div className="flex flex-col">
                   <div className="flex flex-col items-center justify-center">
                     <Image
-                      className="mb-3 h-16 w-16 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
+className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                       src={review1.profile || ""}
                       alt="photo"
                       width={100}
@@ -249,8 +257,12 @@ const PreviewGeneralForm: React.FC<{
                     />
                   </div>
                   <div className="mt-2 flex flex-col text-greenText">
-                    <p className="text-lg font-bold md:text-3xl">{review1.nick}</p>
-                    <p className="text-xs md:text-lg">เตรียมอุดม {review1.gen}</p>
+                    <p className="text-lg font-bold md:text-3xl">
+                      {review1.nick}
+                    </p>
+                    <p className="text-xs md:text-lg">
+                      เตรียมอุดม {review1.gen}
+                    </p>
                     <p className="text-xs md:text-lg">{review1.contact}</p>
                   </div>
                 </div>
@@ -258,7 +270,7 @@ const PreviewGeneralForm: React.FC<{
                   <div className="absolute -right-14 -top-36">
                     <Frames className="w-16 sm:hidden" />
                   </div>
-                  <div className="absolute -right-20 md:-right-36 -top-96 lg:-right-56 lg:-top-80">
+                  <div className="absolute -right-20 -top-96 md:-right-36 lg:-right-56 lg:-top-80">
                     <BigLamp className="hidden w-48 sm:block md:w-60 lg:w-80" />
                   </div>
                   <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
@@ -289,7 +301,7 @@ const PreviewGeneralForm: React.FC<{
                   <div className="flex flex-col">
                     <div className="flex flex-col items-end justify-center">
                       <Image
-                        className="mb-3 h-16 w-16 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
+className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                         src={review2.profile || ""}
                         alt="photo"
                         width={100}
@@ -297,8 +309,12 @@ const PreviewGeneralForm: React.FC<{
                       />
                     </div>
                     <div className="mt-2 flex flex-col items-end text-greenText">
-                      <p className="text-lg font-bold md:text-3xl">{review2.nick}</p>
-                      <p className="text-xs md:text-lg">เตรียมอุดม {review2.gen}</p>
+                      <p className="text-lg font-bold md:text-3xl">
+                        {review2.nick}
+                      </p>
+                      <p className="text-xs md:text-lg">
+                        เตรียมอุดม {review2.gen}
+                      </p>
                       <p className="text-xs md:text-lg">{review2.contact}</p>
                     </div>
                   </div>
@@ -311,7 +327,7 @@ const PreviewGeneralForm: React.FC<{
                   <div className="flex flex-col">
                     <div className="flex flex-col items-center justify-center">
                       <Image
-                        className="mb-3 h-16 w-16 rounded-md sm:h-24 sm:w-24 md:h-36 md:w-36"
+                        className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                         src={review3.profile || ""}
                         alt="photo"
                         width={100}
@@ -319,8 +335,12 @@ const PreviewGeneralForm: React.FC<{
                       />
                     </div>
                     <div className="mt-2 flex flex-col text-greenText">
-                      <p className="text-lg font-bold md:text-xl">{review3.nick}</p>
-                      <p className="text-xs md:text-lg">เตรียมอุดม {review3.gen}</p>
+                      <p className="text-lg font-bold md:text-xl">
+                        {review3.nick}
+                      </p>
+                      <p className="text-xs md:text-lg">
+                        เตรียมอุดม {review3.gen}
+                      </p>
                       <p className="text-xs md:text-lg">{review3.contact}</p>
                     </div>
                   </div>
@@ -344,14 +364,14 @@ const PreviewGeneralForm: React.FC<{
         <div className="absolute -bottom-[150px] left-1/2 -translate-x-1/2 sm:-bottom-[80px] md:-bottom-[20px] lg:hidden">
           <Lowercurve className="w-[100vw]" />
         </div>
-        <div className="absolute -bottom-10 sm:-bottom-20 z-10">
+        <div className="absolute -bottom-10 z-10 sm:-bottom-20">
           <Footer className="w-[100vw] lg:hidden" />
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-          <BigLowercurve className="hidden lg:block w-[100vw]"/>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:-bottom-14 xl:bottom-0 2xl:-bottom-10">
+          <BigLowercurve className="hidden w-[100vw] lg:block" />
         </div>
-        <div className="absolute -bottom-10 z-10">
-          <BigFooter className=" hidden lg:block w-[100vw]"/>
+        <div className="absolute -bottom-10 z-10 2xl:-bottom-20">
+          <BigFooter className="hidden w-[100vw] lg:block" />
         </div>
         {/* <div className="absolute z-20 -bottom-48">
     <Footer className="w-full" />

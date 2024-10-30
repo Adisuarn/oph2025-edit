@@ -14,7 +14,6 @@ const FormikControl: React.FC = async () => {
     `/${userData.tag}/${userData.key}/review`,
      {}
   )
-  // console.log(userForm);
 
   let editFormData = {
     thainame: userForm.data.data.thainame,
