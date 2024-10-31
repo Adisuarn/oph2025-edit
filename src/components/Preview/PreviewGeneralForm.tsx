@@ -39,11 +39,11 @@ const PreviewGeneralForm: React.FC<{
 
   useEffect(() => {
     let count = 0;
-    if (review1.nick !== "") count++;
-    if (review2.nick !== "") count++;
-    if (review3.nick !== "") count++;
+    if (review1.nick !== "") count+= 1;
+    if (review2.nick !== "") count+= 1;
+    if (review3.nick !== "") count+= 1;
     setReviewAmount(count);
-  }, [review1, review2, review3]);
+  }, []);
 
   return (
     <section className="via-41% relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] via-[#91CDAD] to-[#C8E5BD]">
@@ -124,7 +124,38 @@ const PreviewGeneralForm: React.FC<{
           {/* section1 */}
           <div className="mb-14 mt-12 flex flex-col sm:mt-5 md:mb-20 md:mt-20">
             <div className="flex flex-col items-center justify-between sm:flex-row md:mb-8">
-              <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+            {editFormData.tagThai === "ชมรม" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:py-1 sm:text-3xl sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.5] lg:py-2 lg:text-7xl lg:leading-[1.3]">
+                        ชมรมนี้
+                      </p>
+
+                      <p className="sm:text-3xl md:text-5xl lg:text-7xl">
+                        ทำอะไร
+                      </p>
+                    </div>
+                  ) : editFormData.tagThai === "องค์กร" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
+                      <p className="-mb-2 sm:py-1 sm:text-xs sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.4] lg:py-2 lg:text-6xl lg:leading-[1.3]">
+                        องค์กรนี้
+                      </p>
+
+                      <p className="sm:text-xl md:text-4xl lg:text-5xl">
+                        ทำอะไร
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-xs md:text-4xl lg:text-5xl">
+                        การรับสมัคร
+                      </p>
+                      <p className="sm:text-3xl md:text-6xl lg:text-7xl">และ</p>
+                      <p className="sm:text-xl md:text-4xl lg:text-5xl">
+                        การสอบเข้า
+                      </p>
+                    </div>
+                  )}
+              {/* <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                 <p className="sm:text-xs md:text-4xl lg:text-5xl">
                   การรับสมัคร
                 </p>
@@ -133,7 +164,7 @@ const PreviewGeneralForm: React.FC<{
                 <div className="flex justify-center">
                   <SLamp1 className="hidden sm:block sm:w-28" />
                 </div>
-              </div>
+              </div> */}
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
                 <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[470px] lg:-left-[570px] lg:top-0">
                   <Stainedglass className="w-16 sm:w-32 lg:w-72" />
@@ -154,7 +185,7 @@ const PreviewGeneralForm: React.FC<{
               </div>
             </div>
             <p className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl">
-              {editFormData.admissions}
+              {editFormData.text1}
             </p>
           </div>
           {/* section 2 */}
@@ -186,7 +217,7 @@ const PreviewGeneralForm: React.FC<{
               </div>
             </div>
             <p className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl">
-              {editFormData.courses}
+              {editFormData.text2}
             </p>
           </div>
           {/* section 3 */}
@@ -228,7 +259,7 @@ const PreviewGeneralForm: React.FC<{
               </div>
             </div>
             <p className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl">
-              {editFormData.interests}
+              {editFormData.text3}
             </p>
           </div>
           {/* section 3 */}

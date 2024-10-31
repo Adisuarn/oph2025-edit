@@ -11,9 +11,9 @@ import { redirect } from "next/navigation";
 
 const page = async () => {
   const userData = await apiFunction("GET", "/user", {});
-  if (userData?.data?.success !== false) {
-    redirect("/account");
-  }
+  // if (userData?.data?.success !== false) {
+  //   redirect("/account");
+  // }
   return (
     <main className="via-21% to-77% relative -z-[100] h-screen w-screen overflow-hidden bg-gradient-to-b sm:bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0">
       <div className="w-[110vw] sm:w-[70vw] right-0 absolute sm:-right-20 top-10 sm:top-20 md:-right-40 -z-10">

@@ -20,6 +20,8 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
+import { text } from "stream/consumers";
+import { set } from "zod";
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -125,7 +127,6 @@ const GeneralForm: React.FC<{
   // const [successDataSent, setSuccessDataSent] = useState<boolean>(false);
   const [ReviewAmount, setReviewAmount] = useState<number>(0);
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     let Count = 0;
     if (review1.nick !== '') Count += 1;
@@ -134,13 +135,6 @@ const GeneralForm: React.FC<{
 
     setReviewAmount(Count);
   }, []);
-
-  const incrementReview = () => {
-    setReviewAmount(ReviewAmount + 1);
-  };
-  const decrementReview = () => {
-    setReviewAmount(ReviewAmount - 1);
-  };
 
   const handleFileSelect1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -301,23 +295,23 @@ const GeneralForm: React.FC<{
       <ToastContainer />
       <Formik
         initialValues={{
-          textField1: editFormData.admissions,
-          textField2: editFormData.courses,
-          textField3: editFormData.interests,
-          textField4: review1.content,
-          textField5: review2.content,
-          textField6: review3.content,
+          textField1: editFormData.text1,
+          textField2: editFormData.text2,
+          textField3: editFormData.text3,
           photoDescription1: "",
           photoDescription2: "",
           photoDescription3: "",
+          textField4: review1.content,
           P1Name: review1.nick,
-          P2Name: review2.nick,
-          P3Name: review3.nick,
           P1Gen: review1.gen,
-          P2Gen: review2.gen,
-          P3Gen: review3.gen,
           P1Contact: review1.contact,
+          textField5: review2.content,
+          P2Name: review2.nick,
+          P2Gen: review2.gen,
           P2Contact: review2.contact,
+          textField6: review3.content,
+          P3Name: review3.nick,
+          P3Gen: review3.gen,
           P3Contact: review3.contact,
           Members: editFormData.members,
           IG: editFormData.ig,
@@ -394,15 +388,14 @@ const GeneralForm: React.FC<{
           });
           if (userConfirmed.isConfirmed) {
             try {
-              // if(!allDataSent){console.log('hi')}
               setLoading(true);
               editFormData.members = values.Members;
               editFormData.ig = values.IG;
               editFormData.fb = values.FB;
               editFormData.others = values.others;
-              editFormData.admissions = values.textField1;
-              editFormData.courses = values.textField2;
-              editFormData.interests = values.textField3;
+              editFormData.text1 = values.textField1;
+              editFormData.text2 = values.textField2;
+              editFormData.text3 = values.textField3;
               editFormData.captureimg1 = image1;
               editFormData.captureimg2 = image2;
               editFormData.captureimg3 = image3;
@@ -429,14 +422,13 @@ const GeneralForm: React.FC<{
               formData.append("ig", editFormData.ig);
               formData.append("fb", editFormData.fb);
               formData.append("others", editFormData.others);
-              formData.append("admissions", editFormData.admissions);
-              formData.append("courses", editFormData.courses);
-              formData.append("interests", editFormData.interests);
+              formData.append("admissions", editFormData.text1);
+              formData.append("courses", editFormData.text2);
+              formData.append("interests", editFormData.text3);
               if (image1) formData.append("captureimg1", image1);
               if (image2) formData.append("captureimg2", image2);
               if (image3) formData.append("captureimg3", image3);
-              if (editFormData.tagThai === "ชมรม" && clubLogo)
-                formData.append("logo", clubLogo);
+              if (editFormData.tagThai === "ชมรม" && clubLogo) {formData.append("logo", clubLogo);}
               formData.append("descimg1", editFormData.descimg1);
               formData.append("descimg2", editFormData.descimg2);
               formData.append("descimg3", editFormData.descimg3);
@@ -449,7 +441,6 @@ const GeneralForm: React.FC<{
                 },
                 data: formData,
               };
-
               try {
                 const response = await axios.request(options);
                 const reviews = [review1, review2, review3];
@@ -457,7 +448,7 @@ const GeneralForm: React.FC<{
                   if (review.profile === null || review.profile === "") return;
                   const reviewData = new FormData();
                   if (!image4) {
-                    () => notifyWarning();
+                    notifyWarning();
                   } else {
                     reviewData.append("profile", review.profile);
                   }
@@ -475,10 +466,11 @@ const GeneralForm: React.FC<{
                     data: reviewData,
                   };
                   const responseReview = await axios.request(optionsReview);
+                  console.log('hi')
                   console.log(review);
                   return responseReview;
                 });
-                //return response;
+                return response;
               } catch (error) {
                 console.log(error);
               }
@@ -496,7 +488,7 @@ const GeneralForm: React.FC<{
           }
         }}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, setFieldValue }) => (
           <Form>
             {loading && (
               <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -601,7 +593,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="IG"
-                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg"
+                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px]"
                           />
                           <FaPen className="h-2 text-white" />
                         </div>
@@ -610,7 +602,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="FB"
-                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg"
+                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px]"
                           />
                           <FaPen className="h-2 text-white" />
                         </div>
@@ -619,7 +611,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="others"
-                            className="bg-transparent pl-3 text-center text-xs text-white sm:text-lg"
+                            className="bg-transparent pl-3 text-center text-xs text-white sm:text-lg md:w-[360px]"
                           />
                           <FaPen className="h-2 text-white" />
                         </div>
@@ -671,7 +663,7 @@ const GeneralForm: React.FC<{
                           name="Members"
                           className="sm:text-md w-5 bg-transparent text-center text-[8px] text-white sm:w-12 md:text-lg"
                         />
-                        <FaPen className="-mt-4 h-1 text-white sm:h-2" />
+                        <FaPen className="-mt-2 md:-mt-4 h-1 text-white sm:h-2" />
                         <p className="sm:text-md text-[8px] md:text-lg">คน</p>
                       </div>
                       <div className="flex items-center justify-center sm:space-y-2">
@@ -681,7 +673,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="IG"
-                              className="w-8 text-[8px] sm:text-lg bg-transparent text-center text-white"
+                              className="w-8 text-[8px] sm:text-lg bg-transparent text-center text-white md:w-[360px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -690,7 +682,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="FB"
-                              className="w-8 bg-transparent text-[8px] sm:text-lg text-center text-xs text-white md:w-32"
+                              className="w-8 bg-transparent text-[8px] sm:text-lg text-center text-xs text-white md:w-[360px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -699,7 +691,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="others"
-                              className="w-8 bg-transparent text-[8px] sm:text-lg text-center text-xs text-white  md:w-32"
+                              className="w-8 bg-transparent text-[8px] sm:text-lg text-center text-xs text-white md:w-[360px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -1021,7 +1013,7 @@ const GeneralForm: React.FC<{
                               />
                               <button
                                 onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
-                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0"
+                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
                               >
                                 X
                               </button>
@@ -1135,7 +1127,7 @@ const GeneralForm: React.FC<{
                               />
                               <button
                                 onClick={() => setDisplayImage5(false)} // Replace with your deletion logic
-                                className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0"
+                                className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
                               >
                                 X
                               </button>
@@ -1219,7 +1211,7 @@ const GeneralForm: React.FC<{
                               />
                               <button
                                 onClick={() => setDisplayImage6(false)} // Replace with your deletion logic
-                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0"
+                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
                               >
                                 X
                               </button>
@@ -1304,9 +1296,36 @@ const GeneralForm: React.FC<{
                 )}
               </section>
               <div className="my-10 flex w-full flex-col items-center space-y-3">
-                {ReviewAmount > 0 && (
+                {ReviewAmount > 1 && (
                   <div
-                    onClick={decrementReview}
+                    onClick={async () => {
+                      const userConfirmed = await Swal.fire({
+                        title: "ยืนยันการลบข้อมูลหรือไม่?",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonText: "ยืนยัน",
+                        cancelButtonText: "ยกเลิก",
+                      }); if (userConfirmed.isConfirmed) {
+                        if (ReviewAmount === 3) {
+                          setReviewAmount(ReviewAmount - 1)
+                          setDisplayImage6(false)
+                          setImageUrl6("")
+                          setFieldValue("textField6", "")
+                          setFieldValue("P3Name", "")
+                          setFieldValue("P3Gen", "")
+                          setFieldValue("P3Contact", "")
+                        } else if (ReviewAmount === 2) {
+                          setReviewAmount(ReviewAmount - 1)
+                          setDisplayImage5(false)
+                          setImageUrl5("")
+                          setFieldValue("textField5", "")
+                          setFieldValue("P2Name", "")
+                          setFieldValue("P2Gen", "")
+                          setFieldValue("P2Contact", "")
+                        }
+                      }
+                    }
+                    }
                     className="flex h-8 w-8 items-center justify-center rounded-full shadow-xl"
                   >
                     <Trash className="h-3 w-3 sm:h-6 sm:w-6" />
@@ -1316,7 +1335,7 @@ const GeneralForm: React.FC<{
                   {ReviewAmount !== 3 && (
                     <button
                       type="button"
-                      onClick={incrementReview}
+                      onClick={() => setReviewAmount(ReviewAmount + 1)}
                       className="mx-auto rounded-full bg-gradient-to-br from-buttonFirst via-buttonMiddle via-45% to-greenText px-2 py-1 text-center text-xs text-white sm:px-4 sm:py-2 sm:text-lg"
                     >
                       + เพิ่มรีวิวจากรุ่นพี่
