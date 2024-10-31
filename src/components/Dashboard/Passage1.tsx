@@ -1,51 +1,58 @@
 'use client'
-import React, {useState, useEffect, useRef} from 'react'
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
+import * as Emoji from "quill2-emoji";
+import 'quill2-emoji/dist/style.css';
+Quill.register("modules/emoji", Emoji);
 
-const Passage1 = ({ type, data } : any ) => {
-  const [editorHtml, setEditorHtml] = useState(data.data.activities);
-  const quillRef = useRef(null);
+const Passage1 = ({ type, data, setFieldValue }: any) => {
+  const quillRef = useRef<HTMLDivElement>(null);
+  const editorRef = useRef<Quill | null>(null);
+  const toolbarOptions = [
+    [{ header: [1, 2, 3, false] }],
+    ['bold', 'italic', 'underline', 'emoji'],
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }, { 'align': []}],
+    [{ 'script': 'sub' }, { 'script': 'super' }],
+    [{ 'indent': '-1' }, { 'indent': '+1' }],
+    [{ 'direction': 'rtl' }]
+  ]
 
   useEffect(() => {
-    if (quillRef.current) {
-      const quill = new Quill(quillRef.current as unknown as HTMLElement, {
+    if (!editorRef.current && quillRef.current) { // Check if the editor is not yet initialized
+      editorRef.current = new Quill(quillRef.current as HTMLDivElement, {
         theme: 'snow',
         modules: {
-          toolbar: [
-            [{ header: [1, 2, false] }],
-            ['bold', 'italic', 'underline'],
-            ['link', 'image'],
-            ['clean'], // Remove formatting button
-          ],
+          toolbar: toolbarOptions,
+          'emoji-toolbar': true,
         },
       });
 
-      quill.root.innerHTML = editorHtml;
+      // Initialize Quill with current content
+      editorRef.current!.root.innerHTML = data.activities || '';
 
-      // Event listener for content change
-      quill.on('text-change', () => {
-        setEditorHtml(quill.root.innerHTML);
+      // Update Formik state on content change
+      editorRef.current!.on('text-change', () => {
+        setFieldValue('activities', editorRef.current!.root.innerHTML);
       });
-
-      return () => {
-        quill.disable(); // Clean up on unmount
-      };
     }
-  }, [editorHtml]);
+  }, [setFieldValue, data.activities]);
 
-    
+  const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFieldValue('descimg1', e.target.value); // Update Formik state for description
+  };
+
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-12 mx-44">
         <div>
           {(() => {
             switch (type) {
               case 'organization':
                 return (
                   <>
-                    <p className="text-6xl font-semibold text-[#0C453E]">องค์กร</p>
+                    <p className="text-6xl font-semibold text-[#0C453E] ">องค์กร</p>
                     <p className="text-4xl font-semibold text-[#0C453E]">ทำอะไร</p>
                   </>
                 );
@@ -57,13 +64,6 @@ const Passage1 = ({ type, data } : any ) => {
                   </>
                 );
               case 'program':
-                return (
-                  <>
-                    <p className="text-4xl font-semibold text-[#0C453E]">การรับสมัคร</p>
-                    <p className="text-6xl font-semibold text-[#0C453E]">และ</p>
-                    <p className="text-4xl font-semibold text-[#0C453E]">การสอบเข้า</p>
-                  </>
-                )
               case 'gifted':
                 return (
                   <>
@@ -71,24 +71,35 @@ const Passage1 = ({ type, data } : any ) => {
                     <p className="text-6xl font-semibold text-[#0C453E]">และ</p>
                     <p className="text-4xl font-semibold text-[#0C453E]">การสอบเข้า</p>
                   </>
-                )
-              case 'default':
-                return ''
+                );
+              default:
+                return '';
             }
           })()}
         </div>
+        
         <div className="flex flex-col text-center">
-          <div className="rounded-2xl overflow-hidden ml-14 w-[500] h-[300]">
+          <div className="rounded-2xl ml-14 w-[500px] h-[300px] mb-24">
             <div className="rounded-2xl overflow-hidden">
-              <Image src={data.data.captureimg1} alt="img1" width={500} height={300} />
+              <Image src={data.captureimg1} alt="img1" width={500} height={300} />
             </div>
-            <p className="mt-3 font-BaiJamjuree text-[#0C453E] text-[16px] font-light">{data.data.descimg1}</p>
+            <input
+              type="text"
+              className="mt-3 font-BaiJamjuree text-[#0C453E] text-[16px] font-light placeholder: text-center"
+              value={data.descimg1} 
+              onChange={handleDescriptionChange}
+              placeholder="กรุณาใส่คำอธิบายรูปภาพ"
+              required
+            />
           </div>
         </div>
       </div>
-      <p className="mt-6 font-BaiJamjuree text-[16px] font-semibold" dangerouslySetInnerHTML={{ __html: editorHtml }} />
+      
+      <div className="mx-44 border rounded-lg overflow-hidden">
+        <div ref={quillRef} className="quill-editor mt-6 font-BaiJamjuree text-[16px] font-semibold p-10"></div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Passage1
+export default Passage1;

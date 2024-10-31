@@ -58,8 +58,8 @@ const DashboardTUCMC: React.FC = () => {
   }, [data]);
 
   // Handle status update
-  const handleStatusUpdate = useCallback(async (item: any, status: Status) => {
-    await updateStatus(item, status);
+  const handleStatusUpdate = useCallback(async (item: any, status: Status, rejectionMessage: string) => {
+    await updateStatus(item, status, rejectionMessage);
     fetchData();
   }, [fetchData]);
 
@@ -81,7 +81,7 @@ const DashboardTUCMC: React.FC = () => {
   // Handle view data
   const handleViewData = useCallback(async (tag: string, key: string, type: 'organization' | 'program' | 'club' | 'gifted') => {
     const currentData = (data[(type === "gifted" ? type : type + 's') as keyof DashboardData] as Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>)
-    .find((item) => item.key === key);
+      .find((item) => item.key === key);
     if (viewData && viewData.type === type && viewData.data.data.thainame === currentData?.thainame) {
       setViewData(null);
       setActiveButton(null);
@@ -106,7 +106,6 @@ const DashboardTUCMC: React.FC = () => {
   // Render items (organizations, programs, etc.)
   const renderItem = useCallback((item: any, type: 'organization' | 'program' | 'club' | 'gifted', index: any) => {
     const isVisible = viewData && viewData.type === type && viewData.data.data.thainame === item.thainame;
-
     return (
       <div key={index}>
         <li className="flex justify-between items-center mb-4 p-5 border border-gray-300 rounded-2xl">
@@ -192,35 +191,36 @@ const DashboardTUCMC: React.FC = () => {
                       selectedFilter={selectedFilter}
                     />
                   </div>
-                  
+
                 </div>
               </div>
 
               {/* Status Selection Buttons */}
               <div className="flex space-x-4 mt-4">
                 <button
-                  className={`p-2 rounded-lg ${selectedStatus === Status.PENDING ? 'bg-[#FCB528]' : 'bg-gray-200'}`}
+                  className={`p-2 rounded-lg transform transition-transform duration-300 ${selectedStatus === Status.PENDING ? 'bg-[#FCB528] scale-105 text-white': 'bg-gray-200'}`}
                   onClick={() => handleStatusSelect(Status.PENDING)}
                 >
                   รอดำเนินการ
                 </button>
                 <button
-                  className={`p-2 rounded-lg ${selectedStatus === Status.APPROVED ? 'bg-[#19C57C]' : 'bg-gray-200'}`}
+                  className={`p-2 rounded-lg transform transition-transform duration-300 ${selectedStatus === Status.APPROVED ? 'bg-[#19C57C] scale-105 text-white' : 'bg-gray-200'}`}
                   onClick={() => handleStatusSelect(Status.APPROVED)}
                 >
                   อนุมัติ
                 </button>
                 <button
-                  className={`p-2 rounded-lg ${selectedStatus === Status.REJECTED ? 'bg-[#F83E3E]' : 'bg-gray-200'}`}
+                  className={`p-2 rounded-lg transform transition-transform duration-300 ${selectedStatus === Status.REJECTED ? 'bg-[#F83E3E] scale-105 text-white' : 'bg-gray-200'}`}
                   onClick={() => handleStatusSelect(Status.REJECTED)}
                 >
                   ไม่อนุมัติ
                 </button>
               </div>
-              <hr className="my-5" />
+
+              <hr className="my-9" />
               {/* Data List */}
               <ul className="mt-5">
-                {filteredOrganizations.map((item, index )=> renderItem(item, 'organization', index))}
+                {filteredOrganizations.map((item, index) => renderItem(item, 'organization', index))}
                 {filteredPrograms.map((item, index) => renderItem(item, 'program', index))}
                 {filteredClubs.map((item, index) => renderItem(item, 'club', index))}
                 {filteredGifted.map((item, index) => renderItem(item, 'gifted', index))}

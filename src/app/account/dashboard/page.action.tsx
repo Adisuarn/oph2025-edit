@@ -8,7 +8,7 @@ export async function handler() {
     redirect('/403')
   }
   const data = await apiFunction('GET', '/tucmc/data', {});
-  const organizations = data.data.data.organizations;
+  const organizations = data.data?.data.organizations;
   const programs = data.data.data.programs;
   const clubs = data.data.data.clubs;
   const gifted = data.data.data.gifted;

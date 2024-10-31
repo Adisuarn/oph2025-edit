@@ -10,7 +10,6 @@ import FormLeft from "@/vectors/forms/FormLeft";
 import SmallFormLeft from "@/vectors/forms/SmallFormLeft";
 import Frames from "@/vectors/forms/Frames";
 import LogoutButton from "@/components/LogoutButton";
-import { log } from "console";
 import postInfo from "./Forms.action";
 import { Tag } from "@utils/type"
 

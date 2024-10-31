@@ -1,50 +1,66 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Image from 'next/image';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
+import * as Emoji from "quill2-emoji";
+import 'quill2-emoji/dist/style.css';
+Quill.register("modules/emoji", Emoji);
 
-const Passage2 = ({ type, data }: any) => {
-  const [editorHtml, setEditorHtml] = useState(data.data.benefits);
-  const quillRef = useRef(null);
+const Passage2 = ({ type, data, setFieldValue }: any) => {
+  const quillRef = useRef<HTMLDivElement>(null);
+  const editorRef = useRef<Quill | null>(null); // Add a ref for the Quill editor instance
+
+  const toolbarOptions = [
+    [{ header: [1, 2, 3, false] }],
+    ['bold', 'italic', 'underline', 'emoji'],
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }, { 'align': []}],
+    [{ 'script': 'sub' }, { 'script': 'super' }],
+    [{ 'indent': '-1' }, { 'indent': '+1' }],
+    [{ 'direction': 'rtl' }]
+  ]
 
   useEffect(() => {
-    if (quillRef.current) {
-      const quill = new Quill(quillRef.current as unknown as HTMLElement, {
+    if (!editorRef.current && quillRef.current) { // Check if the editor is not yet initialized
+      editorRef.current = new Quill(quillRef.current as HTMLDivElement, {
         theme: 'snow',
         modules: {
-          toolbar: [
-            [{ header: [1, 2, false] }],
-            ['bold', 'italic', 'underline'],
-            ['link', 'image'],
-            ['clean'], // Remove formatting button
-          ],
+          toolbar: toolbarOptions,
+          'emoji-toolbar': true,
         },
       });
 
-      quill.root.innerHTML = editorHtml;
+      // Initialize Quill with current content
+      editorRef.current!.root.innerHTML = data.benefits || '';
 
-      // Event listener for content change
-      quill.on('text-change', () => {
-        setEditorHtml(quill.root.innerHTML);
+      // Update Formik state on content change
+      editorRef.current!.on('text-change', () => {
+        setFieldValue('benefits', editorRef.current!.root.innerHTML);
       });
-
-      return () => {
-        quill.disable(); // Clean up on unmount
-      };
     }
-  }, [editorHtml]);
+  }, [setFieldValue, data.benefits]);
+
+  const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFieldValue('descimg2', e.target.value); // Update Formik state for description
+  };
 
 
   return (
     <>
-      <div className="flex justify-between mt-24">
+      <div className="flex justify-between mt-24 mx-44">
         <div className="flex flex-col text-center">
-          <div className="rounded-2xl overflow-hidden mr-14 w-[500] h-[300]">
+          <div className="rounded-2xl mr-14 w-[500px] h-[300px] mb-12">
             <div className="rounded-2xl overflow-hidden">
-              <Image src={data.data.captureimg2} alt="img1" width={500} height={300} />
+              <Image src={data.captureimg2} alt="img2" width={500} height={300} />
             </div>
-            <p className="mt-3 font-BaiJamjuree text-[#0C453E] text-[16px] font-light">{data.data.descimg2}</p>
+            <input
+              type="text"
+              className="mt-3 font-BaiJamjuree text-[#0C453E] text-[16px] font-light placeholder: text-center"
+              value={data.descimg2} 
+              onChange={handleDescriptionChange}
+              placeholder="กรุณาใส่คำอธิบายรูปภาพ"
+              required
+            />
           </div>
         </div>
         <div>
@@ -87,7 +103,9 @@ const Passage2 = ({ type, data }: any) => {
           })()}
         </div>
       </div>
-      <p className="mt-6 font-BaiJamjuree text-[16px] font-semibold" dangerouslySetInnerHTML={{ __html: editorHtml }} />
+      <div className="mx-44 border rounded-lg overflow-hidden mt-12">
+        <div ref={quillRef} className="quill-editor mt-6 font-BaiJamjuree text-[16px] font-semibold p-10"></div>
+      </div>
     </>
   )
 }
