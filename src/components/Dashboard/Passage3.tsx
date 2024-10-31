@@ -7,13 +7,13 @@ import * as Emoji from "quill2-emoji";
 import 'quill2-emoji/dist/style.css';
 Quill.register("modules/emoji", Emoji);
 
-const Passage3 = ({ type, data, setFieldValue }: any) => {
+const Passage3 = ({ type, data, setFieldValue, errors, touched }: any) => {
   const quillRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<Quill | null>(null); // Add a ref for the Quill editor instance
   const toolbarOptions = [
     [{ header: [1, 2, 3, false] }],
     ['bold', 'italic', 'underline', 'emoji'],
-    [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }, { 'align': []}],
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }, { 'align': [] }],
     [{ 'script': 'sub' }, { 'script': 'super' }],
     [{ 'indent': '-1' }, { 'indent': '+1' }],
     [{ 'direction': 'rtl' }]
@@ -95,11 +95,15 @@ const Passage3 = ({ type, data, setFieldValue }: any) => {
               placeholder="กรุณาใส่คำอธิบายรูปภาพ"
               required
             />
+            {errors.descimg3 && touched.descimg3 && <div className="text-red-600">{errors.descimg3}</div>}
           </div>
         </div>
       </div>
-      <div className="mx-44 border rounded-lg overflow-hidden">
-        <div ref={quillRef} className="quill-editor mt-6 font-BaiJamjuree text-[16px] font-semibold p-10"></div>
+      <div className="mx-44 border rounded-lg overflow-hidden" onClick={() => editorRef.current?.focus()}>
+        <div ref={quillRef} className="quill-editor mt-6 cursor-text font-BaiJamjuree text-[16px] font-semibold p-10 max-w-[797.344px] min-h-[300px]" />
+        <div className="text-center">
+          {errors.working && touched.working && <div className="text-red-600">{errors.working}</div>}
+        </div>
       </div>
     </>
   )

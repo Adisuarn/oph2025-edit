@@ -13,6 +13,8 @@ import Checkmark from '@/vectors/Checkmark';
 import Rejected from '@/vectors/Rejected';
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon';
 import { updateData } from './ViewData.action';
+import * as Yup from 'yup'
+import { emails } from '@libs/admin'
 
 const MySwal = withReactContent(Swal);
 
@@ -26,6 +28,15 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
     minute: '2-digit',
     hour12: true
   }).format(new Date(data.data.updatedAt)).replace(/am|pm/g, match => match.toUpperCase());
+
+  const valuesSchema = Yup.object().shape({
+    activities: Yup.string().min(150, 'ข้อมูลต่ำกว่า 150 คำ').required('กรุณากรอกข้อมูล'),
+    descimg1: Yup.string().required('กรุณากรอกข้อมูล'),
+    benefits: Yup.string().min(150, 'ข้อมูลต่ำกว่า 150 คำ').required('กรุณากรอกข้อมูล'),
+    descimg2: Yup.string().required('กรุณากรอกข้อมูล'),
+    working: Yup.string().min(150, 'ข้อมูลต่ำกว่า 150 คำ').required('กรุณากรอกข้อมูล'),
+    descimg3: Yup.string().required('กรุณากรอกข้อมูล'),
+  })
 
   const initialValues = {
     activities: data.data.activities || '',
@@ -58,7 +69,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
         cancelButtonText: 'ยกเลิก',
       }).then((result) => {
         if (result.isConfirmed) {
-          toast.promise(updateData(values ,data.data.tag, data.data.key).then(() => {
+          toast.promise(updateData(values, data.data.tag, data.data.key).then(() => {
             if (typeof window !== "undefined") {
               window.location.reload();
             }
@@ -137,13 +148,17 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
             </div>
           )}
           <div className="text-[#2f2f2f]"> ข้อมูลอัปเดต {formattedDate}</div>
+          {data.data.updatedBy && (<div className='text-[#2f2f2f]  '>โดย 
+            {emails[data.data.updatedBy as keyof typeof emails]
+            ? ` TUCMC ${emails[data.data.updatedBy as keyof typeof emails]}`
+            : data.data.updatedBy}</div>)}
           <Header type={type} data={data} />
-          <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-            {({ values, setFieldValue }) => (
+          <Formik initialValues={initialValues} validationSchema={valuesSchema} onSubmit={handleSubmit}>
+            {({ values, setFieldValue, errors, touched }) => (
               <Form>
-                <Passage1 type={type} data={values} setFieldValue={setFieldValue} />
-                <Passage2 type={type} data={values} setFieldValue={setFieldValue} />
-                <Passage3 type={type} data={values} setFieldValue={setFieldValue} />
+                <Passage1 type={type} data={values} setFieldValue={setFieldValue} errors={errors} touched={touched} />
+                <Passage2 type={type} data={values} setFieldValue={setFieldValue} errors={errors} touched={touched} />
+                <Passage3 type={type} data={values} setFieldValue={setFieldValue} errors={errors} touched={touched} />
                 <Reviews reviewData={values.reviews} setFieldValue={setFieldValue} />
                 <div className="bg-custom-gradient">
                   <button

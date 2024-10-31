@@ -7,7 +7,7 @@ import * as Emoji from "quill2-emoji";
 import 'quill2-emoji/dist/style.css';
 Quill.register("modules/emoji", Emoji);
 
-const Passage2 = ({ type, data, setFieldValue }: any) => {
+const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
   const quillRef = useRef<HTMLDivElement>(null);
   const editorRef = useRef<Quill | null>(null); // Add a ref for the Quill editor instance
 
@@ -49,7 +49,7 @@ const Passage2 = ({ type, data, setFieldValue }: any) => {
     <>
       <div className="flex justify-between mt-24 mx-44">
         <div className="flex flex-col text-center">
-          <div className="rounded-2xl mr-14 w-[500px] h-[300px] mb-12">
+          <div className="rounded-2xl mr-14 w-[500px] h-[300px] mb-24">
             <div className="rounded-2xl overflow-hidden">
               <Image src={data.captureimg2} alt="img2" width={500} height={300} />
             </div>
@@ -61,6 +61,7 @@ const Passage2 = ({ type, data, setFieldValue }: any) => {
               placeholder="กรุณาใส่คำอธิบายรูปภาพ"
               required
             />
+            {errors.descimg2 && touched.descimg2 && <div className="text-red-600">{errors.descimg2}</div>}
           </div>
         </div>
         <div>
@@ -103,8 +104,11 @@ const Passage2 = ({ type, data, setFieldValue }: any) => {
           })()}
         </div>
       </div>
-      <div className="mx-44 border rounded-lg overflow-hidden mt-12">
-        <div ref={quillRef} className="quill-editor mt-6 font-BaiJamjuree text-[16px] font-semibold p-10"></div>
+      <div className="mx-44 border rounded-lg overflow-hidden mt-12" onClick={() => editorRef.current?.focus()}>
+        <div ref={quillRef} className="quill-editor cursor-text mt-6 font-BaiJamjuree text-[16px] font-semibold p-10 max-w-[797.344px] min-h-[300px]" />
+        <div className="text-center">
+          {errors.benefits && touched.benefits && <div className="text-red-600">{errors.benefits}</div>}
+        </div>
       </div>
     </>
   )

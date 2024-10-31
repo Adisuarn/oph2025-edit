@@ -35,10 +35,10 @@ export const createClub = async (body: Club) => {
       omit: { clubId: true, updatedAt: true, id: true },
       where: { key: body.key },
       data: {
-        error: '',
         key: body.key,
         email: body.email,
         clubKey: body.key,
+        updatedBy: body.email,
       }
     })
     await prisma.user.update({
@@ -86,7 +86,8 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
         descimg2: body.descimg2,
         captureimg3: (!body.captureimg3 === undefined) ? await uploadImage(body.captureimg3) : clubData.captureimg3,
         descimg3: body.descimg3,
-        logo: (!body.logo === undefined) ? await uploadImage(body.logo) : clubData.logo
+        logo: (!body.logo === undefined) ? await uploadImage(body.logo) : clubData.logo,
+        updatedBy: userData?.email,
       }
     })
     if(userData?.email === clubData.email) await prisma.clubs.update({ where: { key: key }, data: { status: Status.PENDING } })

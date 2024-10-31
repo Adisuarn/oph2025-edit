@@ -34,9 +34,9 @@ export const createProgram = async(body: Program) => {
       omit: { programId: true, updatedAt: true, id:true },
       where: { key: body.key },
       data: {
-        error: '',
         key: body.key,
         email: body.email,
+        updatedBy: body.email,
       }
     })
     await prisma.user.update({
@@ -86,6 +86,7 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
         descimg2: body.descimg2,
         captureimg3: (body.captureimg3 !== undefined) ? await uploadImage(body.captureimg3) : programData.captureimg3,
         descimg3: body.descimg3,
+        updatedBy: userData?.email
       }
     })
     if(userData?.email === programData.email) await prisma.programs.update({ where: { key: name }, data: { status: Status.PENDING }})

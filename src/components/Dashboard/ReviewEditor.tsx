@@ -33,8 +33,12 @@ const ReviewEditor: React.FC<ReviewEditorProps> = ({ content, index, setFieldVal
       });
     }
   }, [setFieldValue, content, index]);
+  return (
+    <>
+        <div ref={quillRef} className="quill-editor mt-4 p-2"></div>
+    </>
 
-  return <div ref={quillRef} className="quill-editor mt-4 p-2"></div>;
+  );
 };
 
 export default ReviewEditor;

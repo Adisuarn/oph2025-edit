@@ -34,9 +34,9 @@ export const createGifted = async (body: Gifted) => {
       omit: { giftedId: true, updatedAt: true, id: true },
       where: { key: body.key },
       data: {
-        error: "",
         key: body.key,
         email: body.email,
+        updatedBy: body.email,
       },
     });
     await prisma.user.update({
@@ -95,6 +95,7 @@ export const updateGiftedData = async (
         descimg2: body.descimg2,
         captureimg3: (body.captureimg3 !== undefined ) ? await uploadImage(body.captureimg3) : giftedData.captureimg3,
         descimg3: body.descimg3,
+        updatedBy: userData?.email,
       },
     });
     if(userData?.email === giftedData.email) await prisma.gifted.update({ where: { key: name}, data: { status: Status.PENDING }}) 
