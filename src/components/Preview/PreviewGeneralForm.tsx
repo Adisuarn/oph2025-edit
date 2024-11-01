@@ -39,9 +39,9 @@ const PreviewGeneralForm: React.FC<{
 
   useEffect(() => {
     let count = 0;
-    if (review1.nick !== "") count+= 1;
-    if (review2.nick !== "") count+= 1;
-    if (review3.nick !== "") count+= 1;
+    if (review1.nick !== "") count += 1;
+    if (review2.nick !== "") count += 1;
+    if (review3.nick !== "") count += 1;
     setReviewAmount(count);
   }, []);
 
@@ -51,7 +51,7 @@ const PreviewGeneralForm: React.FC<{
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
       <div className="absolute -top-36 left-1/2 -translate-x-1/2 overflow-hidden">
-        <BigUppercurve className="hidden w-[100vw] 2xl:w-[120vw] lg:block" />
+        <BigUppercurve className="hidden w-[100vw] lg:block 2xl:w-[120vw]" />
       </div>
       <div className="absolute -top-[76px]">
         <FallingLamp className="w-[100vw] sm:hidden" />
@@ -59,7 +59,7 @@ const PreviewGeneralForm: React.FC<{
       <div className="absolute right-0 sm:top-[146px]">
         <ClubFallingLamp className="hidden w-2 sm:block" />
       </div>
-      <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[400px] 2xl:pt-[520px] lg:mx-48">
+      <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[400px] lg:mx-48 2xl:pt-[520px]">
         <section className="flex items-center justify-between">
           <div className="flex items-center justify-center space-x-1">
             <Link href="/account">
@@ -124,37 +124,42 @@ const PreviewGeneralForm: React.FC<{
           {/* section1 */}
           <div className="mb-14 mt-12 flex flex-col sm:mt-5 md:mb-20 md:mt-20">
             <div className="flex flex-col items-center justify-between sm:flex-row md:mb-8">
-            {editFormData.tagThai === "ชมรม" ? (
-                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                      <p className="sm:py-1 sm:text-3xl sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.5] lg:py-2 lg:text-7xl lg:leading-[1.3]">
-                        ชมรมนี้
-                      </p>
+              {editFormData.tagThai === "ชมรม" ? (
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="sm:py-1 sm:text-3xl sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.5] lg:py-2 lg:text-7xl lg:leading-[1.3]">
+                    ชมรมนี้
+                  </p>
 
-                      <p className="sm:text-3xl md:text-5xl lg:text-7xl">
-                        ทำอะไร
-                      </p>
-                    </div>
-                  ) : editFormData.tagThai === "องค์กร" ? (
-                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
-                      <p className="-mb-2 sm:py-1 sm:text-xs sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.4] lg:py-2 lg:text-6xl lg:leading-[1.3]">
-                        องค์กรนี้
-                      </p>
+                  <p className="sm:text-3xl md:text-5xl lg:text-7xl">ทำอะไร</p>
+                  <div className="flex justify-center">
+                    <SLamp1 className="hidden sm:block sm:w-28" />
+                  </div>
+                </div>
+              ) : editFormData.tagThai === "องค์กร" ? (
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
+                  <p className="-mb-2 sm:py-1 sm:text-xs sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.4] lg:py-2 lg:text-6xl lg:leading-[1.3]">
+                    องค์กรนี้
+                  </p>
 
-                      <p className="sm:text-xl md:text-4xl lg:text-5xl">
-                        ทำอะไร
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                      <p className="sm:text-xs md:text-4xl lg:text-5xl">
-                        การรับสมัคร
-                      </p>
-                      <p className="sm:text-3xl md:text-6xl lg:text-7xl">และ</p>
-                      <p className="sm:text-xl md:text-4xl lg:text-5xl">
-                        การสอบเข้า
-                      </p>
-                    </div>
-                  )}
+                  <p className="sm:text-xl md:text-4xl lg:text-5xl">ทำอะไร</p>
+                  <div className="flex justify-center">
+                    <SLamp1 className="hidden sm:block sm:w-28" />
+                  </div>
+                </div>
+              ) : (
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="sm:text-xs md:text-4xl lg:text-5xl">
+                    การรับสมัคร
+                  </p>
+                  <p className="sm:text-3xl md:text-6xl lg:text-7xl">และ</p>
+                  <p className="sm:text-xl md:text-4xl lg:text-5xl">
+                    การสอบเข้า
+                  </p>
+                  <div className="flex justify-center">
+                    <SLamp1 className="hidden sm:block sm:w-28" />
+                  </div>
+                </div>
+              )}
               {/* <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                 <p className="sm:text-xs md:text-4xl lg:text-5xl">
                   การรับสมัคร
@@ -207,14 +212,39 @@ const PreviewGeneralForm: React.FC<{
                   <p className="text-greenText">{editFormData.descimg2}</p>
                 </div>
               </div>
-              <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                <p className="sm:text-2xl md:text-7xl">วิชา /</p>
-                <p className="sm:text-lg md:text-2xl">หลักสูตรเพิ่มเติม</p>
-                <p className="sm:text-lg md:text-2xl">ที่เรียน</p>
-                <div className="flex justify-center">
+              {editFormData.tagThai === "ชมรม" ? (
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="sm:text-4xl md:text-5xl lg:text-7xl">
+                    ประโยชน์
+                  </p>
+                  <p className="sm:text-lg md:text-2xl lg:text-4xl">
+                    ที่ได้รับ
+                  </p>
+                  <p className="sm:-mt-2 sm:text-lg md:text-lg lg:text-3xl">
+                    จากการเข้าชมรม
+                  </p>
+                  <div className="flex justify-center">
                   <SLamp2 className="hidden sm:block sm:w-28" />
                 </div>
-              </div>
+                </div>
+              ) : editFormData.tagThai === "องค์กร" ? (
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="sm:text-lg md:text-5xl lg:text-6xl">ตำแหน่ง</p>
+                  <p className="sm:text-lg md:text-2xl lg:text-4xl">/หน้าที่</p>
+                  <div className="flex justify-center">
+                  <SLamp2 className="hidden sm:block sm:w-28" />
+                </div>
+                </div>
+              ) : (
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="sm:text-2xl md:text-7xl">วิชา /</p>
+                  <p className="sm:text-lg md:text-2xl">หลักสูตรเพิ่มเติม</p>
+                  <p className="sm:text-lg md:text-2xl">ที่เรียน</p>
+                  <div className="flex justify-center">
+                  <SLamp2 className="hidden sm:block sm:w-28" />
+                </div>
+                </div>
+              )}
             </div>
             <p className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl">
               {editFormData.text2}
@@ -223,20 +253,44 @@ const PreviewGeneralForm: React.FC<{
           {/* section 3 */}
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col items-end justify-between sm:flex-row md:mb-8 md:items-center">
-              <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-              <p className="sm:text-xl sm:leading-[2] md:text-4xl md:leading-[1.7] lg:text-5xl lg:leading-[1.5] sm:py-2 md:py-2 lg:py-2">
-  ความน่าสนใจ
-</p>
-
-
-                <p className="sm:text-3xl md:text-6xl lg:text-7xl">ของ</p>
-                <p className="sm:text-xl md:text-4xl lg:text-5xl">
-                  สายการเรียน
-                </p>
-                <div className="flex justify-center">
+            {editFormData.tagThai === "ชมรม" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="sm:text-5xl md:text-6xl lg:text-7xl">
+                        ผลงาน
+                      </p>
+                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                        ของชมรม
+                      </p>
+                      <div className="flex justify-center">
                   <SLamp3 className="hidden sm:block sm:w-28" />
                 </div>
-              </div>
+                    </div>
+                  ) : editFormData.tagThai === "องค์กร" ? (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
+                      <p className="sm:text-5xl md:text-4xl lg:text-5xl">
+                        ผลงาน
+                      </p>
+                      <p className="sm:text-3xl md:text-3xl lg:text-5xl">
+                        ขององค์กร
+                      </p>
+                      <div className="flex justify-center">
+                  <SLamp3 className="hidden sm:block sm:w-28" />
+                </div>
+                    </div>
+                  ) : (
+                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                      <p className="-mb-3 sm:text-xl sm:leading-[2] md:text-4xl md:leading-[1.7] lg:text-5xl lg:leading-[1.5]">
+                        ความน่าสนใจ
+                      </p>
+                      <p className="sm:text-5xl md:text-6xl lg:text-7xl">ของ</p>
+                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                        สายการเรียน
+                      </p>
+                      <div className="flex justify-center">
+                  <SLamp3 className="hidden sm:block sm:w-28" />
+                </div>
+                    </div>
+                  )}
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
                 <div className="absolute -left-10 -top-60 -z-10">
                   <Lamp className="w-32 sm:hidden" />
@@ -280,7 +334,7 @@ const PreviewGeneralForm: React.FC<{
                 <div className="flex flex-col">
                   <div className="flex flex-col items-center justify-center">
                     <Image
-className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                      className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                       src={review1.profile || ""}
                       alt="photo"
                       width={100}
@@ -332,7 +386,7 @@ className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                   <div className="flex flex-col">
                     <div className="flex flex-col items-end justify-center">
                       <Image
-className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                        className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                         src={review2.profile || ""}
                         alt="photo"
                         width={100}
