@@ -41,7 +41,7 @@ const PreviewOrganizationForm: React.FC = async () => {
     captureimg3: userForm.data.data.captureimg3,
     descimg3: userForm.data.data.descimg3,
   };
-
+  let reviews = userReview.data.data.length
   
   let review1 = {
     count: userReview.data.data[0].count,
@@ -53,26 +53,27 @@ const PreviewOrganizationForm: React.FC = async () => {
   };
   
   let review2 = {
-    count: userReview.data.data[1].count,
-    profile: userReview.data.data[1].profile,
-    nick: userReview.data.data[1].nick,
-    gen: userReview.data.data[1].gen,
-    contact: userReview.data.data[1].contact,
-    content: userReview.data.data[1].content,
+    count: userReview.data.data[1]?.count,
+    profile: userReview.data.data[1]?.profile,
+    nick: userReview.data.data[1]?.nick,
+    gen: userReview.data.data[1]?.gen,
+    contact: userReview.data.data[1]?.contact,
+    content: userReview.data.data[1]?.content,
   };
-  
+
   let review3 = {
-    count: userReview.data.data[2].count,
-    profile: userReview.data.data[2].profile,
-    nick: userReview.data.data[2].nick,
-    gen: userReview.data.data[2].gen,
-    contact: userReview.data.data[2].contact,
-    content: userReview.data.data[2].content,
+    count: userReview.data.data[2]?.count,
+    profile: userReview.data.data[2]?.profile,
+    nick: userReview.data.data[2]?.nick,
+    gen: userReview.data.data[2]?.gen,
+    contact: userReview.data.data[2]?.contact,
+    content: userReview.data.data[2]?.content,
   };
   
   return (
     <PreviewGeneralForm
       editFormData={editFormData}
+      reviews={reviews}
       review1={review1}
       review2={review2}
       review3={review3}

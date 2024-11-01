@@ -37,10 +37,11 @@ const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => (
 const GeneralForm: React.FC<{
   userData: any;
   editFormData: any;
+  reviews: any;
   review1: any;
   review2: any;
   review3: any;
-}> = ({ userData, editFormData, review1, review2, review3 }) => {
+}> = ({ userData, editFormData, reviews, review1, review2, review3 }) => {
   const MySwal = withReactContent(Swal);
   const cookies = useCookies();
   const notifySuccess = () =>
@@ -125,16 +126,16 @@ const GeneralForm: React.FC<{
   const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(editFormData.logo);
   const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(editFormData.logo);
   // const [successDataSent, setSuccessDataSent] = useState<boolean>(false);
-  const [ReviewAmount, setReviewAmount] = useState<number>(0);
+  const [ReviewAmount, setReviewAmount] = useState<number>(reviews);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    let Count = 0;
-    if (review1.nick !== '') Count += 1;
-    if (review2.nick !== '') Count += 1;
-    if (review3.nick !== '') Count += 1;
+  // useEffect(() => {
+  //   let Count = 0;
+  //   if (review1 !== null) Count += 1;
+  //   if (review2 !== null) Count += 1;
+  //   if (review3 !== null) Count += 1;
 
-    setReviewAmount(Count);
-  }, []);
+  //   setReviewAmount(Count);
+  // }, []);
 
   const handleFileSelect1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -298,9 +299,9 @@ const GeneralForm: React.FC<{
           textField1: editFormData.text1,
           textField2: editFormData.text2,
           textField3: editFormData.text3,
-          photoDescription1: "",
-          photoDescription2: "",
-          photoDescription3: "",
+          photoDescription1: editFormData.descimg1,
+          photoDescription2: editFormData.descimg2,
+          photoDescription3: editFormData.descimg3,
           textField4: review1.content,
           P1Name: review1.nick,
           P1Gen: review1.gen,
@@ -422,13 +423,20 @@ const GeneralForm: React.FC<{
               formData.append("ig", editFormData.ig);
               formData.append("fb", editFormData.fb);
               formData.append("others", editFormData.others);
-              formData.append("admissions", editFormData.text1);
-              formData.append("courses", editFormData.text2);
-              formData.append("interests", editFormData.text3);
-              if (image1) formData.append("captureimg1", image1);
-              if (image2) formData.append("captureimg2", image2);
-              if (image3) formData.append("captureimg3", image3);
-              if (editFormData.tagThai === "ชมรม" && clubLogo) {formData.append("logo", clubLogo);}
+              if (editFormData.tagThai === "ชมรม") {formData.append("activities", editFormData.text1);}
+              else {formData.append("admissions", editFormData.text1);}
+
+              if (editFormData.tagThai === "ชมรม") {formData.append("benefits", editFormData.text2);}
+              else if (editFormData.tagThai === "องค์กร") {formData.append("position", editFormData.text2);}
+              else {formData.append("courses", editFormData.text2);}
+
+              if (editFormData.tagThai === "ชมรม") {formData.append("working", editFormData.text3);}
+              else {formData.append("interests", editFormData.text3);}
+
+              if (image1 !== null) formData.append("captureimg1", image1);
+              if (image2 !== null) formData.append("captureimg2", image2);
+              if (image3 !== null) formData.append("captureimg3", image3);
+              if (editFormData.tagThai === "ชมรม" && clubLogo !== null) {formData.append("logo", clubLogo);}
               formData.append("descimg1", editFormData.descimg1);
               formData.append("descimg2", editFormData.descimg2);
               formData.append("descimg3", editFormData.descimg3);
@@ -442,38 +450,44 @@ const GeneralForm: React.FC<{
                 data: formData,
               };
               try {
-                const response = await axios.request(options);
                 const reviews = [review1, review2, review3];
-                reviews.map(async (review) => {
-                  if (review.profile === null || review.profile === "") return;
-                  const reviewData = new FormData();
-                  if (!image4) {
-                    notifyWarning();
-                  } else {
-                    reviewData.append("profile", review.profile);
-                  }
-                  reviewData.append("nick", review.nick);
-                  reviewData.append("gen", review.gen);
-                  reviewData.append("contact", review.contact);
-                  reviewData.append("content", review.content);
-                  const optionsReview = {
-                    method: "PATCH",
-                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${review.count}`,
-                    headers: {
-                      "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-                      Authorization: `${cookies.get("oph2025-auth-cookie")}`,
-                    },
-                    data: reviewData,
-                  };
-                  const responseReview = await axios.request(optionsReview);
-                  console.log('hi')
-                  console.log(review);
-                  return responseReview;
-                });
-                return response;
+                const images = { image4, image5, image6 };
+              
+                const responses = await Promise.all(
+                  reviews.map(async (review: { profile: File | null; count: 1 | 2 | 3; nick: string; gen: string; contact: string; content: string }) => {
+                    if (!review.profile) return;
+              
+                    const reviewData = new FormData();
+                    const profileImage = images[`image${review.count + 3}` as keyof typeof images];
+              
+                    if (profileImage) reviewData.append("profile", profileImage);
+                    reviewData.append("nick", review.nick);
+                    reviewData.append("gen", review.gen);
+                    reviewData.append("contact", review.contact);
+                    reviewData.append("content", review.content);
+              
+                    const optionsReview = {
+                      method: "PATCH",
+                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${review.count}`,
+                      headers: {
+                        "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+                        Authorization: `${cookies.get("oph2025-auth-cookie")}`,
+                      },
+                      data: reviewData,
+                    };
+              
+                    // Send the request
+                    const responseReview = await axios.request(optionsReview);
+                    console.log(responseReview.data); // Log response if needed
+                    return responseReview;
+                  })
+                );
+              
+                console.log("Update responses:", responses);
               } catch (error) {
-                console.log(error);
+                console.error("Error updating reviews:", error);
               }
+              
             } catch (error) {
               console.log(error);
               notifyError();
@@ -593,7 +607,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="IG"
-                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px]"
+                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px] xl:w-full"
                           />
                           <FaPen className="h-2 text-white" />
                         </div>
@@ -602,7 +616,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="FB"
-                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px]"
+                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px] xl:w-full"
                           />
                           <FaPen className="h-2 text-white" />
                         </div>
@@ -611,7 +625,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="others"
-                            className="bg-transparent pl-3 text-center text-xs text-white sm:text-lg md:w-[360px]"
+                            className="bg-transparent pl-3 text-center text-xs text-white sm:text-lg md:w-[360px] xl:w-full"
                           />
                           <FaPen className="h-2 text-white" />
                         </div>
@@ -673,7 +687,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="IG"
-                              className="w-8 text-[8px] sm:text-lg bg-transparent text-center text-white md:w-[360px]"
+                              className="ml-1 md:ml-2 w-8 text-[8px] sm:text-lg bg-transparent text-center text-white md:w-[260px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -682,7 +696,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="FB"
-                              className="w-8 bg-transparent text-[8px] sm:text-lg text-center text-xs text-white md:w-[360px]"
+                              className="ml-1 md:ml-2 w-8 bg-transparent text-[8px] sm:text-lg text-center text-white md:w-[260px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -691,7 +705,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="others"
-                              className="w-8 bg-transparent text-[8px] sm:text-lg text-center text-xs text-white md:w-[360px]"
+                              className="ml-1 md:ml-2 w-8 bg-transparent text-[8px] sm:text-lg text-center text-white md:w-[260px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -750,7 +764,7 @@ const GeneralForm: React.FC<{
                           />
                           <button
                             onClick={() => setDisplayImage1(false)}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 xl:right-24"
                           >
                             X
                           </button>
@@ -845,7 +859,7 @@ const GeneralForm: React.FC<{
                           />
                           <button
                             onClick={() => setDisplayImage2(false)}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 xl:right-24"
                           >
                             X
                           </button>
@@ -940,7 +954,7 @@ const GeneralForm: React.FC<{
                           />
                           <button
                             onClick={() => setDisplayImage3(false)}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 xl:right-24"
                           >
                             X
                           </button>

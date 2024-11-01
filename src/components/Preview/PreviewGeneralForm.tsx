@@ -34,16 +34,9 @@ const PreviewGeneralForm: React.FC<{
   review1: any;
   review2: any;
   review3: any;
-}> = ({ editFormData, review1, review2, review3 }) => {
-  const [ReviewAmount, setReviewAmount] = useState(0);
-
-  useEffect(() => {
-    let count = 0;
-    if (review1.nick !== "") count += 1;
-    if (review2.nick !== "") count += 1;
-    if (review3.nick !== "") count += 1;
-    setReviewAmount(count);
-  }, []);
+  reviews: any;
+}> = ({ editFormData, review1, review2, review3, reviews }) => {
+  const ReviewAmount = reviews;
 
   return (
     <section className="via-41% relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] via-[#91CDAD] to-[#C8E5BD]">
@@ -51,7 +44,7 @@ const PreviewGeneralForm: React.FC<{
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
       <div className="absolute -top-36 left-1/2 -translate-x-1/2 overflow-hidden">
-        <BigUppercurve className="hidden w-[100vw] lg:block 2xl:w-[120vw]" />
+        <BigUppercurve className="hidden w-[100vw] lg:block md:h-[50vw]" />
       </div>
       <div className="absolute -top-[76px]">
         <FallingLamp className="w-[100vw] sm:hidden" />
@@ -59,7 +52,7 @@ const PreviewGeneralForm: React.FC<{
       <div className="absolute right-0 sm:top-[146px]">
         <ClubFallingLamp className="hidden w-2 sm:block" />
       </div>
-      <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[400px] lg:mx-48 2xl:pt-[520px]">
+      <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[400px] lg:mx-48 xl:mx-60 2xl:pt-[520px]">
         <section className="flex items-center justify-between">
           <div className="flex items-center justify-center space-x-1">
             <Link href="/account">
@@ -171,8 +164,8 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               </div> */}
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[470px] lg:-left-[570px] lg:top-0">
-                  <Stainedglass className="w-16 sm:w-32 lg:w-72" />
+                <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[470px] lg:-left-[570px] xl:-left-[800px] lg:top-0">
+                  <Stainedglass className="w-16 sm:w-32 lg:w-72 xl:w-96" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
@@ -189,16 +182,20 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               </div>
             </div>
-            <p className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl">
-              {editFormData.text1}
-            </p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: editFormData.text1 || "",
+              }}
+              className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl"
+            >
+            </div>
           </div>
           {/* section 2 */}
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col-reverse items-center justify-between sm:flex-row md:mb-8">
               <div className="relative sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -right-12 -top-52 z-10 sm:-right-[264px] md:-right-[400px] md:-top-10 lg:-right-[540px]">
-                  <Flower className="w-16 sm:w-28 md:w-52 lg:w-72" />
+                <div className="absolute -right-12 -top-52 z-10 sm:-right-[264px] md:-right-[400px] md:-top-10 lg:-right-[540px] xl:-right-[770px]">
+                  <Flower className="w-16 sm:w-28 md:w-52 lg:w-72 xl:w-96" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
@@ -224,16 +221,16 @@ const PreviewGeneralForm: React.FC<{
                     จากการเข้าชมรม
                   </p>
                   <div className="flex justify-center">
-                  <SLamp2 className="hidden sm:block sm:w-28" />
-                </div>
+                    <SLamp2 className="hidden sm:block sm:w-28" />
+                  </div>
                 </div>
               ) : editFormData.tagThai === "องค์กร" ? (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                   <p className="sm:text-lg md:text-5xl lg:text-6xl">ตำแหน่ง</p>
                   <p className="sm:text-lg md:text-2xl lg:text-4xl">/หน้าที่</p>
                   <div className="flex justify-center">
-                  <SLamp2 className="hidden sm:block sm:w-28" />
-                </div>
+                    <SLamp2 className="hidden sm:block sm:w-28" />
+                  </div>
                 </div>
               ) : (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
@@ -241,62 +238,60 @@ const PreviewGeneralForm: React.FC<{
                   <p className="sm:text-lg md:text-2xl">หลักสูตรเพิ่มเติม</p>
                   <p className="sm:text-lg md:text-2xl">ที่เรียน</p>
                   <div className="flex justify-center">
-                  <SLamp2 className="hidden sm:block sm:w-28" />
-                </div>
+                    <SLamp2 className="hidden sm:block sm:w-28" />
+                  </div>
                 </div>
               )}
             </div>
-            <p className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl">
-              {editFormData.text2}
-            </p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: editFormData.text2 || "",
+              }}
+              className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl"
+            >
+            </div>
           </div>
           {/* section 3 */}
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col items-end justify-between sm:flex-row md:mb-8 md:items-center">
-            {editFormData.tagThai === "ชมรม" ? (
-                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                      <p className="sm:text-5xl md:text-6xl lg:text-7xl">
-                        ผลงาน
-                      </p>
-                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
-                        ของชมรม
-                      </p>
-                      <div className="flex justify-center">
-                  <SLamp3 className="hidden sm:block sm:w-28" />
+              {editFormData.tagThai === "ชมรม" ? (
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="sm:text-5xl md:text-6xl lg:text-7xl">ผลงาน</p>
+                  <p className="sm:text-3xl md:text-4xl lg:text-5xl">ของชมรม</p>
+                  <div className="flex justify-center">
+                    <SLamp3 className="hidden sm:block sm:w-28" />
+                  </div>
                 </div>
-                    </div>
-                  ) : editFormData.tagThai === "องค์กร" ? (
-                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
-                      <p className="sm:text-5xl md:text-4xl lg:text-5xl">
-                        ผลงาน
-                      </p>
-                      <p className="sm:text-3xl md:text-3xl lg:text-5xl">
-                        ขององค์กร
-                      </p>
-                      <div className="flex justify-center">
-                  <SLamp3 className="hidden sm:block sm:w-28" />
+              ) : editFormData.tagThai === "องค์กร" ? (
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
+                  <p className="sm:text-5xl md:text-4xl lg:text-5xl">ผลงาน</p>
+                  <p className="sm:text-3xl md:text-3xl lg:text-5xl">
+                    ขององค์กร
+                  </p>
+                  <div className="flex justify-center">
+                    <SLamp3 className="hidden sm:block sm:w-28" />
+                  </div>
                 </div>
-                    </div>
-                  ) : (
-                    <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                      <p className="-mb-3 sm:text-xl sm:leading-[2] md:text-4xl md:leading-[1.7] lg:text-5xl lg:leading-[1.5]">
-                        ความน่าสนใจ
-                      </p>
-                      <p className="sm:text-5xl md:text-6xl lg:text-7xl">ของ</p>
-                      <p className="sm:text-3xl md:text-4xl lg:text-5xl">
-                        สายการเรียน
-                      </p>
-                      <div className="flex justify-center">
-                  <SLamp3 className="hidden sm:block sm:w-28" />
+              ) : (
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                  <p className="-mb-3 sm:text-xl sm:leading-[2] md:text-4xl md:leading-[1.7] lg:text-5xl lg:leading-[1.5]">
+                    ความน่าสนใจ
+                  </p>
+                  <p className="sm:text-5xl md:text-6xl lg:text-7xl">ของ</p>
+                  <p className="sm:text-3xl md:text-4xl lg:text-5xl">
+                    สายการเรียน
+                  </p>
+                  <div className="flex justify-center">
+                    <SLamp3 className="hidden sm:block sm:w-28" />
+                  </div>
                 </div>
-                    </div>
-                  )}
+              )}
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
                 <div className="absolute -left-10 -top-60 -z-10">
                   <Lamp className="w-32 sm:hidden" />
                 </div>
-                <div className="absolute -left-[344px] -top-48 md:-left-[470px] lg:-left-[570px]">
-                  <LeftFrames className="hidden sm:block sm:w-32 md:w-44 lg:w-52" />
+                <div className="absolute -left-[344px] -top-48 md:-left-[470px] lg:-left-[570px] xl:-left-[770px]">
+                  <LeftFrames className="hidden sm:block sm:w-32 md:w-44 lg:w-52 xl:w-72" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
@@ -312,20 +307,24 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               </div>
             </div>
-            <p className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl">
-              {editFormData.text3}
-            </p>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: editFormData.text3 || "",
+              }}
+              className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl"
+            >
+            </div>
           </div>
           {/* section 3 */}
 
           {/* end section3 */}
 
           <div className="mb-4 flex items-center justify-center space-x-4">
-            <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36"></div>
+            <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36 xl:w-48"></div>
             <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-[1.85] text-transparent sm:text-4xl sm:leading-[1.6]">
               รีวิวจากรุ่นพี่
             </p>
-            <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36"></div>
+            <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36 xl:w-48"></div>
           </div>
 
           <section className="flex flex-col space-y-10">
@@ -361,7 +360,9 @@ const PreviewGeneralForm: React.FC<{
                   <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                     <DoubleQuoteUp className="h-4 w-4 text-greenText" />
                   </div>
-                  <p className="text-white sm:text-xl">{review1.content}</p>
+                  <div dangerouslySetInnerHTML={{
+                          __html: review1.content || "",
+                        }} className="text-white sm:text-xl"></div>
                   <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6">
                     <DoubleQuoteDown className="h-4 w-4 text-greenText" />
                   </div>
@@ -378,7 +379,9 @@ const PreviewGeneralForm: React.FC<{
                     <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                       <DoubleQuoteUp className="h-4 w-4 text-greenText" />
                     </div>
-                    <p className="text-white sm:text-xl">{review2.content}</p>
+                    <div dangerouslySetInnerHTML={{
+                          __html: review2.content || "",
+                        }} className="text-white sm:text-xl"></div>
                     <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6">
                       <DoubleQuoteDown className="h-4 w-4 text-greenText" />
                     </div>
@@ -433,7 +436,9 @@ const PreviewGeneralForm: React.FC<{
                     <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                       <DoubleQuoteUp className="h-4 w-4 text-greenText" />
                     </div>
-                    <p className="text-white sm:text-lg">{review3.content}</p>
+                    <div dangerouslySetInnerHTML={{
+                          __html: review3.content || "",
+                        }} className="text-white sm:text-xl"></div>
                     <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6">
                       <DoubleQuoteDown className="h-4 w-4 text-greenText" />
                     </div>
@@ -445,7 +450,7 @@ const PreviewGeneralForm: React.FC<{
         </section>
       </section>
 
-      <div className="relative overflow-hidden pb-48 sm:pb-96 md:pb-[580px]">
+      <div className="relative overflow-hidden pb-48 sm:pb-96 md:pb-[580px] xl:pb-[900px]">
         <div className="absolute -bottom-[150px] left-1/2 -translate-x-1/2 sm:-bottom-[80px] md:-bottom-[20px] lg:hidden">
           <Lowercurve className="w-[100vw]" />
         </div>
@@ -453,10 +458,10 @@ const PreviewGeneralForm: React.FC<{
           <Footer className="w-[100vw] lg:hidden" />
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:-bottom-14 xl:bottom-0 2xl:-bottom-10">
-          <BigLowercurve className="hidden w-[100vw] lg:block" />
+          <BigLowercurve className="hidden w-[100vw] lg:block md:h-[50vw]" />
         </div>
-        <div className="absolute -bottom-10 z-10 2xl:-bottom-20">
-          <BigFooter className="hidden w-[100vw] lg:block" />
+        <div className="absolute -bottom-10 z-10 xl:-bottom-5">
+          <BigFooter className="hidden w-[100vw] lg:block md:h-[10vw]" />
         </div>
         {/* <div className="absolute z-20 -bottom-48">
     <Footer className="w-full" />
