@@ -10,8 +10,8 @@ import BrickSmall from "@/vectors/landing/BrickSmall";
 import { redirect } from "next/navigation";
 
 const page = async () => {
-  const userData = await apiFunction("GET", "/user", {});
-  if (userData?.data?.success !== false) {
+  const checkUser = await apiFunction("GET", "/user", {});
+  if(checkUser.status === 200) {
     redirect("/account");
   }
   return (

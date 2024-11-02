@@ -28,17 +28,17 @@ const SLamp3: FC<{
       <path
         d="M33.0771 69.629C34.1289 67.3992 36.3729 65.9766 38.8383 65.9766H91.7854C94.1166 65.9766 96.2616 67.25 97.3777 69.2966L129.971 129.058C132.286 133.303 129.214 138.478 124.379 138.478H67.8546H10.6485C5.97668 138.478 2.89416 133.616 4.88728 129.39L33.0771 69.629Z"
         fill="url(#paint2_radial_153_1732)"
-        fill-opacity="0.7"
+        fillOpacity="0.7"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M104.649 82.0507C114.07 73.3404 119.864 61.4859 119.864 48.4233C119.864 21.6799 95.5752 0 65.6129 0C35.6506 0 11.3613 21.6799 11.3613 48.4233C11.3613 61.4859 17.1561 73.3404 26.5763 82.0507H104.649Z"
         fill="url(#paint3_radial_153_1732)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M104.649 82.0507C114.07 73.3404 119.864 61.4859 119.864 48.4233C119.864 21.6799 95.5752 0 65.6129 0C35.6506 0 11.3613 21.6799 11.3613 48.4233C11.3613 61.4859 17.1561 73.3404 26.5763 82.0507H104.649Z"
         fill="url(#paint4_linear_153_1732)"
       />
@@ -50,9 +50,9 @@ const SLamp3: FC<{
           width="109.042"
           height="55.2654"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -86,8 +86,8 @@ const SLamp3: FC<{
           y2="114.628"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_153_1732"
@@ -97,8 +97,8 @@ const SLamp3: FC<{
           y2="111.643"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.095" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#FFDD77" />
+          <stop offset="0.095" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#FFDD77" />
         </linearGradient>
         <radialGradient
           id="paint2_radial_153_1732"
@@ -108,8 +108,8 @@ const SLamp3: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(66.4237 71.2234) rotate(90) scale(67.2546 149.552)"
         >
-          <stop offset="0.115" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop offset="0.115" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="paint3_radial_153_1732"
@@ -119,9 +119,9 @@ const SLamp3: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(65.1645 27.5) rotate(90) scale(82.7976 92.7631)"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.41" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.41" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </radialGradient>
         <linearGradient
           id="paint4_linear_153_1732"
@@ -131,8 +131,8 @@ const SLamp3: FC<{
           y2="112"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D7D993" stop-opacity="0" />
-          <stop offset="1" stop-color="#D7D993" />
+          <stop stopColor="#D7D993" stopOpacity="0" />
+          <stop offset="1" stopColor="#D7D993" />
         </linearGradient>
       </defs>
     </svg>

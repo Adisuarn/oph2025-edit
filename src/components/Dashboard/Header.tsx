@@ -34,9 +34,9 @@ const Header = ({ type, data }: any) => {
         })
         ()} {data.data.members} คน</p>
       <div className="mt-6">
-        <p className="text-[#828282] font-normal">IG: {data.data.ig}</p>
-        <p className="text-[#828282] font-normal">FB: {data.data.fb}</p>
-        <p className="text-[#828282] font-normal">อื่น ๆ: {data.data.others}</p>
+        <p className="text-[#828282] font-normal">IG : {data.data.ig || '-'}</p>
+        <p className="text-[#828282] font-normal">FB : {data.data.fb || '-'}</p>
+        <p className="text-[#828282] font-normal">อื่น ๆ : {data.data.others || '-'}</p>
       </div>
     </>
   )

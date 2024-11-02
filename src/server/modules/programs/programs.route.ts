@@ -22,7 +22,7 @@ export const programRouter = new Elysia({ prefix: '/programs' })
       if (userData?.TUCMC === true) {
         return
       } else if (userData?.email !== programData.email) {
-        return error(401, 'Unauthorized')
+        return error(403, 'Forbidden')
     }},
     params: t.Object({
       name: UnionField(
@@ -34,7 +34,13 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     })
   })
   .get('/:name', async ({ params: { name } }) => {
-    return await getProgramByName(name)
+    const response = await getProgramByName(name)
+    switch(response.status) {
+      case 200:
+        return response
+      case 500:
+        return error(500, 'Error while getting program')
+    }
   },
     {
       params: t.Object({
@@ -42,7 +48,15 @@ export const programRouter = new Elysia({ prefix: '/programs' })
       })
     })
   .patch('/:name', async ({ params: { name }, body, request: { headers }}) => {
-    return await updateProgramData(name, body, headers)
+    const response = await updateProgramData(name, body, headers)
+    switch(response.status) {
+      case 200:
+        return response
+      case 400:
+        return error(400, 'User already created a program')
+      case 500:
+        return error(500, 'Error while updating program')
+    }
   },
     {
       params: t.Object({
@@ -68,7 +82,13 @@ export const programRouter = new Elysia({ prefix: '/programs' })
       }),
     })
   .get('/:name/review', async ({ params: { name } }) => {
-    return await getProgramReviews(name)
+    const response = await getProgramReviews(name)
+    switch(response.status) {
+      case 200:
+        return response
+      case 500:
+        return error(500, 'Error while getting program reviews')
+    }
   }, {
     params: t.Object({
       name: UnionField(true, 'Invalid Program Name', Object.keys(AllData.Programs))
@@ -76,9 +96,13 @@ export const programRouter = new Elysia({ prefix: '/programs' })
   })
   .post('/:name/review', async ({ params: { name }, set }) => {
     const response = await createProgramReview(name)
-    if (response?.success) {
-      set.status = 201
-      return response
+    switch(response.status) {
+      case 200:
+        return response
+      case 400:
+        return error(400, 'Review reachs limit')
+      case 500:
+        return error(500, 'Error while creating program review')
     }
   }, {
     params: t.Object({
@@ -86,7 +110,13 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     })
   })
   .patch('/:name/review/:id', async ({ params: { name, id }, body }) => {
-    return await updateProgramReview(name, id, body as ReviewData)
+    const response = await updateProgramReview(name, id, body as ReviewData)
+    switch(response.status) {
+      case 200:
+        return response
+      case 500:
+        return error(500, 'Error while updating program review')
+    }
   }, {
     params: t.Object({
       name: UnionField(true, 'Invalid Program Name', Object.keys(AllData.Programs)),
@@ -101,7 +131,13 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     })
   })
   .delete('/:name/review/:id', async ({ params: { name, id } }) => {
-    return await deleteProgramReview(name, id)
+    const response = await deleteProgramReview(name, id)
+    switch(response.status) {
+      case 200:
+        return response.message
+      case 500:
+        return error(500, 'Error while deleting program review')
+    }
   },
     {
       params: t.Object({

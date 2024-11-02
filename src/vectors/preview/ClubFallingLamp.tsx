@@ -35,8 +35,8 @@ const ClubFallingLamp: FC<{
           <path
             d="M372.248 212L370.557 441.929"
             stroke="url(#paint3_linear_153_1378)"
-            stroke-width="11.8345"
-            stroke-linecap="round"
+            strokeWidth="11.8345"
+            strokeLinecap="round"
           />
         </g>
         <ellipse
@@ -86,8 +86,8 @@ const ClubFallingLamp: FC<{
           <path
             d="M300.521 146L299.792 245.208"
             stroke="url(#paint9_linear_153_1378)"
-            stroke-width="6.67656"
-            stroke-linecap="round"
+            strokeWidth="6.67656"
+            strokeLinecap="round"
           />
         </g>
         <ellipse
@@ -136,8 +136,8 @@ const ClubFallingLamp: FC<{
           <path
             d="M175.797 7L175.797 297"
             stroke="url(#paint15_linear_153_1378)"
-            stroke-width="14"
-            stroke-linecap="round"
+            strokeWidth="14"
+            strokeLinecap="round"
           />
         </g>
         <ellipse
@@ -197,9 +197,9 @@ const ClubFallingLamp: FC<{
           width="298.97"
           height="491.134"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -218,9 +218,9 @@ const ClubFallingLamp: FC<{
           width="220.534"
           height="362.283"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -239,9 +239,9 @@ const ClubFallingLamp: FC<{
           width="353.675"
           height="581"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -260,9 +260,9 @@ const ClubFallingLamp: FC<{
           width="160"
           height="387.3"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -295,9 +295,9 @@ const ClubFallingLamp: FC<{
           width="27.0506"
           height="255.288"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -330,9 +330,9 @@ const ClubFallingLamp: FC<{
           width="122"
           height="218.464"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -365,9 +365,9 @@ const ClubFallingLamp: FC<{
           width="15.0356"
           height="113.514"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -400,9 +400,9 @@ const ClubFallingLamp: FC<{
           width="188.806"
           height="473.24"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -435,9 +435,9 @@ const ClubFallingLamp: FC<{
           width="30"
           height="320"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -471,9 +471,9 @@ const ClubFallingLamp: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(372.25 550.976) rotate(90) scale(210.486 116.538)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.3" stop-color="#FFF7EB" stop-opacity="0.5" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.3" stopColor="#FFF7EB" stopOpacity="0.5" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_153_1378"
@@ -483,9 +483,9 @@ const ClubFallingLamp: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(301.041 325.646) rotate(90) scale(155.264 85.9643)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.3" stop-color="#FFF7EB" stop-opacity="0.5" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.3" stopColor="#FFF7EB" stopOpacity="0.5" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="paint2_radial_153_1378"
@@ -495,9 +495,9 @@ const ClubFallingLamp: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(177.798 426) rotate(90) scale(249 137.862)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.3" stop-color="#FFF7EB" stop-opacity="0.5" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.3" stopColor="#FFF7EB" stopOpacity="0.5" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <linearGradient
           id="paint3_linear_153_1378"
@@ -507,9 +507,9 @@ const ClubFallingLamp: FC<{
           y2="153.515"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_153_1378"
@@ -519,8 +519,8 @@ const ClubFallingLamp: FC<{
           y2="577.383"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_153_1378"
@@ -530,10 +530,10 @@ const ClubFallingLamp: FC<{
           y2="676.351"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_153_1378"
@@ -543,10 +543,10 @@ const ClubFallingLamp: FC<{
           y2="676.351"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_153_1378"
@@ -556,8 +556,8 @@ const ClubFallingLamp: FC<{
           y2="551.465"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_153_1378"
@@ -567,8 +567,8 @@ const ClubFallingLamp: FC<{
           y2="514.995"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_153_1378"
@@ -578,9 +578,9 @@ const ClubFallingLamp: FC<{
           y2="119.462"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_153_1378"
@@ -590,8 +590,8 @@ const ClubFallingLamp: FC<{
           y2="345.126"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_153_1378"
@@ -601,10 +601,10 @@ const ClubFallingLamp: FC<{
           y2="417.579"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_153_1378"
@@ -614,10 +614,10 @@ const ClubFallingLamp: FC<{
           y2="417.579"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_153_1378"
@@ -627,8 +627,8 @@ const ClubFallingLamp: FC<{
           y2="326.007"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_153_1378"
@@ -638,8 +638,8 @@ const ClubFallingLamp: FC<{
           y2="299.105"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_153_1378"
@@ -649,9 +649,9 @@ const ClubFallingLamp: FC<{
           y2="-88.9748"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_153_1378"
@@ -661,8 +661,8 @@ const ClubFallingLamp: FC<{
           y2="457.24"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_153_1378"
@@ -672,8 +672,8 @@ const ClubFallingLamp: FC<{
           y2="457.24"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_153_1378"
@@ -683,10 +683,10 @@ const ClubFallingLamp: FC<{
           y2="580"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_153_1378"
@@ -696,10 +696,10 @@ const ClubFallingLamp: FC<{
           y2="580"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.183058" stop-color="#D9523B" />
-          <stop offset="0.350471" stop-color="#D9392B" />
-          <stop offset="0.455" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.183058" stopColor="#D9523B" />
+          <stop offset="0.350471" stopColor="#D9392B" />
+          <stop offset="0.455" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_153_1378"
@@ -709,8 +709,8 @@ const ClubFallingLamp: FC<{
           y2="426.579"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_153_1378"
@@ -720,8 +720,8 @@ const ClubFallingLamp: FC<{
           y2="383.436"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

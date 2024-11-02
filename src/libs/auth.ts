@@ -7,7 +7,8 @@ export const lucia = new Lucia(adapter, {
         name: 'oph2025-auth-cookie',
         expires: false,
 		attributes: {
-			secure: process.env.NODE_ENV === "production"
+			secure: process.env.NODE_ENV === 'production',
+            sameSite: 'none'
 		}
 	},
     getUserAttributes: (attributes) => {

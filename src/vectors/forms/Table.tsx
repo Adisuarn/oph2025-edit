@@ -105,9 +105,9 @@ const Table: FC<{
           width="294"
           height="152"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -140,9 +140,9 @@ const Table: FC<{
           width="314"
           height="53"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -176,9 +176,9 @@ const Table: FC<{
           y2="353.013"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.17" stop-color="#15786C" />
-          <stop offset="0.556002" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.17" stopColor="#15786C" />
+          <stop offset="0.556002" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_415_287"
@@ -188,9 +188,9 @@ const Table: FC<{
           y2="180.611"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.129187" stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.129187" stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_415_287"
@@ -200,9 +200,9 @@ const Table: FC<{
           y2="138.288"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.17" stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.17" stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_415_287"
@@ -212,9 +212,9 @@ const Table: FC<{
           y2="-63.5833"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.19594" stop-color="#15786C" />
-          <stop offset="0.745" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.19594" stopColor="#15786C" />
+          <stop offset="0.745" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_415_287"
@@ -224,9 +224,9 @@ const Table: FC<{
           y2="-80.3592"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_415_287"
@@ -236,9 +236,9 @@ const Table: FC<{
           y2="-80.3592"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_415_287"
@@ -248,8 +248,8 @@ const Table: FC<{
           y2="-80.7108"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-opacity="0" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopOpacity="0" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_415_287"
@@ -259,8 +259,8 @@ const Table: FC<{
           y2="128"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F8B043" />
+          <stop stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F8B043" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_415_287"
@@ -270,10 +270,10 @@ const Table: FC<{
           y2="106"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D27709" />
-          <stop offset="0.316125" stop-color="#F5B747" />
-          <stop offset="0.6503" stop-color="#F5B747" />
-          <stop offset="1" stop-color="#D27709" />
+          <stop stopColor="#D27709" />
+          <stop offset="0.316125" stopColor="#F5B747" />
+          <stop offset="0.6503" stopColor="#F5B747" />
+          <stop offset="1" stopColor="#D27709" />
         </linearGradient>
       </defs>
     </svg>

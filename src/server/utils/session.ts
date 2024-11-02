@@ -16,7 +16,7 @@ export const checkSession = cache(async(headers: Headers) => {
       const sessionCookie = lucia.createSessionCookie(session.id)
       cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
     }
-    return { success:true, data: { user } }
+    return { success : true, data: { user } }
   } catch (err) {
     throw error(500, 'Internal Server Error')
   }  

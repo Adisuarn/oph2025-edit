@@ -1,9 +1,12 @@
 'use server'
 import apiFunction from "./api"
-export default async function postInfo (data : any){
-    try {
-        const response = await apiFunction("POST", "/roles/record", data)
-      } catch (error) {
-        console.log(error)
-      }
-}
+
+export const postRecord = async (dataRecord: any) => {
+  try {
+    const response = await apiFunction("POST", "/roles/record", dataRecord);
+    return { status: response.status, data: response.data };
+  } catch (error) {
+    console.log(error)
+  }
+};
+

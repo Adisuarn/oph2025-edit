@@ -1,21 +1,30 @@
 'use server'
-import { redirect } from "next/navigation";
 import apiFunction from "@/components/api"
+import { redirect } from "next/navigation"
 
-export async function handler() {
-  const user = await apiFunction('GET', '/user', {});
-  if(!user.data.TUCMC) {
-    redirect('/403')
+async function checkUserAccess(){
+  const response = await apiFunction('GET', '/user', {})
+  switch(response.status) {
+    case 401:
+      redirect('/')
+    case 500:
+      redirect('/error/500')
+  }
+  return response.data.TUCMC
+}
+
+export async function fetchHandler() {
+  const hasAccess = await checkUserAccess();
+  if (!hasAccess) {
+    redirect('/error/403')
   }
   const data = await apiFunction('GET', '/tucmc/data', {});
   const organizations = data.data.data.organizations;
   const programs = data.data.data.programs;
   const clubs = data.data.data.clubs;
   const gifted = data.data.data.gifted;
-  const userData = user.data
   return {
     props: {
-      userData,
       organizations,
       programs,
       clubs,

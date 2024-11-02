@@ -49,8 +49,8 @@ const Frames: FC<{
           width="65.9545"
           height="89.1397"
           stroke="url(#paint4_linear_190_2293)"
-          stroke-width="14.0638"
-          shape-rendering="crispEdges"
+          strokeWidth="14.0638"
+          shapeRendering="crispEdges"
         />
       </g>
       <ellipse
@@ -84,8 +84,8 @@ const Frames: FC<{
         <path
           d="M54.7309 208.225C77.8571 208.225 94.6472 186.124 94.6472 161.508C94.6472 136.892 77.8571 114.791 54.7309 114.791C31.6047 114.791 14.8146 136.892 14.8146 161.508C14.8146 186.124 31.6047 208.225 54.7309 208.225Z"
           stroke="url(#paint8_radial_190_2293)"
-          stroke-width="13.0592"
-          shape-rendering="crispEdges"
+          strokeWidth="13.0592"
+          shapeRendering="crispEdges"
         />
       </g>
       <g filter="url(#filter4_d_190_2293)">
@@ -96,7 +96,7 @@ const Frames: FC<{
         <path
           d="M131.051 224.128L125.307 216.333L119.671 224.206L82.1335 276.649L79.249 280.679L82.0742 284.75L119.612 338.849L125.306 347.055L131.112 338.928L169.754 284.829L172.719 280.677L169.693 276.57L131.051 224.128Z"
           stroke="url(#paint10_linear_190_2293)"
-          stroke-width="14.0638"
+          strokeWidth="14.0638"
         />
       </g>
       <g style={{ mixBlendMode: "soft-light" }}>
@@ -119,9 +119,9 @@ const Frames: FC<{
           width="59.9271"
           height="83.1121"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -154,9 +154,9 @@ const Frames: FC<{
           width="59.9271"
           height="83.1121"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -189,9 +189,9 @@ const Frames: FC<{
           width="88.055"
           height="111.24"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -224,9 +224,9 @@ const Frames: FC<{
           width="100.928"
           height="114.53"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -259,9 +259,9 @@ const Frames: FC<{
           width="118.796"
           height="162.94"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -295,8 +295,8 @@ const Frames: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(92.8203 112.679) rotate(-55.6506) scale(133.057 91.966)"
         >
-          <stop offset="0.274226" stop-color="#F5EEBF" />
-          <stop offset="0.863341" stop-color="#6AB692" />
+          <stop offset="0.274226" stopColor="#F5EEBF" />
+          <stop offset="0.863341" stopColor="#6AB692" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_190_2293"
@@ -306,8 +306,8 @@ const Frames: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(92.8203 112.679) rotate(-55.6506) scale(133.057 91.966)"
         >
-          <stop offset="0.274226" stop-color="#F5EEBF" />
-          <stop offset="0.863341" stop-color="#6AB692" />
+          <stop offset="0.274226" stopColor="#F5EEBF" />
+          <stop offset="0.863341" stopColor="#6AB692" />
         </radialGradient>
         <linearGradient
           id="paint2_linear_190_2293"
@@ -317,8 +317,8 @@ const Frames: FC<{
           y2="68.9334"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_190_2293"
@@ -328,8 +328,8 @@ const Frames: FC<{
           y2="83.8877"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_190_2293"
@@ -339,9 +339,9 @@ const Frames: FC<{
           y2="132"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.356325" stop-color="#D9392B" />
-          <stop offset="0.824223" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.356325" stopColor="#D9392B" />
+          <stop offset="0.824223" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_190_2293"
@@ -351,8 +351,8 @@ const Frames: FC<{
           y2="234.376"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.277793" stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#F28041" />
+          <stop offset="0.277793" stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#F28041" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_190_2293"
@@ -362,8 +362,8 @@ const Frames: FC<{
           y2="176.701"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_190_2293"
@@ -373,8 +373,8 @@ const Frames: FC<{
           y2="184.035"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint8_radial_190_2293"
@@ -384,8 +384,8 @@ const Frames: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(61.3553 150.467) rotate(110.647) scale(81.4088 67.6319)"
         >
-          <stop stop-color="#7DCAA0" />
-          <stop offset="0.784744" stop-color="#15786C" />
+          <stop stopColor="#7DCAA0" />
+          <stop offset="0.784744" stopColor="#15786C" />
         </radialGradient>
         <radialGradient
           id="paint9_radial_190_2293"
@@ -395,8 +395,8 @@ const Frames: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(109.381 246.516) rotate(80.2833) scale(81.7692 58.4671)"
         >
-          <stop stop-color="#F5EEBF" />
-          <stop offset="1" stop-color="#6AB692" />
+          <stop stopColor="#F5EEBF" />
+          <stop offset="1" stopColor="#6AB692" />
         </radialGradient>
         <linearGradient
           id="paint10_linear_190_2293"
@@ -406,9 +406,9 @@ const Frames: FC<{
           y2="364.65"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_190_2293"
@@ -418,8 +418,8 @@ const Frames: FC<{
           y2="296.361"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_190_2293"
@@ -429,8 +429,8 @@ const Frames: FC<{
           y2="309.75"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

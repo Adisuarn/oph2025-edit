@@ -19,8 +19,8 @@ const Vine: FC<{
       <path
         d="M-30 96.2029C-30 96.2029 3.86668 57.64 64.9477 55.1359C126.029 52.6318 175.619 85.1849 179.852 115.735C184.086 146.285 117.581 156.468 120 177C122.419 197.532 190.133 192.961 179.852 218C169.572 243.039 77 252 91 283"
         stroke="url(#paint1_linear_415_288)"
-        stroke-width="8"
-        stroke-linecap="round"
+        strokeWidth="8"
+        strokeLinecap="round"
       />
       <path
         d="M63.0593 90.2527C67.9718 97.1593 80.1402 99.5513 89.0461 93.2169C97.9521 86.8824 97.6552 67.1262 92.7428 60.2196C87.8303 53.3129 78.2579 58.1443 69.3519 64.4788C60.446 70.8133 58.1469 83.3461 63.0593 90.2527Z"
@@ -29,8 +29,8 @@ const Vine: FC<{
       <path
         d="M87.8216 58C87.6482 70.8149 78.0002 83.1504 78.0002 83.1504"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M172.66 68.1083C174.03 61.6178 168.953 53.3452 160.584 51.5786C152.215 49.8119 141.001 60.4605 139.631 66.951C138.26 73.4415 146.118 76.3889 154.487 78.1556C162.857 79.9223 171.29 74.5988 172.66 68.1083Z"
@@ -39,8 +39,8 @@ const Vine: FC<{
       <path
         d="M140.581 70.2274C147.604 63.6198 159.322 62.3883 159.322 62.3883"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M130.183 116.064C122.41 118.191 116.295 128.273 119.038 138.296C121.781 148.318 139.516 154.514 147.289 152.387C155.061 150.26 153.879 140.134 151.136 130.111C148.393 120.088 137.956 113.937 130.183 116.064Z"
@@ -49,8 +49,8 @@ const Vine: FC<{
       <path
         d="M132 131.866C144.213 135.935 149.359 150.467 149.359 150.467"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M174.269 171.329C171.395 165.35 162.326 161.892 154.616 165.598C146.907 169.304 144.517 184.582 147.391 190.561C150.265 196.54 158.289 194.082 165.999 190.376C173.708 186.67 177.143 177.307 174.269 171.329Z"
@@ -59,8 +59,8 @@ const Vine: FC<{
       <path
         d="M162.307 174.459C154.228 180.75 151.06 192.852 151.06 192.852"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M131.962 208.963C124.623 207.173 115.027 212.657 112.718 222.121C110.41 231.584 122.132 244.726 129.471 246.516C136.81 248.306 140.444 239.467 142.752 230.004C145.06 220.54 139.3 210.753 131.962 208.963Z"
@@ -69,8 +69,8 @@ const Vine: FC<{
       <path
         d="M133.322 245.175C134.985 233.292 128 220.384 128 220.384"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M117.886 290.524C124.223 287.894 128.306 278.723 124.914 270.552C121.522 262.38 105.878 259.05 99.5414 261.681C93.2046 264.311 95.2902 272.737 98.6822 280.908C102.074 289.079 111.55 293.155 117.886 290.524Z"
@@ -79,8 +79,8 @@ const Vine: FC<{
       <path
         d="M114.383 278.616C110.489 268.473 98.1382 264.268 98.1382 264.268"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <rect
         x="-16"
@@ -101,8 +101,8 @@ const Vine: FC<{
       <path
         d="M37 31C32.5 43 37 58 37 58"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M111.646 109.579C118.724 106.746 123.391 96.6144 119.738 87.4875C116.086 78.3606 98.7515 74.4379 91.6735 77.2704C84.5955 80.1029 86.7928 89.4943 90.4453 98.6211C94.0978 107.748 104.568 112.411 111.646 109.579Z"
@@ -111,8 +111,8 @@ const Vine: FC<{
       <path
         d="M91.9998 78.4053C102.582 82.7162 108.605 95.2193 108.605 95.2193"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M182.588 9.96626C176.851 5.52702 166.289 6.58592 160.565 13.9841C154.841 21.3823 159.984 37.4925 165.722 41.9317C171.459 46.371 178.102 40.0387 183.827 32.6406C189.551 25.2424 188.326 14.4055 182.588 9.96626Z"
@@ -121,8 +121,8 @@ const Vine: FC<{
       <path
         d="M172.001 19.9999C165.845 29.6265 169.541 42.3948 169.541 42.3948"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M188.691 96.3939C188.224 104.325 195.71 113.218 205.937 113.82C216.164 114.422 227.548 99.8126 228.015 91.8815C228.482 83.9505 218.65 81.8593 208.424 81.2577C198.197 80.656 189.157 88.4629 188.691 96.3939Z"
@@ -131,8 +131,8 @@ const Vine: FC<{
       <path
         d="M226.5 89.9997C208.001 88 199.5 98.5 199.5 98.5"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M207.847 211.406C215.7 210.503 223.132 201.639 221.966 191.513C220.801 181.386 204.529 172.735 196.675 173.639C188.822 174.543 188.46 184.537 189.625 194.664C190.79 204.79 199.993 212.31 207.847 211.406Z"
@@ -141,8 +141,8 @@ const Vine: FC<{
       <path
         d="M209 198C206 183.5 194.001 175.5 194.001 175.5"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M189.653 275.226C182.11 274.358 174.971 265.844 176.091 256.117C177.21 246.391 192.84 238.081 200.383 238.949C207.926 239.817 208.275 249.417 207.155 259.144C206.036 268.871 197.196 276.094 189.653 275.226Z"
@@ -151,8 +151,8 @@ const Vine: FC<{
       <path
         d="M188.999 260.5C191.999 246 201.999 240.5 201.999 240.5"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M275.733 289.034C274.773 282.364 267.04 276.247 258.439 277.486C249.838 278.725 242.862 292.8 243.822 299.47C244.783 306.14 253.308 306.206 261.909 304.967C270.51 303.729 276.694 295.704 275.733 289.034Z"
@@ -161,8 +161,8 @@ const Vine: FC<{
       <path
         d="M246.5 303C250.5 292.5 262.5 288 262.5 288"
         stroke="#0C453E"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <defs>
         <linearGradient
@@ -173,8 +173,8 @@ const Vine: FC<{
           y2="185.711"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="1" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="1" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_415_288"
@@ -184,9 +184,9 @@ const Vine: FC<{
           y2="350.667"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.45" stop-color="#15786C" />
-          <stop offset="1" stop-color="#ADDB64" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.45" stopColor="#15786C" />
+          <stop offset="1" stopColor="#ADDB64" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_415_288"
@@ -196,9 +196,9 @@ const Vine: FC<{
           y2="44.6502"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_415_288"
@@ -208,9 +208,9 @@ const Vine: FC<{
           y2="89.3982"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.68087" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.68087" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_415_288"
@@ -220,9 +220,9 @@ const Vine: FC<{
           y2="177"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.345196" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.345196" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_415_288"
@@ -232,9 +232,9 @@ const Vine: FC<{
           y2="203.345"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_415_288"
@@ -244,9 +244,9 @@ const Vine: FC<{
           y2="253.604"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_415_288"
@@ -256,9 +256,9 @@ const Vine: FC<{
           y2="263.478"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_415_288"
@@ -268,8 +268,8 @@ const Vine: FC<{
           y2="104.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="1" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="1" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_415_288"
@@ -279,9 +279,9 @@ const Vine: FC<{
           y2="357.341"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ADDB64" />
-          <stop offset="0.473343" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#ADDB64" />
+          <stop offset="0.473343" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_415_288"
@@ -291,9 +291,9 @@ const Vine: FC<{
           y2="67"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.579467" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.579467" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_415_288"
@@ -303,9 +303,9 @@ const Vine: FC<{
           y2="98.2337"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_415_288"
@@ -315,9 +315,9 @@ const Vine: FC<{
           y2="42.787"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_415_288"
@@ -327,9 +327,9 @@ const Vine: FC<{
           y2="56"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.405811" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.405811" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_415_288"
@@ -339,9 +339,9 @@ const Vine: FC<{
           y2="190.965"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_415_288"
@@ -351,9 +351,9 @@ const Vine: FC<{
           y2="236"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.530216" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.530216" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_415_288"
@@ -363,9 +363,9 @@ const Vine: FC<{
           y2="315.318"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
       </defs>
     </svg>

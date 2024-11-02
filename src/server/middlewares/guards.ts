@@ -1,7 +1,6 @@
 import { cookies } from "next/headers";
 import { lucia } from "@libs/auth";
 import { prisma } from '@utils/db'
-import { checkSession } from "@utils/session";
 import { error } from 'elysia'
 import { getUser } from "./derive";
 
@@ -68,9 +67,5 @@ export const IS_USERCREATED = async (headers: Headers) => {
   const gifted = await prisma.gifted.findUnique({
     where: { email: user?.email }
   })
-  return (organization || club || gifted || program ) ? true : {  message: 'User doesnt create anything yet' }
-}
-
-export const test = async (): Promise<boolean> => {
-  return true
+  return (organization || club || gifted || program ) ? true : {  message: `User doesn't create anything yet` }
 }

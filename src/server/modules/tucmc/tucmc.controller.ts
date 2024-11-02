@@ -1,5 +1,4 @@
 import { prisma } from '@utils/db'
-import { error } from 'elysia'
 import { AllData } from '@libs/data'
 import { Status, Tag } from '@utils/type'
 import { getClubReviews } from '@modules/clubs/clubs.controller'
@@ -7,38 +6,50 @@ import { getGiftedReviews } from '@modules/gifted/gifted.controller'
 import { getProgramReviews } from '@modules/programs/programs.controller'
 import { getOrganizationReviews } from '@modules/organizations/organizations.controller'
 
-export const updateStatus = async (tag: Tag, key: string, status: Status) => {
+export const updateStatus = async (tag: Tag, key: string, status: Status, errorMsg: string) => {
   try {
     switch (tag) {
       case Tag.CLUB:
         await prisma.clubs.update({
           where: { key },
-          data: { status: status }
+          data: { 
+            status: status,
+            error: errorMsg
+          }
         })
-        return { success: true, message: `Updating status: ${status} successfully` }
+        return { status: 200, message: `Updating status: ${status} successfully` }
       case Tag.ORGANIZATION:
         await prisma.organizations.update({
           where: { key },
-          data: { status: status }
+          data: { 
+            status: status,
+            error: errorMsg
+          }
         })
-        return { success: true, message: `Updating status: ${status} successfully` }
+        return { status: 200, message: `Updating status: ${status} successfully` }
       case Tag.PROGRAM:
         await prisma.programs.update({
           where: { key },
-          data: { status: status }
+          data: { 
+            status: status,
+            error: errorMsg
+          }
         })
-        return { success: true, message: `Updating status: ${status} successfully` }
+        return { status: 200, message: `Updating status: ${status} successfully` }
       case Tag.GIFTED:
         await prisma.gifted.update({
           where: { key },
-          data: { status: status }
+          data: { 
+            status: status,
+            error: errorMsg
+          }
         })
-        return { success: true, message: `Updating status: ${status} successfully` }
+        return { status: 200, message: `Updating status: ${status} successfully` }
       default:
-        throw error(400, 'Invalid tag')
+        return { status: 400, message: 'Invalid tag'}
     }
   } catch (err) {
-    throw error(500, 'Error while updating status')
+    return { status: 500, message: 'Error while updating status' }
   }
 }
 
@@ -72,9 +83,9 @@ export const getAllData = async () => {
       data.organizations.push({ ...organization })
     }
   } catch (err) {
-    throw error(500, 'Error while getting all data')
+    return { status: 500, message: 'Error while getting all data' }
   }
-  return { success: true, message: 'Getting all data successfully', data }
+  return { status: 200, message: 'Getting all data successfully', data }
 }
 
 export const getDataByKey = async (tag: string, key: string) => {
@@ -110,45 +121,11 @@ export const getDataByKey = async (tag: string, key: string) => {
         data.reviews = await getGiftedReviews(key as keyof typeof AllData.Gifted)
         break
       default:
-        throw error(400, 'Invalid tag')
+        return { status: 400, message: 'Invalid tag' }
     }
   } catch (err) {
-    throw error(500, 'Error while getting data by key')
+    return { status: 500, message: 'Error while getting data by key' }
   }
-  return { success: true, message: 'Getting data by key successfully', data }
+  return { status: 200, message: 'Getting data by key successfully', data }
 }
 
-export const updateError = async (tag: Tag, key: string, body: any) => {
-  try {
-    switch (tag) {
-      case Tag.CLUB:
-        await prisma.clubs.update({
-          where: { key },
-          data: { error: body.error }
-        })
-        return { success: true, message: `Updating error: ${body.error} successfully` }
-      case Tag.ORGANIZATION:
-        await prisma.organizations.update({
-          where: { key },
-          data: { error: body.error }
-        })
-        return { success: true, message: `Updating error: ${body.error} successfully` }
-      case Tag.PROGRAM:
-        await prisma.programs.update({
-          where: { key },
-          data: { error: body.error }
-        })
-        return { success: true, message: `Updating error: ${body.error} successfully` }
-      case Tag.GIFTED:
-        await prisma.gifted.update({
-          where: { key },
-          data: { error: body.error }
-        })
-        return { success: true, message: `Updating error: ${body.error} successfully` }
-      default:
-        throw error(400, 'Invalid tag')
-    }
-  } catch (err) {
-    throw error(500, 'Error while updating error')
-  }
-}

@@ -1,75 +1,61 @@
 import GeneralForm from "./GeneralForm";
 import apiFunction from "@/components/api";
-
+//TODO ดัก
 const FormikControl: React.FC = async () => {
-  const response = await apiFunction("GET", "/user", {});
-  const userData = response.data;
-  const userForm = await apiFunction(
+  const { data: userData } = await apiFunction("GET", "/user", {});
+  
+  const { data: userFormData } = await apiFunction(
     "GET",
     `/${userData.tag}/${userData.key}/`,
-    {},
+    {}
   );
-  const userReview = await apiFunction(
+
+  const { data: userReviewData } = await apiFunction(
     "GET",
     `/${userData.tag}/${userData.key}/review`,
-     {}
-  )
+    {}
+  );
 
-  let editFormData = {
-    thainame: userForm.data.data.thainame,
-    tag: userForm.data.data.tag,
+  const data = userFormData.data;
+
+  const editFormData = {
+    thainame: data.thainame,
+    tag: data.tag,
     tagThai: 'องค์กร',
-    submittedForm: userForm.data?.data.sendForm,
-    members: userForm.data.data.members,
-    ig: userForm.data.data.ig,
-    fb: userForm.data.data.fb,
-    others: userForm.data.data.others,
-    admissions: userForm.data.data.admissions,
-    courses: userForm.data.data.courses,
-    interests: userForm.data.data.interests,
-    status: userForm.data.data.status,
-    captureimg1: userForm.data.data.captureimg1,
-    descimg1: '',
-    captureimg2: userForm.data.data.captureimg2,
-    descimg2: '',
-    captureimg3: userForm.data.data.captureimg3,
-    descimg3: '',
+    submittedForm: data.sendForm,
+    members: data.members,
+    ig: data.ig,
+    fb: data.fb,
+    others: data.others,
+    text1: data.activities,
+    text2: data.position,
+    text3: data.working,
+    status: data.status,
+    captureimg1: data.captureimg1,
+    descimg1: data.descimg1,
+    captureimg2: data.captureimg2,
+    descimg2: data.descimg2,
+    captureimg3: data.captureimg3,
+    descimg3: data.descimg3,
   };
 
-  let review1 = {
-    count: userReview.data.data[0].count,
-    profile: userReview.data.data[0].profile,
-    nick: userReview.data.data[0].nick,
-    gen: userReview.data.data[0].gen,
-    contact: userReview.data.data[0].contact,
-    content: userReview.data.data[0].content,
-  };
-
-  let review2 = {
-    count: userReview.data.data[1].count,
-    profile: userReview.data.data[1].profile,
-    nick: userReview.data.data[1].nick,
-    gen: userReview.data.data[1].gen,
-    contact: userReview.data.data[1].contact,
-    content: userReview.data.data[1].content,
-  };
-
-  let review3 = {
-    count: userReview.data.data[2].count,
-    profile: userReview.data.data[2].profile,
-    nick: userReview.data.data[2].nick,
-    gen: userReview.data.data[2].gen,
-    contact: userReview.data.data[2].contact,
-    content: userReview.data.data[2].content,
-  };
+  const reviews = userReviewData.data.map((review: any, index: number) => ({
+    count: review.count,
+    profile: review.profile,
+    nick: review.nick,
+    gen: review.gen,
+    contact: review.contact,
+    content: review.content,
+  })).slice(0, 3);
 
   return (
     <GeneralForm
       userData={userData}
       editFormData={editFormData}
-      review1={review1}
-      review2={review2}
-      review3={review3}
+      reviews={reviews.length}
+      review1={reviews[0]}
+      review2={reviews[1]}
+      review3={reviews[2]}
     />
   );
 };
