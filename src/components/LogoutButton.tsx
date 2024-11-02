@@ -18,7 +18,7 @@ const LogoutButton = () => {
       if (response.status === 200) {
         router.push('/')
       } else {
-        router.push('/500')
+        router.push('/error/500')
       }
     } catch (error) {
       console.log(error)

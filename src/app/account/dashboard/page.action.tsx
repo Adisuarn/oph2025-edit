@@ -8,7 +8,7 @@ async function checkUserAccess(){
     case 401:
       redirect('/')
     case 500:
-      redirect('/500')
+      redirect('/error/500')
   }
   return response.data.TUCMC
 }
@@ -16,7 +16,7 @@ async function checkUserAccess(){
 export async function fetchHandler() {
   const hasAccess = await checkUserAccess();
   if (!hasAccess) {
-    redirect('/403')
+    redirect('/error/403')
   }
   const data = await apiFunction('GET', '/tucmc/data', {});
   const organizations = data.data.data.organizations;

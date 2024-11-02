@@ -13,6 +13,13 @@ export default async function Form({
 }) {
 
   const response = await apiFunction("GET", "/user", {});
+  switch (response.status) {
+    case 401:
+      redirect("/");
+    case 500:
+      redirect("/error/500");
+  }
+  
   if(params.editingformId !== response.data.tag){
     redirect(`/editingform/${response.data.tag}`)
   }

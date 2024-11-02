@@ -53,7 +53,7 @@ const DashboardTUCMC: React.FC = () => {
       }
     } catch (error) {
       toast.error('เกิดข้อผิดพลาด!');
-      router.push('/500')
+      router.push('/error/500')
     }
   }, []);
 

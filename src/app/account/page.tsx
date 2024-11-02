@@ -31,7 +31,7 @@ const AccountPage = async () => {
     case 401:
       redirect('/')
     case 500:
-      redirect('/500')
+      redirect('/error/500')
   }
 
   const { tag, name, key, picture, TUCMC } = userResponse.data;

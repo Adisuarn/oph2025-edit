@@ -9,7 +9,7 @@ const FormikControl: React.FC = async () => {
     case 401:
       redirect('/')
     case 500:
-      redirect('/500')
+      redirect('/error/500')
   }
 
   const { tag, key } = response.data;

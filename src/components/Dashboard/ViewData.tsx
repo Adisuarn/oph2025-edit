@@ -1,20 +1,16 @@
 import React from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import { Status } from '@utils/type';
 import { Toaster, toast } from 'react-hot-toast';
 import { Formik, Form } from 'formik';
-import Header from '@components/Dashboard/Header';
-import Passage1 from '@components/Dashboard/Passage1';
-import Passage2 from '@components/Dashboard/Passage2';
-import Passage3 from '@components/Dashboard/Passage3';
-import Reviews from '@components/Dashboard/Reviews';
+import { Header, Passage1, Passage2, Passage3, Reviews } from '@components/Dashboard'
 import Checkmark from '@/vectors/Checkmark';
 import Rejected from '@/vectors/Rejected';
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon';
 import { updateData } from './ViewData.action';
 import * as Yup from 'yup'
 import { emails } from '@libs/admin'
+import { Status } from '@utils/type';
 
 const MySwal = withReactContent(Swal);
 
