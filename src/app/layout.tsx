@@ -1,5 +1,7 @@
 import "@/styles/globals.css";
 
+import Secret from "@/components/Secret";
+import { CookiesProvider } from 'next-client-cookies/server'
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,8 +14,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-        <html lang="en">
-         <body className="font-Thai">{children}</body>
-        </html>
+    <CookiesProvider>
+      <html lang="en">
+        <body className="font-Thai">
+          {children}
+          <Secret />
+        </body>
+      </html>
+    </CookiesProvider>
   );
 }

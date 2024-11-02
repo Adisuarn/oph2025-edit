@@ -1,22 +1,22 @@
-'use server'
 import axios from "axios";
-import { cookies } from "next/headers";
+import { getCookies } from "next-client-cookies/server";
 
 export default async function apiFunction(method: string, url: string, body: any) {
-  const cookieStore = cookies()
-  const options = {
+  const cookies = await getCookies();
+  const config = {
+    withCredentails: true,
     method: method,
     url: `${process.env.NEXT_PUBLIC_BASE_URL}${url}`,
     headers: {
       "Content-Type": "application/json",
       "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-      "Authorization": cookieStore.get('oph2025-auth-cookie')?.value ?? '',
+      "Authorization": cookies.get('oph2025-auth-cookie') ?? '',
     },
     data: body,
   };
 
   try {
-    const response = await axios.request(options);
+    const response = await axios.request(config);
     return response;
   } catch (error: any) {
     return error;

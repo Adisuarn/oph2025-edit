@@ -28,6 +28,8 @@ export interface OrganizationData {
 export const createOrganization = async (body: Organization) => {
   if ((await prisma.organizations.count({ where: { email: body.email } }) > 0))
     return { status: 400, message: 'User already created an organization'}
+  const existing = (await prisma.organizations.findUnique({ where: { key: body.key }, select: { email: true }}))?.email
+  if(existing !== "") return { status: 400, message: 'Organization key already exists' }
   try {
     const organization = await prisma.organizations.update({
       omit: { organizationId: true, updatedAt: true, id: true },
@@ -70,7 +72,6 @@ export const updateOrganizationData = async (name: keyof typeof AllData.Organiza
       omit: { organizationId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
-        sendForm: true,
         name: body.name,
         thainame: body.thainame,
         members: body.members,

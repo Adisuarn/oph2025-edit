@@ -423,20 +423,21 @@ const GeneralForm: React.FC<{
               formData.append("ig", editFormData.ig);
               formData.append("fb", editFormData.fb);
               formData.append("others", editFormData.others);
-              if (editFormData.tagThai === "ชมรม") {formData.append("activities", editFormData.text1);}
-              else {formData.append("admissions", editFormData.text1);}
+              if (editFormData.tagThai === "ชมรม" || editFormData.tagThai === "องค์กร") { formData.append("activities", editFormData.text1); }
+              else { formData.append("admissions", editFormData.text1); }
 
-              if (editFormData.tagThai === "ชมรม") {formData.append("benefits", editFormData.text2);}
-              else if (editFormData.tagThai === "องค์กร") {formData.append("position", editFormData.text2);}
-              else {formData.append("courses", editFormData.text2);}
+              if (editFormData.tagThai === "ชมรม") { formData.append("benefits", editFormData.text2); }
+              else if (editFormData.tagThai === "องค์กร") { formData.append("position", editFormData.text2); }
+              else { formData.append("courses", editFormData.text2); }
 
-              if (editFormData.tagThai === "ชมรม") {formData.append("working", editFormData.text3);}
-              else {formData.append("interests", editFormData.text3);}
+              if (editFormData.tagThai === "ชมรม" || editFormData.tagThai === "องค์กร") { formData.append("working", editFormData.text3); }
+              else { formData.append("interests", editFormData.text3); }
 
               if (image1 !== null) formData.append("captureimg1", image1);
               if (image2 !== null) formData.append("captureimg2", image2);
               if (image3 !== null) formData.append("captureimg3", image3);
-              if (editFormData.tagThai === "ชมรม" && clubLogo !== null) {formData.append("logo", clubLogo);}
+
+              if (editFormData.tagThai === "ชมรม" && clubLogo !== null) { formData.append("logo", clubLogo); }
               formData.append("descimg1", editFormData.descimg1);
               formData.append("descimg2", editFormData.descimg2);
               formData.append("descimg3", editFormData.descimg3);
@@ -449,51 +450,42 @@ const GeneralForm: React.FC<{
                 },
                 data: formData,
               };
-              try {
-                const reviews = [review1, review2, review3];
-                const images = { image4, image5, image6 };
-              
-                const responses = await Promise.all(
-                  reviews.map(async (review: { profile: File | null; count: 1 | 2 | 3; nick: string; gen: string; contact: string; content: string }) => {
-                    if (!review.profile) return;
-              
-                    const reviewData = new FormData();
-                    const profileImage = images[`image${review.count + 3}` as keyof typeof images];
-              
-                    if (profileImage) reviewData.append("profile", profileImage);
-                    reviewData.append("nick", review.nick);
-                    reviewData.append("gen", review.gen);
-                    reviewData.append("contact", review.contact);
-                    reviewData.append("content", review.content);
-              
-                    const optionsReview = {
-                      method: "PATCH",
-                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${review.count}`,
-                      headers: {
-                        "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-                        Authorization: `${cookies.get("oph2025-auth-cookie")}`,
-                      },
-                      data: reviewData,
-                    };
-              
-                    // Send the request
-                    const responseReview = await axios.request(optionsReview);
-                    console.log(responseReview.data); // Log response if needed
-                    return responseReview;
-                  })
-                );
-              
-                console.log("Update responses:", responses);
-              } catch (error) {
-                console.error("Error updating reviews:", error);
-              }
-              
+
+              await axios.request(options);
+
+              const reviews = [review1, review2, review3];
+              const images = [ image4, image5, image6 ];
+              const responseReview = await Promise.all(
+                reviews.map(async (review: { profile: File | null; count: 1 | 2 | 3; nick: string; gen: string; contact: string; content: string }) => {
+                  if (!review.profile) return;
+                  const reviewData = new FormData();
+                  const profileImage = images[review.count - 1];
+                  console.log(profileImage);
+                  if (profileImage) reviewData.append("profile", profileImage);
+                  reviewData.append("nick", review.nick);
+                  reviewData.append("gen", review.gen);
+                  reviewData.append("contact", review.contact);
+                  reviewData.append("content", review.content);
+
+                  const optionsReview = {
+                    method: "PATCH",
+                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${review.count}`,
+                    headers: {
+                      "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+                      Authorization: `${cookies.get("oph2025-auth-cookie")}`,
+                    },
+                    data: reviewData,
+                  };
+
+                  return await axios.request(optionsReview);
+                })
+              );
             } catch (error) {
               console.log(error);
               notifyError();
             } finally {
               setSubmitting(false);
-              // Router.push("/account");
+              //Router.push("/account");
               notifySuccess();
               setLoading(false);
             }
@@ -634,7 +626,7 @@ const GeneralForm: React.FC<{
                   </div>
                 ) : (
                   <div className="flex h-40 w-full items-center justify-around space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto md:w-[60vw]">
-  {displayClubLogo ? (
+                    {displayClubLogo ? (
                       <div className="relative flex  flex-col items-center justify-center">
                         <Image
                           className="flex h-28 w-28 rounded-lg object-cover md:h-40 md:w-40 lg:h-52 lg:w-52"

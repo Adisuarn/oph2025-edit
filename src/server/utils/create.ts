@@ -126,8 +126,6 @@ const createGifted = async (body: Gifted) => {
   }
 }
 
-
-
 export const createEverything = async () => {
   const createdOrganizations = await Promise.all(
     Object.keys(AllData.Organizations).map(async (key) => {

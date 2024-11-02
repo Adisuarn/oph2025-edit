@@ -29,6 +29,8 @@ export interface ClubData {
 export const createClub = async (body: Club) => {
   if ((await prisma.clubs.count({ where: { email: body.email } }) > 0)) 
     return { status: 400, message: 'User already created a club' }
+  const existing = (await prisma.clubs.findUnique({ where: { key: body.key }, select: { email: true }}))?.email
+  if(existing !== "") return { status: 400, message: 'Club key already exists' }
   try { 
     const club = await prisma.clubs.update({
       omit: { clubId: true, updatedAt: true, id: true },
@@ -72,7 +74,6 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
       omit: { clubId: true, createdAt: true, id: true },
       where: { key: key },
       data: {
-        sendForm: true,
         members: body.members,
         ig: body.ig,
         fb: body.fb,

@@ -7,8 +7,11 @@ export default {
     "./src/components/**/*.tsx"
   ],
   theme: {
-    extend: { 
-    lineHeight: {
+    extend: {
+      backdropBlur: {
+        md: '10px',
+      },
+      lineHeight: {
         'extra-loose': '3'
       },
       fontFamily: {

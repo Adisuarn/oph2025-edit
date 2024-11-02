@@ -24,8 +24,12 @@ const LogoutButton = () => {
       console.log(error)
     }
   }
+
   return (
-    <button onClick={handleLogoutClick} className='underline text-neutral-500 text-xs'>
+    <button 
+      onClick={handleLogoutClick} 
+      className="relative text-neutral-500 text-sm before:absolute before:left-0 before:bottom-0 before:h-[1px] before:w-0 before:bg-neutral-500 before:transition-all before:duration-300 hover:before:w-full"
+    >
       Log out
     </button>
   )

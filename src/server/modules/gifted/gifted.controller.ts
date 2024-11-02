@@ -27,7 +27,9 @@ export interface GiftedData {
 
 export const createGifted = async (body: Gifted) => {
   if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
-    return { status: 400, message: 'User already created an organization' }
+    return { status: 400, message: 'User already created an gifted' }
+  const existing = (await prisma.gifted.findUnique({ where: { key: body.key }, select: { email: true }}))?.email
+  if(existing !== "") return { status: 400, message: 'Gifted key already exists' }
   try {
     const gifted = await prisma.gifted.update({
       omit: { giftedId: true, updatedAt: true, id: true },
@@ -72,13 +74,12 @@ export const updateGiftedData = async (
 ) => {
   const giftedData = (await getGifted(name)).data
   const userData = (await getUser(headers)).data
-  if(giftedData.status === 'approved') return { status: 400, message: 'Gifted was already approved' }
+  if(giftedData.status === Status.APPROVED) return { status: 400, message: 'Gifted was already approved' }
   try {
     const updatedGifted = await prisma.gifted.update({
       omit: { giftedId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
-        sendForm: true,
         name: body.name,
         thainame: body.thainame,
         status: body.status,

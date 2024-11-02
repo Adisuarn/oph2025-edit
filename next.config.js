@@ -8,7 +8,6 @@ await import("./src/env.js");
 const config = {
   reactStrictMode: true,
   images: {
-    domains: ['alpenjournal.de'],
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {

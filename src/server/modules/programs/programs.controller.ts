@@ -28,6 +28,8 @@ export interface ProgramData {
 export const createProgram = async(body: Program) => {
   if((await prisma.programs.count({ where: { email: body.email } }) > 0))
     return { status: 400, message: 'User already created a program'}
+  const existing = (await prisma.programs.findUnique({ where: { key: body.key }, select: { email: true }}))?.email
+  if(existing !== "") return { status: 400, message: 'Program key already exists' }
   try {
     const program = await prisma.programs.update({
       omit: { programId: true, updatedAt: true, id:true },
@@ -70,7 +72,6 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
       omit: { programId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
-        sendForm: true,
         name: body.name,
         thainame: body.thainame,
         members: body.members,

@@ -5,10 +5,10 @@ import { Google } from "arctic";
 export const lucia = new Lucia(adapter, {
 	sessionCookie: {
         name: 'oph2025-auth-cookie',
-        expires: true,
+        expires: false,
 		attributes: {
-			secure: process.env.NODE_ENV === "production",
-            sameSite: "strict"
+			secure: process.env.NODE_ENV === 'production',
+            sameSite: 'none'
 		}
 	},
     getUserAttributes: (attributes) => {

@@ -33,6 +33,7 @@ const AccountPage = async () => {
     case 500:
       redirect('/500')
   }
+
   const { tag, name, key, picture, TUCMC } = userResponse.data;
 
   let userFormData: { thainame?: string; members?: number; status?: Status } = {};
