@@ -32,26 +32,26 @@ const Section: FC<{
         <path
           d="M474.136 46.6366C474.136 46.6366 492.793 47.0413 510.525 47.0413C528.257 47.0414 538.897 57.3531 538.897 66.6007C538.897 89.233 503.97 92.5912 505.915 70.1573C506.944 58.2863 526.056 59.091 523.292 70.8685"
           stroke="url(#paint4_linear_193_477)"
-          stroke-width="5.66658"
-          stroke-linecap="round"
+          strokeWidth="5.66658"
+          strokeLinecap="round"
         />
         <path
           d="M363.638 46.6335C363.638 46.6335 559.944 46.6335 580.182 46.6335C600.42 46.6334 612.563 34.8988 612.563 24.3751C612.563 -1.40073 572.7 -5.20121 574.92 20.3278C576.095 33.8401 597.908 32.9262 594.753 19.5183"
           stroke="url(#paint5_linear_193_477)"
-          stroke-width="5.66658"
-          stroke-linecap="round"
+          strokeWidth="5.66658"
+          strokeLinecap="round"
         />
         <path
           d="M141.427 46.6366C141.427 46.6366 122.769 47.0413 105.037 47.0413C87.3051 47.0414 76.6658 57.3531 76.6658 66.6007C76.6658 89.233 111.593 92.5912 109.648 70.1573C108.618 58.2863 89.507 59.091 92.2701 70.8685"
           stroke="url(#paint6_linear_193_477)"
-          stroke-width="5.66658"
-          stroke-linecap="round"
+          strokeWidth="5.66658"
+          strokeLinecap="round"
         />
         <path
           d="M251.925 46.6335C251.925 46.6335 55.6182 46.6335 35.3804 46.6335C15.1426 46.6334 2.99988 34.8988 2.99988 24.3751C2.99988 -1.40073 42.8621 -5.20121 40.6422 20.3278C39.4672 33.8401 17.6543 32.9262 20.8091 19.5183"
           stroke="url(#paint7_linear_193_477)"
-          stroke-width="5.66658"
-          stroke-linecap="round"
+          strokeWidth="5.66658"
+          strokeLinecap="round"
         />
       </g>
       <defs>
@@ -62,9 +62,9 @@ const Section: FC<{
           width="615.229"
           height="91.282"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -98,9 +98,9 @@ const Section: FC<{
           y2="71.6407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ADDB64" />
-          <stop offset="0.56" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#ADDB64" />
+          <stop offset="0.56" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_193_477"
@@ -110,9 +110,9 @@ const Section: FC<{
           y2="71.6407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ADDB64" />
-          <stop offset="0.56" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#ADDB64" />
+          <stop offset="0.56" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_193_477"
@@ -122,9 +122,9 @@ const Section: FC<{
           y2="71.6407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ADDB64" />
-          <stop offset="0.56" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#ADDB64" />
+          <stop offset="0.56" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_193_477"
@@ -134,9 +134,9 @@ const Section: FC<{
           y2="71.6407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ADDB64" />
-          <stop offset="0.56" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#ADDB64" />
+          <stop offset="0.56" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_193_477"
@@ -146,9 +146,9 @@ const Section: FC<{
           y2="66.1417"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.350142" stop-color="#15786C" />
-          <stop offset="1" stop-color="#ADDB64" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.350142" stopColor="#15786C" />
+          <stop offset="1" stopColor="#ADDB64" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_193_477"
@@ -158,9 +158,9 @@ const Section: FC<{
           y2="24.8568"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.356197" stop-color="#15786C" />
-          <stop offset="1" stop-color="#ADDB64" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.356197" stopColor="#15786C" />
+          <stop offset="1" stopColor="#ADDB64" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_193_477"
@@ -170,9 +170,9 @@ const Section: FC<{
           y2="66.1417"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.350142" stop-color="#15786C" />
-          <stop offset="1" stop-color="#ADDB64" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.350142" stopColor="#15786C" />
+          <stop offset="1" stopColor="#ADDB64" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_193_477"
@@ -182,9 +182,9 @@ const Section: FC<{
           y2="24.8568"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.356197" stop-color="#15786C" />
-          <stop offset="1" stop-color="#ADDB64" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.356197" stopColor="#15786C" />
+          <stop offset="1" stopColor="#ADDB64" />
         </linearGradient>
       </defs>
     </svg>

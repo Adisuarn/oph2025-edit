@@ -13,28 +13,28 @@ const PeopleIcon: FC<{
       <path d="M24.8827 22.6914C25.0488 23.0944 25.1407 23.536 25.1407 23.9988C25.1407 26.5498 24.0916 28.5937 22.3703 29.9753C20.6759 31.3353 18.4051 31.9986 15.9981 31.9986C13.5911 31.9986 11.3203 31.3353 9.62603 29.9753C7.90452 28.5937 6.85547 26.5498 6.85547 23.9988C6.85547 23.536 6.94724 23.0944 7.11356 22.6914C7.62752 21.4464 8.85338 20.5703 10.2839 20.5703H21.7122C23.1428 20.5703 24.3686 21.4464 24.8827 22.6914Z" fill="url(#paint5_linear_53_5018)" />
       <defs>
         <linearGradient id="paint0_linear_53_5018" x1="9.14163" y1="-8.5155e-08" x2="10.5703" y2="8.57157" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient id="paint1_linear_53_5018" x1="22.8565" y1="-8.5155e-08" x2="24.2851" y2="8.57157" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient id="paint2_linear_53_5018" x1="15.999" y1="9.14258" x2="17.4277" y2="17.7141" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient id="paint3_linear_53_5018" x1="5.44431" y1="11.4277" x2="7.07267" y2="21.4204" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient id="paint4_linear_53_5018" x1="26.5556" y1="11.4277" x2="28.184" y2="21.4204" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient id="paint5_linear_53_5018" x1="15.9981" y1="20.5703" x2="17.1329" y2="31.4642" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
       </defs>
     </svg>

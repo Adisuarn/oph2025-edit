@@ -21,7 +21,7 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
       if (userData?.TUCMC === true) {
         return
       } else if (userData?.email !== organizationData.email) {
-        return error(401, 'Unauthorized')
+        return error(403, 'Forbidden')
       }
     },
     params: t.Object({
@@ -34,7 +34,13 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     })
   })
   .get('/:name', async ({ params: { name } }) => {
-    return await getOrganizationByName(name)
+    const response = await getOrganizationByName(name)
+    switch(response.status) {
+      case 200:
+        return response
+      case 500:
+        return error(500, response.message)
+    }
   },
     {
       params: t.Object({
@@ -42,7 +48,15 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
       })
     })
   .patch('/:name', async ({ params: { name }, body, request: { headers } }) => {
-    return await updateOrganizationData(name, body, headers)
+    const response = await updateOrganizationData(name, body, headers)
+    switch(response.status) {
+      case 200:
+        return response
+      case 400:
+        return error(400, response.message)
+      case 500:
+        return error(500, response.message)
+    }
   },
     {
       params: t.Object({
@@ -68,7 +82,13 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
       }),
     })
   .get('/:name/review', async ({ params: { name } }) => {
-    return await getOrganizationReviews(name)
+    const response = await getOrganizationReviews(name)
+    switch(response.status) {
+      case 200:
+        return response
+      case 500:
+        return error(500, response.message)
+    }
   }, {
     params: t.Object({
       name: UnionField(true, 'Invalid Organization Name', Object.keys(AllData.Organizations))
@@ -76,9 +96,13 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
   })
   .post('/:name/review', async ({ params: { name }, set }) => {
     const response = await createOrganizationReview(name)
-    if (response?.success) {
-      set.status = 201
-      return response
+    switch(response.status) {
+      case 201:
+        return response
+      case 400:
+        return error(400, response.message)
+      case 500:
+        return error(500, response.message)
     }
   }, {
     params: t.Object({
@@ -86,7 +110,13 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     })
   })
   .patch('/:name/review/:id', async ({ params: { name, id }, body }) => {
-    return await updateOrganizationReview(name, id, body as ReviewData)
+    const response = await updateOrganizationReview(name, id, body as ReviewData)
+    switch(response.status) {
+      case 200:
+        return response
+      case 500:
+        return error(500, response.message)
+    }
   }, {
     params: t.Object({
       name: UnionField(true, 'Invalid Organization Name', Object.keys(AllData.Organizations)),
@@ -101,7 +131,13 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     })
   })
   .delete('/:name/review/:id', async ({ params: { name, id } }) => {
-    return await deleteOrganizationReview(name, id)
+    const response = await deleteOrganizationReview(name, id)
+    switch(response.status) {
+      case 200:
+        return response.message
+      case 500:
+        return error(500, response.message)
+    }
   },
     {
       params: t.Object({

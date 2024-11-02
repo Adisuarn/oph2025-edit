@@ -27,9 +27,9 @@ const Footer: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(604.826 330.791) rotate(-90) scale(1065.78 1062.58)"
         >
-          <stop offset="0.13482" stop-color="#0C453E" />
-          <stop offset="0.553725" stop-color="#1B9A8A" />
-          <stop offset="0.870278" stop-color="#F4F15B" />
+          <stop offset="0.13482" stopColor="#0C453E" />
+          <stop offset="0.553725" stopColor="#1B9A8A" />
+          <stop offset="0.870278" stopColor="#F4F15B" />
         </radialGradient>
       </defs>
     </svg>

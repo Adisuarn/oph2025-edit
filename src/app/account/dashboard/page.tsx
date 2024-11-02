@@ -1,14 +1,16 @@
-'use client'
+'use client';
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon';
 import BookIcon from '@/vectors/dashboard/BookIcon';
-const HamburgerMenu = dynamic(() => import('@components/Dashboard/Hamburger'), { ssr: false });
-import { handler, viewHandler } from './page.action';
+import { fetchHandler, viewHandler } from './page.action';
 import { Toaster, toast } from 'react-hot-toast';
-const ViewData = dynamic(() => import('@components/Dashboard/ViewData'), { ssr: false });
 import { updateStatus } from '@components/Dashboard/ViewData.action';
 import { Status } from '@utils/type';
-import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
+
+const HamburgerMenu = dynamic(() => import('@components/Dashboard/Hamburger'), { ssr: false });
+const ViewData = dynamic(() => import('@components/Dashboard/ViewData'), { ssr: false });
 
 interface DashboardData {
   organizations: Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>;
@@ -18,73 +20,78 @@ interface DashboardData {
 }
 
 const DashboardTUCMC: React.FC = () => {
+  const router = useRouter();
+
   const [data, setData] = useState<DashboardData>({
     organizations: [],
     programs: [],
     clubs: [],
     gifted: [],
   });
-  const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
-  const [selectedStatus, setSelectedStatus] = useState<Status | null>(Status.PENDING);
-  const [viewData, setViewData] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [activeButton, setActiveButton] = useState<{ type: string; key: string } | null>(null);
 
-  // Fetch data function
+  const [filterState, setFilterState] = useState({
+    selectedFilter: null as string | null,
+    selectedStatus: Status.PENDING,
+    viewData: null as any,
+    activeButton: null as { type: string; key: string } | null,
+  });
+
+  const [loading, setLoading] = useState<boolean>(false);
+
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const result = await handler();
-      setData(result.props);
+      const results = await fetchHandler();
+      if (results) {
+        setData({
+          organizations: results.props.organizations,
+          programs: results.props.programs,
+          clubs: results.props.clubs,
+          gifted: results.props.gifted,
+        });
+        setLoading(false);
+      }
     } catch (error) {
-      toast.error("ไม่สามารถโหลดข้อมูลได้");
-    } finally {
-      setLoading(false);
+      toast.error('เกิดข้อผิดพลาด!');
+      router.push('/500')
     }
   }, []);
 
-  // Initial data fetch
   useEffect(() => {
     if (typeof window !== "undefined") {
       fetchData();
     }
   }, [fetchData]);
 
-  // Automatically set the initial status to PENDING if data is fetched
   useEffect(() => {
-    if (data.organizations.length > 0) {
-      setSelectedStatus(Status.PENDING);
+    if (data.organizations.length > 0 || data.programs.length > 0 || data.clubs.length > 0 || data.gifted.length > 0) {
+      setFilterState(prev => ({ ...prev, selectedStatus: Status.PENDING }));
     }
   }, [data]);
 
-  // Handle status update
   const handleStatusUpdate = useCallback(async (item: any, status: Status, rejectionMessage: string) => {
     await updateStatus(item, status, rejectionMessage);
     fetchData();
   }, [fetchData]);
 
-  // Filter data based on selected filter and status
   const filterData = useCallback((items: any[]) => {
+    const { selectedFilter, selectedStatus } = filterState;
     return items.filter(item => {
       const matchesFilter = !selectedFilter || item.tag === selectedFilter;
       const matchesStatus = selectedStatus === null || item.status === selectedStatus;
       return matchesFilter && matchesStatus;
     });
-  }, [selectedFilter, selectedStatus]);
+  }, [filterState]);
 
-  // Memoized filtered data
   const filteredOrganizations = useMemo(() => filterData(data.organizations), [data.organizations, filterData]);
   const filteredPrograms = useMemo(() => filterData(data.programs), [data.programs, filterData]);
   const filteredClubs = useMemo(() => filterData(data.clubs), [data.clubs, filterData]);
   const filteredGifted = useMemo(() => filterData(data.gifted), [data.gifted, filterData]);
 
-  // Handle view data
   const handleViewData = useCallback(async (tag: string, key: string, type: 'organization' | 'program' | 'club' | 'gifted') => {
-    const currentData = (data[(type === "gifted" ? type : type + 's') as keyof DashboardData] as Array<{ id: string; key: string; tag: string; thainame: string; status: Status }>)
-      .find((item) => item.key === key);
-    if (viewData && viewData.type === type && viewData.data.data.thainame === currentData?.thainame) {
-      setViewData(null);
-      setActiveButton(null);
+    const currentData = data[(type === "gifted" ? type : type + 's') as keyof DashboardData].find(item => item.key === key);
+    if (filterState.viewData && filterState.viewData.type === type && filterState.viewData.data.data.thainame === currentData?.thainame) {
+      setFilterState(prev => ({ ...prev, viewData: null, activeButton: null }));
     } else {
       const fetchedData = await viewHandler(tag, key);
       const transformedData = {
@@ -92,20 +99,25 @@ const DashboardTUCMC: React.FC = () => {
         ...(type === 'gifted' || type === 'program' ? { activities: fetchedData.data.admissions, benefits: fetchedData.data.courses, working: fetchedData.data.interests } : {}),
         ...(type === 'organization' ? { benefits: fetchedData.data.position } : {}),
       };
-      setViewData({ type, data: { data: transformedData } });
-      setActiveButton({ type, key });
+      setFilterState(prev => ({
+        ...prev,
+        viewData: { type, data: { data: transformedData } },
+        activeButton: { type, key },
+      }));
     }
-  }, [data, viewData]);
+  }, [data, filterState]);
 
-  // Clear filter and reset state
   const clearFilter = useCallback(() => {
-    setSelectedFilter(null);
-    setSelectedStatus(Status.PENDING);
-    setViewData(null);
+    setFilterState({
+      selectedFilter: null,
+      selectedStatus: Status.PENDING,
+      viewData: null,
+      activeButton: null,
+    });
   }, []);
-  // Render items (organizations, programs, etc.)
-  const renderItem = useCallback((item: any, type: 'organization' | 'program' | 'club' | 'gifted', index: any) => {
-    const isVisible = viewData && viewData.type === type && viewData.data.data.thainame === item.thainame;
+
+  const renderItem = useCallback((item: any, type: 'organization' | 'program' | 'club' | 'gifted', index: number) => {
+    const isVisible = filterState.viewData && filterState.viewData.type === type && filterState.viewData.data.data.thainame === item.thainame;
     return (
       <div key={index}>
         <li className="flex justify-between items-center mb-4 p-5 border border-gray-300 rounded-2xl">
@@ -115,12 +127,12 @@ const DashboardTUCMC: React.FC = () => {
           </div>
           <button
             className={`ml-4 p-2 px-6 text-white rounded-3xl font-Thai transition-all duration-300 
-              ${activeButton && activeButton.type === type && activeButton.key === item.key
+              ${filterState.activeButton && filterState.activeButton.type === type && filterState.activeButton.key === item.key
                 ? 'bg-custom-gradient-inverse hover:opacity-75 hover:scale-105'
                 : 'bg-custom-gradient hover:opacity-75 hover:scale-105'
               }`}
             onClick={() => {
-              const isActive = activeButton && activeButton.type === type && activeButton.key === item.key;
+              const isActive = filterState.activeButton && filterState.activeButton.type === type && filterState.activeButton.key === item.key;
               if (isActive) {
                 handleViewData(item.tag, item.key, type);
               } else {
@@ -132,29 +144,19 @@ const DashboardTUCMC: React.FC = () => {
               }
             }}
           >
-            {activeButton && activeButton.type === type && activeButton.key === item.key
+            {filterState.activeButton && filterState.activeButton.type === type && filterState.activeButton.key === item.key
               ? 'คลิกเพื่อปิด'
               : `ดูข้อมูล${type === 'organization' ? 'หน่วยงาน' : type === 'program' ? 'สายการเรียน' : type === 'club' ? 'ชมรม' : 'โครงการพัฒนาฯ'}`}
           </button>
         </li>
         {isVisible && (
           <div className={`overflow-hidden`}>
-            <ViewData data={viewData.data} type={viewData.type} onStatusUpdate={handleStatusUpdate} />
+            <ViewData data={filterState.viewData.data} type={filterState.viewData.type} onStatusUpdate={handleStatusUpdate} />
           </div>
         )}
       </div>
     );
-  }, [activeButton, handleStatusUpdate, viewData]);
-
-  // Function to handle filter selection from HamburgerMenu
-  const handleFilterSelect = (filter: string) => {
-    setSelectedFilter(filter);
-  };
-
-  // Function to handle status selection
-  const handleStatusSelect = (status: Status) => {
-    setSelectedStatus(status);
-  };
+  }, [filterState, handleStatusUpdate]);
 
   return (
     <>
@@ -175,50 +177,44 @@ const DashboardTUCMC: React.FC = () => {
               <div className="flex justify-between mt-4">
                 <div className="flex items-center">
                   <div className="flex items-center">
-                    <p className={`w-4 h-4 rounded-full mr-3 ${selectedStatus === Status.PENDING ? 'bg-[#FCB528]' : selectedStatus === Status.APPROVED ? 'bg-[#19C57C]' : 'bg-[#F83E3E]'}`}></p>
+                    <p className={`w-4 h-4 rounded-full mr-3 ${filterState.selectedStatus === Status.PENDING ? 'bg-[#FCB528]' : filterState.selectedStatus === Status.APPROVED ? 'bg-[#19C57C]' : 'bg-[#F83E3E]'}`}></p>
                     <p className="font-Thai text-lg">
-                      {selectedStatus === Status.PENDING ? 'รอดำเนินการ' : selectedStatus === Status.APPROVED ? 'อนุมัติ' : 'ไม่อนุมัติ'}
+                      {filterState.selectedStatus === Status.PENDING ? 'รอดำเนินการ' : filterState.selectedStatus === Status.APPROVED ? 'อนุมัติ' : 'ไม่อนุมัติ'}
                     </p>
                   </div>
                 </div>
-                <div className="flex ">
-                  <div className="flex">
-                    <button onClick={clearFilter} className="text-[#FCB528] text-lg font-Thai hover:underline mr-5">
-                      เคลียร์การกรอง
-                    </button>
-                    <HamburgerMenu
-                      onFilterSelect={handleFilterSelect}
-                      selectedFilter={selectedFilter}
-                    />
-                  </div>
+                <HamburgerMenu
+                  onFilterSelect={filter => setFilterState(prev => ({ ...prev, selectedFilter: filter }))}
+                  selectedFilter={filterState.selectedFilter}
+                />
+              </div>
 
+              <div className="flex space-x-4 mt-4 justify-between">
+                <div>
+                  {Object.values(Status).map(status => (
+                    <button
+                      key={status}
+                      className={`p-2 rounded-lg transform transition-transform duration-300 ${filterState.selectedStatus === status ? (status === Status.PENDING ? 'bg-[#FCB528]' : status === Status.APPROVED ? 'bg-[#19C57C]' : 'bg-[#F83E3E]') : 'bg-gray-200'}`}
+                      onClick={() => setFilterState(prev => ({ ...prev, selectedStatus: status }))}
+                    >
+                      {status === Status.PENDING ? 'รอดำเนินการ' : status === Status.APPROVED ? 'อนุมัติ' : 'ไม่อนุมัติ'}
+                    </button>
+                  ))}
+                </div>
+                <div className="flex items-end">
+                  <button onClick={clearFilter} className="text-[#FCB528] text-lg font-Thai hover:underline mr-5">
+                    เคลียร์การกรอง
+                  </button>
+                  <button
+                    className="text-[#FCB528] text-lg font-Thai hover:underline"
+                    onClick={() => router.push('/account')}
+                  >
+                    กลับไปหน้าหลัก
+                  </button>
                 </div>
               </div>
 
-              {/* Status Selection Buttons */}
-              <div className="flex space-x-4 mt-4">
-                <button
-                  className={`p-2 rounded-lg transform transition-transform duration-300 ${selectedStatus === Status.PENDING ? 'bg-[#FCB528] scale-105 text-white': 'bg-gray-200'}`}
-                  onClick={() => handleStatusSelect(Status.PENDING)}
-                >
-                  รอดำเนินการ
-                </button>
-                <button
-                  className={`p-2 rounded-lg transform transition-transform duration-300 ${selectedStatus === Status.APPROVED ? 'bg-[#19C57C] scale-105 text-white' : 'bg-gray-200'}`}
-                  onClick={() => handleStatusSelect(Status.APPROVED)}
-                >
-                  อนุมัติ
-                </button>
-                <button
-                  className={`p-2 rounded-lg transform transition-transform duration-300 ${selectedStatus === Status.REJECTED ? 'bg-[#F83E3E] scale-105 text-white' : 'bg-gray-200'}`}
-                  onClick={() => handleStatusSelect(Status.REJECTED)}
-                >
-                  ไม่อนุมัติ
-                </button>
-              </div>
-
               <hr className="my-9" />
-              {/* Data List */}
               <ul className="mt-5">
                 {filteredOrganizations.map((item, index) => renderItem(item, 'organization', index))}
                 {filteredPrograms.map((item, index) => renderItem(item, 'program', index))}

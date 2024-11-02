@@ -3,7 +3,6 @@ import { uploadImage } from "@utils/uploadimg";
 import { AllData } from "@libs/data";
 import { getGifted, getUser } from "@middlewares/derive";
 import type { Gifted } from "@utils/type";
-import { error } from "elysia";
 import { ReviewData, Status } from "@utils/type";
 
 export interface GiftedData {
@@ -27,8 +26,8 @@ export interface GiftedData {
 }
 
 export const createGifted = async (body: Gifted) => {
-   if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
-     throw error(400, "User already created an organization");
+  if ((await prisma.gifted.count({ where: { email: body.email } })) > 0)
+    return { status: 400, message: 'User already created an organization' }
   try {
     const gifted = await prisma.gifted.update({
       omit: { giftedId: true, updatedAt: true, id: true },
@@ -37,6 +36,7 @@ export const createGifted = async (body: Gifted) => {
         key: body.key,
         email: body.email,
         updatedBy: body.email,
+        status: Status.PENDING,
       },
     });
     await prisma.user.update({
@@ -47,21 +47,21 @@ export const createGifted = async (body: Gifted) => {
       },
     });
     return {
-      success: true,
+      status: 201,
       message: "Creating gifted successful",
       data: gifted,
     };
   } catch (err) {
-    throw error(500, "Error while creating gifted");
+    return { status: 500, message: 'Error while creating gifted' }
   }
 };
 
 export const getGiftedByName = async (name: Gifted["key"]) => {
   const giftedData = (await getGifted(name)).data;
   try {
-    return { success: false, message: 'Getting gifted successfully', data: giftedData };
+    return { status: 200, message: 'Getting gifted successfully', data: giftedData };
   } catch (err) {
-    throw error(500, "Error while getting gifted")
+    return { status: 500, message: 'Error while getting gifted' }
   }
 };
 
@@ -72,7 +72,7 @@ export const updateGiftedData = async (
 ) => {
   const giftedData = (await getGifted(name)).data
   const userData = (await getUser(headers)).data
-  if(giftedData.status === 'approved') throw error(400, 'Gifted already approved')
+  if(giftedData.status === 'approved') return { status: 400, message: 'Gifted was already approved' }
   try {
     const updatedGifted = await prisma.gifted.update({
       omit: { giftedId: true, createdAt: true, id: true },
@@ -100,12 +100,12 @@ export const updateGiftedData = async (
     });
     if(userData?.email === giftedData.email) await prisma.gifted.update({ where: { key: name}, data: { status: Status.PENDING }}) 
     return {
-      success: true,
+      status: 200,
       message: "Updating gifted data successfully",
       dara: updatedGifted,
     };
   } catch (err) {
-    throw error(500, "Error while updating gifted data");
+    return { status: 500, message: 'Error while updating gifted' }
   }
 };
 
@@ -117,12 +117,12 @@ export const getGiftedReviews = async (name: keyof typeof AllData.Gifted) => {
       where: { key: giftedData.key },
     });
     return {
-      success: true,
+      status: 200,
       message: "Getting reviews successfully",
       data: reviewData,
     };
   } catch (err) {
-    throw error(500, "Error while getting reviews");
+    return { status: 500, message: 'Error while getting reviews' }
   }
 };
 
@@ -133,7 +133,7 @@ export const createGiftedReview = async (name: keyof typeof AllData.Gifted) => {
       where: { email: giftedData.email },
     })) >= 3
   )
-    throw error(400, "Review reachs limit");
+    return { status: 400, message: "Reviews reached limit" };
   try {
     const review = await prisma.reviews.create({
       omit: { reviewId: true, updatedAt: true, id:true },
@@ -153,12 +153,12 @@ export const createGiftedReview = async (name: keyof typeof AllData.Gifted) => {
       },
     });
     return {
-      success: true,
+      status: 200,
       message: "Creating review successfully",
       data: review,
     };
   } catch (err) {
-    throw error(500, "Error while creating review");
+    return { status: 500, message: 'Error while creating review' }
   }
 };
 
@@ -182,12 +182,12 @@ export const updateGiftedReview = async (
       },
     });
     return {
-      success: true,
+      status: 200,
       message: "Updating review successfully",
       data: review,
     };
   } catch (err) {
-    throw error(500, "Error while updating review");
+    return { status: 500, message: 'Error while updating review' }
   }
 };
 
@@ -207,8 +207,8 @@ export const deleteGiftedReview = async (
         content: "",
       },
     });
-    return { success: true, message: "Deleting review successfully" };
+    return { status: 200, message: "Deleting review successfully" };
   } catch (err) {
-    throw error(500, "Error while deleting review");
+    return { status: 500, message: 'Error while deleting review' }
   }
 };

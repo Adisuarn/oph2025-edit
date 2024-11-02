@@ -1,5 +1,4 @@
 import { prisma } from '@utils/db'
-import { error } from 'elysia'
 import { AllData } from '@libs/data'
 import { Status, Tag } from '@utils/type'
 import { getClubReviews } from '@modules/clubs/clubs.controller'
@@ -18,7 +17,7 @@ export const updateStatus = async (tag: Tag, key: string, status: Status, errorM
             error: errorMsg
           }
         })
-        return { success: true, message: `Updating status: ${status} successfully` }
+        return { status: 200, message: `Updating status: ${status} successfully` }
       case Tag.ORGANIZATION:
         await prisma.organizations.update({
           where: { key },
@@ -27,7 +26,7 @@ export const updateStatus = async (tag: Tag, key: string, status: Status, errorM
             error: errorMsg
           }
         })
-        return { success: true, message: `Updating status: ${status} successfully` }
+        return { status: 200, message: `Updating status: ${status} successfully` }
       case Tag.PROGRAM:
         await prisma.programs.update({
           where: { key },
@@ -36,7 +35,7 @@ export const updateStatus = async (tag: Tag, key: string, status: Status, errorM
             error: errorMsg
           }
         })
-        return { success: true, message: `Updating status: ${status} successfully` }
+        return { status: 200, message: `Updating status: ${status} successfully` }
       case Tag.GIFTED:
         await prisma.gifted.update({
           where: { key },
@@ -45,12 +44,12 @@ export const updateStatus = async (tag: Tag, key: string, status: Status, errorM
             error: errorMsg
           }
         })
-        return { success: true, message: `Updating status: ${status} successfully` }
+        return { status: 200, message: `Updating status: ${status} successfully` }
       default:
-        throw error(400, 'Invalid tag')
+        return { status: 400, message: 'Invalid tag'}
     }
   } catch (err) {
-    throw error(500, 'Error while updating status')
+    return { status: 500, message: 'Error while updating status' }
   }
 }
 
@@ -84,9 +83,9 @@ export const getAllData = async () => {
       data.organizations.push({ ...organization })
     }
   } catch (err) {
-    throw error(500, 'Error while getting all data')
+    return { status: 500, message: 'Error while getting all data' }
   }
-  return { success: true, message: 'Getting all data successfully', data }
+  return { status: 200, message: 'Getting all data successfully', data }
 }
 
 export const getDataByKey = async (tag: string, key: string) => {
@@ -122,11 +121,11 @@ export const getDataByKey = async (tag: string, key: string) => {
         data.reviews = await getGiftedReviews(key as keyof typeof AllData.Gifted)
         break
       default:
-        throw error(400, 'Invalid tag')
+        return { status: 400, message: 'Invalid tag' }
     }
   } catch (err) {
-    throw error(500, 'Error while getting data by key')
+    return { status: 500, message: 'Error while getting data by key' }
   }
-  return { success: true, message: 'Getting data by key successfully', data }
+  return { status: 200, message: 'Getting data by key successfully', data }
 }
 

@@ -22,8 +22,8 @@ const Super2: FC<{
         />
         <g filter="url(#filter0_d_469_273)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M765.629 560.924C767.505 561.998 769.495 562.867 771.612 563.79C778.756 566.907 787.345 570.654 797.84 585.084C812.78 605.627 811.403 629.612 798.916 646.512H707C696.132 630.739 695.605 608.169 709.966 585.084C720.052 571.673 728.986 567.238 736.365 563.574C738.157 562.684 739.858 561.84 741.46 560.924C743.175 559.945 743.214 558.229 743.258 556.307C743.265 556.034 743.271 555.758 743.282 555.478C743.882 540.655 743.429 525.674 740.238 513.924C738.79 508.602 735.203 504.151 730.36 501.507C726.966 499.666 726.377 497.361 726.377 494.875C726.377 488.729 738.541 483.758 753.545 483.758C768.549 483.758 780.712 488.74 780.712 494.875C780.712 497.361 780.113 499.654 776.73 501.507C771.887 504.151 768.3 508.602 766.851 513.924C763.661 525.663 763.208 540.655 763.808 555.478C763.819 555.758 763.825 556.034 763.832 556.307C763.876 558.228 763.915 559.945 765.629 560.924ZM753.341 498.841C742.467 498.841 733.653 496.559 733.653 493.745C733.653 490.932 742.671 487.263 753.545 487.263C764.419 487.263 773.03 490.932 773.03 493.745C773.03 496.559 764.215 498.841 753.341 498.841Z"
             fill="url(#paint2_linear_469_273)"
           />
@@ -31,7 +31,7 @@ const Super2: FC<{
         <path
           d="M815.785 427.956C812.925 443.154 833.699 452.099 833.761 462.503C833.823 472.908 820.372 479.956 801.439 481.543C782.506 483.13 766.257 499.873 766.257 499.873L741.257 499.873C741.257 499.873 690.32 463.56 701.437 442.701C712.553 421.842 686.045 416.356 690.775 392.239C695.505 368.123 754 350.419 737.5 324.001C721 297.582 674.853 289.001 701.436 240.501C728.019 192 805.719 167.5 865.556 196.562C925.393 225.624 982.501 291.501 947.538 317.65C912.574 343.798 880.877 331.392 875.454 350.419C870.031 369.445 909.294 367.346 897.505 395.145C885.716 422.943 818.646 412.758 815.785 427.956Z"
           fill="url(#paint3_linear_469_273)"
-          fill-opacity="0.8"
+          fillOpacity="0.8"
         />
         <path
           d="M748.645 419.316C730.839 420.634 729.52 421.953 728.201 439.759C726.882 421.953 725.563 420.634 707.758 419.316C725.563 417.997 726.882 416.678 728.201 398.872C729.52 416.678 730.839 417.997 748.645 419.316Z"
@@ -90,8 +90,8 @@ const Super2: FC<{
               height="105.084"
               transform="matrix(-1 0 0 1 984.403 372.308)"
               stroke="url(#paint8_linear_469_273)"
-              stroke-width="16.5792"
-              shape-rendering="crispEdges"
+              strokeWidth="16.5792"
+              shapeRendering="crispEdges"
             />
           </g>
           <ellipse
@@ -125,8 +125,8 @@ const Super2: FC<{
             <path
               d="M1055.24 626.04C1088.49 626.04 1112.63 594.265 1112.63 558.876C1112.63 523.488 1088.49 491.713 1055.24 491.713C1021.99 491.713 997.855 523.488 997.855 558.876C997.855 594.265 1021.99 626.04 1055.24 626.04Z"
               stroke="url(#paint12_radial_469_273)"
-              stroke-width="18.7745"
-              shape-rendering="crispEdges"
+              strokeWidth="18.7745"
+              shapeRendering="crispEdges"
             />
           </g>
           <g filter="url(#filter6_d_469_273)">
@@ -137,7 +137,7 @@ const Super2: FC<{
             <path
               d="M1013.94 200L1021.05 195.002L1013.69 184.518L1006.67 195.236L1013.94 200ZM1013.94 200C1021.05 195.002 1021.05 195.003 1021.05 195.004L1021.06 195.007L1021.06 195.017L1021.09 195.053L1021.18 195.187C1021.26 195.303 1021.38 195.473 1021.53 195.693C1021.84 196.133 1022.28 196.775 1022.84 197.597C1023.97 199.24 1025.57 201.603 1027.48 204.504C1031.31 210.298 1036.43 218.275 1041.56 226.969C1046.67 235.634 1051.89 245.162 1055.85 254.031C1059.65 262.535 1062.9 271.699 1062.9 279.172C1062.9 305.373 1043.48 327.452 1015.99 327.452C988.891 327.452 967.706 305.782 967.706 279.172C967.706 271.831 970.691 262.754 974.24 254.235C977.929 245.38 982.786 235.861 987.552 227.197C992.333 218.506 997.102 210.531 1000.67 204.737C1002.46 201.837 1003.95 199.474 1004.99 197.831C1005.52 197.009 1005.93 196.367 1006.22 195.927C1006.36 195.707 1006.47 195.538 1006.54 195.422L1006.63 195.288L1006.66 195.252L1006.66 195.241L1006.66 195.238C1006.67 195.237 1006.67 195.236 1013.94 200Z"
               stroke="url(#paint14_radial_469_273)"
-              stroke-width="17.388"
+              strokeWidth="17.388"
             />
           </g>
           <g style={{ mixBlendMode: "soft-light" }}>
@@ -156,8 +156,8 @@ const Super2: FC<{
         <path
           d="M761.169 525.222C761.169 525.222 757.178 501.111 757.178 483.335C757.178 465.56 768.064 449.368 768.064 449.368"
           stroke="url(#paint17_linear_469_273)"
-          stroke-width="4"
-          stroke-linecap="round"
+          strokeWidth="4"
+          strokeLinecap="round"
         />
         <path
           d="M747.873 481.851C752.692 489.031 754.664 502.429 754.664 502.429L741.512 501.045C741.512 501.045 736.101 488.805 734.841 479.924C733.582 471.042 735.298 461.916 735.298 461.916C735.298 461.916 743.054 474.672 747.873 481.851Z"
@@ -182,8 +182,8 @@ const Super2: FC<{
           fill="url(#paint22_linear_469_273)"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M797.84 585.085C787.345 570.654 778.756 566.907 771.612 563.791C769.495 562.867 767.505 561.999 765.629 560.925C763.915 559.945 763.876 558.229 763.832 556.308C763.825 556.035 763.819 555.759 763.808 555.479C763.208 540.656 763.661 525.663 766.851 513.925C768.3 508.603 771.887 504.152 776.73 501.508C780.113 499.655 780.712 497.362 780.712 494.876L773.03 493.746C773.03 496.559 764.215 498.842 753.341 498.842C742.467 498.842 733.653 496.559 733.653 493.746L726.377 494.876C726.377 497.362 726.966 499.666 730.36 501.508C735.203 504.152 738.79 508.603 740.238 513.925C743.429 525.675 743.882 540.656 743.282 555.479C743.271 555.759 743.265 556.035 743.258 556.308C743.214 558.229 743.175 559.945 741.46 560.925C739.858 561.841 738.157 562.685 736.365 563.575C728.986 567.239 720.052 571.674 709.966 585.085C690.394 616.546 698.474 647.051 722.699 660.698C733.492 668.1 773.492 667.466 782.855 660.698C808.657 646.039 817.777 612.498 797.84 585.085Z"
           fill="url(#paint23_linear_469_273)"
         />
@@ -192,8 +192,8 @@ const Super2: FC<{
             <path
               d="M1467.88 191.656L1466.93 321.152"
               stroke="url(#paint24_linear_469_273)"
-              stroke-width="6.66503"
-              stroke-linecap="round"
+              strokeWidth="6.66503"
+              strokeLinecap="round"
             />
           </g>
           <ellipse
@@ -241,8 +241,8 @@ const Super2: FC<{
             <path
               d="M1427.49 154.484L1427.08 210.358"
               stroke="url(#paint30_linear_469_273)"
-              stroke-width="3.76014"
-              stroke-linecap="round"
+              strokeWidth="3.76014"
+              strokeLinecap="round"
             />
           </g>
           <ellipse
@@ -290,8 +290,8 @@ const Super2: FC<{
             <path
               d="M1357.24 107L1357.24 239.528"
               stroke="url(#paint36_linear_469_273)"
-              stroke-width="7.10235"
-              stroke-linecap="round"
+              strokeWidth="7.10235"
+              strokeLinecap="round"
             />
           </g>
           <ellipse
@@ -350,7 +350,7 @@ const Super2: FC<{
             <path
               d="M1202.28 382.249L1196.39 375.053L1190.61 382.332L1146.13 438.274L1142.47 442.871L1146.06 447.522L1190.54 505.231L1196.39 512.829L1202.35 505.314L1248.14 447.605L1251.9 442.869L1248.07 438.192L1202.28 382.249Z"
               stroke="url(#paint44_linear_469_273)"
-              stroke-width="15.0023"
+              strokeWidth="15.0023"
             />
           </g>
           <g style={{ mixBlendMode: "soft-light" }}>
@@ -456,8 +456,8 @@ const Super2: FC<{
           />
         </g>
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M1512 0H0V982H1512V819.8H1146.14V297.381C1146.14 297.381 1133.74 86.3376 1343.73 87.2026C1431.19 87.5628 1482.22 124.075 1512 166.566V0ZM565.729 815.4H158.138V292.981C158.138 292.981 145.737 81.9377 355.733 82.8027C565.729 83.6677 565.729 292.981 565.729 292.981V815.4ZM1059.73 817.6H652.138V295.181C652.138 295.181 639.737 84.1377 849.733 85.0027C1059.73 85.8676 1059.73 295.181 1059.73 295.181V817.6Z"
           fill="url(#paint56_linear_469_273)"
         />
@@ -518,16 +518,16 @@ const Super2: FC<{
           />
           <g filter="url(#filter23_d_469_273)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M1407.79 647.669C1400.81 642.062 1395.09 640.606 1390.34 639.395C1388.93 639.036 1387.6 638.699 1386.35 638.281C1385.21 637.901 1385.19 637.234 1385.16 636.487C1385.15 636.381 1385.15 636.274 1385.14 636.165C1384.74 630.406 1385.04 624.58 1387.17 620.019C1388.13 617.951 1390.52 616.222 1393.74 615.194C1395.99 614.475 1396.39 613.583 1396.39 612.618L1391.28 612.179C1391.28 613.272 1385.41 614.158 1378.17 614.158C1370.94 614.158 1365.07 613.272 1365.07 612.179L1360.22 612.618C1360.22 613.583 1360.62 614.479 1362.88 615.194C1366.1 616.222 1368.49 617.951 1369.45 620.019C1371.58 624.585 1371.88 630.406 1371.48 636.165C1371.47 636.274 1371.47 636.381 1371.46 636.487C1371.43 637.234 1371.41 637.901 1370.26 638.281C1369.2 638.637 1368.07 638.965 1366.87 639.311C1361.96 640.735 1356.01 642.458 1349.3 647.669C1336.27 659.893 1341.65 671.746 1357.78 677.049C1365.5 681.216 1392.1 681.08 1397.82 677.049C1415 671.353 1421.07 658.32 1407.79 647.669Z"
               fill="url(#paint64_linear_469_273)"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
             />
             <path
               d="M1396.39 612.618C1396.39 606.462 1360.22 606.459 1360.22 612.618L1365.07 612.179C1365.07 608.652 1391.28 608.569 1391.28 612.179L1396.39 612.618Z"
               fill="url(#paint65_linear_469_273)"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
             />
           </g>
           <path
@@ -536,16 +536,16 @@ const Super2: FC<{
           />
           <g filter="url(#filter24_d_469_273)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M1409.79 758.952C1402.81 750.478 1397.09 748.277 1392.34 746.447C1390.93 745.905 1389.6 745.395 1388.35 744.764C1387.21 744.189 1387.19 743.181 1387.16 742.053C1387.15 741.893 1387.15 741.73 1387.14 741.566C1386.74 732.862 1387.04 724.058 1389.17 717.164C1390.13 714.04 1392.52 711.426 1395.74 709.873C1397.99 708.785 1398.39 707.438 1398.39 705.978L1393.28 705.315C1393.28 706.967 1387.41 708.307 1380.17 708.307C1372.94 708.307 1367.07 706.967 1367.07 705.315L1362.22 705.978C1362.22 707.438 1362.62 708.792 1364.88 709.873C1368.1 711.426 1370.49 714.04 1371.45 717.164C1373.58 724.064 1373.88 732.862 1373.48 741.566C1373.47 741.73 1373.47 741.893 1373.46 742.053C1373.43 743.181 1373.41 744.189 1372.26 744.764C1371.2 745.302 1370.07 745.798 1368.87 746.32C1363.96 748.472 1358.01 751.076 1351.3 758.952C1338.27 777.427 1343.65 795.34 1359.78 803.354C1367.5 809.651 1394.1 809.445 1399.82 803.354C1417 794.746 1423.07 775.049 1409.79 758.952Z"
               fill="url(#paint67_linear_469_273)"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
             />
             <path
               d="M1398.39 705.978C1398.39 696.676 1362.22 696.671 1362.22 705.978L1367.07 705.315C1367.07 699.985 1393.28 699.86 1393.28 705.315L1398.39 705.978Z"
               fill="url(#paint68_linear_469_273)"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
             />
           </g>
           <rect
@@ -558,24 +558,24 @@ const Super2: FC<{
           <path
             d="M1379.53 585.5C1380.81 582.217 1380.81 582.217 1380.81 582.217L1380.81 582.217L1380.82 582.219L1380.83 582.223L1380.88 582.242L1381.06 582.313C1381.21 582.375 1381.45 582.466 1381.74 582.583C1382.33 582.819 1383.19 583.161 1384.24 583.589C1386.35 584.446 1389.25 585.653 1392.45 587.051C1398.76 589.813 1406.48 593.436 1411.35 596.632C1416.3 599.882 1420.81 604.326 1424.02 607.859C1425.65 609.643 1426.97 611.231 1427.9 612.378C1428.36 612.952 1428.72 613.417 1428.97 613.742C1429.1 613.905 1429.19 614.033 1429.26 614.122C1429.29 614.167 1429.32 614.202 1429.34 614.227L1429.36 614.256L1429.37 614.265L1429.37 614.268L1429.37 614.27C1429.37 614.27 1429.37 614.27 1426.54 616.363L1429.37 614.27L1430.06 615.203V616.363V850.16V853.683H1426.54H1331.74H1328.22V850.16V616.363V615.24L1328.87 614.324L1331.74 616.363C1328.87 614.324 1328.87 614.324 1328.87 614.323L1328.87 614.322L1328.87 614.319L1328.88 614.309L1328.9 614.279C1328.92 614.254 1328.95 614.218 1328.98 614.173C1329.05 614.083 1329.14 613.954 1329.26 613.79C1329.5 613.463 1329.86 612.995 1330.31 612.419C1331.21 611.267 1332.5 609.673 1334.1 607.883C1337.27 604.338 1341.75 599.878 1346.8 596.618C1351.75 593.418 1359.72 589.794 1366.25 587.034C1369.55 585.636 1372.56 584.43 1374.74 583.573C1375.83 583.145 1376.72 582.803 1377.33 582.568C1377.64 582.45 1377.88 582.359 1378.04 582.297L1378.23 582.226L1378.28 582.208L1378.29 582.203L1378.3 582.202L1378.3 582.201C1378.3 582.201 1378.3 582.201 1379.53 585.5ZM1379.53 585.5L1380.81 582.217L1379.56 581.729L1378.3 582.201L1379.53 585.5Z"
             fill="url(#paint70_linear_469_273)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
             stroke="url(#paint71_linear_469_273)"
-            stroke-width="7.04581"
+            strokeWidth="7.04581"
           />
           <path
             d="M1332.23 615.622L1332.23 642.404L1427.02 699.116L1427.02 663.933L1332.23 615.622Z"
             fill="url(#paint72_linear_469_273)"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <path
             d="M1332.23 664.984L1332.23 686.514L1427.02 743.227L1427.02 715.921L1332.23 664.984Z"
             fill="url(#paint73_linear_469_273)"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <path
             d="M1332.23 771.057L1332.23 790.486L1427.03 844.573L1427.03 825.669L1332.23 771.057Z"
             fill="url(#paint74_linear_469_273)"
-            fill-opacity="0.6"
+            fillOpacity="0.6"
           />
           <g filter="url(#filter25_d_469_273)">
             <path
@@ -584,16 +584,16 @@ const Super2: FC<{
             />
             <g filter="url(#filter26_d_469_273)">
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M1526.47 706.051C1521.11 698.977 1516.73 697.14 1513.08 695.612C1512 695.159 1510.98 694.734 1510.02 694.207C1509.15 693.727 1509.13 692.885 1509.11 691.943C1509.1 691.81 1509.1 691.674 1509.09 691.537C1508.79 684.27 1509.02 676.92 1510.65 671.165C1511.39 668.556 1513.22 666.374 1515.69 665.077C1517.42 664.169 1517.73 663.045 1517.73 661.826L1513.8 661.272C1513.8 662.651 1509.3 663.77 1503.75 663.77C1498.2 663.77 1493.7 662.651 1493.7 661.272L1489.98 661.826C1489.98 663.045 1490.28 664.175 1492.01 665.077C1494.49 666.374 1496.32 668.556 1497.06 671.165C1498.69 676.925 1498.92 684.27 1498.61 691.537C1498.61 691.674 1498.6 691.81 1498.6 691.943C1498.58 692.885 1498.56 693.727 1497.68 694.207C1496.86 694.656 1496 695.07 1495.08 695.506C1491.31 697.302 1486.75 699.477 1481.6 706.051C1471.61 721.475 1475.73 736.431 1488.1 743.121C1494.03 748.379 1514.43 748.207 1518.82 743.121C1532 735.935 1536.65 719.491 1526.47 706.051Z"
                 fill="url(#paint76_linear_469_273)"
-                shape-rendering="crispEdges"
+                shapeRendering="crispEdges"
               />
               <path
                 d="M1517.73 661.826C1517.73 654.06 1489.98 654.056 1489.98 661.826L1493.7 661.272C1493.7 656.822 1513.8 656.718 1513.8 661.272L1517.73 661.826Z"
                 fill="url(#paint77_linear_469_273)"
-                shape-rendering="crispEdges"
+                shapeRendering="crispEdges"
               />
             </g>
             <rect
@@ -607,30 +607,30 @@ const Super2: FC<{
           <path
             d="M1502.4 584C1503.68 580.717 1503.68 580.717 1503.68 580.717L1503.68 580.717L1503.68 580.719L1503.69 580.723L1503.74 580.742L1503.92 580.813C1504.08 580.875 1504.31 580.966 1504.61 581.083C1505.2 581.319 1506.05 581.661 1507.11 582.089C1509.21 582.946 1512.11 584.153 1515.31 585.551C1521.62 588.313 1529.35 591.936 1534.22 595.132C1539.16 598.382 1543.68 602.826 1546.89 606.359C1548.51 608.143 1549.84 609.731 1550.76 610.878C1551.22 611.452 1551.59 611.917 1551.84 612.242C1551.96 612.405 1552.06 612.533 1552.13 612.622C1552.16 612.667 1552.19 612.702 1552.2 612.727L1552.23 612.756L1552.23 612.765L1552.24 612.768L1552.24 612.77C1552.24 612.77 1552.24 612.77 1549.4 614.863L1552.24 612.77L1552.93 613.703V614.863V848.66V852.183H1549.4H1454.61H1451.09V848.66V614.863V613.74L1451.74 612.824L1454.61 614.863C1451.74 612.824 1451.74 612.824 1451.74 612.823L1451.74 612.822L1451.74 612.819L1451.75 612.809L1451.77 612.779C1451.79 612.754 1451.81 612.718 1451.85 612.673C1451.91 612.583 1452 612.454 1452.13 612.29C1452.37 611.963 1452.72 611.495 1453.17 610.919C1454.07 609.767 1455.37 608.173 1456.96 606.383C1460.13 602.838 1464.61 598.378 1469.66 595.118C1474.62 591.918 1482.59 588.294 1489.11 585.534C1492.42 584.136 1495.43 582.93 1497.61 582.073C1498.7 581.645 1499.58 581.303 1500.2 581.068C1500.51 580.95 1500.74 580.859 1500.91 580.797L1501.1 580.726L1501.15 580.708L1501.16 580.703L1501.16 580.702L1501.16 580.701C1501.16 580.701 1501.16 580.701 1502.4 584ZM1502.4 584L1503.68 580.717L1502.42 580.229L1501.16 580.701L1502.4 584Z"
             fill="url(#paint79_linear_469_273)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
             stroke="url(#paint80_linear_469_273)"
-            stroke-width="7.04581"
+            strokeWidth="7.04581"
           />
           <path
             d="M1455.1 614.122L1455.1 640.904L1549.89 697.616L1549.89 662.433L1455.1 614.122Z"
             fill="url(#paint81_linear_469_273)"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <path
             d="M1455.1 663.484L1455.1 685.014L1549.89 741.727L1549.89 714.421L1455.1 663.484Z"
             fill="url(#paint82_linear_469_273)"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <path
             d="M1455.1 769.557L1455.1 788.986L1549.89 843.073L1549.89 824.169L1455.1 769.557Z"
             fill="url(#paint83_linear_469_273)"
-            fill-opacity="0.6"
+            fillOpacity="0.6"
           />
         </g>
         <g filter="url(#filter27_d_469_273)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M1512 0H0V982H1512V819.8H1149.14V297.381C1149.14 297.381 1136.74 86.3376 1346.73 87.2026C1431.32 87.551 1481.83 121.719 1512 162.405V0ZM655.138 817.6H1062.73V295.181C1062.73 295.181 1062.73 85.8676 852.733 85.0027C642.737 84.1377 655.138 295.181 655.138 295.181V817.6Z"
             fill="url(#paint84_linear_469_273)"
           />
@@ -645,8 +645,8 @@ const Super2: FC<{
           height="264"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M655.138 817.6H1062.73V718H1149.14V819.8H1512V982H0V718H655.138V817.6Z"
             fill="url(#paint85_linear_469_273)"
           />
@@ -656,12 +656,12 @@ const Super2: FC<{
             <path
               d="M-348 721.828H668.594M-348 795.397H668.594M-348 868.966L668.594 869.769H1683M-348 942.535H668.594H1683M-348 1016.1H668.594M-295.312 721.828V795.01M-150.207 721.828V795.01M-5.10345 721.828V795.01M140 721.828V795.01M285.105 721.828V795.01M430.211 721.828V795.01M575.314 721.828V795.01M-295.312 870.515V943.697M-150.207 870.515V943.697M-5.10345 870.515V943.697M140 870.515V943.697M285.105 870.515V943.697M430.211 870.515V943.697M575.314 870.515V943.697M-222.762 796.172V869.353M-77.6576 796.172V869.353M67.4474 796.172V869.353M212.551 796.172V869.353M357.656 796.172V869.353M502.76 796.172V869.353M647.864 796.172V869.353M-222.762 942.535V1015.72M-77.6576 942.535V1015.72M67.4474 942.535V1015.72M212.551 942.535V1015.72M357.656 942.535V1015.72M502.76 942.535V1015.72M647.864 942.535V1015.72M666.406 721.828H1683M666.406 795.397H1683M666.406 1016.1H1683M719.094 721.828V795.01M864.198 721.828V795.01M1009.3 721.828V795.01M1154.41 721.828V795.01M1299.51 721.828V795.01M1444.62 721.828V795.01M1589.72 721.828V795.01M719.094 870.515V943.697M864.198 870.515V943.697M1009.3 870.515V943.697M1154.41 870.515V943.697M1299.51 870.515V943.697M1444.62 870.515V943.697M1589.72 870.515V943.697M791.645 796.171V869.353M936.75 796.171V869.353M1081.85 796.171V869.353M1226.96 796.171V869.353M1372.06 796.171V869.353M1517.17 796.171V869.353M1662.27 796.171V869.353M791.645 942.535V1015.72M936.75 942.535V1015.72M1081.85 942.535V1015.72M1226.96 942.535V1015.72M1372.06 942.535V1015.72M1517.17 942.535V1015.72M1662.27 942.535V1015.72"
               stroke="url(#paint86_linear_469_273)"
-              stroke-width="7.7441"
+              strokeWidth="7.7441"
             />
             <path
               d="M-348 721.828H668.594M-348 795.397H668.594M-348 868.966L668.594 869.769H1683M-348 942.535H668.594H1683M-348 1016.1H668.594M-295.312 721.828V795.01M-150.207 721.828V795.01M-5.10345 721.828V795.01M140 721.828V795.01M285.105 721.828V795.01M430.211 721.828V795.01M575.314 721.828V795.01M-295.312 870.515V943.697M-150.207 870.515V943.697M-5.10345 870.515V943.697M140 870.515V943.697M285.105 870.515V943.697M430.211 870.515V943.697M575.314 870.515V943.697M-222.762 796.172V869.353M-77.6576 796.172V869.353M67.4474 796.172V869.353M212.551 796.172V869.353M357.656 796.172V869.353M502.76 796.172V869.353M647.864 796.172V869.353M-222.762 942.535V1015.72M-77.6576 942.535V1015.72M67.4474 942.535V1015.72M212.551 942.535V1015.72M357.656 942.535V1015.72M502.76 942.535V1015.72M647.864 942.535V1015.72M666.406 721.828H1683M666.406 795.397H1683M666.406 1016.1H1683M719.094 721.828V795.01M864.198 721.828V795.01M1009.3 721.828V795.01M1154.41 721.828V795.01M1299.51 721.828V795.01M1444.62 721.828V795.01M1589.72 721.828V795.01M719.094 870.515V943.697M864.198 870.515V943.697M1009.3 870.515V943.697M1154.41 870.515V943.697M1299.51 870.515V943.697M1444.62 870.515V943.697M1589.72 870.515V943.697M791.645 796.171V869.353M936.75 796.171V869.353M1081.85 796.171V869.353M1226.96 796.171V869.353M1372.06 796.171V869.353M1517.17 796.171V869.353M1662.27 796.171V869.353M791.645 942.535V1015.72M936.75 942.535V1015.72M1081.85 942.535V1015.72M1226.96 942.535V1015.72M1372.06 942.535V1015.72M1517.17 942.535V1015.72M1662.27 942.535V1015.72"
               stroke="url(#paint87_linear_469_273)"
-              stroke-width="7.7441"
+              strokeWidth="7.7441"
             />
           </g>
         </g>
@@ -669,23 +669,23 @@ const Super2: FC<{
           <path
             d="M866.471 115.501C870.363 103.879 876.043 94.7561 884.383 84.9014"
             stroke="url(#paint88_linear_469_273)"
-            stroke-width="12.6"
+            strokeWidth="12.6"
           />
           <path
             d="M842.156 115.501C838.264 103.879 832.583 94.7561 824.243 84.9014"
             stroke="url(#paint89_linear_469_273)"
-            stroke-width="12.6"
+            strokeWidth="12.6"
           />
           <path
             d="M1059.73 815.4H652.138V292.981C652.138 292.981 639.737 81.9375 849.733 82.8025C1059.73 83.6674 1059.73 292.981 1059.73 292.981V815.4Z"
             stroke="url(#paint90_radial_469_273)"
-            stroke-width="12.6"
+            strokeWidth="12.6"
           />
           <g filter="url(#filter30_d_469_273)">
             <path
               d="M718.903 199.202C698.478 193.129 676.922 190.718 694.593 176.252C712.264 161.787 739.639 160.928 754.593 173.807"
               stroke="url(#paint91_linear_469_273)"
-              stroke-width="12.6"
+              strokeWidth="12.6"
             />
             <path
               d="M685.641 259.502L681.584 254.682L679.341 256.57V259.502H685.641ZM746.236 189.818C749.503 188.622 751.182 185.004 749.986 181.737C748.79 178.469 745.172 176.79 741.905 177.986L746.236 189.818ZM689.697 264.322C709.071 248.017 713.7 231.323 718.523 218.325C720.928 211.843 723.259 206.577 727.143 202.013C730.951 197.539 736.608 193.343 746.236 189.818L741.905 177.986C730.634 182.112 723.017 187.422 717.548 193.846C712.157 200.181 709.209 207.205 706.71 213.942C701.723 227.381 698.035 240.837 681.584 254.682L689.697 264.322ZM679.341 259.502V817.201H691.941V259.502H679.341Z"
@@ -702,7 +702,7 @@ const Super2: FC<{
             <path
               d="M990.708 199.6C1011.13 193.526 1032.69 191.115 1015.02 176.65C997.347 162.184 969.973 161.326 955.018 174.205"
               stroke="url(#paint94_linear_469_273)"
-              stroke-width="12.6"
+              strokeWidth="12.6"
             />
             <path
               d="M1023.97 259.9L1028.03 255.079L1030.26 256.958L1030.27 259.876L1023.97 259.9ZM963.375 190.216C960.108 189.02 958.429 185.402 959.625 182.134C960.821 178.867 964.439 177.188 967.706 178.384L963.375 190.216ZM1019.91 264.72C1000.54 248.415 995.911 231.721 991.088 218.723C988.683 212.24 986.352 206.974 982.468 202.411C978.66 197.937 973.003 193.74 963.375 190.216L967.706 178.384C978.977 182.509 986.594 187.819 992.063 194.244C997.454 200.578 1000.4 207.603 1002.9 214.339C1007.89 227.778 1011.58 241.234 1028.03 255.079L1019.91 264.72ZM1030.27 259.876L1032.33 813.578L1019.73 813.624L1017.67 259.923L1030.27 259.876Z"
@@ -755,30 +755,30 @@ const Super2: FC<{
             <path
               d="M830.744 181.348H878.426"
               stroke="url(#paint105_linear_469_273)"
-              stroke-width="15.17"
-              stroke-linecap="round"
+              strokeWidth="15.17"
+              strokeLinecap="round"
             />
           </g>
           <path
             d="M1360.47 115.501C1364.36 103.879 1370.04 94.7561 1378.38 84.9014"
             stroke="url(#paint106_linear_469_273)"
-            stroke-width="12.6"
+            strokeWidth="12.6"
           />
           <path
             d="M1336.16 115.501C1332.26 103.879 1326.58 94.7561 1318.24 84.9014"
             stroke="url(#paint107_linear_469_273)"
-            stroke-width="12.6"
+            strokeWidth="12.6"
           />
           <path
             d="M1553.73 815.4H1146.14V292.981C1146.14 292.981 1133.74 81.9375 1343.73 82.8025C1553.73 83.6674 1553.73 292.981 1553.73 292.981V815.4Z"
             stroke="url(#paint108_radial_469_273)"
-            stroke-width="12.6"
+            strokeWidth="12.6"
           />
           <g filter="url(#filter37_d_469_273)">
             <path
               d="M1212.9 199.202C1192.48 193.129 1170.92 190.718 1188.59 176.252C1206.26 161.787 1233.64 160.928 1248.59 173.807"
               stroke="url(#paint109_linear_469_273)"
-              stroke-width="12.6"
+              strokeWidth="12.6"
             />
             <path
               d="M1179.64 259.502L1175.58 254.682L1173.34 256.57V259.502H1179.64ZM1240.24 189.818C1243.5 188.622 1245.18 185.004 1243.99 181.737C1242.79 178.469 1239.17 176.79 1235.9 177.986L1240.24 189.818ZM1183.7 264.322C1203.07 248.017 1207.7 231.323 1212.52 218.325C1214.93 211.843 1217.26 206.577 1221.14 202.013C1224.95 197.539 1230.61 193.343 1240.24 189.818L1235.9 177.986C1224.63 182.112 1217.02 187.422 1211.55 193.846C1206.16 200.181 1203.21 207.205 1200.71 213.942C1195.72 227.381 1192.04 240.837 1175.58 254.682L1183.7 264.322ZM1173.34 259.502V817.201H1185.94V259.502H1173.34Z"
@@ -795,7 +795,7 @@ const Super2: FC<{
             <path
               d="M1484.71 199.6C1505.13 193.526 1526.69 191.115 1509.02 176.65C1491.35 162.184 1463.97 161.326 1449.02 174.205"
               stroke="url(#paint112_linear_469_273)"
-              stroke-width="12.6"
+              strokeWidth="12.6"
             />
             <path
               d="M1517.97 259.9L1522.03 255.079L1524.26 256.958L1524.27 259.876L1517.97 259.9ZM1457.38 190.216C1454.11 189.02 1452.43 185.402 1453.62 182.134C1454.82 178.867 1458.44 177.188 1461.71 178.384L1457.38 190.216ZM1513.91 264.72C1494.54 248.415 1489.91 231.721 1485.09 218.723C1482.68 212.24 1480.35 206.974 1476.47 202.411C1472.66 197.937 1467 193.74 1457.38 190.216L1461.71 178.384C1472.98 182.509 1480.59 187.819 1486.06 194.244C1491.45 200.578 1494.4 207.603 1496.9 214.339C1501.89 227.778 1505.58 241.234 1522.03 255.079L1513.91 264.72ZM1524.27 259.876L1526.33 813.578L1513.73 813.624L1511.67 259.923L1524.27 259.876Z"
@@ -848,8 +848,8 @@ const Super2: FC<{
             <path
               d="M1324.74 181.348H1372.43"
               stroke="url(#paint123_linear_469_273)"
-              stroke-width="15.17"
-              stroke-linecap="round"
+              strokeWidth="15.17"
+              strokeLinecap="round"
             />
           </g>
         </g>
@@ -954,9 +954,9 @@ const Super2: FC<{
           width="113.734"
           height="166.823"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -989,9 +989,9 @@ const Super2: FC<{
           width="244.221"
           height="479.504"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1024,9 +1024,9 @@ const Super2: FC<{
           width="70.6457"
           height="97.9787"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1059,9 +1059,9 @@ const Super2: FC<{
           width="70.6457"
           height="97.9787"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1094,9 +1094,9 @@ const Super2: FC<{
           width="103.804"
           height="131.137"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1129,9 +1129,9 @@ const Super2: FC<{
           width="145.098"
           height="164.654"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1164,9 +1164,9 @@ const Super2: FC<{
           width="124.136"
           height="178.663"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1199,9 +1199,9 @@ const Super2: FC<{
           width="20.4868"
           height="35.354"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1234,9 +1234,9 @@ const Super2: FC<{
           width="90.1086"
           height="218.126"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1269,9 +1269,9 @@ const Super2: FC<{
           width="15.2344"
           height="143.777"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1304,9 +1304,9 @@ const Super2: FC<{
           width="68.7082"
           height="123.039"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1339,9 +1339,9 @@ const Super2: FC<{
           width="8.46917"
           height="63.9311"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1374,9 +1374,9 @@ const Super2: FC<{
           width="106.333"
           height="235.337"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1409,9 +1409,9 @@ const Super2: FC<{
           width="15.2185"
           height="147.747"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1444,9 +1444,9 @@ const Super2: FC<{
           width="140.58"
           height="176.899"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1479,9 +1479,9 @@ const Super2: FC<{
           width="137.153"
           height="170.472"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1514,9 +1514,9 @@ const Super2: FC<{
           width="335.159"
           height="173.28"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1549,9 +1549,9 @@ const Super2: FC<{
           width="358.12"
           height="48.12"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1584,9 +1584,9 @@ const Super2: FC<{
           width="73.7305"
           height="35.8086"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1619,9 +1619,9 @@ const Super2: FC<{
           width="317.539"
           height="369.679"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1654,9 +1654,9 @@ const Super2: FC<{
           width="334.699"
           height="28.4596"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1689,9 +1689,9 @@ const Super2: FC<{
           width="334.699"
           height="23.1793"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1724,9 +1724,9 @@ const Super2: FC<{
           width="238.834"
           height="287.833"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1759,9 +1759,9 @@ const Super2: FC<{
           width="81"
           height="80.123"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1794,9 +1794,9 @@ const Super2: FC<{
           width="81"
           height="117"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1829,9 +1829,9 @@ const Super2: FC<{
           width="89"
           height="105"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1864,9 +1864,9 @@ const Super2: FC<{
           width="64"
           height="99"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1899,9 +1899,9 @@ const Super2: FC<{
           width="1520"
           height="996"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1934,9 +1934,9 @@ const Super2: FC<{
           width="2031"
           height="306.02"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1969,9 +1969,9 @@ const Super2: FC<{
           width="922.33"
           height="753.2"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2004,9 +2004,9 @@ const Super2: FC<{
           width="85.6807"
           height="665.107"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2039,9 +2039,9 @@ const Super2: FC<{
           width="92.6514"
           height="80.0694"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2074,9 +2074,9 @@ const Super2: FC<{
           width="87.7413"
           height="661.133"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2109,9 +2109,9 @@ const Super2: FC<{
           width="92.6514"
           height="80.0694"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2144,9 +2144,9 @@ const Super2: FC<{
           width="111.226"
           height="87.38"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2179,9 +2179,9 @@ const Super2: FC<{
           width="111.226"
           height="87.38"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2214,9 +2214,9 @@ const Super2: FC<{
           width="104.339"
           height="110.649"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2249,9 +2249,9 @@ const Super2: FC<{
           width="85.6807"
           height="665.107"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2284,9 +2284,9 @@ const Super2: FC<{
           width="92.6514"
           height="80.0694"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2319,9 +2319,9 @@ const Super2: FC<{
           width="87.7413"
           height="661.133"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2354,9 +2354,9 @@ const Super2: FC<{
           width="92.6514"
           height="80.0694"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2389,9 +2389,9 @@ const Super2: FC<{
           width="111.226"
           height="87.38"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2424,9 +2424,9 @@ const Super2: FC<{
           width="111.226"
           height="87.38"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2459,9 +2459,9 @@ const Super2: FC<{
           width="104.339"
           height="110.649"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2494,9 +2494,9 @@ const Super2: FC<{
           width="464"
           height="54"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2529,9 +2529,9 @@ const Super2: FC<{
           width="464"
           height="54"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2564,9 +2564,9 @@ const Super2: FC<{
           width="55.6688"
           height="71.0018"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2585,9 +2585,9 @@ const Super2: FC<{
           width="34.0688"
           height="49.4018"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2606,9 +2606,9 @@ const Super2: FC<{
           width="61.0348"
           height="78.9547"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2627,9 +2627,9 @@ const Super2: FC<{
           width="37.3348"
           height="55.2547"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2648,9 +2648,9 @@ const Super2: FC<{
           width="49.4449"
           height="63.9635"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2669,9 +2669,9 @@ const Super2: FC<{
           width="30.2449"
           height="44.7635"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2691,8 +2691,8 @@ const Super2: FC<{
           y2="1294.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#1A8B6D" />
+          <stop stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#1A8B6D" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_469_273"
@@ -2702,8 +2702,8 @@ const Super2: FC<{
           y2="474.385"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="1" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="1" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_469_273"
@@ -2713,10 +2713,10 @@ const Super2: FC<{
           y2="658.588"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_469_273"
@@ -2726,11 +2726,11 @@ const Super2: FC<{
           y2="199.804"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.586941" stop-color="#F5EEBF" />
-          <stop offset="0.854375" stop-color="#F5EEBF" stop-opacity="0.4" />
-          <stop offset="0.915" stop-color="#F5EEBF" stop-opacity="0.15" />
-          <stop offset="1" stop-color="#15786C" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.586941" stopColor="#F5EEBF" />
+          <stop offset="0.854375" stopColor="#F5EEBF" stopOpacity="0.4" />
+          <stop offset="0.915" stopColor="#F5EEBF" stopOpacity="0.15" />
+          <stop offset="1" stopColor="#15786C" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint4_radial_469_273"
@@ -2740,8 +2740,8 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(-18.872 115.838) rotate(-55.6512) scale(156.857 108.415)"
         >
-          <stop offset="0.274226" stop-color="#F5EEBF" />
-          <stop offset="0.863341" stop-color="#6AB692" />
+          <stop offset="0.274226" stopColor="#F5EEBF" />
+          <stop offset="0.863341" stopColor="#6AB692" />
         </radialGradient>
         <radialGradient
           id="paint5_radial_469_273"
@@ -2751,8 +2751,8 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(-18.872 115.838) rotate(-55.6512) scale(156.857 108.415)"
         >
-          <stop offset="0.274226" stop-color="#F5EEBF" />
-          <stop offset="0.863341" stop-color="#6AB692" />
+          <stop offset="0.274226" stopColor="#F5EEBF" />
+          <stop offset="0.863341" stopColor="#6AB692" />
         </radialGradient>
         <linearGradient
           id="paint6_linear_469_273"
@@ -2762,8 +2762,8 @@ const Super2: FC<{
           y2="436.574"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_469_273"
@@ -2773,8 +2773,8 @@ const Super2: FC<{
           y2="454.203"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_469_273"
@@ -2784,9 +2784,9 @@ const Super2: FC<{
           y2="-15.165"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.356325" stop-color="#D9392B" />
-          <stop offset="0.824223" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.356325" stopColor="#D9392B" />
+          <stop offset="0.824223" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_469_273"
@@ -2796,8 +2796,8 @@ const Super2: FC<{
           y2="663.634"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.277793" stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#F28041" />
+          <stop offset="0.277793" stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#F28041" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_469_273"
@@ -2807,8 +2807,8 @@ const Super2: FC<{
           y2="580.717"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_469_273"
@@ -2818,8 +2818,8 @@ const Super2: FC<{
           y2="591.261"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint12_radial_469_273"
@@ -2829,8 +2829,8 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1064.76 543.004) rotate(110.647) scale(117.037 97.2301)"
         >
-          <stop stop-color="#7DCAA0" />
-          <stop offset="0.784744" stop-color="#15786C" />
+          <stop stopColor="#7DCAA0" />
+          <stop offset="0.784744" stopColor="#15786C" />
         </radialGradient>
         <linearGradient
           id="paint13_linear_469_273"
@@ -2840,8 +2840,8 @@ const Super2: FC<{
           y2="218.255"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#F28041" />
+          <stop stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#F28041" />
         </linearGradient>
         <radialGradient
           id="paint14_radial_469_273"
@@ -2851,8 +2851,8 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1023.22 253.173) rotate(101.618) scale(86.6942 56.799)"
         >
-          <stop stop-color="#7DCAA0" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#7DCAA0" />
+          <stop offset="1" stopColor="#15786C" />
         </radialGradient>
         <linearGradient
           id="paint15_linear_469_273"
@@ -2862,8 +2862,8 @@ const Super2: FC<{
           y2="300.871"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_469_273"
@@ -2873,8 +2873,8 @@ const Super2: FC<{
           y2="311.414"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_469_273"
@@ -2884,9 +2884,9 @@ const Super2: FC<{
           y2="500.065"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.515" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.515" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_469_273"
@@ -2896,9 +2896,9 @@ const Super2: FC<{
           y2="504.536"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.744305" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.744305" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_469_273"
@@ -2908,8 +2908,8 @@ const Super2: FC<{
           y2="501.167"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_469_273"
@@ -2919,9 +2919,9 @@ const Super2: FC<{
           y2="432.336"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.301754" stop-color="#DA382A" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.301754" stopColor="#DA382A" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_469_273"
@@ -2931,9 +2931,9 @@ const Super2: FC<{
           y2="449.895"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.38" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.38" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint22_linear_469_273"
@@ -2943,9 +2943,9 @@ const Super2: FC<{
           y2="458.148"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.45" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.45" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint23_linear_469_273"
@@ -2955,10 +2955,10 @@ const Super2: FC<{
           y2="658.121"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint24_linear_469_273"
@@ -2968,9 +2968,9 @@ const Super2: FC<{
           y2="158.715"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint25_linear_469_273"
@@ -2980,8 +2980,8 @@ const Super2: FC<{
           y2="397.439"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint26_linear_469_273"
@@ -2991,10 +2991,10 @@ const Super2: FC<{
           y2="453.179"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint27_linear_469_273"
@@ -3004,10 +3004,10 @@ const Super2: FC<{
           y2="453.179"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint28_linear_469_273"
@@ -3017,8 +3017,8 @@ const Super2: FC<{
           y2="382.841"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint29_linear_469_273"
@@ -3028,8 +3028,8 @@ const Super2: FC<{
           y2="362.302"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint30_linear_469_273"
@@ -3039,9 +3039,9 @@ const Super2: FC<{
           y2="139.334"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint31_linear_469_273"
@@ -3051,8 +3051,8 @@ const Super2: FC<{
           y2="266.632"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint32_linear_469_273"
@@ -3062,10 +3062,10 @@ const Super2: FC<{
           y2="307.438"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint33_linear_469_273"
@@ -3075,10 +3075,10 @@ const Super2: FC<{
           y2="307.438"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint34_linear_469_273"
@@ -3088,8 +3088,8 @@ const Super2: FC<{
           y2="255.863"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint35_linear_469_273"
@@ -3099,8 +3099,8 @@ const Super2: FC<{
           y2="240.713"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint36_linear_469_273"
@@ -3110,9 +3110,9 @@ const Super2: FC<{
           y2="63.1301"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint37_linear_469_273"
@@ -3122,8 +3122,8 @@ const Super2: FC<{
           y2="329.775"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint38_linear_469_273"
@@ -3133,8 +3133,8 @@ const Super2: FC<{
           y2="329.775"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint39_linear_469_273"
@@ -3144,10 +3144,10 @@ const Super2: FC<{
           y2="398.914"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <radialGradient
           id="paint40_radial_469_273"
@@ -3157,10 +3157,10 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1357.24 298.946) rotate(90) scale(99.9679 127.723)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.183058" stop-color="#D9523B" />
-          <stop offset="0.350471" stop-color="#D9392B" />
-          <stop offset="0.455" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.183058" stopColor="#D9523B" />
+          <stop offset="0.350471" stopColor="#D9392B" />
+          <stop offset="0.455" stopColor="#7E0001" />
         </radialGradient>
         <linearGradient
           id="paint41_linear_469_273"
@@ -3170,8 +3170,8 @@ const Super2: FC<{
           y2="312.505"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint42_linear_469_273"
@@ -3181,8 +3181,8 @@ const Super2: FC<{
           y2="288.207"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint43_radial_469_273"
@@ -3192,8 +3192,8 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1177.51 406.433) rotate(57.71) scale(102.995 77.3762)"
         >
-          <stop stop-color="#6AB692" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#6AB692" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <linearGradient
           id="paint44_linear_469_273"
@@ -3203,9 +3203,9 @@ const Super2: FC<{
           y2="377.08"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint45_linear_469_273"
@@ -3215,8 +3215,8 @@ const Super2: FC<{
           y2="463.853"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint46_linear_469_273"
@@ -3226,8 +3226,8 @@ const Super2: FC<{
           y2="477.573"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint47_linear_469_273"
@@ -3237,9 +3237,9 @@ const Super2: FC<{
           y2="1053.63"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.17" stop-color="#15786C" />
-          <stop offset="0.556002" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.17" stopColor="#15786C" />
+          <stop offset="0.556002" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint48_linear_469_273"
@@ -3249,9 +3249,9 @@ const Super2: FC<{
           y2="857.094"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.129187" stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.129187" stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint49_linear_469_273"
@@ -3261,9 +3261,9 @@ const Super2: FC<{
           y2="808.846"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.17" stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.17" stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint50_linear_469_273"
@@ -3273,9 +3273,9 @@ const Super2: FC<{
           y2="578.712"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.19594" stop-color="#15786C" />
-          <stop offset="0.745" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.19594" stopColor="#15786C" />
+          <stop offset="0.745" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint51_linear_469_273"
@@ -3285,9 +3285,9 @@ const Super2: FC<{
           y2="579.441"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint52_linear_469_273"
@@ -3297,9 +3297,9 @@ const Super2: FC<{
           y2="559.588"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint53_linear_469_273"
@@ -3309,8 +3309,8 @@ const Super2: FC<{
           y2="559.187"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-opacity="0" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopOpacity="0" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint54_linear_469_273"
@@ -3320,8 +3320,8 @@ const Super2: FC<{
           y2="774.022"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F8B043" />
+          <stop stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F8B043" />
         </linearGradient>
         <linearGradient
           id="paint55_linear_469_273"
@@ -3331,10 +3331,10 @@ const Super2: FC<{
           y2="755.483"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D27709" />
-          <stop offset="0.316125" stop-color="#F5B747" />
-          <stop offset="0.6503" stop-color="#F5B747" />
-          <stop offset="1" stop-color="#D27709" />
+          <stop stopColor="#D27709" />
+          <stop offset="0.316125" stopColor="#F5B747" />
+          <stop offset="0.6503" stopColor="#F5B747" />
+          <stop offset="1" stopColor="#D27709" />
         </linearGradient>
         <linearGradient
           id="paint56_linear_469_273"
@@ -3344,8 +3344,8 @@ const Super2: FC<{
           y2="1341"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.485" stop-color="#F5EEBF" />
-          <stop offset="1" stop-color="#FDB9B6" />
+          <stop offset="0.485" stopColor="#F5EEBF" />
+          <stop offset="1" stopColor="#FDB9B6" />
         </linearGradient>
         <linearGradient
           id="paint57_linear_469_273"
@@ -3355,9 +3355,9 @@ const Super2: FC<{
           y2="837.757"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.19594" stop-color="#15786C" />
-          <stop offset="0.745" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.19594" stopColor="#15786C" />
+          <stop offset="0.745" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint58_linear_469_273"
@@ -3367,9 +3367,9 @@ const Super2: FC<{
           y2="493.857"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint59_linear_469_273"
@@ -3379,9 +3379,9 @@ const Super2: FC<{
           y2="979.207"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.17" stop-color="#15786C" />
-          <stop offset="0.556002" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.17" stopColor="#15786C" />
+          <stop offset="0.556002" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint60_linear_469_273"
@@ -3391,9 +3391,9 @@ const Super2: FC<{
           y2="900.082"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.129187" stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.129187" stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint61_linear_469_273"
@@ -3403,9 +3403,9 @@ const Super2: FC<{
           y2="880.656"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.17" stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.17" stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint62_linear_469_273"
@@ -3415,9 +3415,9 @@ const Super2: FC<{
           y2="850.087"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint63_linear_469_273"
@@ -3427,8 +3427,8 @@ const Super2: FC<{
           y2="601.251"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0E342D" />
-          <stop offset="1" stop-color="#1B9A8A" />
+          <stop stopColor="#0E342D" />
+          <stop offset="1" stopColor="#1B9A8A" />
         </linearGradient>
         <linearGradient
           id="paint64_linear_469_273"
@@ -3438,10 +3438,10 @@ const Super2: FC<{
           y2="688.784"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#E2EA5F" stop-opacity="0.4" />
-          <stop offset="0.366139" stop-color="#1B9A8A" />
-          <stop offset="0.651159" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop offset="0.0342621" stopColor="#E2EA5F" stopOpacity="0.4" />
+          <stop offset="0.366139" stopColor="#1B9A8A" />
+          <stop offset="0.651159" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint65_linear_469_273"
@@ -3451,10 +3451,10 @@ const Super2: FC<{
           y2="688.784"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#E2EA5F" stop-opacity="0.4" />
-          <stop offset="0.366139" stop-color="#1B9A8A" />
-          <stop offset="0.651159" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop offset="0.0342621" stopColor="#E2EA5F" stopOpacity="0.4" />
+          <stop offset="0.366139" stopColor="#1B9A8A" />
+          <stop offset="0.651159" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint66_linear_469_273"
@@ -3464,8 +3464,8 @@ const Super2: FC<{
           y2="698.519"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#1F1608" />
-          <stop offset="1" stop-color="#F77E33" />
+          <stop stopColor="#1F1608" />
+          <stop offset="1" stopColor="#F77E33" />
         </linearGradient>
         <linearGradient
           id="paint67_linear_469_273"
@@ -3475,9 +3475,9 @@ const Super2: FC<{
           y2="806.536"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.5" stop-color="#F4F15B" stop-opacity="0.69" />
-          <stop offset="1" stop-color="#F77E33" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.5" stopColor="#F4F15B" stopOpacity="0.69" />
+          <stop offset="1" stopColor="#F77E33" />
         </linearGradient>
         <linearGradient
           id="paint68_linear_469_273"
@@ -3487,9 +3487,9 @@ const Super2: FC<{
           y2="806.536"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.5" stop-color="#F4F15B" stop-opacity="0.69" />
-          <stop offset="1" stop-color="#F77E33" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.5" stopColor="#F4F15B" stopOpacity="0.69" />
+          <stop offset="1" stopColor="#F77E33" />
         </linearGradient>
         <linearGradient
           id="paint69_linear_469_273"
@@ -3499,8 +3499,8 @@ const Super2: FC<{
           y2="680"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0A2B25" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#0A2B25" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint70_linear_469_273"
@@ -3510,9 +3510,9 @@ const Super2: FC<{
           y2="923.478"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0395575" stop-color="#1B9A8A" />
-          <stop offset="0.268965" stop-color="#78AF94" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop offset="0.0395575" stopColor="#1B9A8A" />
+          <stop offset="0.268965" stopColor="#78AF94" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </linearGradient>
         <linearGradient
           id="paint71_linear_469_273"
@@ -3522,9 +3522,9 @@ const Super2: FC<{
           y2="713.676"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.255695" stop-color="#0C453E" />
-          <stop offset="0.738586" stop-color="#1B9A8A" />
-          <stop offset="0.900683" stop-color="#F4F15B" />
+          <stop offset="0.255695" stopColor="#0C453E" />
+          <stop offset="0.738586" stopColor="#1B9A8A" />
+          <stop offset="0.900683" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint72_linear_469_273"
@@ -3534,8 +3534,8 @@ const Super2: FC<{
           y2="726.277"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint73_linear_469_273"
@@ -3545,8 +3545,8 @@ const Super2: FC<{
           y2="774.594"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint74_linear_469_273"
@@ -3556,8 +3556,8 @@ const Super2: FC<{
           y2="870.306"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint75_linear_469_273"
@@ -3567,8 +3567,8 @@ const Super2: FC<{
           y2="658.559"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="0.5" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="0.5" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint76_linear_469_273"
@@ -3578,10 +3578,10 @@ const Super2: FC<{
           y2="714.577"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.24" stop-color="#F4F15B" />
-          <stop offset="0.42" stop-color="#F65C2C" />
-          <stop offset="0.651159" stop-color="#F20404" stop-opacity="0.8" />
-          <stop offset="1" stop-color="#590101" />
+          <stop offset="0.24" stopColor="#F4F15B" />
+          <stop offset="0.42" stopColor="#F65C2C" />
+          <stop offset="0.651159" stopColor="#F20404" stopOpacity="0.8" />
+          <stop offset="1" stopColor="#590101" />
         </linearGradient>
         <linearGradient
           id="paint77_linear_469_273"
@@ -3591,10 +3591,10 @@ const Super2: FC<{
           y2="714.577"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.24" stop-color="#F4F15B" />
-          <stop offset="0.42" stop-color="#F65C2C" />
-          <stop offset="0.651159" stop-color="#F20404" stop-opacity="0.8" />
-          <stop offset="1" stop-color="#590101" />
+          <stop offset="0.24" stopColor="#F4F15B" />
+          <stop offset="0.42" stopColor="#F65C2C" />
+          <stop offset="0.651159" stopColor="#F20404" stopOpacity="0.8" />
+          <stop offset="1" stopColor="#590101" />
         </linearGradient>
         <linearGradient
           id="paint78_linear_469_273"
@@ -3604,8 +3604,8 @@ const Super2: FC<{
           y2="745"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0A2B25" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#0A2B25" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint79_linear_469_273"
@@ -3615,9 +3615,9 @@ const Super2: FC<{
           y2="921.978"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0395575" stop-color="#1B9A8A" />
-          <stop offset="0.268965" stop-color="#78AF94" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop offset="0.0395575" stopColor="#1B9A8A" />
+          <stop offset="0.268965" stopColor="#78AF94" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </linearGradient>
         <linearGradient
           id="paint80_linear_469_273"
@@ -3627,9 +3627,9 @@ const Super2: FC<{
           y2="712.176"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.255695" stop-color="#0C453E" />
-          <stop offset="0.738586" stop-color="#1B9A8A" />
-          <stop offset="0.900683" stop-color="#F4F15B" />
+          <stop offset="0.255695" stopColor="#0C453E" />
+          <stop offset="0.738586" stopColor="#1B9A8A" />
+          <stop offset="0.900683" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint81_linear_469_273"
@@ -3639,8 +3639,8 @@ const Super2: FC<{
           y2="724.777"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint82_linear_469_273"
@@ -3650,8 +3650,8 @@ const Super2: FC<{
           y2="773.094"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint83_linear_469_273"
@@ -3661,8 +3661,8 @@ const Super2: FC<{
           y2="868.806"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint84_linear_469_273"
@@ -3672,10 +3672,10 @@ const Super2: FC<{
           y2="1205.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.430243" stop-color="#4F8D78" />
-          <stop offset="0.780437" stop-color="#0B3F38" />
-          <stop offset="1" stop-color="#072923" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.430243" stopColor="#4F8D78" />
+          <stop offset="0.780437" stopColor="#0B3F38" />
+          <stop offset="1" stopColor="#072923" />
         </linearGradient>
         <linearGradient
           id="paint85_linear_469_273"
@@ -3685,9 +3685,9 @@ const Super2: FC<{
           y2="1525.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.03125" stop-color="#F4F15B" />
-          <stop offset="0.597449" stop-color="#0F554C" />
-          <stop offset="1" stop-color="#072923" />
+          <stop offset="0.03125" stopColor="#F4F15B" />
+          <stop offset="0.597449" stopColor="#0F554C" />
+          <stop offset="1" stopColor="#072923" />
         </linearGradient>
         <linearGradient
           id="paint86_linear_469_273"
@@ -3697,8 +3697,8 @@ const Super2: FC<{
           y2="1183.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ECC870" />
-          <stop offset="1" stop-color="#F28041" />
+          <stop stopColor="#ECC870" />
+          <stop offset="1" stopColor="#F28041" />
         </linearGradient>
         <linearGradient
           id="paint87_linear_469_273"
@@ -3708,9 +3708,9 @@ const Super2: FC<{
           y2="1185"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.575" stop-color="#1B9A8A" />
-          <stop offset="0.945" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.575" stopColor="#1B9A8A" />
+          <stop offset="0.945" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint88_linear_469_273"
@@ -3720,8 +3720,8 @@ const Super2: FC<{
           y2="115.501"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <linearGradient
           id="paint89_linear_469_273"
@@ -3731,8 +3731,8 @@ const Super2: FC<{
           y2="115.501"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <radialGradient
           id="paint90_radial_469_273"
@@ -3742,9 +3742,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(856 459) rotate(90.0658) scale(538.034 514.285)"
         >
-          <stop offset="0.27" stop-color="#1A8B6D" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1A8B6D" />
+          <stop offset="0.27" stopColor="#1A8B6D" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1A8B6D" />
         </radialGradient>
         <linearGradient
           id="paint91_linear_469_273"
@@ -3754,9 +3754,9 @@ const Super2: FC<{
           y2="208.265"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint92_linear_469_273"
@@ -3766,11 +3766,11 @@ const Super2: FC<{
           y2="89.8111"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.172234" stop-color="#F4F15B" />
-          <stop offset="0.395" stop-color="#15786C" />
-          <stop offset="0.615" stop-color="#0C453E" />
-          <stop offset="0.9" stop-color="#15786C" />
-          <stop offset="0.945659" stop-color="#F4F15B" />
+          <stop offset="0.172234" stopColor="#F4F15B" />
+          <stop offset="0.395" stopColor="#15786C" />
+          <stop offset="0.615" stopColor="#0C453E" />
+          <stop offset="0.9" stopColor="#15786C" />
+          <stop offset="0.945659" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint93_linear_469_273"
@@ -3780,9 +3780,9 @@ const Super2: FC<{
           y2="246.686"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint94_linear_469_273"
@@ -3792,9 +3792,9 @@ const Super2: FC<{
           y2="208.662"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint95_linear_469_273"
@@ -3804,11 +3804,11 @@ const Super2: FC<{
           y2="90.2085"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.172234" stop-color="#F4F15B" />
-          <stop offset="0.395" stop-color="#15786C" />
-          <stop offset="0.615" stop-color="#0C453E" />
-          <stop offset="0.9" stop-color="#15786C" />
-          <stop offset="0.945659" stop-color="#F4F15B" />
+          <stop offset="0.172234" stopColor="#F4F15B" />
+          <stop offset="0.395" stopColor="#15786C" />
+          <stop offset="0.615" stopColor="#0C453E" />
+          <stop offset="0.9" stopColor="#15786C" />
+          <stop offset="0.945659" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint96_linear_469_273"
@@ -3818,9 +3818,9 @@ const Super2: FC<{
           y2="247.084"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint97_linear_469_273"
@@ -3830,9 +3830,9 @@ const Super2: FC<{
           y2="320.675"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint98_linear_469_273"
@@ -3842,9 +3842,9 @@ const Super2: FC<{
           y2="320.675"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint99_linear_469_273"
@@ -3854,9 +3854,9 @@ const Super2: FC<{
           y2="204.941"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint100_linear_469_273"
@@ -3866,9 +3866,9 @@ const Super2: FC<{
           y2="204.941"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint101_linear_469_273"
@@ -3878,10 +3878,10 @@ const Super2: FC<{
           y2="157.663"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint102_linear_469_273"
@@ -3891,10 +3891,10 @@ const Super2: FC<{
           y2="149.829"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint103_linear_469_273"
@@ -3904,9 +3904,9 @@ const Super2: FC<{
           y2="202.764"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.575792" stop-color="#15786C" />
-          <stop offset="0.88" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.575792" stopColor="#15786C" />
+          <stop offset="0.88" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint104_linear_469_273"
@@ -3916,9 +3916,9 @@ const Super2: FC<{
           y2="233.292"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.291331" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.291331" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint105_linear_469_273"
@@ -3928,9 +3928,9 @@ const Super2: FC<{
           y2="150.929"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.200888" stop-color="#105F55" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.200888" stopColor="#105F55" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint106_linear_469_273"
@@ -3940,8 +3940,8 @@ const Super2: FC<{
           y2="115.501"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <linearGradient
           id="paint107_linear_469_273"
@@ -3951,8 +3951,8 @@ const Super2: FC<{
           y2="115.501"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <radialGradient
           id="paint108_radial_469_273"
@@ -3962,10 +3962,10 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1350 461) rotate(90.0661) scale(536.034 512.374)"
         >
-          <stop offset="0.095" stop-color="#0E342D" />
-          <stop offset="0.27" stop-color="#1A8B6D" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1A8B6D" />
+          <stop offset="0.095" stopColor="#0E342D" />
+          <stop offset="0.27" stopColor="#1A8B6D" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1A8B6D" />
         </radialGradient>
         <linearGradient
           id="paint109_linear_469_273"
@@ -3975,9 +3975,9 @@ const Super2: FC<{
           y2="208.265"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint110_linear_469_273"
@@ -3987,11 +3987,11 @@ const Super2: FC<{
           y2="89.8111"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.172234" stop-color="#F4F15B" />
-          <stop offset="0.395" stop-color="#15786C" />
-          <stop offset="0.615" stop-color="#0C453E" />
-          <stop offset="0.9" stop-color="#15786C" />
-          <stop offset="0.945659" stop-color="#F4F15B" />
+          <stop offset="0.172234" stopColor="#F4F15B" />
+          <stop offset="0.395" stopColor="#15786C" />
+          <stop offset="0.615" stopColor="#0C453E" />
+          <stop offset="0.9" stopColor="#15786C" />
+          <stop offset="0.945659" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint111_linear_469_273"
@@ -4001,9 +4001,9 @@ const Super2: FC<{
           y2="246.686"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint112_linear_469_273"
@@ -4013,9 +4013,9 @@ const Super2: FC<{
           y2="208.662"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint113_linear_469_273"
@@ -4025,11 +4025,11 @@ const Super2: FC<{
           y2="90.2085"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.172234" stop-color="#F4F15B" />
-          <stop offset="0.395" stop-color="#15786C" />
-          <stop offset="0.615" stop-color="#0C453E" />
-          <stop offset="0.9" stop-color="#15786C" />
-          <stop offset="0.945659" stop-color="#F4F15B" />
+          <stop offset="0.172234" stopColor="#F4F15B" />
+          <stop offset="0.395" stopColor="#15786C" />
+          <stop offset="0.615" stopColor="#0C453E" />
+          <stop offset="0.9" stopColor="#15786C" />
+          <stop offset="0.945659" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint114_linear_469_273"
@@ -4039,9 +4039,9 @@ const Super2: FC<{
           y2="247.084"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint115_linear_469_273"
@@ -4051,9 +4051,9 @@ const Super2: FC<{
           y2="320.675"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint116_linear_469_273"
@@ -4063,9 +4063,9 @@ const Super2: FC<{
           y2="320.675"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint117_linear_469_273"
@@ -4075,9 +4075,9 @@ const Super2: FC<{
           y2="204.941"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint118_linear_469_273"
@@ -4087,9 +4087,9 @@ const Super2: FC<{
           y2="204.941"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint119_linear_469_273"
@@ -4099,10 +4099,10 @@ const Super2: FC<{
           y2="157.663"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint120_linear_469_273"
@@ -4112,10 +4112,10 @@ const Super2: FC<{
           y2="149.829"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint121_linear_469_273"
@@ -4125,9 +4125,9 @@ const Super2: FC<{
           y2="202.764"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.575792" stop-color="#15786C" />
-          <stop offset="0.88" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.575792" stopColor="#15786C" />
+          <stop offset="0.88" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint122_linear_469_273"
@@ -4137,9 +4137,9 @@ const Super2: FC<{
           y2="233.292"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.291331" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.291331" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint123_linear_469_273"
@@ -4149,9 +4149,9 @@ const Super2: FC<{
           y2="150.929"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.200888" stop-color="#105F55" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.200888" stopColor="#105F55" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint124_linear_469_273"
@@ -4161,8 +4161,8 @@ const Super2: FC<{
           y2="858"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient
           id="paint125_linear_469_273"
@@ -4172,8 +4172,8 @@ const Super2: FC<{
           y2="858"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <radialGradient
           id="paint126_radial_469_273"
@@ -4183,9 +4183,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1414.72 465.181) rotate(83.1704) scale(16.9221 10.5929)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint127_radial_469_273"
@@ -4195,9 +4195,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1414.72 465.181) rotate(83.1704) scale(16.9221 10.5929)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint128_radial_469_273"
@@ -4207,9 +4207,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1414.72 465.181) rotate(83.1704) scale(16.9221 10.5929)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <linearGradient
           id="paint129_linear_469_273"
@@ -4219,8 +4219,8 @@ const Super2: FC<{
           y2="656.387"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF7EB" />
-          <stop offset="1" stop-color="#F8B043" />
+          <stop stopColor="#FFF7EB" />
+          <stop offset="1" stopColor="#F8B043" />
         </linearGradient>
         <radialGradient
           id="paint130_radial_469_273"
@@ -4230,9 +4230,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1345.25 432.935) rotate(89.0967) scale(18.5673 11.6228)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint131_radial_469_273"
@@ -4242,9 +4242,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1345.25 432.935) rotate(89.0967) scale(18.5673 11.6228)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint132_radial_469_273"
@@ -4254,9 +4254,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1345.25 432.935) rotate(89.0967) scale(18.5673 11.6228)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint133_radial_469_273"
@@ -4266,9 +4266,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1344.75 422.665) rotate(90) scale(143.385 60.435)"
         >
-          <stop stop-color="#ECC870" />
-          <stop offset="0.314545" stop-color="#D9392B" />
-          <stop offset="0.894101" stop-color="#7E0001" />
+          <stop stopColor="#ECC870" />
+          <stop offset="0.314545" stopColor="#D9392B" />
+          <stop offset="0.894101" stopColor="#7E0001" />
         </radialGradient>
         <radialGradient
           id="paint134_radial_469_273"
@@ -4278,9 +4278,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1382.88 501.96) rotate(89.0967) scale(15.0419 9.41592)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint135_radial_469_273"
@@ -4290,9 +4290,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1382.88 501.96) rotate(89.0967) scale(15.0419 9.41592)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint136_radial_469_273"
@@ -4302,9 +4302,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1382.88 501.96) rotate(89.0967) scale(15.0419 9.41592)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint137_radial_469_273"
@@ -4314,9 +4314,9 @@ const Super2: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1383.12 491.08) rotate(90) scale(52.16 71.72)"
         >
-          <stop stop-color="#ECC870" />
-          <stop offset="0.469913" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#ECC870" />
+          <stop offset="0.469913" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </radialGradient>
         <clipPath id="clip0_469_273">
           <rect width="1512" height="982" fill="white" />

@@ -3,7 +3,6 @@ import { uploadImage } from '@utils/uploadimg'
 import { AllData } from '@libs/data'
 import { getProgram, getUser } from '@middlewares/derive'
 import type { Program } from '@utils/type'
-import { error } from 'elysia'
 import { ReviewData, Status } from '@utils/type'
 
 export interface ProgramData {
@@ -28,7 +27,7 @@ export interface ProgramData {
 
 export const createProgram = async(body: Program) => {
   if((await prisma.programs.count({ where: { email: body.email } }) > 0))
-    throw error(400, 'User already created a program')
+    return { status: 400, message: 'User already created a program'}
   try {
     const program = await prisma.programs.update({
       omit: { programId: true, updatedAt: true, id:true },
@@ -37,6 +36,7 @@ export const createProgram = async(body: Program) => {
         key: body.key,
         email: body.email,
         updatedBy: body.email,
+        status: Status.PENDING,
       }
     })
     await prisma.user.update({
@@ -46,25 +46,25 @@ export const createProgram = async(body: Program) => {
         key: body.key,
       }
     })
-    return { success: true, message: 'Creating program successfully', data: program }
+    return { status: 201, message: 'Creating program successfully', data: program }
   } catch (err) {
-    throw error(500, 'Error while creating program')
+    return { status: 500, message: 'Error while creating program'}
   }
 }
 
 export const getProgramByName = async (name: Program["key"]) => {
   const programData = (await getProgram(name)).data
   try {
-    return { success: true, message: 'Getting program successfully', data: programData }
+    return { status: 200, message: 'Getting program successfully', data: programData }
   } catch (err) {
-    throw error(500, 'Error while getting program')
+    return { status: 500, message: 'Error while getting program'}
   }
 }
 
 export const updateProgramData = async (name: keyof typeof AllData.Programs, body: ProgramData, headers: Headers) => {
   const programData = (await getProgram(name)).data
   const userData = (await getUser(headers)).data
-  if(programData.status === 'approved') throw error(400, 'Program already approved')
+  if(programData.status === Status.APPROVED) return { status: 400, message: 'Program already approved'}
   try {
     const updatedOrganization = await prisma.programs.update({
       omit: { programId: true, createdAt: true, id: true },
@@ -90,10 +90,9 @@ export const updateProgramData = async (name: keyof typeof AllData.Programs, bod
       }
     })
     if(userData?.email === programData.email) await prisma.programs.update({ where: { key: name }, data: { status: Status.PENDING }})
-    return { success: true, message: 'Updating program data successfully', data: updatedOrganization }
+    return { status: 200, message: 'Updating program data successfully', data: updatedOrganization }
   } catch (err) {
-    console.log(err)
-    throw error(500, 'Error while updating program data')
+    return { status: 500, message: 'Error while updating program data'}
   }
 }
 
@@ -104,16 +103,15 @@ export const getProgramReviews = async(name: keyof typeof AllData.Programs) => {
       omit: { reviewId: true, id: true },
       where: { key: programData.key }
     })
-    return { success: true, message: 'Getting reviews successfully', data: reviewData}
+    return { status: 200, message: 'Getting reviews successfully', data: reviewData}
   } catch (err) {
-    console.log(err)
-    throw error(500, 'Error while getting reviews')
+    return { status: 500, message: 'Error while getting reviews'}
   }
 }
 
 export const createProgramReview = async (name: keyof typeof AllData.Programs) => {
   const programData = (await getProgram(name)).data
-  if((await prisma.reviews.count({ where: { email: programData.email }})) >= 3) throw error(400, 'Review reachs limit')
+  if((await prisma.reviews.count({ where: { email: programData.email }})) >= 3) return { status: 400, message: 'Review reachs limit'}
   try {
     const review = await prisma.reviews.create({
       omit: { reviewId: true, updatedAt: true, id: true },
@@ -128,9 +126,9 @@ export const createProgramReview = async (name: keyof typeof AllData.Programs) =
         content: '',
       }
     })
-    return { success: true, message: 'Creating review successfully', data: review }
+    return { status: 201, message: 'Creating review successfully', data: review }
   } catch (err) {
-    throw error(500, 'Error while creating review')
+    return { status: 500, message: 'Error while creating review'}
   }
 }
 
@@ -149,9 +147,9 @@ export const updateProgramReview = async (name: keyof typeof AllData.Programs, c
           content: body.content,
         }
       })
-      return { success: true, message: 'Updating review successfully', data: review }
+      return { status: 200, message: 'Updating review successfully', data: review }
     } catch (err) {
-      throw error(500, 'Error while updating review')
+      return { status: 500, message: 'Error while updating review'}
     }
 }
 
@@ -168,8 +166,8 @@ export const deleteProgramReview = async (name: keyof typeof AllData.Organizatio
         content: '',
       }
     })
-    return { success: true, message: 'Deleting review successfully' }
+    return { status: 200, message: 'Deleting review successfully' }
   } catch (err) {
-    throw error(500, 'Error while deleting review')
+    return { status: 500, message: 'Error while deleting review' }
   }
 }

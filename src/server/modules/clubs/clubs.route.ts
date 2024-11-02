@@ -35,14 +35,28 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
 
   })
   .get('/:key', async ({ params: { key } }) => {
-    return (await getClubByKey(decodeURIComponent(key) as keyof typeof AllData.Clubs))
+    const response = (await getClubByKey(decodeURIComponent(key) as keyof typeof AllData.Clubs))
+    switch (response.status) {
+      case 200: 
+        return response
+      case 500:
+        return error(500, response.message)
+    }
   }, {
     params: t.Object({
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
     })
   })
   .patch('/:key', async ({ params: { key }, body, request: { headers } }) => {
-    return await updateClubData(decodeURIComponent(key) as keyof typeof AllData.Clubs, body, headers)
+    const response = await updateClubData(decodeURIComponent(key) as keyof typeof AllData.Clubs, body, headers)
+    switch (response.status) {
+      case 200:
+        return response
+      case 400:
+        return error(400, response.message)
+      case 500:
+        return error(500, response.message)
+    }
   }, {
     params: t.Object({
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
@@ -68,7 +82,13 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
     })
   })
   .get('/:key/review', async ({ params: { key } }) => {
-    return await getClubReviews(decodeURIComponent(key) as keyof typeof AllData.Clubs)
+    const response = await getClubReviews(decodeURIComponent(key) as keyof typeof AllData.Clubs)
+    switch (response.status) {
+      case 200:
+        return response
+      case 500:
+        return error(500, response.message)
+    }
   },{
     params: t.Object({
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs))
@@ -76,9 +96,14 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
   })
   .post('/:key/review', async ({ params: { key }, set }) => {
     const response = await createClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs)
-    if (response?.success) {
-      set.status = 201
-      return response
+    switch (response.status) {
+      case 201:
+        set.status = 201
+        return response
+      case 400:
+        return error(400, response.message)
+      case 500:
+        return error(500, response.message)
     }
   }, {
     params: t.Object({
@@ -86,7 +111,13 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
     })
   })
   .patch('/:key/review/:id', async ({ params: { key, id }, body }) => {
-    return await updateClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs, id, body as ReviewData)
+    const response = await updateClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs, id, body as ReviewData)
+    switch (response.status) {
+      case 200:
+        return response
+      case 500:
+        return error(500, response.message)
+    }
   }, {
     params: t.Object({
       key: EncodedUnionField(true, 'Invalid Club Key', Object.keys(AllData.Clubs)),
@@ -101,7 +132,13 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
     })
   })
   .delete('/:key/review/:id', async ({ params: { key, id } }) => {
-    return await deleteClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs, id)
+    const response = await deleteClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs, id)
+    switch (response.status) {
+      case 200:
+        return response.message
+      case 500:
+        return error(500, response.message)
+    }
   },
     {
       params: t.Object({

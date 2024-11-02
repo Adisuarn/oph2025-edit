@@ -26,14 +26,13 @@ model User {
 model Organizations {
   id             String    @id @default(cuid()) @map("_id")
   isAdmin        Boolean   @default(false)
-  sendForm       Boolean   @default(false)
   key            String    @unique
   tag            String    @default("organizations")
   error          String    @default("")
   email          String    @unique
   name           String?   @unique
   thainame       String    @unique
-  status         String    @default("pending")
+  status         String    @default("")
   members        String    @default("0")
   ig             String?
   fb             String?
@@ -58,7 +57,6 @@ model Organizations {
 model Clubs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
-  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("clubs")
   error       String    @default("")
@@ -66,7 +64,7 @@ model Clubs {
   email       String    @unique
   name        String?   @unique
   thainame    String    @unique
-  status      String    @default("pending")
+  status      String    @default("")
   members     String    @default("0")
   ig          String?
   fb          String?
@@ -92,14 +90,13 @@ model Clubs {
 model Programs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
-  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("programs")
   error       String    @default("")
   email       String    @unique
   name        String?   @unique
   thainame    String    @unique
-  status      String    @default("pending")
+  status      String    @default("")
   members     String    @default("0")
   ig          String?
   fb          String?
@@ -124,14 +121,13 @@ model Programs {
 model Gifted {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
-  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("gifted")
   error       String    @default("")
   email       String    @unique
   name        String?   @unique
   thainame    String    @unique
-  status      String    @default("pending")
+  status      String    @default("")
   members     String    @default("0")
   ig          String?
   fb          String?

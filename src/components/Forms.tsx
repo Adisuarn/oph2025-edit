@@ -4,14 +4,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { AllData } from "@/libs/data";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import BigLamp from "@/vectors/forms/BigLamp";
 import FormLeft from "@/vectors/forms/FormLeft";
 import SmallFormLeft from "@/vectors/forms/SmallFormLeft";
 import Frames from "@/vectors/forms/Frames";
 import LogoutButton from "@/components/LogoutButton";
-import postInfo from "./Forms.action";
 import { Tag } from "@utils/type"
+import apiFunction from "./api";
 
 type FormProps = {
   dataRecord: any;
@@ -21,7 +20,6 @@ const programes = AllData.Programs;
 const clubs = AllData.Clubs;
 const gifted = AllData.Gifted;
 const organizations = AllData.Organizations;
-
 
 const Forms: React.FC<FormProps> = ({dataRecord}) => {
   const Router = useRouter()
@@ -84,13 +82,14 @@ const Forms: React.FC<FormProps> = ({dataRecord}) => {
     try {
       dataRecord.tag = values.tagOptions
       dataRecord.key = values.keyOptions
-      await postInfo(dataRecord)
-      Router.push('/account')
+      await apiFunction("POST", "/roles/record", dataRecord)
     } catch (error) {
-      console.log(error)
+      Router.push("/500")
+    } finally {
+      Router.push("/account")
+      Router.refresh()
     }
   };
-
   
   return (
     <main className="flex h-screen w-screen items-center justify-center relative overflow-hidden bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">

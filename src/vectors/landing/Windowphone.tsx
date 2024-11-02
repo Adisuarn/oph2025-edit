@@ -16,7 +16,7 @@ const Windowphone: FC<{
         d="M482.587 968.571H-48.4623V287.916C-48.4623 287.916 -64.62 12.9497 208.984 14.0767C482.587 15.2037 482.587 287.916 482.587 287.916V968.571Z"
         fill="url(#paint0_linear_616_886)"
         stroke="url(#paint1_radial_616_886)"
-        stroke-width="16.4165"
+        strokeWidth="16.4165"
       />
       <mask
         id="mask0_616_886"
@@ -31,7 +31,7 @@ const Windowphone: FC<{
           d="M482.603 968.573H-48.4467V287.918C-48.4467 287.918 -64.6044 12.9517 208.999 14.0787C482.603 15.2056 482.603 287.918 482.603 287.918V968.573Z"
           fill="url(#paint2_linear_616_886)"
           stroke="url(#paint3_radial_616_886)"
-          stroke-width="16.4165"
+          strokeWidth="16.4165"
         />
       </mask>
       <g mask="url(#mask0_616_886)">
@@ -44,8 +44,8 @@ const Windowphone: FC<{
         />
         <g filter="url(#filter0_d_616_886)">
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M99.4212 637.015C101.864 638.415 104.457 639.546 107.215 640.749C116.524 644.81 127.714 649.691 141.388 668.493C160.854 695.258 159.06 726.507 142.79 748.527H23.0326C8.87222 727.976 8.18646 698.57 26.8976 668.493C40.0385 651.02 51.6783 645.241 61.2927 640.468C63.6275 639.309 65.8428 638.209 67.9312 637.015C70.1648 635.739 70.2162 633.503 70.2737 630.999C70.2818 630.644 70.2901 630.284 70.3048 629.92C71.0861 610.607 70.4965 591.088 66.3391 575.779C64.452 568.845 59.7787 563.046 53.4689 559.601C49.0461 557.202 48.2795 554.199 48.2795 550.96C48.2795 542.952 64.1276 536.476 83.6762 536.476C103.225 536.476 119.073 542.967 119.073 550.96C119.073 554.199 118.292 557.187 113.884 559.601C107.574 563.046 102.9 568.845 101.013 575.779C96.856 591.073 96.2663 610.607 97.0476 629.92C97.0623 630.284 97.0706 630.644 97.0787 630.999C97.1362 633.503 97.1876 635.739 99.4212 637.015ZM83.4108 556.127C69.2433 556.127 57.7589 553.154 57.7589 549.488C57.7589 545.823 69.5086 541.043 83.6762 541.043C97.8437 541.043 109.063 545.823 109.063 549.488C109.063 553.154 97.5783 556.127 83.4108 556.127Z"
             fill="url(#paint5_linear_616_886)"
           />
@@ -53,7 +53,7 @@ const Windowphone: FC<{
         <path
           d="M164.776 463.772C161.048 483.574 188.115 495.227 188.196 508.784C188.277 522.34 170.751 531.523 146.083 533.591C121.415 535.658 100.245 557.472 100.245 557.472L67.6727 557.472C67.6727 557.472 1.3059 510.16 15.7899 482.983C30.274 455.806 -4.26444 448.659 1.89863 417.237C8.0617 385.816 84.2755 362.75 62.7776 328.329C41.2797 293.909 -18.8455 282.729 15.7896 219.538C50.4248 156.347 151.66 124.426 229.622 162.29C307.584 200.155 381.99 285.986 336.436 320.055C290.883 354.124 249.584 337.96 242.518 362.75C235.453 387.539 286.608 384.804 271.248 421.022C255.888 457.241 168.503 443.971 164.776 463.772Z"
           fill="url(#paint6_linear_616_886)"
-          fill-opacity="0.8"
+          fillOpacity="0.8"
         />
         <path
           d="M77.2972 452.512C54.0982 454.23 52.3798 455.949 50.6613 479.147C48.9429 455.949 47.2244 454.23 24.0254 452.512C47.2244 450.793 48.9429 449.075 50.6613 425.876C52.3798 449.075 54.0982 450.793 77.2972 452.512Z"
@@ -112,8 +112,8 @@ const Windowphone: FC<{
               height="136.914"
               transform="matrix(-1 0 0 1 384.464 391.261)"
               stroke="url(#paint11_linear_616_886)"
-              stroke-width="21.6009"
-              shape-rendering="crispEdges"
+              strokeWidth="21.6009"
+              shapeRendering="crispEdges"
             />
           </g>
           <ellipse
@@ -147,8 +147,8 @@ const Windowphone: FC<{
             <path
               d="M476.775 721.851C520.093 721.851 551.542 680.452 551.542 634.344C551.542 588.236 520.093 546.838 476.775 546.838C433.457 546.838 402.008 588.236 402.008 634.344C402.008 680.452 433.457 721.851 476.775 721.851Z"
               stroke="url(#paint15_radial_616_886)"
-              stroke-width="24.4612"
-              shape-rendering="crispEdges"
+              strokeWidth="24.4612"
+              shapeRendering="crispEdges"
             />
           </g>
           <g filter="url(#filter6_d_616_886)">
@@ -159,7 +159,7 @@ const Windowphone: FC<{
             <path
               d="M422.953 166.769L432.222 160.256L422.624 146.598L413.478 160.562L422.953 166.769ZM422.953 166.769C432.222 160.256 432.222 160.257 432.223 160.259L432.226 160.263L432.236 160.276L432.269 160.324L432.391 160.498C432.496 160.649 432.65 160.87 432.849 161.157C433.247 161.73 433.825 162.567 434.557 163.637C436.021 165.778 438.105 168.857 440.602 172.637C445.59 180.186 452.257 190.579 458.942 201.906C465.604 213.196 472.399 225.61 477.563 237.165C482.515 248.245 486.746 260.184 486.746 269.921C486.746 304.059 461.439 332.825 425.621 332.825C390.319 332.825 362.718 304.591 362.718 269.921C362.718 260.357 366.606 248.53 371.231 237.43C376.037 225.894 382.365 213.492 388.574 202.204C394.803 190.88 401.017 180.489 405.666 172.941C407.994 169.161 409.936 166.083 411.301 163.943C411.983 162.872 412.522 162.035 412.893 161.462C413.078 161.176 413.222 160.955 413.32 160.804L413.434 160.629L413.465 160.582L413.473 160.569L413.476 160.564C413.477 160.563 413.478 160.562 422.953 166.769Z"
               stroke="url(#paint17_radial_616_886)"
-              stroke-width="22.6548"
+              strokeWidth="22.6548"
             />
           </g>
           <g style={{mixBlendMode: "soft-light",}}>
@@ -178,8 +178,8 @@ const Windowphone: FC<{
         <path
           d="M93.611 590.508C93.611 590.508 88.4099 559.094 88.4102 535.934C88.4104 512.775 102.594 491.679 102.594 491.679"
           stroke="url(#paint20_linear_616_886)"
-          stroke-width="5.21158"
-          stroke-linecap="round"
+          strokeWidth="5.21158"
+          strokeLinecap="round"
         />
         <path
           d="M76.2871 533.993C82.5659 543.347 85.1351 560.804 85.1351 560.804L68.0002 559.001C68.0002 559.001 60.9493 543.053 59.3085 531.482C57.6677 519.91 59.903 508.019 59.903 508.019C59.903 508.019 70.0083 524.639 76.2871 533.993Z"
@@ -204,8 +204,8 @@ const Windowphone: FC<{
           fill="url(#paint25_linear_616_886)"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M141.388 668.495C127.714 649.694 116.524 644.812 107.215 640.752C104.457 639.548 101.864 638.417 99.4212 637.017C97.1876 635.741 97.1362 633.505 97.0787 631.002C97.0706 630.647 97.0623 630.286 97.0476 629.922C96.2663 610.609 96.856 591.076 101.013 575.781C102.9 568.848 107.574 563.048 113.884 559.604C118.292 557.189 119.073 554.201 119.073 550.963L109.063 549.491C109.063 553.156 97.5784 556.13 83.4108 556.13C69.2433 556.13 57.7589 553.156 57.7589 549.491L48.2795 550.963C48.2795 554.201 49.0461 557.204 53.4689 559.604C59.7786 563.048 64.452 568.848 66.3391 575.781C70.4965 591.09 71.0861 610.609 70.3048 629.922C70.2901 630.286 70.2818 630.647 70.2737 631.002C70.2162 633.505 70.1648 635.741 67.9312 637.017C65.8428 638.211 63.6275 639.311 61.2927 640.47C51.6783 645.243 40.0385 651.022 26.8976 668.495C1.39704 709.486 11.9237 749.231 43.4865 767.011C57.5488 776.655 109.665 775.829 121.864 767.011C155.481 747.912 167.364 704.211 141.388 668.495Z"
           fill="url(#paint26_linear_616_886)"
         />
@@ -279,18 +279,18 @@ const Windowphone: FC<{
       <path
         d="M230.799 56.682C235.87 41.5399 243.271 29.6531 254.137 16.8135"
         stroke="url(#paint33_linear_616_886)"
-        stroke-width="16.4165"
+        strokeWidth="16.4165"
       />
       <path
         d="M199.113 56.682C194.042 41.5399 186.641 29.6531 175.775 16.8135"
         stroke="url(#paint34_linear_616_886)"
-        stroke-width="16.4165"
+        strokeWidth="16.4165"
       />
       <g filter="url(#filter11_d_616_886)">
         <path
           d="M38.5326 165.731C11.92 157.818 -16.1653 154.677 6.85857 135.83C29.8823 116.983 65.5486 115.864 85.0335 132.644"
           stroke="url(#paint35_linear_616_886)"
-          stroke-width="16.4165"
+          strokeWidth="16.4165"
         />
         <path
           d="M-4.81055 244.295L-10.0958 238.015L-13.0188 240.475V244.295H-4.81055ZM74.1394 153.505C78.3964 151.947 80.5842 147.232 79.0259 142.975C77.4676 138.718 72.7533 136.531 68.4963 138.089L74.1394 153.505ZM0.474699 250.575C25.7174 229.332 31.748 207.581 38.0319 190.646C41.1656 182.2 44.2021 175.339 49.2634 169.393C54.2246 163.564 61.5955 158.097 74.1394 153.505L68.4963 138.089C53.8118 143.464 43.8871 150.382 36.7622 158.753C29.7374 167.006 25.8974 176.158 22.6407 184.935C16.1439 202.445 11.3387 219.976 -10.0958 238.015L0.474699 250.575ZM-13.0188 244.295V970.914H3.39769V244.295H-13.0188Z"
@@ -307,7 +307,7 @@ const Windowphone: FC<{
         <path
           d="M392.661 166.249C419.273 158.335 447.359 155.194 424.335 136.347C401.311 117.5 365.645 116.381 346.16 133.162"
           stroke="url(#paint38_linear_616_886)"
-          stroke-width="16.4165"
+          strokeWidth="16.4165"
         />
         <path
           d="M436.002 244.815L441.288 238.534L444.196 240.982L444.211 244.784L436.002 244.815ZM357.052 154.024C352.795 152.466 350.608 147.752 352.166 143.495C353.724 139.238 358.439 137.05 362.696 138.608L357.052 154.024ZM430.717 251.095C405.474 229.851 399.444 208.101 393.16 191.165C390.026 182.72 386.99 175.859 381.928 169.913C376.967 164.084 369.596 158.616 357.052 154.024L362.696 138.608C377.38 143.984 387.305 150.901 394.43 159.272C401.454 167.525 405.295 176.678 408.551 185.455C415.048 202.964 419.853 220.496 441.288 238.534L430.717 251.095ZM444.211 244.784L446.896 966.196L430.479 966.257L427.794 244.845L444.211 244.784Z"
@@ -360,14 +360,14 @@ const Windowphone: FC<{
         <path
           d="M184.242 142.467H246.366"
           stroke="url(#paint49_linear_616_886)"
-          stroke-width="19.7649"
-          stroke-linecap="round"
+          strokeWidth="19.7649"
+          strokeLinecap="round"
         />
       </g>
       <path
         d="M482.587 968.571H-48.4623V287.916C-48.4623 287.916 -64.62 12.9497 208.984 14.0767C482.587 15.2037 482.587 287.916 482.587 287.916V968.571Z"
         stroke="url(#paint50_radial_616_886)"
-        stroke-width="16.4165"
+        strokeWidth="16.4165"
       />
       <g filter="url(#filter18_d_616_886)">
         <rect
@@ -383,7 +383,7 @@ const Windowphone: FC<{
         d="M1126.23 968.572H595.18V287.917C595.18 287.917 579.023 12.9507 852.626 14.0777C1126.23 15.2046 1126.23 287.917 1126.23 287.917V968.572Z"
         fill="url(#paint52_linear_616_886)"
         stroke="url(#paint53_radial_616_886)"
-        stroke-width="16.4165"
+        strokeWidth="16.4165"
       />
       <mask
         id="mask2_616_886"
@@ -398,7 +398,7 @@ const Windowphone: FC<{
           d="M1126.23 968.57H595.176V287.915C595.176 287.915 579.019 12.9488 852.622 14.0757C1126.23 15.2027 1126.23 287.915 1126.23 287.915V968.57Z"
           fill="url(#paint54_linear_616_886)"
           stroke="url(#paint55_radial_616_886)"
-          stroke-width="16.4165"
+          strokeWidth="16.4165"
         />
       </mask>
       <g mask="url(#mask2_616_886)">
@@ -407,8 +407,8 @@ const Windowphone: FC<{
             <path
               d="M1014.38 155.894L1013.14 324.613"
               stroke="url(#paint56_linear_616_886)"
-              stroke-width="8.68384"
-              stroke-linecap="round"
+              strokeWidth="8.68384"
+              strokeLinecap="round"
             />
           </g>
           <ellipse
@@ -456,8 +456,8 @@ const Windowphone: FC<{
             <path
               d="M961.76 107.467L961.224 180.265"
               stroke="url(#paint62_linear_616_886)"
-              stroke-width="4.89906"
-              stroke-linecap="round"
+              strokeWidth="4.89906"
+              strokeLinecap="round"
             />
           </g>
           <ellipse
@@ -505,8 +505,8 @@ const Windowphone: FC<{
             <path
               d="M870.238 45.5967L870.238 218.266"
               stroke="url(#paint68_linear_616_886)"
-              stroke-width="9.25362"
-              stroke-linecap="round"
+              strokeWidth="9.25362"
+              strokeLinecap="round"
             />
           </g>
           <ellipse
@@ -565,7 +565,7 @@ const Windowphone: FC<{
             <path
               d="M668.323 404.22L660.65 394.845L653.11 404.328L595.161 477.215L590.399 483.204L595.07 489.263L653.019 564.452L660.649 574.351L668.417 564.561L728.071 489.372L732.966 483.202L727.978 477.107L668.323 404.22Z"
               stroke="url(#paint76_linear_616_886)"
-              stroke-width="19.5464"
+              strokeWidth="19.5464"
             />
           </g>
           <g style={{mixBlendMode: "soft-light",}}>
@@ -608,16 +608,16 @@ const Windowphone: FC<{
           />
           <g filter="url(#filter30_d_616_886)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M936.102 750.034C926.999 742.728 919.55 740.832 913.354 739.254C911.518 738.786 909.792 738.347 908.165 737.803C906.678 737.307 906.644 736.438 906.606 735.466C906.6 735.328 906.595 735.188 906.585 735.046C906.065 727.542 906.458 719.952 909.225 714.009C910.481 711.315 913.592 709.062 917.792 707.723C920.727 706.785 921.247 705.624 921.247 704.366L914.583 703.794C914.583 705.218 906.939 706.373 897.508 706.373C888.077 706.373 880.432 705.218 880.432 703.794L874.122 704.366C874.122 705.624 874.632 706.791 877.576 707.723C881.776 709.062 884.887 711.315 886.143 714.009C888.911 719.958 889.303 727.542 888.783 735.046C888.773 735.188 888.768 735.328 888.763 735.466C888.724 736.438 888.69 737.307 887.203 737.803C885.813 738.267 884.338 738.694 882.784 739.145C876.384 740.999 868.636 743.245 859.888 750.034C842.913 765.961 849.921 781.404 870.931 788.313C880.994 793.742 915.653 793.565 923.105 788.313C945.483 780.892 953.393 763.912 936.102 750.034Z"
               fill="url(#paint82_linear_616_886)"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
             />
             <path
               d="M921.247 704.366C921.247 696.346 874.122 696.342 874.122 704.366L880.432 703.794C880.432 699.199 914.583 699.091 914.583 703.794L921.247 704.366Z"
               fill="url(#paint83_linear_616_886)"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
             />
           </g>
           <path
@@ -626,16 +626,16 @@ const Windowphone: FC<{
           />
           <g filter="url(#filter31_d_616_886)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M938.711 895.021C929.609 883.98 922.159 881.113 915.963 878.729C914.127 878.022 912.401 877.358 910.775 876.536C909.288 875.787 909.254 874.474 909.215 873.004C909.21 872.795 909.204 872.583 909.195 872.37C908.674 861.029 909.067 849.558 911.834 840.576C913.091 836.505 916.202 833.099 920.402 831.077C923.336 829.659 923.856 827.904 923.856 826.002L917.193 825.138C917.193 827.29 909.548 829.036 900.117 829.036C890.686 829.036 883.041 827.29 883.041 825.138L876.731 826.002C876.731 827.904 877.241 829.668 880.185 831.077C884.386 833.099 887.497 836.505 888.753 840.576C891.52 849.566 891.913 861.029 891.393 872.37C891.383 872.583 891.377 872.795 891.372 873.004C891.334 874.474 891.299 875.787 889.813 876.536C888.422 877.237 886.948 877.883 885.394 878.564C878.993 881.367 871.245 884.76 862.498 895.021C845.523 919.092 852.53 942.431 873.54 952.872C883.603 961.077 918.262 960.809 925.714 952.872C948.092 941.657 956.002 915.994 938.711 895.021Z"
               fill="url(#paint85_linear_616_886)"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
             />
             <path
               d="M923.856 826.002C923.856 813.882 876.731 813.876 876.731 826.002L883.041 825.138C883.041 818.194 917.193 818.031 917.193 825.138L923.856 826.002Z"
               fill="url(#paint86_linear_616_886)"
-              shape-rendering="crispEdges"
+              shapeRendering="crispEdges"
             />
           </g>
           <rect
@@ -648,24 +648,24 @@ const Windowphone: FC<{
           <path
             d="M899.279 669.033C900.942 664.755 900.942 664.755 900.943 664.756L900.944 664.756L900.949 664.758L900.965 664.764L901.027 664.788L901.262 664.881C901.468 664.961 901.769 665.08 902.155 665.233C902.927 665.54 904.04 665.985 905.412 666.544C908.154 667.661 911.937 669.233 916.102 671.054C924.328 674.652 934.392 679.374 940.733 683.537C947.181 687.771 953.058 693.561 957.246 698.164C959.361 700.488 961.088 702.558 962.291 704.052C962.893 704.8 963.366 705.406 963.691 705.83C963.854 706.042 963.98 706.208 964.068 706.325C964.112 706.383 964.146 706.428 964.17 706.461L964.199 706.5L964.207 706.511L964.21 706.515L964.212 706.517C964.212 706.517 964.212 706.518 960.52 709.244L964.212 706.518L965.11 707.733V709.244V1013.86V1018.45H960.52H837.014H832.424V1013.86V709.244V707.781L833.27 706.588L837.014 709.244C833.27 706.588 833.271 706.588 833.271 706.587L833.272 706.585L833.275 706.581L833.284 706.569L833.312 706.529C833.336 706.496 833.369 706.45 833.412 706.391C833.497 706.273 833.62 706.105 833.778 705.892C834.095 705.465 834.554 704.857 835.14 704.106C836.312 702.605 838 700.528 840.082 698.196C844.207 693.577 850.05 687.766 856.627 683.518C863.082 679.35 873.466 674.628 881.969 671.032C886.275 669.211 890.193 667.639 893.035 666.523C894.456 665.964 895.61 665.519 896.411 665.213C896.811 665.059 897.124 664.941 897.337 664.86L897.581 664.768L897.645 664.744L897.662 664.737L897.667 664.736L897.668 664.735C897.668 664.735 897.669 664.735 899.279 669.033ZM899.279 669.033L900.942 664.755L899.309 664.12L897.669 664.735L899.279 669.033Z"
             fill="url(#paint88_linear_616_886)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
             stroke="url(#paint89_linear_616_886)"
-            stroke-width="9.17995"
+            strokeWidth="9.17995"
           />
           <path
             d="M837.646 708.28L837.646 743.174L961.151 817.064L961.15 771.225L837.646 708.28Z"
             fill="url(#paint90_linear_616_886)"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <path
             d="M837.647 772.591L837.647 800.642L961.153 874.533L961.153 838.956L837.647 772.591Z"
             fill="url(#paint91_linear_616_886)"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <path
             d="M837.652 910.794L837.652 936.108L961.159 1006.58L961.159 981.948L837.652 910.794Z"
             fill="url(#paint92_linear_616_886)"
-            fill-opacity="0.6"
+            fillOpacity="0.6"
           />
           <g filter="url(#filter32_d_616_886)">
             <path
@@ -674,16 +674,16 @@ const Windowphone: FC<{
             />
             <g filter="url(#filter33_d_616_886)">
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M1090.73 826.104C1083.74 816.887 1078.03 814.493 1073.28 812.503C1071.87 811.913 1070.54 811.358 1069.3 810.672C1068.15 810.046 1068.13 808.95 1068.1 807.723C1068.1 807.549 1068.09 807.372 1068.08 807.194C1067.68 797.725 1067.99 788.149 1070.11 780.651C1071.07 777.252 1073.46 774.408 1076.68 772.72C1078.93 771.536 1079.33 770.071 1079.33 768.483L1074.22 767.762C1074.22 769.559 1068.35 771.016 1061.12 771.016C1053.89 771.016 1048.02 769.559 1048.02 767.762L1043.18 768.483C1043.18 770.071 1043.57 771.543 1045.83 772.72C1049.05 774.408 1051.44 777.252 1052.4 780.651C1054.53 788.156 1054.83 797.725 1054.43 807.194C1054.42 807.372 1054.42 807.549 1054.41 807.723C1054.38 808.95 1054.36 810.046 1053.22 810.672C1052.15 811.257 1051.02 811.796 1049.83 812.365C1044.92 814.705 1038.97 817.538 1032.26 826.104C1019.24 846.2 1024.61 865.685 1040.73 874.402C1048.45 881.252 1075.04 881.028 1080.76 874.402C1097.92 865.039 1103.99 843.614 1090.73 826.104Z"
                 fill="url(#paint94_linear_616_886)"
-                shape-rendering="crispEdges"
+                shapeRendering="crispEdges"
               />
               <path
                 d="M1079.33 768.483C1079.33 758.365 1043.18 758.36 1043.18 768.483L1048.02 767.762C1048.02 761.964 1074.22 761.829 1074.22 767.762L1079.33 768.483Z"
                 fill="url(#paint95_linear_616_886)"
-                shape-rendering="crispEdges"
+                shapeRendering="crispEdges"
               />
             </g>
             <rect
@@ -697,24 +697,24 @@ const Windowphone: FC<{
           <path
             d="M1059.36 667.081C1061.02 662.803 1061.02 662.803 1061.02 662.803L1061.03 662.804L1061.03 662.806L1061.05 662.812L1061.11 662.836L1061.34 662.928C1061.55 663.009 1061.85 663.128 1062.24 663.281C1063.01 663.588 1064.12 664.033 1065.49 664.592C1068.24 665.708 1072.02 667.28 1076.18 669.102C1084.41 672.7 1094.47 677.421 1100.82 681.585C1107.26 685.819 1113.14 691.609 1117.33 696.212C1119.44 698.536 1121.17 700.606 1122.37 702.1C1122.98 702.848 1123.45 703.454 1123.77 703.878C1123.94 704.09 1124.06 704.256 1124.15 704.372C1124.19 704.431 1124.23 704.476 1124.25 704.509L1124.28 704.547L1124.29 704.559L1124.29 704.563L1124.29 704.565C1124.29 704.565 1124.29 704.566 1120.6 707.292L1124.29 704.566L1125.19 705.781V707.292V1011.9V1016.49H1120.6H997.096H992.506V1011.9V707.292V705.829L993.352 704.636L997.096 707.292C993.352 704.636 993.353 704.635 993.353 704.635L993.354 704.633L993.357 704.629L993.366 704.617L993.394 704.577C993.418 704.544 993.451 704.498 993.494 704.439C993.579 704.321 993.702 704.153 993.86 703.94C994.177 703.513 994.636 702.904 995.222 702.153C996.394 700.653 998.082 698.576 1000.16 696.244C1004.29 691.625 1010.13 685.814 1016.71 681.566C1023.16 677.398 1033.55 672.676 1042.05 669.08C1046.36 667.259 1050.28 665.687 1053.12 664.571C1054.54 664.012 1055.69 663.567 1056.49 663.26C1056.89 663.107 1057.21 662.989 1057.42 662.908L1057.66 662.816L1057.73 662.792L1057.74 662.785L1057.75 662.784L1057.75 662.783C1057.75 662.783 1057.75 662.783 1059.36 667.081ZM1059.36 667.081L1061.02 662.803L1059.39 662.168L1057.75 662.783L1059.36 667.081Z"
             fill="url(#paint97_linear_616_886)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
             stroke="url(#paint98_linear_616_886)"
-            stroke-width="9.17995"
+            strokeWidth="9.17995"
           />
           <path
             d="M997.728 706.328L997.728 741.221L1121.23 815.112L1121.23 769.272L997.728 706.328Z"
             fill="url(#paint99_linear_616_886)"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <path
             d="M997.725 770.639L997.725 798.69L1121.23 872.581L1121.23 837.004L997.725 770.639Z"
             fill="url(#paint100_linear_616_886)"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <path
             d="M997.73 908.842L997.73 934.156L1121.24 1004.63L1121.24 979.996L997.73 908.842Z"
             fill="url(#paint101_linear_616_886)"
-            fill-opacity="0.6"
+            fillOpacity="0.6"
           />
         </g>
         <g filter="url(#filter34_f_616_886)">
@@ -792,18 +792,18 @@ const Windowphone: FC<{
         <path
           d="M874.441 56.6791C879.513 41.537 886.914 29.6502 897.78 16.8105"
           stroke="url(#paint114_linear_616_886)"
-          stroke-width="16.4165"
+          strokeWidth="16.4165"
         />
         <path
           d="M842.756 56.6791C837.685 41.537 830.283 29.6502 819.417 16.8105"
           stroke="url(#paint115_linear_616_886)"
-          stroke-width="16.4165"
+          strokeWidth="16.4165"
         />
         <g filter="url(#filter40_d_616_886)">
           <path
             d="M682.171 165.725C655.559 157.812 627.473 154.671 650.497 135.824C673.521 116.977 709.187 115.858 728.672 132.638"
             stroke="url(#paint116_linear_616_886)"
-            stroke-width="16.4165"
+            strokeWidth="16.4165"
           />
           <path
             d="M638.834 244.29L633.549 238.01L630.626 240.47V244.29H638.834ZM717.784 153.5C722.041 151.942 724.229 147.227 722.67 142.97C721.112 138.713 716.398 136.526 712.141 138.084L717.784 153.5ZM644.119 250.57C669.362 229.327 675.393 207.576 681.676 190.641C684.81 182.195 687.847 175.335 692.908 169.388C697.869 163.56 705.24 158.092 717.784 153.5L712.141 138.084C697.456 143.459 687.532 150.377 680.407 158.748C673.382 167.001 669.542 176.153 666.285 184.93C659.788 202.44 654.983 219.971 633.549 238.01L644.119 250.57ZM630.626 244.29V970.909H647.042V244.29H630.626Z"
@@ -820,7 +820,7 @@ const Windowphone: FC<{
           <path
             d="M1036.31 166.243C1062.93 158.329 1091.01 155.188 1067.99 136.341C1044.96 117.494 1009.3 116.376 989.812 133.156"
             stroke="url(#paint119_linear_616_886)"
-            stroke-width="16.4165"
+            strokeWidth="16.4165"
           />
           <path
             d="M1079.65 244.809L1084.94 238.529L1087.85 240.976L1087.86 244.778L1079.65 244.809ZM1000.7 154.019C996.448 152.46 994.26 147.746 995.818 143.489C997.377 139.232 1002.09 137.044 1006.35 138.603L1000.7 154.019ZM1074.37 251.089C1049.13 229.845 1043.1 208.095 1036.81 191.16C1033.68 182.714 1030.64 175.853 1025.58 169.907C1020.62 164.078 1013.25 158.61 1000.7 154.019L1006.35 138.603C1021.03 143.978 1030.96 150.896 1038.08 159.266C1045.11 167.519 1048.95 176.672 1052.2 185.449C1058.7 202.958 1063.51 220.49 1084.94 238.529L1074.37 251.089ZM1087.86 244.778L1090.55 966.19L1074.13 966.252L1071.45 244.839L1087.86 244.778Z"
@@ -873,15 +873,15 @@ const Windowphone: FC<{
           <path
             d="M827.891 142.461H890.015"
             stroke="url(#paint130_linear_616_886)"
-            stroke-width="19.7649"
-            stroke-linecap="round"
+            strokeWidth="19.7649"
+            strokeLinecap="round"
           />
         </g>
       </g>
       <path
         d="M1126.23 968.572H595.18V287.917C595.18 287.917 579.023 12.9507 852.626 14.0777C1126.23 15.2046 1126.23 287.917 1126.23 287.917V968.572Z"
         stroke="url(#paint131_radial_616_886)"
-        stroke-width="16.4165"
+        strokeWidth="16.4165"
       />
       <g filter="url(#filter47_d_616_886)">
         <rect
@@ -901,9 +901,9 @@ const Windowphone: FC<{
           width="148.183"
           height="217.353"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -936,9 +936,9 @@ const Windowphone: FC<{
           width="318.216"
           height="624.74"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -971,9 +971,9 @@ const Windowphone: FC<{
           width="92.0436"
           height="127.656"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1006,9 +1006,9 @@ const Windowphone: FC<{
           width="92.0436"
           height="127.656"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1041,9 +1041,9 @@ const Windowphone: FC<{
           width="135.246"
           height="170.858"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1076,9 +1076,9 @@ const Windowphone: FC<{
           width="189.048"
           height="214.527"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1111,9 +1111,9 @@ const Windowphone: FC<{
           width="161.737"
           height="232.779"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1146,9 +1146,9 @@ const Windowphone: FC<{
           width="26.6922"
           height="46.0624"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1181,9 +1181,9 @@ const Windowphone: FC<{
           width="436.681"
           height="225.765"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1216,9 +1216,9 @@ const Windowphone: FC<{
           width="466.596"
           height="62.6949"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1251,9 +1251,9 @@ const Windowphone: FC<{
           width="96.0628"
           height="46.6546"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1286,9 +1286,9 @@ const Windowphone: FC<{
           width="111.638"
           height="866.561"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1321,9 +1321,9 @@ const Windowphone: FC<{
           width="120.714"
           height="104.323"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1356,9 +1356,9 @@ const Windowphone: FC<{
           width="114.322"
           height="861.387"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1391,9 +1391,9 @@ const Windowphone: FC<{
           width="120.714"
           height="104.323"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1426,9 +1426,9 @@ const Windowphone: FC<{
           width="144.916"
           height="113.848"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1461,9 +1461,9 @@ const Windowphone: FC<{
           width="144.916"
           height="113.847"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1496,9 +1496,9 @@ const Windowphone: FC<{
           width="135.941"
           height="144.167"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1531,9 +1531,9 @@ const Windowphone: FC<{
           width="604.546"
           height="70.3566"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1566,9 +1566,9 @@ const Windowphone: FC<{
           width="117.404"
           height="284.194"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1601,9 +1601,9 @@ const Windowphone: FC<{
           width="19.8482"
           height="187.327"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1636,9 +1636,9 @@ const Windowphone: FC<{
           width="89.5206"
           height="160.307"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1671,9 +1671,9 @@ const Windowphone: FC<{
           width="11.0325"
           height="83.2952"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1706,9 +1706,9 @@ const Windowphone: FC<{
           width="138.541"
           height="306.617"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1741,9 +1741,9 @@ const Windowphone: FC<{
           width="19.8295"
           height="192.499"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1776,9 +1776,9 @@ const Windowphone: FC<{
           width="183.163"
           height="230.48"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1811,9 +1811,9 @@ const Windowphone: FC<{
           width="178.698"
           height="222.106"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1846,9 +1846,9 @@ const Windowphone: FC<{
           width="413.723"
           height="481.652"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1881,9 +1881,9 @@ const Windowphone: FC<{
           width="436.081"
           height="37.0797"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1916,9 +1916,9 @@ const Windowphone: FC<{
           width="311.18"
           height="375.014"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1951,9 +1951,9 @@ const Windowphone: FC<{
           width="105.535"
           height="104.392"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1986,9 +1986,9 @@ const Windowphone: FC<{
           width="105.535"
           height="152.439"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2021,9 +2021,9 @@ const Windowphone: FC<{
           width="115.958"
           height="136.805"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2056,9 +2056,9 @@ const Windowphone: FC<{
           width="83.3861"
           height="128.987"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2091,9 +2091,9 @@ const Windowphone: FC<{
           width="72.5293"
           height="92.5088"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2112,9 +2112,9 @@ const Windowphone: FC<{
           width="44.3867"
           height="64.3662"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2133,9 +2133,9 @@ const Windowphone: FC<{
           width="79.5219"
           height="102.87"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2154,9 +2154,9 @@ const Windowphone: FC<{
           width="48.6433"
           height="71.9909"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2175,9 +2175,9 @@ const Windowphone: FC<{
           width="64.4228"
           height="83.3368"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2196,9 +2196,9 @@ const Windowphone: FC<{
           width="39.4072"
           height="58.3213"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2217,9 +2217,9 @@ const Windowphone: FC<{
           width="111.632"
           height="866.562"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2252,9 +2252,9 @@ const Windowphone: FC<{
           width="120.714"
           height="104.323"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2287,9 +2287,9 @@ const Windowphone: FC<{
           width="114.322"
           height="861.387"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2322,9 +2322,9 @@ const Windowphone: FC<{
           width="120.714"
           height="104.323"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2357,9 +2357,9 @@ const Windowphone: FC<{
           width="144.916"
           height="113.848"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2392,9 +2392,9 @@ const Windowphone: FC<{
           width="144.916"
           height="113.848"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2427,9 +2427,9 @@ const Windowphone: FC<{
           width="135.939"
           height="144.167"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2462,9 +2462,9 @@ const Windowphone: FC<{
           width="604.546"
           height="70.3566"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -2498,8 +2498,8 @@ const Windowphone: FC<{
           y2="1272.32"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#1A8B6D" />
+          <stop stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#1A8B6D" />
         </linearGradient>
         <radialGradient
           id="paint1_radial_616_886"
@@ -2509,9 +2509,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(217.149 504.221) rotate(90.0658) scale(700.999 670.063)"
         >
-          <stop offset="0.27" stop-color="#1A8B6D" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1A8B6D" />
+          <stop offset="0.27" stopColor="#1A8B6D" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1A8B6D" />
         </radialGradient>
         <linearGradient
           id="paint2_linear_616_886"
@@ -2521,8 +2521,8 @@ const Windowphone: FC<{
           y2="1272.32"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#1A8B6D" />
+          <stop stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#1A8B6D" />
         </linearGradient>
         <radialGradient
           id="paint3_radial_616_886"
@@ -2532,9 +2532,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(217.165 504.223) rotate(90.0658) scale(700.999 670.063)"
         >
-          <stop offset="0.27" stop-color="#1A8B6D" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1A8B6D" />
+          <stop offset="0.27" stopColor="#1A8B6D" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1A8B6D" />
         </radialGradient>
         <linearGradient
           id="paint4_linear_616_886"
@@ -2544,8 +2544,8 @@ const Windowphone: FC<{
           y2="524.27"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="1" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="1" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_616_886"
@@ -2555,10 +2555,10 @@ const Windowphone: FC<{
           y2="764.262"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_616_886"
@@ -2568,11 +2568,11 @@ const Windowphone: FC<{
           y2="166.515"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.586941" stop-color="#F5EEBF" />
-          <stop offset="0.854375" stop-color="#F5EEBF" stop-opacity="0.4" />
-          <stop offset="0.915" stop-color="#F5EEBF" stop-opacity="0.15" />
-          <stop offset="1" stop-color="#15786C" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.586941" stopColor="#F5EEBF" />
+          <stop offset="0.854375" stopColor="#F5EEBF" stopOpacity="0.4" />
+          <stop offset="0.915" stopColor="#F5EEBF" stopOpacity="0.15" />
+          <stop offset="1" stopColor="#15786C" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint7_radial_616_886"
@@ -2582,8 +2582,8 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(-24.5884 150.924) rotate(-55.651) scale(204.368 141.254)"
         >
-          <stop offset="0.274226" stop-color="#F5EEBF" />
-          <stop offset="0.863341" stop-color="#6AB692" />
+          <stop offset="0.274226" stopColor="#F5EEBF" />
+          <stop offset="0.863341" stopColor="#6AB692" />
         </radialGradient>
         <radialGradient
           id="paint8_radial_616_886"
@@ -2593,8 +2593,8 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(-24.5884 150.924) rotate(-55.651) scale(204.368 141.254)"
         >
-          <stop offset="0.274226" stop-color="#F5EEBF" />
-          <stop offset="0.863341" stop-color="#6AB692" />
+          <stop offset="0.274226" stopColor="#F5EEBF" />
+          <stop offset="0.863341" stopColor="#6AB692" />
         </radialGradient>
         <linearGradient
           id="paint9_linear_616_886"
@@ -2604,8 +2604,8 @@ const Windowphone: FC<{
           y2="474.992"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_616_886"
@@ -2615,8 +2615,8 @@ const Windowphone: FC<{
           y2="497.962"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_616_886"
@@ -2626,9 +2626,9 @@ const Windowphone: FC<{
           y2="-19.7602"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.356325" stop-color="#D9392B" />
-          <stop offset="0.824223" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.356325" stopColor="#D9392B" />
+          <stop offset="0.824223" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_616_886"
@@ -2638,8 +2638,8 @@ const Windowphone: FC<{
           y2="770.833"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.277793" stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#F28041" />
+          <stop offset="0.277793" stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#F28041" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_616_886"
@@ -2649,8 +2649,8 @@ const Windowphone: FC<{
           y2="662.8"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_616_886"
@@ -2660,8 +2660,8 @@ const Windowphone: FC<{
           y2="676.537"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint15_radial_616_886"
@@ -2671,8 +2671,8 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(489.183 613.664) rotate(110.647) scale(152.487 126.681)"
         >
-          <stop stop-color="#7DCAA0" />
-          <stop offset="0.784744" stop-color="#15786C" />
+          <stop stopColor="#7DCAA0" />
+          <stop offset="0.784744" stopColor="#15786C" />
         </radialGradient>
         <linearGradient
           id="paint16_linear_616_886"
@@ -2682,8 +2682,8 @@ const Windowphone: FC<{
           y2="190.551"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#F28041" />
+          <stop stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#F28041" />
         </linearGradient>
         <radialGradient
           id="paint17_radial_616_886"
@@ -2693,8 +2693,8 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(435.051 236.047) rotate(101.618) scale(112.953 74.0036)"
         >
-          <stop stop-color="#7DCAA0" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#7DCAA0" />
+          <stop offset="1" stopColor="#15786C" />
         </radialGradient>
         <linearGradient
           id="paint18_linear_616_886"
@@ -2704,8 +2704,8 @@ const Windowphone: FC<{
           y2="298.193"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_616_886"
@@ -2715,8 +2715,8 @@ const Windowphone: FC<{
           y2="311.932"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_616_886"
@@ -2726,9 +2726,9 @@ const Windowphone: FC<{
           y2="557.732"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.515" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.515" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_616_886"
@@ -2738,9 +2738,9 @@ const Windowphone: FC<{
           y2="563.549"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.744305" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.744305" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint22_linear_616_886"
@@ -2750,8 +2750,8 @@ const Windowphone: FC<{
           y2="559.163"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <linearGradient
           id="paint23_linear_616_886"
@@ -2761,9 +2761,9 @@ const Windowphone: FC<{
           y2="469.484"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.301754" stop-color="#DA382A" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.301754" stopColor="#DA382A" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint24_linear_616_886"
@@ -2773,9 +2773,9 @@ const Windowphone: FC<{
           y2="492.359"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.38" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.38" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint25_linear_616_886"
@@ -2785,9 +2785,9 @@ const Windowphone: FC<{
           y2="503.114"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.45" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.45" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint26_linear_616_886"
@@ -2797,10 +2797,10 @@ const Windowphone: FC<{
           y2="763.655"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint27_linear_616_886"
@@ -2810,9 +2810,9 @@ const Windowphone: FC<{
           y2="660.201"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.19594" stop-color="#15786C" />
-          <stop offset="0.745" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.19594" stopColor="#15786C" />
+          <stop offset="0.745" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint28_linear_616_886"
@@ -2822,9 +2822,9 @@ const Windowphone: FC<{
           y2="661.157"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint29_linear_616_886"
@@ -2834,9 +2834,9 @@ const Windowphone: FC<{
           y2="635.295"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint30_linear_616_886"
@@ -2846,8 +2846,8 @@ const Windowphone: FC<{
           y2="-117.831"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-opacity="0" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopOpacity="0" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint31_linear_616_886"
@@ -2857,8 +2857,8 @@ const Windowphone: FC<{
           y2="914.677"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F8B043" />
+          <stop stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F8B043" />
         </linearGradient>
         <linearGradient
           id="paint32_linear_616_886"
@@ -2868,10 +2868,10 @@ const Windowphone: FC<{
           y2="890.521"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D27709" />
-          <stop offset="0.316125" stop-color="#F5B747" />
-          <stop offset="0.6503" stop-color="#F5B747" />
-          <stop offset="1" stop-color="#D27709" />
+          <stop stopColor="#D27709" />
+          <stop offset="0.316125" stopColor="#F5B747" />
+          <stop offset="0.6503" stopColor="#F5B747" />
+          <stop offset="1" stopColor="#D27709" />
         </linearGradient>
         <linearGradient
           id="paint33_linear_616_886"
@@ -2881,8 +2881,8 @@ const Windowphone: FC<{
           y2="56.682"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <linearGradient
           id="paint34_linear_616_886"
@@ -2892,8 +2892,8 @@ const Windowphone: FC<{
           y2="56.682"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <linearGradient
           id="paint35_linear_616_886"
@@ -2903,9 +2903,9 @@ const Windowphone: FC<{
           y2="177.538"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint36_linear_616_886"
@@ -2915,11 +2915,11 @@ const Windowphone: FC<{
           y2="23.2061"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.172234" stop-color="#F4F15B" />
-          <stop offset="0.395" stop-color="#15786C" />
-          <stop offset="0.615" stop-color="#0C453E" />
-          <stop offset="0.9" stop-color="#15786C" />
-          <stop offset="0.945659" stop-color="#F4F15B" />
+          <stop offset="0.172234" stopColor="#F4F15B" />
+          <stop offset="0.395" stopColor="#15786C" />
+          <stop offset="0.615" stopColor="#0C453E" />
+          <stop offset="0.9" stopColor="#15786C" />
+          <stop offset="0.945659" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint37_linear_616_886"
@@ -2929,9 +2929,9 @@ const Windowphone: FC<{
           y2="227.598"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint38_linear_616_886"
@@ -2941,9 +2941,9 @@ const Windowphone: FC<{
           y2="178.056"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint39_linear_616_886"
@@ -2953,11 +2953,11 @@ const Windowphone: FC<{
           y2="23.7255"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.172234" stop-color="#F4F15B" />
-          <stop offset="0.395" stop-color="#15786C" />
-          <stop offset="0.615" stop-color="#0C453E" />
-          <stop offset="0.9" stop-color="#15786C" />
-          <stop offset="0.945659" stop-color="#F4F15B" />
+          <stop offset="0.172234" stopColor="#F4F15B" />
+          <stop offset="0.395" stopColor="#15786C" />
+          <stop offset="0.615" stopColor="#0C453E" />
+          <stop offset="0.9" stopColor="#15786C" />
+          <stop offset="0.945659" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint40_linear_616_886"
@@ -2967,9 +2967,9 @@ const Windowphone: FC<{
           y2="228.113"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint41_linear_616_886"
@@ -2979,9 +2979,9 @@ const Windowphone: FC<{
           y2="324"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint42_linear_616_886"
@@ -2991,9 +2991,9 @@ const Windowphone: FC<{
           y2="323.999"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint43_linear_616_886"
@@ -3003,9 +3003,9 @@ const Windowphone: FC<{
           y2="173.21"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint44_linear_616_886"
@@ -3015,9 +3015,9 @@ const Windowphone: FC<{
           y2="173.209"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint45_linear_616_886"
@@ -3027,10 +3027,10 @@ const Windowphone: FC<{
           y2="111.608"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint46_linear_616_886"
@@ -3040,10 +3040,10 @@ const Windowphone: FC<{
           y2="101.401"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint47_linear_616_886"
@@ -3053,9 +3053,9 @@ const Windowphone: FC<{
           y2="170.371"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.575792" stop-color="#15786C" />
-          <stop offset="0.88" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.575792" stopColor="#15786C" />
+          <stop offset="0.88" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint48_linear_616_886"
@@ -3065,9 +3065,9 @@ const Windowphone: FC<{
           y2="210.149"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.291331" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.291331" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint49_linear_616_886"
@@ -3077,9 +3077,9 @@ const Windowphone: FC<{
           y2="112.048"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.200888" stop-color="#105F55" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.200888" stopColor="#105F55" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <radialGradient
           id="paint50_radial_616_886"
@@ -3089,9 +3089,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(217.149 504.221) rotate(90.0658) scale(700.999 670.063)"
         >
-          <stop offset="0.27" stop-color="#1A8B6D" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1A8B6D" />
+          <stop offset="0.27" stopColor="#1A8B6D" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1A8B6D" />
         </radialGradient>
         <linearGradient
           id="paint51_linear_616_886"
@@ -3101,8 +3101,8 @@ const Windowphone: FC<{
           y2="1024.08"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient
           id="paint52_linear_616_886"
@@ -3112,8 +3112,8 @@ const Windowphone: FC<{
           y2="1272.32"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#1A8B6D" />
+          <stop stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#1A8B6D" />
         </linearGradient>
         <radialGradient
           id="paint53_radial_616_886"
@@ -3123,10 +3123,10 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(860.792 506.828) rotate(90.0661) scale(698.393 667.572)"
         >
-          <stop offset="0.095" stop-color="#0E342D" />
-          <stop offset="0.27" stop-color="#1A8B6D" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1A8B6D" />
+          <stop offset="0.095" stopColor="#0E342D" />
+          <stop offset="0.27" stopColor="#1A8B6D" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1A8B6D" />
         </radialGradient>
         <linearGradient
           id="paint54_linear_616_886"
@@ -3136,8 +3136,8 @@ const Windowphone: FC<{
           y2="1272.32"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ECF5C8" />
-          <stop offset="1" stop-color="#1A8B6D" />
+          <stop stopColor="#ECF5C8" />
+          <stop offset="1" stopColor="#1A8B6D" />
         </linearGradient>
         <radialGradient
           id="paint55_radial_616_886"
@@ -3147,10 +3147,10 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(860.788 506.826) rotate(90.0661) scale(698.393 667.572)"
         >
-          <stop offset="0.095" stop-color="#0E342D" />
-          <stop offset="0.27" stop-color="#1A8B6D" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1A8B6D" />
+          <stop offset="0.095" stopColor="#0E342D" />
+          <stop offset="0.27" stopColor="#1A8B6D" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1A8B6D" />
         </radialGradient>
         <linearGradient
           id="paint56_linear_616_886"
@@ -3160,9 +3160,9 @@ const Windowphone: FC<{
           y2="112.976"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint57_linear_616_886"
@@ -3172,8 +3172,8 @@ const Windowphone: FC<{
           y2="424.006"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint58_linear_616_886"
@@ -3183,10 +3183,10 @@ const Windowphone: FC<{
           y2="496.629"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint59_linear_616_886"
@@ -3196,10 +3196,10 @@ const Windowphone: FC<{
           y2="496.625"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint60_linear_616_886"
@@ -3209,8 +3209,8 @@ const Windowphone: FC<{
           y2="404.982"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint61_linear_616_886"
@@ -3220,8 +3220,8 @@ const Windowphone: FC<{
           y2="378.221"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint62_linear_616_886"
@@ -3231,9 +3231,9 @@ const Windowphone: FC<{
           y2="87.8163"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint63_linear_616_886"
@@ -3243,8 +3243,8 @@ const Windowphone: FC<{
           y2="253.584"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint64_linear_616_886"
@@ -3254,10 +3254,10 @@ const Windowphone: FC<{
           y2="306.746"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint65_linear_616_886"
@@ -3267,10 +3267,10 @@ const Windowphone: FC<{
           y2="306.746"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint66_linear_616_886"
@@ -3280,8 +3280,8 @@ const Windowphone: FC<{
           y2="239.548"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint67_linear_616_886"
@@ -3291,8 +3291,8 @@ const Windowphone: FC<{
           y2="219.808"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint68_linear_616_886"
@@ -3302,9 +3302,9 @@ const Windowphone: FC<{
           y2="-11.5586"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint69_linear_616_886"
@@ -3314,8 +3314,8 @@ const Windowphone: FC<{
           y2="335.845"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint70_linear_616_886"
@@ -3325,8 +3325,8 @@ const Windowphone: FC<{
           y2="335.846"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint71_linear_616_886"
@@ -3336,10 +3336,10 @@ const Windowphone: FC<{
           y2="425.927"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <radialGradient
           id="paint72_radial_616_886"
@@ -3349,10 +3349,10 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(870.233 295.679) rotate(90) scale(130.248 166.411)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.183058" stop-color="#D9523B" />
-          <stop offset="0.350471" stop-color="#D9392B" />
-          <stop offset="0.455" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.183058" stopColor="#D9523B" />
+          <stop offset="0.350471" stopColor="#D9392B" />
+          <stop offset="0.455" stopColor="#7E0001" />
         </radialGradient>
         <linearGradient
           id="paint73_linear_616_886"
@@ -3362,8 +3362,8 @@ const Windowphone: FC<{
           y2="313.348"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint74_linear_616_886"
@@ -3373,8 +3373,8 @@ const Windowphone: FC<{
           y2="281.691"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint75_radial_616_886"
@@ -3384,8 +3384,8 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(636.046 435.729) rotate(57.7098) scale(134.192 100.814)"
         >
-          <stop stop-color="#6AB692" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#6AB692" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <linearGradient
           id="paint76_linear_616_886"
@@ -3395,9 +3395,9 @@ const Windowphone: FC<{
           y2="397.484"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint77_linear_616_886"
@@ -3407,8 +3407,8 @@ const Windowphone: FC<{
           y2="510.539"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint78_linear_616_886"
@@ -3418,8 +3418,8 @@ const Windowphone: FC<{
           y2="528.42"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint79_linear_616_886"
@@ -3429,9 +3429,9 @@ const Windowphone: FC<{
           y2="997.68"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.19594" stop-color="#15786C" />
-          <stop offset="0.745" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.19594" stopColor="#15786C" />
+          <stop offset="0.745" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint80_linear_616_886"
@@ -3441,9 +3441,9 @@ const Windowphone: FC<{
           y2="549.619"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint81_linear_616_886"
@@ -3453,8 +3453,8 @@ const Windowphone: FC<{
           y2="689.556"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0E342D" />
-          <stop offset="1" stop-color="#1B9A8A" />
+          <stop stopColor="#0E342D" />
+          <stop offset="1" stopColor="#1B9A8A" />
         </linearGradient>
         <linearGradient
           id="paint82_linear_616_886"
@@ -3464,10 +3464,10 @@ const Windowphone: FC<{
           y2="803.603"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#E2EA5F" stop-opacity="0.4" />
-          <stop offset="0.366139" stop-color="#1B9A8A" />
-          <stop offset="0.651159" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop offset="0.0342621" stopColor="#E2EA5F" stopOpacity="0.4" />
+          <stop offset="0.366139" stopColor="#1B9A8A" />
+          <stop offset="0.651159" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint83_linear_616_886"
@@ -3477,10 +3477,10 @@ const Windowphone: FC<{
           y2="803.603"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#E2EA5F" stop-opacity="0.4" />
-          <stop offset="0.366139" stop-color="#1B9A8A" />
-          <stop offset="0.651159" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop offset="0.0342621" stopColor="#E2EA5F" stopOpacity="0.4" />
+          <stop offset="0.366139" stopColor="#1B9A8A" />
+          <stop offset="0.651159" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint84_linear_616_886"
@@ -3490,8 +3490,8 @@ const Windowphone: FC<{
           y2="816.284"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#1F1608" />
-          <stop offset="1" stop-color="#F77E33" />
+          <stop stopColor="#1F1608" />
+          <stop offset="1" stopColor="#F77E33" />
         </linearGradient>
         <linearGradient
           id="paint85_linear_616_886"
@@ -3501,9 +3501,9 @@ const Windowphone: FC<{
           y2="957.018"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.5" stop-color="#F4F15B" stop-opacity="0.69" />
-          <stop offset="1" stop-color="#F77E33" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.5" stopColor="#F4F15B" stopOpacity="0.69" />
+          <stop offset="1" stopColor="#F77E33" />
         </linearGradient>
         <linearGradient
           id="paint86_linear_616_886"
@@ -3513,9 +3513,9 @@ const Windowphone: FC<{
           y2="957.018"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.5" stop-color="#F4F15B" stop-opacity="0.69" />
-          <stop offset="1" stop-color="#F77E33" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.5" stopColor="#F4F15B" stopOpacity="0.69" />
+          <stop offset="1" stopColor="#F77E33" />
         </linearGradient>
         <linearGradient
           id="paint87_linear_616_886"
@@ -3525,8 +3525,8 @@ const Windowphone: FC<{
           y2="792.157"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0A2B25" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#0A2B25" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint88_linear_616_886"
@@ -3536,9 +3536,9 @@ const Windowphone: FC<{
           y2="1109.38"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0395575" stop-color="#1B9A8A" />
-          <stop offset="0.268965" stop-color="#78AF94" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop offset="0.0395575" stopColor="#1B9A8A" />
+          <stop offset="0.268965" stopColor="#78AF94" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </linearGradient>
         <linearGradient
           id="paint89_linear_616_886"
@@ -3548,9 +3548,9 @@ const Windowphone: FC<{
           y2="836.037"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.255695" stop-color="#0C453E" />
-          <stop offset="0.738586" stop-color="#1B9A8A" />
-          <stop offset="0.900683" stop-color="#F4F15B" />
+          <stop offset="0.255695" stopColor="#0C453E" />
+          <stop offset="0.738586" stopColor="#1B9A8A" />
+          <stop offset="0.900683" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint90_linear_616_886"
@@ -3560,8 +3560,8 @@ const Windowphone: FC<{
           y2="852.452"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint91_linear_616_886"
@@ -3571,8 +3571,8 @@ const Windowphone: FC<{
           y2="915.401"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint92_linear_616_886"
@@ -3582,8 +3582,8 @@ const Windowphone: FC<{
           y2="1040.11"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint93_linear_616_886"
@@ -3593,8 +3593,8 @@ const Windowphone: FC<{
           y2="764.227"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="0.5" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="0.5" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint94_linear_616_886"
@@ -3604,10 +3604,10 @@ const Windowphone: FC<{
           y2="837.213"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.24" stop-color="#F4F15B" />
-          <stop offset="0.42" stop-color="#F65C2C" />
-          <stop offset="0.651159" stop-color="#F20404" stop-opacity="0.8" />
-          <stop offset="1" stop-color="#590101" />
+          <stop offset="0.24" stopColor="#F4F15B" />
+          <stop offset="0.42" stopColor="#F65C2C" />
+          <stop offset="0.651159" stopColor="#F20404" stopOpacity="0.8" />
+          <stop offset="1" stopColor="#590101" />
         </linearGradient>
         <linearGradient
           id="paint95_linear_616_886"
@@ -3617,10 +3617,10 @@ const Windowphone: FC<{
           y2="837.213"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.24" stop-color="#F4F15B" />
-          <stop offset="0.42" stop-color="#F65C2C" />
-          <stop offset="0.651159" stop-color="#F20404" stop-opacity="0.8" />
-          <stop offset="1" stop-color="#590101" />
+          <stop offset="0.24" stopColor="#F4F15B" />
+          <stop offset="0.42" stopColor="#F65C2C" />
+          <stop offset="0.651159" stopColor="#F20404" stopOpacity="0.8" />
+          <stop offset="1" stopColor="#590101" />
         </linearGradient>
         <linearGradient
           id="paint96_linear_616_886"
@@ -3630,8 +3630,8 @@ const Windowphone: FC<{
           y2="876.852"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0A2B25" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#0A2B25" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint97_linear_616_886"
@@ -3641,9 +3641,9 @@ const Windowphone: FC<{
           y2="1107.43"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0395575" stop-color="#1B9A8A" />
-          <stop offset="0.268965" stop-color="#78AF94" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop offset="0.0395575" stopColor="#1B9A8A" />
+          <stop offset="0.268965" stopColor="#78AF94" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </linearGradient>
         <linearGradient
           id="paint98_linear_616_886"
@@ -3653,9 +3653,9 @@ const Windowphone: FC<{
           y2="834.084"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.255695" stop-color="#0C453E" />
-          <stop offset="0.738586" stop-color="#1B9A8A" />
-          <stop offset="0.900683" stop-color="#F4F15B" />
+          <stop offset="0.255695" stopColor="#0C453E" />
+          <stop offset="0.738586" stopColor="#1B9A8A" />
+          <stop offset="0.900683" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint99_linear_616_886"
@@ -3665,8 +3665,8 @@ const Windowphone: FC<{
           y2="850.499"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint100_linear_616_886"
@@ -3676,8 +3676,8 @@ const Windowphone: FC<{
           y2="913.449"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint101_linear_616_886"
@@ -3687,8 +3687,8 @@ const Windowphone: FC<{
           y2="1038.15"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint102_radial_616_886"
@@ -3698,9 +3698,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(945.129 512.269) rotate(83.1704) scale(22.0477 13.8015)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint103_radial_616_886"
@@ -3710,9 +3710,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(945.129 512.269) rotate(83.1704) scale(22.0477 13.8015)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint104_radial_616_886"
@@ -3722,9 +3722,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(945.129 512.269) rotate(83.1704) scale(22.0477 13.8015)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <linearGradient
           id="paint105_linear_616_886"
@@ -3734,8 +3734,8 @@ const Windowphone: FC<{
           y2="761.389"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFF7EB" />
-          <stop offset="1" stop-color="#F8B043" />
+          <stop stopColor="#FFF7EB" />
+          <stop offset="1" stopColor="#F8B043" />
         </linearGradient>
         <radialGradient
           id="paint106_radial_616_886"
@@ -3745,9 +3745,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(854.601 470.245) rotate(89.0967) scale(24.1912 15.1434)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint107_radial_616_886"
@@ -3757,9 +3757,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(854.601 470.245) rotate(89.0967) scale(24.1912 15.1434)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint108_radial_616_886"
@@ -3769,9 +3769,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(854.601 470.245) rotate(89.0967) scale(24.1912 15.1434)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint109_radial_616_886"
@@ -3781,9 +3781,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(853.959 456.866) rotate(90) scale(186.815 78.741)"
         >
-          <stop stop-color="#ECC870" />
-          <stop offset="0.314545" stop-color="#D9392B" />
-          <stop offset="0.894101" stop-color="#7E0001" />
+          <stop stopColor="#ECC870" />
+          <stop offset="0.314545" stopColor="#D9392B" />
+          <stop offset="0.894101" stopColor="#7E0001" />
         </radialGradient>
         <radialGradient
           id="paint110_radial_616_886"
@@ -3793,9 +3793,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(903.625 560.18) rotate(89.0967) scale(19.5979 12.268)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint111_radial_616_886"
@@ -3805,9 +3805,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(903.625 560.18) rotate(89.0967) scale(19.5979 12.268)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint112_radial_616_886"
@@ -3817,9 +3817,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(903.625 560.18) rotate(89.0967) scale(19.5979 12.268)"
         >
-          <stop stop-color="#F8B043" />
-          <stop offset="0.37" stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F5EEBF" />
+          <stop stopColor="#F8B043" />
+          <stop offset="0.37" stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F5EEBF" />
         </radialGradient>
         <radialGradient
           id="paint113_radial_616_886"
@@ -3829,9 +3829,9 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(903.941 546.002) rotate(90) scale(67.9589 93.4443)"
         >
-          <stop stop-color="#ECC870" />
-          <stop offset="0.469913" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#ECC870" />
+          <stop offset="0.469913" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </radialGradient>
         <linearGradient
           id="paint114_linear_616_886"
@@ -3841,8 +3841,8 @@ const Windowphone: FC<{
           y2="56.6791"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <linearGradient
           id="paint115_linear_616_886"
@@ -3852,8 +3852,8 @@ const Windowphone: FC<{
           y2="56.6791"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#1EAB9A" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#1EAB9A" />
         </linearGradient>
         <linearGradient
           id="paint116_linear_616_886"
@@ -3863,9 +3863,9 @@ const Windowphone: FC<{
           y2="177.532"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint117_linear_616_886"
@@ -3875,11 +3875,11 @@ const Windowphone: FC<{
           y2="23.2013"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.172234" stop-color="#F4F15B" />
-          <stop offset="0.395" stop-color="#15786C" />
-          <stop offset="0.615" stop-color="#0C453E" />
-          <stop offset="0.9" stop-color="#15786C" />
-          <stop offset="0.945659" stop-color="#F4F15B" />
+          <stop offset="0.172234" stopColor="#F4F15B" />
+          <stop offset="0.395" stopColor="#15786C" />
+          <stop offset="0.615" stopColor="#0C453E" />
+          <stop offset="0.9" stopColor="#15786C" />
+          <stop offset="0.945659" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint118_linear_616_886"
@@ -3889,9 +3889,9 @@ const Windowphone: FC<{
           y2="227.593"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint119_linear_616_886"
@@ -3901,9 +3901,9 @@ const Windowphone: FC<{
           y2="178.05"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint120_linear_616_886"
@@ -3913,11 +3913,11 @@ const Windowphone: FC<{
           y2="23.7197"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.172234" stop-color="#F4F15B" />
-          <stop offset="0.395" stop-color="#15786C" />
-          <stop offset="0.615" stop-color="#0C453E" />
-          <stop offset="0.9" stop-color="#15786C" />
-          <stop offset="0.945659" stop-color="#F4F15B" />
+          <stop offset="0.172234" stopColor="#F4F15B" />
+          <stop offset="0.395" stopColor="#15786C" />
+          <stop offset="0.615" stopColor="#0C453E" />
+          <stop offset="0.9" stopColor="#15786C" />
+          <stop offset="0.945659" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint121_linear_616_886"
@@ -3927,9 +3927,9 @@ const Windowphone: FC<{
           y2="228.11"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint122_linear_616_886"
@@ -3939,9 +3939,9 @@ const Windowphone: FC<{
           y2="323.994"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint123_linear_616_886"
@@ -3951,9 +3951,9 @@ const Windowphone: FC<{
           y2="323.991"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint124_linear_616_886"
@@ -3963,9 +3963,9 @@ const Windowphone: FC<{
           y2="173.203"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint125_linear_616_886"
@@ -3975,9 +3975,9 @@ const Windowphone: FC<{
           y2="173.202"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint126_linear_616_886"
@@ -3987,10 +3987,10 @@ const Windowphone: FC<{
           y2="111.602"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint127_linear_616_886"
@@ -4000,10 +4000,10 @@ const Windowphone: FC<{
           y2="101.395"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint128_linear_616_886"
@@ -4013,9 +4013,9 @@ const Windowphone: FC<{
           y2="170.365"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.575792" stop-color="#15786C" />
-          <stop offset="0.88" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.575792" stopColor="#15786C" />
+          <stop offset="0.88" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint129_linear_616_886"
@@ -4025,9 +4025,9 @@ const Windowphone: FC<{
           y2="210.143"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.291331" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.291331" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint130_linear_616_886"
@@ -4037,9 +4037,9 @@ const Windowphone: FC<{
           y2="112.042"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.200888" stop-color="#105F55" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.200888" stopColor="#105F55" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <radialGradient
           id="paint131_radial_616_886"
@@ -4049,10 +4049,10 @@ const Windowphone: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(860.792 506.828) rotate(90.0661) scale(698.393 667.572)"
         >
-          <stop offset="0.095" stop-color="#0E342D" />
-          <stop offset="0.27" stop-color="#1A8B6D" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1A8B6D" />
+          <stop offset="0.095" stopColor="#0E342D" />
+          <stop offset="0.27" stopColor="#1A8B6D" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1A8B6D" />
         </radialGradient>
         <linearGradient
           id="paint132_linear_616_886"
@@ -4062,8 +4062,8 @@ const Windowphone: FC<{
           y2="1024.08"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
       </defs>
     </svg>

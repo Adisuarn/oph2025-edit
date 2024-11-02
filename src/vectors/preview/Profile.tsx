@@ -26,9 +26,9 @@ const Profile: FC<{
           width="128.125"
           height="150.61"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -62,8 +62,8 @@ const Profile: FC<{
           y2="147.35"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
       </defs>
     </svg>

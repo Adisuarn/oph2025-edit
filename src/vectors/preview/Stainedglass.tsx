@@ -38,7 +38,7 @@ const Stainedglass: FC<{
         <path
           d="M148.083 138.495V461.467H-115.535V138.495M148.083 138.495C148.083 138.495 148.083 9.09205 12.2631 8.5573C-123.556 8.02256 -115.535 138.495 -115.535 138.495M148.083 138.495H-115.535"
           stroke="url(#paint2_radial_190_2541)"
-          stroke-width="13.9028"
+          strokeWidth="13.9028"
         />
         <g filter="url(#filter1_d_190_2541)">
           <path
@@ -75,22 +75,22 @@ const Stainedglass: FC<{
             d="M15.0583 166.833C12.0271 162.428 12.0267 162.428 12.0263 162.428L12.0253 162.429L12.0224 162.431L12.0135 162.437L11.9827 162.459L11.8715 162.536C11.7758 162.602 11.6377 162.699 11.4618 162.822C11.1101 163.069 10.6066 163.426 9.98782 163.872C8.75203 164.763 7.04708 166.016 5.16828 167.471C1.51153 170.301 -3.16628 174.167 -6.18902 177.68C-9.25332 181.241 -11.9471 185.972 -13.797 189.57C-14.7455 191.415 -15.5191 193.056 -16.057 194.238C-16.3265 194.83 -16.5382 195.311 -16.6846 195.648C-16.7578 195.817 -16.8148 195.95 -16.8546 196.043L-16.9012 196.153L-16.9147 196.185L-16.9189 196.196L-16.9204 196.199L-16.921 196.201C-16.9213 196.201 -16.9215 196.202 -11.9863 198.26L-16.9215 196.202L-17.3336 197.19V198.26V436.333V441.68H-11.9863H42.5553H47.9026V436.333V198.26V197.228L47.5186 196.271L42.5553 198.26C47.5186 196.271 47.5184 196.27 47.5181 196.269L47.5175 196.268L47.516 196.264L47.5118 196.254L47.4986 196.221L47.453 196.109C47.4143 196.014 47.3589 195.88 47.2878 195.711C47.1455 195.371 46.9398 194.888 46.6772 194.293C46.1531 193.106 45.397 191.459 44.4622 189.606C42.6408 185.997 39.9581 181.235 36.8187 177.647C33.7309 174.117 28.8941 170.245 25.1172 167.418C23.174 165.964 21.4078 164.71 20.1271 163.82C19.4857 163.374 18.9636 163.017 18.5989 162.77C18.4165 162.646 18.2733 162.55 18.1741 162.484L18.0587 162.407L18.0269 162.385L18.0176 162.379L18.0146 162.377L18.0136 162.377C18.0132 162.376 18.0128 162.376 15.0583 166.833ZM15.0583 166.833L12.0271 162.428L15.0024 160.381L18.0128 162.376L15.0583 166.833Z"
             fill="url(#paint9_linear_190_2541)"
             stroke="url(#paint10_linear_190_2541)"
-            stroke-width="10.6944"
+            strokeWidth="10.6944"
           />
           <path
             d="M42.2767 198.576L42.2767 225.847L-12.2649 283.596L-12.2644 247.77L42.2767 198.576Z"
             fill="url(#paint11_linear_190_2541)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
           <path
             d="M42.2765 248.84L42.2765 270.764L-12.2656 328.514L-12.2656 300.708L42.2765 248.84Z"
             fill="url(#paint12_linear_190_2541)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
           <path
             d="M42.2769 356.854L42.2769 376.638L-12.2652 431.715L-12.2652 412.465L42.2769 356.854Z"
             fill="url(#paint13_linear_190_2541)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
         </g>
         <g filter="url(#filter5_d_190_2541)">
@@ -102,22 +102,22 @@ const Stainedglass: FC<{
             d="M96.3371 166.833C93.3059 162.428 93.3055 162.428 93.3051 162.428L93.3041 162.429L93.3012 162.431L93.2923 162.437L93.2615 162.459L93.1503 162.536C93.0546 162.602 92.9165 162.699 92.7406 162.822C92.389 163.069 91.8854 163.426 91.2666 163.872C90.0308 164.763 88.3259 166.016 86.4471 167.471C82.7903 170.301 78.1125 174.167 75.0898 177.68C72.0255 181.241 69.3317 185.972 67.4818 189.57C66.5333 191.415 65.7597 193.056 65.2218 194.238C64.9523 194.83 64.7406 195.311 64.5942 195.648C64.521 195.817 64.464 195.95 64.4243 196.043L64.3776 196.153L64.3641 196.185L64.3599 196.196L64.3584 196.199L64.3578 196.201C64.3575 196.201 64.3573 196.202 69.2925 198.26L64.3573 196.202L63.9453 197.19V198.26V436.333V441.68H69.2925H123.834H129.181V436.333V198.26V197.228L128.797 196.271L123.834 198.26C128.797 196.271 128.797 196.27 128.797 196.269L128.796 196.268L128.795 196.264L128.791 196.254L128.777 196.221L128.732 196.109C128.693 196.014 128.638 195.88 128.567 195.711C128.424 195.371 128.219 194.888 127.956 194.293C127.432 193.106 126.676 191.459 125.741 189.606C123.92 185.997 121.237 181.235 118.097 177.647C115.01 174.117 110.173 170.245 106.396 167.418C104.453 165.964 102.687 164.71 101.406 163.82C100.765 163.374 100.242 163.017 99.8777 162.77C99.6953 162.646 99.5521 162.55 99.4529 162.484L99.3376 162.407L99.3057 162.385L99.2964 162.379L99.2934 162.377L99.2924 162.377C99.292 162.376 99.2916 162.376 96.3371 166.833ZM96.3371 166.833L93.3059 162.428L96.2812 160.381L99.2916 162.376L96.3371 166.833Z"
             fill="url(#paint15_linear_190_2541)"
             stroke="url(#paint16_linear_190_2541)"
-            stroke-width="10.6944"
+            strokeWidth="10.6944"
           />
           <path
             d="M123.555 197.506L123.555 224.777L69.0134 282.527L69.0139 246.701L123.555 197.506Z"
             fill="url(#paint17_linear_190_2541)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
           <path
             d="M123.555 247.771L123.555 269.694L69.0132 327.444L69.0133 299.639L123.555 247.771Z"
             fill="url(#paint18_linear_190_2541)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
           <path
             d="M123.555 355.784L123.555 375.569L69.0132 430.645L69.0132 411.395L123.555 355.784Z"
             fill="url(#paint19_linear_190_2541)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
         </g>
       </g>
@@ -159,9 +159,9 @@ const Stainedglass: FC<{
           width="286.166"
           height="475.37"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -194,9 +194,9 @@ const Stainedglass: FC<{
           width="117.759"
           height="109.992"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -229,9 +229,9 @@ const Stainedglass: FC<{
           width="117.759"
           height="109.992"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -264,9 +264,9 @@ const Stainedglass: FC<{
           width="122.664"
           height="114.431"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -299,9 +299,9 @@ const Stainedglass: FC<{
           width="84.4862"
           height="301.655"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -334,9 +334,9 @@ const Stainedglass: FC<{
           width="84.4862"
           height="301.655"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -369,9 +369,9 @@ const Stainedglass: FC<{
           width="46.65"
           height="37.882"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -404,9 +404,9 @@ const Stainedglass: FC<{
           width="38.3419"
           height="46.3019"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -439,9 +439,9 @@ const Stainedglass: FC<{
           width="38.3419"
           height="46.3019"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -474,9 +474,9 @@ const Stainedglass: FC<{
           width="46.2746"
           height="38.2345"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -510,8 +510,8 @@ const Stainedglass: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(129.437 8.55565) rotate(127.957) scale(326.269 187.293)"
         >
-          <stop offset="0.28169" stop-color="#F5EEBF" />
-          <stop offset="0.878434" stop-color="#78AF94" />
+          <stop offset="0.28169" stopColor="#F5EEBF" />
+          <stop offset="0.878434" stopColor="#78AF94" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_190_2541"
@@ -521,8 +521,8 @@ const Stainedglass: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(184.373 -11.9013) rotate(115.06) scale(775.184 349.575)"
         >
-          <stop offset="0.28169" stop-color="#F5EEBF" />
-          <stop offset="0.878434" stop-color="#78AF94" />
+          <stop offset="0.28169" stopColor="#F5EEBF" />
+          <stop offset="0.878434" stopColor="#78AF94" />
         </radialGradient>
         <radialGradient
           id="paint2_radial_190_2541"
@@ -532,12 +532,12 @@ const Stainedglass: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(15.9167 249.715) rotate(90) scale(324.042 324.042)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.095" stop-color="#0E342D" />
-          <stop offset="0.27" stop-color="#1B9A8A" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1B9A8A" />
-          <stop offset="0.936667" stop-color="#F4F15B" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.095" stopColor="#0E342D" />
+          <stop offset="0.27" stopColor="#1B9A8A" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1B9A8A" />
+          <stop offset="0.936667" stopColor="#F4F15B" />
         </radialGradient>
         <linearGradient
           id="paint3_linear_190_2541"
@@ -547,9 +547,9 @@ const Stainedglass: FC<{
           y2="152.93"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.1" stop-color="#0C453E" />
-          <stop offset="0.54" stop-color="#1B9A8A" />
-          <stop offset="0.758325" stop-color="#F4F15B" />
+          <stop offset="0.1" stopColor="#0C453E" />
+          <stop offset="0.54" stopColor="#1B9A8A" />
+          <stop offset="0.758325" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_190_2541"
@@ -559,9 +559,9 @@ const Stainedglass: FC<{
           y2="145.445"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.273501" stop-color="#0C453E" />
-          <stop offset="0.54" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop offset="0.273501" stopColor="#0C453E" />
+          <stop offset="0.54" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_190_2541"
@@ -571,9 +571,9 @@ const Stainedglass: FC<{
           y2="23.5286"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.319856" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.319856" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_190_2541"
@@ -583,9 +583,9 @@ const Stainedglass: FC<{
           y2="23.5286"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.319856" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.319856" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_190_2541"
@@ -595,9 +595,9 @@ const Stainedglass: FC<{
           y2="23.5286"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.319856" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.319856" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_190_2541"
@@ -607,9 +607,9 @@ const Stainedglass: FC<{
           y2="23.5286"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.319856" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.319856" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_190_2541"
@@ -619,9 +619,9 @@ const Stainedglass: FC<{
           y2="425.721"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.230743" stop-color="#F5EEBF" />
-          <stop offset="0.731035" stop-color="#78AF94" />
-          <stop offset="0.960442" stop-color="#1B9A8A" />
+          <stop offset="0.230743" stopColor="#F5EEBF" />
+          <stop offset="0.731035" stopColor="#78AF94" />
+          <stop offset="0.960442" stopColor="#1B9A8A" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_190_2541"
@@ -631,9 +631,9 @@ const Stainedglass: FC<{
           y2="-1.33659"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.255695" stop-color="#0C453E" />
-          <stop offset="0.585056" stop-color="#1B9A8A" />
-          <stop offset="0.900683" stop-color="#F4F15B" />
+          <stop offset="0.255695" stopColor="#0C453E" />
+          <stop offset="0.585056" stopColor="#1B9A8A" />
+          <stop offset="0.900683" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_190_2541"
@@ -643,8 +643,8 @@ const Stainedglass: FC<{
           y2="273.203"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_190_2541"
@@ -654,8 +654,8 @@ const Stainedglass: FC<{
           y2="322.404"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_190_2541"
@@ -665,8 +665,8 @@ const Stainedglass: FC<{
           y2="422.781"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_190_2541"
@@ -676,9 +676,9 @@ const Stainedglass: FC<{
           y2="555.576"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9F6DC" />
-          <stop offset="0.329764" stop-color="#FA3717" />
-          <stop offset="0.758393" stop-color="#FA3717" />
+          <stop stopColor="#F9F6DC" />
+          <stop offset="0.329764" stopColor="#FA3717" />
+          <stop offset="0.758393" stopColor="#FA3717" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_190_2541"
@@ -688,9 +688,9 @@ const Stainedglass: FC<{
           y2="425.721"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.230743" stop-color="#F5EEBF" />
-          <stop offset="0.731035" stop-color="#78AF94" />
-          <stop offset="0.960442" stop-color="#1B9A8A" />
+          <stop offset="0.230743" stopColor="#F5EEBF" />
+          <stop offset="0.731035" stopColor="#78AF94" />
+          <stop offset="0.960442" stopColor="#1B9A8A" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_190_2541"
@@ -700,9 +700,9 @@ const Stainedglass: FC<{
           y2="-1.33659"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.255695" stop-color="#0C453E" />
-          <stop offset="0.585056" stop-color="#1B9A8A" />
-          <stop offset="0.900683" stop-color="#F4F15B" />
+          <stop offset="0.255695" stopColor="#0C453E" />
+          <stop offset="0.585056" stopColor="#1B9A8A" />
+          <stop offset="0.900683" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_190_2541"
@@ -712,8 +712,8 @@ const Stainedglass: FC<{
           y2="272.134"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_190_2541"
@@ -723,8 +723,8 @@ const Stainedglass: FC<{
           y2="321.334"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_190_2541"
@@ -734,8 +734,8 @@ const Stainedglass: FC<{
           y2="421.712"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_190_2541"
@@ -745,10 +745,10 @@ const Stainedglass: FC<{
           y2="98.3116"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.339807" stop-color="#F28041" />
-          <stop offset="0.597321" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.339807" stopColor="#F28041" />
+          <stop offset="0.597321" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_190_2541"
@@ -758,10 +758,10 @@ const Stainedglass: FC<{
           y2="30.6624"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.339807" stop-color="#F28041" />
-          <stop offset="0.597321" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.339807" stopColor="#F28041" />
+          <stop offset="0.597321" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint22_linear_190_2541"
@@ -771,10 +771,10 @@ const Stainedglass: FC<{
           y2="113.729"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.339807" stop-color="#F28041" />
-          <stop offset="0.597321" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.339807" stopColor="#F28041" />
+          <stop offset="0.597321" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint23_linear_190_2541"
@@ -784,10 +784,10 @@ const Stainedglass: FC<{
           y2="78.0493"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.339807" stop-color="#F28041" />
-          <stop offset="0.597321" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.339807" stopColor="#F28041" />
+          <stop offset="0.597321" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <radialGradient
           id="paint24_radial_190_2541"
@@ -797,9 +797,9 @@ const Stainedglass: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(17.4236 70.0499) rotate(122.347) scale(18.9883)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.444247" stop-color="#F28041" />
-          <stop offset="1" stop-color="#2D2219" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.444247" stopColor="#F28041" />
+          <stop offset="1" stopColor="#2D2219" />
         </radialGradient>
       </defs>
     </svg>

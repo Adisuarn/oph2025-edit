@@ -104,8 +104,8 @@ const SmallFormLeft: FC<{
       />
       <g filter="url(#filter2_d_477_3740)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M101.466 1506.13C103.671 1507.39 106.011 1508.41 108.499 1509.5C116.898 1513.16 126.996 1517.57 139.335 1534.53C156.9 1558.69 155.28 1586.88 140.599 1606.75H32.5381C19.7606 1588.21 19.1419 1561.67 36.0256 1534.53C47.8832 1518.77 58.3861 1513.55 67.0616 1509.25C69.1684 1508.2 71.1674 1507.21 73.0518 1506.13C75.0672 1504.98 75.1136 1502.96 75.1655 1500.7C75.1728 1500.38 75.1803 1500.06 75.1935 1499.73C75.8986 1482.3 75.3665 1464.69 71.6151 1450.87C69.9124 1444.62 65.6954 1439.39 60.0019 1436.28C56.011 1434.11 55.3193 1431.4 55.3193 1428.48C55.3193 1421.25 69.6197 1415.41 87.259 1415.41C104.898 1415.41 119.199 1421.27 119.199 1428.48C119.199 1431.4 118.494 1434.1 114.516 1436.28C108.823 1439.39 104.606 1444.62 102.903 1450.87C99.1517 1464.68 98.6196 1482.3 99.3246 1499.73C99.3378 1500.06 99.3453 1500.38 99.3527 1500.7C99.4045 1502.96 99.4509 1504.98 101.466 1506.13ZM87.0196 1433.14C74.2357 1433.14 63.8729 1430.46 63.8729 1427.15C63.8729 1423.84 74.4751 1419.53 87.259 1419.53C100.043 1419.53 110.166 1423.84 110.166 1427.15C110.166 1430.46 99.8035 1433.14 87.0196 1433.14Z"
           fill="url(#paint10_linear_477_3740)"
         />
@@ -113,7 +113,7 @@ const SmallFormLeft: FC<{
       <path
         d="M160.718 1349.01C157.354 1366.88 181.778 1377.39 181.851 1389.63C181.924 1401.86 166.11 1410.15 143.851 1412.01C121.592 1413.88 102.49 1433.56 102.49 1433.56L73.0981 1433.56C73.0981 1433.56 13.2129 1390.87 26.2824 1366.35C39.3519 1341.82 8.18655 1335.37 13.7477 1307.02C19.3089 1278.67 111.306 1268.97 83.6784 1236.05C56.0504 1203.13 27.3398 1181.58 51.9359 1136.71C76.532 1091.83 148.883 1042.8 219.231 1076.97C289.579 1111.14 329.975 1177.78 315.613 1219.33C301.252 1260.88 237.243 1235.49 230.868 1257.85C224.492 1280.22 270.652 1277.75 256.792 1310.44C242.932 1343.12 164.081 1331.14 160.718 1349.01Z"
         fill="url(#paint11_linear_477_3740)"
-        fill-opacity="0.8"
+        fillOpacity="0.8"
       />
       <path
         d="M81.7821 1338.85C60.8487 1340.4 59.2981 1341.95 57.7475 1362.89C56.1969 1341.95 54.6463 1340.4 33.7129 1338.85C54.6463 1337.3 56.1969 1335.75 57.7475 1314.82C59.2981 1335.75 60.8487 1337.3 81.7821 1338.85Z"
@@ -138,8 +138,8 @@ const SmallFormLeft: FC<{
       <path
         d="M96.2222 1464.16C96.2222 1464.16 91.5291 1435.81 91.5293 1414.91C91.5295 1394.02 104.328 1374.98 104.328 1374.98"
         stroke="url(#paint12_linear_477_3740)"
-        stroke-width="4.70264"
-        stroke-linecap="round"
+        strokeWidth="4.70264"
+        strokeLinecap="round"
       />
       <path
         d="M80.5889 1413.17C86.2545 1421.61 88.5728 1437.36 88.5728 1437.36L73.1113 1435.73C73.1113 1435.73 66.749 1421.34 65.2685 1410.9C63.7879 1400.46 65.8049 1389.73 65.8049 1389.73C65.8049 1389.73 74.9233 1404.73 80.5889 1413.17Z"
@@ -164,8 +164,8 @@ const SmallFormLeft: FC<{
         fill="url(#paint16_linear_477_3740)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M139.335 1534.54C126.996 1517.57 116.898 1513.17 108.499 1509.5C106.011 1508.42 103.671 1507.4 101.466 1506.13C99.4509 1504.98 99.4045 1502.96 99.3527 1500.7C99.3453 1500.38 99.3378 1500.06 99.3246 1499.73C98.6196 1482.3 99.1517 1464.68 102.903 1450.88C104.606 1444.62 108.823 1439.39 114.516 1436.28C118.494 1434.1 119.199 1431.4 119.199 1428.48L110.166 1427.15C110.166 1430.46 99.8035 1433.14 87.0196 1433.14C74.2357 1433.14 63.8729 1430.46 63.8729 1427.15L55.3193 1428.48C55.3193 1431.4 56.011 1434.11 60.0019 1436.28C65.6954 1439.39 69.9124 1444.62 71.6151 1450.88C75.3665 1464.69 75.8986 1482.3 75.1935 1499.73C75.1803 1500.06 75.1728 1500.38 75.1655 1500.7C75.1136 1502.96 75.0672 1504.98 73.0518 1506.13C71.1674 1507.21 69.1684 1508.2 67.0616 1509.25C58.3861 1513.55 47.8832 1518.77 36.0256 1534.54C13.0155 1571.52 22.5141 1607.39 50.9944 1623.43C63.6931 1626.37 110.719 1625.78 121.717 1623.43C152.052 1606.2 162.774 1566.76 139.335 1534.54Z"
         fill="url(#paint17_linear_477_3740)"
       />
@@ -176,8 +176,8 @@ const SmallFormLeft: FC<{
       <path
         d="M-28.3457 107.473C-28.3457 107.473 9.52234 64.3542 77.8201 61.5543C146.118 58.7543 201.567 95.1536 206.301 129.313C211.034 163.472 136.672 174.859 139.377 197.817C142.082 220.775 217.797 215.663 206.301 243.661C194.805 271.659 91.2964 281.678 106.95 316.341"
         stroke="url(#paint19_linear_477_3740)"
-        stroke-width="8.9452"
-        stroke-linecap="round"
+        strokeWidth="8.9452"
+        strokeLinecap="round"
       />
       <path
         d="M75.7078 100.82C81.2006 108.543 94.8068 111.217 104.765 104.135C114.723 97.0516 114.391 74.9612 108.898 67.2386C103.406 59.5159 92.702 64.9182 82.7439 72.001C72.7857 79.0839 70.2149 93.0975 75.7078 100.82Z"
@@ -186,8 +186,8 @@ const SmallFormLeft: FC<{
       <path
         d="M103.395 64.7568C103.202 79.0858 92.4136 92.8787 92.4136 92.8787"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M198.259 76.0605C199.791 68.8031 194.114 59.5531 184.756 57.5777C175.398 55.6023 162.859 67.509 161.327 74.7664C159.795 82.0237 168.581 85.3194 177.939 87.2948C187.298 89.2702 196.727 83.3178 198.259 76.0605Z"
@@ -196,8 +196,8 @@ const SmallFormLeft: FC<{
       <path
         d="M162.39 78.4292C170.242 71.0409 183.345 69.664 183.345 69.664"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M150.762 129.682C142.071 132.06 135.234 143.333 138.3 154.54C141.367 165.747 161.198 172.675 169.889 170.296C178.58 167.918 177.258 156.595 174.191 145.388C171.124 134.181 159.453 127.303 150.762 129.682Z"
@@ -206,8 +206,8 @@ const SmallFormLeft: FC<{
       <path
         d="M152.794 147.351C166.45 151.901 172.205 168.15 172.205 168.15"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M200.057 191.477C196.843 184.792 186.702 180.925 178.082 185.069C169.462 189.213 166.79 206.297 170.004 212.982C173.217 219.667 182.19 216.918 190.81 212.775C199.43 208.631 203.27 198.162 200.057 191.477Z"
@@ -216,8 +216,8 @@ const SmallFormLeft: FC<{
       <path
         d="M186.681 194.976C177.647 202.01 174.104 215.542 174.104 215.542"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M152.749 233.555C144.543 231.554 133.813 237.686 131.233 248.267C128.652 258.849 141.759 273.543 149.965 275.545C158.171 277.546 162.234 267.663 164.815 257.082C167.395 246.5 160.955 235.556 152.749 233.555Z"
@@ -226,8 +226,8 @@ const SmallFormLeft: FC<{
       <path
         d="M154.272 274.047C156.131 260.76 148.321 246.327 148.321 246.327"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M137.013 324.754C144.099 321.813 148.664 311.558 144.872 302.421C141.079 293.285 123.586 289.561 116.501 292.502C109.415 295.444 111.747 304.865 115.54 314.002C119.333 323.138 129.928 327.695 137.013 324.754Z"
@@ -236,8 +236,8 @@ const SmallFormLeft: FC<{
       <path
         d="M133.095 311.438C128.741 300.097 114.931 295.395 114.931 295.395"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <rect
         x="-12.6914"
@@ -258,8 +258,8 @@ const SmallFormLeft: FC<{
       <path
         d="M46.5703 34.5664C41.5386 47.9842 46.5703 64.7565 46.5703 64.7565"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M130.036 122.429C137.95 119.262 143.169 107.933 139.085 97.7283C135.001 87.5231 115.618 83.1368 107.704 86.304C99.7896 89.4712 102.247 99.9721 106.331 110.177C110.415 120.383 122.121 125.597 130.036 122.429Z"
@@ -268,8 +268,8 @@ const SmallFormLeft: FC<{
       <path
         d="M108.069 87.5733C119.901 92.3935 126.636 106.374 126.636 106.374"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M209.359 11.0487C202.944 6.08498 191.135 7.269 184.734 15.5413C178.333 23.8135 184.085 41.8272 190.5 46.7909C196.915 51.7546 204.343 44.6743 210.744 36.402C217.145 28.1297 215.774 16.0125 209.359 11.0487Z"
@@ -278,8 +278,8 @@ const SmallFormLeft: FC<{
       <path
         d="M197.523 22.267C190.64 33.031 194.773 47.308 194.773 47.308"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M216.182 107.688C215.66 116.556 224.031 126.5 235.466 127.173C246.901 127.846 259.631 111.511 260.153 102.643C260.674 93.7747 249.682 91.4363 238.246 90.7636C226.811 90.0909 216.704 98.8201 216.182 107.688Z"
@@ -288,8 +288,8 @@ const SmallFormLeft: FC<{
       <path
         d="M258.458 100.538C237.773 98.3024 228.268 110.043 228.268 110.043"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M237.602 236.288C246.383 235.277 254.693 225.367 253.39 214.044C252.087 202.721 233.892 193.047 225.111 194.058C216.329 195.069 215.924 206.244 217.227 217.567C218.53 228.89 228.821 237.299 237.602 236.288Z"
@@ -298,8 +298,8 @@ const SmallFormLeft: FC<{
       <path
         d="M238.892 221.297C235.538 205.084 222.121 196.139 222.121 196.139"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M217.261 307.648C208.826 306.677 200.845 297.158 202.096 286.282C203.348 275.406 220.824 266.114 229.259 267.085C237.693 268.056 238.083 278.79 236.831 289.666C235.579 300.542 225.695 308.619 217.261 307.648Z"
@@ -308,8 +308,8 @@ const SmallFormLeft: FC<{
       <path
         d="M216.531 291.183C219.884 274.969 231.066 268.82 231.066 268.82"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <path
         d="M313.508 323.087C312.434 315.629 303.787 308.789 294.171 310.174C284.554 311.56 276.753 327.298 277.827 334.756C278.901 342.214 288.434 342.288 298.051 340.903C307.667 339.518 314.583 330.545 313.508 323.087Z"
@@ -318,8 +318,8 @@ const SmallFormLeft: FC<{
       <path
         d="M280.822 338.703C285.294 326.962 298.712 321.93 298.712 321.93"
         stroke="#0C453E"
-        stroke-width="2.2363"
-        stroke-linecap="round"
+        strokeWidth="2.2363"
+        strokeLinecap="round"
       />
       <defs>
         <filter
@@ -329,9 +329,9 @@ const SmallFormLeft: FC<{
           width="345.644"
           height="178.7"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -364,9 +364,9 @@ const SmallFormLeft: FC<{
           width="369.157"
           height="62.3101"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -399,9 +399,9 @@ const SmallFormLeft: FC<{
           width="133.712"
           height="196.128"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -434,9 +434,9 @@ const SmallFormLeft: FC<{
           width="24.0852"
           height="41.5642"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -470,9 +470,9 @@ const SmallFormLeft: FC<{
           y2="2024.02"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.17" stop-color="#15786C" />
-          <stop offset="0.556002" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.17" stopColor="#15786C" />
+          <stop offset="0.556002" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_477_3740"
@@ -482,9 +482,9 @@ const SmallFormLeft: FC<{
           y2="1821.34"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.129187" stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.129187" stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_477_3740"
@@ -494,9 +494,9 @@ const SmallFormLeft: FC<{
           y2="1771.58"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.17" stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.17" stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_477_3740"
@@ -506,9 +506,9 @@ const SmallFormLeft: FC<{
           y2="1534.25"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.19594" stop-color="#15786C" />
-          <stop offset="0.745" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop offset="0.19594" stopColor="#15786C" />
+          <stop offset="0.745" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_477_3740"
@@ -518,9 +518,9 @@ const SmallFormLeft: FC<{
           y2="1514.52"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_477_3740"
@@ -530,9 +530,9 @@ const SmallFormLeft: FC<{
           y2="1514.52"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#15786C" />
-          <stop offset="0.47" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopColor="#15786C" />
+          <stop offset="0.47" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_477_3740"
@@ -542,8 +542,8 @@ const SmallFormLeft: FC<{
           y2="1510.59"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-opacity="0" />
-          <stop offset="1" stop-color="#0E342D" />
+          <stop stopOpacity="0" />
+          <stop offset="1" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_477_3740"
@@ -553,8 +553,8 @@ const SmallFormLeft: FC<{
           y2="1759.48"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFDD77" />
-          <stop offset="1" stop-color="#F8B043" />
+          <stop stopColor="#FFDD77" />
+          <stop offset="1" stopColor="#F8B043" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_477_3740"
@@ -564,10 +564,10 @@ const SmallFormLeft: FC<{
           y2="1733.62"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#D27709" />
-          <stop offset="0.316125" stop-color="#F5B747" />
-          <stop offset="0.6503" stop-color="#F5B747" />
-          <stop offset="1" stop-color="#D27709" />
+          <stop stopColor="#D27709" />
+          <stop offset="0.316125" stopColor="#F5B747" />
+          <stop offset="0.6503" stopColor="#F5B747" />
+          <stop offset="1" stopColor="#D27709" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_477_3740"
@@ -577,8 +577,8 @@ const SmallFormLeft: FC<{
           y2="1404.39"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="1" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="1" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_477_3740"
@@ -588,10 +588,10 @@ const SmallFormLeft: FC<{
           y2="1620.95"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_477_3740"
@@ -601,11 +601,11 @@ const SmallFormLeft: FC<{
           y2="1080.78"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.586941" stop-color="#F5EEBF" />
-          <stop offset="0.854375" stop-color="#F5EEBF" stop-opacity="0.4" />
-          <stop offset="0.915" stop-color="#F5EEBF" stop-opacity="0.15" />
-          <stop offset="1" stop-color="#15786C" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.586941" stopColor="#F5EEBF" />
+          <stop offset="0.854375" stopColor="#F5EEBF" stopOpacity="0.4" />
+          <stop offset="0.915" stopColor="#F5EEBF" stopOpacity="0.15" />
+          <stop offset="1" stopColor="#15786C" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_477_3740"
@@ -615,9 +615,9 @@ const SmallFormLeft: FC<{
           y2="1434.58"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.515" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.515" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_477_3740"
@@ -627,9 +627,9 @@ const SmallFormLeft: FC<{
           y2="1439.84"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.744305" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.744305" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_477_3740"
@@ -639,9 +639,9 @@ const SmallFormLeft: FC<{
           y2="1354.96"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.301754" stop-color="#DA382A" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.301754" stopColor="#DA382A" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_477_3740"
@@ -651,9 +651,9 @@ const SmallFormLeft: FC<{
           y2="1375.6"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.38" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.38" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_477_3740"
@@ -663,9 +663,9 @@ const SmallFormLeft: FC<{
           y2="1385.3"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.45" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.45" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_477_3740"
@@ -675,10 +675,10 @@ const SmallFormLeft: FC<{
           y2="1620.4"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_477_3740"
@@ -688,8 +688,8 @@ const SmallFormLeft: FC<{
           y2="207.557"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="1" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="1" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_477_3740"
@@ -699,9 +699,9 @@ const SmallFormLeft: FC<{
           y2="392.002"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.45" stop-color="#15786C" />
-          <stop offset="1" stop-color="#ADDB64" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.45" stopColor="#15786C" />
+          <stop offset="1" stopColor="#ADDB64" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_477_3740"
@@ -711,9 +711,9 @@ const SmallFormLeft: FC<{
           y2="49.8297"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_477_3740"
@@ -723,9 +723,9 @@ const SmallFormLeft: FC<{
           y2="99.8657"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.68087" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.68087" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint22_linear_477_3740"
@@ -735,9 +735,9 @@ const SmallFormLeft: FC<{
           y2="197.817"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.345196" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.345196" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint23_linear_477_3740"
@@ -747,9 +747,9 @@ const SmallFormLeft: FC<{
           y2="227.275"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint24_linear_477_3740"
@@ -759,9 +759,9 @@ const SmallFormLeft: FC<{
           y2="283.471"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint25_linear_477_3740"
@@ -771,9 +771,9 @@ const SmallFormLeft: FC<{
           y2="294.513"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint26_linear_477_3740"
@@ -783,8 +783,8 @@ const SmallFormLeft: FC<{
           y2="116.75"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="1" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="1" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint27_linear_477_3740"
@@ -794,9 +794,9 @@ const SmallFormLeft: FC<{
           y2="399.464"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#ADDB64" />
-          <stop offset="0.473343" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#ADDB64" />
+          <stop offset="0.473343" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint28_linear_477_3740"
@@ -806,9 +806,9 @@ const SmallFormLeft: FC<{
           y2="74.8202"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.579467" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.579467" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint29_linear_477_3740"
@@ -818,9 +818,9 @@ const SmallFormLeft: FC<{
           y2="109.744"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint30_linear_477_3740"
@@ -830,9 +830,9 @@ const SmallFormLeft: FC<{
           y2="47.7473"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint31_linear_477_3740"
@@ -842,9 +842,9 @@ const SmallFormLeft: FC<{
           y2="62.5218"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.405811" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.405811" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint32_linear_477_3740"
@@ -854,9 +854,9 @@ const SmallFormLeft: FC<{
           y2="213.432"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint33_linear_477_3740"
@@ -866,9 +866,9 @@ const SmallFormLeft: FC<{
           y2="263.787"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.530216" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.530216" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint34_linear_477_3740"
@@ -878,9 +878,9 @@ const SmallFormLeft: FC<{
           y2="352.477"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
       </defs>
     </svg>

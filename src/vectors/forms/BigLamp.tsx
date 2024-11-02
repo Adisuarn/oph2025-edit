@@ -22,12 +22,12 @@ const BigLamp: FC<{
       <path
         d="M340.217 34.7233C340.217 34.7233 358.274 7.63086 377.845 7.63086C392.041 7.63086 401.976 12.1709 411.711 29.4554C416.868 38.612 426.274 56.0806 431.278 62.5684C440.362 74.3472 455.36 76.8672 463.638 67.8364C477.407 52.816 444.824 39.5853 444.824 71.9148"
         stroke="url(#paint1_linear_384_593)"
-        stroke-width="15"
+        strokeWidth="15"
       />
       <path
         d="M341 189V244"
         stroke="url(#paint2_linear_384_593)"
-        stroke-width="9"
+        strokeWidth="9"
       />
       <path
         d="M271.733 109.98C283.122 95.3693 303.341 49.0216 303.341 49.0216L350.001 63.3205C350.001 63.3205 330.595 100.683 327.424 124.279C324.811 143.716 320.651 173.195 320.651 173.195C320.651 173.195 290.125 184.33 273.239 173.948C260.314 166.002 252.167 143.093 252.167 143.093C252.167 143.093 259.906 125.153 271.733 109.98Z"
@@ -103,7 +103,7 @@ const BigLamp: FC<{
       <path
         d="M312.422 262.589C323.916 242.658 359.9 250.725 370.399 238.862C380.897 226.999 370.453 207.068 347.409 188.561C324.365 170.055 335.914 155.819 335.914 155.819L243.955 114.06C243.955 114.06 184.83 111.212 178.409 144.904C171.988 178.596 132.005 161.513 114.014 193.307C96.0216 225.101 171.488 311.94 114.014 329.973C56.5393 348.005 13.5616 352.276 2.56346 414.44C-8.43467 476.604 37.0511 562.044 144.001 581.5C250.95 600.956 353.906 556.326 373.397 505.076C392.889 453.826 300.427 430.574 312.422 404C324.416 377.426 373.397 414.44 385.892 372.206C398.386 329.973 300.927 282.519 312.422 262.589Z"
         fill="url(#paint16_linear_384_593)"
-        fill-opacity="0.8"
+        fillOpacity="0.8"
       />
       <path
         d="M305.295 520.647C282.957 522.302 281.302 523.957 279.647 546.295C277.993 523.957 276.338 522.302 254 520.647C276.338 518.993 277.993 517.338 279.647 495C281.302 517.338 282.957 518.993 305.295 520.647Z"
@@ -133,9 +133,9 @@ const BigLamp: FC<{
           width="67.8882"
           height="105.1"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -168,9 +168,9 @@ const BigLamp: FC<{
           width="70.8804"
           height="108.387"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -203,9 +203,9 @@ const BigLamp: FC<{
           width="70.2516"
           height="104.898"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -238,9 +238,9 @@ const BigLamp: FC<{
           width="64.8619"
           height="88.5712"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -274,9 +274,9 @@ const BigLamp: FC<{
           y2="151.371"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_384_593"
@@ -286,10 +286,10 @@ const BigLamp: FC<{
           y2="136.011"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.492461" stop-color="#15786C" />
-          <stop offset="0.665104" stop-color="#0C4740" />
-          <stop offset="0.857409" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.492461" stopColor="#15786C" />
+          <stop offset="0.665104" stopColor="#0C4740" />
+          <stop offset="0.857409" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_384_593"
@@ -299,9 +299,9 @@ const BigLamp: FC<{
           y2="237.498"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0490119" stop-color="#F4F15B" />
-          <stop offset="0.343421" stop-color="#F77E33" />
-          <stop offset="1" stop-color="#590101" />
+          <stop offset="0.0490119" stopColor="#F4F15B" />
+          <stop offset="0.343421" stopColor="#F77E33" />
+          <stop offset="1" stopColor="#590101" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_384_593"
@@ -311,10 +311,10 @@ const BigLamp: FC<{
           y2="58.3565"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FA3717" />
-          <stop offset="0.25" stop-color="#E13215" />
-          <stop offset="0.5" stop-color="#C72C12" />
-          <stop offset="1" stop-color="#94210E" />
+          <stop stopColor="#FA3717" />
+          <stop offset="0.25" stopColor="#E13215" />
+          <stop offset="0.5" stopColor="#C72C12" />
+          <stop offset="1" stopColor="#94210E" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_384_593"
@@ -324,10 +324,10 @@ const BigLamp: FC<{
           y2="77.1444"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FA3717" />
-          <stop offset="0.25" stop-color="#E13215" />
-          <stop offset="0.5" stop-color="#C72C12" />
-          <stop offset="1" stop-color="#94210E" />
+          <stop stopColor="#FA3717" />
+          <stop offset="0.25" stopColor="#E13215" />
+          <stop offset="0.5" stopColor="#C72C12" />
+          <stop offset="1" stopColor="#94210E" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_384_593"
@@ -337,9 +337,9 @@ const BigLamp: FC<{
           y2="99.0629"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FA3717" />
-          <stop offset="0.5" stop-color="#C72C12" />
-          <stop offset="1" stop-color="#94210E" />
+          <stop stopColor="#FA3717" />
+          <stop offset="0.5" stopColor="#C72C12" />
+          <stop offset="1" stopColor="#94210E" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_384_593"
@@ -349,10 +349,10 @@ const BigLamp: FC<{
           y2="82.8878"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FA3717" />
-          <stop offset="0.25" stop-color="#E13215" />
-          <stop offset="0.5" stop-color="#C72C12" />
-          <stop offset="1" stop-color="#94210E" />
+          <stop stopColor="#FA3717" />
+          <stop offset="0.25" stopColor="#E13215" />
+          <stop offset="0.5" stopColor="#C72C12" />
+          <stop offset="1" stopColor="#94210E" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_384_593"
@@ -362,9 +362,9 @@ const BigLamp: FC<{
           y2="275.664"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.464235" stop-color="#F77E33" />
-          <stop offset="1" stop-color="#590101" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.464235" stopColor="#F77E33" />
+          <stop offset="1" stopColor="#590101" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_384_593"
@@ -374,10 +374,10 @@ const BigLamp: FC<{
           y2="875.838"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.465" stop-color="#15786C" />
-          <stop offset="0.834253" stop-color="#0C453E" />
-          <stop offset="0.870576" stop-color="#0E342D" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.465" stopColor="#15786C" />
+          <stop offset="0.834253" stopColor="#0C453E" />
+          <stop offset="0.870576" stopColor="#0E342D" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_384_593"
@@ -387,9 +387,9 @@ const BigLamp: FC<{
           y2="342.226"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.5" stop-color="#1B9A8A" />
-          <stop offset="0.832096" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.5" stopColor="#1B9A8A" />
+          <stop offset="0.832096" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_384_593"
@@ -399,9 +399,9 @@ const BigLamp: FC<{
           y2="313.817"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.5" stop-color="#1B9A8A" />
-          <stop offset="0.841649" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.5" stopColor="#1B9A8A" />
+          <stop offset="0.841649" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_384_593"
@@ -411,9 +411,9 @@ const BigLamp: FC<{
           y2="282.504"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.5" stop-color="#1B9A8A" />
-          <stop offset="0.898134" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.5" stopColor="#1B9A8A" />
+          <stop offset="0.898134" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_384_593"
@@ -423,10 +423,10 @@ const BigLamp: FC<{
           y2="246.455"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.5" stop-color="#1B9A8A" />
-          <stop offset="0.892109" stop-color="#0D4D45" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.5" stopColor="#1B9A8A" />
+          <stop offset="0.892109" stopColor="#0D4D45" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_384_593"
@@ -436,9 +436,9 @@ const BigLamp: FC<{
           y2="208.655"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.267453" stop-color="#E2EA5F" />
-          <stop offset="0.5" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop offset="0.267453" stopColor="#E2EA5F" />
+          <stop offset="0.5" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_384_593"
@@ -448,8 +448,8 @@ const BigLamp: FC<{
           y2="340.31"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="1" stop-color="#F77E33" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="1" stopColor="#F77E33" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_384_593"
@@ -459,8 +459,8 @@ const BigLamp: FC<{
           y2="164.192"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="1" stop-color="#F77E33" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="1" stopColor="#F77E33" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_384_593"
@@ -470,9 +470,9 @@ const BigLamp: FC<{
           y2="746.016"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.457292" stop-color="#F5EEBF" />
-          <stop offset="1" stop-color="#15786C" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.457292" stopColor="#F5EEBF" />
+          <stop offset="1" stopColor="#15786C" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

@@ -1,5 +1,4 @@
 import { prisma } from '@utils/db'
-import { error } from 'elysia'
 import { uploadImage } from '@utils/uploadimg'
 import type { Club } from '@utils/type'
 import { AllData } from '@libs/data'
@@ -29,7 +28,7 @@ export interface ClubData {
 
 export const createClub = async (body: Club) => {
   if ((await prisma.clubs.count({ where: { email: body.email } }) > 0)) 
-    throw error(400, 'User already created a club')
+    return { status: 400, message: 'User already created a club' }
   try { 
     const club = await prisma.clubs.update({
       omit: { clubId: true, updatedAt: true, id: true },
@@ -39,6 +38,7 @@ export const createClub = async (body: Club) => {
         email: body.email,
         clubKey: body.key,
         updatedBy: body.email,
+        status: Status.PENDING,
       }
     })
     await prisma.user.update({
@@ -48,25 +48,25 @@ export const createClub = async (body: Club) => {
         key: body.key,
       }
     })
-    return { success: true, message: "Created club successfully", data: club }
+    return { status: 201, message: "Created club successfully", data: club }
   } catch (err) {
-    throw error(500, 'Error while creating club')
+    return { status: 500, message: 'Error while creating club'}
   }
 }
 
 export const getClubByKey = async (key: keyof typeof AllData.Clubs) => {
   const clubData = (await getClub(key)).data
   try {
-    return { success: true, data: clubData }
+    return { status: 200, data: clubData }
   } catch (err) {
-    throw error(500, 'Error while getting club')
+    return { status: 500, message: 'Error while getting club'}
   }
 }
 
 export const updateClubData = async (key: keyof typeof AllData.Clubs, body: ClubData, headers: Headers) => {
   const clubData = (await getClub(key)).data
   const userData = (await getUser(headers)).data
-  if (clubData.status === 'approved') throw error(400, 'Club was already approved')
+  if (clubData.status === Status.APPROVED) return { status: 400, message: 'Club was already approved' }
   try {
     const updatedClub = await prisma.clubs.update({
       omit: { clubId: true, createdAt: true, id: true },
@@ -91,9 +91,9 @@ export const updateClubData = async (key: keyof typeof AllData.Clubs, body: Club
       }
     })
     if(userData?.email === clubData.email) await prisma.clubs.update({ where: { key: key }, data: { status: Status.PENDING } })
-    return { success: true, message: 'Updated club successfully', data: updatedClub }
+    return { status: 200, message: 'Updated club successfully', data: updatedClub }
   } catch (err) {
-    throw error(500, 'Error while updating club')
+    return { status: 500, message: 'Error while updating club' }
   }
 }
 
@@ -104,15 +104,15 @@ export const getClubReviews = async (key: keyof typeof AllData.Clubs) => {
       omit: { reviewId: true, id: true },
       where: { key: clubData.key },
     })
-    return { success: true, message: 'Getting reviews successfully', data: reviews }
+    return { status: 200, message: 'Getting reviews successfully', data: reviews }
   } catch (err) {
-    throw error(500, 'Error while getting reviews')
+    return { status: 500, message: 'Error while getting reviews' }
   }
 }
 
 export const createClubReview = async (key: keyof typeof AllData.Clubs) => {
   const clubData = (await getClub(key)).data
-  if((await prisma.reviews.count({ where: { email: clubData.email }})) >= 3) throw error(400, 'Review reachs limit')
+  if((await prisma.reviews.count({ where: { email: clubData.email }})) >= 3) return { status: 400, message: 'Reviews reached limit' }
   try {
     const review = await prisma.reviews.create({
       omit: { reviewId: true, updatedAt: true, id: true },
@@ -127,9 +127,9 @@ export const createClubReview = async (key: keyof typeof AllData.Clubs) => {
         content: '',
       }
     })
-    return { success: true, message: 'Created review successfully', data: review }
+    return { status: 201, message: 'Created review successfully', data: review }
   } catch (err) {
-    throw error(500, 'Error while creating review')
+    return { status: 500, message: 'Error while creating review' }
   }
 }
 
@@ -148,10 +148,9 @@ export const updateClubReview = async (key: keyof typeof AllData.Clubs, count: s
           content: body.content,
         }
       })
-      return { success: true, message: 'Updating review successfully', data: review }
+      return { status: 200, message: 'Updating review successfully', data: review }
     } catch (err) {
-      console.log(err)
-      throw error(500, 'Error while updating review')
+      return { status: 500, message: 'Error while updating review' }
     }
 }
 
@@ -168,8 +167,8 @@ export const deleteClubReview = async (key: keyof typeof AllData.Clubs, id: stri
         content: '',
       }
     })
-    return { success: true, message: 'Deleting review successfully' }
+    return { status: 200, message: 'Deleting review successfully' }
   } catch (err) {
-    throw error(500, 'Error while deleting review')
+    return { status: 500, message: 'Error while deleting review' }
   }
 }
