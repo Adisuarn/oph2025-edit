@@ -164,8 +164,8 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               </div> */}
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[470px] lg:-left-[570px] xl:-left-[800px] lg:top-0">
-                  <Stainedglass className="w-16 sm:w-32 lg:w-72 xl:w-96" />
+                <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[470px] lg:-left-[570px] 2xl:-left-[800px] lg:top-0">
+                  <Stainedglass className="w-16 sm:w-32 lg:w-72 2xl:w-96" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
@@ -194,8 +194,8 @@ const PreviewGeneralForm: React.FC<{
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col-reverse items-center justify-between sm:flex-row md:mb-8">
               <div className="relative sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -right-12 -top-52 z-10 sm:-right-[264px] md:-right-[400px] md:-top-10 lg:-right-[540px] xl:-right-[770px]">
-                  <Flower className="w-16 sm:w-28 md:w-52 lg:w-72 xl:w-96" />
+                <div className="absolute -right-12 -top-52 z-10 sm:-right-[264px] md:-right-[400px] md:-top-10 lg:-right-[540px] 2xl:-right-[770px]">
+                  <Flower className="w-16 sm:w-28 md:w-52 lg:w-72 2xl:w-96" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
@@ -290,8 +290,8 @@ const PreviewGeneralForm: React.FC<{
                 <div className="absolute -left-10 -top-60 -z-10">
                   <Lamp className="w-32 sm:hidden" />
                 </div>
-                <div className="absolute -left-[344px] -top-48 md:-left-[470px] lg:-left-[570px] xl:-left-[770px]">
-                  <LeftFrames className="hidden sm:block sm:w-32 md:w-44 lg:w-52 xl:w-72" />
+                <div className="absolute -left-[344px] -top-48 md:-left-[470px] lg:-left-[570px] 2xl:-left-[770px]">
+                  <LeftFrames className="hidden sm:block sm:w-32 md:w-44 lg:w-52 2xl:w-72" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
@@ -319,9 +319,9 @@ const PreviewGeneralForm: React.FC<{
 
           {/* end section3 */}
 
-          <div className="mb-4 flex items-center justify-center space-x-4">
+          <div className="mb-4 md:mb-10 flex items-center justify-center space-x-4">
             <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36 xl:w-48"></div>
-            <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-[1.85] text-transparent sm:text-4xl sm:leading-[1.6]">
+            <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-[1.85] text-transparent sm:text-4xl md:text-5xl sm:leading-[1.6] md:leading-[1.4]">
               รีวิวจากรุ่นพี่
             </p>
             <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36 xl:w-48"></div>
@@ -457,11 +457,11 @@ const PreviewGeneralForm: React.FC<{
         <div className="absolute -bottom-10 z-10 sm:-bottom-20">
           <Footer className="w-[100vw] lg:hidden" />
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:-bottom-14 xl:bottom-0 2xl:-bottom-10">
-          <BigLowercurve className="hidden w-[100vw] lg:block md:h-[50vw]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:-bottom-14 xl:bottom-0 2xl:-bottom-10 overflow-hidden">
+          <BigLowercurve className="hidden w-[100vw] lg:block xl:h-[50vw]" />
         </div>
-        <div className="absolute -bottom-10 z-10 xl:-bottom-5">
-          <BigFooter className="hidden w-[100vw] lg:block md:h-[10vw]" />
+        <div className="absolute bottom-0 z-10 xl:-bottom-5">
+          <BigFooter className="hidden w-[100vw] lg:block xl:h-[10vw]" />
         </div>
         {/* <div className="absolute z-20 -bottom-48">
     <Footer className="w-full" />

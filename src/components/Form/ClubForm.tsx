@@ -15,7 +15,7 @@ const FormikControl: React.FC = async () => {
      {}
   )
 
-  console.log(userReview.data)
+  console.log(userForm)
 
   let editFormData = {
     thainame: userForm.data.data.thainame,
