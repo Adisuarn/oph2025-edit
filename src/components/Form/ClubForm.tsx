@@ -22,7 +22,7 @@ const FormikControl: React.FC = async () => {
     tag: userForm.data.data.tag,
     tagThai: 'ชมรม',
     logo: userForm.data.data.logo,
-    submittedForm: userForm.data?.data.sendForm,
+    sendForm: userForm.data?.data.sendForm,
     members: userForm.data.data.members,
     ig: userForm.data.data.ig,
     fb: userForm.data.data.fb,
@@ -38,6 +38,8 @@ const FormikControl: React.FC = async () => {
     captureimg3: userForm.data.data.captureimg3,
     descimg3: userForm.data.data.descimg3,
   };
+
+  console.log(editFormData)
 
   let reviews = userReview.data.data.length
   // let reviews = userReview.data.data.map((review: any, index: number) => ({

@@ -67,8 +67,8 @@ const GeneralForm: React.FC<{
       progress: undefined,
       theme: "colored",
     });
-  const notifyWarning = () =>
-    toast.warn("Some field is still missing!", {
+  const notifyWarning = ({ props }: { props: string }) =>
+    toast.warn(`${props} is still missing!`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -102,40 +102,25 @@ const GeneralForm: React.FC<{
     editFormData.captureimg3,
   );
   const [image4, setImage4] = useState<File | null>(null);
-  const [imageUrl4, setImageUrl4] = useState<string | null>(
-    review1.profile,
-  );
-  const [displayImage4, setDisplayImage4] = useState<boolean>(
-    review1.profile,
-  );
+  const [imageUrl4, setImageUrl4] = useState<string | null>(review1.profile);
+  const [displayImage4, setDisplayImage4] = useState<boolean>(review1.profile);
   const [image5, setImage5] = useState<File | null>(null);
-  const [imageUrl5, setImageUrl5] = useState<string | null>(
-    review2.profile,
-  );
-  const [displayImage5, setDisplayImage5] = useState<boolean>(
-    review2.profile,
-  );
+  const [imageUrl5, setImageUrl5] = useState<string | null>(review2.profile);
+  const [displayImage5, setDisplayImage5] = useState<boolean>(review2.profile);
   const [image6, setImage6] = useState<File | null>(null);
-  const [imageUrl6, setImageUrl6] = useState<string | null>(
-    review3.profile,
-  );
-  const [displayImage6, setDisplayImage6] = useState<boolean>(
-    review3.profile,
-  );
+  const [imageUrl6, setImageUrl6] = useState<string | null>(review3.profile);
+  const [displayImage6, setDisplayImage6] = useState<boolean>(review3.profile);
   const [clubLogo, setClubLogo] = useState<File | null>(null);
-  const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(editFormData.logo);
-  const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(editFormData.logo);
+  const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(
+    editFormData.logo,
+  );
+  const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(
+    editFormData.logo,
+  );
   // const [successDataSent, setSuccessDataSent] = useState<boolean>(false);
   const [ReviewAmount, setReviewAmount] = useState<number>(reviews);
   const [loading, setLoading] = useState(false);
-  // useEffect(() => {
-  //   let Count = 0;
-  //   if (review1 !== null) Count += 1;
-  //   if (review2 !== null) Count += 1;
-  //   if (review3 !== null) Count += 1;
-
-  //   setReviewAmount(Count);
-  // }, []);
+  const [warning, setWarning] = useState(false);
 
   const handleFileSelect1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -397,12 +382,32 @@ const GeneralForm: React.FC<{
               editFormData.text1 = values.textField1;
               editFormData.text2 = values.textField2;
               editFormData.text3 = values.textField3;
+              if (editFormData.tagThai === "ชมรม" && clubLogoUrl === null) {
+                notifyWarning({ props: "club logo" });
+                throw new Error("");
+              }
+              if (imageUrl1 === null || imageUrl1 === '' || imageUrl1 === undefined) {
+                notifyWarning({ props: "Photo 1" });
+                throw new Error("");
+              }
+              if (imageUrl2 === null || imageUrl2 === '' || imageUrl2 === undefined) {
+                notifyWarning({ props: "Photo 2" });
+                throw new Error("");
+              }
+              if (imageUrl3 === null || imageUrl3 === '' || imageUrl3 === undefined) {
+                notifyWarning({ props: "Photo 3" });
+                throw new Error("");
+              }
+              if (imageUrl4 === null || imageUrl4 === '' || imageUrl4 === undefined) {
+                notifyWarning({ props: "Review Photo" });
+                throw new Error("");
+              }
               editFormData.captureimg1 = image1;
               editFormData.captureimg2 = image2;
               editFormData.captureimg3 = image3;
-              review1.profile = image4;
-              review2.profile = image5;
-              review3.profile = image6;
+              // review1.profile = image4;
+              // review2.profile = image5;
+              // review3.profile = image6;
               review1.nick = values.P1Name;
               review2.nick = values.P2Name;
               review3.nick = values.P3Name;
@@ -418,29 +423,49 @@ const GeneralForm: React.FC<{
               editFormData.descimg1 = values.photoDescription1;
               editFormData.descimg2 = values.photoDescription2;
               editFormData.descimg3 = values.photoDescription3;
+              editFormData.sendForm = true;
               const formData = new FormData();
               formData.append("members", editFormData.members);
               formData.append("ig", editFormData.ig);
               formData.append("fb", editFormData.fb);
               formData.append("others", editFormData.others);
-              if (editFormData.tagThai === "ชมรม" || editFormData.tagThai === "องค์กร") { formData.append("activities", editFormData.text1); }
-              else { formData.append("admissions", editFormData.text1); }
+              if (
+                editFormData.tagThai === "ชมรม" ||
+                editFormData.tagThai === "องค์กร"
+              ) {
+                formData.append("activities", editFormData.text1);
+              } else {
+                formData.append("admissions", editFormData.text1);
+              }
 
-              if (editFormData.tagThai === "ชมรม") { formData.append("benefits", editFormData.text2); }
-              else if (editFormData.tagThai === "องค์กร") { formData.append("position", editFormData.text2); }
-              else { formData.append("courses", editFormData.text2); }
+              if (editFormData.tagThai === "ชมรม") {
+                formData.append("benefits", editFormData.text2);
+              } else if (editFormData.tagThai === "องค์กร") {
+                formData.append("position", editFormData.text2);
+              } else {
+                formData.append("courses", editFormData.text2);
+              }
 
-              if (editFormData.tagThai === "ชมรม" || editFormData.tagThai === "องค์กร") { formData.append("working", editFormData.text3); }
-              else { formData.append("interests", editFormData.text3); }
+              if (
+                editFormData.tagThai === "ชมรม" ||
+                editFormData.tagThai === "องค์กร"
+              ) {
+                formData.append("working", editFormData.text3);
+              } else {
+                formData.append("interests", editFormData.text3);
+              }
 
               if (image1 !== null) formData.append("captureimg1", image1);
               if (image2 !== null) formData.append("captureimg2", image2);
               if (image3 !== null) formData.append("captureimg3", image3);
 
-              if (editFormData.tagThai === "ชมรม" && clubLogo !== null) { formData.append("logo", clubLogo); }
+              if (editFormData.tagThai === "ชมรม" && clubLogo !== null) {
+                formData.append("logo", clubLogo);
+              }
               formData.append("descimg1", editFormData.descimg1);
               formData.append("descimg2", editFormData.descimg2);
               formData.append("descimg3", editFormData.descimg3);
+              formData.append("sendForm", editFormData.sendForm);
               const options = {
                 method: "PATCH",
                 url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
@@ -453,40 +478,91 @@ const GeneralForm: React.FC<{
 
               await axios.request(options);
 
+              //send review data
+
               const reviews = [review1, review2, review3];
-              const images = [ image4, image5, image6 ];
-              const responseReview = await Promise.all(
-                reviews.map(async (review: { profile: File | null; count: 1 | 2 | 3; nick: string; gen: string; contact: string; content: string }) => {
-                  if (!review.profile) return;
-                  const reviewData = new FormData();
-                  const profileImage = images[review.count - 1];
-                  console.log(profileImage);
-                  if (profileImage) reviewData.append("profile", profileImage);
-                  reviewData.append("nick", review.nick);
-                  reviewData.append("gen", review.gen);
-                  reviewData.append("contact", review.contact);
-                  reviewData.append("content", review.content);
+              const images = [image4, image5, image6];
 
-                  const optionsReview = {
-                    method: "PATCH",
-                    url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${review.count}`,
-                    headers: {
-                      "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-                      Authorization: `${cookies.get("oph2025-auth-cookie")}`,
-                    },
-                    data: reviewData,
-                  };
+              const submissionPromises = reviews.map((review: {
+                profile: File | null;
+                count: 1 | 2 | 3;
+                nick: string;
+                gen: string;
+                contact: string;
+                content: string;
+              }, index) => {
+                if(review.nick && review.gen && review.contact && review.content)
+                  {
+                    const reviewData = new FormData();
+                    const profileImage = images[index + 4];
+                    if (profileImage) reviewData.append("profile", profileImage);
+                    reviewData.append("nick", review.nick);
+                    reviewData.append("gen", review.gen);
+                    reviewData.append("contact", review.contact);
+                    reviewData.append("content", review.content);
 
-                  return await axios.request(optionsReview);
-                })
-              );
+                    const optionsReview = {
+                      method: "PATCH",
+                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+                      headers: {
+                        "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+                        Authorization: `${cookies.get("oph2025-auth-cookie")}`,
+                      },
+                      data: reviewData,
+                    };
+                    return axios.request(optionsReview);
+                  } 
+              })
+
+
+              // const nonNullImages = images.filter((image) => image !== null);
+              // const responseReview = await Promise.all(
+              //   reviews.map(
+              //     async (review: {
+              //       profile: File | null;
+              //       count: 1 | 2 | 3;
+              //       nick: string;
+              //       gen: string;
+              //       contact: string;
+              //       content: string;
+              //     }) => {
+              //       console.log(images.length)
+              //       for (let i = 0; i < images.length; i++) {
+              //         if (i === review.count - 1) {
+              //           // review.profile = images[i];
+              //         }
+              //       }
+                    // if (!review.profile) return;
+                    // const reviewData = new FormData();
+                    // const profileImage = images[review.count - 1];
+                    // console.log(profileImage);
+                    // if (profileImage)
+                    //   reviewData.append("profile", profileImage);
+                    // reviewData.append("nick", review.nick);
+                    // reviewData.append("gen", review.gen);
+                    // reviewData.append("contact", review.contact);
+                    // reviewData.append("content", review.content);
+
+                    // const optionsReview = {
+                    //   method: "PATCH",
+                    //   url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${review.count}`,
+                    //   headers: {
+                    //     "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+                    //     Authorization: `${cookies.get("oph2025-auth-cookie")}`,
+                    //   },
+                    //   data: reviewData,
+                    // };
+
+              //       notifySuccess();
+              //       return await axios.request(optionsReview);
+              //     },
+              //   ),
+              // );
             } catch (error) {
               console.log(error);
               notifyError();
             } finally {
               setSubmitting(false);
-              //Router.push("/account");
-              notifySuccess();
               setLoading(false);
             }
           } else {
@@ -519,7 +595,7 @@ const GeneralForm: React.FC<{
                     <p className="md:text-md text-xs sm:text-sm lg:text-lg">
                       สถานะ :{" "}
                     </p>
-                    {editFormData.submittedForm ? (
+                    {editFormData.sendForm ? (
                       editFormData.status !== Status.PENDING ? (
                         editFormData.status === Status.APPROVED ? (
                           <div className="flex items-center justify-center space-x-1 sm:mt-0">
@@ -627,7 +703,7 @@ const GeneralForm: React.FC<{
                 ) : (
                   <div className="flex h-40 w-full items-center justify-around space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto md:w-[60vw]">
                     {displayClubLogo ? (
-                      <div className="relative flex  flex-col items-center justify-center">
+                      <div className="relative flex flex-col items-center justify-center">
                         <Image
                           className="flex h-28 w-28 rounded-lg object-cover md:h-40 md:w-40 lg:h-52 lg:w-52"
                           src={clubLogoUrl || ""}
@@ -638,7 +714,7 @@ const GeneralForm: React.FC<{
                         />
                         <button
                           onClick={() => setDisplayClubLogo(false)}
-                          className="absolute -top-2 -right-2 sm:-right-5 lg:-right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white"
+                          className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:-right-5 lg:-right-4"
                         >
                           X
                         </button>
@@ -669,7 +745,7 @@ const GeneralForm: React.FC<{
                           name="Members"
                           className="sm:text-md w-5 bg-transparent text-center text-[8px] text-white sm:w-12 md:text-lg"
                         />
-                        <FaPen className="-mt-2 md:-mt-4 h-1 text-white sm:h-2" />
+                        <FaPen className="-mt-2 h-1 text-white sm:h-2 md:-mt-4" />
                         <p className="sm:text-md text-[8px] md:text-lg">คน</p>
                       </div>
                       <div className="flex items-center justify-center sm:space-y-2">
@@ -679,7 +755,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="IG"
-                              className="ml-1 md:ml-2 w-8 text-[8px] sm:text-lg bg-transparent text-center text-white md:w-[260px]"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[260px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -688,7 +764,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="FB"
-                              className="ml-1 md:ml-2 w-8 bg-transparent text-[8px] sm:text-lg text-center text-white md:w-[260px]"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[260px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -697,7 +773,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="others"
-                              className="ml-1 md:ml-2 w-8 bg-transparent text-[8px] sm:text-lg text-center text-white md:w-[260px]"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[260px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -756,7 +832,7 @@ const GeneralForm: React.FC<{
                           />
                           <button
                             onClick={() => setDisplayImage1(false)}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 xl:right-24"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 2xl:right-24"
                           >
                             X
                           </button>
@@ -851,7 +927,7 @@ const GeneralForm: React.FC<{
                           />
                           <button
                             onClick={() => setDisplayImage2(false)}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 xl:right-24"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 2xl:right-24"
                           >
                             X
                           </button>
@@ -946,7 +1022,7 @@ const GeneralForm: React.FC<{
                           />
                           <button
                             onClick={() => setDisplayImage3(false)}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 xl:right-24"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 2xl:right-24"
                           >
                             X
                           </button>
@@ -1311,27 +1387,27 @@ const GeneralForm: React.FC<{
                         showCancelButton: true,
                         confirmButtonText: "ยืนยัน",
                         cancelButtonText: "ยกเลิก",
-                      }); if (userConfirmed.isConfirmed) {
+                      });
+                      if (userConfirmed.isConfirmed) {
                         if (ReviewAmount === 3) {
-                          setReviewAmount(ReviewAmount - 1)
-                          setDisplayImage6(false)
-                          setImageUrl6("")
-                          setFieldValue("textField6", "")
-                          setFieldValue("P3Name", "")
-                          setFieldValue("P3Gen", "")
-                          setFieldValue("P3Contact", "")
+                          setReviewAmount(ReviewAmount - 1);
+                          setDisplayImage6(false);
+                          setImageUrl6("");
+                          setFieldValue("textField6", "");
+                          setFieldValue("P3Name", "");
+                          setFieldValue("P3Gen", "");
+                          setFieldValue("P3Contact", "");
                         } else if (ReviewAmount === 2) {
-                          setReviewAmount(ReviewAmount - 1)
-                          setDisplayImage5(false)
-                          setImageUrl5("")
-                          setFieldValue("textField5", "")
-                          setFieldValue("P2Name", "")
-                          setFieldValue("P2Gen", "")
-                          setFieldValue("P2Contact", "")
+                          setReviewAmount(ReviewAmount - 1);
+                          setDisplayImage5(false);
+                          setImageUrl5("");
+                          setFieldValue("textField5", "");
+                          setFieldValue("P2Name", "");
+                          setFieldValue("P2Gen", "");
+                          setFieldValue("P2Contact", "");
                         }
                       }
-                    }
-                    }
+                    }}
                     className="flex h-8 w-8 items-center justify-center rounded-full shadow-xl"
                   >
                     <Trash className="h-3 w-3 sm:h-6 sm:w-6" />
