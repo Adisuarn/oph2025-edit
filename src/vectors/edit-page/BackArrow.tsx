@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const BackArrow: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -27,7 +27,7 @@ const BackArrow: FC<{
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default BackArrow;
+export default BackArrow

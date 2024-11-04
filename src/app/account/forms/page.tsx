@@ -1,29 +1,16 @@
-
-import apiFunction from "@/components/api";
-import Forms from "@/components/Forms"
-import { redirect } from "next/navigation";
+import apiFunction from '@/components/api'
+import Forms from '@/components/Forms'
 
 const FormikControl: React.FC = async () => {
-  const response = await apiFunction("GET", "/user", {});
-  switch(response.status) {
-    case 401:
-      redirect('/')
-    case 500:
-      redirect('/error/500')
-  }
-
-  const { tag, key } = response.data;
-  if(tag !== '' || key !== '') redirect('/')
+  const response = await apiFunction('GET', '/user', {})
 
   let dataRecord = {
     email: response.data.email,
     tag: '',
-    key: ''
+    key: '',
   }
 
-  return (
-    <Forms dataRecord={dataRecord} />
-    );
+  return <Forms dataRecord={dataRecord} />
 }
 
 export default FormikControl

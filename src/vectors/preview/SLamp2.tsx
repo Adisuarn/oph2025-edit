@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const SLamp2: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -12,18 +12,8 @@ const SLamp2: FC<{
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path
-        d="M56.5371 22.2822V58.6881"
-        stroke="url(#paint0_linear_153_1695)"
-        strokeWidth="3"
-      />
-      <ellipse
-        cx="56.5"
-        cy="62.5"
-        rx="4.5"
-        ry="5.5"
-        fill="url(#paint1_radial_153_1695)"
-      />
+      <path d="M56.5371 22.2822V58.6881" stroke="url(#paint0_linear_153_1695)" strokeWidth="3" />
+      <ellipse cx="56.5" cy="62.5" rx="4.5" ry="5.5" fill="url(#paint1_radial_153_1695)" />
       <rect
         width="21"
         height="86"
@@ -65,15 +55,8 @@ const SLamp2: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="5" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1695"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1695" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -154,7 +137,7 @@ const SLamp2: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default SLamp2;
+export default SLamp2

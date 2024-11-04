@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Windowphone: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -20,7 +20,7 @@ const Windowphone: FC<{
       />
       <mask
         id="mask0_616_886"
-        style={{maskType:"alpha"}}
+        style={{ maskType: 'alpha' }}
         maskUnits="userSpaceOnUse"
         x="-57"
         y="5"
@@ -92,13 +92,13 @@ const Windowphone: FC<{
               fill="url(#paint8_radial_616_886)"
             />
           </g>
-          <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M366.823 475.94L283.313 384.474L282.341 401.942L281.694 413.588L356.356 497.27L366.823 475.94Z"
               fill="url(#paint9_linear_616_886)"
             />
           </g>
-          <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M348.29 502.57L274.738 423.708L276.499 436.247L277.673 444.607L343.701 516.499L348.29 502.57Z"
               fill="url(#paint10_linear_616_886)"
@@ -123,13 +123,13 @@ const Windowphone: FC<{
             ry="75.2758"
             fill="url(#paint12_linear_616_886)"
           />
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M414.791 665.411L507.5 564.243C507.5 564.243 510.722 564.12 517.968 571.35C525.213 578.58 526.68 580.666 526.68 580.666L424.712 687.555L414.791 665.411Z"
               fill="url(#paint13_linear_616_886)"
             />
           </g>
-          <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M438.303 700.841L537.923 603.108L539.63 615.887L446.655 706.962L438.303 700.841Z"
               fill="url(#paint14_linear_616_886)"
@@ -162,13 +162,13 @@ const Windowphone: FC<{
               strokeWidth="22.6548"
             />
           </g>
-          <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M378.5 288.424L451.597 211.23L457.801 223.638L464.222 236.09L396.343 304.105L378.5 288.424Z"
               fill="url(#paint18_linear_616_886)"
             />
           </g>
-          <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M394.869 326.903L471.233 251.532L474.335 261.898L403.222 333.024L394.869 326.903Z"
               fill="url(#paint19_linear_616_886)"
@@ -231,7 +231,7 @@ const Windowphone: FC<{
         </g>
         <mask
           id="mask1_616_886"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="-205"
           y="754"
@@ -387,7 +387,7 @@ const Windowphone: FC<{
       />
       <mask
         id="mask2_616_886"
-        style={{maskType:"alpha"}}
+        style={{ maskType: 'alpha' }}
         maskUnits="userSpaceOnUse"
         x="586"
         y="5"
@@ -424,7 +424,7 @@ const Windowphone: FC<{
           />
           <mask
             id="mask3_616_886"
-            style={{maskType:"alpha"}}
+            style={{ maskType: 'alpha' }}
             maskUnits="userSpaceOnUse"
             x="960"
             y="324"
@@ -437,13 +437,13 @@ const Windowphone: FC<{
             />
           </mask>
           <g mask="url(#mask3_616_886)">
-          <g style={{mixBlendMode: "soft-light",}}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M965.131 426.607L1051.62 337.737L1062.8 349.225L976.311 438.095L965.131 426.607Z"
                 fill="url(#paint60_linear_616_886)"
               />
             </g>
-            <g style={{mixBlendMode: "soft-light",}}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M964.754 399.83L1051.24 310.96L1057.59 317.483L971.103 406.353L964.754 399.83Z"
                 fill="url(#paint61_linear_616_886)"
@@ -473,7 +473,7 @@ const Windowphone: FC<{
           />
           <mask
             id="mask4_616_886"
-            style={{maskType:"alpha"}}
+            style={{ maskType: 'alpha' }}
             maskUnits="userSpaceOnUse"
             x="922"
             y="180"
@@ -486,13 +486,13 @@ const Windowphone: FC<{
             />
           </mask>
           <g mask="url(#mask4_616_886)">
-          <g style={{mixBlendMode: "soft-light",}}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M925.801 255.5L989.6 189.945L997.847 198.419L934.048 263.974L925.801 255.5Z"
                 fill="url(#paint66_linear_616_886)"
               />
             </g>
-            <g style={{mixBlendMode: "soft-light",}}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M925.533 235.748L989.333 170.193L994.016 175.005L930.216 240.56L925.533 235.748Z"
                 fill="url(#paint67_linear_616_886)"
@@ -529,7 +529,7 @@ const Windowphone: FC<{
           />
           <mask
             id="mask5_616_886"
-            style={{maskType:"alpha"}}
+            style={{ maskType: 'alpha' }}
             maskUnits="userSpaceOnUse"
             x="807"
             y="218"
@@ -542,13 +542,13 @@ const Windowphone: FC<{
             />
           </mask>
           <g mask="url(#mask5_616_886)">
-          <g style={{mixBlendMode: "soft-light",}}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M813.434 338.93L915.75 233.798L928.975 247.388L826.659 352.519L813.434 338.93Z"
                 fill="url(#paint73_linear_616_886)"
               />
             </g>
-            <g style={{mixBlendMode: "soft-light",}}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M813.002 307.255L915.318 202.123L922.828 209.84L820.512 314.972L813.002 307.255Z"
                 fill="url(#paint74_linear_616_886)"
@@ -568,13 +568,13 @@ const Windowphone: FC<{
               strokeWidth="19.5464"
             />
           </g>
-          <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M708.92 499.769L645.356 429.951L638.539 438.391L633.426 444.528L696.136 516.649L708.92 499.769Z"
               fill="url(#paint77_linear_616_886)"
             />
           </g>
-          <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M698.744 529.509L629.707 454.71L625.445 460.083L622.036 464.686L693.268 541.829L698.744 529.509Z"
               fill="url(#paint78_linear_616_886)"
@@ -917,11 +917,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -952,11 +948,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -987,11 +979,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1022,11 +1010,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1057,11 +1041,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1092,11 +1072,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1123,15 +1099,8 @@ const Windowphone: FC<{
           <feOffset dy="7.52652" />
           <feGaussianBlur stdDeviation="3.76326" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1158,15 +1127,8 @@ const Windowphone: FC<{
           <feOffset dy="5.49309" />
           <feGaussianBlur stdDeviation="2.74655" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1193,15 +1155,8 @@ const Windowphone: FC<{
           <feOffset dy="5.9412" />
           <feGaussianBlur stdDeviation="2.9706" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1228,15 +1183,8 @@ const Windowphone: FC<{
           <feOffset dy="5.9412" />
           <feGaussianBlur stdDeviation="2.9706" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1263,15 +1211,8 @@ const Windowphone: FC<{
           <feOffset dy="5.21158" />
           <feGaussianBlur stdDeviation="2.60579" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1302,11 +1243,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1337,11 +1274,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1372,11 +1305,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1407,11 +1336,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1442,11 +1367,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1477,11 +1398,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1508,15 +1425,8 @@ const Windowphone: FC<{
           <feOffset dy="4.10913" />
           <feGaussianBlur stdDeviation="2.05457" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1547,11 +1457,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.7 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1582,11 +1488,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1613,15 +1515,8 @@ const Windowphone: FC<{
           <feOffset dy="4.96219" />
           <feGaussianBlur stdDeviation="2.4811" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1652,11 +1547,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1683,15 +1574,8 @@ const Windowphone: FC<{
           <feOffset dy="2.79946" />
           <feGaussianBlur stdDeviation="1.39973" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1722,11 +1606,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1753,15 +1633,8 @@ const Windowphone: FC<{
           <feOffset dy="5.28779" />
           <feGaussianBlur stdDeviation="2.64389" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1792,11 +1665,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.309804 0 0 0 0 0.552941 0 0 0 0 0.470588 0 0 0 1 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1823,15 +1692,8 @@ const Windowphone: FC<{
           <feOffset dy="5.58467" />
           <feGaussianBlur stdDeviation="2.79234" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1858,15 +1720,8 @@ const Windowphone: FC<{
           <feOffset dy="3.92119" />
           <feGaussianBlur stdDeviation="1.96059" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1893,15 +1748,8 @@ const Windowphone: FC<{
           <feOffset dy="3.92119" />
           <feGaussianBlur stdDeviation="1.96059" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1928,15 +1776,8 @@ const Windowphone: FC<{
           <feOffset dy="4.6162" />
           <feGaussianBlur stdDeviation="2.3081" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1963,15 +1804,8 @@ const Windowphone: FC<{
           <feOffset dx="-3.90869" dy="2.60579" />
           <feGaussianBlur stdDeviation="2.60579" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1998,15 +1832,8 @@ const Windowphone: FC<{
           <feOffset dx="-3.90869" dy="2.60579" />
           <feGaussianBlur stdDeviation="2.60579" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2033,15 +1860,8 @@ const Windowphone: FC<{
           <feOffset dy="5.21158" />
           <feGaussianBlur stdDeviation="2.60579" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2068,15 +1888,8 @@ const Windowphone: FC<{
           <feOffset dx="-3.90869" dy="2.60579" />
           <feGaussianBlur stdDeviation="2.60579" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2094,16 +1907,8 @@ const Windowphone: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="14.0713"
-            result="effect1_foregroundBlur_616_886"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="14.0713" result="effect1_foregroundBlur_616_886" />
         </filter>
         <filter
           id="filter35_f_616_886"
@@ -2115,16 +1920,8 @@ const Windowphone: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="7.03564"
-            result="effect1_foregroundBlur_616_886"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="7.03564" result="effect1_foregroundBlur_616_886" />
         </filter>
         <filter
           id="filter36_f_616_886"
@@ -2136,16 +1933,8 @@ const Windowphone: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="15.4393"
-            result="effect1_foregroundBlur_616_886"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="15.4393" result="effect1_foregroundBlur_616_886" />
         </filter>
         <filter
           id="filter37_f_616_886"
@@ -2157,16 +1946,8 @@ const Windowphone: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="7.71965"
-            result="effect1_foregroundBlur_616_886"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="7.71965" result="effect1_foregroundBlur_616_886" />
         </filter>
         <filter
           id="filter38_f_616_886"
@@ -2178,16 +1959,8 @@ const Windowphone: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="12.5078"
-            result="effect1_foregroundBlur_616_886"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="12.5078" result="effect1_foregroundBlur_616_886" />
         </filter>
         <filter
           id="filter39_f_616_886"
@@ -2199,16 +1972,8 @@ const Windowphone: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="6.2539"
-            result="effect1_foregroundBlur_616_886"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="6.2539" result="effect1_foregroundBlur_616_886" />
         </filter>
         <filter
           id="filter40_d_616_886"
@@ -2233,11 +1998,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2268,11 +2029,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2303,11 +2060,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2338,11 +2091,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2373,11 +2122,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2408,11 +2153,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2439,15 +2180,8 @@ const Windowphone: FC<{
           <feOffset dy="4.10913" />
           <feGaussianBlur stdDeviation="2.05457" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2478,11 +2212,7 @@ const Windowphone: FC<{
             type="matrix"
             values="0 0 0 0 0.0529412 0 0 0 0 0.201961 0 0 0 0 0.176471 0 0 0 0.7 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_616_886"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_616_886" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -4067,7 +3797,7 @@ const Windowphone: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Windowphone;
+export default Windowphone

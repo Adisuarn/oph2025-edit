@@ -1,15 +1,12 @@
-import Link from "next/link";
-import PreviewClubForm from "@/components/Preview/PreviewClubForm";
-import PreviewOrganizationForm from "@/components/Preview/PreviewOrganizationForm";
-import PreviewProgramForm from "@/components/Preview/PreviewProgramForm";
-import PreviewGiftedForm from "@/components/Preview/PreviewGiftedForm";
-import { Status, Tag } from "@/server/utils/type";
+import Link from 'next/link'
 
-export default function Form({
-  params,
-}: {
-  params: { previewformId: string };
-}) {
+import PreviewClubForm from '@/components/Preview/PreviewClubForm'
+import PreviewGiftedForm from '@/components/Preview/PreviewGiftedForm'
+import PreviewOrganizationForm from '@/components/Preview/PreviewOrganizationForm'
+import PreviewProgramForm from '@/components/Preview/PreviewProgramForm'
+import { Status, Tag } from '@/server/utils/type'
+
+export default function Form({ params }: { params: { previewformId: string } }) {
   return (
     <div>
       {params.previewformId === Tag.CLUB && <PreviewClubForm />}
@@ -17,5 +14,5 @@ export default function Form({
       {params.previewformId === Tag.PROGRAM && <PreviewProgramForm />}
       {params.previewformId === Tag.GIFTED && <PreviewGiftedForm />}
     </div>
-  );
+  )
 }

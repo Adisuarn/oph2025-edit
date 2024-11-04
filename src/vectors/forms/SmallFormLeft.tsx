@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const SmallFormLeft: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -57,7 +57,7 @@ const SmallFormLeft: FC<{
       </g>
       <mask
         id="mask0_477_3740"
-        style={{maskType:"alpha"}}
+        style={{ maskType: 'alpha' }}
         maskUnits="userSpaceOnUse"
         x="-19"
         y="1609"
@@ -341,15 +341,8 @@ const SmallFormLeft: FC<{
           <feOffset dy="4.70264" />
           <feGaussianBlur stdDeviation="2.35132" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_477_3740"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_477_3740" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -376,15 +369,8 @@ const SmallFormLeft: FC<{
           <feOffset dy="4.70264" />
           <feGaussianBlur stdDeviation="2.35132" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_477_3740"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_477_3740" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -415,11 +401,7 @@ const SmallFormLeft: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_477_3740"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_477_3740" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -446,15 +428,8 @@ const SmallFormLeft: FC<{
           <feOffset dy="4.95666" />
           <feGaussianBlur stdDeviation="2.47833" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_477_3740"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_477_3740" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -884,7 +859,7 @@ const SmallFormLeft: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default SmallFormLeft;
+export default SmallFormLeft

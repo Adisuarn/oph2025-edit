@@ -3,40 +3,41 @@ import React from 'react'
 const Header = ({ type, data }: any) => {
   return (
     <>
-      <p className="font-bold text-[36px]">
+      <p className="text-[36px] font-bold">
         {(() => {
           switch (type) {
             case 'organization':
-              return 'องค์กร';
+              return 'องค์กร'
             case 'club':
-              return 'ชมรม';
+              return 'ชมรม'
             default:
-              return '';
+              return ''
           }
-        })
-          ()}
-        {data.data.thainame}</p>
-      <p className="font-inter font-normal text-[24px] text-[#828282]">{data.data.name}</p>
-      <p className="font-normal text-[20px] text-[#828282]">
+        })()}
+        {data.data.thainame}
+      </p>
+      <p className="font-inter text-[24px] font-normal text-[#828282]">{data.data.name}</p>
+      <p className="text-[20px] font-normal text-[#828282]">
         {(() => {
           switch (type) {
             case 'organization':
-              return 'องค์กร';
+              return 'องค์กร'
             case 'club':
-              return 'ชมรม';
+              return 'ชมรม'
             case 'program':
-              return 'สายการเรียน';
+              return 'สายการเรียน'
             case 'gifted':
               return 'โครงการพัฒนาความสามารถ'
             default:
-              return '';
+              return ''
           }
-        })
-        ()} {data.data.members} คน</p>
+        })()}{' '}
+        {data.data.members} คน
+      </p>
       <div className="mt-6">
-        <p className="text-[#828282] font-normal">IG : {data.data.ig || '-'}</p>
-        <p className="text-[#828282] font-normal">FB : {data.data.fb || '-'}</p>
-        <p className="text-[#828282] font-normal">อื่น ๆ : {data.data.others || '-'}</p>
+        <p className="font-normal text-[#828282]">IG : {data.data.ig || '-'}</p>
+        <p className="font-normal text-[#828282]">FB : {data.data.fb || '-'}</p>
+        <p className="font-normal text-[#828282]">อื่น ๆ : {data.data.others || '-'}</p>
       </div>
     </>
   )

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const FallingLamp: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -46,7 +46,7 @@ const FallingLamp: FC<{
         />
         <mask
           id="mask0_190_2388"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="1116"
           y="253"
@@ -59,13 +59,13 @@ const FallingLamp: FC<{
           />
         </mask>
         <g mask="url(#mask0_190_2388)">
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1121.6 370.475L1221.19 268.148L1234.06 281.375L1134.48 383.701L1121.6 370.475Z"
               fill="url(#paint6_linear_190_2388)"
             />
           </g>
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1121.17 339.644L1220.76 237.317L1228.07 244.828L1128.48 347.155L1121.17 339.644Z"
               fill="url(#paint7_linear_190_2388)"
@@ -95,7 +95,7 @@ const FallingLamp: FC<{
         />
         <mask
           id="mask1_190_2388"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="1072"
           y="87"
@@ -108,13 +108,13 @@ const FallingLamp: FC<{
           />
         </mask>
         <g mask="url(#mask1_190_2388)">
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1076.31 173.453L1149.77 97.9722L1159.27 107.729L1085.81 183.21L1076.31 173.453Z"
               fill="url(#paint12_linear_190_2388)"
             />
           </g>
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1076 150.711L1149.46 75.23L1154.85 80.7705L1081.39 156.251L1076 150.711Z"
               fill="url(#paint13_linear_190_2388)"
@@ -157,7 +157,7 @@ const FallingLamp: FC<{
         />
         <mask
           id="mask2_190_2388"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="-15"
           y="191"
@@ -170,13 +170,13 @@ const FallingLamp: FC<{
           />
         </mask>
         <g mask="url(#mask2_190_2388)">
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M-7.70508 329.955L110.106 208.905L125.334 224.552L7.52331 345.602L-7.70508 329.955Z"
               fill="url(#paint20_linear_190_2388)"
             />
           </g>
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M-8.21289 293.482L109.598 172.432L118.246 181.318L0.434803 302.368L-8.21289 293.482Z"
               fill="url(#paint21_linear_190_2388)"
@@ -195,16 +195,8 @@ const FallingLamp: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.357106"
-            result="effect1_foregroundBlur_190_2388"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.357106" result="effect1_foregroundBlur_190_2388" />
         </filter>
         <filter
           id="filter1_f_190_2388"
@@ -216,16 +208,8 @@ const FallingLamp: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.263418"
-            result="effect1_foregroundBlur_190_2388"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.263418" result="effect1_foregroundBlur_190_2388" />
         </filter>
         <filter
           id="filter2_d_190_2388"
@@ -250,11 +234,7 @@ const FallingLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -281,15 +261,8 @@ const FallingLamp: FC<{
           <feOffset dy="5.7137" />
           <feGaussianBlur stdDeviation="2.85685" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -320,11 +293,7 @@ const FallingLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -351,15 +320,8 @@ const FallingLamp: FC<{
           <feOffset dy="3.22343" />
           <feGaussianBlur stdDeviation="1.61172" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -377,16 +339,8 @@ const FallingLamp: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.422449"
-            result="effect1_foregroundBlur_190_2388"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.422449" result="effect1_foregroundBlur_190_2388" />
         </filter>
         <filter
           id="filter7_d_190_2388"
@@ -411,11 +365,7 @@ const FallingLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -442,15 +392,8 @@ const FallingLamp: FC<{
           <feOffset dy="6.75918" />
           <feGaussianBlur stdDeviation="3.37959" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -720,7 +663,7 @@ const FallingLamp: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default FallingLamp;
+export default FallingLamp

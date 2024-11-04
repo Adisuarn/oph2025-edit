@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const ClubFallingLamp: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -52,7 +52,7 @@ const ClubFallingLamp: FC<{
         />
         <mask
           id="mask0_153_1378"
-          style={{ maskType: "alpha" }}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="298"
           y="442"
@@ -65,15 +65,15 @@ const ClubFallingLamp: FC<{
           />
         </mask>
         <g mask="url(#mask0_153_1378)">
-          <g style={{ mixBlendMode: "soft-light" }}>
-            {" "}
+          <g style={{ mixBlendMode: 'soft-light' }}>
+            {' '}
             <path
               d="M305.132 580.934L423.002 459.822L438.238 475.477L320.368 596.589L305.132 580.934Z"
               fill="url(#paint7_linear_153_1378)"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
-            {" "}
+          <g style={{ mixBlendMode: 'soft-light' }}>
+            {' '}
             <path
               d="M304.624 544.442L422.494 423.331L431.147 432.221L313.276 553.332L304.624 544.442Z"
               fill="url(#paint8_linear_153_1378)"
@@ -115,15 +115,15 @@ const ClubFallingLamp: FC<{
           />
         </mask>
         <g mask="url(#mask1_153_1378)">
-          <g style={{ mixBlendMode: "soft-light" }}>
-            {" "}
+          <g style={{ mixBlendMode: 'soft-light' }}>
+            {' '}
             <path
               d="M251.53 347.744L338.477 258.407L349.716 269.955L262.769 359.292L251.53 347.744Z"
               fill="url(#paint13_linear_153_1378)"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
-            {" "}
+          <g style={{ mixBlendMode: 'soft-light' }}>
+            {' '}
             <path
               d="M251.156 320.827L338.103 231.49L344.485 238.047L257.538 327.385L251.156 320.827Z"
               fill="url(#paint14_linear_153_1378)"
@@ -160,7 +160,7 @@ const ClubFallingLamp: FC<{
         />
         <mask
           id="mask2_153_1378"
-          style={{ maskType: "alpha" }}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="90"
           y="297"
@@ -173,15 +173,15 @@ const ClubFallingLamp: FC<{
           />
         </mask>
         <g mask="url(#mask2_153_1378)">
-          <g style={{ mixBlendMode: "soft-light" }}>
-            {" "}
+          <g style={{ mixBlendMode: 'soft-light' }}>
+            {' '}
             <path
               d="M98.3984 461.439L237.837 318.168L255.86 336.687L116.422 479.959L98.3984 461.439Z"
               fill="url(#paint20_linear_153_1378)"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
-            {" "}
+          <g style={{ mixBlendMode: 'soft-light' }}>
+            {' '}
             <path
               d="M97.7969 418.271L237.235 275L247.47 285.516L108.032 428.788L97.7969 418.271Z"
               fill="url(#paint21_linear_153_1378)"
@@ -200,16 +200,8 @@ const ClubFallingLamp: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.422662"
-            result="effect1_foregroundBlur_153_1378"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.422662" result="effect1_foregroundBlur_153_1378" />
         </filter>
         <filter
           id="filter1_f_153_1378"
@@ -221,16 +213,8 @@ const ClubFallingLamp: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.311775"
-            result="effect1_foregroundBlur_153_1378"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.311775" result="effect1_foregroundBlur_153_1378" />
         </filter>
         <filter
           id="filter2_f_153_1378"
@@ -242,16 +226,8 @@ const ClubFallingLamp: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.5"
-            result="effect1_foregroundBlur_153_1378"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.5" result="effect1_foregroundBlur_153_1378" />
         </filter>
         <filter
           id="filter3_d_153_1378"
@@ -276,11 +252,7 @@ const ClubFallingLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1378"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1378" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -307,15 +279,8 @@ const ClubFallingLamp: FC<{
           <feOffset dy="6.76259" />
           <feGaussianBlur stdDeviation="3.3813" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1378"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1378" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -346,11 +311,7 @@ const ClubFallingLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1378"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1378" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -377,15 +338,8 @@ const ClubFallingLamp: FC<{
           <feOffset dy="3.81518" />
           <feGaussianBlur stdDeviation="1.90759" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1378"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1378" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -416,11 +370,7 @@ const ClubFallingLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1378"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1378" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -447,15 +397,8 @@ const ClubFallingLamp: FC<{
           <feOffset dy="7.99999" />
           <feGaussianBlur stdDeviation="4" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1378"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1378" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -725,7 +668,7 @@ const ClubFallingLamp: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default ClubFallingLamp;
+export default ClubFallingLamp

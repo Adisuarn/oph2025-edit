@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const BigLamp: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -126,11 +126,7 @@ const BigLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1511"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1511" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -161,11 +157,7 @@ const BigLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1511"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1511" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -196,11 +188,7 @@ const BigLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1511"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1511" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -231,11 +219,7 @@ const BigLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1511"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1511" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -266,11 +250,7 @@ const BigLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1511"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1511" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -476,7 +456,7 @@ const BigLamp: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default BigLamp;
+export default BigLamp

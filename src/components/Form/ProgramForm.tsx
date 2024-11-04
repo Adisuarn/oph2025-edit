@@ -1,19 +1,11 @@
-import GeneralForm from "./GeneralForm";
-import apiFunction from "@/components/api";
+import apiFunction from '@/components/api'
+import GeneralForm from './GeneralForm'
 
 const FormikControl: React.FC = async () => {
-  const response = await apiFunction("GET", "/user", {});
-  const userData = response.data;
-  const userForm = await apiFunction(
-    "GET",
-    `/${userData.tag}/${userData.key}/`,
-    {},
-  );
-  const userReview = await apiFunction(
-    "GET",
-    `/${userData.tag}/${userData.key}/review`,
-     {}
-  )
+  const response = await apiFunction('GET', '/user', {})
+  const userData = response.data
+  const userForm = await apiFunction('GET', `/${userData.tag}/${userData.key}/`, {})
+  const userReview = await apiFunction('GET', `/${userData.tag}/${userData.key}/review`, {})
 
   let editFormData = {
     thainame: userForm.data.data.thainame,
@@ -34,7 +26,7 @@ const FormikControl: React.FC = async () => {
     descimg2: userForm.data.data.descimg2,
     captureimg3: userForm.data.data.captureimg3,
     descimg3: userForm.data.data.descimg3,
-  };
+  }
 
   let reviews = userReview.data.data.length
 
@@ -45,7 +37,7 @@ const FormikControl: React.FC = async () => {
     gen: userReview.data.data[0].gen,
     contact: userReview.data.data[0].contact,
     content: userReview.data.data[0].content,
-  };
+  }
 
   let review2 = {
     count: userReview.data.data[1]?.count,
@@ -54,7 +46,7 @@ const FormikControl: React.FC = async () => {
     gen: userReview.data.data[1]?.gen,
     contact: userReview.data.data[1]?.contact,
     content: userReview.data.data[1]?.content,
-  };
+  }
 
   let review3 = {
     count: userReview.data.data[2]?.count,
@@ -63,7 +55,7 @@ const FormikControl: React.FC = async () => {
     gen: userReview.data.data[2]?.gen,
     contact: userReview.data.data[2]?.contact,
     content: userReview.data.data[2]?.content,
-  };
+  }
 
   return (
     <GeneralForm
@@ -74,7 +66,7 @@ const FormikControl: React.FC = async () => {
       review2={review2}
       review3={review3}
     />
-  );
-};
+  )
+}
 
-export default FormikControl;
+export default FormikControl

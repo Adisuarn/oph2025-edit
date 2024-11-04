@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const BigFooter: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -28,7 +28,7 @@ const BigFooter: FC<{
         </radialGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default BigFooter;
+export default BigFooter

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Table: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -12,64 +12,25 @@ const Table: FC<{
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <ellipse
-        cx="209"
-        cy="268.5"
-        rx="19"
-        ry="59.5"
-        fill="url(#paint0_linear_415_287)"
-      />
-      <rect
-        x="184"
-        y="197"
-        width="50"
-        height="32"
-        rx="16"
-        fill="url(#paint1_linear_415_287)"
-      />
-      <rect
-        x="174"
-        y="161"
-        width="70"
-        height="45"
-        rx="22.5"
-        fill="url(#paint2_linear_415_287)"
-      />
+      <ellipse cx="209" cy="268.5" rx="19" ry="59.5" fill="url(#paint0_linear_415_287)" />
+      <rect x="184" y="197" width="50" height="32" rx="16" fill="url(#paint1_linear_415_287)" />
+      <rect x="174" y="161" width="70" height="45" rx="22.5" fill="url(#paint2_linear_415_287)" />
       <g filter="url(#filter0_d_415_287)">
-        <rect
-          x="-27"
-          y="34"
-          width="286"
-          height="144"
-          rx="4"
-          fill="url(#paint3_linear_415_287)"
-        />
+        <rect x="-27" y="34" width="286" height="144" rx="4" fill="url(#paint3_linear_415_287)" />
       </g>
       <g filter="url(#filter1_d_415_287)">
-        <rect
-          x="-27"
-          width="306"
-          height="45"
-          rx="4"
-          fill="url(#paint4_linear_415_287)"
-        />
+        <rect x="-27" width="306" height="45" rx="4" fill="url(#paint4_linear_415_287)" />
       </g>
       <mask
         id="mask0_415_287"
-        style={{maskType:"alpha"}}
+        style={{ maskType: 'alpha' }}
         maskUnits="userSpaceOnUse"
         x="-27"
         y="0"
         width="306"
         height="45"
       >
-        <rect
-          x="-27"
-          width="306"
-          height="45"
-          rx="4"
-          fill="url(#paint5_linear_415_287)"
-        />
+        <rect x="-27" width="306" height="45" rx="4" fill="url(#paint5_linear_415_287)" />
       </mask>
       <g mask="url(#mask0_415_287)">
         <ellipse
@@ -81,22 +42,8 @@ const Table: FC<{
           fill="url(#paint6_linear_415_287)"
         />
       </g>
-      <rect
-        x="27"
-        y="90"
-        width="78"
-        height="33"
-        rx="16.5"
-        fill="url(#paint7_linear_415_287)"
-      />
-      <rect
-        x="31"
-        y="94"
-        width="70"
-        height="25"
-        rx="12.5"
-        fill="url(#paint8_linear_415_287)"
-      />
+      <rect x="27" y="90" width="78" height="33" rx="16.5" fill="url(#paint7_linear_415_287)" />
+      <rect x="31" y="94" width="70" height="25" rx="12.5" fill="url(#paint8_linear_415_287)" />
       <defs>
         <filter
           id="filter0_d_415_287"
@@ -117,15 +64,8 @@ const Table: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_415_287"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_415_287" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -152,15 +92,8 @@ const Table: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_415_287"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_415_287" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -277,7 +210,7 @@ const Table: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Table;
+export default Table

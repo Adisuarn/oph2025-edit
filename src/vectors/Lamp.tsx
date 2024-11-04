@@ -1,12 +1,9 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Lamp: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
-  return (
-    <>
-    </>
-  );
-};
+  return <></>
+}
 
-export default Lamp;
+export default Lamp

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const BigUppercurve: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -174,11 +174,7 @@ const BigUppercurve: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1424"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1424" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -209,11 +205,7 @@ const BigUppercurve: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1424"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1424" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -244,11 +236,7 @@ const BigUppercurve: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1424"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1424" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -279,11 +267,7 @@ const BigUppercurve: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1424"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1424" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -301,12 +285,7 @@ const BigUppercurve: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -316,15 +295,8 @@ const BigUppercurve: FC<{
           <feOffset dy="8.27219" />
           <feGaussianBlur stdDeviation="4.1361" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_153_1424"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_153_1424" />
         </filter>
         <filter
           id="filter5_i_153_1424"
@@ -336,12 +308,7 @@ const BigUppercurve: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -351,15 +318,8 @@ const BigUppercurve: FC<{
           <feOffset dy="8.27219" />
           <feGaussianBlur stdDeviation="4.1361" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_153_1424"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_153_1424" />
         </filter>
         <filter
           id="filter6_d_153_1424"
@@ -380,15 +340,8 @@ const BigUppercurve: FC<{
           <feOffset dy="8.27219" />
           <feGaussianBlur stdDeviation="4.1361" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1424"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1424" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -748,7 +701,7 @@ const BigUppercurve: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default BigUppercurve;
+export default BigUppercurve

@@ -1,42 +1,45 @@
-"use client";
-import React from "react";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Profile from "@/vectors/preview/Profile";
-import BackArrow from "@/vectors/edit-page/BackArrow";
-import { Status } from "@utils/type";
-import "react-toastify/dist/ReactToastify.css";
-import Section from "@/vectors/dashboard/Section";
-import DoubleQuoteUp from "@/vectors/preview/DoubleQuoteUp";
-import DoubleQuoteDown from "@/vectors/preview/DoubleQuoteDown";
-import Uppercurve from "@/vectors/preview/Uppercurve";
-import SLamp1 from "@/vectors/preview/SLamp1";
-import SLamp2 from "@/vectors/preview/SLamp2";
-import SLamp3 from "@/vectors/preview/SLamp3";
-import FallingLamp from "@/vectors/preview/FallingLamp";
-import ClubFallingLamp from "@/vectors/preview/ClubFallingLamp";
-import Stainedglass from "@/vectors/preview/Stainedglass";
-import Flower from "@/vectors/preview/Flower";
-import Lamp from "@/vectors/preview/Lamp";
-import LeftFrames from "@/vectors/preview/LeftFrames";
-import Frames from "@/vectors/preview/Frames";
-import Lowercurve from "@/vectors/preview/Lowercurve";
-import Vase from "@/vectors/preview/Vase";
-import BigLamp from "@/vectors/preview/BigLamp";
-import Footer from "@/vectors/preview/Footer";
-import BigUppercurve from "@/vectors/preview/BigUppercurve";
-import BigFooter from "@/vectors/preview/BigFooter";
-import BigLowercurve from "@/vectors/preview/BigLowercurve";
+'use client'
+
+import Image from 'next/image'
+import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
+import { Status } from '@utils/type'
+
+import BackArrow from '@/vectors/edit-page/BackArrow'
+import Profile from '@/vectors/preview/Profile'
+
+import 'react-toastify/dist/ReactToastify.css'
+
+import Section from '@/vectors/dashboard/Section'
+import BigFooter from '@/vectors/preview/BigFooter'
+import BigLamp from '@/vectors/preview/BigLamp'
+import BigLowercurve from '@/vectors/preview/BigLowercurve'
+import BigUppercurve from '@/vectors/preview/BigUppercurve'
+import ClubFallingLamp from '@/vectors/preview/ClubFallingLamp'
+import DoubleQuoteDown from '@/vectors/preview/DoubleQuoteDown'
+import DoubleQuoteUp from '@/vectors/preview/DoubleQuoteUp'
+import FallingLamp from '@/vectors/preview/FallingLamp'
+import Flower from '@/vectors/preview/Flower'
+import Footer from '@/vectors/preview/Footer'
+import Frames from '@/vectors/preview/Frames'
+import Lamp from '@/vectors/preview/Lamp'
+import LeftFrames from '@/vectors/preview/LeftFrames'
+import Lowercurve from '@/vectors/preview/Lowercurve'
+import SLamp1 from '@/vectors/preview/SLamp1'
+import SLamp2 from '@/vectors/preview/SLamp2'
+import SLamp3 from '@/vectors/preview/SLamp3'
+import Stainedglass from '@/vectors/preview/Stainedglass'
+import Uppercurve from '@/vectors/preview/Uppercurve'
+import Vase from '@/vectors/preview/Vase'
 
 const PreviewGeneralForm: React.FC<{
-  editFormData: any;
-  review1: any;
-  review2: any;
-  review3: any;
-  reviews: any;
+  editFormData: any
+  review1: any
+  review2: any
+  review3: any
+  reviews: any
 }> = ({ editFormData, review1, review2, review3, reviews }) => {
-  const ReviewAmount = reviews;
+  const ReviewAmount = reviews
 
   return (
     <section className="via-41% relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] via-[#91CDAD] to-[#C8E5BD]">
@@ -44,7 +47,7 @@ const PreviewGeneralForm: React.FC<{
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
       <div className="absolute -top-36 left-1/2 -translate-x-1/2 overflow-hidden">
-        <BigUppercurve className="hidden w-[100vw] lg:block md:h-[50vw]" />
+        <BigUppercurve className="hidden w-[100vw] md:h-[50vw] lg:block" />
       </div>
       <div className="absolute -top-[76px]">
         <FallingLamp className="w-[100vw] sm:hidden" />
@@ -58,16 +61,11 @@ const PreviewGeneralForm: React.FC<{
             <Link href="/account">
               <BackArrow className="h-5 w-5 sm:h-8 sm:w-8 md:h-10 md:w-10" />
             </Link>
-            <Link
-              href="/account"
-              className="text-xs text-greenText sm:text-lg md:text-2xl"
-            >
+            <Link href="/account" className="text-xs text-greenText sm:text-lg md:text-2xl">
               ย้อนกลับ
             </Link>
           </div>
-          <p className="text-xs text-greenText sm:text-lg md:text-2xl">
-            preview page
-          </p>
+          <p className="text-xs text-greenText sm:text-lg md:text-2xl">preview page</p>
         </section>
 
         {/* Hero */}
@@ -117,7 +115,7 @@ const PreviewGeneralForm: React.FC<{
           {/* section1 */}
           <div className="mb-14 mt-12 flex flex-col sm:mt-5 md:mb-20 md:mt-20">
             <div className="flex flex-col items-center justify-between sm:flex-row md:mb-8">
-              {editFormData.tagThai === "ชมรม" ? (
+              {editFormData.tagThai === 'ชมรม' ? (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                   <p className="sm:py-1 sm:text-3xl sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.5] lg:py-2 lg:text-7xl lg:leading-[1.3]">
                     ชมรมนี้
@@ -128,7 +126,7 @@ const PreviewGeneralForm: React.FC<{
                     <SLamp1 className="hidden sm:block sm:w-28" />
                   </div>
                 </div>
-              ) : editFormData.tagThai === "องค์กร" ? (
+              ) : editFormData.tagThai === 'องค์กร' ? (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
                   <p className="-mb-2 sm:py-1 sm:text-xs sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.4] lg:py-2 lg:text-6xl lg:leading-[1.3]">
                     องค์กรนี้
@@ -141,13 +139,9 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               ) : (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                  <p className="sm:text-xs md:text-4xl lg:text-5xl">
-                    การรับสมัคร
-                  </p>
+                  <p className="sm:text-xs md:text-4xl lg:text-5xl">การรับสมัคร</p>
                   <p className="sm:text-3xl md:text-6xl lg:text-7xl">และ</p>
-                  <p className="sm:text-xl md:text-4xl lg:text-5xl">
-                    การสอบเข้า
-                  </p>
+                  <p className="sm:text-xl md:text-4xl lg:text-5xl">การสอบเข้า</p>
                   <div className="flex justify-center">
                     <SLamp1 className="hidden sm:block sm:w-28" />
                   </div>
@@ -164,31 +158,28 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               </div> */}
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[470px] lg:-left-[570px] 2xl:-left-[800px] lg:top-0">
+                <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[470px] lg:-left-[570px] lg:top-0 2xl:-left-[800px]">
                   <Stainedglass className="w-16 sm:w-32 lg:w-72 2xl:w-96" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                  src={editFormData.captureimg1 || ""}
+                  src={editFormData.captureimg1 || ''}
                   alt="uploaded photo"
                   width={800}
                   height={600}
                   quality={100}
                 />
                 <div className="mb-3 flex items-center justify-center">
-                  <p className="text-xs text-greenText sm:text-sm">
-                    {editFormData.descimg1}
-                  </p>
+                  <p className="text-xs text-greenText sm:text-sm">{editFormData.descimg1}</p>
                 </div>
               </div>
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: editFormData.text1 || "",
+                __html: editFormData.text1 || '',
               }}
               className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl"
-            >
-            </div>
+            ></div>
           </div>
           {/* section 2 */}
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
@@ -199,7 +190,7 @@ const PreviewGeneralForm: React.FC<{
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                  src={editFormData.captureimg2 || ""}
+                  src={editFormData.captureimg2 || ''}
                   alt="uploaded photo"
                   width={800}
                   height={800}
@@ -209,22 +200,16 @@ const PreviewGeneralForm: React.FC<{
                   <p className="text-greenText">{editFormData.descimg2}</p>
                 </div>
               </div>
-              {editFormData.tagThai === "ชมรม" ? (
+              {editFormData.tagThai === 'ชมรม' ? (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                  <p className="sm:text-4xl md:text-5xl lg:text-7xl">
-                    ประโยชน์
-                  </p>
-                  <p className="sm:text-lg md:text-2xl lg:text-4xl">
-                    ที่ได้รับ
-                  </p>
-                  <p className="sm:-mt-2 sm:text-lg md:text-lg lg:text-3xl">
-                    จากการเข้าชมรม
-                  </p>
+                  <p className="sm:text-4xl md:text-5xl lg:text-7xl">ประโยชน์</p>
+                  <p className="sm:text-lg md:text-2xl lg:text-4xl">ที่ได้รับ</p>
+                  <p className="sm:-mt-2 sm:text-lg md:text-lg lg:text-3xl">จากการเข้าชมรม</p>
                   <div className="flex justify-center">
                     <SLamp2 className="hidden sm:block sm:w-28" />
                   </div>
                 </div>
-              ) : editFormData.tagThai === "องค์กร" ? (
+              ) : editFormData.tagThai === 'องค์กร' ? (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                   <p className="sm:text-lg md:text-5xl lg:text-6xl">ตำแหน่ง</p>
                   <p className="sm:text-lg md:text-2xl lg:text-4xl">/หน้าที่</p>
@@ -245,16 +230,15 @@ const PreviewGeneralForm: React.FC<{
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: editFormData.text2 || "",
+                __html: editFormData.text2 || '',
               }}
               className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl"
-            >
-            </div>
+            ></div>
           </div>
           {/* section 3 */}
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col items-end justify-between sm:flex-row md:mb-8 md:items-center">
-              {editFormData.tagThai === "ชมรม" ? (
+              {editFormData.tagThai === 'ชมรม' ? (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                   <p className="sm:text-5xl md:text-6xl lg:text-7xl">ผลงาน</p>
                   <p className="sm:text-3xl md:text-4xl lg:text-5xl">ของชมรม</p>
@@ -262,12 +246,10 @@ const PreviewGeneralForm: React.FC<{
                     <SLamp3 className="hidden sm:block sm:w-28" />
                   </div>
                 </div>
-              ) : editFormData.tagThai === "องค์กร" ? (
+              ) : editFormData.tagThai === 'องค์กร' ? (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
                   <p className="sm:text-5xl md:text-4xl lg:text-5xl">ผลงาน</p>
-                  <p className="sm:text-3xl md:text-3xl lg:text-5xl">
-                    ขององค์กร
-                  </p>
+                  <p className="sm:text-3xl md:text-3xl lg:text-5xl">ขององค์กร</p>
                   <div className="flex justify-center">
                     <SLamp3 className="hidden sm:block sm:w-28" />
                   </div>
@@ -278,9 +260,7 @@ const PreviewGeneralForm: React.FC<{
                     ความน่าสนใจ
                   </p>
                   <p className="sm:text-5xl md:text-6xl lg:text-7xl">ของ</p>
-                  <p className="sm:text-3xl md:text-4xl lg:text-5xl">
-                    สายการเรียน
-                  </p>
+                  <p className="sm:text-3xl md:text-4xl lg:text-5xl">สายการเรียน</p>
                   <div className="flex justify-center">
                     <SLamp3 className="hidden sm:block sm:w-28" />
                   </div>
@@ -295,33 +275,30 @@ const PreviewGeneralForm: React.FC<{
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
-                  src={editFormData.captureimg3 || ""}
+                  src={editFormData.captureimg3 || ''}
                   alt="uploaded photo"
                   width={800}
                   height={600}
                 />
                 <div className="mb-3 flex items-center justify-center">
-                  <p className="text-xs text-greenText sm:text-sm">
-                    {editFormData.descimg3}
-                  </p>
+                  <p className="text-xs text-greenText sm:text-sm">{editFormData.descimg3}</p>
                 </div>
               </div>
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: editFormData.text3 || "",
+                __html: editFormData.text3 || '',
               }}
               className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl"
-            >
-            </div>
+            ></div>
           </div>
           {/* section 3 */}
 
           {/* end section3 */}
 
-          <div className="mb-4 md:mb-10 flex items-center justify-center space-x-4">
+          <div className="mb-4 flex items-center justify-center space-x-4 md:mb-10">
             <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36 xl:w-48"></div>
-            <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-[1.85] text-transparent sm:text-4xl md:text-5xl sm:leading-[1.6] md:leading-[1.4]">
+            <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-[1.85] text-transparent sm:text-4xl sm:leading-[1.6] md:text-5xl md:leading-[1.4]">
               รีวิวจากรุ่นพี่
             </p>
             <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36 xl:w-48"></div>
@@ -334,19 +311,15 @@ const PreviewGeneralForm: React.FC<{
                   <div className="flex flex-col items-center justify-center">
                     <Image
                       className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
-                      src={review1.profile || ""}
+                      src={review1.profile || ''}
                       alt="photo"
                       width={100}
                       height={100}
                     />
                   </div>
                   <div className="mt-2 flex flex-col text-greenText">
-                    <p className="text-lg font-bold md:text-3xl">
-                      {review1.nick}
-                    </p>
-                    <p className="text-xs md:text-lg">
-                      เตรียมอุดม {review1.gen}
-                    </p>
+                    <p className="text-lg font-bold md:text-3xl">{review1.nick}</p>
+                    <p className="text-xs md:text-lg">เตรียมอุดม {review1.gen}</p>
                     <p className="text-xs md:text-lg">{review1.contact}</p>
                   </div>
                 </div>
@@ -360,9 +333,12 @@ const PreviewGeneralForm: React.FC<{
                   <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                     <DoubleQuoteUp className="h-4 w-4 text-greenText" />
                   </div>
-                  <div dangerouslySetInnerHTML={{
-                          __html: review1.content || "",
-                        }} className="text-white sm:text-xl"></div>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: review1.content || '',
+                    }}
+                    className="text-white sm:text-xl"
+                  ></div>
                   <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6">
                     <DoubleQuoteDown className="h-4 w-4 text-greenText" />
                   </div>
@@ -379,9 +355,12 @@ const PreviewGeneralForm: React.FC<{
                     <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                       <DoubleQuoteUp className="h-4 w-4 text-greenText" />
                     </div>
-                    <div dangerouslySetInnerHTML={{
-                          __html: review2.content || "",
-                        }} className="text-white sm:text-xl"></div>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: review2.content || '',
+                      }}
+                      className="text-white sm:text-xl"
+                    ></div>
                     <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6">
                       <DoubleQuoteDown className="h-4 w-4 text-greenText" />
                     </div>
@@ -390,19 +369,15 @@ const PreviewGeneralForm: React.FC<{
                     <div className="flex flex-col items-end justify-center">
                       <Image
                         className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
-                        src={review2.profile || ""}
+                        src={review2.profile || ''}
                         alt="photo"
                         width={100}
                         height={100}
                       />
                     </div>
                     <div className="mt-2 flex flex-col items-end text-greenText">
-                      <p className="text-lg font-bold md:text-3xl">
-                        {review2.nick}
-                      </p>
-                      <p className="text-xs md:text-lg">
-                        เตรียมอุดม {review2.gen}
-                      </p>
+                      <p className="text-lg font-bold md:text-3xl">{review2.nick}</p>
+                      <p className="text-xs md:text-lg">เตรียมอุดม {review2.gen}</p>
                       <p className="text-xs md:text-lg">{review2.contact}</p>
                     </div>
                   </div>
@@ -416,19 +391,15 @@ const PreviewGeneralForm: React.FC<{
                     <div className="flex flex-col items-center justify-center">
                       <Image
                         className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
-                        src={review3.profile || ""}
+                        src={review3.profile || ''}
                         alt="photo"
                         width={100}
                         height={100}
                       />
                     </div>
                     <div className="mt-2 flex flex-col text-greenText">
-                      <p className="text-lg font-bold md:text-xl">
-                        {review3.nick}
-                      </p>
-                      <p className="text-xs md:text-lg">
-                        เตรียมอุดม {review3.gen}
-                      </p>
+                      <p className="text-lg font-bold md:text-xl">{review3.nick}</p>
+                      <p className="text-xs md:text-lg">เตรียมอุดม {review3.gen}</p>
                       <p className="text-xs md:text-lg">{review3.contact}</p>
                     </div>
                   </div>
@@ -436,9 +407,12 @@ const PreviewGeneralForm: React.FC<{
                     <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                       <DoubleQuoteUp className="h-4 w-4 text-greenText" />
                     </div>
-                    <div dangerouslySetInnerHTML={{
-                          __html: review3.content || "",
-                        }} className="text-white sm:text-xl"></div>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: review3.content || '',
+                      }}
+                      className="text-white sm:text-xl"
+                    ></div>
                     <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6">
                       <DoubleQuoteDown className="h-4 w-4 text-greenText" />
                     </div>
@@ -457,7 +431,7 @@ const PreviewGeneralForm: React.FC<{
         <div className="absolute -bottom-10 z-10 sm:-bottom-20">
           <Footer className="w-[100vw] lg:hidden" />
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:-bottom-14 xl:bottom-0 2xl:-bottom-10 overflow-hidden">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 overflow-hidden lg:-bottom-14 xl:bottom-0 2xl:-bottom-10">
           <BigLowercurve className="hidden w-[100vw] lg:block xl:h-[50vw]" />
         </div>
         <div className="absolute bottom-0 z-10 xl:-bottom-5">
@@ -468,7 +442,7 @@ const PreviewGeneralForm: React.FC<{
   </div> */}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default PreviewGeneralForm;
+export default PreviewGeneralForm

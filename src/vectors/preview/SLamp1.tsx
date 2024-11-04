@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const SLamp1: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -25,18 +25,8 @@ const SLamp1: FC<{
           fill="url(#paint1_linear_153_1717)"
         />
       </g>
-      <path
-        d="M41.5371 64V100.406"
-        stroke="url(#paint2_linear_153_1717)"
-        strokeWidth="3"
-      />
-      <ellipse
-        cx="41.5"
-        cy="104.218"
-        rx="4.5"
-        ry="5.5"
-        fill="url(#paint3_radial_153_1717)"
-      />
+      <path d="M41.5371 64V100.406" stroke="url(#paint2_linear_153_1717)" strokeWidth="3" />
+      <ellipse cx="41.5" cy="104.218" rx="4.5" ry="5.5" fill="url(#paint3_radial_153_1717)" />
       <path
         d="M36.245 63.5878C37.4009 61.1375 39.8668 59.5742 42.576 59.5742H101.749C104.31 59.5742 106.667 60.9736 107.894 63.2225L144.354 130.074C146.898 134.738 143.522 140.425 138.209 140.425H75H11.0417C5.90779 140.425 2.52042 135.082 4.71069 130.439L36.245 63.5878Z"
         fill="url(#paint4_radial_153_1717)"
@@ -90,15 +80,8 @@ const SLamp1: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="10" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_153_1717"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_153_1717" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -116,12 +99,7 @@ const SLamp1: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -131,15 +109,8 @@ const SLamp1: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_153_1717"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_153_1717" />
         </filter>
         <filter
           id="filter2_i_153_1717"
@@ -151,12 +122,7 @@ const SLamp1: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -166,15 +132,8 @@ const SLamp1: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_153_1717"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_153_1717" />
         </filter>
         <filter
           id="filter3_i_153_1717"
@@ -186,12 +145,7 @@ const SLamp1: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -201,15 +155,8 @@ const SLamp1: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_153_1717"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_153_1717" />
         </filter>
         <linearGradient
           id="paint0_linear_153_1717"
@@ -315,7 +262,7 @@ const SLamp1: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default SLamp1;
+export default SLamp1

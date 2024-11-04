@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const BigLamp: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -17,11 +17,7 @@ const BigLamp: FC<{
         stroke="url(#paint1_linear_384_593)"
         strokeWidth="15"
       />
-      <path
-        d="M341 189V244"
-        stroke="url(#paint2_linear_384_593)"
-        strokeWidth="9"
-      />
+      <path d="M341 189V244" stroke="url(#paint2_linear_384_593)" strokeWidth="9" />
       <path
         d="M271.733 109.98C283.122 95.3693 303.341 49.0216 303.341 49.0216L350.001 63.3205C350.001 63.3205 330.595 100.683 327.424 124.279C324.811 143.716 320.651 173.195 320.651 173.195C320.651 173.195 290.125 184.33 273.239 173.948C260.314 166.002 252.167 143.093 252.167 143.093C252.167 143.093 259.906 125.153 271.733 109.98Z"
         fill="url(#paint3_linear_384_593)"
@@ -130,11 +126,7 @@ const BigLamp: FC<{
         stroke="url(#paint2_linear_477_3581)"
         strokeWidth="15"
       />
-      <path
-        d="M341 189V244"
-        stroke="url(#paint3_linear_477_3581)"
-        strokeWidth="9"
-      />
+      <path d="M341 189V244" stroke="url(#paint3_linear_477_3581)" strokeWidth="9" />
       <path
         d="M271.733 109.979C283.122 95.3688 303.341 49.0211 303.341 49.0211L350.001 63.32C350.001 63.32 330.595 100.683 327.424 124.278C324.811 143.715 320.651 173.195 320.651 173.195C320.651 173.195 290.125 184.329 273.239 173.948C260.314 166.002 252.167 143.092 252.167 143.092C252.167 143.092 259.906 125.152 271.733 109.979Z"
         fill="url(#paint4_linear_477_3581)"
@@ -230,11 +222,7 @@ const BigLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_477_3581"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_477_3581" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -265,11 +253,7 @@ const BigLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_477_3581"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_477_3581" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -300,11 +284,7 @@ const BigLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_477_3581"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_477_3581" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -335,11 +315,7 @@ const BigLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_477_3581"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_477_3581" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -569,7 +545,7 @@ const BigLamp: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default BigLamp;
+export default BigLamp

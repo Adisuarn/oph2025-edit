@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Super2: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -70,13 +70,13 @@ const Super2: FC<{
               fill="url(#paint5_radial_469_273)"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M970.869 437.302L906.773 367.101L906.027 380.508L905.53 389.446L962.835 453.674L970.869 437.302Z"
               fill="url(#paint6_linear_469_273)"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M956.643 457.741L900.191 397.212L901.543 406.836L902.444 413.252L953.121 468.431L956.643 457.741Z"
               fill="url(#paint7_linear_469_273)"
@@ -101,13 +101,13 @@ const Super2: FC<{
             ry="57.7759"
             fill="url(#paint9_linear_469_273)"
           />
-          <g style={{ mixBlendMode: "soft-light" }}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1007.67 582.721L1078.83 505.073C1078.83 505.073 1081.3 504.979 1086.86 510.528C1092.42 516.077 1093.55 517.678 1093.55 517.678L1015.29 599.718L1007.67 582.721Z"
               fill="url(#paint10_linear_469_273)"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1025.72 609.915L1102.18 534.902L1103.49 544.711L1032.13 614.613L1025.72 609.915Z"
               fill="url(#paint11_linear_469_273)"
@@ -140,13 +140,13 @@ const Super2: FC<{
               strokeWidth="17.388"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M979.815 293.375L1035.92 234.126L1040.68 243.65L1045.61 253.207L993.51 305.41L979.815 293.375Z"
               fill="url(#paint15_linear_469_273)"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M992.389 322.906L1051 265.057L1053.38 273.013L998.8 327.604L992.389 322.906Z"
               fill="url(#paint16_linear_469_273)"
@@ -209,7 +209,7 @@ const Super2: FC<{
           />
           <mask
             id="mask0_469_273"
-            style={{maskType:"alpha"}}
+            style={{ maskType: 'alpha' }}
             maskUnits="userSpaceOnUse"
             x="1426"
             y="321"
@@ -222,13 +222,13 @@ const Super2: FC<{
             />
           </mask>
           <g mask="url(#mask0_469_273)">
-            <g style={{ mixBlendMode: "soft-light" }}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M1430.08 399.439L1496.47 331.23L1505.05 340.046L1438.66 408.256L1430.08 399.439Z"
                 fill="url(#paint28_linear_469_273)"
               />
             </g>
-            <g style={{ mixBlendMode: "soft-light" }}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M1429.8 378.888L1496.18 310.678L1501.05 315.685L1434.67 383.895L1429.8 378.888Z"
                 fill="url(#paint29_linear_469_273)"
@@ -258,7 +258,7 @@ const Super2: FC<{
           />
           <mask
             id="mask1_469_273"
-            style={{maskType:"alpha"}}
+            style={{ maskType: 'alpha' }}
             maskUnits="userSpaceOnUse"
             x="1397"
             y="210"
@@ -271,13 +271,13 @@ const Super2: FC<{
             />
           </mask>
           <g mask="url(#mask1_469_273)">
-            <g style={{ mixBlendMode: "soft-light" }}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M1399.9 268.106L1448.87 217.792L1455.2 224.295L1406.23 274.61L1399.9 268.106Z"
                 fill="url(#paint34_linear_469_273)"
               />
             </g>
-            <g style={{ mixBlendMode: "soft-light" }}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M1399.69 252.947L1448.66 202.632L1452.25 206.326L1403.28 256.641L1399.69 252.947Z"
                 fill="url(#paint35_linear_469_273)"
@@ -314,7 +314,7 @@ const Super2: FC<{
           />
           <mask
             id="mask2_469_273"
-            style={{maskType:"alpha"}}
+            style={{ maskType: 'alpha' }}
             maskUnits="userSpaceOnUse"
             x="1309"
             y="239"
@@ -327,13 +327,13 @@ const Super2: FC<{
             />
           </mask>
           <g mask="url(#mask2_469_273)">
-            <g style={{ mixBlendMode: "soft-light" }}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M1313.65 332.141L1392.18 251.45L1402.33 261.88L1323.8 342.571L1313.65 332.141Z"
                 fill="url(#paint41_linear_469_273)"
               />
             </g>
-            <g style={{ mixBlendMode: "soft-light" }}>
+            <g style={{ mixBlendMode: 'soft-light' }}>
               <path
                 d="M1313.31 307.828L1391.84 227.137L1397.61 233.06L1319.08 313.751L1313.31 307.828Z"
                 fill="url(#paint42_linear_469_273)"
@@ -353,13 +353,13 @@ const Super2: FC<{
               strokeWidth="15.0023"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1233.44 455.587L1184.65 402L1179.42 408.478L1175.49 413.189L1223.62 468.543L1233.44 455.587Z"
               fill="url(#paint45_linear_469_273)"
             />
           </g>
-          <g style={{ mixBlendMode: "soft-light" }}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1225.63 478.41L1172.65 421L1169.37 425.124L1166.76 428.657L1221.43 487.866L1225.63 478.41Z"
               fill="url(#paint46_linear_469_273)"
@@ -411,7 +411,7 @@ const Super2: FC<{
         </g>
         <mask
           id="mask3_469_273"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="532"
           y="651"
@@ -548,13 +548,7 @@ const Super2: FC<{
               shapeRendering="crispEdges"
             />
           </g>
-          <rect
-            x="1339"
-            y="680"
-            width="81"
-            height="8"
-            fill="url(#paint69_linear_469_273)"
-          />
+          <rect x="1339" y="680" width="81" height="8" fill="url(#paint69_linear_469_273)" />
           <path
             d="M1379.53 585.5C1380.81 582.217 1380.81 582.217 1380.81 582.217L1380.81 582.217L1380.82 582.219L1380.83 582.223L1380.88 582.242L1381.06 582.313C1381.21 582.375 1381.45 582.466 1381.74 582.583C1382.33 582.819 1383.19 583.161 1384.24 583.589C1386.35 584.446 1389.25 585.653 1392.45 587.051C1398.76 589.813 1406.48 593.436 1411.35 596.632C1416.3 599.882 1420.81 604.326 1424.02 607.859C1425.65 609.643 1426.97 611.231 1427.9 612.378C1428.36 612.952 1428.72 613.417 1428.97 613.742C1429.1 613.905 1429.19 614.033 1429.26 614.122C1429.29 614.167 1429.32 614.202 1429.34 614.227L1429.36 614.256L1429.37 614.265L1429.37 614.268L1429.37 614.27C1429.37 614.27 1429.37 614.27 1426.54 616.363L1429.37 614.27L1430.06 615.203V616.363V850.16V853.683H1426.54H1331.74H1328.22V850.16V616.363V615.24L1328.87 614.324L1331.74 616.363C1328.87 614.324 1328.87 614.324 1328.87 614.323L1328.87 614.322L1328.87 614.319L1328.88 614.309L1328.9 614.279C1328.92 614.254 1328.95 614.218 1328.98 614.173C1329.05 614.083 1329.14 613.954 1329.26 613.79C1329.5 613.463 1329.86 612.995 1330.31 612.419C1331.21 611.267 1332.5 609.673 1334.1 607.883C1337.27 604.338 1341.75 599.878 1346.8 596.618C1351.75 593.418 1359.72 589.794 1366.25 587.034C1369.55 585.636 1372.56 584.43 1374.74 583.573C1375.83 583.145 1376.72 582.803 1377.33 582.568C1377.64 582.45 1377.88 582.359 1378.04 582.297L1378.23 582.226L1378.28 582.208L1378.29 582.203L1378.3 582.202L1378.3 582.201C1378.3 582.201 1378.3 582.201 1379.53 585.5ZM1379.53 585.5L1380.81 582.217L1379.56 581.729L1378.3 582.201L1379.53 585.5Z"
             fill="url(#paint70_linear_469_273)"
@@ -596,13 +590,7 @@ const Super2: FC<{
                 shapeRendering="crispEdges"
               />
             </g>
-            <rect
-              x="1463"
-              y="745"
-              width="81"
-              height="8"
-              fill="url(#paint78_linear_469_273)"
-            />
+            <rect x="1463" y="745" width="81" height="8" fill="url(#paint78_linear_469_273)" />
           </g>
           <path
             d="M1502.4 584C1503.68 580.717 1503.68 580.717 1503.68 580.717L1503.68 580.717L1503.68 580.719L1503.69 580.723L1503.74 580.742L1503.92 580.813C1504.08 580.875 1504.31 580.966 1504.61 581.083C1505.2 581.319 1506.05 581.661 1507.11 582.089C1509.21 582.946 1512.11 584.153 1515.31 585.551C1521.62 588.313 1529.35 591.936 1534.22 595.132C1539.16 598.382 1543.68 602.826 1546.89 606.359C1548.51 608.143 1549.84 609.731 1550.76 610.878C1551.22 611.452 1551.59 611.917 1551.84 612.242C1551.96 612.405 1552.06 612.533 1552.13 612.622C1552.16 612.667 1552.19 612.702 1552.2 612.727L1552.23 612.756L1552.23 612.765L1552.24 612.768L1552.24 612.77C1552.24 612.77 1552.24 612.77 1549.4 614.863L1552.24 612.77L1552.93 613.703V614.863V848.66V852.183H1549.4H1454.61H1451.09V848.66V614.863V613.74L1451.74 612.824L1454.61 614.863C1451.74 612.824 1451.74 612.824 1451.74 612.823L1451.74 612.822L1451.74 612.819L1451.75 612.809L1451.77 612.779C1451.79 612.754 1451.81 612.718 1451.85 612.673C1451.91 612.583 1452 612.454 1452.13 612.29C1452.37 611.963 1452.72 611.495 1453.17 610.919C1454.07 609.767 1455.37 608.173 1456.96 606.383C1460.13 602.838 1464.61 598.378 1469.66 595.118C1474.62 591.918 1482.59 588.294 1489.11 585.534C1492.42 584.136 1495.43 582.93 1497.61 582.073C1498.7 581.645 1499.58 581.303 1500.2 581.068C1500.51 580.95 1500.74 580.859 1500.91 580.797L1501.1 580.726L1501.15 580.708L1501.16 580.703L1501.16 580.702L1501.16 580.701C1501.16 580.701 1501.16 580.701 1502.4 584ZM1502.4 584L1503.68 580.717L1502.42 580.229L1501.16 580.701L1502.4 584Z"
@@ -637,7 +625,7 @@ const Super2: FC<{
         </g>
         <mask
           id="mask4_469_273"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="718"
@@ -970,11 +958,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1005,11 +989,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1040,11 +1020,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1075,11 +1051,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1110,11 +1082,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1145,11 +1113,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1176,15 +1140,8 @@ const Super2: FC<{
           <feOffset dy="5.77676" />
           <feGaussianBlur stdDeviation="2.88838" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1211,15 +1168,8 @@ const Super2: FC<{
           <feOffset dy="4.21607" />
           <feGaussianBlur stdDeviation="2.10803" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1250,11 +1200,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1281,15 +1227,8 @@ const Super2: FC<{
           <feOffset dy="3.80859" />
           <feGaussianBlur stdDeviation="1.9043" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1320,11 +1259,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1351,15 +1286,8 @@ const Super2: FC<{
           <feOffset dy="2.14865" />
           <feGaussianBlur stdDeviation="1.07432" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1390,11 +1318,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1421,15 +1345,8 @@ const Super2: FC<{
           <feOffset dy="4.05849" />
           <feGaussianBlur stdDeviation="2.02924" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1460,11 +1377,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.309804 0 0 0 0 0.552941 0 0 0 0 0.470588 0 0 0 1 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1491,15 +1404,8 @@ const Super2: FC<{
           <feOffset dy="4.28636" />
           <feGaussianBlur stdDeviation="2.14318" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1526,15 +1432,8 @@ const Super2: FC<{
           <feOffset dy="4.56" />
           <feGaussianBlur stdDeviation="2.28" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1561,15 +1460,8 @@ const Super2: FC<{
           <feOffset dy="4.56" />
           <feGaussianBlur stdDeviation="2.28" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1596,15 +1488,8 @@ const Super2: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1631,15 +1516,8 @@ const Super2: FC<{
           <feOffset dy="3.0096" />
           <feGaussianBlur stdDeviation="1.5048" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1666,15 +1544,8 @@ const Super2: FC<{
           <feOffset dy="3.0096" />
           <feGaussianBlur stdDeviation="1.5048" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1701,15 +1572,8 @@ const Super2: FC<{
           <feOffset dy="3.0096" />
           <feGaussianBlur stdDeviation="1.5048" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1736,15 +1600,8 @@ const Super2: FC<{
           <feOffset dy="3.54303" />
           <feGaussianBlur stdDeviation="1.77152" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1771,15 +1628,8 @@ const Super2: FC<{
           <feOffset dx="-3" dy="2" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1806,15 +1656,8 @@ const Super2: FC<{
           <feOffset dx="-3" dy="2" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1841,15 +1684,8 @@ const Super2: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1876,15 +1712,8 @@ const Super2: FC<{
           <feOffset dx="-3" dy="2" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1915,11 +1744,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1937,12 +1762,7 @@ const Super2: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1956,11 +1776,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.8 0"
           />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_469_273"
-          />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_469_273" />
         </filter>
         <filter
           id="filter29_d_469_273"
@@ -1981,15 +1797,8 @@ const Super2: FC<{
           <feOffset dy="4" />
           <feGaussianBlur stdDeviation="2" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2020,11 +1829,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2055,11 +1860,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2090,11 +1891,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2125,11 +1922,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2160,11 +1953,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2195,11 +1984,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2226,15 +2011,8 @@ const Super2: FC<{
           <feOffset dy="3.15384" />
           <feGaussianBlur stdDeviation="1.57692" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2265,11 +2043,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2300,11 +2074,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2335,11 +2105,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2370,11 +2136,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2405,11 +2167,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2440,11 +2198,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2471,15 +2225,8 @@ const Super2: FC<{
           <feOffset dy="3.15384" />
           <feGaussianBlur stdDeviation="1.57692" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2510,11 +2257,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.7 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2545,11 +2288,7 @@ const Super2: FC<{
             type="matrix"
             values="0 0 0 0 0.0529412 0 0 0 0 0.201961 0 0 0 0 0.176471 0 0 0 0.7 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_469_273"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_469_273" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2567,16 +2306,8 @@ const Super2: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="10.8"
-            result="effect1_foregroundBlur_469_273"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="10.8" result="effect1_foregroundBlur_469_273" />
         </filter>
         <filter
           id="filter47_f_469_273"
@@ -2588,16 +2319,8 @@ const Super2: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="5.40001"
-            result="effect1_foregroundBlur_469_273"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="5.40001" result="effect1_foregroundBlur_469_273" />
         </filter>
         <filter
           id="filter48_f_469_273"
@@ -2609,16 +2332,8 @@ const Super2: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="11.85"
-            result="effect1_foregroundBlur_469_273"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="11.85" result="effect1_foregroundBlur_469_273" />
         </filter>
         <filter
           id="filter49_f_469_273"
@@ -2630,16 +2345,8 @@ const Super2: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="5.925"
-            result="effect1_foregroundBlur_469_273"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="5.925" result="effect1_foregroundBlur_469_273" />
         </filter>
         <filter
           id="filter50_f_469_273"
@@ -2651,16 +2358,8 @@ const Super2: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="9.6"
-            result="effect1_foregroundBlur_469_273"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="9.6" result="effect1_foregroundBlur_469_273" />
         </filter>
         <filter
           id="filter51_f_469_273"
@@ -2672,16 +2371,8 @@ const Super2: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="4.8"
-            result="effect1_foregroundBlur_469_273"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="4.8" result="effect1_foregroundBlur_469_273" />
         </filter>
         <linearGradient
           id="paint0_linear_469_273"
@@ -4323,6 +4014,6 @@ const Super2: FC<{
         </clipPath>
       </defs>
     </svg>
-  );
-};
-export default Super2;
+  )
+}
+export default Super2
