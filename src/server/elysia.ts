@@ -8,7 +8,6 @@ import { tucmcRouter } from '@modules/tucmc/tucmc.route'
 import { userRouter } from '@modules/user/user.route'
 import { logger } from "@tqman/nice-logger";
 import { Elysia } from 'elysia'
-
 import { programRouter } from '@/server/modules/programs/programs.route'
 
 export const elysiaApp = new Elysia({ prefix: '/api' })
