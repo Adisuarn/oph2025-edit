@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
 import { Status } from '@utils/type'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
@@ -25,9 +24,6 @@ import withReactContent from 'sweetalert2-react-content'
 
 import 'react-quill/dist/quill.snow.css'
 
-import { text } from 'stream/consumers'
-import { set } from 'zod'
-
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => (
@@ -47,6 +43,7 @@ const GeneralForm: React.FC<{
   review2: any
   review3: any
 }> = ({ userData, editFormData, reviews, review1, review2, review3 }) => {
+  const AllReview: any[] = [];
   const MySwal = withReactContent(Swal)
   const cookies = useCookies()
   const notifySuccess = () =>
@@ -110,11 +107,11 @@ const GeneralForm: React.FC<{
   const [imageUrl4, setImageUrl4] = useState<string | null>(review1.profile);
   const [displayImage4, setDisplayImage4] = useState<boolean>(review1.profile);
   const [image5, setImage5] = useState<File | null>(null);
-  const [imageUrl5, setImageUrl5] = useState<string | null>(review2.profile);
-  const [displayImage5, setDisplayImage5] = useState<boolean>(review2.profile);
+  const [imageUrl5, setImageUrl5] = useState<string | null>(review2?.profile);
+  const [displayImage5, setDisplayImage5] = useState<boolean>((review2?.profile === undefined ) ? false : true);
   const [image6, setImage6] = useState<File | null>(null);
-  const [imageUrl6, setImageUrl6] = useState<string | null>(review3.profile);
-  const [displayImage6, setDisplayImage6] = useState<boolean>(review3.profile);
+  const [imageUrl6, setImageUrl6] = useState<string | null>(review3?.profile);
+  const [displayImage6, setDisplayImage6] = useState<boolean>((review3?.profile === undefined ) ? false : true);
   const [clubLogo, setClubLogo] = useState<File | null>(null);
   const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(
     editFormData.logo,
@@ -292,22 +289,22 @@ const GeneralForm: React.FC<{
           photoDescription1: editFormData.descimg1,
           photoDescription2: editFormData.descimg2,
           photoDescription3: editFormData.descimg3,
-          textField4: review1.content,
-          P1Name: review1.nick,
-          P1Gen: review1.gen,
-          P1Contact: review1.contact,
-          textField5: review2.content,
-          P2Name: review2.nick,
-          P2Gen: review2.gen,
-          P2Contact: review2.contact,
-          textField6: review3.content,
-          P3Name: review3.nick,
-          P3Gen: review3.gen,
-          P3Contact: review3.contact,
-          Members: editFormData.members,
-          IG: editFormData.ig,
-          FB: editFormData.fb,
-          others: editFormData.others,
+          textField4: review1?.content ?? "",
+          P1Name: review1?.nick ?? "",
+          P1Gen: review1?.gen ?? "",
+          P1Contact: review1?.contact ?? "",
+          textField5: review2?.content ?? "", 
+          P2Name: review2?.nick ?? "",
+          P2Gen: review2?.gen ?? "",
+          P2Contact: review2?.contact ?? "",
+          textField6: review3?.content ?? "",
+          P3Name: review3?.nick ?? "",
+          P3Gen: review3?.gen ?? "",
+          P3Contact: review3?.contact ?? "",
+          Members: editFormData.members ?? "",
+          IG: editFormData.ig ?? "",
+          FB: editFormData.fb ?? "",
+          others: editFormData.others ?? "",
         }}
         validationSchema={Yup.object({
           //.min(150, "Required More than 150 words ")
@@ -380,6 +377,7 @@ const GeneralForm: React.FC<{
           if (userConfirmed.isConfirmed) {
             try {
               setLoading(true);
+              console.log(values)
               editFormData.members = values.Members;
               editFormData.ig = values.IG;
               editFormData.fb = values.FB;
@@ -485,7 +483,6 @@ const GeneralForm: React.FC<{
 
               //send review data
 
-              const reviews = [review1, review2, review3];
               const images = [image4, image5, image6];
 
               const submissionPromises = reviews.map((review: {
@@ -495,74 +492,39 @@ const GeneralForm: React.FC<{
                 gen: string;
                 contact: string;
                 content: string;
-              }, index) => {
-                if(review.nick && review.gen && review.contact && review.content)
-                  {
-                    const reviewData = new FormData();
-                    const profileImage = images[index + 4];
-                    if (profileImage) reviewData.append("profile", profileImage);
-                    reviewData.append("nick", review.nick);
-                    reviewData.append("gen", review.gen);
-                    reviewData.append("contact", review.contact);
-                    reviewData.append("content", review.content);
-
-                    const optionsReview = {
-                      method: "PATCH",
-                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
-                      headers: {
-                        "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-                        Authorization: `${cookies.get("oph2025-auth-cookie")}`,
-                      },
-                      data: reviewData,
-                    };
-                    return axios.request(optionsReview);
-                  } 
-              })
-
-
-              // const nonNullImages = images.filter((image) => image !== null);
-              // const responseReview = await Promise.all(
-              //   reviews.map(
-              //     async (review: {
-              //       profile: File | null;
-              //       count: 1 | 2 | 3;
-              //       nick: string;
-              //       gen: string;
-              //       contact: string;
-              //       content: string;
-              //     }) => {
-              //       console.log(images.length)
-              //       for (let i = 0; i < images.length; i++) {
-              //         if (i === review.count - 1) {
-              //           // review.profile = images[i];
-              //         }
-              //       }
-                    // if (!review.profile) return;
-                    // const reviewData = new FormData();
-                    // const profileImage = images[review.count - 1];
-                    // console.log(profileImage);
-                    // if (profileImage)
-                    //   reviewData.append("profile", profileImage);
-                    // reviewData.append("nick", review.nick);
-                    // reviewData.append("gen", review.gen);
-                    // reviewData.append("contact", review.contact);
-                    // reviewData.append("content", review.content);
-
-                    // const optionsReview = {
-                    //   method: "PATCH",
-                    //   url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${review.count}`,
-                    //   headers: {
-                    //     "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-                    //     Authorization: `${cookies.get("oph2025-auth-cookie")}`,
-                    //   },
-                    //   data: reviewData,
-                    // };
-
-              //       notifySuccess();
-              //       return await axios.request(optionsReview);
-              //     },
-              //   ),
-              // );
+              }, index: number) => {
+                  const reviewData = new FormData();
+                  const profileImage = images[index + 4];
+                  if (profileImage) reviewData.append("profile", profileImage);
+                  reviewData.append("nick", review.nick);
+                  reviewData.append("gen", review.gen);
+                  reviewData.append("contact", review.contact);
+                  reviewData.append("content", review.content);
+                  console.log(reviewData)
+                  // const optionsReview = (review.nick === "" && review.gen === "" && review.contact === "" && review.content === "")
+                  //   ?
+                  //   {
+                  //     method: "DELETE",
+                  //     url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+                  //     headers: {
+                  //       "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+                  //       Authorization: `${cookies.get("oph2025-auth-cookie")}`,
+                  //     },
+                  //     data: reviewData,
+                  //   }
+                  //   :
+                  //   {
+                  //     method: "PATCH",
+                  //     url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+                  //     headers: {
+                  //       "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
+                  //       Authorization: `${cookies.get("oph2025-auth-cookie")}`,
+                  //     },
+                  //     data: reviewData,
+                  //   }
+                  //   return axios.request(optionsReview);
+                }
+              )
             } catch (error) {
               console.log(error)
               notifyError()

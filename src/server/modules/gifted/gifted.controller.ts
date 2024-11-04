@@ -211,7 +211,7 @@ export const deleteGiftedReview = async (name: keyof typeof AllData.Gifted, id: 
   const giftedData = (await getGifted(name)).data
   try {
     await prisma.reviews.update({
-      where: { email: giftedData.email, count: id },
+      where: { key: giftedData.key, count: id },
       data: {
         profile: '',
         nick: '',

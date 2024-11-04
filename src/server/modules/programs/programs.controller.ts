@@ -182,7 +182,7 @@ export const deleteProgramReview = async (name: keyof typeof AllData.Organizatio
   const programData = (await getProgram(name)).data
   try {
     await prisma.reviews.update({
-      where: { email: programData.email, count: id },
+      where: { key: programData.key, count: id },
       data: {
         profile: '',
         nick: '',

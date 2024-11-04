@@ -182,7 +182,7 @@ export const deleteClubReview = async (key: keyof typeof AllData.Clubs, id: stri
   const clubData = (await getClub(key)).data
   try {
     await prisma.reviews.update({
-      where: { email: clubData.email, count: id },
+      where: { key: clubData.key, count: id },
       data: {
         profile: '',
         nick: '',

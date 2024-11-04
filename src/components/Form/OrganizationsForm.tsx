@@ -45,13 +45,14 @@ const FormikControl: React.FC = async () => {
       contact: review.contact,
       content: review.content,
     }))
-    .slice(0, 3)
+    
+  const reviewAmount = (reviews.filter((review: any) => review.profile !== "" && review.nick !== "" && review.gen !== "" && review.contact !== "" && review.content !== "")).length
 
   return (
     <GeneralForm
       userData={userData}
       editFormData={editFormData}
-      reviews={reviews.length}
+      reviews={reviewAmount}
       review1={reviews[0]}
       review2={reviews[1]}
       review3={reviews[2]}

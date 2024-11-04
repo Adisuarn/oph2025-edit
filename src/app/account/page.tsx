@@ -23,7 +23,7 @@ const StatusMessage = ({ status }: { status: Status }) => {
         className="h-4 w-4 rounded-full sm:h-5 sm:w-5 md:h-6 md:w-6"
         style={{ backgroundColor: statusInfo.color }}
       ></div>
-      <p className={`text-${statusInfo.color} sm:text-lg md:text-2xl`}>{statusInfo.text}</p>
+      <p className={`text-[${statusInfo.color}] sm:text-lg md:text-2xl`}>{statusInfo.text}</p>
     </div>
   ) : (
     <p className="mt-2 sm:mt-0">ยังไม่ได้ส่งแบบฟอร์ม</p>

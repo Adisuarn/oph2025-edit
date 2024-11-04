@@ -191,7 +191,7 @@ export const deleteOrganizationReview = async (
   const organizationData = (await getOrganization(name)).data
   try {
     await prisma.reviews.update({
-      where: { email: organizationData.email, count: id },
+      where: { key: organizationData.key, count: id },
       data: {
         profile: '',
         nick: '',
@@ -202,6 +202,7 @@ export const deleteOrganizationReview = async (
     })
     return { status: 200, message: 'Deleting review successfully' }
   } catch (err) {
+    console.log(err)
     return { status: 500, message: 'Error while deleting review' }
   }
 }
