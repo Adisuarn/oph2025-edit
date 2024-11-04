@@ -424,18 +424,18 @@ const PreviewGeneralForm: React.FC<{
         </section>
       </section>
 
-      <div className="relative overflow-hidden pb-48 sm:pb-96 md:pb-[580px] xl:pb-[900px]">
+      <div className="relative overflow-hidden pb-48 sm:pb-96 md:pb-[580px] xl:pb-[800px]">
         <div className="absolute -bottom-[150px] left-1/2 -translate-x-1/2 sm:-bottom-[80px] md:-bottom-[20px] lg:hidden">
           <Lowercurve className="w-[100vw]" />
         </div>
         <div className="absolute -bottom-10 z-10 sm:-bottom-20">
           <Footer className="w-[100vw] lg:hidden" />
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 overflow-hidden lg:-bottom-14 xl:bottom-0 2xl:-bottom-10">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:-bottom-14 xl:-bottom-5 2xl:-bottom-10 overflow-hidden">
           <BigLowercurve className="hidden w-[100vw] lg:block xl:h-[50vw]" />
         </div>
-        <div className="absolute bottom-0 z-10 xl:-bottom-5">
-          <BigFooter className="hidden w-[100vw] lg:block xl:h-[10vw]" />
+        <div className="absolute xl:-bottom-1 z-10 2xl:-bottom-5">
+          <BigFooter className="hidden w-[100vw] lg:block 2xl:h-[10vw]" />
         </div>
         {/* <div className="absolute z-20 -bottom-48">
     <Footer className="w-full" />
