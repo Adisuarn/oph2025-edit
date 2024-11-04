@@ -147,16 +147,6 @@ const PreviewGeneralForm: React.FC<{
                   </div>
                 </div>
               )}
-              {/* <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
-                <p className="sm:text-xs md:text-4xl lg:text-5xl">
-                  การรับสมัคร
-                </p>
-                <p className="sm:text-3xl md:text-6xl lg:text-7xl">และ</p>
-                <p className="sm:text-xl md:text-4xl lg:text-5xl">การสอบเข้า</p>
-                <div className="flex justify-center">
-                  <SLamp1 className="hidden sm:block sm:w-28" />
-                </div>
-              </div> */}
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
                 <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[470px] lg:-left-[570px] lg:top-0 2xl:-left-[800px]">
                   <Stainedglass className="w-16 sm:w-32 lg:w-72 2xl:w-96" />
