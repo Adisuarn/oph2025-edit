@@ -12,18 +12,18 @@ import Windowphone from '@/vectors/landing/Windowphone'
 
 const page = async () => {
   return (
-    <main className="via-21% to-77% relative -z-[100] h-screen w-screen overflow-hidden bg-gradient-to-b from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0 sm:bg-gradient-to-br">
-      <div className="absolute right-0 top-10 -z-10 w-[110vw] sm:-right-20 sm:top-20 sm:w-[70vw] md:-right-40">
+    <main className="via-21% to-77% relative h-screen w-screen overflow-hidden bg-gradient-to-b from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0 sm:bg-gradient-to-br">
+      <div className="absolute right-0 top-10 w-[110vw] z-30 sm:-right-20 sm:top-20 sm:w-[70vw] md:-right-40">
         <Window className="h-[50vh] w-full sm:h-40 md:h-[75vh]" />
       </div>
-      <div className="absolute bottom-0 -z-20">
+      <div className="absolute bottom-0">
         <Brick className="hidden sm:block sm:h-[30vh] sm:w-screen" />
       </div>
-      <div className="absolute bottom-0 left-1/2 -z-20 -translate-x-1/2">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10">
         <BrickSmall className="h-[55vh] sm:hidden" />
       </div>
       <div className="flex h-[80vh] flex-col items-center justify-end text-center sm:flex sm:h-full sm:items-start sm:justify-center md:pl-16 lg:pl-16 xl:pl-32">
-        <div className="items-center space-y-4 sm:flex sm:flex-col sm:justify-center">
+        <div className="relative z-20 items-center space-y-4 sm:flex sm:flex-col sm:justify-center">
           <div className="-mt-24 flex flex-col">
             <p className="bg-gradient-to-br from-[#ADDB64] to-[#ECF5C8] bg-clip-text text-6xl font-bold leading-normal text-transparent sm:leading-loose md:text-8xl md:leading-extra-loose">
               Register
@@ -45,7 +45,7 @@ const page = async () => {
               <p>โรงเรียนเตรียมอุดมศึกษา</p>
             </div>
           </div>
-          <div className="relative z-50">
+          <div className="relative z-50 justify-center flex">
             <GoogleOAuthButton />
           </div>
         </div>

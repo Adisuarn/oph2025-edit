@@ -24,6 +24,8 @@ import withReactContent from 'sweetalert2-react-content'
 
 import 'react-quill/dist/quill.snow.css'
 
+import { MdReviews } from 'react-icons/md'
+
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => (
@@ -43,7 +45,15 @@ const GeneralForm: React.FC<{
   review2: any
   review3: any
 }> = ({ userData, editFormData, reviews, review1, review2, review3 }) => {
-  const AllReview: any[] = [];
+  review1
+    ? review1
+    : (review1 = { count: 1, profile: null, nick: '', gen: '', contact: '', content: '' }),
+    review2
+      ? review2
+      : (review2 = { count: 2, profile: null, nick: '', gen: '', contact: '', content: '' }),
+    review3
+      ? review3
+      : (review3 = { count: 3, profile: null, nick: '', gen: '', contact: '', content: '' })
   const MySwal = withReactContent(Swal)
   const cookies = useCookies()
   const notifySuccess = () =>
@@ -67,11 +77,11 @@ const GeneralForm: React.FC<{
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored",
-    });
+      theme: 'colored',
+    })
   const notifyWarning = ({ props }: { props: string }) =>
     toast.warn(`${props} is still missing!`, {
-      position: "top-right",
+      position: 'top-right',
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
@@ -82,47 +92,37 @@ const GeneralForm: React.FC<{
       transition: Bounce,
     })
 
-  const [image1, setImage1] = useState<File | null>(null);
-  const [imageUrl1, setImageUrl1] = useState<string | null>(
-    editFormData.captureimg1,
-  );
-  const [displayImage1, setDisplayImage1] = useState<boolean>(
-    editFormData.captureimg1,
-  );
-  const [image2, setImage2] = useState<File | null>(null);
-  const [imageUrl2, setImageUrl2] = useState<string | null>(
-    editFormData.captureimg2,
-  );
-  const [displayImage2, setDisplayImage2] = useState<boolean>(
-    editFormData.captureimg2,
-  );
-  const [image3, setImage3] = useState<File | null>(null);
-  const [imageUrl3, setImageUrl3] = useState<string | null>(
-    editFormData.captureimg3,
-  );
-  const [displayImage3, setDisplayImage3] = useState<boolean>(
-    editFormData.captureimg3,
-  );
-  const [image4, setImage4] = useState<File | null>(null);
-  const [imageUrl4, setImageUrl4] = useState<string | null>(review1.profile);
-  const [displayImage4, setDisplayImage4] = useState<boolean>(review1.profile);
-  const [image5, setImage5] = useState<File | null>(null);
-  const [imageUrl5, setImageUrl5] = useState<string | null>(review2?.profile);
-  const [displayImage5, setDisplayImage5] = useState<boolean>((review2?.profile === undefined ) ? false : true);
-  const [image6, setImage6] = useState<File | null>(null);
-  const [imageUrl6, setImageUrl6] = useState<string | null>(review3?.profile);
-  const [displayImage6, setDisplayImage6] = useState<boolean>((review3?.profile === undefined ) ? false : true);
-  const [clubLogo, setClubLogo] = useState<File | null>(null);
-  const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(
-    editFormData.logo,
-  );
-  const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(
-    editFormData.logo,
-  );
+  const [image1, setImage1] = useState<File | null>(null)
+  const [imageUrl1, setImageUrl1] = useState<string | null>(editFormData.captureimg1)
+  const [displayImage1, setDisplayImage1] = useState<boolean>(editFormData.captureimg1)
+  const [image2, setImage2] = useState<File | null>(null)
+  const [imageUrl2, setImageUrl2] = useState<string | null>(editFormData.captureimg2)
+  const [displayImage2, setDisplayImage2] = useState<boolean>(editFormData.captureimg2)
+  const [image3, setImage3] = useState<File | null>(null)
+  const [imageUrl3, setImageUrl3] = useState<string | null>(editFormData.captureimg3)
+  const [displayImage3, setDisplayImage3] = useState<boolean>(editFormData.captureimg3)
+  const [image4, setImage4] = useState<File | null>(null)
+  const [imageUrl4, setImageUrl4] = useState<string | null>(review1.profile)
+  const [displayImage4, setDisplayImage4] = useState<boolean>(
+    review1?.profile === undefined ? false : true,
+  )
+  const [image5, setImage5] = useState<File | null>(null)
+  const [imageUrl5, setImageUrl5] = useState<string | null>(review2?.profile)
+  const [displayImage5, setDisplayImage5] = useState<boolean>(
+    review2?.profile === undefined ? false : true,
+  )
+  const [image6, setImage6] = useState<File | null>(null)
+  const [imageUrl6, setImageUrl6] = useState<string | null>(review3?.profile)
+  const [displayImage6, setDisplayImage6] = useState<boolean>(
+    review3?.profile === undefined ? false : true,
+  )
+  const [clubLogo, setClubLogo] = useState<File | null>(null)
+  const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(editFormData.logo)
+  const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(editFormData.logo)
   // const [successDataSent, setSuccessDataSent] = useState<boolean>(false);
-  const [ReviewAmount, setReviewAmount] = useState<number>(reviews);
-  const [loading, setLoading] = useState(false);
-  const [warning, setWarning] = useState(false);
+  const [ReviewAmount, setReviewAmount] = useState<number>(reviews)
+  const [loading, setLoading] = useState(false)
+  const [warning, setWarning] = useState(false)
 
   const handleFileSelect1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -289,22 +289,22 @@ const GeneralForm: React.FC<{
           photoDescription1: editFormData.descimg1,
           photoDescription2: editFormData.descimg2,
           photoDescription3: editFormData.descimg3,
-          textField4: review1?.content ?? "",
-          P1Name: review1?.nick ?? "",
-          P1Gen: review1?.gen ?? "",
-          P1Contact: review1?.contact ?? "",
-          textField5: review2?.content ?? "", 
-          P2Name: review2?.nick ?? "",
-          P2Gen: review2?.gen ?? "",
-          P2Contact: review2?.contact ?? "",
-          textField6: review3?.content ?? "",
-          P3Name: review3?.nick ?? "",
-          P3Gen: review3?.gen ?? "",
-          P3Contact: review3?.contact ?? "",
-          Members: editFormData.members ?? "",
-          IG: editFormData.ig ?? "",
-          FB: editFormData.fb ?? "",
-          others: editFormData.others ?? "",
+          textField4: review1.content ? review1.content : '',
+          P1Name: review1.nick ? review1.nick : '',
+          P1Gen: review1.gen ? review1.gen : '',
+          P1Contact: review1.contact ? review1.contact : '',
+          textField5: review2.content ? review2.content : '',
+          P2Name: review2.nick ? review2.nick : '',
+          P2Gen: review2.gen ? review2.gen : '',
+          P2Contact: review2.contact ? review2.contact : '',
+          textField6: review3.content ? review3.content : '',
+          P3Name: review3.nick ? review3.nick : '',
+          P3Gen: review3.gen ? review3.gen : '',
+          P3Contact: review3.contact ? review3.contact : '',
+          Members: editFormData.members ?? '',
+          IG: editFormData.ig ?? '',
+          FB: editFormData.fb ?? '',
+          others: editFormData.others ?? '',
         }}
         validationSchema={Yup.object({
           //.min(150, "Required More than 150 words ")
@@ -376,99 +376,93 @@ const GeneralForm: React.FC<{
           })
           if (userConfirmed.isConfirmed) {
             try {
-              setLoading(true);
+              setLoading(true)
               console.log(values)
-              editFormData.members = values.Members;
-              editFormData.ig = values.IG;
-              editFormData.fb = values.FB;
-              editFormData.others = values.others;
-              editFormData.text1 = values.textField1;
-              editFormData.text2 = values.textField2;
-              editFormData.text3 = values.textField3;
-              if (editFormData.tagThai === "ชมรม" && clubLogoUrl === null) {
-                notifyWarning({ props: "club logo" });
-                throw new Error("");
+              editFormData.members = values.Members
+              editFormData.ig = values.IG
+              editFormData.fb = values.FB
+              editFormData.others = values.others
+              editFormData.text1 = values.textField1
+              editFormData.text2 = values.textField2
+              editFormData.text3 = values.textField3
+              if (editFormData.tagThai === 'ชมรม' && clubLogoUrl === undefined) {
+                notifyWarning({ props: 'club logo' })
+                throw new Error('')
               }
               if (imageUrl1 === null || imageUrl1 === '' || imageUrl1 === undefined) {
-                notifyWarning({ props: "Photo 1" });
-                throw new Error("");
+                notifyWarning({ props: 'Photo 1' })
+                throw new Error('')
               }
               if (imageUrl2 === null || imageUrl2 === '' || imageUrl2 === undefined) {
-                notifyWarning({ props: "Photo 2" });
-                throw new Error("");
+                notifyWarning({ props: 'Photo 2' })
+                throw new Error('')
               }
               if (imageUrl3 === null || imageUrl3 === '' || imageUrl3 === undefined) {
-                notifyWarning({ props: "Photo 3" });
-                throw new Error("");
+                notifyWarning({ props: 'Photo 3' })
+                throw new Error('')
               }
               if (imageUrl4 === null || imageUrl4 === '' || imageUrl4 === undefined) {
-                notifyWarning({ props: "Review Photo" });
-                throw new Error("");
+                notifyWarning({ props: 'Review Photo' })
+                throw new Error('')
               }
-              editFormData.captureimg1 = image1;
-              editFormData.captureimg2 = image2;
-              editFormData.captureimg3 = image3;
-              // review1.profile = image4;
-              // review2.profile = image5;
-              // review3.profile = image6;
-              review1.nick = values.P1Name;
-              review2.nick = values.P2Name;
-              review3.nick = values.P3Name;
-              review1.gen = values.P1Gen;
-              review2.gen = values.P2Gen;
-              review3.gen = values.P3Gen;
-              review1.contact = values.P1Contact;
-              review2.contact = values.P2Contact;
-              review3.contact = values.P3Contact;
-              review1.content = values.textField4;
-              review2.content = values.textField5;
-              review3.content = values.textField6;
-              editFormData.descimg1 = values.photoDescription1;
-              editFormData.descimg2 = values.photoDescription2;
-              editFormData.descimg3 = values.photoDescription3;
-              editFormData.sendForm = true;
-              const formData = new FormData();
-              formData.append("members", editFormData.members);
-              formData.append("ig", editFormData.ig);
-              formData.append("fb", editFormData.fb);
-              formData.append("others", editFormData.others);
-              if (
-                editFormData.tagThai === "ชมรม" ||
-                editFormData.tagThai === "องค์กร"
-              ) {
-                formData.append("activities", editFormData.text1);
+              editFormData.captureimg1 = image1
+              editFormData.captureimg2 = image2
+              editFormData.captureimg3 = image3
+              review1.profile = image4
+              review2.profile = image5
+              review3.profile = image6
+              review1.nick = values.P1Name
+              review2.nick = values.P2Name
+              review3.nick = values.P3Name
+              review1.gen = values.P1Gen
+              review2.gen = values.P2Gen
+              review3.gen = values.P3Gen
+              review1.contact = values.P1Contact
+              review2.contact = values.P2Contact
+              review3.contact = values.P3Contact
+              review1.content = values.textField4
+              review2.content = values.textField5
+              review3.content = values.textField6
+              editFormData.descimg1 = values.photoDescription1
+              editFormData.descimg2 = values.photoDescription2
+              editFormData.descimg3 = values.photoDescription3
+              editFormData.sendForm = true
+              const formData = new FormData()
+              formData.append('members', editFormData.members)
+              formData.append('ig', editFormData.ig)
+              formData.append('fb', editFormData.fb)
+              formData.append('others', editFormData.others)
+              if (editFormData.tagThai === 'ชมรม' || editFormData.tagThai === 'องค์กร') {
+                formData.append('activities', editFormData.text1)
               } else {
-                formData.append("admissions", editFormData.text1);
+                formData.append('admissions', editFormData.text1)
               }
 
-              if (editFormData.tagThai === "ชมรม") {
-                formData.append("benefits", editFormData.text2);
-              } else if (editFormData.tagThai === "องค์กร") {
-                formData.append("position", editFormData.text2);
+              if (editFormData.tagThai === 'ชมรม') {
+                formData.append('benefits', editFormData.text2)
+              } else if (editFormData.tagThai === 'องค์กร') {
+                formData.append('position', editFormData.text2)
               } else {
-                formData.append("courses", editFormData.text2);
+                formData.append('courses', editFormData.text2)
               }
 
-              if (
-                editFormData.tagThai === "ชมรม" ||
-                editFormData.tagThai === "องค์กร"
-              ) {
-                formData.append("working", editFormData.text3);
+              if (editFormData.tagThai === 'ชมรม' || editFormData.tagThai === 'องค์กร') {
+                formData.append('working', editFormData.text3)
               } else {
-                formData.append("interests", editFormData.text3);
+                formData.append('interests', editFormData.text3)
               }
 
               if (image1 !== null) formData.append('captureimg1', image1)
               if (image2 !== null) formData.append('captureimg2', image2)
               if (image3 !== null) formData.append('captureimg3', image3)
 
-              if (editFormData.tagThai === "ชมรม" && clubLogo !== null) {
-                formData.append("logo", clubLogo);
+              if (editFormData.tagThai === 'ชมรม' && clubLogo !== null) {
+                formData.append('logo', clubLogo)
               }
-              formData.append("descimg1", editFormData.descimg1);
-              formData.append("descimg2", editFormData.descimg2);
-              formData.append("descimg3", editFormData.descimg3);
-              formData.append("sendForm", editFormData.sendForm);
+              formData.append('descimg1', editFormData.descimg1)
+              formData.append('descimg2', editFormData.descimg2)
+              formData.append('descimg3', editFormData.descimg3)
+              formData.append('sendForm', editFormData.sendForm)
               const options = {
                 method: 'PATCH',
                 url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
@@ -479,60 +473,63 @@ const GeneralForm: React.FC<{
                 data: formData,
               }
 
-              await axios.request(options);
+              await axios.request(options)
 
               //send review data
-              const reviews = [review1, review2, review3];
-              const images = [image4, image5, image6];
+              const postReviews = [review1, review2, review3]
+              console.log(postReviews)
+              const images = [image4, image5, image6]
+              postReviews.map(
+                async (review, index) => {
+                  const reviewData = new FormData()
+                  const profileImage = images[index]
 
-              const submissionPromises = reviews.map((review: {
-                profile: File | null;
-                count: 1 | 2 | 3;
-                nick: string;
-                gen: string;
-                contact: string;
-                content: string;
-              }, index: number) => {
-                  const reviewData = new FormData();
-                  const profileImage = images[index + 4];
-                  if (profileImage) reviewData.append("profile", profileImage);
-                  reviewData.append("nick", review.nick);
-                  reviewData.append("gen", review.gen);
-                  reviewData.append("contact", review.contact);
-                  reviewData.append("content", review.content);
-                  console.log(reviewData)
-
-                  if(reviews){}
-                  // const optionsReview = (review.nick === "" && review.gen === "" && review.contact === "" && review.content === "")
-                  //   ?
-                  //   {
-                  //     method: "DELETE",
-                  //     url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
-                  //     headers: {
-                  //       "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-                  //       Authorization: `${cookies.get("oph2025-auth-cookie")}`,
-                  //     },
-                  //     data: reviewData,
-                  //   }
-                  //   :
-                  //   {
-                  //     method: "PATCH",
-                  //     url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
-                  //     headers: {
-                  //       "x-api-key": process.env.NEXT_PUBLIC_API_KEY,
-                  //       Authorization: `${cookies.get("oph2025-auth-cookie")}`,
-                  //     },
-                  //     data: reviewData,
-                  //   }
-                  //   return axios.request(optionsReview);
-                }
+                  if (profileImage) reviewData.append('profile', profileImage);
+                  reviewData.append('nick', review.nick || ''); 
+                  reviewData.append('gen', review.gen || '');
+                  reviewData.append('contact', review.contact || '');
+                  reviewData.append('content', review.content || '');
+                  
+                  if (ReviewAmount - reviews > 0) {
+                    return axios({
+                      method: 'POST',
+                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+                      headers: {
+                        'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+                        Authorization: `${cookies.get('oph2025-auth-cookie')}`,
+                      },
+                      data: {},
+                    })
+                  } else if (review.nick === '' && review.gen === '' && review.contact === '' && review.content === '') {
+                    return axios ({
+                      method: 'DELETE',
+                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+                      headers: {
+                        'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+                        Authorization: `${cookies.get('oph2025-auth-cookie')}`,
+                      },
+                      data: {},
+                    });
+                  }
+                  return axios ({
+                      method: 'PATCH',
+                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+                      headers: {
+                        'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+                        Authorization: `${cookies.get('oph2025-auth-cookie')}`,
+                      },
+                      data: reviewData,
+                    })
+                  
+                  // if reveiws === reviewsAmount ? PATCH : lesser ? DELETE : POST
+                },
               )
             } catch (error) {
               console.log(error)
               notifyError()
             } finally {
-              setSubmitting(false);
-              setLoading(false);
+              setSubmitting(false)
+              setLoading(false)
             }
           } else {
             setSubmitting(false)
@@ -547,13 +544,13 @@ const GeneralForm: React.FC<{
               </div>
             )}
             <section className="mb-8 flex flex-col items-start space-y-3">
-              <div className="flex items-center justify-center space-x-1">
+              <div className="flex items-center justify-center space-x-1 hover:scale-105 transition-all">
                 <Link href="/account">
                   <BackArrow className="h-5 w-5 sm:h-8 sm:w-8 md:h-10 md:w-10" />
                 </Link>
                 <Link
                   href="/account"
-                  className="font-Thai text-xs text-greenText sm:text-lg md:text-2xl"
+                  className="font-Thai text-xs text-greenText sm:text-lg md:text-2xl relative before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-greenText before:transition-all before:duration-300 hover:before:w-full"
                 >
                   ย้อนกลับ
                 </Link>
@@ -561,38 +558,35 @@ const GeneralForm: React.FC<{
               <div>
                 <div className="flex w-[80vw] items-center justify-between md:w-[85vw] xl:w-[90vw]">
                   <div className="flex items-center justify-center space-x-2">
-                    <p className="md:text-md text-xs sm:text-sm lg:text-lg">
-                      สถานะ :{" "}
-                    </p>
-                    {editFormData.sendForm ? (
-                      editFormData.status !== Status.PENDING ? (
-                        editFormData.status === Status.APPROVED ? (
-                          <div className="flex items-center justify-center space-x-1 sm:mt-0">
-                            <div className="h-2 w-2 rounded-full bg-[#19C57C] sm:h-3 sm:w-3"></div>
-                            <p className="md:text-md text-xs text-[#19C57C] sm:text-sm">
-                              ผ่านการตรวจสอบ
-                            </p>
-                          </div>
-                        ) : (
-                          <div className="flex items-center justify-center space-x-1 sm:mt-0">
-                            <div className="h-2 w-2 rounded-full bg-[#E80808] sm:h-3 sm:w-3"></div>
-                            <p className="md:text-md text-xs text-[#E80808] sm:text-sm">
-                              ไม่ผ่านการตรวจสอบ
-                            </p>
-                          </div>
-                        )
-                      ) : (
-                        <div className="flex items-center justify-center space-x-1 sm:mt-0">
-                          <div className="h-2 w-2 rounded-full bg-[#FCB52B] sm:h-3 sm:w-3"></div>
-                          <p className="md:text-md text-xs text-[#FCB52B] sm:text-sm">
-                            อยู่ระหว่างการตรวจสอบ
-                          </p>
-                        </div>
-                      )
-                    ) : (
+                    <p className="md:text-md text-xs sm:text-sm lg:text-lg">สถานะ : </p>
+                    {editFormData.status === '' && (
                       <div className="flex items-center justify-center space-x-1 sm:mt-0">
                         <p className="md:text-md text-xs text-zinc-700 sm:text-sm">
                           ยังไม่ได้ส่งแบบฟอร์ม
+                        </p>
+                      </div>
+                    )}
+                    {editFormData.status === Status.PENDING && (
+                      <div className="flex items-center justify-center space-x-1 sm:mt-0">
+                        <div className="h-2 w-2 rounded-full bg-[#FCB52B] sm:h-3 sm:w-3"></div>
+                        <p className="md:text-md text-xs text-[#FCB52B] sm:text-sm">
+                          อยู่ระหว่างการตรวจสอบ
+                        </p>
+                      </div>
+                    )}
+                    {editFormData.status === Status.APPROVED && (
+                      <div className="flex items-center justify-center space-x-1 sm:mt-0">
+                        <div className="h-2 w-2 rounded-full bg-[#19C57C] sm:h-3 sm:w-3"></div>
+                        <p className="md:text-md text-xs text-[#19C57C] sm:text-sm">
+                          ผ่านการตรวจสอบ
+                        </p>
+                      </div>
+                    )}
+                    {editFormData.status === Status.REJECTED && (
+                      <div className="flex items-center justify-center space-x-1 sm:mt-0">
+                        <div className="h-2 w-2 rounded-full bg-[#E80808] sm:h-3 sm:w-3"></div>
+                        <p className="md:text-md text-xs text-[#E80808] sm:text-sm">
+                          ไม่ผ่านการตรวจสอบ
                         </p>
                       </div>
                     )}
@@ -601,12 +595,12 @@ const GeneralForm: React.FC<{
                   <div className="flex items-center justify-center space-x-2 sm:space-x-4">
                     <Link
                       href={`/preview/${editFormData.tag}`}
-                      className="md:text-md rounded-full border border-greenText px-2 text-[10px] text-greenText transition-all hover:bg-greenText hover:text-white sm:px-4 sm:text-lg"
+                      className="md:text-md rounded-full border border-greenText px-2 text-[10px] text-greenText transition-all hover:bg-greenText hover:text-white sm:px-4 sm:text-lg hover:scale-105"
                     >
                       preview
                     </Link>
                     <button
-                      className="rounded-full border bg-gradient-to-r from-buttonFirst via-buttonMiddle to-greenText px-2 font-Thai text-[10px] font-extralight text-white sm:px-4 sm:text-lg"
+                      className="rounded-full border bg-gradient-to-r from-buttonFirst via-buttonMiddle to-greenText px-2 font-Thai text-[10px] font-extralight text-white sm:px-4 sm:text-lg hover:scale-105 transition-all"
                       type="submit"
                       disabled={isSubmitting}
                     >
@@ -709,32 +703,32 @@ const GeneralForm: React.FC<{
                         <FaPen className="-mt-2 h-1 text-white sm:h-2 md:-mt-4" />
                         <p className="sm:text-md text-[8px] md:text-lg">คน</p>
                       </div>
-                      <div className="flex items-center justify-center sm:space-y-2">
+                      <div className="justify- whitespace-nowrapcenter flex items-center sm:space-y-2">
                         <div className="items-center justify-center space-y-1 text-start sm:text-lg">
                           <div className="flex">
                             <p className="text-[8px] sm:text-lg">IG : </p>
                             <Field
                               type="text"
                               name="IG"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[260px]"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
                           <div className="flex">
-                            <p className="text-[8px] sm:text-lg">FB : </p>
+                            <p className="whitespace-nowrap text-[8px] sm:text-lg">FB : </p>
                             <Field
                               type="text"
                               name="FB"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[260px]"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
                           <div className="flex">
-                            <p className="text-[8px] sm:text-lg">อื่น ๆ : </p>
+                            <p className="whitespace-nowrap text-[8px] sm:text-lg">อื่น ๆ : </p>
                             <Field
                               type="text"
                               name="others"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[260px]"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -1271,32 +1265,33 @@ const GeneralForm: React.FC<{
                         title: 'ยืนยันการลบข้อมูลหรือไม่?',
                         icon: 'warning',
                         showCancelButton: true,
-                        confirmButtonText: "ยืนยัน",
-                        cancelButtonText: "ยกเลิก",
-                      });
+                        confirmButtonText: 'ยืนยัน',
+                        cancelButtonText: 'ยกเลิก',
+                      })
                       if (userConfirmed.isConfirmed) {
                         if (ReviewAmount === 3) {
-                          setReviewAmount(ReviewAmount - 1);
-                          setDisplayImage6(false);
-                          setImageUrl6("");
-                          setFieldValue("textField6", "");
-                          setFieldValue("P3Name", "");
-                          setFieldValue("P3Gen", "");
-                          setFieldValue("P3Contact", "");
+                          setReviewAmount(ReviewAmount - 1)
+                          setDisplayImage6(false)
+                          setImageUrl6('')
+                          setFieldValue('textField6', '')
+                          setFieldValue('P3Name', '')
+                          setFieldValue('P3Gen', '')
+                          setFieldValue('P3Contact', '')
+                          
                         } else if (ReviewAmount === 2) {
-                          setReviewAmount(ReviewAmount - 1);
-                          setDisplayImage5(false);
-                          setImageUrl5("");
-                          setFieldValue("textField5", "");
-                          setFieldValue("P2Name", "");
-                          setFieldValue("P2Gen", "");
-                          setFieldValue("P2Contact", "");
+                          setReviewAmount(ReviewAmount - 1)
+                          setDisplayImage5(false)
+                          setImageUrl5('')
+                          setFieldValue('textField5', '')
+                          setFieldValue('P2Name', '')
+                          setFieldValue('P2Gen', '')
+                          setFieldValue('P2Contact', '')
                         }
                       }
                     }}
                     className="flex h-8 w-8 items-center justify-center rounded-full shadow-xl"
                   >
-                    <Trash className="h-3 w-3 sm:h-6 sm:w-6" />
+                    <Trash className="h-3 w-3 sm:h-6 sm:w-6 hover:scale-105 transition-all" />
                   </div>
                 )}
                 <div>
@@ -1304,7 +1299,7 @@ const GeneralForm: React.FC<{
                     <button
                       type="button"
                       onClick={() => setReviewAmount(ReviewAmount + 1)}
-                      className="mx-auto rounded-full bg-gradient-to-br from-buttonFirst via-buttonMiddle via-45% to-greenText px-2 py-1 text-center text-xs text-white sm:px-4 sm:py-2 sm:text-lg"
+                      className="mx-auto rounded-full bg-gradient-to-br from-buttonFirst via-buttonMiddle via-45% to-greenText px-2 py-1 text-center text-xs text-white sm:px-4 sm:py-2 sm:text-lg hover:scale-105 transition-all"
                     >
                       + เพิ่มรีวิวจากรุ่นพี่
                     </button>

@@ -7,7 +7,7 @@ const FormikControl: React.FC = async () => {
   const userForm = await apiFunction('GET', `/${userData.tag}/${userData.key}/`, {})
   const userReview = await apiFunction('GET', `/${userData.tag}/${userData.key}/review`, {})
 
-  const data = userForm.data
+  const data = userForm.data.data
 
   let editFormData = {
     thainame: data.thainame,
@@ -18,10 +18,10 @@ const FormikControl: React.FC = async () => {
     ig: data.ig,
     fb: data.fb,
     others: data.others,
-    text1: data.activities,
-    text2: data.position,
+    text1: data.admissions,
+    text2: data.courses,
     text3: data.working,
-    status: data.status,
+    status: data.interests,
     captureimg1: data.captureimg1,
     descimg1: data.descimg1,
     captureimg2: data.captureimg2,
@@ -43,7 +43,7 @@ const FormikControl: React.FC = async () => {
     <GeneralForm
       userData={userData}
       editFormData={editFormData}
-      reviews={reviews}
+      reviews={userReview.data.data.length}
       review1={reviews[0]}
       review2={reviews[1]}
       review3={reviews[2]}

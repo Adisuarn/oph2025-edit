@@ -41,10 +41,10 @@ export async function middleware(request: NextRequest) {
     if (response.status === 200) return NextResponse.redirect(new URL('/account', request.url))
   }
 
-  if (nextUrl.pathname === '/account') {
-    const response = await xiorInstance.get('/user')
-    if (response.status === 401) return NextResponse.redirect(new URL('/', request.url))
-  }
+  // if (nextUrl.pathname === '/account') {
+  //   const response = await xiorInstance.get('/user')
+  //   if (response.status === 401) return NextResponse.redirect(new URL('/', request.url))
+  // }
 
   if (nextUrl.pathname === '/account/forms') {
     const response = await xiorInstance.get('/user')

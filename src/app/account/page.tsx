@@ -46,7 +46,7 @@ const AccountPage = async () => {
   const submittedInit = !!tag
 
   return (
-    <section className="flex h-screen flex-col items-center justify-center text-formText sm:space-y-4">
+    <section className="flex h-screen flex-col items-center justify-center text-formText space-y-2 sm:space-y-4">
       <p className="mb-2 text-xs sm:mb-0 sm:text-lg">
         {submittedInit ? 'ข้อมูลหน่วยงาน' : 'ยินดีต้อนรับ'}
       </p>
@@ -57,7 +57,7 @@ const AccountPage = async () => {
         {submittedInit ? thainame : name}
       </p>
       {submittedInit && <p className="opacity-70">จำนวนสมาชิก {members} คน</p>}
-      <Section className="w-[80vw] sm:w-full" />
+      <Section className="w-[80vw] -my-5 sm:w-full" />
 
       <Link
         href={
