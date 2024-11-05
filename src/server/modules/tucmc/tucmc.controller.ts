@@ -1,6 +1,6 @@
 import { AllData } from '@libs/data'
 import { getClubReviews } from '@modules/clubs/clubs.controller'
-import { getGiftedReviews } from '@modules/gifted/gifted.controller'
+import { getGiftedReviews } from '@/server/modules/gifted/gifted.controller'
 import { getOrganizationReviews } from '@modules/organizations/organizations.controller'
 import { getProgramReviews } from '@modules/programs/programs.controller'
 import { prisma } from '@utils/db'

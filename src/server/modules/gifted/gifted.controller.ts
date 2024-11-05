@@ -144,7 +144,7 @@ export const createGiftedReview = async (name: keyof typeof AllData.Gifted) => {
   const giftedData = (await getGifted(name)).data
   if (
     (await prisma.reviews.count({
-      where: { email: giftedData.email },
+      where: { key: giftedData.key },
     })) >= 3
   )
     return { status: 400, message: 'Reviews reached limit' }
@@ -153,10 +153,9 @@ export const createGiftedReview = async (name: keyof typeof AllData.Gifted) => {
       omit: { reviewId: true, updatedAt: true, id: true },
       data: {
         key: giftedData.key,
-        email: giftedData.email,
         count: (
           (await prisma.reviews.count({
-            where: { email: giftedData.email },
+            where: { key: giftedData.key },
           })) + 1
         ).toString(),
         profile: '',

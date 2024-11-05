@@ -7,7 +7,7 @@ import {
   getGiftedReviews,
   updateGiftedData,
   updateGiftedReview,
-} from '@modules/gifted/gifted.controller'
+} from '@/server/modules/gifted/gifted.controller'
 import { ReviewData } from '@utils/type'
 import { StringField, UnionField } from '@utils/validate'
 import { Elysia, error, t } from 'elysia'

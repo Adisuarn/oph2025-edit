@@ -167,12 +167,18 @@ export async function importClubData() {
           content: review.review,
         }
 
-        await prisma.reviews.upsert({
-          where: { key: key!, count: count.toString() },
-          update: reviewData,
-          create: {
+        // await prisma.reviews.upsert({
+        //   where: { key: key!, count: count.toString() },
+        //   update: reviewData,
+        //   create: {
+        //     key: key!,
+        //     count: count.toString(),
+        //     ...reviewData,
+        //   },
+        // })
+        await prisma.reviews.create({
+          data: {
             key: key!,
-            email: '',
             count: count.toString(),
             ...reviewData,
           },
@@ -224,12 +230,18 @@ export async function importProgramData() {
           content: review.review,
         }
 
-        await prisma.reviews.upsert({
-          where: { key: key!, count: count.toString() },
-          update: reviewData,
-          create: {
+        // await prisma.reviews.upsert({
+        //   where: { key: key!, count: count.toString() },
+        //   update: reviewData,
+        //   create: {
+        //     key: key!,
+        //     count: count.toString(),
+        //     ...reviewData,
+        //   },
+        // })
+        await prisma.reviews.create({
+          data: {
             key: key!,
-            email: '',
             count: count.toString(),
             ...reviewData,
           },
@@ -281,12 +293,18 @@ export async function importGiftedData() {
           content: review.review,
         }
 
-        await prisma.reviews.upsert({
-          where: { key: key!, count: count.toString() },
-          update: reviewData,
-          create: {
+        // await prisma.reviews.upsert({
+        //   where: { key: key!, count: count.toString() },
+        //   update: reviewData,
+        //   create: {
+        //     key: key!,
+        //     count: count.toString(),
+        //     ...reviewData,
+        //   },
+        // })
+        await prisma.reviews.create({
+          data: {
             key: key!,
-            email: '',
             count: count.toString(),
             ...reviewData,
           },
@@ -339,12 +357,18 @@ export async function importOrganizationData() {
             content: review.review,
           }
 
-          await prisma.reviews.upsert({
-            where: { key: key!, count: count.toString() },
-            update: reviewData,
-            create: {
+          // await prisma.reviews.upsert({
+          //   where: { key: key!, count: count.toString() },
+          //   update: reviewData,
+          //   create: {
+          //     key: key!,
+          //     count: count.toString(),
+          //     ...reviewData,
+          //   },
+          // })
+          await prisma.reviews.create({
+            data: {
               key: key!,
-              email: '',
               count: count.toString(),
               ...reviewData,
             },

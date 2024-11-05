@@ -1,7 +1,7 @@
 import type { Club, Gifted, Organization, Program } from '@utils/type'
 import { AllData } from '@libs/data'
 import { createClub } from '@modules/clubs/clubs.controller'
-import { createGifted } from '@modules/gifted/gifted.controller'
+import { createGifted } from '@/server/modules/gifted/gifted.controller'
 import { createOrganization } from '@modules/organizations/organizations.controller'
 import { createProgram } from '@modules/programs/programs.controller'
 import { prisma } from '@utils/db'

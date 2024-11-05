@@ -1,6 +1,6 @@
 import { AllData } from '@libs/data'
 import { ClubData, updateClubData, updateClubReview } from '@modules/clubs/clubs.controller'
-import { GiftedData, updateGiftedData, updateGiftedReview } from '@modules/gifted/gifted.controller'
+import { GiftedData, updateGiftedData, updateGiftedReview } from '@/server/modules/gifted/gifted.controller'
 import {
   OrganizationData,
   updateOrganizationData,

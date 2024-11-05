@@ -129,16 +129,15 @@ export const getProgramReviews = async (name: keyof typeof AllData.Programs) => 
 
 export const createProgramReview = async (name: keyof typeof AllData.Programs) => {
   const programData = (await getProgram(name)).data
-  if ((await prisma.reviews.count({ where: { email: programData.email } })) >= 3)
+  if ((await prisma.reviews.count({ where: { key: programData.key } })) >= 3)
     return { status: 400, message: 'Review reachs limit' }
   try {
     const review = await prisma.reviews.create({
       omit: { reviewId: true, updatedAt: true, id: true },
       data: {
         key: programData.key,
-        email: programData.email,
         count: (
-          (await prisma.reviews.count({ where: { email: programData.email } })) + 1
+          (await prisma.reviews.count({ where: { key: programData.key } })) + 1
         ).toString(),
         profile: '',
         nick: '',

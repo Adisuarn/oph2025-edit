@@ -99,11 +99,11 @@ export const updateClubData = async (
             : clubData.captureimg2,
         descimg2: body.descimg2,
         captureimg3:
-          !body.captureimg3 === undefined
+          body.captureimg3 !== undefined
             ? await uploadImage(body.captureimg3)
             : clubData.captureimg3,
         descimg3: body.descimg3,
-        logo: !body.logo === undefined ? await uploadImage(body.logo) : clubData.logo,
+        logo: body.logo !== undefined ? await uploadImage(body.logo) : clubData.logo,
         updatedBy: userData?.email,
       },
     })
@@ -130,15 +130,14 @@ export const getClubReviews = async (key: keyof typeof AllData.Clubs) => {
 
 export const createClubReview = async (key: keyof typeof AllData.Clubs) => {
   const clubData = (await getClub(key)).data
-  if ((await prisma.reviews.count({ where: { email: clubData.email } })) >= 3)
+  if ((await prisma.reviews.count({ where: { key: clubData.key } })) >= 3)
     return { status: 400, message: 'Reviews reached limit' }
   try {
     const review = await prisma.reviews.create({
       omit: { reviewId: true, updatedAt: true, id: true },
       data: {
         key: clubData.key,
-        email: clubData.email,
-        count: ((await prisma.reviews.count({ where: { email: clubData?.email } })) + 1).toString(),
+        count: ((await prisma.reviews.count({ where: { key: clubData?.key } })) + 1).toString(),
         profile: '',
         nick: '',
         gen: '',
