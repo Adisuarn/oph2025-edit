@@ -58,7 +58,6 @@ const FormikControl: React.FC = async () => {
       content: review.content,
     }))
     .slice(0, 3)
-  console.log(reviews)
   // let review1 = {
   //   count: userReview.data.data[0].count,
   //   profile: userReview.data.data[0].profile,

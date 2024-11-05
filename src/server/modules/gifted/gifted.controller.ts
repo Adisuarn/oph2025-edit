@@ -40,7 +40,6 @@ export const createGifted = async (body: Gifted) => {
         key: body.key,
         email: body.email,
         updatedBy: body.email,
-        status: Status.PENDING,
       },
     })
     await prisma.user.update({
@@ -209,15 +208,8 @@ export const updateGiftedReview = async (
 export const deleteGiftedReview = async (name: keyof typeof AllData.Gifted, id: string) => {
   const giftedData = (await getGifted(name)).data
   try {
-    await prisma.reviews.update({
+    await prisma.reviews.delete({
       where: { key: giftedData.key, count: id },
-      data: {
-        profile: '',
-        nick: '',
-        gen: '',
-        contact: '',
-        content: '',
-      },
     })
     return { status: 200, message: 'Deleting review successfully' }
   } catch (err) {

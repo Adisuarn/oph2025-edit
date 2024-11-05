@@ -42,7 +42,6 @@ export const createClub = async (body: Club) => {
         email: body.email,
         clubKey: body.key,
         updatedBy: body.email,
-        status: Status.PENDING,
       },
     })
     await prisma.user.update({
@@ -137,7 +136,7 @@ export const createClubReview = async (key: keyof typeof AllData.Clubs) => {
       omit: { reviewId: true, updatedAt: true, id: true },
       data: {
         key: clubData.key,
-        count: ((await prisma.reviews.count({ where: { key: clubData?.key } })) + 1).toString(),
+        count: ((await prisma.reviews.count({ where: { key: clubData.key }})) + 1).toString(),
         profile: '',
         nick: '',
         gen: '',
@@ -164,7 +163,7 @@ export const updateClubReview = async (
       where: { key: clubData.key, count: count },
       data: {
         profile:
-          !body.profile === undefined ? await uploadImage(body.profile) : reviewData?.profile,
+          body.profile !== undefined ? await uploadImage(body.profile) : reviewData?.profile,
         nick: body.nick,
         gen: body.gen,
         contact: body.contact,
@@ -180,15 +179,8 @@ export const updateClubReview = async (
 export const deleteClubReview = async (key: keyof typeof AllData.Clubs, id: string) => {
   const clubData = (await getClub(key)).data
   try {
-    await prisma.reviews.update({
-      where: { key: clubData.key, count: id },
-      data: {
-        profile: '',
-        nick: '',
-        gen: '',
-        contact: '',
-        content: '',
-      },
+    await prisma.reviews.delete({
+      where: { key: clubData.key, count: id }
     })
     return { status: 200, message: 'Deleting review successfully' }
   } catch (err) {

@@ -40,7 +40,6 @@ export const createProgram = async (body: Program) => {
         key: body.key,
         email: body.email,
         updatedBy: body.email,
-        status: Status.PENDING,
       },
     })
     await prisma.user.update({
@@ -180,15 +179,8 @@ export const updateProgramReview = async (
 export const deleteProgramReview = async (name: keyof typeof AllData.Organizations, id: string) => {
   const programData = (await getProgram(name)).data
   try {
-    await prisma.reviews.update({
+    await prisma.reviews.delete({
       where: { key: programData.key, count: id },
-      data: {
-        profile: '',
-        nick: '',
-        gen: '',
-        contact: '',
-        content: '',
-      },
     })
     return { status: 200, message: 'Deleting review successfully' }
   } catch (err) {

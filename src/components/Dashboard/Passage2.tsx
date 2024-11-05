@@ -54,7 +54,7 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
     <>
       <div className="mx-44 mt-24 flex justify-between">
         <div className="flex flex-col text-center">
-          <div className="mb-24 mr-14 h-[300px] w-[500px] rounded-2xl">
+          <div className="mb-16 mr-14 h-[300px] w-[500px] rounded-2xl">
             <div className="overflow-hidden rounded-2xl">
               <Image src={data.captureimg2} alt="img2" width={500} height={300} />
             </div>

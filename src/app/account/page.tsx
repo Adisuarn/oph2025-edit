@@ -44,7 +44,6 @@ const AccountPage = async () => {
 
   const { thainame, members, status } = userFormData
   const submittedInit = !!tag
-
   return (
     <section className="flex h-screen flex-col items-center justify-center text-formText space-y-2 sm:space-y-4">
       <p className="mb-2 text-xs sm:mb-0 sm:text-lg">

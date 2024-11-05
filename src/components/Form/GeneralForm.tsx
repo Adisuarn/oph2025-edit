@@ -377,7 +377,6 @@ const GeneralForm: React.FC<{
           if (userConfirmed.isConfirmed) {
             try {
               setLoading(true)
-              console.log(values)
               editFormData.members = values.Members
               editFormData.ig = values.IG
               editFormData.fb = values.FB
@@ -477,53 +476,27 @@ const GeneralForm: React.FC<{
 
               //send review data
               const postReviews = [review1, review2, review3]
-              console.log(postReviews)
               const images = [image4, image5, image6]
-              postReviews.map(
-                async (review, index) => {
-                  const reviewData = new FormData()
-                  const profileImage = images[index]
-
-                  if (profileImage) reviewData.append('profile', profileImage);
-                  reviewData.append('nick', review.nick || ''); 
-                  reviewData.append('gen', review.gen || '');
-                  reviewData.append('contact', review.contact || '');
-                  reviewData.append('content', review.content || '');
-                  
-                  if (ReviewAmount - reviews > 0) {
-                    return axios({
-                      method: 'POST',
-                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
-                      headers: {
-                        'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                        Authorization: `${cookies.get('oph2025-auth-cookie')}`,
-                      },
-                      data: {},
-                    })
-                  } else if (review.nick === '' && review.gen === '' && review.contact === '' && review.content === '') {
-                    return axios ({
-                      method: 'DELETE',
-                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
-                      headers: {
-                        'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                        Authorization: `${cookies.get('oph2025-auth-cookie')}`,
-                      },
-                      data: {},
-                    });
-                  }
-                  return axios ({
-                      method: 'PATCH',
-                      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
-                      headers: {
-                        'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                        Authorization: `${cookies.get('oph2025-auth-cookie')}`,
-                      },
-                      data: reviewData,
-                    })
-                  
-                  // if reveiws === reviewsAmount ? PATCH : lesser ? DELETE : POST
-                },
-              )
+              postReviews.map(async (review: any, index: number) => {
+                if (review.content === "" || review.nick === "" || review.gen === "" || review.contact === "" ) return
+                const reviewData = new FormData();
+                const profileImage = images[index];
+                if (profileImage) reviewData.append('profile', profileImage);
+                reviewData.append('nick', review.nick || '');
+                reviewData.append('gen', review.gen || '');
+                reviewData.append('contact', review.contact || '');
+                reviewData.append('content', review.content || '');
+                return axios({
+                  method: 'PATCH',
+                  url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+                  headers: {
+                    'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+                    Authorization: `${cookies.get('oph2025-auth-cookie')}`,
+                  },
+                  data: reviewData,
+                });
+              }
+              );
             } catch (error) {
               console.log(error)
               notifyError()
@@ -1270,22 +1243,27 @@ const GeneralForm: React.FC<{
                       })
                       if (userConfirmed.isConfirmed) {
                         if (ReviewAmount === 3) {
+                          await axios.request({
+                            method: 'DELETE',
+                            headers: {
+                              'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+                              Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                            },
+                            url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/3`,
+                            data: {}
+                          })
                           setReviewAmount(ReviewAmount - 1)
-                          setDisplayImage6(false)
-                          setImageUrl6('')
-                          setFieldValue('textField6', '')
-                          setFieldValue('P3Name', '')
-                          setFieldValue('P3Gen', '')
-                          setFieldValue('P3Contact', '')
-                          
                         } else if (ReviewAmount === 2) {
+                          await axios.request({
+                            method: 'DELETE',
+                            headers: {
+                              'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+                              Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                            },
+                            url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/2`,
+                            data: {}
+                          })
                           setReviewAmount(ReviewAmount - 1)
-                          setDisplayImage5(false)
-                          setImageUrl5('')
-                          setFieldValue('textField5', '')
-                          setFieldValue('P2Name', '')
-                          setFieldValue('P2Gen', '')
-                          setFieldValue('P2Contact', '')
                         }
                       }
                     }}
@@ -1298,7 +1276,18 @@ const GeneralForm: React.FC<{
                   {ReviewAmount !== 3 && (
                     <button
                       type="button"
-                      onClick={() => setReviewAmount(ReviewAmount + 1)}
+                      onClick={async () => {
+                        await axios.request({
+                          method: 'POST',
+                          headers: {
+                            'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+                            Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                          },
+                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review`,
+                          data: {}
+                        })
+                        setReviewAmount(ReviewAmount + 1)
+                      }}
                       className="mx-auto rounded-full bg-gradient-to-br from-buttonFirst via-buttonMiddle via-45% to-greenText px-2 py-1 text-center text-xs text-white sm:px-4 sm:py-2 sm:text-lg hover:scale-105 transition-all"
                     >
                       + เพิ่มรีวิวจากรุ่นพี่

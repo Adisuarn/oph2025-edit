@@ -87,7 +87,7 @@ const Passage3 = ({ type, data, setFieldValue, errors, touched }: any) => {
           })()}
         </div>
         <div className="flex flex-col text-center">
-          <div className="mb-10 ml-14 h-[300] w-[500] rounded-2xl">
+          <div className="mb-28 ml-14 h-[300] w-[500] rounded-2xl">
             <div className="overflow-hidden rounded-2xl">
               <Image src={data.captureimg3} alt="img3" width={500} height={300} />
             </div>

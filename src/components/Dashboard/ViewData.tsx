@@ -75,9 +75,9 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
               }
             }),
             {
-              loading: 'กำลังอัพเดตสถานะ...',
-              success: 'อัพเดตสถานะสำเร็จ',
-              error: 'อัพเดตสถานะไม่สำเร็จ',
+              loading: 'กำลังอัปเดตข้อมูล...',
+              success: 'อัปเดตข้อมูลสำเร็จ',
+              error: 'อัปเดตข้อมูลไม่สำเร็จ',
             },
           )
         }
@@ -112,9 +112,9 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
           const messageElement = document.getElementById('rejection-message') as HTMLTextAreaElement
           if (messageElement) {
             toast.promise(onStatusUpdate(data, status, messageElement.value), {
-              loading: 'กำลังอัพเดตสถานะ...',
-              success: 'อัพเดตสถานะสำเร็จ',
-              error: 'อัพเดตสถานะไม่สำเร็จ',
+              loading: 'กำลังอัปเดตสถานะ...',
+              success: 'อัปเดตสถานะสำเร็จ',
+              error: 'อัปเดตสถานะไม่สำเร็จ',
             })
           }
         }
@@ -178,7 +178,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
             onSubmit={handleSubmit}
           >
             {({ values, setFieldValue, errors, touched }) => (
-              <Form>
+              <Form className="w-full">
                 <Passage1
                   type={type}
                   data={values}
@@ -201,10 +201,10 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
                   touched={touched}
                 />
                 <Reviews reviewData={values.reviews} setFieldValue={setFieldValue} />
-                <div className="bg-custom-gradient">
+                <div className="bg-custom-gradient w-full">
                   <button
                     type="submit"
-                    className="w-full transform py-3 text-[#ffffff] transition duration-300 ease-in-out hover:scale-105 hover:bg-[#ff6b6b] active:scale-100 active:bg-[#ff4d4d]"
+                    className="w-full text-center transform py-3 text-[#ffffff] transition duration-300 ease-in-out hover:scale-105 hover:bg-[#ff6b6b] active:scale-100 active:bg-[#ff4d4d]"
                   >
                     ยืนยันการแก้ไขข้อมูล
                   </button>
