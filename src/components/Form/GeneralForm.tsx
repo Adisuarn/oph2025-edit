@@ -482,7 +482,7 @@ const GeneralForm: React.FC<{
               await axios.request(options);
 
               //send review data
-
+              const reviews = [review1, review2, review3];
               const images = [image4, image5, image6];
 
               const submissionPromises = reviews.map((review: {
@@ -501,6 +501,8 @@ const GeneralForm: React.FC<{
                   reviewData.append("contact", review.contact);
                   reviewData.append("content", review.content);
                   console.log(reviewData)
+
+                  if(reviews){}
                   // const optionsReview = (review.nick === "" && review.gen === "" && review.contact === "" && review.content === "")
                   //   ?
                   //   {
