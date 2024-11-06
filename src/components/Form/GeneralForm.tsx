@@ -104,17 +104,17 @@ const GeneralForm: React.FC<{
   const [image4, setImage4] = useState<File | null>(null)
   const [imageUrl4, setImageUrl4] = useState<string | null>(review1.profile)
   const [displayImage4, setDisplayImage4] = useState<boolean>(
-    review1?.profile === undefined ? false : true,
+    review1?.profile === undefined || review1?.profile === "" || review1?.profile === false ? false : true,
   )
   const [image5, setImage5] = useState<File | null>(null)
   const [imageUrl5, setImageUrl5] = useState<string | null>(review2?.profile)
   const [displayImage5, setDisplayImage5] = useState<boolean>(
-    review2?.profile === undefined ? false : true,
+    review2?.profile === undefined || review2?.profile === "" || review2?.profile === false ? false : true,
   )
   const [image6, setImage6] = useState<File | null>(null)
   const [imageUrl6, setImageUrl6] = useState<string | null>(review3?.profile)
   const [displayImage6, setDisplayImage6] = useState<boolean>(
-    review3?.profile === undefined ? false : true,
+    review3?.profile === undefined || review3?.profile === "" || review3?.profile === false ? false : true,
   )
   const [clubLogo, setClubLogo] = useState<File | null>(null)
   const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(editFormData.logo)
@@ -384,7 +384,7 @@ const GeneralForm: React.FC<{
               editFormData.text1 = values.textField1
               editFormData.text2 = values.textField2
               editFormData.text3 = values.textField3
-              if (editFormData.tagThai === 'ชมรม' && clubLogoUrl === undefined) {
+              if (editFormData.tagThai === 'ชมรม' && clubLogoUrl === undefined || clubLogoUrl === '' || clubLogoUrl === null) { 
                 notifyWarning({ props: 'club logo' })
                 throw new Error('')
               }
@@ -513,7 +513,7 @@ const GeneralForm: React.FC<{
           <Form>
             {loading && (
               <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                <div className="loader h-16 w-16"></div>
+                <div className="loader"></div>
               </div>
             )}
             <section className="mb-8 flex flex-col items-start space-y-3">
@@ -657,6 +657,7 @@ const GeneralForm: React.FC<{
                       <label className="flex h-28 w-28 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] md:h-40 md:w-40 lg:h-52 lg:w-52">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
                           <GalleryIcon className="h-6 w-6 text-greenText sm:h-8 sm:w-8 md:h-16 md:w-16" />
+                          <p className='text-black text-[8px] sm:text-lg mt-1 sm:mt-2'>Club Logo</p>
                         </div>
                         <input type="file" className="hidden" onChange={handleFileSelectClub} />
                       </label>
@@ -1243,6 +1244,12 @@ const GeneralForm: React.FC<{
                       })
                       if (userConfirmed.isConfirmed) {
                         if (ReviewAmount === 3) {
+                          setDisplayImage6(false);
+                          setImageUrl6("");
+                          setFieldValue("textField6", "");
+                          setFieldValue("P3Name", "");
+                          setFieldValue("P3Gen", "");
+                          setFieldValue("P3Contact", "");
                           await axios.request({
                             method: 'DELETE',
                             headers: {
@@ -1254,6 +1261,12 @@ const GeneralForm: React.FC<{
                           })
                           setReviewAmount(ReviewAmount - 1)
                         } else if (ReviewAmount === 2) {
+                          setDisplayImage5(false);
+                          setImageUrl5("");
+                          setFieldValue("textField5", "");
+                          setFieldValue("P2Name", "");
+                          setFieldValue("P2Gen", "");
+                          setFieldValue("P2Contact", "");
                           await axios.request({
                             method: 'DELETE',
                             headers: {
@@ -1267,7 +1280,7 @@ const GeneralForm: React.FC<{
                         }
                       }
                     }}
-                    className="flex h-8 w-8 items-center justify-center rounded-full shadow-xl"
+                    className="flex h-8 w-8 items-center justify-center rounded-full shadow-xl cursor-pointer"
                   >
                     <Trash className="h-3 w-3 sm:h-6 sm:w-6 hover:scale-105 transition-all" />
                   </div>
