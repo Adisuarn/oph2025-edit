@@ -104,17 +104,17 @@ const GeneralForm: React.FC<{
   const [image4, setImage4] = useState<File | null>(null)
   const [imageUrl4, setImageUrl4] = useState<string | null>(review1.profile)
   const [displayImage4, setDisplayImage4] = useState<boolean>(
-    review1?.profile === undefined || review1?.profile === "" || review1?.profile === false ? false : true,
+    review1?.profile
   )
   const [image5, setImage5] = useState<File | null>(null)
   const [imageUrl5, setImageUrl5] = useState<string | null>(review2?.profile)
   const [displayImage5, setDisplayImage5] = useState<boolean>(
-    review2?.profile === undefined || review2?.profile === "" || review2?.profile === false ? false : true,
+    review2?.profile
   )
   const [image6, setImage6] = useState<File | null>(null)
   const [imageUrl6, setImageUrl6] = useState<string | null>(review3?.profile)
   const [displayImage6, setDisplayImage6] = useState<boolean>(
-    review3?.profile === undefined || review3?.profile === "" || review3?.profile === false ? false : true,
+    review3?.profile 
   )
   const [clubLogo, setClubLogo] = useState<File | null>(null)
   const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(editFormData.logo)
@@ -384,7 +384,11 @@ const GeneralForm: React.FC<{
               editFormData.text1 = values.textField1
               editFormData.text2 = values.textField2
               editFormData.text3 = values.textField3
-              if (editFormData.tagThai === 'ชมรม' && clubLogoUrl === undefined || clubLogoUrl === '' || clubLogoUrl === null) { 
+              if (
+                (editFormData.tagThai === 'ชมรม' && clubLogoUrl === undefined) ||
+                clubLogoUrl === '' ||
+                clubLogoUrl === null
+              ) {
                 notifyWarning({ props: 'club logo' })
                 throw new Error('')
               }
@@ -478,14 +482,20 @@ const GeneralForm: React.FC<{
               const postReviews = [review1, review2, review3]
               const images = [image4, image5, image6]
               postReviews.map(async (review: any, index: number) => {
-                if (review.content === "" || review.nick === "" || review.gen === "" || review.contact === "" ) return
-                const reviewData = new FormData();
-                const profileImage = images[index];
-                if (profileImage) reviewData.append('profile', profileImage);
-                reviewData.append('nick', review.nick || '');
-                reviewData.append('gen', review.gen || '');
-                reviewData.append('contact', review.contact || '');
-                reviewData.append('content', review.content || '');
+                if (
+                  review.content === '' ||
+                  review.nick === '' ||
+                  review.gen === '' ||
+                  review.contact === ''
+                )
+                  return
+                const reviewData = new FormData()
+                const profileImage = images[index]
+                if (profileImage) reviewData.append('profile', profileImage)
+                reviewData.append('nick', review.nick || '')
+                reviewData.append('gen', review.gen || '')
+                reviewData.append('contact', review.contact || '')
+                reviewData.append('content', review.content || '')
                 return axios({
                   method: 'PATCH',
                   url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
@@ -494,15 +504,15 @@ const GeneralForm: React.FC<{
                     Authorization: `${cookies.get('oph2025-auth-cookie')}`,
                   },
                   data: reviewData,
-                });
-              }
-              );
+                })
+              })
             } catch (error) {
               console.log(error)
               notifyError()
             } finally {
               setSubmitting(false)
               setLoading(false)
+              notifySuccess()
             }
           } else {
             setSubmitting(false)
@@ -517,13 +527,13 @@ const GeneralForm: React.FC<{
               </div>
             )}
             <section className="mb-8 flex flex-col items-start space-y-3">
-              <div className="flex items-center justify-center space-x-1 hover:scale-105 transition-all">
+              <div className="flex items-center justify-center space-x-1 transition-all hover:scale-105">
                 <Link href="/account">
                   <BackArrow className="h-5 w-5 sm:h-8 sm:w-8 md:h-10 md:w-10" />
                 </Link>
                 <Link
                   href="/account"
-                  className="font-Thai text-xs text-greenText sm:text-lg md:text-2xl relative before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-greenText before:transition-all before:duration-300 hover:before:w-full"
+                  className="relative font-Thai text-xs text-greenText before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-greenText before:transition-all before:duration-300 hover:before:w-full sm:text-lg md:text-2xl"
                 >
                   ย้อนกลับ
                 </Link>
@@ -568,12 +578,12 @@ const GeneralForm: React.FC<{
                   <div className="flex items-center justify-center space-x-2 sm:space-x-4">
                     <Link
                       href={`/preview/${editFormData.tag}`}
-                      className="md:text-md rounded-full border border-greenText px-2 text-[10px] text-greenText transition-all hover:bg-greenText hover:text-white sm:px-4 sm:text-lg hover:scale-105"
+                      className="md:text-md rounded-full border border-greenText px-2 text-[10px] text-greenText transition-all hover:scale-105 hover:bg-greenText hover:text-white hover:shadow-xl sm:px-4 sm:text-lg"
                     >
                       preview
                     </Link>
                     <button
-                      className="rounded-full border bg-gradient-to-r from-buttonFirst via-buttonMiddle to-greenText px-2 font-Thai text-[10px] font-extralight text-white sm:px-4 sm:text-lg hover:scale-105 transition-all"
+                      className="rounded-full border bg-gradient-to-r from-buttonFirst via-buttonMiddle to-greenText px-2 font-Thai text-[10px] font-extralight text-white transition-all hover:scale-105 hover:shadow-xl sm:px-4 sm:text-lg"
                       type="submit"
                       disabled={isSubmitting}
                     >
@@ -647,7 +657,11 @@ const GeneralForm: React.FC<{
                           quality={100}
                         />
                         <button
-                          onClick={() => setDisplayClubLogo(false)}
+                          onClick={() => {
+                            setDisplayClubLogo(false)
+                            setClubLogo(null)
+                            setClubLogoUrl('')
+                          }}
                           className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:-right-5 lg:-right-4"
                         >
                           X
@@ -657,13 +671,13 @@ const GeneralForm: React.FC<{
                       <label className="flex h-28 w-28 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] md:h-40 md:w-40 lg:h-52 lg:w-52">
                         <div className="flex flex-col items-center justify-center pb-6 pt-5">
                           <GalleryIcon className="h-6 w-6 text-greenText sm:h-8 sm:w-8 md:h-16 md:w-16" />
-                          <p className='text-black text-[8px] sm:text-lg mt-1 sm:mt-2'>Club Logo</p>
+                          <p className="mt-1 text-[8px] text-black sm:mt-2 sm:text-lg">Club Logo</p>
                         </div>
                         <input type="file" className="hidden" onChange={handleFileSelectClub} />
                       </label>
                     )}
-                    <div className="h-36 w-[2px] rounded-full bg-white lg:h-48 lg:w-[4px]"></div>
-                    <div className="flex w-1/2 flex-col items-center justify-center lg:space-y-2">
+                    <div className="h-32 w-[2px] rounded-full bg-white lg:h-48 lg:w-[4px] md:ml-4 lg:ml-8"></div>
+                    <div className="flex w-1/2 sm:w-2/3 flex-col items-center justify-center md:ml-4 lg:space-y-2">
                       <p className="rounded-full border border-white px-[8px] text-[10px] font-bold md:text-lg md:font-extrabold lg:px-4 lg:py-2 lg:text-2xl">
                         {editFormData.thainame}
                       </p>
@@ -752,7 +766,11 @@ const GeneralForm: React.FC<{
                             quality={100}
                           />
                           <button
-                            onClick={() => setDisplayImage1(false)}
+                            onClick={() => {
+                              setDisplayImage1(false)
+                              setImage1(null)
+                              setImageUrl1('')
+                            }}
                             className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 2xl:right-24"
                           >
                             X
@@ -827,7 +845,11 @@ const GeneralForm: React.FC<{
                             quality={100}
                           />
                           <button
-                            onClick={() => setDisplayImage2(false)}
+                            onClick={() => {
+                              setDisplayImage2(false)
+                              setImage2(null)
+                              setImageUrl2('')
+                            }}
                             className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 2xl:right-24"
                           >
                             X
@@ -904,7 +926,11 @@ const GeneralForm: React.FC<{
                             quality={100}
                           />
                           <button
-                            onClick={() => setDisplayImage3(false)}
+                            onClick={() => {
+                              setDisplayImage3(false)
+                              setImage3(null)
+                              setImageUrl3('')
+                            }}
                             className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 2xl:right-24"
                           >
                             X
@@ -1244,12 +1270,12 @@ const GeneralForm: React.FC<{
                       })
                       if (userConfirmed.isConfirmed) {
                         if (ReviewAmount === 3) {
-                          setDisplayImage6(false);
-                          setImageUrl6("");
-                          setFieldValue("textField6", "");
-                          setFieldValue("P3Name", "");
-                          setFieldValue("P3Gen", "");
-                          setFieldValue("P3Contact", "");
+                          setDisplayImage6(false)
+                          setImageUrl6('')
+                          setFieldValue('textField6', '')
+                          setFieldValue('P3Name', '')
+                          setFieldValue('P3Gen', '')
+                          setFieldValue('P3Contact', '')
                           await axios.request({
                             method: 'DELETE',
                             headers: {
@@ -1257,16 +1283,16 @@ const GeneralForm: React.FC<{
                               Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
                             },
                             url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/3`,
-                            data: {}
+                            data: {},
                           })
                           setReviewAmount(ReviewAmount - 1)
                         } else if (ReviewAmount === 2) {
-                          setDisplayImage5(false);
-                          setImageUrl5("");
-                          setFieldValue("textField5", "");
-                          setFieldValue("P2Name", "");
-                          setFieldValue("P2Gen", "");
-                          setFieldValue("P2Contact", "");
+                          setDisplayImage5(false)
+                          setImageUrl5('')
+                          setFieldValue('textField5', '')
+                          setFieldValue('P2Name', '')
+                          setFieldValue('P2Gen', '')
+                          setFieldValue('P2Contact', '')
                           await axios.request({
                             method: 'DELETE',
                             headers: {
@@ -1274,15 +1300,15 @@ const GeneralForm: React.FC<{
                               Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
                             },
                             url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/2`,
-                            data: {}
+                            data: {},
                           })
                           setReviewAmount(ReviewAmount - 1)
                         }
                       }
                     }}
-                    className="flex h-8 w-8 items-center justify-center rounded-full shadow-xl cursor-pointer"
+                    className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full shadow-xl"
                   >
-                    <Trash className="h-3 w-3 sm:h-6 sm:w-6 hover:scale-105 transition-all" />
+                    <Trash className="h-3 w-3 transition-all hover:scale-105 sm:h-6 sm:w-6" />
                   </div>
                 )}
                 <div>
@@ -1297,11 +1323,11 @@ const GeneralForm: React.FC<{
                             Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
                           },
                           url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review`,
-                          data: {}
+                          data: {},
                         })
                         setReviewAmount(ReviewAmount + 1)
                       }}
-                      className="mx-auto rounded-full bg-gradient-to-br from-buttonFirst via-buttonMiddle via-45% to-greenText px-2 py-1 text-center text-xs text-white sm:px-4 sm:py-2 sm:text-lg hover:scale-105 transition-all"
+                      className="mx-auto rounded-full hover:shadow-xl bg-gradient-to-br from-buttonFirst via-buttonMiddle via-45% to-greenText px-2 py-1 text-center text-xs text-white transition-all hover:scale-105 sm:px-4 sm:py-2 sm:text-lg"
                     >
                       + เพิ่มรีวิวจากรุ่นพี่
                     </button>
