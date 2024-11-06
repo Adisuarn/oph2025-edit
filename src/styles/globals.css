@@ -6,7 +6,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* HTML: <div class="loader"></div> */
+body{
+  overflow-x: hidden;
+}
 
 .loader {
   width: 50px;

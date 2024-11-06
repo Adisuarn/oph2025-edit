@@ -506,13 +506,13 @@ const GeneralForm: React.FC<{
                   data: reviewData,
                 })
               })
+              notifySuccess()
             } catch (error) {
               console.log(error)
               notifyError()
             } finally {
               setSubmitting(false)
               setLoading(false)
-              notifySuccess()
             }
           } else {
             setSubmitting(false)
@@ -533,7 +533,7 @@ const GeneralForm: React.FC<{
                 </Link>
                 <Link
                   href="/account"
-                  className="relative font-Thai text-xs text-greenText before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-greenText before:transition-all before:duration-300 hover:before:w-full sm:text-lg md:text-2xl"
+                  className="relative font-Thai text-xs text-greenTextext sm:text-lg md:text-2xl"
                 >
                   ย้อนกลับ
                 </Link>
@@ -612,37 +612,37 @@ const GeneralForm: React.FC<{
                       <FaPen className="-mt-4 h-2 text-white" />
                       <p className="sm:text-md text-xs md:text-lg">คน</p>
                     </div>
-                    <div className="sm:space-y-2">
-                      <div className="space-y-1 text-start sm:text-lg">
-                        <div className="flex">
-                          <p>IG : </p>
-                          <Field
-                            type="text"
-                            name="IG"
-                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px] xl:w-full"
-                          />
-                          <FaPen className="h-2 text-white" />
-                        </div>
-                        <div className="flex">
-                          <p>FB : </p>
-                          <Field
-                            type="text"
-                            name="FB"
-                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px] xl:w-full"
-                          />
-                          <FaPen className="h-2 text-white" />
-                        </div>
-                        <div className="flex">
-                          <p>อื่น ๆ : </p>
-                          <Field
-                            type="text"
-                            name="others"
-                            className="bg-transparent pl-3 text-center text-xs text-white sm:text-lg md:w-[360px] xl:w-full"
-                          />
-                          <FaPen className="h-2 text-white" />
+                    <div className="justify- whitespace-nowrapcenter flex items-center sm:space-y-2">
+                        <div className="items-center justify-center space-y-1 text-start sm:text-lg">
+                          <div className="flex">
+                            <p className="text-[8px] sm:text-lg">IG : </p>
+                            <Field
+                              type="text"
+                              name="IG"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
+                          <div className="flex">
+                            <p className="whitespace-nowrap text-[8px] sm:text-lg">FB : </p>
+                            <Field
+                              type="text"
+                              name="FB"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
+                          <div className="flex">
+                            <p className="whitespace-nowrap text-[8px] sm:text-lg">อื่น ๆ : </p>
+                            <Field
+                              type="text"
+                              name="others"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
                         </div>
                       </div>
-                    </div>
                   </div>
                 ) : (
                   <div className="flex h-40 w-full items-center justify-around space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto md:w-[60vw]">
@@ -980,7 +980,7 @@ const GeneralForm: React.FC<{
               </div>
 
               <section className="flex flex-col space-y-10">
-                {ReviewAmount >= 1 && (
+                {/* {ReviewAmount >= 1 && ( */}
                   <div className="flex flex-col items-center justify-center space-y-5">
                     <div className="flex w-full items-start justify-around">
                       <div className="flex flex-col">
@@ -1071,7 +1071,7 @@ const GeneralForm: React.FC<{
                       </div>
                     </div>
                   </div>
-                )}
+                {/* )} */}
                 {ReviewAmount >= 2 && (
                   <div className="flex flex-col items-center justify-center space-y-3">
                     <div className="flex w-full items-start justify-around">
@@ -1151,7 +1151,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P2Contact"
-                            className="w-16 text-end text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
+                            className="w-16 text-end text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
                             placeholder="contact"
                           />
                           <ErrorMessage

@@ -46,9 +46,9 @@ const PreviewGeneralForm: React.FC<{
       <div className="absolute -top-44 left-1/2 z-10 -translate-x-1/2 sm:-top-20">
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
-      <div className="absolute -top-36 left-1/2 z-10 -translate-x-1/2 overflow-hidden">
-        <BigUppercurve className="hidden w-[100vw] md:h-[50vw] lg:block" />
-      </div>
+      <div className="absolute -top-36 left-0 z-10 w-full overflow-hidden">
+  <BigUppercurve className="hidden w-full md:h-[50vw] lg:block" />
+</div>
       <div className="absolute -top-[76px]">
         <FallingLamp className="w-[100vw] sm:hidden" />
       </div>
@@ -426,9 +426,10 @@ const PreviewGeneralForm: React.FC<{
         <div className="absolute -bottom-10 z-10 sm:-bottom-20">
           <Footer className="w-[100vw] lg:hidden" />
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 overflow-hidden lg:-bottom-14 xl:-bottom-5 2xl:-bottom-10">
-          <BigLowercurve className="hidden w-[100vw] lg:block xl:h-[50vw]" />
-        </div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-screen overflow-hidden lg:-bottom-14 xl:-bottom-5 2xl:-bottom-10">
+  <BigLowercurve className="hidden w-full lg:block xl:h-[50vw]" />
+</div>
+
         <div className="absolute z-10 lg:-bottom-8 xl:-bottom-1 2xl:-bottom-5">
           <BigFooter className="hidden w-[100vw] lg:block 2xl:h-[10vw]" />
         </div>
