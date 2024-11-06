@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const DoubleQuoteUp: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -17,7 +17,7 @@ const DoubleQuoteUp: FC<{
         fill="white"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default DoubleQuoteUp;
+export default DoubleQuoteUp

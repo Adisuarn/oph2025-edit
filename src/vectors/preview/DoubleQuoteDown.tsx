@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const DoubleQuoteDown: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -17,7 +17,7 @@ const DoubleQuoteDown: FC<{
         fill="white"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default DoubleQuoteDown;
+export default DoubleQuoteDown

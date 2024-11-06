@@ -31,7 +31,7 @@
       "@libs/*": ["./src/libs/*"],
       "@utils/*": ["./src/server/utils/*"],
       "@middlewares/*": ["./src/server/middlewares/*"],
-      "@modules/*": ["./src/server/modules/*"],
+      "@modules/*": ["./src/server/modules/*"]
     }
   },
   "include": [

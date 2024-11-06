@@ -1,29 +1,31 @@
-import { google, lucia } from "@libs/auth";
+import { cookies } from 'next/headers'
+import { google, lucia } from '@libs/auth'
 import { prisma } from '@utils/db'
-import { generateCodeVerifier, generateState } from "arctic";
-import { cookies } from "next/headers";
+import { generateCodeVerifier, generateState } from 'arctic'
 
-export const createAuthUrl = () => {
+export const createAuthUrl = async () => {
   try {
-    const codeVerifier = generateCodeVerifier();
-    const state = generateState();
+    const codeVerifier = generateCodeVerifier()
+    const state = generateState()
     const scope = ['email', 'profile']
-    cookies().set("codeVerifier", codeVerifier, {
+    cookies().set('codeVerifier', codeVerifier, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: 'lax',
-      maxAge: 60 * 60
-    });
-    cookies().set("state", state, {
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 60 * 60,
+    })
+    cookies().set('state', state, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: 'lax',
-      maxAge: 60 * 60
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: 60 * 60,
     })
 
-    const authUrl = google.createAuthorizationURL(state, codeVerifier, scope, process.env.HOSTED_DOMAIN);
-    return { status: 200, url: authUrl.toString()}
-    
+    const authUrl = google.createAuthorizationURL(
+      state,
+      codeVerifier,
+      scope,
+      process.env.HOSTED_DOMAIN,
+    )
+    return { status: 200, url: authUrl.toString() }
   } catch (err) {
     return { status: 500, message: 'Internal Server Error' }
   }
@@ -36,37 +38,35 @@ export const getGoogleUser = async (req: Request) => {
     const state = url.searchParams.get('state')
     const hd = url.searchParams.get('hd')
 
-    if(!code || !state || !hd) 
-      return { status: 400, message: 'Bad Request' }
+    if (!code || !state || !hd) return { status: 400, message: 'Bad Request' }
 
     const codeVerifier = cookies().get('codeVerifier')?.value
     const savedState = cookies().get('state')?.value
 
-    if(!codeVerifier || !savedState)
+    if (!codeVerifier || !savedState)
       return { status: 400, message: 'codeVerifier or state missed' }
 
-    if(state !== savedState) 
-      return { status: 400, message: 'State mismatch' }
+    if (state !== savedState) return { status: 400, message: 'State mismatch' }
 
     const tokens = await google.validateAuthorizationCode(code, codeVerifier)
     const accessToken = tokens.accessToken()
     const googleResponse = await fetch('https://www.googleapis.com/oauth2/v1/userinfo', {
       headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
+        Authorization: `Bearer ${accessToken}`,
+      },
     })
     const googleData = (await googleResponse.json()) as {
-      id: string,
-      email: string,
-      name: string,
+      id: string
+      email: string
+      name: string
       picture: string
     }
     let userId: string
-    
+
     const existingUser = await prisma.user.findUnique({
-      where: { email: googleData.email }
+      where: { email: googleData.email },
     })
-    if(existingUser) {
+    if (existingUser) {
       userId = existingUser.id
     } else {
       const user = await prisma.user.create({
@@ -75,8 +75,8 @@ export const getGoogleUser = async (req: Request) => {
           name: googleData.name,
           picture: googleData.picture,
           tag: '',
-          key: ''
-        }
+          key: '',
+        },
       })
       userId = user.id
     }
@@ -89,7 +89,7 @@ export const getGoogleUser = async (req: Request) => {
   }
 }
 
-export const Logout = () => {  
+export const Logout = () => {
   const sessionCookie = lucia.createBlankSessionCookie()
   cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
   return { status: 200, message: 'Logout success' }

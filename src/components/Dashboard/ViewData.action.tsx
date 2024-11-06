@@ -1,17 +1,19 @@
 'use server'
-import apiFunction from "../api";
+
 import { Status, Tag } from '@utils/type'
+
+import apiFunction from '../api'
 
 export const updateStatus = async (data: any, status: Status, rejectionMessage: string) => {
   const body = {
     status: status,
-    error: rejectionMessage
+    error: rejectionMessage,
   }
   await apiFunction('PATCH', `/tucmc/data/${data.data.tag}/${data.data.key}`, body)
 }
 
 export const updateData = async (data: any, tag: any, key: any) => {
-  switch(tag) {
+  switch (tag) {
     case Tag.CLUB:
       const body = {
         activities: data.activities,
@@ -22,7 +24,7 @@ export const updateData = async (data: any, tag: any, key: any) => {
         descimg3: data.descimg3,
       }
       await apiFunction('PATCH', `/tucmc/data/${tag}/${key}/edit`, body)
-      data.reviews.map(async (review: any) =>{
+      data.reviews.map(async (review: any) => {
         const bodyReview = {
           nick: review.nick,
           gen: review.gen,
@@ -42,7 +44,7 @@ export const updateData = async (data: any, tag: any, key: any) => {
         descimg3: data.descimg3,
       }
       await apiFunction('PATCH', `/tucmc/data/${tag}/${key}/edit`, bodyOrg)
-      data.reviews.map(async (review: any) =>{
+      data.reviews.map(async (review: any) => {
         const bodyReview = {
           nick: review.nick,
           gen: review.gen,
@@ -62,7 +64,7 @@ export const updateData = async (data: any, tag: any, key: any) => {
         descimg3: data.descimg3,
       }
       await apiFunction('PATCH', `/tucmc/data/${tag}/${key}/edit`, bodyProg)
-      data.reviews.map(async (review: any) =>{
+      data.reviews.map(async (review: any) => {
         const bodyReview = {
           nick: review.nick,
           gen: review.gen,
@@ -71,7 +73,7 @@ export const updateData = async (data: any, tag: any, key: any) => {
         }
         await apiFunction('PATCH', `/tucmc/data/${tag}/${key}/review/${review.count}`, bodyReview)
       })
-      break 
+      break
     case Tag.GIFTED:
       const bodyGift = {
         admissions: data.activities,
@@ -82,7 +84,7 @@ export const updateData = async (data: any, tag: any, key: any) => {
         descimg3: data.descimg3,
       }
       await apiFunction('PATCH', `/tucmc/data/${tag}/${key}/edit`, bodyGift)
-      data.reviews.map(async (review: any) =>{
+      data.reviews.map(async (review: any) => {
         const bodyReview = {
           nick: review.nick,
           gen: review.gen,

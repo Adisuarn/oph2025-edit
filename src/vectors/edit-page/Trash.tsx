@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Trash: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -21,7 +21,7 @@ const Trash: FC<{
         fill="#111827"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Trash;
+export default Trash

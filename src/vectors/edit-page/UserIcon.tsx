@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const UserIcon: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -27,7 +27,7 @@ const UserIcon: FC<{
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default UserIcon;
+export default UserIcon

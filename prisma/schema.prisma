@@ -152,7 +152,6 @@ model Gifted {
 model Reviews {
   id             String         @id @default(cuid()) @map("_id")
   key            String         @unique
-  email          String         @unique
   count          String?
   profile        String?
   nick           String

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Google: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -29,7 +29,7 @@ const Google: FC<{
         fill="#0D5950"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Google;
+export default Google

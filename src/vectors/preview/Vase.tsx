@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Vase: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -85,11 +85,7 @@ const Vase: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2700"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2700" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -116,15 +112,8 @@ const Vase: FC<{
           <feOffset dy="4.21607" />
           <feGaussianBlur stdDeviation="2.10803" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2700"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2700" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -231,7 +220,7 @@ const Vase: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Vase;
+export default Vase

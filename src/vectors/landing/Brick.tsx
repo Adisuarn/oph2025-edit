@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Brick: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -35,12 +35,7 @@ const Brick: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -54,11 +49,7 @@ const Brick: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.8 0"
           />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_469_491"
-          />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_469_491" />
         </filter>
         <linearGradient
           id="paint0_linear_469_491"
@@ -85,7 +76,7 @@ const Brick: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Brick;
+export default Brick

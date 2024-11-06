@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Frames: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -30,13 +30,13 @@ const Frames: FC<{
           fill="url(#paint1_radial_190_2293)"
         />
       </g>
-      <g style={{ mixBlendMode: "soft-light" }}>
+      <g style={{ mixBlendMode: 'soft-light' }}>
         <path
           d="M106.244 69.5496L160.615 9.99979L161.247 21.3727L161.669 28.9547L113.058 83.437L106.244 69.5496Z"
           fill="url(#paint2_linear_190_2293)"
         />
       </g>
-      <g style={{ mixBlendMode: "soft-light" }}>
+      <g style={{ mixBlendMode: 'soft-light' }}>
         <path
           d="M118.31 86.8875L166.197 35.543L165.051 43.7069L164.287 49.1496L121.298 95.9559L118.31 86.8875Z"
           fill="url(#paint3_linear_190_2293)"
@@ -60,13 +60,13 @@ const Frames: FC<{
         ry="40.1877"
         fill="url(#paint5_linear_190_2293)"
       />
-      <g style={{ mixBlendMode: "soft-light" }}>
+      <g style={{ mixBlendMode: 'soft-light' }}>
         <path
           d="M21.6401 178.094L71.135 124.084C71.135 124.084 72.8554 124.018 76.7236 127.878C80.5918 131.738 81.375 132.851 81.375 132.851L26.9365 189.917L21.6401 178.094Z"
           fill="url(#paint6_linear_190_2293)"
         />
       </g>
-      <g style={{ mixBlendMode: "soft-light" }}>
+      <g style={{ mixBlendMode: 'soft-light' }}>
         <path
           d="M34.1943 197.01L87.3792 144.833L88.2903 151.655L38.6536 200.278L34.1943 197.01Z"
           fill="url(#paint7_linear_190_2293)"
@@ -99,13 +99,13 @@ const Frames: FC<{
           strokeWidth="14.0638"
         />
       </g>
-      <g style={{ mixBlendMode: "soft-light" }}>
+      <g style={{ mixBlendMode: 'soft-light' }}>
         <path
           d="M96.36 295.096L137.534 244.861L141.95 250.934L145.263 255.35L104.641 307.241L96.36 295.096Z"
           fill="url(#paint11_linear_190_2293)"
         />
       </g>
-      <g style={{ mixBlendMode: "soft-light" }}>
+      <g style={{ mixBlendMode: 'soft-light' }}>
         <path
           d="M106.065 316.342L150.784 262.524L153.546 266.39L155.754 269.702L109.612 325.207L106.065 316.342Z"
           fill="url(#paint12_linear_190_2293)"
@@ -135,11 +135,7 @@ const Frames: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2293"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2293" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -170,11 +166,7 @@ const Frames: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2293"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2293" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -205,11 +197,7 @@ const Frames: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2293"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2293" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -240,11 +228,7 @@ const Frames: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2293"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2293" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -271,15 +255,8 @@ const Frames: FC<{
           <feOffset dy="4.01822" />
           <feGaussianBlur stdDeviation="2.00911" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2293"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2293" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -434,7 +411,7 @@ const Frames: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Frames;
+export default Frames

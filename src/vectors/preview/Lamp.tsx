@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Lamp: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -117,16 +117,8 @@ const Lamp: FC<{
           colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.1763"
-            result="effect1_foregroundBlur_193_607"
-          />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.1763" result="effect1_foregroundBlur_193_607" />
         </filter>
         <filter
           id="filter1_d_193_607"
@@ -151,11 +143,7 @@ const Lamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_607"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_607" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -186,11 +174,7 @@ const Lamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_607"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_607" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -221,11 +205,7 @@ const Lamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_607"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_607" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -256,11 +236,7 @@ const Lamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_607"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_607" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -291,11 +267,7 @@ const Lamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.6 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_607"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_607" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -513,7 +485,7 @@ const Lamp: FC<{
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Lamp;
+export default Lamp

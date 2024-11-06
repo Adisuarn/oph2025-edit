@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Stainedglass: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -13,13 +13,7 @@ const Stainedglass: FC<{
       xmlns="http://www.w3.org/2000/svg"
     >
       <g filter="url(#filter0_d_190_2541)">
-        <ellipse
-          cx="13.1945"
-          cy="155.07"
-          rx="133.194"
-          ry="146.514"
-          fill="#D9D9D9"
-        />
+        <ellipse cx="13.1945" cy="155.07" rx="133.194" ry="146.514" fill="#D9D9D9" />
         <ellipse
           cx="13.1945"
           cy="155.07"
@@ -27,10 +21,7 @@ const Stainedglass: FC<{
           ry="146.514"
           fill="url(#paint0_radial_190_2541)"
         />
-        <path
-          d="M-115.625 140.098H146.389V462H6.29168H-115.625V140.098Z"
-          fill="#D9D9D9"
-        />
+        <path d="M-115.625 140.098H146.389V462H6.29168H-115.625V140.098Z" fill="#D9D9D9" />
         <path
           d="M-115.625 140.098H146.389V462H6.29168H-115.625V140.098Z"
           fill="url(#paint1_radial_190_2541)"
@@ -145,12 +136,7 @@ const Stainedglass: FC<{
           fill="url(#paint23_linear_190_2541)"
         />
       </g>
-      <circle
-        cx="13.6806"
-        cy="72.7235"
-        r="8.55556"
-        fill="url(#paint24_radial_190_2541)"
-      />
+      <circle cx="13.6806" cy="72.7235" r="8.55556" fill="url(#paint24_radial_190_2541)" />
       <defs>
         <filter
           id="filter0_d_190_2541"
@@ -175,11 +161,7 @@ const Stainedglass: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -206,15 +188,8 @@ const Stainedglass: FC<{
           <feOffset dy="3.55056" />
           <feGaussianBlur stdDeviation="1.77528" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -241,15 +216,8 @@ const Stainedglass: FC<{
           <feOffset dy="3.55056" />
           <feGaussianBlur stdDeviation="1.77528" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -276,15 +244,8 @@ const Stainedglass: FC<{
           <feOffset dy="4.27778" />
           <feGaussianBlur stdDeviation="2.13889" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -311,15 +272,8 @@ const Stainedglass: FC<{
           <feOffset dy="4.27778" />
           <feGaussianBlur stdDeviation="2.13889" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -346,15 +300,8 @@ const Stainedglass: FC<{
           <feOffset dy="4.27778" />
           <feGaussianBlur stdDeviation="2.13889" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -381,15 +328,8 @@ const Stainedglass: FC<{
           <feOffset dy="1.61872" />
           <feGaussianBlur stdDeviation="0.80936" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -416,15 +356,8 @@ const Stainedglass: FC<{
           <feOffset dy="1.61872" />
           <feGaussianBlur stdDeviation="0.80936" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -451,15 +384,8 @@ const Stainedglass: FC<{
           <feOffset dy="1.61872" />
           <feGaussianBlur stdDeviation="0.80936" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -486,15 +412,8 @@ const Stainedglass: FC<{
           <feOffset dy="1.61872" />
           <feGaussianBlur stdDeviation="0.80936" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2541"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2541" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -803,7 +722,7 @@ const Stainedglass: FC<{
         </radialGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Stainedglass;
+export default Stainedglass
