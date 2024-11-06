@@ -52,7 +52,7 @@ const PreviewGeneralForm: React.FC<{
       <div className="absolute -top-[76px]">
         <FallingLamp className="w-[100vw] sm:hidden" />
       </div>
-      <div className="absolute right-0 z-0 lg:top-14 xl:top-48">
+      <div className="absolute right-0 z-0 lg:top-14 xl:top-48 2xl:top-96 overflow-hidden">
         <ClubFallingLamp className="hidden lg:block lg:w-[270px] xl:w-80" />
       </div>
       <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[400px] lg:mx-48 xl:mx-60 2xl:pt-[520px]">
@@ -119,7 +119,7 @@ const PreviewGeneralForm: React.FC<{
 
           {/* section1 */}
           <div className="mb-14 mt-12 flex flex-col sm:mt-5 md:mb-20 md:mt-20">
-            <div className="flex flex-col items-center justify-between sm:flex-row md:mb-8">
+            <div className="flex flex-col items-start justify-between sm:flex-row md:mb-8">
               {editFormData.tagThai === 'ชมรม' ? (
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                   <p className="sm:py-1 sm:text-3xl sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.5] lg:py-2 lg:text-7xl lg:leading-[1.3]">
@@ -180,7 +180,7 @@ const PreviewGeneralForm: React.FC<{
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col-reverse items-center justify-between sm:flex-row md:mb-8">
               <div className="relative sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -right-12 -top-52 z-10 sm:-right-[264px] md:-right-[480px] md:-top-10 xl:-right-[540px] 2xl:-right-[770px]">
+                <div className="absolute -right-12 -top-52 z-10 sm:-right-[264px] md:-right-[480px] md:-top-10 xl:-right-[550px] 2xl:-right-[770px]">
                   <Flower className="w-16 sm:w-28 md:w-52 lg:w-72 2xl:w-96" />
                 </div>
                 <Image
@@ -419,7 +419,7 @@ const PreviewGeneralForm: React.FC<{
         </section>
       </section>
 
-      <div className="relative overflow-hidden pb-48 sm:pb-96 md:pb-[580px] xl:pb-[800px]">
+      <div className="relative overflow-hidden pb-48 sm:pb-96 md:pb-[580px] xl:pb-[800px] 2xl:pb-[1000px]">
         <div className="absolute -bottom-[150px] left-1/2 -translate-x-1/2 sm:-bottom-[80px] md:-bottom-[20px] lg:hidden">
           <Lowercurve className="w-[100vw]" />
         </div>
@@ -432,9 +432,6 @@ const PreviewGeneralForm: React.FC<{
         <div className="absolute z-10 lg:-bottom-8 xl:-bottom-1 2xl:-bottom-5">
           <BigFooter className="hidden w-[100vw] lg:block 2xl:h-[10vw]" />
         </div>
-        {/* <div className="absolute z-20 -bottom-48">
-    <Footer className="w-full" />
-  </div> */}
       </div>
     </section>
   )
