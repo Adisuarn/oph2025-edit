@@ -16,11 +16,7 @@ const LogoutButton = () => {
         },
       }
       const response = await axios.request(options)
-      if (response.status === 200) {
-        router.push('/')
-      } else {
-        router.push('/error/500')
-      }
+      if (response.status === 200) router.push('/')
     } catch (error) {
       console.log(error)
     }
