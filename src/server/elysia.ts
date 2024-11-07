@@ -1,26 +1,25 @@
-import { Elysia, t } from 'elysia'
-import swagger from '@elysiajs/swagger'
+import { GlobalGuard } from '@middlewares/globalguard'
 import { authRouter } from '@modules/auth/auth.route'
 import { clubRouter } from '@modules/clubs/clubs.route'
-import { organizationRouter } from '@modules/organizations/organizations.route'
-import { programRouter } from '@/server/modules/programs/programs.route'
 import { giftedRouter } from '@modules/gifted/gifted.route'
+import { organizationRouter } from '@modules/organizations/organizations.route'
+import { rolesRouter } from '@modules/roles/roles.route'
 import { tucmcRouter } from '@modules/tucmc/tucmc.route'
 import { userRouter } from '@modules/user/user.route'
-import { rolesRouter } from '@modules/roles/roles.route'
-import { GlobalGuard } from '@middlewares/globalguard'
-
+import { logger } from "@tqman/nice-logger";
+import { Elysia } from 'elysia'
+import { programRouter } from '@/server/modules/programs/programs.route'
 
 export const elysiaApp = new Elysia({ prefix: '/api' })
-    .use(swagger)
-    .use(GlobalGuard)
-    .use(authRouter)
-    .use(clubRouter)
-    .use(organizationRouter)
-    .use(programRouter)
-    .use(giftedRouter)
-    .use(tucmcRouter)
-    .use(userRouter)
-    .use(rolesRouter)
+  .use(logger({ mode: "combined" }))
+  .use(GlobalGuard)
+  .use(authRouter)
+  .use(clubRouter)
+  .use(organizationRouter)
+  .use(programRouter)
+  .use(giftedRouter)
+  .use(tucmcRouter)
+  .use(userRouter)
+  .use(rolesRouter)
 
 export type TElysiaApp = typeof elysiaApp

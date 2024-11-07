@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const FallingLamp: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -29,8 +29,8 @@ const FallingLamp: FC<{
           <path
             d="M1178.31 58.7637L1176.88 253.03"
             stroke="url(#paint2_linear_190_2388)"
-            stroke-width="9.99898"
-            stroke-linecap="round"
+            strokeWidth="9.99898"
+            strokeLinecap="round"
           />
         </g>
         <ellipse
@@ -46,7 +46,7 @@ const FallingLamp: FC<{
         />
         <mask
           id="mask0_190_2388"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="1116"
           y="253"
@@ -59,13 +59,13 @@ const FallingLamp: FC<{
           />
         </mask>
         <g mask="url(#mask0_190_2388)">
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1121.6 370.475L1221.19 268.148L1234.06 281.375L1134.48 383.701L1121.6 370.475Z"
               fill="url(#paint6_linear_190_2388)"
             />
           </g>
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1121.17 339.644L1220.76 237.317L1228.07 244.828L1128.48 347.155L1121.17 339.644Z"
               fill="url(#paint7_linear_190_2388)"
@@ -78,8 +78,8 @@ const FallingLamp: FC<{
           <path
             d="M1117.71 3L1117.09 86.8207"
             stroke="url(#paint8_linear_190_2388)"
-            stroke-width="5.64101"
-            stroke-linecap="round"
+            strokeWidth="5.64101"
+            strokeLinecap="round"
           />
         </g>
         <ellipse
@@ -95,7 +95,7 @@ const FallingLamp: FC<{
         />
         <mask
           id="mask1_190_2388"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="1072"
           y="87"
@@ -108,13 +108,13 @@ const FallingLamp: FC<{
           />
         </mask>
         <g mask="url(#mask1_190_2388)">
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1076.31 173.453L1149.77 97.9722L1159.27 107.729L1085.81 183.21L1076.31 173.453Z"
               fill="url(#paint12_linear_190_2388)"
             />
           </g>
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M1076 150.711L1149.46 75.23L1154.85 80.7705L1081.39 156.251L1076 150.711Z"
               fill="url(#paint13_linear_190_2388)"
@@ -133,8 +133,8 @@ const FallingLamp: FC<{
           <path
             d="M57 20L58 191"
             stroke="url(#paint15_linear_190_2388)"
-            stroke-width="11.8286"
-            stroke-linecap="round"
+            strokeWidth="11.8286"
+            strokeLinecap="round"
           />
         </g>
         <ellipse
@@ -157,7 +157,7 @@ const FallingLamp: FC<{
         />
         <mask
           id="mask2_190_2388"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="-15"
           y="191"
@@ -170,13 +170,13 @@ const FallingLamp: FC<{
           />
         </mask>
         <g mask="url(#mask2_190_2388)">
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M-7.70508 329.955L110.106 208.905L125.334 224.552L7.52331 345.602L-7.70508 329.955Z"
               fill="url(#paint20_linear_190_2388)"
             />
           </g>
-            <g style={{mixBlendMode: "soft-light",}}>
+          <g style={{ mixBlendMode: 'soft-light' }}>
             <path
               d="M-8.21289 293.482L109.598 172.432L118.246 181.318L0.434803 302.368L-8.21289 293.482Z"
               fill="url(#paint21_linear_190_2388)"
@@ -192,19 +192,11 @@ const FallingLamp: FC<{
           width="252.599"
           height="414.958"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.357106"
-            result="effect1_foregroundBlur_190_2388"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.357106" result="effect1_foregroundBlur_190_2388" />
         </filter>
         <filter
           id="filter1_f_190_2388"
@@ -213,19 +205,11 @@ const FallingLamp: FC<{
           width="186.329"
           height="306.093"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.263418"
-            result="effect1_foregroundBlur_190_2388"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.263418" result="effect1_foregroundBlur_190_2388" />
         </filter>
         <filter
           id="filter2_d_190_2388"
@@ -234,9 +218,9 @@ const FallingLamp: FC<{
           width="135.183"
           height="327.228"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -250,11 +234,7 @@ const FallingLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -269,9 +249,9 @@ const FallingLamp: FC<{
           width="22.8546"
           height="215.692"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -281,15 +261,8 @@ const FallingLamp: FC<{
           <feOffset dy="5.7137" />
           <feGaussianBlur stdDeviation="2.85685" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -304,9 +277,9 @@ const FallingLamp: FC<{
           width="103.077"
           height="184.58"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -320,11 +293,7 @@ const FallingLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -339,9 +308,9 @@ const FallingLamp: FC<{
           width="12.7042"
           height="95.9088"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -351,15 +320,8 @@ const FallingLamp: FC<{
           <feOffset dy="3.22343" />
           <feGaussianBlur stdDeviation="1.61172" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -374,19 +336,11 @@ const FallingLamp: FC<{
           width="298.819"
           height="490.886"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
-          <feGaussianBlur
-            stdDeviation="0.422449"
-            result="effect1_foregroundBlur_190_2388"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+          <feGaussianBlur stdDeviation="0.422449" result="effect1_foregroundBlur_190_2388" />
         </filter>
         <filter
           id="filter7_d_190_2388"
@@ -395,9 +349,9 @@ const FallingLamp: FC<{
           width="159.521"
           height="325.839"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -411,11 +365,7 @@ const FallingLamp: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -430,9 +380,9 @@ const FallingLamp: FC<{
           width="26.3465"
           height="196.346"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -442,15 +392,8 @@ const FallingLamp: FC<{
           <feOffset dy="6.75918" />
           <feGaussianBlur stdDeviation="3.37959" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2388"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2388" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -466,9 +409,9 @@ const FallingLamp: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1178.31 345.164) rotate(90) scale(177.839 98.4631)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.3" stop-color="#FFF7EB" stop-opacity="0.5" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.3" stopColor="#FFF7EB" stopOpacity="0.5" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_190_2388"
@@ -478,9 +421,9 @@ const FallingLamp: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1118.14 154.783) rotate(90) scale(131.183 72.631)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.3" stop-color="#FFF7EB" stop-opacity="0.5" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.3" stopColor="#FFF7EB" stopOpacity="0.5" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <linearGradient
           id="paint2_linear_190_2388"
@@ -490,9 +433,9 @@ const FallingLamp: FC<{
           y2="9.34844"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_190_2388"
@@ -502,8 +445,8 @@ const FallingLamp: FC<{
           y2="367.475"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_190_2388"
@@ -513,10 +456,10 @@ const FallingLamp: FC<{
           y2="451.093"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_190_2388"
@@ -526,10 +469,10 @@ const FallingLamp: FC<{
           y2="451.093"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_190_2388"
@@ -539,8 +482,8 @@ const FallingLamp: FC<{
           y2="345.577"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_190_2388"
@@ -550,8 +493,8 @@ const FallingLamp: FC<{
           y2="314.764"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_190_2388"
@@ -561,9 +504,9 @@ const FallingLamp: FC<{
           y2="-19.5474"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_190_2388"
@@ -573,8 +516,8 @@ const FallingLamp: FC<{
           y2="171.242"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_190_2388"
@@ -584,10 +527,10 @@ const FallingLamp: FC<{
           y2="232.457"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_190_2388"
@@ -597,10 +540,10 @@ const FallingLamp: FC<{
           y2="232.457"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_190_2388"
@@ -610,8 +553,8 @@ const FallingLamp: FC<{
           y2="155.087"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_190_2388"
@@ -621,8 +564,8 @@ const FallingLamp: FC<{
           y2="132.358"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <radialGradient
           id="paint14_radial_190_2388"
@@ -632,9 +575,9 @@ const FallingLamp: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(59.3759 300.012) rotate(90) scale(210.38 116.48)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.3" stop-color="#FFF7EB" stop-opacity="0.5" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.3" stopColor="#FFF7EB" stopOpacity="0.5" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <linearGradient
           id="paint15_linear_190_2388"
@@ -644,9 +587,9 @@ const FallingLamp: FC<{
           y2="-36.6086"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_190_2388"
@@ -656,8 +599,8 @@ const FallingLamp: FC<{
           y2="326.407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_190_2388"
@@ -667,8 +610,8 @@ const FallingLamp: FC<{
           y2="326.407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_190_2388"
@@ -678,10 +621,10 @@ const FallingLamp: FC<{
           y2="430.127"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_190_2388"
@@ -691,10 +634,10 @@ const FallingLamp: FC<{
           y2="430.127"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.183058" stop-color="#D9523B" />
-          <stop offset="0.350471" stop-color="#D9392B" />
-          <stop offset="0.455" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.183058" stopColor="#D9523B" />
+          <stop offset="0.350471" stopColor="#D9392B" />
+          <stop offset="0.455" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_190_2388"
@@ -704,8 +647,8 @@ const FallingLamp: FC<{
           y2="300.501"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_190_2388"
@@ -715,12 +658,12 @@ const FallingLamp: FC<{
           y2="264.05"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default FallingLamp;
+export default FallingLamp

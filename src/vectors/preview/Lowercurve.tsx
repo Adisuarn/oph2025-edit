@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Lowercurve: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -54,9 +54,9 @@ const Lowercurve: FC<{
           width="279.036"
           height="407.239"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -66,15 +66,8 @@ const Lowercurve: FC<{
           <feOffset dy="3.18205" />
           <feGaussianBlur stdDeviation="1.59103" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2426"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2426" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -89,9 +82,9 @@ const Lowercurve: FC<{
           width="214.931"
           height="241.069"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -101,15 +94,8 @@ const Lowercurve: FC<{
           <feOffset dy="3.18205" />
           <feGaussianBlur stdDeviation="1.59103" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2426"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2426" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -124,9 +110,9 @@ const Lowercurve: FC<{
           width="376.592"
           height="274.099"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -136,15 +122,8 @@ const Lowercurve: FC<{
           <feOffset dy="3.18205" />
           <feGaussianBlur stdDeviation="1.59103" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2426"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2426" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -159,9 +138,9 @@ const Lowercurve: FC<{
           width="214.94"
           height="242.361"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -171,15 +150,8 @@ const Lowercurve: FC<{
           <feOffset dy="3.18205" />
           <feGaussianBlur stdDeviation="1.59103" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2426"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2426" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -194,9 +166,9 @@ const Lowercurve: FC<{
           width="376.592"
           height="274.099"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -206,15 +178,8 @@ const Lowercurve: FC<{
           <feOffset dy="3.18205" />
           <feGaussianBlur stdDeviation="1.59103" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2426"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2426" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -230,9 +195,9 @@ const Lowercurve: FC<{
           y2="-111.327"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_190_2426"
@@ -242,9 +207,9 @@ const Lowercurve: FC<{
           y2="70.6502"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#F4F15B" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_190_2426"
@@ -254,9 +219,9 @@ const Lowercurve: FC<{
           y2="-105.639"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.294828" stop-color="#0C453E" />
-          <stop offset="0.43023" stop-color="#1B9A8A" />
-          <stop offset="0.634221" stop-color="#F4F15B" />
+          <stop offset="0.294828" stopColor="#0C453E" />
+          <stop offset="0.43023" stopColor="#1B9A8A" />
+          <stop offset="0.634221" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_190_2426"
@@ -266,9 +231,9 @@ const Lowercurve: FC<{
           y2="-111.327"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_190_2426"
@@ -278,9 +243,9 @@ const Lowercurve: FC<{
           y2="70.6486"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_190_2426"
@@ -290,13 +255,13 @@ const Lowercurve: FC<{
           y2="-105.641"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.294828" stop-color="#0C453E" />
-          <stop offset="0.43023" stop-color="#1B9A8A" />
-          <stop offset="0.634221" stop-color="#F4F15B" />
+          <stop offset="0.294828" stopColor="#0C453E" />
+          <stop offset="0.43023" stopColor="#1B9A8A" />
+          <stop offset="0.634221" stopColor="#F4F15B" />
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Lowercurve;
+export default Lowercurve

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const GalleryIcon: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -17,7 +17,7 @@ const GalleryIcon: FC<{
         fill="#111827"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default GalleryIcon;
+export default GalleryIcon

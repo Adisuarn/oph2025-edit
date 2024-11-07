@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const BigFooter: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -22,13 +22,13 @@ const BigFooter: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(757.034 412.851) rotate(-90) scale(1333.99 1329.98)"
         >
-          <stop offset="0.13482" stop-color="#0C453E" />
-          <stop offset="0.553725" stop-color="#1B9A8A" />
-          <stop offset="0.870278" stop-color="#F4F15B" />
+          <stop offset="0.13482" stopColor="#0C453E" />
+          <stop offset="0.553725" stopColor="#1B9A8A" />
+          <stop offset="0.870278" stopColor="#F4F15B" />
         </radialGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default BigFooter;
+export default BigFooter

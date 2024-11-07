@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const FlowerVase: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -21,8 +21,8 @@ const FlowerVase: FC<{
       />
       <g filter="url(#filter0_d_378_557)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M158.629 418.727C160.505 419.801 162.495 420.669 164.612 421.593C171.756 424.709 180.345 428.456 190.84 442.887C205.78 463.43 204.403 487.414 191.916 504.315H100C89.1317 488.542 88.6053 465.971 102.966 442.887C113.052 429.476 121.986 425.04 129.365 421.377C131.157 420.487 132.858 419.643 134.46 418.727C136.175 417.747 136.214 416.031 136.258 414.11C136.265 413.837 136.271 413.561 136.282 413.281C136.882 398.458 136.429 383.477 133.238 371.727C131.79 366.405 128.203 361.954 123.36 359.31C119.966 357.468 119.377 355.164 119.377 352.678C119.377 346.532 131.541 341.561 146.545 341.561C161.549 341.561 173.712 346.543 173.712 352.678C173.712 355.164 173.113 357.457 169.73 359.31C164.887 361.954 161.3 366.405 159.851 371.727C156.661 383.465 156.208 398.458 156.808 413.281C156.819 413.561 156.825 413.837 156.832 414.11C156.876 416.031 156.915 417.747 158.629 418.727ZM146.341 356.644C135.467 356.644 126.653 354.361 126.653 351.548C126.653 348.735 135.671 345.066 146.545 345.066C157.419 345.066 166.03 348.735 166.03 351.548C166.03 354.361 157.215 356.644 146.341 356.644Z"
           fill="url(#paint1_linear_378_557)"
         />
@@ -30,7 +30,7 @@ const FlowerVase: FC<{
       <path
         d="M209.028 285.083C206.167 300.282 226.942 309.226 227.004 319.631C227.066 330.035 213.615 337.084 194.681 338.671C175.748 340.258 159.5 357 159.5 357L134.5 357C134.5 357 83.5624 320.687 94.6792 299.828C105.796 278.969 79.2871 273.483 84.0173 249.367C88.7476 225.25 166.999 217.001 143.499 189.001C119.999 161.001 95.5786 142.672 116.5 104.501C137.421 66.3304 198.962 24.6271 258.799 53.6889C318.636 82.7508 352.996 139.435 340.78 174.777C328.564 210.118 274.119 188.52 268.697 207.546C263.274 226.573 302.536 224.473 290.747 252.272C278.958 280.07 211.889 269.885 209.028 285.083Z"
         fill="url(#paint2_linear_378_557)"
-        fill-opacity="0.8"
+        fillOpacity="0.8"
       />
       <path
         d="M141.887 276.443C124.081 277.762 122.762 279.081 121.443 296.887C120.125 279.081 118.806 277.762 101 276.443C118.806 275.125 120.125 273.806 121.443 256C122.762 273.806 124.081 275.125 141.887 276.443Z"
@@ -55,8 +55,8 @@ const FlowerVase: FC<{
       <path
         d="M154.169 383.025C154.169 383.025 150.178 358.914 150.178 341.138C150.178 323.363 161.064 307.171 161.064 307.171"
         stroke="url(#paint3_linear_378_557)"
-        stroke-width="4"
-        stroke-linecap="round"
+        strokeWidth="4"
+        strokeLinecap="round"
       />
       <path
         d="M140.873 339.654C145.692 346.834 147.664 360.232 147.664 360.232L134.512 358.848C134.512 358.848 129.101 346.608 127.841 337.727C126.582 328.845 128.298 319.719 128.298 319.719C128.298 319.719 136.054 332.475 140.873 339.654Z"
@@ -81,8 +81,8 @@ const FlowerVase: FC<{
         fill="url(#paint7_linear_378_557)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M190.84 442.887C180.345 428.457 171.756 424.71 164.612 421.593C162.495 420.67 160.505 419.802 158.629 418.727C156.915 417.748 156.876 416.032 156.832 414.11C156.825 413.838 156.819 413.561 156.808 413.281C156.208 398.458 156.661 383.466 159.851 371.727C161.3 366.405 164.887 361.954 169.73 359.31C173.113 357.457 173.712 355.164 173.712 352.678L166.03 351.548C166.03 354.362 157.215 356.644 146.341 356.644C135.467 356.644 126.653 354.362 126.653 351.548L119.377 352.678C119.377 355.164 119.966 357.469 123.36 359.31C128.203 361.954 131.79 366.405 133.238 371.727C136.429 383.477 136.882 398.458 136.282 413.281C136.271 413.561 136.265 413.838 136.258 414.11C136.214 416.032 136.175 417.748 134.46 418.727C132.858 419.643 131.157 420.487 129.365 421.377C121.986 425.041 113.052 429.476 102.966 442.887C83.3944 474.348 91.4738 504.853 115.699 518.5C126.5 521 166.5 520.5 175.855 518.5C201.657 503.841 210.777 470.3 190.84 442.887Z"
         fill="url(#paint8_linear_378_557)"
       />
@@ -94,9 +94,9 @@ const FlowerVase: FC<{
           width="113.733"
           height="166.824"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -110,11 +110,7 @@ const FlowerVase: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_378_557"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_378_557" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -129,9 +125,9 @@ const FlowerVase: FC<{
           width="20.4868"
           height="35.354"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -141,15 +137,8 @@ const FlowerVase: FC<{
           <feOffset dy="4.21607" />
           <feGaussianBlur stdDeviation="2.10803" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_378_557"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_378_557" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -165,8 +154,8 @@ const FlowerVase: FC<{
           y2="332.187"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="1" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="1" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_378_557"
@@ -176,10 +165,10 @@ const FlowerVase: FC<{
           y2="516.391"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_378_557"
@@ -189,11 +178,11 @@ const FlowerVase: FC<{
           y2="56.9299"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.586941" stop-color="#F5EEBF" />
-          <stop offset="0.854375" stop-color="#F5EEBF" stop-opacity="0.4" />
-          <stop offset="0.915" stop-color="#F5EEBF" stop-opacity="0.15" />
-          <stop offset="1" stop-color="#15786C" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.586941" stopColor="#F5EEBF" />
+          <stop offset="0.854375" stopColor="#F5EEBF" stopOpacity="0.4" />
+          <stop offset="0.915" stopColor="#F5EEBF" stopOpacity="0.15" />
+          <stop offset="1" stopColor="#15786C" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_378_557"
@@ -203,9 +192,9 @@ const FlowerVase: FC<{
           y2="357.868"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.515" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.515" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_378_557"
@@ -215,9 +204,9 @@ const FlowerVase: FC<{
           y2="362.339"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.744305" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.744305" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_378_557"
@@ -227,9 +216,9 @@ const FlowerVase: FC<{
           y2="290.139"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.301754" stop-color="#DA382A" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.301754" stopColor="#DA382A" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_378_557"
@@ -239,9 +228,9 @@ const FlowerVase: FC<{
           y2="307.697"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.38" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.38" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_378_557"
@@ -251,9 +240,9 @@ const FlowerVase: FC<{
           y2="315.951"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.45" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.45" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_378_557"
@@ -263,14 +252,14 @@ const FlowerVase: FC<{
           y2="515.923"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default FlowerVase;
+export default FlowerVase

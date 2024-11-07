@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Flower: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -17,29 +17,29 @@ const Flower: FC<{
         <path
           d="M55.1348 271.945C59.8601 304.039 145.166 363.737 174.014 292.679C202.862 221.622 209.494 271.484 218.709 270.102"
           stroke="url(#paint0_diamond_193_564)"
-          stroke-width="12.9017"
+          strokeWidth="12.9017"
         />
       </g>
       <g filter="url(#filter1_d_193_564)">
         <path
           d="M199.356 7C199.356 7 163.415 17.5978 150.053 29.5779C132.685 45.1497 128.396 67.8221 138.073 88.0962C149.041 111.077 140.377 134.174 120.102 143.85C93.9346 156.339 58.6151 157.508 54.2119 184.859C53.3253 190.366 54.2119 200.476 54.2119 206.054"
           stroke="url(#paint1_diamond_193_564)"
-          stroke-width="12.9017"
+          strokeWidth="12.9017"
         />
       </g>
       <g filter="url(#filter2_d_193_564)">
         <path
           d="M130.241 239.23C130.241 245.22 156.966 271.024 137.152 306.503C117.339 341.983 114.575 356.728 132.545 368.708C150.515 380.688 172.632 376.541 185.994 365.022C199.357 353.502 213.641 349.816 213.641 349.816"
           stroke="url(#paint2_diamond_193_564)"
-          stroke-width="12.9017"
-          shape-rendering="crispEdges"
+          strokeWidth="12.9017"
+          shapeRendering="crispEdges"
         />
         <path
           d="M130.241 239.23C130.241 245.22 156.966 271.024 137.152 306.503C117.339 341.983 114.575 356.728 132.545 368.708C150.515 380.688 172.632 376.541 185.994 365.022C199.357 353.502 213.641 349.816 213.641 349.816"
           stroke="url(#pattern0_193_564)"
-          stroke-width="12.9017"
+          strokeWidth="12.9017"
           // style="mix-blend-mode:multiply"
-          shape-rendering="crispEdges"
+          shapeRendering="crispEdges"
         />
       </g>
       <path
@@ -153,9 +153,9 @@ const Flower: FC<{
           width="178.723"
           height="91.9319"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -169,11 +169,7 @@ const Flower: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_564"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_564" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -188,9 +184,9 @@ const Flower: FC<{
           width="161.187"
           height="212.614"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -204,11 +200,7 @@ const Flower: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_564"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_564" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -223,9 +215,9 @@ const Flower: FC<{
           width="108.547"
           height="151.429"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -239,11 +231,7 @@ const Flower: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_564"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_564" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -269,15 +257,10 @@ const Flower: FC<{
           width="13.6489"
           height="35.0797"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -287,15 +270,8 @@ const Flower: FC<{
           <feOffset dy="3.68619" />
           <feGaussianBlur stdDeviation="1.84309" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_193_564"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_193_564" />
         </filter>
         <filter
           id="filter4_d_193_564"
@@ -304,9 +280,9 @@ const Flower: FC<{
           width="72.4388"
           height="71.6839"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -316,15 +292,8 @@ const Flower: FC<{
           <feOffset dy="3.68619" />
           <feGaussianBlur stdDeviation="1.84309" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_564"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_564" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -339,9 +308,9 @@ const Flower: FC<{
           width="72.4388"
           height="71.6839"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -351,15 +320,8 @@ const Flower: FC<{
           <feOffset dy="3.68619" />
           <feGaussianBlur stdDeviation="1.84309" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_564"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_564" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -374,9 +336,9 @@ const Flower: FC<{
           width="82.8236"
           height="74.0325"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -390,11 +352,7 @@ const Flower: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_564"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_564" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -409,9 +367,9 @@ const Flower: FC<{
           width="83.639"
           height="70.7806"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -425,11 +383,7 @@ const Flower: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_564"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_564" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -455,9 +409,9 @@ const Flower: FC<{
           width="86.1649"
           height="91.2327"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -471,11 +425,7 @@ const Flower: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_193_564"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_193_564" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -490,15 +440,10 @@ const Flower: FC<{
           width="31.4849"
           height="19.8962"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -508,15 +453,8 @@ const Flower: FC<{
           <feOffset dy="3.68619" />
           <feGaussianBlur stdDeviation="1.84309" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_193_564"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_193_564" />
         </filter>
         <filter
           id="filter10_i_193_564"
@@ -525,15 +463,10 @@ const Flower: FC<{
           width="19.604"
           height="31.9176"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -543,15 +476,8 @@ const Flower: FC<{
           <feOffset dy="3.68619" />
           <feGaussianBlur stdDeviation="1.84309" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_193_564"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_193_564" />
         </filter>
         <filter
           id="filter11_i_193_564"
@@ -560,15 +486,10 @@ const Flower: FC<{
           width="31.2188"
           height="18.3962"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -578,15 +499,8 @@ const Flower: FC<{
           <feOffset dy="3.68619" />
           <feGaussianBlur stdDeviation="1.84309" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_193_564"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_193_564" />
         </filter>
         <filter
           id="filter12_i_193_564"
@@ -595,15 +509,10 @@ const Flower: FC<{
           width="34.4121"
           height="12.3258"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -613,15 +522,8 @@ const Flower: FC<{
           <feOffset dy="3.68619" />
           <feGaussianBlur stdDeviation="1.84309" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_193_564"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_193_564" />
         </filter>
         <filter
           id="filter13_i_193_564"
@@ -630,15 +532,10 @@ const Flower: FC<{
           width="34.6709"
           height="10.1657"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="BackgroundImageFix"
-            result="shape"
-          />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -648,15 +545,8 @@ const Flower: FC<{
           <feOffset dy="3.68619" />
           <feGaussianBlur stdDeviation="1.84309" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_193_564"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_193_564" />
         </filter>
         <radialGradient
           id="paint0_diamond_193_564"
@@ -666,9 +556,9 @@ const Flower: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(136.692 290.376) rotate(-7.03341) scale(142.994 324.243)"
         >
-          <stop stop-color="#1F473A" />
-          <stop offset="0.136055" stop-color="#0C453E" />
-          <stop offset="0.685" stop-color="#4F8D78" />
+          <stop stopColor="#1F473A" />
+          <stop offset="0.136055" stopColor="#0C453E" />
+          <stop offset="0.685" stopColor="#4F8D78" />
         </radialGradient>
         <radialGradient
           id="paint1_diamond_193_564"
@@ -678,10 +568,10 @@ const Flower: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(147.749 110.674) rotate(130.253) scale(181.123 126.176)"
         >
-          <stop stop-color="#193C31" />
-          <stop offset="0.5" stop-color="#28685F" />
-          <stop offset="0.75" stop-color="#508C7A" />
-          <stop offset="1" stop-color="#E0B75D" />
+          <stop stopColor="#193C31" />
+          <stop offset="0.5" stopColor="#28685F" />
+          <stop offset="0.75" stopColor="#508C7A" />
+          <stop offset="1" stopColor="#E0B75D" />
         </radialGradient>
         <radialGradient
           id="paint2_diamond_193_564"
@@ -691,9 +581,9 @@ const Flower: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(142.221 220.8) rotate(72.8973) scale(175.482 119.518)"
         >
-          <stop stop-color="#20483C" />
-          <stop offset="0.5" stop-color="#0E342D" />
-          <stop offset="1" stop-color="#4F8D78" />
+          <stop stopColor="#20483C" />
+          <stop offset="0.5" stopColor="#0E342D" />
+          <stop offset="1" stopColor="#4F8D78" />
         </radialGradient>
         <linearGradient
           id="paint3_linear_193_564"
@@ -703,9 +593,9 @@ const Flower: FC<{
           y2="206.055"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.137163" stop-color="#F4F15B" />
-          <stop offset="0.451052" stop-color="#4F8D78" />
-          <stop offset="0.895128" stop-color="#0C453E" />
+          <stop offset="0.137163" stopColor="#F4F15B" />
+          <stop offset="0.451052" stopColor="#4F8D78" />
+          <stop offset="0.895128" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_193_564"
@@ -715,9 +605,9 @@ const Flower: FC<{
           y2="353.569"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.137163" stop-color="#F4F15B" />
-          <stop offset="0.572108" stop-color="#4F8D78" />
-          <stop offset="0.895128" stop-color="#0C453E" />
+          <stop offset="0.137163" stopColor="#F4F15B" />
+          <stop offset="0.572108" stopColor="#4F8D78" />
+          <stop offset="0.895128" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_193_564"
@@ -727,9 +617,9 @@ const Flower: FC<{
           y2="318.483"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.137163" stop-color="#F4F15B" />
-          <stop offset="0.572108" stop-color="#4F8D78" />
-          <stop offset="0.895128" stop-color="#0C453E" />
+          <stop offset="0.137163" stopColor="#F4F15B" />
+          <stop offset="0.572108" stopColor="#4F8D78" />
+          <stop offset="0.895128" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_193_564"
@@ -739,9 +629,9 @@ const Flower: FC<{
           y2="221.412"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.39" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.39" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_193_564"
@@ -751,9 +641,9 @@ const Flower: FC<{
           y2="204.472"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.5" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.5" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_193_564"
@@ -763,9 +653,9 @@ const Flower: FC<{
           y2="235.078"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.261112" stop-color="#F28041" />
-          <stop offset="0.875" stop-color="#590101" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.261112" stopColor="#F28041" />
+          <stop offset="0.875" stopColor="#590101" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_193_564"
@@ -775,10 +665,10 @@ const Flower: FC<{
           y2="249.612"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.25" stop-color="#F28041" />
-          <stop offset="0.5" stop-color="#D9392B" />
-          <stop offset="0.854323" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.25" stopColor="#F28041" />
+          <stop offset="0.5" stopColor="#D9392B" />
+          <stop offset="0.854323" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_193_564"
@@ -788,10 +678,10 @@ const Flower: FC<{
           y2="247.985"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.315" stop-color="#F28041" />
-          <stop offset="0.560894" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.315" stopColor="#F28041" />
+          <stop offset="0.560894" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_193_564"
@@ -801,10 +691,10 @@ const Flower: FC<{
           y2="297.748"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.339807" stop-color="#F28041" />
-          <stop offset="0.597321" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.339807" stopColor="#F28041" />
+          <stop offset="0.597321" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_193_564"
@@ -814,9 +704,9 @@ const Flower: FC<{
           y2="176.104"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_193_564"
@@ -826,9 +716,9 @@ const Flower: FC<{
           y2="107.448"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_193_564"
@@ -838,18 +728,14 @@ const Flower: FC<{
           y2="37.4115"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.5" stop-color="#4F8D78" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.5" stopColor="#4F8D78" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
-        <image
-          id="image0_193_564"
-          width="1024"
-          height="1024"
-        />
+        <image id="image0_193_564" width="1024" height="1024" />
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Flower;
+export default Flower

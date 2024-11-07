@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const Vase: FC<{
-  className?: string;
+  className?: string
 }> = ({ className }) => {
   return (
     <svg
@@ -21,8 +21,8 @@ const Vase: FC<{
       />
       <g filter="url(#filter0_d_190_2700)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M87.9274 223.836C84.7809 222.464 81.8229 221.173 79.0357 219.576C76.4876 218.12 76.429 215.57 76.3634 212.714C76.3541 212.308 76.3447 211.897 76.328 211.482C75.4366 189.449 76.1093 167.165 80.8521 149.717C83.0049 141.807 88.3363 135.191 95.5346 131.261C100.563 128.507 101.455 125.098 101.455 121.403C101.455 112.285 83.3748 104.879 61.0737 104.879C38.7725 104.879 20.6928 112.268 20.6928 121.403C20.6928 125.098 21.5674 128.524 26.6129 131.261C33.8112 135.191 39.1426 141.807 41.2953 149.717C46.0381 167.182 46.7108 189.449 45.8194 211.482C45.8027 211.897 45.7933 212.309 45.784 212.714C45.7184 215.57 45.6598 218.12 43.1117 219.576C40.7292 220.938 38.202 222.193 35.5384 223.515C24.5701 228.961 11.2914 235.553 -3.69981 255.486C-42.9066 318.51 -7.46154 378.952 60.771 378.952C129.878 378.952 166.036 309.281 126.912 255.486C111.313 234.038 98.5462 228.468 87.9274 223.836ZM31.507 119.724C31.507 123.906 44.6085 127.298 60.771 127.298C76.9334 127.298 90.0349 123.906 90.0349 119.724C90.0349 115.543 77.2361 110.089 61.0737 110.089C44.9112 110.089 31.507 115.543 31.507 119.724Z"
           fill="url(#paint1_linear_190_2700)"
         />
@@ -30,8 +30,8 @@ const Vase: FC<{
       <path
         d="M72.4083 166.51C72.4083 166.51 66.4748 130.672 66.4751 104.251C66.4754 77.8303 82.6563 53.7637 82.6563 53.7637"
         stroke="url(#paint2_linear_190_2700)"
-        stroke-width="7.37812"
-        stroke-linecap="round"
+        strokeWidth="7.37812"
+        strokeLinecap="round"
       />
       <path
         d="M52.6439 102.046C59.8068 112.717 62.7378 132.632 62.7378 132.632L43.1901 130.574C43.1901 130.574 35.1464 112.382 33.2746 99.1803C31.4027 85.9789 33.9527 72.4138 33.9527 72.4138C33.9527 72.4138 45.481 91.3746 52.6439 102.046Z"
@@ -56,8 +56,8 @@ const Vase: FC<{
         fill="url(#paint6_linear_190_2700)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M87.9275 223.837C98.5463 228.469 111.313 234.038 126.912 255.487C166.036 309.281 129.878 378.952 60.771 378.952C-7.46153 378.952 -42.9066 318.51 -3.69981 255.487C11.2914 235.554 24.5702 228.961 35.5384 223.516C38.202 222.193 40.7292 220.939 43.1117 219.577C45.6598 218.121 45.7184 215.57 45.784 212.714C45.7933 212.309 45.8027 211.898 45.8195 211.482C46.7108 189.45 46.0381 167.182 41.2953 149.717C39.1426 141.808 33.8112 135.191 26.6129 131.262C21.5674 128.524 20.6928 125.098 20.6928 121.404L31.507 119.725C31.507 123.906 44.6085 127.298 60.771 127.298C76.9334 127.298 90.0349 123.906 90.0349 119.725L101.455 121.404C101.455 125.098 100.563 128.507 95.5346 131.262C88.3363 135.191 83.0049 141.808 80.8521 149.717C76.1093 167.165 75.4366 189.45 76.328 211.482C76.3447 211.898 76.3541 212.309 76.3634 212.714C76.429 215.57 76.4876 218.121 79.0357 219.577C81.8229 221.174 84.7809 222.464 87.9275 223.837Z"
         fill="url(#paint7_linear_190_2700)"
       />
@@ -69,9 +69,9 @@ const Vase: FC<{
           width="167.07"
           height="278.142"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -85,11 +85,7 @@ const Vase: FC<{
             type="matrix"
             values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
           />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2700"
-          />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2700" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -104,9 +100,9 @@ const Vase: FC<{
           width="26.9678"
           height="48.8106"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -116,15 +112,8 @@ const Vase: FC<{
           <feOffset dy="4.21607" />
           <feGaussianBlur stdDeviation="2.10803" />
           <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
-          />
-          <feBlend
-            mode="normal"
-            in2="BackgroundImageFix"
-            result="effect1_dropShadow_190_2700"
-          />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_2700" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -140,8 +129,8 @@ const Vase: FC<{
           y2="90.9469"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#7E0001" />
-          <stop offset="1" stop-color="#D9392B" />
+          <stop stopColor="#7E0001" />
+          <stop offset="1" stopColor="#D9392B" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_190_2700"
@@ -151,10 +140,10 @@ const Vase: FC<{
           y2="364.74"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_190_2700"
@@ -164,9 +153,9 @@ const Vase: FC<{
           y2="129.118"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.515" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.515" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_190_2700"
@@ -176,9 +165,9 @@ const Vase: FC<{
           y2="135.763"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.744305" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.744305" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_190_2700"
@@ -188,9 +177,9 @@ const Vase: FC<{
           y2="28.4481"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.301754" stop-color="#DA382A" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.301754" stopColor="#DA382A" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_190_2700"
@@ -200,9 +189,9 @@ const Vase: FC<{
           y2="54.5458"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.38" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.38" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_190_2700"
@@ -212,9 +201,9 @@ const Vase: FC<{
           y2="66.8129"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="0.45" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F28041" />
+          <stop offset="0.45" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_190_2700"
@@ -224,14 +213,14 @@ const Vase: FC<{
           y2="364.046"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.0342621" stop-color="#F4F15B" />
-          <stop offset="0.259631" stop-color="#E65D36" />
-          <stop offset="0.554298" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop offset="0.0342621" stopColor="#F4F15B" />
+          <stop offset="0.259631" stopColor="#E65D36" />
+          <stop offset="0.554298" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Vase;
+export default Vase

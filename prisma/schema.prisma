@@ -26,14 +26,13 @@ model User {
 model Organizations {
   id             String    @id @default(cuid()) @map("_id")
   isAdmin        Boolean   @default(false)
-  sendForm       Boolean   @default(false)
   key            String    @unique
   tag            String    @default("organizations")
-  error          String
+  error          String    @default("")
   email          String    @unique
   name           String?   @unique
   thainame       String    @unique
-  status         String    @default("pending")
+  status         String    @default("")
   members        String    @default("0")
   ig             String?
   fb             String?
@@ -50,6 +49,7 @@ model Organizations {
   reviews        Reviews[]
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
+  updatedBy      String?
   organization   User?     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
   organizationId String?
 }
@@ -57,15 +57,14 @@ model Organizations {
 model Clubs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
-  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("clubs")
-  error       String
+  error       String    @default("")
   clubKey     String    @unique
   email       String    @unique
   name        String?   @unique
   thainame    String    @unique
-  status      String    @default("pending")
+  status      String    @default("")
   members     String    @default("0")
   ig          String?
   fb          String?
@@ -83,6 +82,7 @@ model Clubs {
   reviews     Reviews[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  updatedBy   String?
   club        User?     @relation(fields: [clubId], references: [id], onDelete: Cascade)
   clubId      String?
 }
@@ -90,14 +90,13 @@ model Clubs {
 model Programs {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
-  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("programs")
-  error       String
+  error       String    @default("")
   email       String    @unique
   name        String?   @unique
   thainame    String    @unique
-  status      String    @default("pending")
+  status      String    @default("")
   members     String    @default("0")
   ig          String?
   fb          String?
@@ -114,6 +113,7 @@ model Programs {
   reviews     Reviews[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  updatedBy   String?
   program     User?     @relation(fields: [programId], references: [id], onDelete: Cascade)
   programId   String?
 }
@@ -121,14 +121,13 @@ model Programs {
 model Gifted {
   id          String    @id @default(cuid()) @map("_id")
   isAdmin     Boolean   @default(false)
-  sendForm    Boolean   @default(false)
   key         String    @unique
   tag         String    @default("gifted")
-  error       String
+  error       String    @default("")
   email       String    @unique
   name        String?   @unique
   thainame    String    @unique
-  status      String    @default("pending")
+  status      String    @default("")
   members     String    @default("0")
   ig          String?
   fb          String?
@@ -145,6 +144,7 @@ model Gifted {
   reviews     Reviews[]
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  updatedBy   String?
   gifted      User?     @relation(fields: [giftedId], references: [id], onDelete: Cascade)
   giftedId    String?   
 }
@@ -152,7 +152,6 @@ model Gifted {
 model Reviews {
   id             String         @id @default(cuid()) @map("_id")
   key            String         @unique
-  email          String         @unique
   count          String?
   profile        String?
   nick           String
@@ -161,6 +160,7 @@ model Reviews {
   content        String
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @updatedAt
+  updatedBy      String?
   reviewsOrg     Organizations? @relation(fields: [reviewId], references: [id], onDelete: Cascade)
   reviewsClub    Clubs?         @relation(fields: [reviewId], references: [id], onDelete: Cascade)
   reviewsProgram Programs?      @relation(fields: [reviewId], references: [id], onDelete: Cascade)

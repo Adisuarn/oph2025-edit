@@ -1,11 +1,11 @@
-import { AllData } from "@libs/data";
-import { Tag } from "@utils/type";
-import { prisma } from "@utils/db";
-import type { Club, Program, Organization, Gifted } from '@utils/type'
+import type { Club, Gifted, Organization, Program } from '@utils/type'
+import { AllData } from '@libs/data'
+import { prisma } from '@utils/db'
+import { Tag } from '@utils/type'
 import { error } from 'elysia'
 
 const createClubs = async (body: Club) => {
-  try { 
+  try {
     const clubs = await prisma.clubs.create({
       omit: { clubId: true, updatedAt: true, id: true },
       data: {
@@ -28,16 +28,16 @@ const createClubs = async (body: Club) => {
         captureimg3: '',
         descimg3: '',
         logo: '',
-      }
+      },
     })
-    return { success: true, message: "Created clubs successfully", data: clubs }
+    return { success: true, message: 'Created clubs successfully', data: clubs }
   } catch (err) {
     throw error(500, 'Error while creating clubs')
   }
 }
 
 const createOrganizations = async (body: Organization) => {
-  try { 
+  try {
     const organizations = await prisma.organizations.create({
       omit: { organizationId: true, updatedAt: true, id: true },
       data: {
@@ -58,16 +58,16 @@ const createOrganizations = async (body: Organization) => {
         descimg2: '',
         captureimg3: '',
         descimg3: '',
-      }
+      },
     })
-    return { success: true, message: "Created organizations successfully", data: organizations }
+    return { success: true, message: 'Created organizations successfully', data: organizations }
   } catch (err) {
     throw error(500, 'Error while creating organizations')
   }
 }
 
 const createPrograms = async (body: Program) => {
-  try { 
+  try {
     const programs = await prisma.programs.create({
       omit: { programId: true, updatedAt: true, id: true },
       data: {
@@ -88,16 +88,16 @@ const createPrograms = async (body: Program) => {
         descimg2: '',
         captureimg3: '',
         descimg3: '',
-      }
+      },
     })
-    return { success: true, message: "Created programs successfully", data: programs }
+    return { success: true, message: 'Created programs successfully', data: programs }
   } catch (err) {
     throw error(500, 'Error while creating programs')
   }
 }
 
 const createGifted = async (body: Gifted) => {
-  try { 
+  try {
     const gifted = await prisma.gifted.create({
       omit: { giftedId: true, updatedAt: true, id: true },
       data: {
@@ -118,56 +118,54 @@ const createGifted = async (body: Gifted) => {
         descimg2: '',
         captureimg3: '',
         descimg3: '',
-      }
+      },
     })
-    return { success: true, message: "Created gifted successfully", data: gifted }
+    return { success: true, message: 'Created gifted successfully', data: gifted }
   } catch (err) {
     throw error(500, 'Error while creating gifted')
   }
 }
 
-
-
 export const createEverything = async () => {
   const createdOrganizations = await Promise.all(
     Object.keys(AllData.Organizations).map(async (key) => {
       const organization = await createOrganizations({
-        email: "",
+        email: '',
         key: key as keyof typeof AllData.Organizations,
         tag: Tag.ORGANIZATION,
-      });
-      return organization.data.thainame;
-    })
+      })
+      return organization.data.thainame
+    }),
   )
   const createdClubs = await Promise.all(
     Object.keys(AllData.Clubs).map(async (key) => {
       const club = await createClubs({
-        email: "",
+        email: '',
         key: key as keyof typeof AllData.Clubs,
         tag: Tag.CLUB,
-      });
-      return club.data.thainame;
-    })
+      })
+      return club.data.thainame
+    }),
   )
   const createdPrograms = await Promise.all(
     Object.keys(AllData.Programs).map(async (key) => {
       const program = await createPrograms({
-        email: "",
+        email: '',
         key: key as keyof typeof AllData.Programs,
         tag: Tag.PROGRAM,
-      });
-      return program.data.thainame;
-    })
+      })
+      return program.data.thainame
+    }),
   )
   const createdGifteds = await Promise.all(
     Object.keys(AllData.Gifted).map(async (key) => {
       const gifted = await createGifted({
-        email: "",
+        email: '',
         key: key as keyof typeof AllData.Gifted,
         tag: Tag.GIFTED,
-      });
-      return gifted.data.thainame;
-    })
+      })
+      return gifted.data.thainame
+    }),
   )
   return {
     Organization: createdOrganizations,
