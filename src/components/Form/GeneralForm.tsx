@@ -771,7 +771,7 @@ const GeneralForm: React.FC<{
                               setImage1(null)
                               setImageUrl1('')
                             }}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 2xl:right-24"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white md:right-[68px] lg:right-24 xl:right-[7.5rem]"
                           >
                             X
                           </button>
@@ -850,7 +850,7 @@ const GeneralForm: React.FC<{
                               setImage2(null)
                               setImageUrl2('')
                             }}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 2xl:right-24"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-24 xl:right-[7.5rem]"
                           >
                             X
                           </button>
@@ -931,7 +931,7 @@ const GeneralForm: React.FC<{
                               setImage3(null)
                               setImageUrl3('')
                             }}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-14 2xl:right-24"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-24 xl:right-[7.5rem]"
                           >
                             X
                           </button>
@@ -996,7 +996,7 @@ const GeneralForm: React.FC<{
                               />
                               <button
                                 onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
-                                className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
+                                className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-16"
                               >
                                 X
                               </button>
@@ -1180,7 +1180,7 @@ const GeneralForm: React.FC<{
                               />
                               <button
                                 onClick={() => setDisplayImage6(false)} // Replace with your deletion logic
-                                className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
+                                className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-16"
                               >
                                 X
                               </button>

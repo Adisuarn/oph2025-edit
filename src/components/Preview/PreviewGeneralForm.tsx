@@ -31,6 +31,7 @@ import SLamp3 from '@/vectors/preview/SLamp3'
 import Stainedglass from '@/vectors/preview/Stainedglass'
 import Uppercurve from '@/vectors/preview/Uppercurve'
 import Vase from '@/vectors/preview/Vase'
+import BigStainedGlass from '@/vectors/preview/BigStainedGlass'
 
 const PreviewGeneralForm: React.FC<{
   editFormData: any
@@ -55,38 +56,38 @@ const PreviewGeneralForm: React.FC<{
       <div className="absolute right-0 z-0 lg:top-14 xl:top-48 2xl:top-96 overflow-hidden">
         <ClubFallingLamp className="hidden lg:block lg:w-[270px] xl:w-80" />
       </div>
-      <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[400px] lg:mx-48 xl:mx-60 2xl:pt-[520px]">
+      <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[520px]">
         <section className="flex items-center justify-between">
-          <div className="flex items-center justify-center space-x-1">
+          <div className="flex items-center transition-all hover:scale-105 justify-center space-x-1">
             <Link href="/account">
-              <BackArrow className="h-5 w-5 transition-all hover:scale-105 sm:h-8 sm:w-8 md:h-10 md:w-10" />
+              <BackArrow className="h-5 w-5 text-heroMiddle sm:h-8 sm:w-8 md:h-10 md:w-10" />
             </Link>
             <Link
               href="/account"
-              className="text-xs text-greenText transition-all sm:text-lg md:text-2xl"
+              className="text-xs text-heroMiddle sm:text-lg md:text-2xl"
             >
               ย้อนกลับ
             </Link>
           </div>
-          <p className="text-xs text-greenText sm:text-lg md:text-2xl">preview page</p>
+          <p className="text-xs text-heroMiddle sm:text-lg md:text-2xl">preview page</p>
         </section>
 
         {/* Hero */}
         <section className="w-full sm:mx-7">
           <section className="flex w-full flex-col items-center justify-center">
             <div className="relative z-20 flex h-20 w-full flex-col items-center justify-center md:mx-auto">
-              <p className="bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-center text-lg font-bold text-transparent sm:text-xl sm:font-extrabold md:text-4xl">
+              <p className=" bg-gradient-to-b from-[#75B667] via-[#15786C] via-80% to-[#12665B] bg-clip-text text-center text-lg font-bold text-transparent sm:text-xl sm:font-extrabold md:text-4xl">
                 {editFormData.thainame}
               </p>
             </div>
-            <div className="ml-6 flex items-center justify-center space-x-4">
+            <div className="ml-6 flex items-center justify-center space-x-6">
               <div className="flex items-center justify-center">
-                <Profile className="h-10 w-10 text-greenText sm:h-12 sm:w-12 md:h-20 md:w-20" />
+                <Profile className="h-10 w-10 text-greenText sm:h-12 sm:w-12 md:h-20 md:w-20 md:mr-5" />
                 <div className="flex flex-col items-center">
                   <p className="text-md bg-gradient-to-b from-buttonMiddle to-greenText bg-clip-text font-bold text-transparent sm:text-2xl">
                     สมาชิก
                   </p>
-                  <p className="bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:text-2xl">
+                  <p className="bg-gradient-to-b from-[#75B667] from-19% via-[#15786C] via-80% to-[#0C453E] to-94% bg-clip-text text-xl font-bold text-transparent sm:text-6xl">
                     {editFormData.members}
                   </p>
                 </div>
@@ -153,8 +154,11 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               )}
               <div className="relative z-10 sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[490px] lg:top-0 xl:-left-[570px] 2xl:-left-[800px]">
-                  <Stainedglass className="w-16 sm:w-32 lg:w-72 2xl:w-96" />
+                <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[490px] lg:top-0">
+                  <Stainedglass className="w-16 sm:w-32 lg:hidden" />
+                </div>
+                <div className='absolute lg:-top-24 lg:-left-[470px] xl:-left-[570px] 2xl:-left-[800px] '>
+                  <BigStainedGlass className="hidden lg:block sm:w-32 md:w-48 xl:w-52 2xl:w-72" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
@@ -173,7 +177,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text1 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl"
+              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 font-BaiJamjuree font-semibold p-6 text-xs text-greenText sm:text-lg"
             ></div>
           </div>
           {/* section 2 */}
@@ -227,7 +231,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text2 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl"
+              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 text-xs text-greenText sm:text-lg font-BaiJamjuree font-semibold"
             ></div>
           </div>
           {/* section 3 */}
@@ -284,7 +288,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text3 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] p-3 text-xs text-greenText sm:text-lg md:text-xl"
+              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 text-xs text-greenText sm:text-lg font-BaiJamjuree font-semibold"
             ></div>
           </div>
           {/* section 3 */}
@@ -303,7 +307,7 @@ const PreviewGeneralForm: React.FC<{
             <div className="flex flex-col items-center justify-center space-y-5">
               <div className="flex w-full items-start justify-around">
                 <div className="flex flex-col">
-                  <div className="flex flex-col items-center justify-center">
+                  <div className="flex flex-col items-start justify-center">
                     <Image
                       className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                       src={review1.profile || ''}
@@ -370,7 +374,7 @@ const PreviewGeneralForm: React.FC<{
                         height={100}
                       />
                     </div>
-                    <div className="mt-2 flex flex-col items-end text-greenText">
+                    <div className="mt-2 flex flex-col items-end text-end text-greenText">
                       <p className="text-lg font-bold md:text-3xl">{review2.nick}</p>
                       <p className="text-xs md:text-lg">เตรียมอุดม {review2.gen}</p>
                       <p className="text-xs md:text-lg">{review2.contact}</p>
@@ -381,9 +385,9 @@ const PreviewGeneralForm: React.FC<{
             )}
             {ReviewAmount === 3 && (
               <div className="flex flex-col items-center justify-center space-y-5">
-                <div className="flex w-full items-start justify-around">
+                <div className="flex w-full items-start justify-between">
                   <div className="flex flex-col">
-                    <div className="flex flex-col items-center justify-center">
+                  <div className="flex flex-col items-start justify-center">
                       <Image
                         className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                         src={review3.profile || ''}
@@ -393,10 +397,10 @@ const PreviewGeneralForm: React.FC<{
                       />
                     </div>
                     <div className="mt-2 flex flex-col text-greenText">
-                      <p className="text-lg font-bold md:text-xl">{review3.nick}</p>
-                      <p className="text-xs md:text-lg">เตรียมอุดม {review3.gen}</p>
-                      <p className="text-xs md:text-lg">{review3.contact}</p>
-                    </div>
+                    <p className="text-lg font-bold md:text-3xl">{review3.nick}</p>
+                    <p className="text-xs md:text-lg">เตรียมอุดม {review3.gen}</p>
+                    <p className="text-xs md:text-lg">{review3.contact}</p>
+                  </div>
                   </div>
                   <div className="relative w-4/6 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
                     <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
