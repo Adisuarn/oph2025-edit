@@ -69,9 +69,6 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
         }
       } catch {
         toast.error('เกิดข้อผิดพลาดที่เซิฟเวอร์', { id: loadingToastId })
-        setTimeout(() => {
-          router.push('/error/500')
-        }, 2000)
       } finally {
         setIsSubmitting(false)
       }

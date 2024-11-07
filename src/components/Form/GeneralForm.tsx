@@ -501,7 +501,7 @@ const GeneralForm: React.FC<{
                   url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
                   headers: {
                     'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                    Authorization: `${cookies.get('oph2025-auth-cookie')}`,
+                    Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
                   },
                   data: reviewData,
                 })

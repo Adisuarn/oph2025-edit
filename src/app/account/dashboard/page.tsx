@@ -51,11 +51,16 @@ const DashboardTUCMC: React.FC = () => {
           clubs: results.props.clubs,
           gifted: results.props.gifted,
         })
+        // Reset viewData and activeButton states on data fetch
+        setFilterState((prev) => ({
+          ...prev,
+          viewData: null,
+          activeButton: null,
+        }))
         setLoading(false)
       }
     } catch (error) {
       toast.error('เกิดข้อผิดพลาด!')
-      router.push('/error/500')
     }
   }, [])
 

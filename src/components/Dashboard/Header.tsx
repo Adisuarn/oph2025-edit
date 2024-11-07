@@ -27,7 +27,7 @@ const Header = ({ type, data }: any) => {
             case 'program':
               return 'สายการเรียน'
             case 'gifted':
-              return 'โครงการพัฒนาความสามารถ'
+              return 'โครงการพัฒนาความสามารถพิเศษ'
             default:
               return ''
           }

@@ -7,6 +7,7 @@ import { toast, Toaster } from 'react-hot-toast'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import * as Yup from 'yup'
+import { useRouter } from 'next/navigation'
 
 import Checkmark from '@/vectors/Checkmark'
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon'
@@ -16,6 +17,7 @@ import { updateData } from './ViewData.action'
 const MySwal = withReactContent(Swal)
 
 const ViewData = ({ data, type, onStatusUpdate }: any) => {
+  const router = useRouter()
   const formattedDate = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Bangkok',
     day: '2-digit',
@@ -70,9 +72,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
         if (result.isConfirmed) {
           toast.promise(
             updateData(values, data.data.tag, data.data.key).then(() => {
-              if (typeof window !== 'undefined') {
-                window.location.reload()
-              }
+              router.refresh()
             }),
             {
               loading: 'กำลังอัปเดตข้อมูล...',
@@ -83,7 +83,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
         }
       })
     } catch (error) {
-      toast.error('Failed to submit data')
+      toast.error('ไม่สามารถอัปเดตข้อมูลได้')
     }
   }
 
@@ -117,6 +117,12 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
               error: 'อัปเดตสถานะไม่สำเร็จ',
             })
           }
+        } else {
+          toast.promise(onStatusUpdate(data, status, ""), {
+            loading: 'กำลังอัปเดตสถานะ...',
+            success: 'อัปเดตสถานะสำเร็จ',
+            error: 'อัปเดตสถานะไม่สำเร็จ',
+          })
         }
       }
     })
@@ -168,7 +174,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
               โดย
               {emails[data.data.updatedBy as keyof typeof emails]
                 ? ` TUCMC ${emails[data.data.updatedBy as keyof typeof emails]}`
-                : data.data.updatedBy}
+                : " " + data.data.updatedBy}
             </div>
           )}
           <Header type={type} data={data} />
