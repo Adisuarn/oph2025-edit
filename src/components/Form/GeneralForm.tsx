@@ -691,14 +691,14 @@ const GeneralForm: React.FC<{
                         <FaPen className="-mt-2 h-1 text-white sm:h-2 md:-mt-4" />
                         <p className="sm:text-md text-[8px] md:text-lg">คน</p>
                       </div>
-                      <div className="justify- whitespace-nowrapcenter flex items-center sm:space-y-2">
+                      <div className="whitespace-nowrapcenter flex items-center sm:space-y-2">
                         <div className="items-center justify-center space-y-1 text-start sm:text-lg">
                           <div className="flex">
                             <p className="text-[8px] sm:text-lg">IG : </p>
                             <Field
                               type="text"
                               name="IG"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                              className="ml-1 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 w-36 md:w-[200px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -758,7 +758,7 @@ const GeneralForm: React.FC<{
                       {displayImage1 ? (
                         <div className="relative w-full">
                           <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72"
                             src={imageUrl1 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -777,7 +777,7 @@ const GeneralForm: React.FC<{
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-2/3 md:h-60 lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -837,7 +837,7 @@ const GeneralForm: React.FC<{
                       {displayImage2 ? (
                         <div className="relative w-full">
                           <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72"
                             src={imageUrl2 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -856,7 +856,7 @@ const GeneralForm: React.FC<{
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-2/3 md:h-60 lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -918,7 +918,7 @@ const GeneralForm: React.FC<{
                       {displayImage3 ? (
                         <div className="relative w-full">
                           <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72"
                             src={imageUrl3 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -937,7 +937,7 @@ const GeneralForm: React.FC<{
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-2/3 md:h-60 lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -996,7 +996,7 @@ const GeneralForm: React.FC<{
                               />
                               <button
                                 onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
-                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
+                                className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
                               >
                                 X
                               </button>
@@ -1020,7 +1020,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P1Name"
-                            className="w-16 text-sm font-bold text-greenText sm:w-24 sm:text-lg"
+                            className="text-sm font-bold text-greenText w-full sm:text-lg"
                             placeholder="ชื่อเล่น"
                           />
                           <ErrorMessage
@@ -1029,7 +1029,7 @@ const GeneralForm: React.FC<{
                             className="text-[8px] text-red-400"
                           />
                           <div className="flex">
-                            <label className="text-xs text-gray sm:text-sm" htmlFor="P1Gen">
+                            <label className="text-[8px] text-gray sm:text-sm" htmlFor="P1Gen">
                               เตรียมอุดม{' '}
                             </label>
                             <Field
@@ -1048,7 +1048,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P1Contact"
-                            className="w-20 text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
+                            className="w-full text-[8px] text-heroMiddle sm:text-sm"
                             placeholder="contact"
                           />
                           <ErrorMessage
@@ -1123,7 +1123,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P2Name"
-                            className="w-16 text-end text-sm font-bold text-greenText sm:w-24 sm:text-lg"
+                            className="w-full text-end text-sm font-bold text-greenText sm:text-lg"
                             placeholder="ชื่อเล่น"
                           />
                           <ErrorMessage
@@ -1132,7 +1132,7 @@ const GeneralForm: React.FC<{
                             className="text-[8px] text-red-400"
                           />
                           <div className="flex items-center justify-end">
-                            <label className="text-xs text-gray sm:text-sm" htmlFor="P2Gen">
+                            <label className="text-[8px] text-gray sm:text-sm" htmlFor="P2Gen">
                               เตรียมอุดม{' '}
                             </label>
                             <Field
@@ -1151,7 +1151,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P2Contact"
-                            className="w-16 text-end text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
+                            className="w-full text-end text-[8px] text-heroMiddle sm:text-sm"
                             placeholder="contact"
                           />
                           <ErrorMessage
@@ -1180,7 +1180,7 @@ const GeneralForm: React.FC<{
                               />
                               <button
                                 onClick={() => setDisplayImage6(false)} // Replace with your deletion logic
-                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
+                                className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
                               >
                                 X
                               </button>
@@ -1204,7 +1204,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P3Name"
-                            className="w-16 text-sm font-bold text-greenText sm:w-24 sm:text-lg"
+                            className="w-full text-sm font-bold text-greenText sm:text-lg"
                             placeholder="ชื่อเล่น"
                           />
                           <ErrorMessage
@@ -1213,7 +1213,7 @@ const GeneralForm: React.FC<{
                             className="text-[8px] text-red-400"
                           />
                           <div className="flex">
-                            <label className="text-xs text-gray sm:text-sm" htmlFor="P3Gen">
+                            <label className="text-[8px] text-gray sm:text-sm" htmlFor="P3Gen">
                               เตรียมอุดม{' '}
                             </label>
                             <Field
@@ -1232,7 +1232,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P3Contact"
-                            className="w-20 text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
+                            className="w-full text-[8px] text-heroMiddle sm:text-sm"
                             placeholder="contact"
                           />
                           <ErrorMessage

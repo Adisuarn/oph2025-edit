@@ -30,6 +30,8 @@ const FormikControl: React.FC = async () => {
     descimg3: data.descimg3,
   }
 
+  console.log(editFormData)
+
   const reviews = userReview.data.data.map((review: any, index: number) => ({
     count: review.count,
     profile: review.profile,
