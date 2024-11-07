@@ -25,7 +25,7 @@ const page = async () => {
       <div className="flex h-[80vh] flex-col items-center justify-end text-center sm:flex sm:h-full sm:items-start sm:justify-center md:pl-16 lg:pl-16 xl:pl-32">
         <div className="relative z-20 items-center space-y-4 sm:flex sm:flex-col sm:justify-center">
           <div className="-mt-24 flex flex-col">
-            <p className="bg-gradient-to-br from-[#ADDB64] to-[#ECF5C8] bg-clip-text text-6xl font-bold leading-normal text-transparent sm:leading-loose md:text-8xl md:leading-extra-loose">
+            <p className="bg-gradient-to-br from-[#ADDB64] from-10% to-[#ECF5C8] bg-clip-text text-6xl font-bold leading-normal text-transparent sm:leading-loose md:text-8xl md:leading-extra-loose">
               Register
             </p>
             <div className="-mb-12 -mt-12 flex items-center justify-center space-x-3 md:-mt-32">
