@@ -20,8 +20,8 @@ const FormikControl: React.FC = async () => {
     others: data.others,
     text1: data.admissions,
     text2: data.courses,
-    text3: data.working,
-    status: data.interests,
+    text3: data.interests,
+    status: data.status,
     captureimg1: data.captureimg1,
     descimg1: data.descimg1,
     captureimg2: data.captureimg2,
@@ -29,6 +29,8 @@ const FormikControl: React.FC = async () => {
     captureimg3: data.captureimg3,
     descimg3: data.descimg3,
   }
+
+  console.log(editFormData)
 
   const reviews = userReview.data.data.map((review: any, index: number) => ({
     count: review.count,

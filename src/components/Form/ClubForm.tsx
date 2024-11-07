@@ -10,7 +10,6 @@ const FormikControl: React.FC = async () => {
   const userReview = await apiFunction('GET', `/${userData.tag}/${userData.key}/review`, {})
 
   const data = userForm.data.data
-  console.log(data)
 
   const editFormData = {
     thainame: data.thainame,
@@ -34,19 +33,6 @@ const FormikControl: React.FC = async () => {
     descimg3: data.descimg3,
   }
   console.log(editFormData)
-  // let reviews = userReview.data.data.map((review: any, index: number) => ({
-  //   count: review.count,
-
-  //   profile: review.profile,
-  //   nick: review.nick,
-  //   gen: review.gen,
-  //   contact: review.contact,
-  //   content: review.content,
-  // }));
-
-  // let review1 = reviews[0];
-  // let review2 = reviews[1];
-  // let review3 = reviews[2];
 
   const reviews = userReview.data.data
     .map((review: any, index: number) => ({
@@ -58,32 +44,6 @@ const FormikControl: React.FC = async () => {
       content: review.content,
     }))
     .slice(0, 3)
-  // let review1 = {
-  //   count: userReview.data.data[0].count,
-  //   profile: userReview.data.data[0].profile,
-  //   nick: userReview.data.data[0].nick,
-  //   gen: userReview.data.data[0].gen,
-  //   contact: userReview.data.data[0].contact,
-  //   content: userReview.data.data[0].content,
-  // }
-
-  // let review2 = {
-  //   count: userReview.data.data[1]?.count,
-  //   profile: userReview.data.data[1]?.profile,
-  //   nick: userReview.data.data[1]?.nick,
-  //   gen: userReview.data.data[1]?.gen,
-  //   contact: userReview.data.data[1]?.contact,
-  //   content: userReview.data.data[1]?.content,
-  // }
-
-  // let review3 = {
-  //   count: userReview.data.data[2]?.count,
-  //   profile: userReview.data.data[2]?.profile,
-  //   nick: userReview.data.data[2]?.nick,
-  //   gen: userReview.data.data[2]?.gen,
-  //   contact: userReview.data.data[2]?.contact,
-  //   content: userReview.data.data[2]?.content,
-  // }
 
   return (
     <GeneralForm

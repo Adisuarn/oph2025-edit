@@ -501,18 +501,18 @@ const GeneralForm: React.FC<{
                   url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
                   headers: {
                     'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                    Authorization: `${cookies.get('oph2025-auth-cookie')}`,
+                    Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
                   },
                   data: reviewData,
                 })
               })
+              notifySuccess()
             } catch (error) {
               console.log(error)
               notifyError()
             } finally {
               setSubmitting(false)
               setLoading(false)
-              notifySuccess()
             }
           } else {
             setSubmitting(false)
@@ -533,7 +533,7 @@ const GeneralForm: React.FC<{
                 </Link>
                 <Link
                   href="/account"
-                  className="relative font-Thai text-xs text-greenText before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-greenText before:transition-all before:duration-300 hover:before:w-full sm:text-lg md:text-2xl"
+                  className="relative font-Thai text-xs text-greenTextext sm:text-lg md:text-2xl"
                 >
                   ย้อนกลับ
                 </Link>
@@ -612,37 +612,37 @@ const GeneralForm: React.FC<{
                       <FaPen className="-mt-4 h-2 text-white" />
                       <p className="sm:text-md text-xs md:text-lg">คน</p>
                     </div>
-                    <div className="sm:space-y-2">
-                      <div className="space-y-1 text-start sm:text-lg">
-                        <div className="flex">
-                          <p>IG : </p>
-                          <Field
-                            type="text"
-                            name="IG"
-                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px] xl:w-full"
-                          />
-                          <FaPen className="h-2 text-white" />
-                        </div>
-                        <div className="flex">
-                          <p>FB : </p>
-                          <Field
-                            type="text"
-                            name="FB"
-                            className="bg-transparent pl-3 text-start text-xs text-white sm:text-lg md:w-[360px] xl:w-full"
-                          />
-                          <FaPen className="h-2 text-white" />
-                        </div>
-                        <div className="flex">
-                          <p>อื่น ๆ : </p>
-                          <Field
-                            type="text"
-                            name="others"
-                            className="bg-transparent pl-3 text-center text-xs text-white sm:text-lg md:w-[360px] xl:w-full"
-                          />
-                          <FaPen className="h-2 text-white" />
+                    <div className="justify- whitespace-nowrapcenter flex items-center sm:space-y-2">
+                        <div className="items-center justify-center space-y-1 text-start sm:text-lg">
+                          <div className="flex">
+                            <p className="text-[8px] sm:text-lg">IG : </p>
+                            <Field
+                              type="text"
+                              name="IG"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
+                          <div className="flex">
+                            <p className="whitespace-nowrap text-[8px] sm:text-lg">FB : </p>
+                            <Field
+                              type="text"
+                              name="FB"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
+                          <div className="flex">
+                            <p className="whitespace-nowrap text-[8px] sm:text-lg">อื่น ๆ : </p>
+                            <Field
+                              type="text"
+                              name="others"
+                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
                         </div>
                       </div>
-                    </div>
                   </div>
                 ) : (
                   <div className="flex h-40 w-full items-center justify-around space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto md:w-[60vw]">
@@ -691,14 +691,14 @@ const GeneralForm: React.FC<{
                         <FaPen className="-mt-2 h-1 text-white sm:h-2 md:-mt-4" />
                         <p className="sm:text-md text-[8px] md:text-lg">คน</p>
                       </div>
-                      <div className="justify- whitespace-nowrapcenter flex items-center sm:space-y-2">
+                      <div className="whitespace-nowrapcenter flex items-center sm:space-y-2">
                         <div className="items-center justify-center space-y-1 text-start sm:text-lg">
                           <div className="flex">
                             <p className="text-[8px] sm:text-lg">IG : </p>
                             <Field
                               type="text"
                               name="IG"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                              className="ml-1 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 w-36 md:w-[200px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -758,7 +758,7 @@ const GeneralForm: React.FC<{
                       {displayImage1 ? (
                         <div className="relative w-full">
                           <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72"
                             src={imageUrl1 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -777,7 +777,7 @@ const GeneralForm: React.FC<{
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-2/3 md:h-60 lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -837,7 +837,7 @@ const GeneralForm: React.FC<{
                       {displayImage2 ? (
                         <div className="relative w-full">
                           <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72"
                             src={imageUrl2 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -856,7 +856,7 @@ const GeneralForm: React.FC<{
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-2/3 md:h-60 lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -918,7 +918,7 @@ const GeneralForm: React.FC<{
                       {displayImage3 ? (
                         <div className="relative w-full">
                           <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72"
                             src={imageUrl3 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -937,7 +937,7 @@ const GeneralForm: React.FC<{
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-4/5 md:h-60 lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-2/3 md:h-60 lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -980,7 +980,7 @@ const GeneralForm: React.FC<{
               </div>
 
               <section className="flex flex-col space-y-10">
-                {ReviewAmount >= 1 && (
+                {/* {ReviewAmount >= 1 && ( */}
                   <div className="flex flex-col items-center justify-center space-y-5">
                     <div className="flex w-full items-start justify-around">
                       <div className="flex flex-col">
@@ -996,7 +996,7 @@ const GeneralForm: React.FC<{
                               />
                               <button
                                 onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
-                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
+                                className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
                               >
                                 X
                               </button>
@@ -1020,7 +1020,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P1Name"
-                            className="w-16 text-sm font-bold text-greenText sm:w-24 sm:text-lg"
+                            className="text-sm font-bold text-greenText w-full sm:text-lg"
                             placeholder="ชื่อเล่น"
                           />
                           <ErrorMessage
@@ -1029,7 +1029,7 @@ const GeneralForm: React.FC<{
                             className="text-[8px] text-red-400"
                           />
                           <div className="flex">
-                            <label className="text-xs text-gray sm:text-sm" htmlFor="P1Gen">
+                            <label className="text-[8px] text-gray sm:text-sm" htmlFor="P1Gen">
                               เตรียมอุดม{' '}
                             </label>
                             <Field
@@ -1048,7 +1048,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P1Contact"
-                            className="w-20 text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
+                            className="w-full text-[8px] text-heroMiddle sm:text-sm"
                             placeholder="contact"
                           />
                           <ErrorMessage
@@ -1071,7 +1071,7 @@ const GeneralForm: React.FC<{
                       </div>
                     </div>
                   </div>
-                )}
+                {/* )} */}
                 {ReviewAmount >= 2 && (
                   <div className="flex flex-col items-center justify-center space-y-3">
                     <div className="flex w-full items-start justify-around">
@@ -1123,7 +1123,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P2Name"
-                            className="w-16 text-end text-sm font-bold text-greenText sm:w-24 sm:text-lg"
+                            className="w-full text-end text-sm font-bold text-greenText sm:text-lg"
                             placeholder="ชื่อเล่น"
                           />
                           <ErrorMessage
@@ -1132,7 +1132,7 @@ const GeneralForm: React.FC<{
                             className="text-[8px] text-red-400"
                           />
                           <div className="flex items-center justify-end">
-                            <label className="text-xs text-gray sm:text-sm" htmlFor="P2Gen">
+                            <label className="text-[8px] text-gray sm:text-sm" htmlFor="P2Gen">
                               เตรียมอุดม{' '}
                             </label>
                             <Field
@@ -1151,7 +1151,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P2Contact"
-                            className="w-16 text-end text-[8px] text-heroMiddle sm:w-24 sm:text-sm"
+                            className="w-full text-end text-[8px] text-heroMiddle sm:text-sm"
                             placeholder="contact"
                           />
                           <ErrorMessage
@@ -1180,7 +1180,7 @@ const GeneralForm: React.FC<{
                               />
                               <button
                                 onClick={() => setDisplayImage6(false)} // Replace with your deletion logic
-                                className="absolute -top-2 right-4 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
+                                className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
                               >
                                 X
                               </button>
@@ -1204,7 +1204,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P3Name"
-                            className="w-16 text-sm font-bold text-greenText sm:w-24 sm:text-lg"
+                            className="w-full text-sm font-bold text-greenText sm:text-lg"
                             placeholder="ชื่อเล่น"
                           />
                           <ErrorMessage
@@ -1213,7 +1213,7 @@ const GeneralForm: React.FC<{
                             className="text-[8px] text-red-400"
                           />
                           <div className="flex">
-                            <label className="text-xs text-gray sm:text-sm" htmlFor="P3Gen">
+                            <label className="text-[8px] text-gray sm:text-sm" htmlFor="P3Gen">
                               เตรียมอุดม{' '}
                             </label>
                             <Field
@@ -1232,7 +1232,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="P3Contact"
-                            className="w-20 text-[8px] text-heroMiddle sm:w-32 sm:text-sm"
+                            className="w-full text-[8px] text-heroMiddle sm:text-sm"
                             placeholder="contact"
                           />
                           <ErrorMessage

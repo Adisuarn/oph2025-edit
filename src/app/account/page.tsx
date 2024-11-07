@@ -52,7 +52,7 @@ const AccountPage = async () => {
       <div className="h-16 w-16 overflow-hidden rounded-full sm:h-20 sm:w-20">
         <Image src={picture} alt="profile" width={150} height={150} />
       </div>
-      <p className="relative -space-y-2 bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:flex sm:text-2xl md:text-4xl">
+      <p className="relative -space-y-2 bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-xl font-bold text-center text-transparent sm:flex sm:text-2xl md:text-4xl">
         {submittedInit ? thainame : name}
       </p>
       {submittedInit && <p className="opacity-70">จำนวนสมาชิก {members} คน</p>}

@@ -86,12 +86,12 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
 
         <div className="flex flex-col text-center">
           <div className="mb-28 ml-14 h-[300px] w-[500px] rounded-2xl">
-            <div className="overflow-hidden rounded-2xl">
+            <div className="overflow-hidden rounded-2xl max-w-[500px] max-h-[300px]">
               <Image src={data.captureimg1} alt="img1" width={500} height={300} />
             </div>
             <input
               type="text"
-              className="placeholder: mt-3 text-center font-BaiJamjuree text-[16px] font-light text-[#0C453E]"
+              className="border rounded-lg placeholder: mt-3 text-center font-BaiJamjuree text-[16px] font-light text-[#0C453E]"
               value={data.descimg1}
               onChange={handleDescriptionChange}
               placeholder="กรุณาใส่คำอธิบายรูปภาพ"

@@ -69,9 +69,6 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
         }
       } catch {
         toast.error('เกิดข้อผิดพลาดที่เซิฟเวอร์', { id: loadingToastId })
-        setTimeout(() => {
-          router.push('/error/500')
-        }, 2000)
       } finally {
         setIsSubmitting(false)
       }
@@ -88,7 +85,7 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
       <div className="absolute -left-24 bottom-0 z-40 sm:-left-10">
         <SmallFormLeft className="h-screen sm:hidden" />
       </div>
-      <div className="absolute bottom-0 right-0 z-20">
+      <div className="absolute bottom-0 right-0 z-20 2xl:top-14">
         <BigLamp className="hidden sm:block sm:h-full" />
       </div>
       <div className="absolute -right-20 top-16 z-20">
