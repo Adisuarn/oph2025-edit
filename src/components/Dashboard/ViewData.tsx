@@ -117,7 +117,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
               error: 'อัปเดตสถานะไม่สำเร็จ',
             })
           }
-        } else {
+        } else if (status === Status.APPROVED) {
           toast.promise(onStatusUpdate(data, status, ""), {
             loading: 'กำลังอัปเดตสถานะ...',
             success: 'อัปเดตสถานะสำเร็จ',
