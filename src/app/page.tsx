@@ -4,8 +4,6 @@ import apiFunction from "@/components/api";
 import Brick from "@/vectors/landing/Brick";
 import NiceStuff from "@/vectors/landing/NiceStuff";
 import Window from "@/vectors/landing/Window";
-import Windowphone from "@/vectors/landing/Windowphone";
-import Super from "@/vectors/landing/Super";
 import BrickSmall from "@/vectors/landing/BrickSmall";
 import { redirect } from "next/navigation";
 

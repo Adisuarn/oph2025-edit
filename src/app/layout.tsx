@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 
 import { type Metadata } from "next";
 import { CookiesProvider } from 'next-client-cookies/server'
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: "oph2025-edit",
@@ -16,6 +17,7 @@ export default function RootLayout({
       <CookiesProvider>
         <html lang="en">
          <body className="font-Thai">{children}</body>
+         <SpeedInsights />
         </html>
       </CookiesProvider>
   );
