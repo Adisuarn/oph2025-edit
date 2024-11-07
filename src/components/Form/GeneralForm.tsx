@@ -1276,6 +1276,7 @@ const GeneralForm: React.FC<{
                           setFieldValue('P3Name', '')
                           setFieldValue('P3Gen', '')
                           setFieldValue('P3Contact', '')
+                          setReviewAmount(ReviewAmount - 1)
                           await axios.request({
                             method: 'DELETE',
                             headers: {
@@ -1285,7 +1286,6 @@ const GeneralForm: React.FC<{
                             url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/3`,
                             data: {},
                           })
-                          setReviewAmount(ReviewAmount - 1)
                         } else if (ReviewAmount === 2) {
                           setDisplayImage5(false)
                           setImageUrl5('')
@@ -1293,6 +1293,7 @@ const GeneralForm: React.FC<{
                           setFieldValue('P2Name', '')
                           setFieldValue('P2Gen', '')
                           setFieldValue('P2Contact', '')
+                          setReviewAmount(ReviewAmount - 1)
                           await axios.request({
                             method: 'DELETE',
                             headers: {
@@ -1302,7 +1303,6 @@ const GeneralForm: React.FC<{
                             url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/2`,
                             data: {},
                           })
-                          setReviewAmount(ReviewAmount - 1)
                         }
                       }
                     }}
