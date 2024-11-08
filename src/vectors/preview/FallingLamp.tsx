@@ -7,7 +7,6 @@ const FallingLamp: FC<{
     <svg
       width="1208"
       height="678"
-      className={`${className}`}
       viewBox="0 0 1208 678"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -31,146 +30,140 @@ const FallingLamp: FC<{
         />
       </g>
       <g filter="url(#filter3_d_852_1096)">
-        <g filter="url(#filter4_d_852_1096)">
-          <path
-            d="M1178.31 58.7637L1176.88 253.03"
-            stroke="url(#paint3_linear_852_1096)"
-            stroke-width="9.99898"
-            stroke-linecap="round"
-          />
-        </g>
-        <ellipse
-          cx="1176.96"
-          cy="347.391"
-          rx="20.0836"
-          ry="20.0837"
-          fill="url(#paint4_linear_852_1096)"
+        <path
+          d="M1178.31 58.7637L1176.88 253.03"
+          stroke="url(#paint3_linear_852_1096)"
+          stroke-width="9.99898"
+          stroke-linecap="round"
+        />
+      </g>
+      <ellipse
+        cx="1176.96"
+        cy="347.391"
+        rx="20.0836"
+        ry="20.0837"
+        fill="url(#paint4_linear_852_1096)"
+      />
+      <path
+        d="M1177.26 253.09C1134.31 253.09 1145.45 291.031 1129.38 318.158C1124.45 326.483 1112.49 329.353 1117.42 339.848C1122.34 350.343 1232.88 350.343 1237.1 339.848C1241.33 329.353 1227.93 323.911 1221.62 313.96C1205.87 289.129 1220.21 253.09 1177.26 253.09Z"
+        fill="url(#paint5_linear_852_1096)"
+      />
+      <mask
+        id="mask0_852_1096"
+        style={{ maskType: 'alpha' }}
+        maskUnits="userSpaceOnUse"
+        x="1116"
+        y="253"
+        width="122"
+        height="95"
+      >
+        <path
+          d="M1177.26 253.09C1134.32 253.09 1145.46 291.03 1129.39 318.158C1124.46 326.483 1112.49 329.352 1117.42 339.847C1122.35 350.342 1232.88 350.342 1237.11 339.847C1241.33 329.352 1227.93 323.911 1221.62 313.96C1205.87 289.129 1220.21 253.09 1177.26 253.09Z"
+          fill="url(#paint6_linear_852_1096)"
+        />
+      </mask>
+      <g mask="url(#mask0_852_1096)">
+        <path
+          d="M1121.6 370.475L1221.19 268.148L1234.06 281.375L1134.48 383.701L1121.6 370.475Z"
+          fill="url(#paint7_linear_852_1096)"
         />
         <path
-          d="M1177.26 253.09C1134.31 253.09 1145.45 291.031 1129.38 318.158C1124.45 326.483 1112.49 329.353 1117.42 339.848C1122.34 350.343 1232.88 350.343 1237.1 339.848C1241.33 329.353 1227.93 323.911 1221.62 313.96C1205.87 289.129 1220.21 253.09 1177.26 253.09Z"
-          fill="url(#paint5_linear_852_1096)"
+          d="M1121.17 339.644L1220.76 237.317L1228.07 244.828L1128.48 347.155L1121.17 339.644Z"
+          fill="url(#paint8_linear_852_1096)"
         />
-        <mask
-          id="mask0_852_1096"
-          style={{maskType:"alpha"}}
-          maskUnits="userSpaceOnUse"
-          x="1116"
-          y="253"
-          width="122"
-          height="95"
-        >
-          <path
-            d="M1177.26 253.09C1134.32 253.09 1145.46 291.03 1129.39 318.158C1124.46 326.483 1112.49 329.352 1117.42 339.847C1122.35 350.342 1232.88 350.342 1237.11 339.847C1241.33 329.352 1227.93 323.911 1221.62 313.96C1205.87 289.129 1220.21 253.09 1177.26 253.09Z"
-            fill="url(#paint6_linear_852_1096)"
-          />
-        </mask>
-        <g mask="url(#mask0_852_1096)">
-          <path
-            d="M1121.6 370.475L1221.19 268.148L1234.06 281.375L1134.48 383.701L1121.6 370.475Z"
-            fill="url(#paint7_linear_852_1096)"
-          />
-          <path
-            d="M1121.17 339.644L1220.76 237.317L1228.07 244.828L1128.48 347.155L1121.17 339.644Z"
-            fill="url(#paint8_linear_852_1096)"
-          />
-        </g>
       </g>
-      <g filter="url(#filter5_d_852_1096)">
-        <g filter="url(#filter6_d_852_1096)">
-          <path
-            d="M1117.71 3L1117.09 86.8207"
-            stroke="url(#paint9_linear_852_1096)"
-            stroke-width="5.64101"
-            stroke-linecap="round"
-          />
-        </g>
-        <ellipse
-          cx="1117.15"
-          cy="156.426"
-          rx="14.8146"
-          ry="14.8147"
-          fill="url(#paint10_linear_852_1096)"
+      <g filter="url(#filter4_d_852_1096)">
+        <path
+          d="M1117.71 3L1117.09 86.8207"
+          stroke="url(#paint9_linear_852_1096)"
+          stroke-width="5.64101"
+          stroke-linecap="round"
         />
+      </g>
+      <ellipse
+        cx="1117.15"
+        cy="156.426"
+        rx="14.8146"
+        ry="14.8147"
+        fill="url(#paint10_linear_852_1096)"
+      />
+      <path
+        d="M1117.23 87.4902C1085.61 87.4902 1093.81 115.268 1081.98 135.129C1078.35 141.224 1069.54 143.325 1073.17 151.009C1076.8 158.693 1158.17 158.693 1161.28 151.009C1164.39 143.325 1154.52 139.341 1149.88 132.056C1138.29 113.876 1148.84 87.4902 1117.23 87.4902Z"
+        fill="url(#paint11_linear_852_1096)"
+      />
+      <mask
+        id="mask1_852_1096"
+        style= {{ maskType: 'alpha' }}
+        maskUnits="userSpaceOnUse"
+        x="1072"
+        y="87"
+        width="90"
+        height="70"
+      >
         <path
           d="M1117.23 87.4902C1085.61 87.4902 1093.81 115.268 1081.98 135.129C1078.35 141.224 1069.54 143.325 1073.17 151.009C1076.8 158.693 1158.17 158.693 1161.28 151.009C1164.39 143.325 1154.52 139.341 1149.88 132.056C1138.29 113.876 1148.84 87.4902 1117.23 87.4902Z"
-          fill="url(#paint11_linear_852_1096)"
+          fill="url(#paint12_linear_852_1096)"
         />
-        <mask
-          id="mask1_852_1096"
-          style={{maskType:"alpha"}}
-          maskUnits="userSpaceOnUse"
-          x="1072"
-          y="87"
-          width="90"
-          height="70"
-        >
-          <path
-            d="M1117.23 87.4902C1085.61 87.4902 1093.81 115.268 1081.98 135.129C1078.35 141.224 1069.54 143.325 1073.17 151.009C1076.8 158.693 1158.17 158.693 1161.28 151.009C1164.39 143.325 1154.52 139.341 1149.88 132.056C1138.29 113.876 1148.84 87.4902 1117.23 87.4902Z"
-            fill="url(#paint12_linear_852_1096)"
-          />
-        </mask>
-        <g mask="url(#mask1_852_1096)">
-          <path
-            d="M1076.31 173.454L1149.77 97.9726L1159.27 107.729L1085.81 183.21L1076.31 173.454Z"
-            fill="url(#paint13_linear_852_1096)"
-          />
-          <path
-            d="M1076 150.711L1149.46 75.23L1154.85 80.7705L1081.39 156.251L1076 150.711Z"
-            fill="url(#paint14_linear_852_1096)"
-          />
-        </g>
-      </g>
-      <g filter="url(#filter7_d_852_1096)">
-        <g filter="url(#filter8_d_852_1096)">
-          <path
-            d="M63 16L64 187"
-            stroke="url(#paint15_linear_852_1096)"
-            stroke-width="11.8286"
-            stroke-linecap="round"
-          />
-        </g>
-        <ellipse
-          cx="63.7888"
-          cy="298.648"
-          rx="23.7585"
-          ry="23.7585"
-          fill="url(#paint16_linear_852_1096)"
-        />
-        <ellipse
-          cx="62.7731"
-          cy="298.648"
-          rx="23.7585"
-          ry="23.7585"
-          fill="url(#paint17_linear_852_1096)"
+      </mask>
+      <g mask="url(#mask1_852_1096)">
+        <path
+          d="M1076.31 173.454L1149.77 97.9726L1159.27 107.729L1085.81 183.21L1076.31 173.454Z"
+          fill="url(#paint13_linear_852_1096)"
         />
         <path
-          d="M64.5334 187.021C12.9947 187.021 26.3642 232.837 7.08044 265.596C1.16261 275.649 -13.1973 279.114 -7.28281 291.788C-1.36831 304.461 131.28 304.461 136.35 291.788C141.419 279.114 125.334 272.543 117.762 260.527C98.8678 230.541 116.072 187.021 64.5334 187.021Z"
-          fill="url(#paint18_linear_852_1096)"
+          d="M1076 150.711L1149.46 75.23L1154.85 80.7705L1081.39 156.251L1076 150.711Z"
+          fill="url(#paint14_linear_852_1096)"
         />
-        <mask
-          id="mask2_852_1096"
-          style={{maskType:"alpha"}}
-          maskUnits="userSpaceOnUse"
-          x="-9"
-          y="187"
-          width="147"
-          height="115"
-        >
-          <path
-            d="M64.5334 187.021C12.9947 187.021 26.3642 232.837 7.08044 265.596C1.16261 275.649 -13.1973 279.114 -7.28281 291.788C-1.36831 304.461 131.28 304.461 136.35 291.788C141.419 279.114 125.334 272.543 117.762 260.527C98.8678 230.541 116.072 187.021 64.5334 187.021Z"
-            fill="url(#paint19_linear_852_1096)"
-          />
-        </mask>
-        <g mask="url(#mask2_852_1096)">
-          <path
-            d="M-1.70508 325.955L116.106 204.905L131.334 220.552L13.5233 341.602L-1.70508 325.955Z"
-            fill="url(#paint20_linear_852_1096)"
-          />
-          <path
-            d="M-2.21289 289.482L115.598 168.432L124.246 177.318L6.4348 298.368L-2.21289 289.482Z"
-            fill="url(#paint21_linear_852_1096)"
-          />
-        </g>
+      </g>
+      <g filter="url(#filter5_d_852_1096)">
+        <path
+          d="M63 16L64 187"
+          stroke="url(#paint15_linear_852_1096)"
+          stroke-width="11.8286"
+          stroke-linecap="round"
+        />
+      </g>
+      <ellipse
+        cx="63.7888"
+        cy="298.648"
+        rx="23.7585"
+        ry="23.7585"
+        fill="url(#paint16_linear_852_1096)"
+      />
+      <ellipse
+        cx="62.7731"
+        cy="298.648"
+        rx="23.7585"
+        ry="23.7585"
+        fill="url(#paint17_linear_852_1096)"
+      />
+      <path
+        d="M64.5334 187.021C12.9947 187.021 26.3642 232.837 7.08044 265.596C1.16261 275.649 -13.1973 279.114 -7.28281 291.788C-1.36831 304.461 131.28 304.461 136.35 291.788C141.419 279.114 125.334 272.543 117.762 260.527C98.8678 230.541 116.072 187.021 64.5334 187.021Z"
+        fill="url(#paint18_linear_852_1096)"
+      />
+      <mask
+        id="mask2_852_1096"
+        style={{ maskType: 'alpha' }}
+        maskUnits="userSpaceOnUse"
+        x="-9"
+        y="187"
+        width="147"
+        height="115"
+      >
+        <path
+          d="M64.5334 187.021C12.9947 187.021 26.3642 232.837 7.08044 265.596C1.16261 275.649 -13.1973 279.114 -7.28281 291.788C-1.36831 304.461 131.28 304.461 136.35 291.788C141.419 279.114 125.334 272.543 117.762 260.527C98.8678 230.541 116.072 187.021 64.5334 187.021Z"
+          fill="url(#paint19_linear_852_1096)"
+        />
+      </mask>
+      <g mask="url(#mask2_852_1096)">
+        <path
+          d="M-1.70508 325.955L116.106 204.905L131.334 220.552L13.5233 341.602L-1.70508 325.955Z"
+          fill="url(#paint20_linear_852_1096)"
+        />
+        <path
+          d="M-2.21289 289.482L115.598 168.432L124.246 177.318L6.4348 298.368L-2.21289 289.482Z"
+          fill="url(#paint21_linear_852_1096)"
+        />
       </g>
       <defs>
         <filter
@@ -214,37 +207,6 @@ const FallingLamp: FC<{
         </filter>
         <filter
           id="filter3_d_852_1096"
-          x="1109.49"
-          y="53.7642"
-          width="135.183"
-          height="327.229"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset dy="6.75918" />
-          <feGaussianBlur stdDeviation="3.37959" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
-          />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_852_1096" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="effect1_dropShadow_852_1096"
-            result="shape"
-          />
-        </filter>
-        <filter
-          id="filter4_d_852_1096"
           x="1166.17"
           y="53.7642"
           width="22.8542"
@@ -272,38 +234,7 @@ const FallingLamp: FC<{
           />
         </filter>
         <filter
-          id="filter5_d_852_1096"
-          x="1065.55"
-          y="0.179688"
-          width="103.077"
-          height="184.58"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset dy="6.75918" />
-          <feGaussianBlur stdDeviation="3.37959" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
-          />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_852_1096" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="effect1_dropShadow_852_1096"
-            result="shape"
-          />
-        </filter>
-        <filter
-          id="filter6_d_852_1096"
+          id="filter4_d_852_1096"
           x="1111.05"
           y="0.179688"
           width="12.7037"
@@ -331,38 +262,7 @@ const FallingLamp: FC<{
           />
         </filter>
         <filter
-          id="filter7_d_852_1096"
-          x="-15.4428"
-          y="10.0859"
-          width="159.521"
-          height="325.839"
-          filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
-        >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-            result="hardAlpha"
-          />
-          <feOffset dy="6.75918" />
-          <feGaussianBlur stdDeviation="3.37959" />
-          <feComposite in2="hardAlpha" operator="out" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.0470588 0 0 0 0 0.270588 0 0 0 0 0.243137 0 0 0 0.3 0"
-          />
-          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_852_1096" />
-          <feBlend
-            mode="normal"
-            in="SourceGraphic"
-            in2="effect1_dropShadow_852_1096"
-            result="shape"
-          />
-        </filter>
-        <filter
-          id="filter8_d_852_1096"
+          id="filter5_d_852_1096"
           x="50.3268"
           y="10.0859"
           width="26.3465"
