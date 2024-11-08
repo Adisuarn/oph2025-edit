@@ -20,7 +20,6 @@ const FormikControl: React.FC = async () => {
     thainame: data.thainame,
     tag: data.tag,
     tagThai: "โครงการพัฒนาความสามารถพิเศษ",
-    sendForm: data.sendForm,
     members: data.members,
     ig: data.ig,
     fb: data.fb,
