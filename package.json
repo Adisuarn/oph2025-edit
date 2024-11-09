@@ -20,7 +20,6 @@
     "@prisma/client": "^5.22.0",
     "@prisma/extension-accelerate": "^1.2.1",
     "@t3-oss/env-nextjs": "^0.11.1",
-    "@tqman/nice-logger": "^1.0.7",
     "@vercel/speed-insights": "^1.1.0",
     "arctic": "^2.0.0-next.7",
     "axios": "^1.7.7",

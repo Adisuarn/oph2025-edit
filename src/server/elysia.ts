@@ -6,12 +6,10 @@ import { organizationRouter } from '@modules/organizations/organizations.route'
 import { rolesRouter } from '@modules/roles/roles.route'
 import { tucmcRouter } from '@modules/tucmc/tucmc.route'
 import { userRouter } from '@modules/user/user.route'
-import { logger } from "@tqman/nice-logger";
 import { Elysia } from 'elysia'
 import { programRouter } from '@/server/modules/programs/programs.route'
 
 export const elysiaApp = new Elysia({ prefix: '/api' })
-  .use(logger({ mode: "combined" }))
   .use(GlobalGuard)
   .use(authRouter)
   .use(clubRouter)

@@ -58,8 +58,6 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
         cancelButtonText: 'ยกเลิก',
       });
 
-
-
       if (result.isConfirmed) {
         setIsSubmitting(true);
         const loadingToastId = toast.loading('กำลังบันทึกข้อมูล...');
