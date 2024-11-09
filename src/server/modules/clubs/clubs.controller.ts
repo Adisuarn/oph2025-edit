@@ -7,8 +7,6 @@ import { uploadImage } from '@utils/uploadimg'
 
 export interface ClubData {
   error: string
-  name: string
-  thainame: string
   status?: string
   members: string
   ig: string

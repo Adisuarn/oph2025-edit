@@ -1,7 +1,5 @@
-import { redirect } from 'next/navigation'
 import React from 'react'
 
-import apiFunction from '@/components/api'
 import GoogleOAuthButton from '@/components/GoogleOAuthButton'
 import Brick from '@/vectors/landing/Brick'
 import BrickSmall from '@/vectors/landing/BrickSmall'
