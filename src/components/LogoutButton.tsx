@@ -25,6 +25,7 @@ const LogoutButton = () => {
 
   return (
     <button
+      type="button"
       onClick={handleLogoutClick}
       className="relative text-sm text-neutral-500 before:absolute before:bottom-0 before:left-0 before:h-[1px] before:w-0 before:bg-neutral-500 before:transition-all before:duration-300 hover:before:w-full"
     >
