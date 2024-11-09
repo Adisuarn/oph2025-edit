@@ -5,14 +5,17 @@ import ClubForm from '@/components/Form/ClubForm'
 import GiftedForm from '@/components/Form/GiftedForm'
 import OrganizationsForm from '@/components/Form/OrganizationsForm'
 import ProgramForm from '@/components/Form/ProgramForm'
-import { Tag } from '@/server/utils/type'
+import { Tag, Status } from '@/server/utils/type'
 
 export default async function Form({ params }: { params: { editingformId: string } }) {
   const response = await apiFunction('GET', '/user', {})
   if (response.status === 401) redirect('/')
-
-  if (params.editingformId !== response.data.tag) {
-    redirect(`/editingform/${response.data.tag}`)
+  const { tag, key } = response.data
+  const userForm = await apiFunction('GET', `/${tag}/${key}/`, {})
+  const { status } = userForm.data.data
+  if (status === Status.APPROVED) redirect('/')
+  if (params.editingformId !== tag) {
+    redirect(`/editingform/${tag}`)
   }
 
   return (
