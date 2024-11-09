@@ -46,7 +46,7 @@ const PreviewGeneralForm: React.FC<{
   }
   return (
     <section className="via-41% relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] via-[#91CDAD] to-[#C8E5BD]">
-      <div className="absolute -top-80 left-1/2 z-10 -translate-x-1/2 sm:-top-20">
+      <div className="absolute -top-[340px] left-1/2 z-10 -translate-x-1/2 sm:-top-20">
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
       <div className="absolute -top-36 left-0 z-10 w-full overflow-hidden">
@@ -462,10 +462,10 @@ const PreviewGeneralForm: React.FC<{
       </section>
 
       <div className="relative overflow-hidden pb-48 sm:pb-96 md:pb-[580px] xl:pb-[800px] 2xl:pb-[1000px]">
-        <div className="absolute -bottom-[150px] left-1/2 -translate-x-1/2 sm:-bottom-[80px] md:-bottom-[20px] lg:hidden">
+        <div className="absolute -bottom-[150px] left-1/2 -translate-x-1/2 sm:-bottom-[60px] md:-bottom-[20px] lg:hidden">
           <Lowercurve className="w-[100vw]" />
         </div>
-        <div className="absolute -bottom-10 z-10 sm:-bottom-20">
+        <div className="absolute -bottom-10 z-10 sm:bottom-5">
           <Footer className="w-[100vw] lg:hidden" />
         </div>
         <div className="absolute bottom-0 left-1/2 w-screen -translate-x-1/2 overflow-hidden lg:-bottom-14 xl:-bottom-5 2xl:-bottom-10">
