@@ -5,6 +5,7 @@ import { useCallback, useMemo, useState } from 'react'
 import { Tag } from '@utils/type'
 import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { toast, Toaster } from 'react-hot-toast'
+import Swal from 'sweetalert2'
 import * as Yup from 'yup'
 
 import LogoutButton from '@/components/LogoutButton'
@@ -45,36 +46,50 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
   })
 
   const onSubmit = useCallback(
-    async (values: { tagOptions: string; keyOptions: string }) => {
-      setIsSubmitting(true)
-      const loadingToastId = toast.loading('กำลังบันทึกข้อมูล...')
+    async (values: { tagOptions: string ; keyOptions: string }) => {
+      const selectedTag = tagOptions.find(tag => tag.value === values.tagOptions);
+      const selectedName = selectedTag ? (selectedTag.options as Record<string, string>)[values.keyOptions] || '' : '';
+      const result = await Swal.fire({
+        title: 'ยืนยันการบันทึกข้อมูล?',
+        html: `คุณต้องการบันทึก <p><b>${(selectedTag?.key === 'ชมรม' ? selectedTag?.key : '')}${selectedName}</b></p> หรือไม่?`, // Makes selectedName bold
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'ยืนยัน',
+        cancelButtonText: 'ยกเลิก',
+      });
 
-      try {
-        dataRecord.tag = values.tagOptions
-        dataRecord.key = values.keyOptions
-        const response = await postRecord(dataRecord)
 
-        if (response?.status === 201) {
-          toast.success('บันทึกข้อมูลสำเร็จ', { id: loadingToastId })
-          router.push('/account')
-          router.refresh()
-        } else {
-          const errorMessages: Record<number, string> = {
-            400: 'มีผู้ใช้ได้บันทึกข้อมูลนี้แล้ว',
-            500: 'เกิดข้อผิดพลาด',
+
+      if (result.isConfirmed) {
+        setIsSubmitting(true);
+        const loadingToastId = toast.loading('กำลังบันทึกข้อมูล...');
+
+        try {
+          dataRecord.tag = values.tagOptions;
+          dataRecord.key = values.keyOptions;
+          const response = await postRecord(dataRecord);
+
+          if (response?.status === 201) {
+            toast.success('บันทึกข้อมูลสำเร็จ', { id: loadingToastId });
+            router.push('/account');
+            router.refresh();
+          } else {
+            const errorMessages: Record<number, string> = {
+              400: 'มีผู้ใช้ได้บันทึกข้อมูลนี้แล้ว',
+              500: 'เกิดข้อผิดพลาด',
+            };
+            toast.error(errorMessages[response?.status] || 'เกิดข้อผิดพลาดที่เซิฟเวอร์', { id: loadingToastId });
           }
-          toast.error(errorMessages[response?.status] || 'เกิดข้อผิดพลาดที่เซิฟเวอร์', {
-            id: loadingToastId,
-          })
+        } catch {
+          toast.error('เกิดข้อผิดพลาดที่เซิฟเวอร์', { id: loadingToastId });
+        } finally {
+          setIsSubmitting(false);
         }
-      } catch {
-        toast.error('เกิดข้อผิดพลาดที่เซิฟเวอร์', { id: loadingToastId })
-      } finally {
-        setIsSubmitting(false)
       }
     },
-    [dataRecord, router],
-  )
+    [dataRecord, router, tagOptions]
+  );
+
 
   return (
     <main className="relative flex h-screen w-screen items-center justify-center overflow-hidden bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">
@@ -135,7 +150,7 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
                 <Field
                   as="select"
                   name="keyOptions"
-                  className={`form-select rounded-md border border-gray w-36 md:w-48 bg-white px-8 py-2 pl-2 ${values.keyOptions ? 'text-black' : 'text-[#A9A9A9]'}`}
+                  className={`lg:w-auto form-select rounded-md border border-gray md:w-48 bg-white px-8 py-2 pl-2 ${values.keyOptions ? 'text-black' : 'text-[#A9A9A9]'}`}
                   disabled={isKeyOptionsDisabled}
                 >
                   <option value="" disabled hidden>
@@ -158,7 +173,7 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
                 >
                   Submit
                 </button>
-                <LogoutButton disabled={isSubmitting}/>
+                <LogoutButton disabled={isSubmitting} />
               </div>
             </Form>
           )
