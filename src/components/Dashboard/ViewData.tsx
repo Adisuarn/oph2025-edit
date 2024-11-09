@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Header, Passage1, Passage2, Passage3, Reviews } from '@components/Dashboard'
 import { emails } from '@libs/admin'
 import { Status } from '@utils/type'
@@ -17,7 +17,9 @@ import { updateData } from './ViewData.action'
 const MySwal = withReactContent(Swal)
 
 const ViewData = ({ data, type, onStatusUpdate }: any) => {
+  const [loading, setLoading] = useState(false)  // New loading state
   const router = useRouter()
+
   const formattedDate = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Bangkok',
     day: '2-digit',
@@ -60,6 +62,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
   }
 
   const handleSubmit = async (values: any) => {
+    setLoading(true)  // Start loading when submit is clicked
     try {
       MySwal.fire({
         title: 'ยืนยันการแก้ไขข้อมูล',
@@ -72,58 +75,59 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
         if (result.isConfirmed) {
           toast.promise(
             updateData(values, data.data.tag, data.data.key).then(() => {
+              router.push('/account/dashboard')
               router.refresh()
+              setLoading(false)  // Stop loading on successful update
             }),
             {
               loading: 'กำลังอัปเดตข้อมูล...',
               success: 'อัปเดตข้อมูลสำเร็จ',
               error: 'อัปเดตข้อมูลไม่สำเร็จ',
             },
-          )
+          ).finally(() => setLoading(false))  // Stop loading on any result
+        } else {
+          setLoading(false)  // Stop loading if user cancels
         }
       })
     } catch (error) {
+      setLoading(false)  // Stop loading on error
       toast.error('ไม่สามารถอัปเดตข้อมูลได้')
     }
   }
 
   const handleStatusChange = (status: Status) => {
+    setLoading(true)  // Start loading when status change is clicked
     const titles: { [key in Status]: string } = {
       [Status.APPROVED]: 'อนุมัติข้อมูลนี้',
       [Status.REJECTED]: 'ปฎิเสธข้อมูลนี้',
-      [Status.PENDING]: '', // Add a placeholder for PENDING if necessary
+      [Status.PENDING]: '',
     }
 
     MySwal.fire({
       title: titles[status],
-      html:
-        status === Status.REJECTED
-          ? `
+      html: status === Status.REJECTED ? `
         <textarea id="rejection-message" placeholder="เหตุผลที่ปฎิเสธ" style="width:100%; height:100px; border: 1px solid black; border-radius: 20px; padding: 20px;"></textarea>
-      `
-          : '',
+      ` : '',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'ยืนยัน',
       cancelButtonText: 'ยกเลิก',
     }).then((result) => {
       if (result.isConfirmed) {
-        if (status === Status.REJECTED) {
-          const messageElement = document.getElementById('rejection-message') as HTMLTextAreaElement
-          if (messageElement) {
-            toast.promise(onStatusUpdate(data, status, messageElement.value), {
-              loading: 'กำลังอัปเดตสถานะ...',
-              success: 'อัปเดตสถานะสำเร็จ',
-              error: 'อัปเดตสถานะไม่สำเร็จ',
-            })
-          }
-        } else if (status === Status.APPROVED) {
-          toast.promise(onStatusUpdate(data, status, ""), {
-            loading: 'กำลังอัปเดตสถานะ...',
+        const message = status === Status.REJECTED
+          ? (document.getElementById('rejection-message') as HTMLTextAreaElement).value
+          : ""
+
+        toast.promise(
+          onStatusUpdate(data, status, message).finally(() => setLoading(false)),  // Stop loading on completion
+          {
+            loading: 'กำลังกำหนดสถานะ...',
             success: 'อัปเดตสถานะสำเร็จ',
             error: 'อัปเดตสถานะไม่สำเร็จ',
-          })
-        }
+          }
+        )
+      } else {
+        setLoading(false)  // Stop loading if user cancels
       }
     })
   }
@@ -152,11 +156,22 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
                     : 'ไม่อนุมัติ'}
               </p>
             </div>
-            <button onClick={() => handleStatusChange(Status.APPROVED)} className="mr-4">
-              <Checkmark className="rounded-md bg-[#19C57C] transition-all duration-300 hover:scale-105 hover:brightness-125" />
+            <button
+              onClick={() => handleStatusChange(Status.APPROVED)}
+              className={`mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 
+    ${loading ? 'opacity-50 bg-[#19C57C] cursor-not-allowed' : 'bg-[#19C57C]'}`}
+              disabled={loading}
+            >
+              <Checkmark />
             </button>
-            <button onClick={() => handleStatusChange(Status.REJECTED)} className="mr-4">
-              <Rejected className="rounded-md bg-[#F83E3E] transition-all duration-300 hover:scale-105 hover:brightness-125" />
+
+            <button
+              onClick={() => handleStatusChange(Status.REJECTED)}
+              className={`mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 
+    ${loading ? 'opacity-50 bg-[#F83E3E] cursor-not-allowed' : 'bg-[#F83E3E]'}`}
+              disabled={loading}
+            >
+              <Rejected />
             </button>
           </div>
         </div>
@@ -168,6 +183,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
               <div className="text-left">{data.data.error}</div>
             </div>
           )}
+
           <div className="text-[#2f2f2f]"> ข้อมูลอัปเดต {formattedDate}</div>
           {data.data.updatedBy && (
             <div className="text-[#2f2f2f]">
@@ -185,34 +201,22 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
           >
             {({ values, setFieldValue, errors, touched }) => (
               <Form className="w-full">
-                <Passage1
-                  type={type}
-                  data={values}
-                  setFieldValue={setFieldValue}
-                  errors={errors}
-                  touched={touched}
-                />
-                <Passage2
-                  type={type}
-                  data={values}
-                  setFieldValue={setFieldValue}
-                  errors={errors}
-                  touched={touched}
-                />
-                <Passage3
-                  type={type}
-                  data={values}
-                  setFieldValue={setFieldValue}
-                  errors={errors}
-                  touched={touched}
-                />
+                <Passage1 type={type} data={values} setFieldValue={setFieldValue} errors={errors}
+                  touched={touched} />
+                <Passage2 type={type} data={values} setFieldValue={setFieldValue} errors={errors}
+                  touched={touched} />
+                <Passage3 type={type} data={values} setFieldValue={setFieldValue} errors={errors}
+                  touched={touched} />
                 <Reviews reviewData={values.reviews} setFieldValue={setFieldValue} />
+
                 <div className="bg-custom-gradient w-full">
                   <button
                     type="submit"
-                    className="w-full text-center transform py-3 text-[#ffffff] transition duration-300 ease-in-out hover:scale-105 hover:bg-[#ff6b6b] active:scale-100 active:bg-[#ff4d4d]"
+                    className={`w-full text-center transform py-3 text-[#ffffff] transition duration-300 ease-in-out hover:scale-105 hover:bg-[#ff6b6b] active:scale-100 active:bg-[#ff4d4d] 
+    ${loading ? 'opacity-50 bg-gray-400 cursor-not-allowed' : ''}`}
+                    disabled={loading}
                   >
-                    ยืนยันการแก้ไขข้อมูล
+                    {loading ? "กำลังอัปเดตข้อมูล..." : "ยืนยันการแก้ไขข้อมูล"}
                   </button>
                 </div>
               </Form>

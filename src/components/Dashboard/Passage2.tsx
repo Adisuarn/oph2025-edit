@@ -1,13 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Quill from 'quill'
 
 import 'quill/dist/quill.snow.css'
-
 import * as Emoji from 'quill2-emoji'
-
 import 'quill2-emoji/dist/style.css'
 
 Quill.register('modules/emoji', Emoji)
@@ -15,6 +13,7 @@ Quill.register('modules/emoji', Emoji)
 const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
   const quillRef = useRef<HTMLDivElement>(null)
   const editorRef = useRef<Quill | null>(null) // Add a ref for the Quill editor instance
+  const [imageLoaded, setImageLoaded] = useState(false) // Track image loading state
 
   const toolbarOptions = [
     [{ header: [1, 2, 3, false] }],
@@ -50,13 +49,36 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
     setFieldValue('descimg2', e.target.value) // Update Formik state for description
   }
 
+  // Handle image load
+  const handleImageLoad = () => {
+    setImageLoaded(true)
+  }
+
   return (
     <>
       <div className="mx-44 mt-24 flex justify-between">
         <div className="flex flex-col text-center">
-          <div className="mb-20 mr-14 h-[300px] w-[500px] rounded-2xl">
+          <div className="mb-20 mr-14 h-[300px] w-[500px] rounded-2xl relative">
             <div className="overflow-hidden rounded-2xl max-w-[500px] max-h-[300px]">
-              <Image src={data.captureimg2} alt="img2" width={500} height={300} />
+              {/* Image with opacity transition */}
+              <div
+                className={`transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              >
+                <Image
+                  src={data.captureimg2}
+                  alt="img2"
+                  width={500}
+                  height={300}
+                  onLoadingComplete={handleImageLoad}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              {/* Loading Spinner */}
+              {!imageLoaded && (
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                </div>
+              )}
             </div>
             <input
               type="text"

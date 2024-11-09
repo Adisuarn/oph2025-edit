@@ -23,10 +23,24 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 import 'react-quill/dist/quill.snow.css'
-
-import { MdReviews } from 'react-icons/md'
+import { env } from '@/env'
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
+
+const toolbarOptions = [
+  [{ header: [] }],
+  ['bold', 'italic', 'underline', 'strike'],
+  [{ color: [] }, { background: [] }],
+  [{ list: 'ordered' }, { list: 'bullet' }],
+  [{ indent: '-1' }, { indent: '+1' }],
+  ['link', 'image'],
+  [{ align: [] }],
+  ['clean'],
+]
+
+const modules = {
+  toolbar: toolbarOptions,
+}
 
 const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => (
   <ReactQuill
@@ -37,13 +51,27 @@ const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => (
   />
 )
 
+interface userData {
+  tag: string
+  key: string
+}
+
+type review = {
+  count: number
+  profile: any
+  nick: string
+  gen: string
+  contact: string
+  content: string
+}
+
 const GeneralForm: React.FC<{
-  userData: any
+  userData: userData
   editFormData: any
-  reviews: any
-  review1: any
-  review2: any
-  review3: any
+  reviews: number
+  review1: review
+  review2: review
+  review3: review
 }> = ({ userData, editFormData, reviews, review1, review2, review3 }) => {
   review1
     ? review1
@@ -103,26 +131,18 @@ const GeneralForm: React.FC<{
   const [displayImage3, setDisplayImage3] = useState<boolean>(editFormData.captureimg3)
   const [image4, setImage4] = useState<File | null>(null)
   const [imageUrl4, setImageUrl4] = useState<string | null>(review1.profile)
-  const [displayImage4, setDisplayImage4] = useState<boolean>(
-    review1?.profile
-  )
+  const [displayImage4, setDisplayImage4] = useState<boolean>(review1?.profile)
   const [image5, setImage5] = useState<File | null>(null)
   const [imageUrl5, setImageUrl5] = useState<string | null>(review2?.profile)
-  const [displayImage5, setDisplayImage5] = useState<boolean>(
-    review2?.profile
-  )
+  const [displayImage5, setDisplayImage5] = useState<boolean>(review2?.profile)
   const [image6, setImage6] = useState<File | null>(null)
   const [imageUrl6, setImageUrl6] = useState<string | null>(review3?.profile)
-  const [displayImage6, setDisplayImage6] = useState<boolean>(
-    review3?.profile 
-  )
+  const [displayImage6, setDisplayImage6] = useState<boolean>(review3?.profile)
   const [clubLogo, setClubLogo] = useState<File | null>(null)
   const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(editFormData.logo)
   const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(editFormData.logo)
-  // const [successDataSent, setSuccessDataSent] = useState<boolean>(false);
   const [ReviewAmount, setReviewAmount] = useState<number>(reviews)
   const [loading, setLoading] = useState(false)
-  const [warning, setWarning] = useState(false)
 
   const handleFileSelect1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -318,20 +338,12 @@ const GeneralForm: React.FC<{
             // .min(150, "Required More than 150 words ")
             .required('Required Description'),
           textField4: Yup.string().required('Required Description'),
-          // textField5: Yup.string().required("Required Description"),
-          // textField6: Yup.string().required("Required Description"),
           photoDescription1: Yup.string().required('Required Description'),
           photoDescription2: Yup.string().required('Required Description'),
           photoDescription3: Yup.string().required('Required Description'),
           P1Name: Yup.string().required('Required Description'),
-          // P2Name: Yup.string().required("Required Name"),
-          // P3Name: Yup.string().required("Required Name"),
           P1Gen: Yup.string().required('Required Description'),
-          // P2Gen: Yup.string().required("Required Triamudom Gen"),
-          // P3Gen: Yup.string().required("Required Triamudom Gen"),
           P1Contact: Yup.string().required('Required Description'),
-          // P2Contact: Yup.string().required("Required Contact"),
-          // P3Contact: Yup.string().required("Required Contact"),
           Members: Yup.string().required('Required Description'),
         })}
         onSubmit={async (
@@ -342,12 +354,6 @@ const GeneralForm: React.FC<{
             textField4: string
             textField5: string
             textField6: string
-            // image1: File
-            // image2: File;
-            // image3: File;
-            // image4: File;
-            // image5: File;
-            // image6: File;
             photoDescription1: string
             photoDescription2: string
             photoDescription3: string
@@ -468,10 +474,10 @@ const GeneralForm: React.FC<{
               formData.append('sendForm', editFormData.sendForm)
               const options = {
                 method: 'PATCH',
-                url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
+                url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
                 headers: {
-                  'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                  Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                  'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                  Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                 },
                 data: formData,
               }
@@ -498,10 +504,10 @@ const GeneralForm: React.FC<{
                 reviewData.append('content', review.content || '')
                 return axios({
                   method: 'PATCH',
-                  url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+                  url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
                   headers: {
-                    'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                    Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                    'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                    Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                   },
                   data: reviewData,
                 })
@@ -533,7 +539,7 @@ const GeneralForm: React.FC<{
                 </Link>
                 <Link
                   href="/account"
-                  className="relative font-Thai text-xs text-greenTextext sm:text-lg md:text-2xl"
+                  className="text-greenTextext relative font-Thai text-xs sm:text-lg md:text-2xl"
                 >
                   ย้อนกลับ
                 </Link>
@@ -613,36 +619,36 @@ const GeneralForm: React.FC<{
                       <p className="sm:text-md text-xs md:text-lg">คน</p>
                     </div>
                     <div className="justify- whitespace-nowrapcenter flex items-center sm:space-y-2">
-                        <div className="items-center justify-center space-y-1 text-start sm:text-lg">
-                          <div className="flex">
-                            <p className="text-[8px] sm:text-lg">IG : </p>
-                            <Field
-                              type="text"
-                              name="IG"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                            />
-                            <FaPen className="h-1 text-white sm:h-2" />
-                          </div>
-                          <div className="flex">
-                            <p className="whitespace-nowrap text-[8px] sm:text-lg">FB : </p>
-                            <Field
-                              type="text"
-                              name="FB"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                            />
-                            <FaPen className="h-1 text-white sm:h-2" />
-                          </div>
-                          <div className="flex">
-                            <p className="whitespace-nowrap text-[8px] sm:text-lg">อื่น ๆ : </p>
-                            <Field
-                              type="text"
-                              name="others"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                            />
-                            <FaPen className="h-1 text-white sm:h-2" />
-                          </div>
+                      <div className="items-center justify-center space-y-1 text-start sm:text-lg">
+                        <div className="flex">
+                          <p className="text-[8px] sm:text-lg">IG : </p>
+                          <Field
+                            type="text"
+                            name="IG"
+                            className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                          />
+                          <FaPen className="h-1 text-white sm:h-2" />
+                        </div>
+                        <div className="flex">
+                          <p className="whitespace-nowrap text-[8px] sm:text-lg">FB : </p>
+                          <Field
+                            type="text"
+                            name="FB"
+                            className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                          />
+                          <FaPen className="h-1 text-white sm:h-2" />
+                        </div>
+                        <div className="flex">
+                          <p className="whitespace-nowrap text-[8px] sm:text-lg">อื่น ๆ : </p>
+                          <Field
+                            type="text"
+                            name="others"
+                            className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                          />
+                          <FaPen className="h-1 text-white sm:h-2" />
                         </div>
                       </div>
+                    </div>
                   </div>
                 ) : (
                   <div className="flex h-40 w-full items-center justify-around space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto md:w-[60vw]">
@@ -676,8 +682,8 @@ const GeneralForm: React.FC<{
                         <input type="file" className="hidden" onChange={handleFileSelectClub} />
                       </label>
                     )}
-                    <div className="h-32 w-[2px] rounded-full bg-white lg:h-48 lg:w-[4px] md:ml-4 lg:ml-8"></div>
-                    <div className="flex w-1/2 sm:w-2/3 flex-col items-center justify-center md:ml-4 lg:space-y-2">
+                    <div className="h-32 w-[2px] rounded-full bg-white md:ml-4 lg:ml-8 lg:h-48 lg:w-[4px]"></div>
+                    <div className="flex w-1/2 flex-col items-center justify-center sm:w-2/3 md:ml-4 lg:space-y-2">
                       <p className="rounded-full border border-white px-[8px] text-[10px] font-bold md:text-lg md:font-extrabold lg:px-4 lg:py-2 lg:text-2xl">
                         {editFormData.thainame}
                       </p>
@@ -698,7 +704,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="IG"
-                              className="ml-1 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 w-36 md:w-[200px]"
+                              className="ml-1 w-36 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -981,96 +987,96 @@ const GeneralForm: React.FC<{
 
               <section className="flex flex-col space-y-10">
                 {/* {ReviewAmount >= 1 && ( */}
-                  <div className="flex flex-col items-center justify-center space-y-5">
-                    <div className="flex w-full items-start justify-around">
-                      <div className="flex flex-col">
-                        <div className="flex flex-col items-center justify-center">
-                          {displayImage4 ? (
-                            <div className="relative w-full">
-                              <Image
-                                className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
-                                src={imageUrl4 || ''}
-                                alt="photo4"
-                                width={800}
-                                height={600}
-                              />
-                              <button
-                                onClick={() => setDisplayImage4(false)} // Replace with your deletion logic
-                                className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-16"
-                              >
-                                X
-                              </button>
-                            </div>
-                          ) : (
-                            <div className="flex w-full items-center justify-start">
-                              <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
-                                <div className="flex flex-col items-center justify-center pb-6 pt-5">
-                                  <UserIcon className="h-3 w-3 text-greenText sm:h-6 sm:w-6" />
-                                </div>
-                                <input
-                                  type="file"
-                                  className="hidden"
-                                  onChange={handleFileSelect4}
-                                />
-                              </label>
-                            </div>
-                          )}
-                        </div>
-                        <div className="mt-2 flex flex-col">
-                          <Field
-                            type="text"
-                            name="P1Name"
-                            className="text-sm font-bold text-greenText w-full sm:text-lg"
-                            placeholder="ชื่อเล่น"
-                          />
-                          <ErrorMessage
-                            name="P1Name"
-                            component="div"
-                            className="text-[8px] text-red-400"
-                          />
-                          <div className="flex">
-                            <label className="text-[8px] text-gray sm:text-sm" htmlFor="P1Gen">
-                              เตรียมอุดม{' '}
-                            </label>
-                            <Field
-                              type="text"
-                              id="P1Gen"
-                              name="P1Gen"
-                              className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
-                              placeholder="xx"
+                <div className="flex flex-col items-center justify-center space-y-5">
+                  <div className="flex w-full items-start justify-around">
+                    <div className="flex flex-col">
+                      <div className="flex flex-col items-center justify-center">
+                        {displayImage4 ? (
+                          <div className="relative w-full">
+                            <Image
+                              className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                              src={imageUrl4 || ''}
+                              alt="photo4"
+                              width={800}
+                              height={600}
                             />
+                            <button
+                              onClick={() => {
+                                setDisplayImage4(false)
+                                setImage4(null)
+                                setImageUrl4('')
+                              }}
+                              className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-16"
+                            >
+                              X
+                            </button>
                           </div>
-                          <ErrorMessage
-                            name="P1Gen"
-                            component="div"
-                            className="block text-[8px] text-red-400"
-                          />
+                        ) : (
+                          <div className="flex w-full items-center justify-start">
+                            <label className="flex h-12 w-12 flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-24 sm:w-24 md:h-36 md:w-36">
+                              <div className="flex flex-col items-center justify-center pb-6 pt-5">
+                                <UserIcon className="h-3 w-3 text-greenText sm:h-6 sm:w-6" />
+                              </div>
+                              <input type="file" className="hidden" onChange={handleFileSelect4} />
+                            </label>
+                          </div>
+                        )}
+                      </div>
+                      <div className="mt-2 flex flex-col">
+                        <Field
+                          type="text"
+                          name="P1Name"
+                          className="w-full text-sm font-bold text-greenText sm:text-lg"
+                          placeholder="ชื่อเล่น"
+                        />
+                        <ErrorMessage
+                          name="P1Name"
+                          component="div"
+                          className="text-[8px] text-red-400"
+                        />
+                        <div className="flex">
+                          <label className="text-[8px] text-gray sm:text-sm" htmlFor="P1Gen">
+                            เตรียมอุดม{' '}
+                          </label>
                           <Field
                             type="text"
-                            name="P1Contact"
-                            className="w-full text-[8px] text-heroMiddle sm:text-sm"
-                            placeholder="contact"
-                          />
-                          <ErrorMessage
-                            name="P1Contact"
-                            component="div"
-                            className="text-[8px] text-red-400"
+                            id="P1Gen"
+                            name="P1Gen"
+                            className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
+                            placeholder="xx"
                           />
                         </div>
-                      </div>
-                      <div className="flex w-3/5 flex-col items-center justify-center">
-                        <Field
-                          as="textarea"
-                          name="textField4"
-                          component={QuillField}
-                          className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
-                          rows="5"
-                          placeholder="รีวิวจากรุ่นพี่"
+                        <ErrorMessage
+                          name="P1Gen"
+                          component="div"
+                          className="block text-[8px] text-red-400"
                         />
-                        <ErrorMessage name="textField4" component="div" className="text-red-300" />
+                        <Field
+                          type="text"
+                          name="P1Contact"
+                          className="w-full text-[8px] text-heroMiddle sm:text-sm"
+                          placeholder="contact"
+                        />
+                        <ErrorMessage
+                          name="P1Contact"
+                          component="div"
+                          className="text-[8px] text-red-400"
+                        />
                       </div>
                     </div>
+                    <div className="flex w-3/5 flex-col items-center justify-center">
+                      <Field
+                        as="textarea"
+                        name="textField4"
+                        component={QuillField}
+                        className="w-full rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:h-[30vh] sm:text-lg md:text-xl"
+                        rows="5"
+                        placeholder="รีวิวจากรุ่นพี่"
+                      />
+                      <ErrorMessage name="textField4" component="div" className="text-red-300" />
+                    </div>
                   </div>
+                </div>
                 {/* )} */}
                 {ReviewAmount >= 2 && (
                   <div className="flex flex-col items-center justify-center space-y-3">
@@ -1098,7 +1104,11 @@ const GeneralForm: React.FC<{
                                 height={600}
                               />
                               <button
-                                onClick={() => setDisplayImage5(false)} // Replace with your deletion logic
+                                onClick={() => {
+                                  setDisplayImage5(false)
+                                  setImage5(null)
+                                  setImageUrl5('')
+                                }}
                                 className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-0 md:-right-2"
                               >
                                 X
@@ -1179,7 +1189,11 @@ const GeneralForm: React.FC<{
                                 height={600}
                               />
                               <button
-                                onClick={() => setDisplayImage6(false)} // Replace with your deletion logic
+                                onClick={() => {
+                                  setDisplayImage6(false)
+                                  setImage6(null)
+                                  setImageUrl6('')
+                                }}
                                 className="absolute -top-2 right-20 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-16"
                               >
                                 X
@@ -1280,10 +1294,10 @@ const GeneralForm: React.FC<{
                           await axios.request({
                             method: 'DELETE',
                             headers: {
-                              'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                              Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                              'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                              Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                             },
-                            url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/3`,
+                            url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/3`,
                             data: {},
                           })
                         } else if (ReviewAmount === 2) {
@@ -1297,10 +1311,10 @@ const GeneralForm: React.FC<{
                           await axios.request({
                             method: 'DELETE',
                             headers: {
-                              'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                              Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                              'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                              Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                             },
-                            url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/2`,
+                            url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/2`,
                             data: {},
                           })
                         }
@@ -1319,15 +1333,15 @@ const GeneralForm: React.FC<{
                         await axios.request({
                           method: 'POST',
                           headers: {
-                            'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                            Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                            'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                            Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                           },
-                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review`,
+                          url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review`,
                           data: {},
                         })
                         setReviewAmount(ReviewAmount + 1)
                       }}
-                      className="mx-auto rounded-full hover:shadow-xl bg-gradient-to-br from-buttonFirst via-buttonMiddle via-45% to-greenText px-2 py-1 text-center text-xs text-white transition-all hover:scale-105 sm:px-4 sm:py-2 sm:text-lg"
+                      className="mx-auto rounded-full bg-gradient-to-br from-buttonFirst via-buttonMiddle via-45% to-greenText px-2 py-1 text-center text-xs text-white transition-all hover:scale-105 hover:shadow-xl sm:px-4 sm:py-2 sm:text-lg"
                     >
                       + เพิ่มรีวิวจากรุ่นพี่
                     </button>

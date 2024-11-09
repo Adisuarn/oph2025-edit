@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import axios from 'axios'
+import { env } from '@/env'
 
 const LogoutButton = () => {
   const router = useRouter()
@@ -10,9 +11,9 @@ const LogoutButton = () => {
     try {
       const options = {
         method: 'GET',
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/auth/logout`,
+        url: `${env.NEXT_PUBLIC_BASE_URL}/auth/logout`,
         headers: {
-          'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+          'x-api-key': env.NEXT_PUBLIC_API_KEY,
         },
       }
       const response = await axios.request(options)

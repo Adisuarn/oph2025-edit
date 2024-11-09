@@ -16,7 +16,6 @@ const FormikControl: React.FC = async () => {
     tag: data.tag,
     tagThai: 'ชมรม',
     logo: data.logo,
-    sendForm: data.sendForm, // we already deleted this change
     members: data.members,
     ig: data.ig,
     fb: data.fb,
@@ -32,7 +31,7 @@ const FormikControl: React.FC = async () => {
     captureimg3: data.captureimg3,
     descimg3: data.descimg3,
   }
-  console.log(editFormData)
+  // console.log(editFormData)
 
   const reviews = userReview.data.data
     .map((review: any, index: number) => ({

@@ -6,9 +6,7 @@ import GoogleOAuthButton from '@/components/GoogleOAuthButton'
 import Brick from '@/vectors/landing/Brick'
 import BrickSmall from '@/vectors/landing/BrickSmall'
 import NiceStuff from '@/vectors/landing/NiceStuff'
-import Super from '@/vectors/landing/Super'
 import Window from '@/vectors/landing/Window'
-import Windowphone from '@/vectors/landing/Windowphone'
 
 const page = async () => {
   return (

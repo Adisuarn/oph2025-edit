@@ -14,6 +14,7 @@ import Section from '@/vectors/dashboard/Section'
 import BigFooter from '@/vectors/preview/BigFooter'
 import BigLamp from '@/vectors/preview/BigLamp'
 import BigLowercurve from '@/vectors/preview/BigLowercurve'
+import BigStainedGlass from '@/vectors/preview/BigStainedGlass'
 import BigUppercurve from '@/vectors/preview/BigUppercurve'
 import ClubFallingLamp from '@/vectors/preview/ClubFallingLamp'
 import DoubleQuoteDown from '@/vectors/preview/DoubleQuoteDown'
@@ -31,7 +32,6 @@ import SLamp3 from '@/vectors/preview/SLamp3'
 import Stainedglass from '@/vectors/preview/Stainedglass'
 import Uppercurve from '@/vectors/preview/Uppercurve'
 import Vase from '@/vectors/preview/Vase'
-import BigStainedGlass from '@/vectors/preview/BigStainedGlass'
 
 const PreviewGeneralForm: React.FC<{
   editFormData: any
@@ -48,24 +48,21 @@ const PreviewGeneralForm: React.FC<{
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
       <div className="absolute -top-36 left-0 z-10 w-full overflow-hidden">
-  <BigUppercurve className="hidden w-full md:h-[50vw] lg:block" />
-</div>
+        <BigUppercurve className="hidden w-full md:h-[50vw] lg:block" />
+      </div>
       <div className="absolute -top-[76px]">
         <FallingLamp className="w-[100vw] sm:hidden" />
       </div>
-      <div className="absolute right-0 z-0 lg:top-14 xl:top-48 2xl:top-96 overflow-hidden">
+      <div className="absolute right-0 z-0 overflow-hidden lg:top-14 xl:top-48 2xl:top-96">
         <ClubFallingLamp className="hidden lg:block lg:w-[270px] xl:w-80" />
       </div>
       <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[520px]">
         <section className="flex items-center justify-between">
-          <div className="flex items-center transition-all hover:scale-105 justify-center space-x-1">
+          <div className="flex items-center justify-center space-x-1 transition-all hover:scale-105">
             <Link href="/account">
               <BackArrow className="h-5 w-5 text-heroMiddle sm:h-8 sm:w-8 md:h-10 md:w-10" />
             </Link>
-            <Link
-              href="/account"
-              className="text-xs text-heroMiddle sm:text-lg md:text-2xl"
-            >
+            <Link href="/account" className="text-xs text-heroMiddle sm:text-lg md:text-2xl">
               ย้อนกลับ
             </Link>
           </div>
@@ -76,18 +73,18 @@ const PreviewGeneralForm: React.FC<{
         <section className="w-full sm:mx-7">
           <section className="flex w-full flex-col items-center justify-center">
             <div className="relative z-20 flex h-20 w-full flex-col items-center justify-center md:mx-auto">
-              <p className=" bg-gradient-to-b from-[#75B667] via-[#15786C] via-80% to-[#12665B] bg-clip-text text-center text-lg font-bold text-transparent sm:text-xl sm:font-extrabold md:text-4xl">
+              <p className="bg-gradient-to-b from-[#75B667] via-[#15786C] via-80% to-[#12665B] bg-clip-text text-center text-lg font-bold text-transparent sm:text-xl sm:font-extrabold md:text-4xl">
                 {editFormData.thainame}
               </p>
             </div>
             <div className="ml-6 flex items-center justify-center space-x-6">
               <div className="flex items-center justify-center">
-                <Profile className="h-10 w-10 text-greenText sm:h-12 sm:w-12 md:h-20 md:w-20 md:mr-5" />
+                <Profile className="h-10 w-10 text-greenText sm:h-12 sm:w-12 md:mr-5 md:h-20 md:w-20" />
                 <div className="flex flex-col items-center">
                   <p className="text-md bg-gradient-to-b from-buttonMiddle to-greenText bg-clip-text font-bold text-transparent sm:text-2xl">
                     สมาชิก
                   </p>
-                  <p className="bg-gradient-to-b from-[#75B667] from-19% via-[#15786C] via-80% to-[#0C453E] to-94% bg-clip-text text-xl font-bold text-transparent sm:text-6xl">
+                  <p className="from-19% to-94% bg-gradient-to-b from-[#75B667] via-[#15786C] via-80% to-[#0C453E] bg-clip-text text-xl font-bold text-transparent sm:text-6xl">
                     {editFormData.members}
                   </p>
                 </div>
@@ -157,8 +154,8 @@ const PreviewGeneralForm: React.FC<{
                 <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[490px] lg:top-0">
                   <Stainedglass className="w-16 sm:w-32 lg:hidden" />
                 </div>
-                <div className='absolute lg:-top-24 lg:-left-[470px] xl:-left-[570px] 2xl:-left-[800px] '>
-                  <BigStainedGlass className="hidden lg:block sm:w-32 md:w-48 xl:w-52 2xl:w-72" />
+                <div className="absolute lg:-left-[470px] lg:-top-24 xl:-left-[570px] 2xl:-left-[800px]">
+                  <BigStainedGlass className="hidden sm:w-32 md:w-48 lg:block xl:w-52 2xl:w-72" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
@@ -177,7 +174,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text1 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 font-BaiJamjuree font-semibold p-6 text-xs text-greenText sm:text-lg"
+              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-semibold text-greenText sm:text-lg"
             ></div>
           </div>
           {/* section 2 */}
@@ -231,7 +228,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text2 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 text-xs text-greenText sm:text-lg font-BaiJamjuree font-semibold"
+              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-semibold text-greenText sm:text-lg"
             ></div>
           </div>
           {/* section 3 */}
@@ -288,7 +285,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text3 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 text-xs text-greenText sm:text-lg font-BaiJamjuree font-semibold"
+              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-semibold text-greenText sm:text-lg"
             ></div>
           </div>
           {/* section 3 */}
@@ -323,11 +320,11 @@ const PreviewGeneralForm: React.FC<{
                   </div>
                 </div>
                 <div className="relative w-4/6 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
-                  <div className="absolute -right-14 -top-36">
+                  <div className="absolute -right-12 -top-40">
                     <Frames className="w-16 sm:hidden" />
                   </div>
-                  <div className="absolute -right-20 -top-96 md:-right-36 lg:-right-56 lg:-top-80">
-                    <BigLamp className="hidden w-48 sm:block md:w-60 lg:w-80" />
+                  <div className="absolute -right-20 -top-96 md:-right-36 lg:-right-56 lg:-top-[420px]">
+                    <BigLamp className="hidden w-48 sm:block md:w-60 lg:w-[480px]" />
                   </div>
                   <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
                     <DoubleQuoteUp className="h-3 w-3 text-greenText md:h-4 md:w-4" />
@@ -387,7 +384,7 @@ const PreviewGeneralForm: React.FC<{
               <div className="flex flex-col items-center justify-center space-y-5">
                 <div className="flex w-full items-start justify-between">
                   <div className="flex flex-col">
-                  <div className="flex flex-col items-start justify-center">
+                    <div className="flex flex-col items-start justify-center">
                       <Image
                         className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
                         src={review3.profile || ''}
@@ -397,10 +394,10 @@ const PreviewGeneralForm: React.FC<{
                       />
                     </div>
                     <div className="mt-2 flex flex-col text-greenText">
-                    <p className="text-lg font-bold md:text-3xl">{review3.nick}</p>
-                    <p className="text-xs md:text-lg">เตรียมอุดม {review3.gen}</p>
-                    <p className="text-xs md:text-lg">{review3.contact}</p>
-                  </div>
+                      <p className="text-lg font-bold md:text-3xl">{review3.nick}</p>
+                      <p className="text-xs md:text-lg">เตรียมอุดม {review3.gen}</p>
+                      <p className="text-xs md:text-lg">{review3.contact}</p>
+                    </div>
                   </div>
                   <div className="relative w-4/6 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
                     <div className="absolute left-2 top-2 sm:left-6 sm:top-6">
@@ -430,9 +427,9 @@ const PreviewGeneralForm: React.FC<{
         <div className="absolute -bottom-10 z-10 sm:-bottom-20">
           <Footer className="w-[100vw] lg:hidden" />
         </div>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-screen overflow-hidden lg:-bottom-14 xl:-bottom-5 2xl:-bottom-10">
-  <BigLowercurve className="hidden w-full lg:block xl:h-[50vw]" />
-</div>
+        <div className="absolute bottom-0 left-1/2 w-screen -translate-x-1/2 overflow-hidden lg:-bottom-14 xl:-bottom-5 2xl:-bottom-10">
+          <BigLowercurve className="hidden w-full lg:block xl:h-[50vw]" />
+        </div>
 
         <div className="absolute z-10 lg:-bottom-8 xl:-bottom-1 2xl:-bottom-5">
           <BigFooter className="hidden w-[100vw] lg:block 2xl:h-[10vw]" />

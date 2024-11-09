@@ -3,27 +3,33 @@ import { google, lucia } from '@libs/auth'
 import { prisma } from '@utils/db'
 import { generateCodeVerifier, generateState } from 'arctic'
 
+import { env } from '@/env'
+
 export const createAuthUrl = async () => {
   try {
     const codeVerifier = generateCodeVerifier()
     const state = generateState()
     const scope = ['email', 'profile']
     cookies().set('codeVerifier', codeVerifier, {
+      path: '/',
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 60 * 60,
+      secure: env.NODE_ENV === 'production',
+      maxAge: 60 * 10,
+      sameSite: 'lax',
     })
     cookies().set('state', state, {
+      path: '/',
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 60 * 60,
+      secure: env.NODE_ENV === 'production',
+      maxAge: 60 * 10,
+      sameSite: 'lax',
     })
 
     const authUrl = google.createAuthorizationURL(
       state,
       codeVerifier,
       scope,
-      process.env.HOSTED_DOMAIN,
+      env.HOSTED_DOMAIN,
     )
     return { status: 200, url: authUrl.toString() }
   } catch (err) {
@@ -47,12 +53,11 @@ export const getGoogleUser = async (req: Request) => {
       return { status: 400, message: 'codeVerifier or state missed' }
 
     if (state !== savedState) return { status: 400, message: 'State mismatch' }
-
+    cookies().delete('state')
     const tokens = await google.validateAuthorizationCode(code, codeVerifier)
-    const accessToken = tokens.accessToken()
     const googleResponse = await fetch('https://www.googleapis.com/oauth2/v1/userinfo', {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${tokens.accessToken()}`,
       },
     })
     const googleData = (await googleResponse.json()) as {
