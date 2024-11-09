@@ -1,7 +1,7 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
-import { Status } from '@utils/type'
+import React, { useState } from 'react'
 
 import BackArrow from '@/vectors/edit-page/BackArrow'
 import Profile from '@/vectors/preview/Profile'
@@ -39,7 +39,10 @@ const PreviewGeneralForm: React.FC<{
   reviews: any
 }> = ({ editFormData, review1, review2, review3, reviews }) => {
   const ReviewAmount = reviews
-
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const handleImageLoad = () => {
+    setImageLoaded(true)
+  }
   return (
     <section className="via-41% relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] via-[#91CDAD] to-[#C8E5BD]">
       <div className="absolute -top-80 left-1/2 z-10 -translate-x-1/2 sm:-top-20">
@@ -156,13 +159,19 @@ const PreviewGeneralForm: React.FC<{
                   <BigStainedGlass className="hidden sm:w-32 md:w-48 lg:block xl:w-52 2xl:w-72" />
                 </div>
                 <Image
-                  className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                  className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                   src={editFormData.captureimg1 || ''}
                   alt="uploaded photo"
                   width={800}
                   height={600}
                   quality={100}
+                  onLoad={handleImageLoad}
                 />
+                {!imageLoaded && (
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                  </div>
+                )}
                 <div className="mb-3 flex items-center justify-center">
                   <p className="text-xs text-greenText sm:text-sm">{editFormData.descimg1}</p>
                 </div>
@@ -183,13 +192,18 @@ const PreviewGeneralForm: React.FC<{
                   <Flower className="w-16 sm:w-28 md:w-52 lg:w-72 2xl:w-96" />
                 </div>
                 <Image
-                  className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                  className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                   src={editFormData.captureimg2 || ''}
                   alt="uploaded photo"
                   width={800}
                   height={800}
+                  onLoad={handleImageLoad}
                 />
-
+                {!imageLoaded && (
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                  </div>
+                )}
                 <div className="mb-3 flex items-center justify-center">
                   <p className="text-greenText">{editFormData.descimg2}</p>
                 </div>
@@ -268,12 +282,18 @@ const PreviewGeneralForm: React.FC<{
                   <LeftFrames className="hidden sm:block sm:w-32 md:w-44 lg:w-52 2xl:w-72" />
                 </div>
                 <Image
-                  className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72"
+                  className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                   src={editFormData.captureimg3 || ''}
                   alt="uploaded photo"
                   width={800}
                   height={600}
+                  onLoad={handleImageLoad}
                 />
+                {!imageLoaded && (
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                  </div>
+                )}
                 <div className="mb-3 flex items-center justify-center">
                   <p className="text-xs text-greenText sm:text-sm">{editFormData.descimg3}</p>
                 </div>
@@ -304,13 +324,20 @@ const PreviewGeneralForm: React.FC<{
                 <div className="flex flex-col">
                   <div className="flex flex-col items-start justify-center">
                     <Image
-                      className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                      className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                       src={review1.profile || ''}
                       alt="photo"
                       width={100}
                       height={100}
+                      onLoad={handleImageLoad}
                     />
+                    {!imageLoaded && (
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                      </div>
+                    )}
                   </div>
+                  
                   <div className="mt-2 flex flex-col text-greenText">
                     <p className="text-lg font-bold md:text-3xl">{review1.nick}</p>
                     <p className="text-xs md:text-lg">เตรียมอุดม {review1.gen}</p>
@@ -362,12 +389,18 @@ const PreviewGeneralForm: React.FC<{
                   <div className="flex flex-col">
                     <div className="flex flex-col items-end justify-center">
                       <Image
-                        className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                        className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                         src={review2.profile || ''}
                         alt="photo"
                         width={100}
                         height={100}
+                        onLoad={handleImageLoad}
                       />
+                      {!imageLoaded && (
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                          <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                        </div>
+                      )}
                     </div>
                     <div className="mt-2 flex flex-col items-end text-end text-greenText">
                       <p className="text-lg font-bold md:text-3xl">{review2.nick}</p>
@@ -384,12 +417,18 @@ const PreviewGeneralForm: React.FC<{
                   <div className="flex flex-col">
                     <div className="flex flex-col items-start justify-center">
                       <Image
-                        className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                        className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                         src={review3.profile || ''}
                         alt="photo"
                         width={100}
                         height={100}
+                        onLoad={handleImageLoad}
                       />
+                      {!imageLoaded && (
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                          <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                        </div>
+                      )}
                     </div>
                     <div className="mt-2 flex flex-col text-greenText">
                       <p className="text-lg font-bold md:text-3xl">{review3.nick}</p>
