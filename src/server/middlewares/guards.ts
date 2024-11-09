@@ -2,8 +2,8 @@ import { cookies } from 'next/headers'
 import { lucia } from '@libs/auth'
 import { prisma } from '@utils/db'
 import { error } from 'elysia'
-
 import { getUser } from './derive'
+import { env } from '@/env'
 
 export const pipe = (
   condition: 'OR' | 'AND' = 'AND',
@@ -44,7 +44,7 @@ export const INVERSE = async (arg: Function, headers: Headers) => {
 }
 
 export const IS_VERIFIED = async (headers: Headers) => {
-  if (headers.get('x-api-key') === process.env.NEXT_PUBLIC_API_KEY) return true
+  if (headers.get('x-api-key') === env.NEXT_PUBLIC_API_KEY) return true
   else return { status: 401, message: 'API Key not found' }
 }
 

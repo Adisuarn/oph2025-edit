@@ -23,8 +23,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 import 'react-quill/dist/quill.snow.css'
-
-import { MdReviews } from 'react-icons/md'
+import { env } from '@/env'
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
@@ -475,10 +474,10 @@ const GeneralForm: React.FC<{
               formData.append('sendForm', editFormData.sendForm)
               const options = {
                 method: 'PATCH',
-                url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
+                url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
                 headers: {
-                  'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                  Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                  'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                  Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                 },
                 data: formData,
               }
@@ -505,10 +504,10 @@ const GeneralForm: React.FC<{
                 reviewData.append('content', review.content || '')
                 return axios({
                   method: 'PATCH',
-                  url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+                  url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
                   headers: {
-                    'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                    Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                    'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                    Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                   },
                   data: reviewData,
                 })
@@ -1295,10 +1294,10 @@ const GeneralForm: React.FC<{
                           await axios.request({
                             method: 'DELETE',
                             headers: {
-                              'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                              Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                              'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                              Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                             },
-                            url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/3`,
+                            url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/3`,
                             data: {},
                           })
                         } else if (ReviewAmount === 2) {
@@ -1312,10 +1311,10 @@ const GeneralForm: React.FC<{
                           await axios.request({
                             method: 'DELETE',
                             headers: {
-                              'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                              Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                              'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                              Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                             },
-                            url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/2`,
+                            url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/2`,
                             data: {},
                           })
                         }
@@ -1334,10 +1333,10 @@ const GeneralForm: React.FC<{
                         await axios.request({
                           method: 'POST',
                           headers: {
-                            'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-                            Authorization: `${cookies.get(process.env.COOKIE_NAME!)}`,
+                            'x-api-key': env.NEXT_PUBLIC_API_KEY,
+                            Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
                           },
-                          url: `${process.env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review`,
+                          url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review`,
                           data: {},
                         })
                         setReviewAmount(ReviewAmount + 1)

@@ -1,14 +1,17 @@
 import { Google } from 'arctic'
 import { Lucia } from 'lucia'
+import { PrismaAdapter } from '@lucia-auth/adapter-prisma'
+import { env } from '@/env'
+import { prisma } from '@/server/utils/db'
 
-import { adapter } from '@/server/utils/db'
+const adapter = new PrismaAdapter(prisma.session, prisma.user)
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
-    name: process.env.COOKIE_NAME!,
+    name: env.COOKIE_NAME,
     expires: false,
     attributes: {
-      secure: process.env.NODE_ENV === 'production',
+      secure: env.NODE_ENV === 'production',
     },
   },
   getUserAttributes: (attributes) => {
@@ -24,9 +27,9 @@ export const lucia = new Lucia(adapter, {
 })
 
 export const google = new Google(
-  process.env.GOOGLE_CLIENT_ID!,
-  process.env.GOOGLE_CLIENT_SECRET!,
-  process.env.NEXT_PUBLIC_BASE_URL + '/auth/callback',
+  env.GOOGLE_CLIENT_ID!,
+  env.GOOGLE_CLIENT_SECRET!,
+  env.NEXT_PUBLIC_BASE_URL + '/auth/callback',
 )
 
 // IMPORTANT!

@@ -1,5 +1,6 @@
 import { createAuthUrl, getGoogleUser, Logout } from '@modules/auth/auth.controller'
 import { Elysia, error, redirect } from 'elysia'
+import { env } from '@/env'
 
 export const authRouter = new Elysia({ prefix: '/auth' })
   .get('/login', () => createAuthUrl())
@@ -7,7 +8,7 @@ export const authRouter = new Elysia({ prefix: '/auth' })
     const googleUser = await getGoogleUser(request)
     switch (googleUser.status) {
       case 200:
-        return redirect(process.env.NEXT_PUBLIC_URL + '/account')
+        return redirect(env.NEXT_PUBLIC_URL + '/account')
       case 400:
         return error(400, googleUser.message)
       case 500:

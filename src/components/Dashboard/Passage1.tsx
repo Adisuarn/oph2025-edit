@@ -1,13 +1,11 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Quill from 'quill'
 
 import 'quill/dist/quill.snow.css'
-
 import * as Emoji from 'quill2-emoji'
-
 import 'quill2-emoji/dist/style.css'
 
 Quill.register('modules/emoji', Emoji)
@@ -15,6 +13,8 @@ Quill.register('modules/emoji', Emoji)
 const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
   const quillRef = useRef<HTMLDivElement>(null)
   const editorRef = useRef<Quill | null>(null)
+  const [imageLoaded, setImageLoaded] = useState(false) // Track image loading state
+
   const toolbarOptions = [
     [{ header: [1, 2, 3, false] }],
     ['bold', 'italic', 'underline', 'emoji'],
@@ -26,7 +26,6 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
 
   useEffect(() => {
     if (!editorRef.current && quillRef.current) {
-      // Check if the editor is not yet initialized
       editorRef.current = new Quill(quillRef.current as HTMLDivElement, {
         theme: 'snow',
         modules: {
@@ -35,10 +34,8 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
         },
       })
 
-      // Initialize Quill with current content
       editorRef.current!.root.innerHTML = data.activities || ''
 
-      // Update Formik state on content change
       editorRef.current!.on('text-change', () => {
         setFieldValue('activities', editorRef.current!.root.innerHTML)
       })
@@ -46,7 +43,12 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
   }, [setFieldValue, data.activities])
 
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFieldValue('descimg1', e.target.value) // Update Formik state for description
+    setFieldValue('descimg1', e.target.value)
+  }
+
+  // Handle image load
+  const handleImageLoad = () => {
+    setImageLoaded(true)
   }
 
   return (
@@ -85,9 +87,27 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
         </div>
 
         <div className="flex flex-col text-center">
-          <div className="mb-28 ml-14 h-[300px] w-[500px] rounded-2xl">
+          <div className="mb-28 ml-14 h-[300px] w-[500px] rounded-2xl relative">
             <div className="overflow-hidden rounded-2xl max-w-[500px] max-h-[300px]">
-              <Image src={data.captureimg1} alt="img1" width={500} height={300} />
+              {/* Image with loading animation */}
+              <div
+                className={`transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+              >
+                <Image
+                  src={data.captureimg1}
+                  alt="img1"
+                  width={500}
+                  height={300}
+                  onLoadingComplete={handleImageLoad}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              {/* Loading Spinner */}
+              {!imageLoaded && (
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                </div>
+              )}
             </div>
             <input
               type="text"

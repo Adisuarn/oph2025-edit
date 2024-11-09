@@ -8,13 +8,17 @@
     "dev": "next dev --turbo",
     "lint": "next lint",
     "start": "next start",
-    "postinstall": "bun patch-package && bunx prisma generate",
+    "postinstall": "patch-package && prisma generate --no-engine",
+    "db:generate": "prisma generate --no-engine",
+    "db:push": "prisma db push --preview-feature",
+    "db:studio": "prisma studio",
     "format": "prisma format && prettier --check .",
     "format:fix": "prettier --check . --write"
   },
   "dependencies": {
     "@lucia-auth/adapter-prisma": "^4.0.1",
     "@prisma/client": "^5.22.0",
+    "@prisma/extension-accelerate": "^1.2.1",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@tqman/nice-logger": "^1.0.7",
     "@vercel/speed-insights": "^1.1.0",

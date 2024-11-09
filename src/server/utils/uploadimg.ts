@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { error } from 'elysia'
+import { env } from '@/env'
 
 interface ImgurResponse {
   data: {
@@ -16,7 +17,7 @@ export const uploadImage = async (file: File | undefined): Promise<string | unde
 
     const response = await axios.post<ImgurResponse>('https://api.imgur.com/3/image', formData, {
       headers: {
-        Authorization: `Client-ID ${process.env.IMGUR_CLIENT_ID}`,
+        Authorization: `Client-ID ${env.IMGUR_CLIENT_ID}`,
         'Content-Type': 'multipart/form-data',
       },
     })

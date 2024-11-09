@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import axios from 'axios'
+import { env } from '@/env'
 
 import Google from '@/vectors/landing/Google'
 
@@ -12,9 +13,9 @@ const GoogleOAuthButton = () => {
     try {
       const options = {
         method: 'GET',
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`,
+        url: `${env.NEXT_PUBLIC_BASE_URL}/auth/login`,
         headers: {
-          'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+          'x-api-key': env.NEXT_PUBLIC_API_KEY,
         },
       }
       const data = await axios.request(options)
