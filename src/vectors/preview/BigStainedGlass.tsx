@@ -29,7 +29,7 @@ const BigStainedGlass: FC<{
         <path
           d="M230.269 228.762V760.282H-203.571V228.762M230.269 228.762C230.269 228.762 230.268 15.8027 6.7485 14.9226C-216.772 14.0426 -203.571 228.762 -203.571 228.762M230.269 228.762H-203.571"
           stroke="url(#paint2_radial_175_465)"
-          stroke-width="22.88"
+          strokeWidth="22.88"
         />
         <g filter="url(#filter1_d_175_465)">
           <path
@@ -66,22 +66,22 @@ const BigStainedGlass: FC<{
             d="M11.3486 275.402C6.36001 268.153 6.35943 268.153 6.35878 268.154L6.35709 268.155L6.35238 268.158L6.3376 268.168L6.28699 268.203C6.244 268.233 6.18267 268.276 6.10392 268.33C5.94644 268.44 5.71922 268.598 5.42976 268.802C4.85102 269.208 4.02237 269.795 3.00399 270.529C0.970238 271.995 -1.83562 274.058 -4.9276 276.452C-10.9456 281.11 -18.6439 287.472 -23.6185 293.253C-28.6614 299.113 -33.0947 306.9 -36.139 312.821C-37.7 315.857 -38.9731 318.557 -39.8583 320.503C-40.3018 321.478 -40.6503 322.268 -40.8912 322.823C-41.0117 323.101 -41.1054 323.32 -41.1709 323.474C-41.2036 323.551 -41.2293 323.612 -41.2477 323.655L-41.2699 323.708L-41.2768 323.725L-41.2793 323.731L-41.2803 323.733C-41.2807 323.734 -41.281 323.735 -33.1592 327.122L-41.281 323.735L-41.9592 325.361V327.122V718.922V727.722H-33.1592H56.6008H65.4008V718.922V327.122V325.424L64.769 323.848L56.6008 327.122C64.769 323.848 64.7686 323.847 64.7682 323.846L64.7672 323.844L64.7647 323.837L64.7578 323.82L64.736 323.766C64.7179 323.722 64.6928 323.66 64.661 323.582C64.5972 323.427 64.5061 323.206 64.389 322.926C64.155 322.368 63.8163 321.573 63.3842 320.594C62.5217 318.64 61.2773 315.929 59.7389 312.881C56.7415 306.94 52.3265 299.103 47.1599 293.198C42.0783 287.39 34.1183 281.018 27.9026 276.366C24.7047 273.972 21.7981 271.909 19.6903 270.443C18.6348 269.709 17.7756 269.122 17.1754 268.716C16.8752 268.513 16.6396 268.354 16.4762 268.245C16.3946 268.19 16.331 268.148 16.2864 268.118L16.234 268.083L16.2187 268.073L16.2138 268.07L16.2121 268.068C16.2114 268.068 16.2108 268.068 11.3486 275.402ZM11.3486 275.402L6.36001 268.153L11.2566 264.783L16.2108 268.068L11.3486 275.402Z"
             fill="url(#paint9_linear_175_465)"
             stroke="url(#paint10_linear_175_465)"
-            stroke-width="17.6"
+            strokeWidth="17.6"
           />
           <path
             d="M56.1412 327.641L56.1412 372.521L-33.6187 467.561L-33.6178 408.601L56.1412 327.641Z"
             fill="url(#paint11_linear_175_465)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
           <path
             d="M56.1414 410.362L56.1414 446.442L-33.6192 541.482L-33.6192 495.722L56.1414 410.362Z"
             fill="url(#paint12_linear_175_465)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
           <path
             d="M56.1416 588.121L56.1416 620.681L-33.6189 711.321L-33.6189 679.641L56.1416 588.121Z"
             fill="url(#paint13_linear_175_465)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
         </g>
         <g filter="url(#filter5_d_175_465)">
@@ -93,22 +93,22 @@ const BigStainedGlass: FC<{
             d="M145.108 275.405C140.12 268.156 140.119 268.156 140.119 268.157L140.117 268.158L140.112 268.161L140.097 268.171L140.047 268.206C140.004 268.236 139.942 268.278 139.864 268.333C139.706 268.443 139.479 268.601 139.19 268.805C138.611 269.211 137.782 269.798 136.764 270.532C134.73 271.998 131.924 274.061 128.832 276.455C122.814 281.113 115.116 287.475 110.141 293.256C105.098 299.116 100.665 306.902 97.6207 312.824C96.0597 315.86 94.7867 318.56 93.9014 320.506C93.4579 321.481 93.1095 322.271 92.8686 322.826C92.7481 323.104 92.6543 323.323 92.5889 323.477C92.5561 323.554 92.5305 323.614 92.512 323.658L92.4899 323.711L92.4829 323.728L92.4805 323.733L92.4795 323.736C92.4791 323.737 92.4787 323.738 100.601 327.125L92.4787 323.738L91.8006 325.364V327.125V718.925V727.725H100.601H190.361H199.161V718.925V327.125V325.427L198.529 323.851L190.361 327.125C198.529 323.851 198.528 323.85 198.528 323.849L198.527 323.847L198.524 323.84L198.518 323.823L198.496 323.769C198.478 323.725 198.453 323.663 198.421 323.585C198.357 323.43 198.266 323.209 198.149 322.929C197.915 322.371 197.576 321.576 197.144 320.597C196.281 318.643 195.037 315.932 193.499 312.883C190.501 306.943 186.086 299.106 180.92 293.201C175.838 287.393 167.878 281.021 161.662 276.368C158.464 273.975 155.558 271.911 153.45 270.446C152.395 269.712 151.535 269.125 150.935 268.719C150.635 268.515 150.399 268.357 150.236 268.248C150.154 268.193 150.091 268.15 150.046 268.121L149.994 268.086L149.978 268.076L149.974 268.073L149.972 268.071C149.971 268.071 149.971 268.071 145.108 275.405ZM145.108 275.405L140.12 268.156L145.016 264.786L149.971 268.071L145.108 275.405Z"
             fill="url(#paint15_linear_175_465)"
             stroke="url(#paint16_linear_175_465)"
-            stroke-width="17.6"
+            strokeWidth="17.6"
           />
           <path
             d="M189.901 325.884L189.901 370.764L100.141 465.804L100.142 406.844L189.901 325.884Z"
             fill="url(#paint17_linear_175_465)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
           <path
             d="M189.901 408.605L189.901 444.685L100.141 539.725L100.141 493.965L189.901 408.605Z"
             fill="url(#paint18_linear_175_465)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
           <path
             d="M189.901 586.363L189.901 618.923L100.141 709.563L100.141 677.883L189.901 586.363Z"
             fill="url(#paint19_linear_175_465)"
-            fill-opacity="0.8"
+            fillOpacity="0.8"
           />
         </g>
       </g>
@@ -145,9 +145,9 @@ const BigStainedGlass: FC<{
           width="470.948"
           height="782.322"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -176,9 +176,9 @@ const BigStainedGlass: FC<{
           width="193.798"
           height="181.015"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -204,9 +204,9 @@ const BigStainedGlass: FC<{
           width="193.798"
           height="181.015"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -232,9 +232,9 @@ const BigStainedGlass: FC<{
           width="201.871"
           height="188.32"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -260,9 +260,9 @@ const BigStainedGlass: FC<{
           width="139.04"
           height="496.438"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -288,9 +288,9 @@ const BigStainedGlass: FC<{
           width="139.04"
           height="496.438"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -316,9 +316,9 @@ const BigStainedGlass: FC<{
           width="76.7722"
           height="62.3425"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -344,9 +344,9 @@ const BigStainedGlass: FC<{
           width="63.0994"
           height="76.199"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -372,9 +372,9 @@ const BigStainedGlass: FC<{
           width="63.0994"
           height="76.199"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -400,9 +400,9 @@ const BigStainedGlass: FC<{
           width="76.155"
           height="62.9226"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -429,8 +429,8 @@ const BigStainedGlass: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(199.583 14.9199) rotate(127.958) scale(536.945 308.231)"
         >
-          <stop offset="0.113579" stop-color="#F5EEBF" />
-          <stop offset="0.878434" stop-color="#78AF94" />
+          <stop offset="0.113579" stopColor="#F5EEBF" />
+          <stop offset="0.878434" stopColor="#78AF94" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_175_465"
@@ -440,8 +440,8 @@ const BigStainedGlass: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(289.992 -18.7463) rotate(115.06) scale(1275.73 575.301)"
         >
-          <stop offset="0.135748" stop-color="#F5EEBF" />
-          <stop offset="0.827705" stop-color="#78AF94" />
+          <stop offset="0.135748" stopColor="#F5EEBF" />
+          <stop offset="0.827705" stopColor="#78AF94" />
         </radialGradient>
         <radialGradient
           id="paint2_radial_175_465"
@@ -451,12 +451,12 @@ const BigStainedGlass: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(12.7612 411.8) rotate(90) scale(533.28 533.28)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.095" stop-color="#0E342D" />
-          <stop offset="0.27" stop-color="#1B9A8A" />
-          <stop offset="0.52" stop-color="#0E342D" />
-          <stop offset="0.73" stop-color="#1B9A8A" />
-          <stop offset="0.936667" stop-color="#F4F15B" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.095" stopColor="#0E342D" />
+          <stop offset="0.27" stopColor="#1B9A8A" />
+          <stop offset="0.52" stopColor="#0E342D" />
+          <stop offset="0.73" stopColor="#1B9A8A" />
+          <stop offset="0.936667" stopColor="#F4F15B" />
         </radialGradient>
         <linearGradient
           id="paint3_linear_175_465"
@@ -466,9 +466,9 @@ const BigStainedGlass: FC<{
           y2="252.52"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.1" stop-color="#0C453E" />
-          <stop offset="0.54" stop-color="#1B9A8A" />
-          <stop offset="0.758325" stop-color="#F4F15B" />
+          <stop offset="0.1" stopColor="#0C453E" />
+          <stop offset="0.54" stopColor="#1B9A8A" />
+          <stop offset="0.758325" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_175_465"
@@ -478,9 +478,9 @@ const BigStainedGlass: FC<{
           y2="240.201"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.273501" stop-color="#0C453E" />
-          <stop offset="0.54" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop offset="0.273501" stopColor="#0C453E" />
+          <stop offset="0.54" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_175_465"
@@ -490,9 +490,9 @@ const BigStainedGlass: FC<{
           y2="39.5593"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.319856" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.319856" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_175_465"
@@ -502,9 +502,9 @@ const BigStainedGlass: FC<{
           y2="39.5593"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.319856" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.319856" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_175_465"
@@ -514,9 +514,9 @@ const BigStainedGlass: FC<{
           y2="39.5593"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.319856" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.319856" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_175_465"
@@ -526,9 +526,9 @@ const BigStainedGlass: FC<{
           y2="39.5593"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#E2EA5F" />
-          <stop offset="0.319856" stop-color="#1B9A8A" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#E2EA5F" />
+          <stop offset="0.319856" stopColor="#1B9A8A" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_175_465"
@@ -538,9 +538,9 @@ const BigStainedGlass: FC<{
           y2="701.458"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F5EEBF" />
-          <stop offset="0.731035" stop-color="#78AF94" />
-          <stop offset="0.960442" stop-color="#1B9A8A" />
+          <stop stopColor="#F5EEBF" />
+          <stop offset="0.731035" stopColor="#78AF94" />
+          <stop offset="0.960442" stopColor="#1B9A8A" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_175_465"
@@ -550,9 +550,9 @@ const BigStainedGlass: FC<{
           y2="-1.35668"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.255695" stop-color="#0C453E" />
-          <stop offset="0.585056" stop-color="#1B9A8A" />
-          <stop offset="0.900683" stop-color="#F4F15B" />
+          <stop offset="0.255695" stopColor="#0C453E" />
+          <stop offset="0.585056" stopColor="#1B9A8A" />
+          <stop offset="0.900683" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_175_465"
@@ -562,8 +562,8 @@ const BigStainedGlass: FC<{
           y2="450.456"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_175_465"
@@ -573,8 +573,8 @@ const BigStainedGlass: FC<{
           y2="531.427"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_175_465"
@@ -584,8 +584,8 @@ const BigStainedGlass: FC<{
           y2="696.619"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_175_465"
@@ -595,9 +595,9 @@ const BigStainedGlass: FC<{
           y2="915.164"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9F6DC" />
-          <stop offset="0.329764" stop-color="#FA3717" />
-          <stop offset="0.758393" stop-color="#FA3717" />
+          <stop stopColor="#F9F6DC" />
+          <stop offset="0.329764" stopColor="#FA3717" />
+          <stop offset="0.758393" stopColor="#FA3717" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_175_465"
@@ -607,9 +607,9 @@ const BigStainedGlass: FC<{
           y2="701.46"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F5EEBF" />
-          <stop offset="0.731035" stop-color="#78AF94" />
-          <stop offset="0.960442" stop-color="#1B9A8A" />
+          <stop stopColor="#F5EEBF" />
+          <stop offset="0.731035" stopColor="#78AF94" />
+          <stop offset="0.960442" stopColor="#1B9A8A" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_175_465"
@@ -619,9 +619,9 @@ const BigStainedGlass: FC<{
           y2="-1.35375"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.255695" stop-color="#0C453E" />
-          <stop offset="0.585056" stop-color="#1B9A8A" />
-          <stop offset="0.900683" stop-color="#F4F15B" />
+          <stop offset="0.255695" stopColor="#0C453E" />
+          <stop offset="0.585056" stopColor="#1B9A8A" />
+          <stop offset="0.900683" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_175_465"
@@ -631,8 +631,8 @@ const BigStainedGlass: FC<{
           y2="448.699"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_175_465"
@@ -642,8 +642,8 @@ const BigStainedGlass: FC<{
           y2="529.67"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_175_465"
@@ -653,8 +653,8 @@ const BigStainedGlass: FC<{
           y2="694.861"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_175_465"
@@ -664,10 +664,10 @@ const BigStainedGlass: FC<{
           y2="162.631"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.339807" stop-color="#F28041" />
-          <stop offset="0.597321" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.339807" stopColor="#F28041" />
+          <stop offset="0.597321" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_175_465"
@@ -677,10 +677,10 @@ const BigStainedGlass: FC<{
           y2="51.3001"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.339807" stop-color="#F28041" />
-          <stop offset="0.597321" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.339807" stopColor="#F28041" />
+          <stop offset="0.597321" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint22_linear_175_465"
@@ -690,10 +690,10 @@ const BigStainedGlass: FC<{
           y2="188.005"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.339807" stop-color="#F28041" />
-          <stop offset="0.597321" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.339807" stopColor="#F28041" />
+          <stop offset="0.597321" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint23_linear_175_465"
@@ -703,10 +703,10 @@ const BigStainedGlass: FC<{
           y2="129.285"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.339807" stop-color="#F28041" />
-          <stop offset="0.597321" stop-color="#D9392B" />
-          <stop offset="1" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.339807" stopColor="#F28041" />
+          <stop offset="0.597321" stopColor="#D9392B" />
+          <stop offset="1" stopColor="#7E0001" />
         </linearGradient>
         <radialGradient
           id="paint24_radial_175_465"
@@ -716,9 +716,9 @@ const BigStainedGlass: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(15.24 116.12) rotate(122.347) scale(31.2493 31.2493)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.444247" stop-color="#F28041" />
-          <stop offset="1" stop-color="#2D2219" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.444247" stopColor="#F28041" />
+          <stop offset="1" stopColor="#2D2219" />
         </radialGradient>
       </defs>
     </svg>

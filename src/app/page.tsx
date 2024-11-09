@@ -5,10 +5,12 @@ import Brick from '@/vectors/landing/Brick'
 import BrickSmall from '@/vectors/landing/BrickSmall'
 import NiceStuff from '@/vectors/landing/NiceStuff'
 import Window from '@/vectors/landing/Window'
+import { Toaster } from 'react-hot-toast'
 
 const page = async () => {
   return (
     <main className="via-21% to-77% relative h-screen w-screen overflow-hidden bg-gradient-to-b from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0 sm:bg-gradient-to-br">
+      <Toaster />
       <div className="absolute right-0 top-10 w-[110vw] z-30 sm:-right-20 sm:top-20 sm:w-[70vw] md:-right-40">
         <Window className="h-[50vh] w-full sm:h-40 md:h-[75vh]" />
       </div>

@@ -3,23 +3,10 @@ import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import xior from 'xior'
 import dedupePlugin from 'xior/plugins/dedupe'
-import { verifyRequestOrigin } from "lucia";
 
 // Middleware function
 export async function middleware(request: NextRequest) {
   // Ensure required environment variables are set
-
-  if (request.method === "GET") {
-		return NextResponse.next();
-	}
-	const originHeader = request.headers.get("Origin");
-	// NOTE: You may need to use `X-Forwarded-Host` instead
-	const hostHeader = request.headers.get("Host");
-	if (!originHeader || !hostHeader || !verifyRequestOrigin(originHeader, [hostHeader])) {
-		return new NextResponse(null, {
-			status: 403
-		});
-	}
 
   if (!process.env.NEXT_PUBLIC_BASE_URL || !process.env.NEXT_PUBLIC_API_KEY || !process.env.COOKIE_NAME || !process.env.SECRET_LINK) {
     console.error("Missing required environment variables.")
