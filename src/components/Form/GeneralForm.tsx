@@ -28,12 +28,12 @@ import { env } from '@/env'
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const toolbarOptions = [
-  [{ header: [] }],
+  [{ header: [false] }],
   ['bold', 'italic', 'underline', 'strike'],
   [{ color: [] }, { background: [] }],
   [{ list: 'ordered' }, { list: 'bullet' }],
   [{ indent: '-1' }, { indent: '+1' }],
-  ['link', 'image'],
+  ['link'],
   [{ align: [] }],
   ['clean'],
 ]
@@ -48,6 +48,7 @@ const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => (
     onChange={(value) => form.setFieldValue(field.name, value)}
     onBlur={() => form.setFieldTouched(field.name, true)}
     theme="snow"
+    modules={modules}
   />
 )
 
@@ -143,6 +144,11 @@ const GeneralForm: React.FC<{
   const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(editFormData.logo)
   const [ReviewAmount, setReviewAmount] = useState<number>(reviews)
   const [loading, setLoading] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false)
+
+  const handleImageLoad = () => {
+    setImageLoaded(true)
+  }
 
   const handleFileSelect1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -487,7 +493,7 @@ const GeneralForm: React.FC<{
               //send review data
               const postReviews = [review1, review2, review3]
               const images = [image4, image5, image6]
-              postReviews.map(async (review: any, index: number) => {
+              const reviewPromises = postReviews.map(async (review: any, index: number) => {
                 if (
                   review.content === '' ||
                   review.nick === '' ||
@@ -512,7 +518,9 @@ const GeneralForm: React.FC<{
                   data: reviewData,
                 })
               })
+              await Promise.all(reviewPromises)
               notifySuccess()
+              if (typeof window !== "undefined") window.location.reload()
             } catch (error) {
               console.log(error)
               notifyError()
@@ -602,6 +610,23 @@ const GeneralForm: React.FC<{
 
             {/* Hero */}
             <section className="w-full sm:mx-7">
+              {editFormData.error && (
+                <section className="flex-col w-full mx-auto mb-7 flex items-center gap-2 rounded-lg bg-red-50 p-4 text-sm text-red-800 shadow-sm transition-all hover:bg-red-100">
+                  <div className="flex flex-col items-center">
+                    <svg className="h-9 w-9 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p className="font-Thai text-center font-bold text-2xl hidden sm:block">กรุณาแก้ไข</p>
+                  </div>
+                  <div>
+                    <span className="font-medium px-6">{editFormData.error}</span>
+                  </div>
+                </section>
+              )}
               <section className="w-full rounded-2xl bg-gradient-to-br from-heroFirst via-heroMiddle to-greenText shadow-xl">
                 {editFormData.tagThai !== 'ชมรม' ? (
                   <div className="flex h-40 w-full flex-col items-center justify-center space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto">
@@ -655,13 +680,19 @@ const GeneralForm: React.FC<{
                     {displayClubLogo ? (
                       <div className="relative flex flex-col items-center justify-center">
                         <Image
-                          className="flex h-28 w-28 rounded-lg object-cover md:h-40 md:w-40 lg:h-52 lg:w-52"
+                          className={`flex h-28 w-28 rounded-lg object-cover md:h-40 md:w-40 lg:h-52 lg:w-52 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                           src={clubLogoUrl || ''}
                           alt="uploaded photo"
                           width={400}
                           height={600}
                           quality={100}
+                          onLoad={handleImageLoad}
                         />
+                        {!imageLoaded && (
+                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                            <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                          </div>
+                        )}
                         <button
                           onClick={() => {
                             setDisplayClubLogo(false)
@@ -764,13 +795,19 @@ const GeneralForm: React.FC<{
                       {displayImage1 ? (
                         <div className="relative w-full">
                           <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72"
+                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                             src={imageUrl1 || ''}
                             alt="uploaded photo"
                             width={800}
                             height={600}
                             quality={100}
+                            onLoad={handleImageLoad}
                           />
+                          {!imageLoaded && (
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                              <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                            </div>
+                          )}
                           <button
                             onClick={() => {
                               setDisplayImage1(false)
@@ -924,13 +961,19 @@ const GeneralForm: React.FC<{
                       {displayImage3 ? (
                         <div className="relative w-full">
                           <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72"
+                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                             src={imageUrl3 || ''}
                             alt="uploaded photo"
                             width={800}
                             height={600}
                             quality={100}
+                            onLoad={handleImageLoad}
                           />
+                          {!imageLoaded && (
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                              <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                            </div>
+                          )}
                           <button
                             onClick={() => {
                               setDisplayImage3(false)
@@ -994,12 +1037,18 @@ const GeneralForm: React.FC<{
                         {displayImage4 ? (
                           <div className="relative w-full">
                             <Image
-                              className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                              className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                               src={imageUrl4 || ''}
                               alt="photo4"
                               width={800}
                               height={600}
+                              onLoad={handleImageLoad}
                             />
+                            {!imageLoaded && (
+                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                              </div>
+                            )}
                             <button
                               onClick={() => {
                                 setDisplayImage4(false)
@@ -1097,12 +1146,18 @@ const GeneralForm: React.FC<{
                           {displayImage5 ? (
                             <div className="relative w-full">
                               <Image
-                                className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                                className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                                 src={imageUrl5 || ''}
                                 alt="photo5"
                                 width={800}
                                 height={600}
+                                onLoad={handleImageLoad}
                               />
+                              {!imageLoaded && (
+                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                  <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                                </div>
+                              )}
                               <button
                                 onClick={() => {
                                   setDisplayImage5(false)
@@ -1182,12 +1237,18 @@ const GeneralForm: React.FC<{
                           {displayImage6 ? (
                             <div className="relative w-full">
                               <Image
-                                className="mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36"
+                                className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'} `}
                                 src={imageUrl6 || ''}
                                 alt="photo6"
                                 width={800}
                                 height={600}
+                                onLoad={handleImageLoad}
                               />
+                              {!imageLoaded && (
+                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                  <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                                </div>
+                              )}
                               <button
                                 onClick={() => {
                                   setDisplayImage6(false)

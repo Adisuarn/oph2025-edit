@@ -158,7 +158,7 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
                 >
                   Submit
                 </button>
-                <LogoutButton />
+                <LogoutButton disabled={isSubmitting}/>
               </div>
             </Form>
           )

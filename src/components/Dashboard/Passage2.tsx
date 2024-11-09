@@ -69,7 +69,7 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
                   alt="img2"
                   width={500}
                   height={300}
-                  onLoadingComplete={handleImageLoad}
+                  onLoad={handleImageLoad}
                   className="object-cover w-full h-full"
                 />
               </div>

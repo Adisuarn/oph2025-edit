@@ -48,7 +48,7 @@ const PreviewGiftedForm: React.FC = async () => {
   return (
     <PreviewGeneralForm
       editFormData={editFormData}
-      reviews={reviews}
+      reviews={reviews.length}
       review1={reviews[0]}
       review2={reviews[1]}
       review3={reviews[2]}

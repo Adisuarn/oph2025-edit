@@ -6,4 +6,16 @@ const Lamp: FC<{
   return <></>
 }
 
+
+
 export default Lamp
+
+/*
+
+ style={{ maskType: 'alpha' }}
+
+ <g style={{ mixBlendMode: 'soft-light' }}>
+
+ className={`${className}`} 
+
+ */

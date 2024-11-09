@@ -23,9 +23,9 @@ const PreviewProgramForm: React.FC = async () => {
     ig: data.ig,
     fb: data.fb,
     others: data.others,
-    text1: data.activities,
-    text2: data.position,
-    text3: data.working,
+    text1: data.admissions,
+    text2: data.courses,
+    text3: data.interests,
     status: data.status,
     captureimg1: data.captureimg1,
     descimg1: data.descimg1,
@@ -47,7 +47,7 @@ const PreviewProgramForm: React.FC = async () => {
   return (
     <PreviewGeneralForm
       editFormData={editFormData}
-      reviews={reviews}
+      reviews={reviews.length}
       review1={reviews[0]}
       review2={reviews[1]}
       review3={reviews[2]}

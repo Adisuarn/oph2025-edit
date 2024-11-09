@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
 import React from 'react'
 import { Status } from '@utils/type'
 import { FaPen } from 'react-icons/fa'
@@ -10,12 +9,11 @@ import LogoutButton from '@/components/LogoutButton'
 import Section from '@/vectors/dashboard/Section'
 
 const StatusMessage = ({ status }: { status: Status }) => {
-  const statusInfo =
-    {
-      [Status.APPROVED]: { color: '#19C57C', text: 'ผ่านการตรวจสอบ' },
-      [Status.REJECTED]: { color: '#E80808', text: 'ไม่ผ่านการตรวจสอบ' },
-      [Status.PENDING]: { color: '#FCB52B', text: 'อยู่ระหว่างการตรวจสอบ' },
-    }[status] || null
+  const statusInfo = {
+    [Status.APPROVED]: { color: '#19C57C', text: 'ผ่านการตรวจสอบ' },
+    [Status.REJECTED]: { color: '#E80808', text: 'ไม่ผ่านการตรวจสอบ' },
+    [Status.PENDING]: { color: '#FCB52B', text: 'อยู่ระหว่างการตรวจสอบ' },
+  }[status] || null
 
   return statusInfo ? (
     <div className="mt-2 flex items-center justify-center space-x-1 sm:mt-0">
@@ -31,6 +29,7 @@ const StatusMessage = ({ status }: { status: Status }) => {
 }
 
 const AccountPage = async () => {
+
   const userResponse = await apiFunction('GET', '/user', {})
 
   const { tag, name, key, picture, TUCMC } = userResponse.data
@@ -44,6 +43,7 @@ const AccountPage = async () => {
 
   const { thainame, members, status } = userFormData
   const submittedInit = !!tag
+
   return (
     <section className="flex h-screen flex-col items-center justify-center text-formText space-y-2 sm:space-y-4">
       <p className="mb-2 text-xs sm:mb-0 sm:text-lg">
@@ -60,16 +60,24 @@ const AccountPage = async () => {
 
       <Link
         href={
-          TUCMC ? '/account/dashboard' : submittedInit ? `/editingform/${tag}` : '/account/forms'
+          TUCMC
+            ? '/account/dashboard'
+            : status === Status.APPROVED
+              ? `/preview/${tag}`
+              : submittedInit
+                ? `/editingform/${tag}`
+                : '/account/forms'
         }
       >
         <div className="flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-heroFirst from-10% via-heroMiddle via-55% to-greenText bg-size-200 bg-pos-0 px-8 py-1 text-white transition-all duration-500 hover:bg-pos-100 sm:px-20 sm:py-2">
           <p>
             {TUCMC
               ? 'ตรวจสอบข้อมูลหน่วยงาน'
-              : submittedInit
-                ? 'แก้ไข'
-                : 'เลือกหน่วยงานที่รับผิดชอบ'}
+              : status === Status.APPROVED
+                ? 'ดูตัวอย่างหน่วยงาน'
+                : submittedInit
+                  ? 'แก้ไข'
+                  : 'เลือกหน่วยงานที่รับผิดชอบ'}
           </p>
           <FaPen className="h-2 w-2 sm:h-3 sm:w-3" />
         </div>
@@ -77,9 +85,7 @@ const AccountPage = async () => {
 
       {submittedInit && status !== undefined && <StatusMessage status={status} />}
 
-      {TUCMC ? (
-        ''
-      ) : (
+      {!TUCMC && (
         <div className="mt-2 text-center sm:mt-0">
           <p className="text-md sm:text-2xl">แก้ไขข้อมูลหน่วยงาน</p>
           <p className="md:text-md text-xs opacity-70 sm:text-sm">ข้อมูลจะแสดงผลในหน้าเว็บไซต์</p>

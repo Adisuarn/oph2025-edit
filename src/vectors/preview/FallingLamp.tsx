@@ -7,6 +7,7 @@ const FallingLamp: FC<{
     <svg
       width="1208"
       height="678"
+      className={`${className}`}
       viewBox="0 0 1208 678"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

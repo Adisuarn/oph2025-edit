@@ -12,6 +12,7 @@ const FormikControl: React.FC = async () => {
   const data = userForm.data.data
 
   const editFormData = {
+    error: data.error,
     thainame: data.thainame,
     tag: data.tag,
     tagThai: 'ชมรม',

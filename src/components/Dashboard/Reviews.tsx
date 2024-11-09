@@ -36,7 +36,7 @@ const Reviews = ({ reviewData, setFieldValue }: any) => {
                       alt="Profile Image"
                       width={150}
                       height={150}
-                      onLoadingComplete={() => handleImageLoad(index)}
+                      onLoad={() => handleImageLoad(index)}
                       className="object-cover w-full h-full"
                     />
                   </div>
@@ -67,7 +67,7 @@ const Reviews = ({ reviewData, setFieldValue }: any) => {
                       alt="Profile Image"
                       width={150}
                       height={150}
-                      onLoadingComplete={() => handleImageLoad(index)}
+                      onLoad={() => handleImageLoad(index)}
                       className="object-cover w-full h-full"
                     />
                   </div>
