@@ -8,7 +8,7 @@ const adapter = new PrismaAdapter(prisma.session, prisma.user)
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
-    name: env.COOKIE_NAME,
+    name: env.NEXT_PUBLIC_COOKIE_NAME,
     expires: false,
     attributes: {
       secure: env.NODE_ENV === 'production',

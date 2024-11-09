@@ -14,8 +14,6 @@ export const env = createEnv({
     IMGUR_CLIENT_ID: z.string(),
     IMGUR_CLIENT_SECRET: z.string(),
     HOSTED_DOMAIN: z.string(),
-    COOKIE_NAME: z.string(),
-    SECRET_LINK: z.string(),
     DIRECT_DATABASE_URL: z.string(),
   },
 
@@ -25,8 +23,10 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
+    NEXT_PUBLIC_SECRET_LINK: z.string(),
     NEXT_PUBLIC_API_KEY: z.string(),
     NEXT_PUBLIC_URL: z.string().url(),
+    NEXT_PUBLIC_COOKIE_NAME: z.string(),
     NEXT_PUBLIC_BASE_URL: z.string().url(),
   },
 
@@ -43,8 +43,8 @@ export const env = createEnv({
     IMGUR_CLIENT_ID: process.env.IMGUR_CLIENT_ID,
     IMGUR_CLIENT_SECRET: process.env.IMGUR_CLIENT_SECRET,
     HOSTED_DOMAIN: process.env.HOSTED_DOMAIN,
-    COOKIE_NAME: process.env.COOKIE_NAME,
-    SECRET_LINK: process.env.SECRET_LINK,
+    NEXT_PUBLIC_COOKIE_NAME: process.env.NEXT_PUBLIC_COOKIE_NAME,
+    NEXT_PUBLIC_SECRET_LINK: process.env.NEXT_PUBLIC_SECRET_LINK,
     NEXT_PUBLIC_API_KEY: process.env.NEXT_PUBLIC_API_KEY,
     NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
