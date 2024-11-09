@@ -9,14 +9,8 @@ editting information for oph2025
     bun install (recommended)
     yarn install
     npm install
-  2.Patch oauth module
-    bun postinstall (recommended)
-    yarn postinstall
-    npx postinstall
-  3.Start server
+  2.Start server
     bun dev (recommended)
     yarn run dev
     npm run dev
-
-
 ```
