@@ -57,10 +57,10 @@ const PreviewGeneralForm: React.FC<{
       <section className="relative z-40 mx-12 pt-48 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[520px]">
         <section className="flex items-center justify-between">
           <div className="flex items-center justify-center space-x-1 transition-all hover:scale-105">
-            <Link href="/account">
+            <Link href={`/editingform/${editFormData.tag}`}>
               <BackArrow className="h-5 w-5 text-heroMiddle sm:h-8 sm:w-8 md:h-10 md:w-10" />
             </Link>
-            <Link href="/account" className="text-xs text-heroMiddle sm:text-lg md:text-2xl">
+            <Link href={`/editingform/${editFormData.tag}`} className="text-xs text-heroMiddle sm:text-lg md:text-2xl">
               ย้อนกลับ
             </Link>
           </div>
