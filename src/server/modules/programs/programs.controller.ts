@@ -7,8 +7,6 @@ import { uploadImage } from '@utils/uploadimg'
 
 export interface ProgramData {
   error: string
-  name: string
-  thainame: string
   status?: string
   members: string
   ig: string
@@ -78,8 +76,6 @@ export const updateProgramData = async (
       omit: { programId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
-        name: body.name,
-        thainame: body.thainame,
         members: body.members,
         ig: body.ig,
         fb: body.fb,

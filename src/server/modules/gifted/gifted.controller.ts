@@ -7,8 +7,6 @@ import { uploadImage } from '@utils/uploadimg'
 
 export interface GiftedData {
   error: string
-  name: string
-  thainame: string
   status?: string
   members: string
   ig: string
@@ -82,8 +80,6 @@ export const updateGiftedData = async (
       omit: { giftedId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
-        name: body.name,
-        thainame: body.thainame,
         status: body.status,
         members: body.members,
         ig: body.ig,

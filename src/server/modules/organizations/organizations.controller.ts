@@ -7,8 +7,6 @@ import { uploadImage } from '@utils/uploadimg'
 
 export interface OrganizationData {
   error: string
-  name: string
-  thainame: string
   status?: string
   members: string
   ig: string
@@ -78,8 +76,6 @@ export const updateOrganizationData = async (
       omit: { organizationId: true, createdAt: true, id: true },
       where: { key: name },
       data: {
-        name: body.name,
-        thainame: body.thainame,
         members: body.members,
         ig: body.ig,
         fb: body.fb,
@@ -113,7 +109,7 @@ export const updateOrganizationData = async (
       data: updatedOrganization,
     }
   } catch (err) {
-    return { status: 500, message: 'Error while updating organization data' }
+    return { status: 500, message: err }
   }
 }
 

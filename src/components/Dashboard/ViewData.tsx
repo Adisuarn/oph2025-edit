@@ -7,7 +7,6 @@ import { toast, Toaster } from 'react-hot-toast'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import * as Yup from 'yup'
-import { useRouter } from 'next/navigation'
 
 import Checkmark from '@/vectors/Checkmark'
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon'
@@ -18,7 +17,6 @@ const MySwal = withReactContent(Swal)
 
 const ViewData = ({ data, type, onStatusUpdate }: any) => {
   const [loading, setLoading] = useState(false)  // New loading state
-  const router = useRouter()
 
   const formattedDate = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Bangkok',
@@ -75,8 +73,9 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
         if (result.isConfirmed) {
           toast.promise(
             updateData(values, data.data.tag, data.data.key).then(() => {
-              router.push('/account/dashboard')
-              router.refresh()
+              if (typeof window !== 'undefined') {
+                window.location.reload()
+              }
               setLoading(false)  // Stop loading on successful update
             }),
             {

@@ -87,6 +87,7 @@ export const getGoogleUser = async (req: Request) => {
     }
     const session = await lucia.createSession(userId, {})
     const sessionCookie = lucia.createSessionCookie(session.id)
+    cookies().delete('codeVerifier')
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
     return { status: 200, message: 'Login success' }
   } catch (err) {

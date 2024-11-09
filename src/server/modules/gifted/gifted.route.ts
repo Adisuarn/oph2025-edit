@@ -64,8 +64,6 @@ export const giftedRouter = new Elysia({ prefix: '/gifted' })
       }),
       body: t.Object({
         error: StringField(false, 'Invalid Error'),
-        name: StringField(false, 'Invalid Name'),
-        thainame: StringField(false, 'Invalid Thai Name'),
         members: StringField(true, 'Invalid Member'),
         ig: StringField(false, 'Invalid Instagram'),
         fb: StringField(false, 'Invalid Facebook'),

@@ -178,6 +178,7 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
           ...Object.keys(AllData.Gifted),
         ]),
       }),
+      body: t.Any(),
     },
   )
   .patch(
