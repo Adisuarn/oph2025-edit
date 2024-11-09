@@ -610,6 +610,23 @@ const GeneralForm: React.FC<{
 
             {/* Hero */}
             <section className="w-full sm:mx-7">
+              {editFormData.error && (
+                <section className="flex-col w-full mx-auto mb-7 flex items-center gap-2 rounded-lg bg-red-50 p-4 text-sm text-red-800 shadow-sm transition-all hover:bg-red-100">
+                  <div className="flex flex-col items-center">
+                    <svg className="h-9 w-9 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <p className="font-Thai text-center font-bold text-2xl hidden sm:block">กรุณาแก้ไข</p>
+                  </div>
+                  <div>
+                    <span className="font-medium px-6">{editFormData.error}</span>
+                  </div>
+                </section>
+              )}
               <section className="w-full rounded-2xl bg-gradient-to-br from-heroFirst via-heroMiddle to-greenText shadow-xl">
                 {editFormData.tagThai !== 'ชมรม' ? (
                   <div className="flex h-40 w-full flex-col items-center justify-center space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto">
