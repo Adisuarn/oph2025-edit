@@ -82,7 +82,7 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
             </div>
             <input
               type="text"
-              className="border rounded-lg placeholder: mt-3 text-center font-BaiJamjuree text-[16px] font-light text-[#0C453E]"
+              className="w-full border rounded-lg placeholder: mt-3 text-center font-BaiJamjuree text-[16px] font-light text-[#0C453E]"
               value={data.descimg2}
               onChange={handleDescriptionChange}
               placeholder="กรุณาใส่คำอธิบายรูปภาพ"

@@ -104,7 +104,7 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
 
           return (
             <Form>
-              <div className="relative z-50 -mt-14 flex h-[60vh] w-[80vw] flex-col items-center justify-center space-y-5 rounded-2xl bg-white shadow-xl sm:w-[50vw]">
+              <div className="relative z-50 -mt-14 flex h-[65vh] w-[80vw] flex-col items-center justify-center space-y-5 rounded-2xl bg-white shadow-xl sm:w-[50vw]">
                 <p className="text-3xl font-bold">กรอกข้อมูล</p>
                 <div className="relative w-4/5 rounded-md border border-gray py-2 pl-2 pr-12 sm:w-3/5">
                   <span className="absolute -top-2 left-3 bg-white px-1 text-xs text-[#A9A9A9]">
@@ -135,7 +135,7 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
                 <Field
                   as="select"
                   name="keyOptions"
-                  className={`form-select rounded-md border border-gray bg-white px-8 py-2 pl-2 ${values.keyOptions ? 'text-black' : 'text-[#A9A9A9]'}`}
+                  className={`form-select rounded-md border border-gray w-36 md:w-48 bg-white px-8 py-2 pl-2 ${values.keyOptions ? 'text-black' : 'text-[#A9A9A9]'}`}
                   disabled={isKeyOptionsDisabled}
                 >
                   <option value="" disabled hidden>

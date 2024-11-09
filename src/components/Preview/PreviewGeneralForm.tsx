@@ -1,4 +1,5 @@
 'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
@@ -45,7 +46,7 @@ const PreviewGeneralForm: React.FC<{
   }
   return (
     <section className="via-41% relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] via-[#91CDAD] to-[#C8E5BD]">
-      <div className="absolute -top-80 left-1/2 z-10 -translate-x-1/2 sm:-top-20">
+      <div className="absolute -top-[340px] left-1/2 z-10 -translate-x-1/2 sm:-top-20">
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
       <div className="absolute -top-36 left-0 z-10 w-full overflow-hidden">
@@ -63,7 +64,10 @@ const PreviewGeneralForm: React.FC<{
             <Link href={`/editingform/${editFormData.tag}`}>
               <BackArrow className="h-5 w-5 text-heroMiddle sm:h-8 sm:w-8 md:h-10 md:w-10" />
             </Link>
-            <Link href={`/editingform/${editFormData.tag}`} className="text-xs text-heroMiddle sm:text-lg md:text-2xl">
+            <Link
+              href={`/editingform/${editFormData.tag}`}
+              className="text-xs text-heroMiddle sm:text-lg md:text-2xl"
+            >
               ย้อนกลับ
             </Link>
           </div>
@@ -159,7 +163,7 @@ const PreviewGeneralForm: React.FC<{
                   <BigStainedGlass className="hidden sm:w-32 md:w-48 lg:block xl:w-52 2xl:w-72" />
                 </div>
                 <Image
-                  className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]"
                   src={editFormData.captureimg1 || ''}
                   alt="uploaded photo"
                   width={800}
@@ -168,8 +172,8 @@ const PreviewGeneralForm: React.FC<{
                   onLoad={handleImageLoad}
                 />
                 {!imageLoaded && (
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                   </div>
                 )}
                 <div className="mb-3 flex items-center justify-center">
@@ -192,7 +196,7 @@ const PreviewGeneralForm: React.FC<{
                   <Flower className="w-16 sm:w-28 md:w-52 lg:w-72 2xl:w-96" />
                 </div>
                 <Image
-                  className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]"
                   src={editFormData.captureimg2 || ''}
                   alt="uploaded photo"
                   width={800}
@@ -200,8 +204,8 @@ const PreviewGeneralForm: React.FC<{
                   onLoad={handleImageLoad}
                 />
                 {!imageLoaded && (
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                   </div>
                 )}
                 <div className="mb-3 flex items-center justify-center">
@@ -282,7 +286,7 @@ const PreviewGeneralForm: React.FC<{
                   <LeftFrames className="hidden sm:block sm:w-32 md:w-44 lg:w-52 2xl:w-72" />
                 </div>
                 <Image
-                  className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-4/5 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]"
                   src={editFormData.captureimg3 || ''}
                   alt="uploaded photo"
                   width={800}
@@ -290,8 +294,8 @@ const PreviewGeneralForm: React.FC<{
                   onLoad={handleImageLoad}
                 />
                 {!imageLoaded && (
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                    <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                   </div>
                 )}
                 <div className="mb-3 flex items-center justify-center">
@@ -324,7 +328,7 @@ const PreviewGeneralForm: React.FC<{
                 <div className="flex flex-col">
                   <div className="flex flex-col items-start justify-center">
                     <Image
-                      className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                      className={`mb-3 h-[66px] w-16 rounded-md transition-opacity duration-500 sm:h-24 sm:w-24 md:h-[150px] md:w-36 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                       src={review1.profile || ''}
                       alt="photo"
                       width={100}
@@ -332,12 +336,12 @@ const PreviewGeneralForm: React.FC<{
                       onLoad={handleImageLoad}
                     />
                     {!imageLoaded && (
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                        <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                       </div>
                     )}
                   </div>
-                  
+
                   <div className="mt-2 flex flex-col text-greenText">
                     <p className="text-lg font-bold md:text-3xl">{review1.nick}</p>
                     <p className="text-xs md:text-lg">เตรียมอุดม {review1.gen}</p>
@@ -389,7 +393,7 @@ const PreviewGeneralForm: React.FC<{
                   <div className="flex flex-col">
                     <div className="flex flex-col items-end justify-center">
                       <Image
-                        className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        className={`mb-3 h-[66px] w-16 rounded-md transition-opacity duration-500 sm:h-24 sm:w-24 md:h-[150px] md:w-36 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                         src={review2.profile || ''}
                         alt="photo"
                         width={100}
@@ -397,8 +401,8 @@ const PreviewGeneralForm: React.FC<{
                         onLoad={handleImageLoad}
                       />
                       {!imageLoaded && (
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                          <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                          <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                         </div>
                       )}
                     </div>
@@ -417,7 +421,7 @@ const PreviewGeneralForm: React.FC<{
                   <div className="flex flex-col">
                     <div className="flex flex-col items-start justify-center">
                       <Image
-                        className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                        className={`mb-3 h-[66px] w-16 rounded-md transition-opacity duration-500 sm:h-24 sm:w-24 md:h-[150px] md:w-36 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                         src={review3.profile || ''}
                         alt="photo"
                         width={100}
@@ -425,8 +429,8 @@ const PreviewGeneralForm: React.FC<{
                         onLoad={handleImageLoad}
                       />
                       {!imageLoaded && (
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                          <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                          <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                         </div>
                       )}
                     </div>
@@ -458,10 +462,10 @@ const PreviewGeneralForm: React.FC<{
       </section>
 
       <div className="relative overflow-hidden pb-48 sm:pb-96 md:pb-[580px] xl:pb-[800px] 2xl:pb-[1000px]">
-        <div className="absolute -bottom-[150px] left-1/2 -translate-x-1/2 sm:-bottom-[80px] md:-bottom-[20px] lg:hidden">
+        <div className="absolute -bottom-[150px] left-1/2 -translate-x-1/2 sm:-bottom-[60px] md:-bottom-[20px] lg:hidden">
           <Lowercurve className="w-[100vw]" />
         </div>
-        <div className="absolute -bottom-10 z-10 sm:-bottom-20">
+        <div className="absolute -bottom-10 z-10 sm:bottom-5">
           <Footer className="w-[100vw] lg:hidden" />
         </div>
         <div className="absolute bottom-0 left-1/2 w-screen -translate-x-1/2 overflow-hidden lg:-bottom-14 xl:-bottom-5 2xl:-bottom-10">

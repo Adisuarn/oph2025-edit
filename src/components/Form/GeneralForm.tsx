@@ -23,19 +23,23 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 import 'react-quill/dist/quill.snow.css'
+
+import * as Emoji from 'quill2-emoji'
+import 'quill2-emoji/dist/style.css'
 import { env } from '@/env'
+import Quill from 'quill'
+
+Quill.register('modules/emoji', Emoji)
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const toolbarOptions = [
-  [{ header: [false] }],
-  ['bold', 'italic', 'underline', 'strike'],
-  [{ color: [] }, { background: [] }],
-  [{ list: 'ordered' }, { list: 'bullet' }],
+  [{ header: [1, 2, 3, false] }],
+  ['bold', 'italic', 'underline', 'emoji'],
+  [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }, { align: [] }],
+  [{ script: 'sub' }, { script: 'super' }],
   [{ indent: '-1' }, { indent: '+1' }],
-  ['link'],
-  [{ align: [] }],
-  ['clean'],
+  [{ direction: 'rtl' }],
 ]
 
 const modules = {
@@ -520,7 +524,7 @@ const GeneralForm: React.FC<{
               })
               await Promise.all(reviewPromises)
               notifySuccess()
-              if (typeof window !== "undefined") window.location.reload()
+              if (typeof window !== 'undefined') window.location.reload()
             } catch (error) {
               console.log(error)
               notifyError()
@@ -547,7 +551,7 @@ const GeneralForm: React.FC<{
                 </Link>
                 <Link
                   href="/account"
-                  className="text-greenTextext relative font-Thai text-xs sm:text-lg md:text-2xl"
+                  className="relative font-Thai text-xs text-greenText sm:text-lg md:text-2xl"
                 >
                   ย้อนกลับ
                 </Link>
@@ -611,7 +615,7 @@ const GeneralForm: React.FC<{
             {/* Hero */}
             <section className="w-full sm:mx-7">
               {editFormData.error && (
-                <section className="flex-col w-full mx-auto mb-7 flex items-center gap-2 rounded-lg bg-red-50 p-4 text-sm text-red-800 shadow-sm transition-all hover:bg-red-100">
+                <section className="mx-auto mb-7 flex w-full flex-col items-center gap-2 rounded-lg bg-red-50 p-4 text-sm text-red-800 shadow-sm transition-all hover:bg-red-100">
                   <div className="flex flex-col items-center">
                     <svg className="h-9 w-9 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path
@@ -620,10 +624,12 @@ const GeneralForm: React.FC<{
                         clipRule="evenodd"
                       />
                     </svg>
-                    <p className="font-Thai text-center font-bold text-2xl hidden sm:block">กรุณาแก้ไข</p>
+                    <p className="hidden text-center font-Thai text-2xl font-bold sm:block">
+                      กรุณาแก้ไข
+                    </p>
                   </div>
                   <div>
-                    <span className="font-medium px-6">{editFormData.error}</span>
+                    <span className="px-6 font-medium">{editFormData.error}</span>
                   </div>
                 </section>
               )}
@@ -680,7 +686,7 @@ const GeneralForm: React.FC<{
                     {displayClubLogo ? (
                       <div className="relative flex flex-col items-center justify-center">
                         <Image
-                          className={`flex h-28 w-28 rounded-lg object-cover md:h-40 md:w-40 lg:h-52 lg:w-52 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                          className={`flex h-28 w-28 rounded-lg object-cover transition-opacity duration-500 md:h-40 md:w-40 lg:h-52 lg:w-52 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                           src={clubLogoUrl || ''}
                           alt="uploaded photo"
                           width={400}
@@ -689,8 +695,8 @@ const GeneralForm: React.FC<{
                           onLoad={handleImageLoad}
                         />
                         {!imageLoaded && (
-                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                            <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                            <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                           </div>
                         )}
                         <button
@@ -795,7 +801,7 @@ const GeneralForm: React.FC<{
                       {displayImage1 ? (
                         <div className="relative w-full">
                           <Image
-                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:w-[50vw] xl:w-[40vw] 2xl:w-[27vw] md:h-60 lg:h-72 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                             src={imageUrl1 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -804,8 +810,8 @@ const GeneralForm: React.FC<{
                             onLoad={handleImageLoad}
                           />
                           {!imageLoaded && (
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                              <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                              <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                             </div>
                           )}
                           <button
@@ -814,13 +820,13 @@ const GeneralForm: React.FC<{
                               setImage1(null)
                               setImageUrl1('')
                             }}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white md:right-[68px] lg:right-24 xl:right-[7.5rem]"
+                            className="absolute -right-2 -top-2 md:top-0 lg:-top-2 2xl:top-0 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white lg:right-4 xl:right-24 2xl:right-[275px]"
                           >
                             X
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-2/3 md:h-60 lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] transition-all hover:bg-[#c1c1c1] sm:h-48 md:w-[50vw] xl:w-[40vw] md:h-60 2xl:w-[27vw] lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -829,13 +835,16 @@ const GeneralForm: React.FC<{
                       )}
                     </div>
                     <div className="mb-3 flex items-center justify-center">
-                      <Field
-                        type="text"
-                        name="photoDescription1"
-                        className="md:text-md text-center text-xs text-greenText sm:text-sm"
-                        placeholder="Photo description"
-                      />
-                      <FaPen className="h-2 text-greenText" />
+                      <div className="relative w-[70vw] text-center md:w-[30vw]">
+                        <Field
+                          type="text"
+                          name="photoDescription1"
+                          className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
+                          placeholder="Photo description"
+                        />
+                        <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
+                      </div>
+                      <FaPen className="ml-2 h-2 text-greenText" />
                       <ErrorMessage
                         name="photoDescription1"
                         component="div"
@@ -880,7 +889,7 @@ const GeneralForm: React.FC<{
                       {displayImage2 ? (
                         <div className="relative w-full">
                           <Image
-                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72"
+                            className='mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:w-[50vw] xl:w-[40vw] 2xl:w-[27vw] md:h-60 lg:h-72'
                             src={imageUrl2 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -893,13 +902,13 @@ const GeneralForm: React.FC<{
                               setImage2(null)
                               setImageUrl2('')
                             }}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-24 xl:right-[7.5rem]"
+                            className="absolute -right-2 -top-2 md:top-0 lg:-top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white lg:right-4 xl:right-[88px] 2xl:right-[266px]"
                           >
                             X
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-2/3 md:h-60 lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] transition-all hover:bg-[#c1c1c1] sm:h-48 md:w-[50vw] xl:w-[40vw] md:h-60 2xl:w-[27vw] lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -909,13 +918,16 @@ const GeneralForm: React.FC<{
                     </div>
 
                     <div className="mb-3 flex items-center justify-center">
-                      <Field
-                        type="text"
-                        name="photoDescription2"
-                        className="md:text-md text-center text-xs text-greenText sm:text-sm"
-                        placeholder="Photo description"
-                      />
-                      <FaPen className="h-2 text-greenText" />
+                      <div className="relative w-[70vw] text-center md:w-[30vw]">
+                        <Field
+                          type="text"
+                          name="photoDescription2"
+                          className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
+                          placeholder="Photo description"
+                        />
+                        <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
+                      </div>
+                      <FaPen className="ml-2 h-2 text-greenText" />
                       <ErrorMessage
                         name="photoDescription2"
                         component="div"
@@ -961,7 +973,7 @@ const GeneralForm: React.FC<{
                       {displayImage3 ? (
                         <div className="relative w-full">
                           <Image
-                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover sm:h-48 sm:w-2/3 md:h-60 lg:h-72 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:w-[50vw] xl:w-[40vw] 2xl:w-[27vw] md:h-60 lg:h-72 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                             src={imageUrl3 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -970,8 +982,8 @@ const GeneralForm: React.FC<{
                             onLoad={handleImageLoad}
                           />
                           {!imageLoaded && (
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                              <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                              <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                             </div>
                           )}
                           <button
@@ -980,13 +992,13 @@ const GeneralForm: React.FC<{
                               setImage3(null)
                               setImageUrl3('')
                             }}
-                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white sm:right-2 md:right-[68px] lg:right-24 xl:right-[7.5rem]"
+                            className="absolute -right-2 -top-2 md:top-0 lg:-top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white lg:right-4 xl:right-[88px] 2xl:right-[266px]"
                           >
                             X
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] sm:h-48 sm:w-2/3 md:h-60 lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] transition-all hover:bg-[#c1c1c1] sm:h-48 md:w-[50vw] xl:w-[40vw] md:h-60 2xl:w-[27vw] lg:h-72">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -996,13 +1008,16 @@ const GeneralForm: React.FC<{
                     </div>
 
                     <div className="mb-3 flex items-center justify-center">
-                      <Field
-                        type="text"
-                        name="photoDescription3"
-                        className="md:text-md text-center text-xs text-greenText sm:text-sm"
-                        placeholder="Photo description"
-                      />
-                      <FaPen className="h-2 text-greenText" />
+                      <div className="relative w-[70vw] text-center md:w-[30vw]">
+                        <Field
+                          type="text"
+                          name="photoDescription3"
+                          className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
+                          placeholder="Photo description"
+                        />
+                        <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
+                      </div>
+                      <FaPen className="ml-2 h-2 text-greenText" />
                       <ErrorMessage
                         name="photoDescription3"
                         component="div"
@@ -1037,7 +1052,7 @@ const GeneralForm: React.FC<{
                         {displayImage4 ? (
                           <div className="relative w-full">
                             <Image
-                              className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                              className={`mb-3 h-[66px] w-16 rounded-md transition-opacity duration-500 sm:h-24 sm:w-24 md:h-[150px] md:w-36 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                               src={imageUrl4 || ''}
                               alt="photo4"
                               width={800}
@@ -1045,8 +1060,8 @@ const GeneralForm: React.FC<{
                               onLoad={handleImageLoad}
                             />
                             {!imageLoaded && (
-                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                                <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                                <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                               </div>
                             )}
                             <button
@@ -1146,7 +1161,7 @@ const GeneralForm: React.FC<{
                           {displayImage5 ? (
                             <div className="relative w-full">
                               <Image
-                                className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                                className={`mb-3 h-[66px] w-16 rounded-md transition-opacity duration-500 sm:h-24 sm:w-24 md:h-[150px] md:w-36 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                                 src={imageUrl5 || ''}
                                 alt="photo5"
                                 width={800}
@@ -1154,8 +1169,8 @@ const GeneralForm: React.FC<{
                                 onLoad={handleImageLoad}
                               />
                               {!imageLoaded && (
-                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                                  <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                                 </div>
                               )}
                               <button
@@ -1237,7 +1252,7 @@ const GeneralForm: React.FC<{
                           {displayImage6 ? (
                             <div className="relative w-full">
                               <Image
-                                className={`mb-3 h-[66px] w-16 rounded-md sm:h-24 sm:w-24 md:h-[150px] md:w-36 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'} `}
+                                className={`mb-3 h-[66px] w-16 rounded-md transition-opacity duration-500 sm:h-24 sm:w-24 md:h-[150px] md:w-36 ${imageLoaded ? 'opacity-100' : 'opacity-0'} `}
                                 src={imageUrl6 || ''}
                                 alt="photo6"
                                 width={800}
@@ -1245,8 +1260,8 @@ const GeneralForm: React.FC<{
                                 onLoad={handleImageLoad}
                               />
                               {!imageLoaded && (
-                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                                  <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                                 </div>
                               )}
                               <button

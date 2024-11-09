@@ -6,7 +6,6 @@ import ReviewEditor from './ReviewEditor'
 const Reviews = ({ reviewData, setFieldValue }: any) => {
   const [imageLoaded, setImageLoaded] = useState<{ [key: number]: boolean }>({}) // Track each image's loading state
 
-  // Handle image load for each review
   const handleImageLoad = (index: number) => {
     setImageLoaded((prevState) => ({ ...prevState, [index]: true }))
   }
@@ -37,7 +36,7 @@ const Reviews = ({ reviewData, setFieldValue }: any) => {
                       width={150}
                       height={150}
                       onLoad={() => handleImageLoad(index)}
-                      className="object-cover w-full h-full"
+                      style={{ minWidth: '150px', minHeight: '150px', maxWidth: '150px', maxHeight: '150px' }}
                     />
                   </div>
                   {/* Loading Spinner */}
@@ -60,7 +59,7 @@ const Reviews = ({ reviewData, setFieldValue }: any) => {
                 {/* Profile Image with fade-in */}
                 <div className="mb-5 h-[150px] w-[150px] overflow-hidden rounded-2xl relative">
                   <div
-                    className={`transition-opacity duration-500 ${imageLoaded[index] ? 'opacity-100' : 'opacity-0'}`}
+                    className={`transition-opacity duration-500 ${imageLoaded[index] ? 'opacity-100' : 'opacity-0'} min-w-[150px] max-w-[150px] min-h-[150px] max-h-[150px]`}
                   >
                     <Image
                       src={review.profile}
@@ -68,7 +67,7 @@ const Reviews = ({ reviewData, setFieldValue }: any) => {
                       width={150}
                       height={150}
                       onLoad={() => handleImageLoad(index)}
-                      className="object-cover w-full h-full"
+                      style={{ minWidth: '150px', minHeight: '150px', maxWidth: '150px', maxHeight: '150px' }}
                     />
                   </div>
                   {/* Loading Spinner */}
