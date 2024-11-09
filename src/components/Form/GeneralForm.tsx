@@ -477,7 +477,7 @@ const GeneralForm: React.FC<{
                 url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
                 headers: {
                   'x-api-key': env.NEXT_PUBLIC_API_KEY,
-                  Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
+                  Authorization: `${cookies.get(env.NEXT_PUBLIC_COOKIE_NAME)}`,
                 },
                 data: formData,
               }
@@ -507,7 +507,7 @@ const GeneralForm: React.FC<{
                   url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
                   headers: {
                     'x-api-key': env.NEXT_PUBLIC_API_KEY,
-                    Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
+                    Authorization: `${cookies.get(env.NEXT_PUBLIC_COOKIE_NAME)}`,
                   },
                   data: reviewData,
                 })
@@ -1295,7 +1295,7 @@ const GeneralForm: React.FC<{
                             method: 'DELETE',
                             headers: {
                               'x-api-key': env.NEXT_PUBLIC_API_KEY,
-                              Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
+                              Authorization: `${cookies.get(env.NEXT_PUBLIC_COOKIE_NAME)}`,
                             },
                             url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/3`,
                             data: {},
@@ -1312,7 +1312,7 @@ const GeneralForm: React.FC<{
                             method: 'DELETE',
                             headers: {
                               'x-api-key': env.NEXT_PUBLIC_API_KEY,
-                              Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
+                              Authorization: `${cookies.get(env.NEXT_PUBLIC_COOKIE_NAME)}`,
                             },
                             url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/2`,
                             data: {},
@@ -1334,7 +1334,7 @@ const GeneralForm: React.FC<{
                           method: 'POST',
                           headers: {
                             'x-api-key': env.NEXT_PUBLIC_API_KEY,
-                            Authorization: `${cookies.get(env.COOKIE_NAME!)}`,
+                            Authorization: `${cookies.get(env.NEXT_PUBLIC_COOKIE_NAME)}`,
                           },
                           url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review`,
                           data: {},

@@ -8,7 +8,7 @@ import dedupePlugin from 'xior/plugins/dedupe'
 export async function middleware(request: NextRequest) {
   // Ensure required environment variables are set
 
-  if (!process.env.NEXT_PUBLIC_BASE_URL || !process.env.NEXT_PUBLIC_API_KEY || !process.env.COOKIE_NAME || !process.env.SECRET_LINK) {
+  if (!process.env.NEXT_PUBLIC_BASE_URL || !process.env.NEXT_PUBLIC_API_KEY || !process.env.NEXT_PUBLIC_COOKIE_NAME || !process.env.NEXT_PUBLIC_SECRET_LINK) {
     console.error("Missing required environment variables.")
     return NextResponse.redirect(new URL('/', request.url))
   }
@@ -17,8 +17,8 @@ export async function middleware(request: NextRequest) {
   const xiorInstance = xior.create({
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     headers: {
-      'x-api-key': process.env.NEXT_PUBLIC_API_KEY!,
-      Authorization: cookies().get(process.env.COOKIE_NAME!)?.value || '', // Handle missing cookie gracefully
+      'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
+      Authorization: cookies().get(process.env.NEXT_PUBLIC_COOKIE_NAME)?.value || '', // Handle missing cookie gracefully
     },
   })
 
@@ -81,7 +81,7 @@ export async function middleware(request: NextRequest) {
 
     // If accessing '/error', redirect to the secret link
     if (nextUrl.pathname === '/error') {
-      return NextResponse.redirect(new URL(process.env.SECRET_LINK!, request.url))
+      return NextResponse.redirect(new URL(process.env.NEXT_PUBLIC_SECRET_LINK, request.url))
     }
   } catch (error) {
     console.error('Error in middleware processing:', error)

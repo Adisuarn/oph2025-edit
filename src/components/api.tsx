@@ -11,7 +11,7 @@ export default async function apiFunction(method: string, url: string, body: any
     headers: {
       'Content-Type': 'application/json',
       'x-api-key': env.NEXT_PUBLIC_API_KEY,
-      Authorization: cookies.get(env.COOKIE_NAME),
+      Authorization: cookies.get(env.NEXT_PUBLIC_COOKIE_NAME),
     },
     data: body,
   }
