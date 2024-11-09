@@ -23,19 +23,22 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 import 'react-quill/dist/quill.snow.css'
+import * as Emoji from 'quill2-emoji'
+import 'quill2-emoji/dist/style.css'
 import { env } from '@/env'
+import Quill from 'quill'
+
+Quill.register('modules/emoji', Emoji)
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const toolbarOptions = [
-  [{ header: [false] }],
-  ['bold', 'italic', 'underline', 'strike'],
-  [{ color: [] }, { background: [] }],
-  [{ list: 'ordered' }, { list: 'bullet' }],
+  [{ header: [1, 2, 3, false] }],
+  ['bold', 'italic', 'underline', 'emoji'],
+  [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }, { align: [] }],
+  [{ script: 'sub' }, { script: 'super' }],
   [{ indent: '-1' }, { indent: '+1' }],
-  ['link'],
-  [{ align: [] }],
-  ['clean'],
+  [{ direction: 'rtl' }],
 ]
 
 const modules = {

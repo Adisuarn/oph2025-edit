@@ -74,7 +74,7 @@ const AccountPage = async () => {
             {TUCMC
               ? 'ตรวจสอบข้อมูลหน่วยงาน'
               : status === Status.APPROVED
-                ? 'ดูตัวอย่างหน่วยงาน'
+                ? 'ดูตัวอย่าง'
                 : submittedInit
                   ? 'แก้ไข'
                   : 'เลือกหน่วยงานที่รับผิดชอบ'}
