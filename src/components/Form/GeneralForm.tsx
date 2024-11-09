@@ -28,12 +28,12 @@ import { env } from '@/env'
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
 const toolbarOptions = [
-  [{ header: [] }],
+  [{ header: [false] }],
   ['bold', 'italic', 'underline', 'strike'],
   [{ color: [] }, { background: [] }],
   [{ list: 'ordered' }, { list: 'bullet' }],
   [{ indent: '-1' }, { indent: '+1' }],
-  ['link', 'image'],
+  ['link'],
   [{ align: [] }],
   ['clean'],
 ]
@@ -48,6 +48,7 @@ const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => (
     onChange={(value) => form.setFieldValue(field.name, value)}
     onBlur={() => form.setFieldTouched(field.name, true)}
     theme="snow"
+    modules={modules}
   />
 )
 
