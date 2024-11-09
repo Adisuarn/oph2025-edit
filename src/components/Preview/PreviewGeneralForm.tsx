@@ -42,19 +42,19 @@ const PreviewGeneralForm: React.FC<{
 
   return (
     <section className="via-41% relative w-screen overflow-hidden bg-gradient-to-b from-[#ECF5C8] via-[#91CDAD] to-[#C8E5BD]">
-      <div className="absolute -top-44 left-1/2 z-10 -translate-x-1/2 sm:-top-20">
+      <div className="absolute -top-80 left-1/2 z-10 -translate-x-1/2 sm:-top-20">
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
       <div className="absolute -top-36 left-0 z-10 w-full overflow-hidden">
         <BigUppercurve className="hidden w-full md:h-[50vw] lg:block" />
       </div>
-      <div className="absolute -top-[76px]">
-        <FallingLamp className="w-[100vw] sm:hidden" />
-      </div>
-      <div className="absolute right-0 z-0 overflow-hidden lg:top-14 xl:top-48 2xl:top-96">
+      {/* <div className="absolute -top-[74px]">
+        <FallingLamp className="w-[100vw] lg:hidden" />
+      </div> */}
+      <div className="absolute right-0 z-0 overflow-hidden lg:top-12 xl:top-[176px] 2xl:top-96">
         <ClubFallingLamp className="hidden lg:block lg:w-[270px] xl:w-80" />
       </div>
-      <section className="relative z-40 mx-12 pt-36 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[520px]">
+      <section className="relative z-40 mx-12 pt-48 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[520px]">
         <section className="flex items-center justify-between">
           <div className="flex items-center justify-center space-x-1 transition-all hover:scale-105">
             <Link href="/account">
