@@ -227,6 +227,7 @@ const Modal = ({ isOpen, onClose }: ModalProps) => {
               <div className="mt-4">
                 <h4 className="font-bold">ข้อมูลผู้ใช้งาน:</h4>
                 <pre className="mt-2 bg-gray-100 p-4 rounded-md">อีเมล: {userData.email}</pre>
+                <pre className="bg-gray-100 p-4 rounded-md">ชื่อ: {userData.name}</pre>
                 <pre className="bg-gray-100 p-4 rounded-md">หน่วยงาน: {(userData.tag === 'clubs') ? 'ชมรม' : userData.tag === 'organizations' ? 'องค์กร' : userData.tag === 'programs' ? 'สายการเรียน' : 'โครงการพัฒนาความสามารถพิเศษ'}</pre>
                 <pre className="bg-gray-100 p-4 rounded-md">ชื่อหน่วยงาน: {keyData}</pre>
               </div>
