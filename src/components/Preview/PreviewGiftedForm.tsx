@@ -14,11 +14,11 @@ const PreviewGiftedForm: React.FC = async () => {
     {},
   )
 
-  const data = userFormData.data;
+  const data = userFormData.data
   let editFormData = {
     thainame: data.thainame,
     tag: data.tag,
-    tagThai: "โครงการพัฒนาความสามารถพิเศษ",
+    tagThai: 'โครงการพัฒนาความสามารถพิเศษ',
     members: data.members,
     ig: data.ig,
     fb: data.fb,
@@ -33,17 +33,16 @@ const PreviewGiftedForm: React.FC = async () => {
     descimg2: data.descimg2,
     captureimg3: data.captureimg3,
     descimg3: data.descimg3,
-  };
+  }
 
-  const reviews = userReviewData.data
-    .map((review: any, index: number) => ({
-      count: review.count,
-      profile: review.profile,
-      nick: review.nick,
-      gen: review.gen,
-      contact: review.contact,
-      content: review.content,
-    }))
+  const reviews = userReviewData.data.map((review: any, index: number) => ({
+    count: review.count,
+    profile: review.profile,
+    nick: review.nick,
+    gen: review.gen,
+    contact: review.contact,
+    content: review.content,
+  }))
 
   return (
     <PreviewGeneralForm

@@ -94,7 +94,7 @@ const FallingLamp: FC<{
       />
       <mask
         id="mask1_852_1096"
-        style= {{ maskType: 'alpha' }}
+        style={{ maskType: 'alpha' }}
         maskUnits="userSpaceOnUse"
         x="1072"
         y="87"

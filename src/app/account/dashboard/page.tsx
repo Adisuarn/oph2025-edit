@@ -7,19 +7,19 @@ import { updateStatus } from '@components/Dashboard/ViewData.action'
 import { Status } from '@utils/type'
 import { toast, Toaster } from 'react-hot-toast'
 
+import LoadingSpinner from '@/components/Dashboard/LoadingSpinner'
+import Modal from '@/components/Dashboard/Modal/Modal'
 import BookIcon from '@/vectors/dashboard/BookIcon'
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon'
 import { fetchHandler, viewHandler } from './page.action'
-import LoadingSpinner from '@/components/Dashboard/LoadingSpinner'
-import Modal from '@/components/Dashboard/Modal/Modal'
 
-const HamburgerMenu = dynamic(() => import('@components/Dashboard/Hamburger'), { 
+const HamburgerMenu = dynamic(() => import('@components/Dashboard/Hamburger'), {
   ssr: false,
-  loading: () => <LoadingSpinner />
+  loading: () => <LoadingSpinner />,
 })
-const ViewData = dynamic(() => import('@components/Dashboard/ViewData'), { 
+const ViewData = dynamic(() => import('@components/Dashboard/ViewData'), {
   ssr: false,
-  loading: () => <LoadingSpinner />
+  loading: () => <LoadingSpinner />,
 })
 
 interface DashboardData {
@@ -50,7 +50,11 @@ const filterReducer = (state: FilterState, action: any): FilterState => {
     case 'SET_STATUS':
       return { ...state, selectedStatus: action.payload }
     case 'SET_VIEW_DATA':
-      return { ...state, viewData: action.payload.viewData, activeButton: action.payload.activeButton }
+      return {
+        ...state,
+        viewData: action.payload.viewData,
+        activeButton: action.payload.activeButton,
+      }
     case 'CLEAR_FILTER':
       return initialState
     default:
@@ -60,15 +64,20 @@ const filterReducer = (state: FilterState, action: any): FilterState => {
 
 const DashboardTUCMC: React.FC = () => {
   const router = useRouter()
-  const [data, setData] = useState<DashboardData>({ organizations: [], programs: [], clubs: [], gifted: [] })
+  const [data, setData] = useState<DashboardData>({
+    organizations: [],
+    programs: [],
+    clubs: [],
+    gifted: [],
+  })
   const [filterState, dispatch] = useReducer(filterReducer, initialState)
   const [loading, setLoading] = useState<boolean>(false)
   const [viewDataLoading, setViewDataLoading] = useState<boolean>(false)
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMobile, setIsMobile] = useState<boolean>(false)
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false); 
+  const openModal = () => setIsModalOpen(true)
+  const closeModal = () => setIsModalOpen(false)
 
   const fetchData = useCallback(async () => {
     setLoading(true)
@@ -97,27 +106,32 @@ const DashboardTUCMC: React.FC = () => {
   }, [fetchData])
 
   useEffect(() => {
-    if (data.organizations.length > 0 || data.programs.length > 0 || data.clubs.length > 0 || data.gifted.length > 0) {
+    if (
+      data.organizations.length > 0 ||
+      data.programs.length > 0 ||
+      data.clubs.length > 0 ||
+      data.gifted.length > 0
+    ) {
       dispatch({ type: 'SET_STATUS', payload: Status.PENDING })
     }
   }, [data])
 
   useEffect(() => {
     const handleResize = () => {
-      const isMobileDevice = window.innerWidth <= 768; // Check if the width is less than or equal to 768px for mobile devices
-      const isMobileLandscape = isMobileDevice && window.innerWidth > window.innerHeight; // Detect mobile landscape (width > height)
-      const isIpad = /iPad|Macintosh/i.test(navigator.userAgent) && window.innerHeight > window.innerWidth; // Detect iPad in portrait mode
+      const isMobileDevice = window.innerWidth <= 768 // Check if the width is less than or equal to 768px for mobile devices
+      const isMobileLandscape = isMobileDevice && window.innerWidth > window.innerHeight // Detect mobile landscape (width > height)
+      const isIpad =
+        /iPad|Macintosh/i.test(navigator.userAgent) && window.innerHeight > window.innerWidth // Detect iPad in portrait mode
 
       // Set isMobile state for both mobile portrait and landscape, and iPad portrait
-      setIsMobile(isMobileDevice || isMobileLandscape || isIpad);
-    };
+      setIsMobile(isMobileDevice || isMobileLandscape || isIpad)
+    }
 
-    handleResize(); // Initial check
-    window.addEventListener('resize', handleResize); // Add resize listener
+    handleResize() // Initial check
+    window.addEventListener('resize', handleResize) // Add resize listener
 
-    return () => window.removeEventListener('resize', handleResize); // Clean up listener on unmount
-  }, []);
-
+    return () => window.removeEventListener('resize', handleResize) // Clean up listener on unmount
+  }, [])
 
   const handleStatusUpdate = useCallback(
     async (item: any, status: Status, rejectionMessage: string) => {
@@ -139,7 +153,10 @@ const DashboardTUCMC: React.FC = () => {
     [filterState],
   )
 
-  const filteredOrganizations = useMemo(() => filterData(data.organizations), [data.organizations, filterData])
+  const filteredOrganizations = useMemo(
+    () => filterData(data.organizations),
+    [data.organizations, filterData],
+  )
   const filteredPrograms = useMemo(() => filterData(data.programs), [data.programs, filterData])
   const filteredClubs = useMemo(() => filterData(data.clubs), [data.clubs, filterData])
   const filteredGifted = useMemo(() => filterData(data.gifted), [data.gifted, filterData])
@@ -148,11 +165,15 @@ const DashboardTUCMC: React.FC = () => {
     async (tag: string, key: string, type: 'organization' | 'program' | 'club' | 'gifted') => {
       setViewDataLoading(true)
       try {
-        const currentData = data[(type === 'gifted' ? type : type + 's') as keyof DashboardData].find(
-          (item: any) => item.key === key,
-        )
+        const currentData = data[
+          (type === 'gifted' ? type : type + 's') as keyof DashboardData
+        ].find((item: any) => item.key === key)
 
-        if (filterState.viewData && filterState.viewData.type === type && filterState.viewData.data.data.thainame === currentData?.thainame) {
+        if (
+          filterState.viewData &&
+          filterState.viewData.type === type &&
+          filterState.viewData.data.data.thainame === currentData?.thainame
+        ) {
           dispatch({ type: 'SET_VIEW_DATA', payload: { viewData: null, activeButton: null } })
         } else {
           const fetchedData = await viewHandler(tag, key)
@@ -160,14 +181,20 @@ const DashboardTUCMC: React.FC = () => {
             ...fetchedData.data,
             ...(type === 'gifted' || type === 'program'
               ? {
-                activities: fetchedData.data.admissions,
-                benefits: fetchedData.data.courses,
-                working: fetchedData.data.interests,
-              }
+                  activities: fetchedData.data.admissions,
+                  benefits: fetchedData.data.courses,
+                  working: fetchedData.data.interests,
+                }
               : {}),
             ...(type === 'organization' ? { benefits: fetchedData.data.position } : {}),
           }
-          dispatch({ type: 'SET_VIEW_DATA', payload: { viewData: { type, data: { data: transformedData } }, activeButton: { type, key } } })
+          dispatch({
+            type: 'SET_VIEW_DATA',
+            payload: {
+              viewData: { type, data: { data: transformedData } },
+              activeButton: { type, key },
+            },
+          })
         }
       } catch (error) {
         toast.error('เกิดข้อผิดพลาด!')
@@ -184,22 +211,34 @@ const DashboardTUCMC: React.FC = () => {
 
   const renderItem = useCallback(
     (item: any, type: 'organization' | 'program' | 'club' | 'gifted', index: number) => {
-      const isVisible = filterState.viewData && filterState.viewData.type === type && filterState.viewData.data.data.thainame === item.thainame
+      const isVisible =
+        filterState.viewData &&
+        filterState.viewData.type === type &&
+        filterState.viewData.data.data.thainame === item.thainame
       return (
         <div key={index}>
           <li className="border-gray-300 mb-4 flex items-center justify-between rounded-2xl border p-5">
             <div className="flex items-center">
-              {type === 'organization' ? <PeopleIcon className="mr-2 h-6 w-6" /> : <BookIcon className="mr-2 h-6 w-6" />}
+              {type === 'organization' ? (
+                <PeopleIcon className="mr-2 h-6 w-6" />
+              ) : (
+                <BookIcon className="mr-2 h-6 w-6" />
+              )}
               <span className="ml-4 font-Thai text-lg font-medium">{item.thainame}</span>
             </div>
             <button
-              className={`ml-4 rounded-3xl p-2 px-6 font-Thai text-white transition-all duration-300 
-                ${filterState.activeButton && filterState.activeButton.type === type && filterState.activeButton.key === item.key
+              className={`ml-4 rounded-3xl p-2 px-6 font-Thai text-white transition-all duration-300 ${
+                filterState.activeButton &&
+                filterState.activeButton.type === type &&
+                filterState.activeButton.key === item.key
                   ? 'bg-custom-gradient-inverse hover:scale-105 hover:opacity-75'
-                  : 'bg-custom-gradient hover:scale-105 hover:opacity-75'}
-                ${viewDataLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  : 'bg-custom-gradient hover:scale-105 hover:opacity-75'
+              } ${viewDataLoading ? 'cursor-not-allowed opacity-50' : ''}`}
               onClick={() => {
-                const isActive = filterState.activeButton && filterState.activeButton.type === type && filterState.activeButton.key === item.key
+                const isActive =
+                  filterState.activeButton &&
+                  filterState.activeButton.type === type &&
+                  filterState.activeButton.key === item.key
                 if (isActive) {
                   handleViewData(item.tag, item.key, type)
                 } else {
@@ -214,14 +253,20 @@ const DashboardTUCMC: React.FC = () => {
             >
               {viewDataLoading
                 ? 'กำลังโหลดข้อมูล...'
-                : filterState.activeButton && filterState.activeButton.type === type && filterState.activeButton.key === item.key
+                : filterState.activeButton &&
+                    filterState.activeButton.type === type &&
+                    filterState.activeButton.key === item.key
                   ? 'คลิกเพื่อปิด'
                   : `ดูข้อมูล${type === 'organization' ? 'หน่วยงาน' : type === 'program' ? 'สายการเรียน' : type === 'club' ? 'ชมรม' : 'โครงการพัฒนาฯ'}`}
             </button>
           </li>
           {isVisible && (
             <div className={`overflow-hidden`}>
-              <ViewData data={filterState.viewData.data} type={filterState.viewData.type} onStatusUpdate={handleStatusUpdate} />
+              <ViewData
+                data={filterState.viewData.data}
+                type={filterState.viewData.type}
+                onStatusUpdate={handleStatusUpdate}
+              />
             </div>
           )}
         </div>
@@ -232,13 +277,13 @@ const DashboardTUCMC: React.FC = () => {
 
   if (isMobile) {
     return (
-      <div className="flex flex-col items-center justify-center p-6 bg-gray-100 rounded-lg shadow-lg">
+      <div className="bg-gray-100 flex flex-col items-center justify-center rounded-lg p-6 shadow-lg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="w-16 h-16 text-gray-500 mb-4"
+          className="text-gray-500 mb-4 h-16 w-16"
         >
           <path
             stroke-linecap="round"
@@ -247,13 +292,12 @@ const DashboardTUCMC: React.FC = () => {
             d="M12 2v20m-7-7l7 7 7-7"
           />
         </svg>
-        <p className="text-center text-xl font-semibold text-gray-800">
+        <p className="text-gray-800 text-center text-xl font-semibold">
           Content not available for your device.
         </p>
       </div>
-    );
+    )
   }
-
 
   return (
     <>
@@ -261,7 +305,9 @@ const DashboardTUCMC: React.FC = () => {
       <div className="m-10 flex items-center justify-center">
         <div className="w-full max-w-6xl">
           <div className="mb-16">
-            <p className="text-center font-Thai text-2xl font-bold">ตรวจสอบข้อมูลหน่วยงานบนเว็บไซต์</p>
+            <p className="text-center font-Thai text-2xl font-bold">
+              ตรวจสอบข้อมูลหน่วยงานบนเว็บไซต์
+            </p>
           </div>
 
           {loading ? (
@@ -274,22 +320,31 @@ const DashboardTUCMC: React.FC = () => {
               <div className="mt-4 flex justify-between">
                 <div className="flex items-center">
                   <div className="flex items-center">
-                    <p className={`mr-3 h-4 w-4 rounded-full ${filterState.selectedStatus === Status.PENDING ? 'bg-[#FCB528]' : filterState.selectedStatus === Status.APPROVED ? 'bg-[#19C57C]' : 'bg-[#F83E3E]'}`}></p>
+                    <p
+                      className={`mr-3 h-4 w-4 rounded-full ${filterState.selectedStatus === Status.PENDING ? 'bg-[#FCB528]' : filterState.selectedStatus === Status.APPROVED ? 'bg-[#19C57C]' : 'bg-[#F83E3E]'}`}
+                    ></p>
                     <p className="font-Thai text-lg">
-                      {filterState.selectedStatus === Status.PENDING ? 'รอดำเนินการ' : filterState.selectedStatus === Status.APPROVED ? 'อนุมัติ' : 'ไม่อนุมัติ'}
+                      {filterState.selectedStatus === Status.PENDING
+                        ? 'รอดำเนินการ'
+                        : filterState.selectedStatus === Status.APPROVED
+                          ? 'อนุมัติ'
+                          : 'ไม่อนุมัติ'}
                     </p>
                   </div>
                 </div>
                 <div className="flex">
-                    <button
-                      type="button"
-                      onClick={openModal}
-                      className="mr-9 font-Thai text-lg text-white bg-[#FCB528] hover:bg-[#f59e0b] px-4 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all"
-                    >
-                      แก้ไขข้อมูลผู้ใช้งาน
-                    </button>
+                  <button
+                    type="button"
+                    onClick={openModal}
+                    className="mr-9 transform rounded-lg bg-[#FCB528] px-4 py-2 font-Thai text-lg text-white shadow-lg transition-all hover:scale-105 hover:bg-[#f59e0b]"
+                  >
+                    แก้ไขข้อมูลผู้ใช้งาน
+                  </button>
 
-                    <HamburgerMenu onFilterSelect={(filter) => dispatch({ type: 'SET_FILTER', payload: filter })} selectedFilter={filterState.selectedFilter} />
+                  <HamburgerMenu
+                    onFilterSelect={(filter) => dispatch({ type: 'SET_FILTER', payload: filter })}
+                    selectedFilter={filterState.selectedFilter}
+                  />
                 </div>
               </div>
 
@@ -301,19 +356,35 @@ const DashboardTUCMC: React.FC = () => {
                       className={`transform rounded-lg p-2 transition-transform duration-300 ${filterState.selectedStatus === status ? (status === Status.PENDING ? 'bg-[#FCB528]' : status === Status.APPROVED ? 'bg-[#19C57C]' : 'bg-[#F83E3E]') : 'bg-gray-200'}`}
                       onClick={() => dispatch({ type: 'SET_STATUS', payload: status })}
                     >
-                      {status === Status.PENDING ? 'รอดำเนินการ' : status === Status.APPROVED ? 'อนุมัติ' : 'ไม่อนุมัติ'}
+                      {status === Status.PENDING
+                        ? 'รอดำเนินการ'
+                        : status === Status.APPROVED
+                          ? 'อนุมัติ'
+                          : 'ไม่อนุมัติ'}
                     </button>
                   ))}
                 </div>
                 <div className="flex items-end">
-                  <button onClick={clearFilter} className="mr-5 font-Thai text-lg text-[#FCB528] hover:underline">เคลียร์การกรอง</button>
-                  <button className="font-Thai text-lg text-[#FCB528] hover:underline" onClick={() => router.push('/account')}>กลับไปหน้าหลัก</button>
+                  <button
+                    onClick={clearFilter}
+                    className="mr-5 font-Thai text-lg text-[#FCB528] hover:underline"
+                  >
+                    เคลียร์การกรอง
+                  </button>
+                  <button
+                    className="font-Thai text-lg text-[#FCB528] hover:underline"
+                    onClick={() => router.push('/account')}
+                  >
+                    กลับไปหน้าหลัก
+                  </button>
                 </div>
               </div>
 
               <hr className="my-9" />
               <ul className="mt-5">
-                {filteredOrganizations.map((item, index) => renderItem(item, 'organization', index))}
+                {filteredOrganizations.map((item, index) =>
+                  renderItem(item, 'organization', index),
+                )}
                 {filteredPrograms.map((item, index) => renderItem(item, 'program', index))}
                 {filteredClubs.map((item, index) => renderItem(item, 'club', index))}
                 {filteredGifted.map((item, index) => renderItem(item, 'gifted', index))}

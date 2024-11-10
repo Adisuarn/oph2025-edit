@@ -1,6 +1,7 @@
+import { PrismaAdapter } from '@lucia-auth/adapter-prisma'
 import { Google } from 'arctic'
 import { Lucia } from 'lucia'
-import { PrismaAdapter } from '@lucia-auth/adapter-prisma'
+
 import { env } from '@/env'
 import { prisma } from '@/server/utils/db'
 

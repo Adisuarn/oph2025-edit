@@ -25,12 +25,7 @@ export const createAuthUrl = async () => {
       sameSite: 'lax',
     })
 
-    const authUrl = google.createAuthorizationURL(
-      state,
-      codeVerifier,
-      scope,
-      env.HOSTED_DOMAIN,
-    )
+    const authUrl = google.createAuthorizationURL(state, codeVerifier, scope, env.HOSTED_DOMAIN)
     return { status: 200, url: authUrl.toString() }
   } catch (err) {
     return { status: 500, message: 'Internal Server Error' }

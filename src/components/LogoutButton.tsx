@@ -1,7 +1,9 @@
 'use client'
+
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import axios from 'axios'
+
 import { env } from '@/env'
 
 const LogoutButton: React.FC<{ disabled?: boolean }> = ({ disabled }) => {
@@ -17,7 +19,7 @@ const LogoutButton: React.FC<{ disabled?: boolean }> = ({ disabled }) => {
         },
       }
       const response = await axios.request(options)
-      if (response.status === 200) router.push('/') 
+      if (response.status === 200) router.push('/')
     } catch (error) {
       console.log(error)
     }

@@ -5,7 +5,7 @@ import ClubForm from '@/components/Form/ClubForm'
 import GiftedForm from '@/components/Form/GiftedForm'
 import OrganizationsForm from '@/components/Form/OrganizationsForm'
 import ProgramForm from '@/components/Form/ProgramForm'
-import { Tag, Status } from '@/server/utils/type'
+import { Status, Tag } from '@/server/utils/type'
 
 export default async function Form({ params }: { params: { editingformId: string } }) {
   const response = await apiFunction('GET', '/user', {})

@@ -2,8 +2,9 @@ import { cookies } from 'next/headers'
 import { lucia } from '@libs/auth'
 import { prisma } from '@utils/db'
 import { error } from 'elysia'
-import { getUser } from './derive'
+
 import { env } from '@/env'
+import { getUser } from './derive'
 
 export const pipe = (
   condition: 'OR' | 'AND' = 'AND',

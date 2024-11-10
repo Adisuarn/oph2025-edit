@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider  = "mongodb"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_DATABASE_URL")
 }
 
@@ -103,8 +103,8 @@ model Programs {
   fb          String?
   others      String?
   admissions  String?
-  courses    String?
-  interests    String?
+  courses     String?
+  interests   String?
   captureimg1 String?
   descimg1    String?
   captureimg2 String?
@@ -147,7 +147,7 @@ model Gifted {
   updatedAt   DateTime  @updatedAt
   updatedBy   String?
   gifted      User?     @relation(fields: [giftedId], references: [id], onDelete: Cascade)
-  giftedId    String?   
+  giftedId    String?
 }
 
 model Reviews {

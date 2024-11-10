@@ -89,14 +89,12 @@ const Window: FC<{
             fill="url(#paint8_radial_852_783)"
           />
           <g style={{ mixBlendMode: 'soft-light' }}>
-
             <path
               d="M343.869 365.303L279.773 295.101L279.027 308.508L278.53 317.446L335.835 381.674L343.869 365.303Z"
               fill="url(#paint9_linear_852_783)"
             />
           </g>
           <g style={{ mixBlendMode: 'soft-light' }}>
-
             <path
               d="M329.643 385.742L273.191 325.213L274.543 334.837L275.444 341.253L326.121 396.432L329.643 385.742Z"
               fill="url(#paint10_linear_852_783)"
@@ -122,14 +120,12 @@ const Window: FC<{
             fill="url(#paint12_linear_852_783)"
           />
           <g style={{ mixBlendMode: 'soft-light' }}>
-
             <path
               d="M380.671 510.722L451.826 433.073C451.826 433.073 454.3 432.979 459.861 438.528C465.422 444.077 466.548 445.678 466.548 445.678L388.285 527.718L380.671 510.722Z"
               fill="url(#paint13_linear_852_783)"
             />
           </g>
           <g style={{ mixBlendMode: 'soft-light' }}>
-
             <path
               d="M398.718 537.915L475.178 462.902L476.488 472.711L405.129 542.613L398.718 537.915Z"
               fill="url(#paint14_linear_852_783)"
@@ -163,14 +159,12 @@ const Window: FC<{
             />
           </g>
           <g style={{ mixBlendMode: 'soft-light' }}>
-
             <path
               d="M352.816 221.376L408.919 162.127L413.681 171.65L418.609 181.208L366.511 233.411L352.816 221.376Z"
               fill="url(#paint18_linear_852_783)"
             />
           </g>
           <g style={{ mixBlendMode: 'soft-light' }}>
-
             <path
               d="M365.389 250.907L423.999 193.058L426.38 201.014L371.8 255.605L365.389 250.907Z"
               fill="url(#paint19_linear_852_783)"
@@ -232,7 +226,7 @@ const Window: FC<{
           </g>
           <mask
             id="mask1_852_783"
-          style={{ maskType: 'alpha' }}
+            style={{ maskType: 'alpha' }}
             maskUnits="userSpaceOnUse"
             x="-95"
             y="579"
@@ -381,7 +375,7 @@ const Window: FC<{
         />
         <mask
           id="mask2_852_783"
-        style={{ maskType: 'alpha' }}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="512"
           y="4"
@@ -416,7 +410,7 @@ const Window: FC<{
             />
             <mask
               id="mask3_852_783"
-            style={{ maskType: 'alpha' }}
+              style={{ maskType: 'alpha' }}
               maskUnits="userSpaceOnUse"
               x="799"
               y="249"
@@ -459,7 +453,7 @@ const Window: FC<{
             />
             <mask
               id="mask4_852_783"
-            style={{ maskType: 'alpha' }}
+              style={{ maskType: 'alpha' }}
               maskUnits="userSpaceOnUse"
               x="770"
               y="138"
@@ -509,7 +503,7 @@ const Window: FC<{
             />
             <mask
               id="mask5_852_783"
-            style={{ maskType: 'alpha' }}
+              style={{ maskType: 'alpha' }}
               maskUnits="userSpaceOnUse"
               x="682"
               y="167"
@@ -544,14 +538,12 @@ const Window: FC<{
             />
           </g>
           <g style={{ mixBlendMode: 'soft-light' }}>
-
             <path
               d="M606.437 383.587L557.651 330L552.419 336.478L548.494 341.189L596.626 396.543L606.437 383.587Z"
               fill="url(#paint77_linear_852_783)"
             />
           </g>
           <g style={{ mixBlendMode: 'soft-light' }}>
-
             <path
               d="M598.631 406.41L545.645 349L542.373 353.124L539.757 356.657L594.429 415.866L598.631 406.41Z"
               fill="url(#paint78_linear_852_783)"

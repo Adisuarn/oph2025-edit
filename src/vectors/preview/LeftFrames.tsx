@@ -60,7 +60,7 @@ const LeftFrames: FC<{
         ry="69.6095"
         fill="url(#paint5_linear_852_1593)"
       />
-          <g style={{ mixBlendMode: 'soft-light' }}>
+      <g style={{ mixBlendMode: 'soft-light' }}>
         <path
           d="M25.2744 470.842L111.005 377.29C111.005 377.29 113.985 377.176 120.685 383.862C127.385 390.548 128.742 392.476 128.742 392.476L34.4484 491.32L25.2744 470.842Z"
           fill="url(#paint6_linear_852_1593)"

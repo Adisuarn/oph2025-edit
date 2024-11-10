@@ -6,8 +6,6 @@ const Lamp: FC<{
   return <></>
 }
 
-
-
 export default Lamp
 
 /*

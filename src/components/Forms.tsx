@@ -47,47 +47,50 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
 
   const onSubmit = useCallback(
     async (values: { tagOptions: string; keyOptions: string }) => {
-      const selectedTag = tagOptions.find(tag => tag.value === values.tagOptions);
-      const selectedName = selectedTag ? (selectedTag.options as Record<string, string>)[values.keyOptions] || '' : '';
+      const selectedTag = tagOptions.find((tag) => tag.value === values.tagOptions)
+      const selectedName = selectedTag
+        ? (selectedTag.options as Record<string, string>)[values.keyOptions] || ''
+        : ''
       const result = await Swal.fire({
         title: 'ยืนยันการบันทึกข้อมูล?',
-        html: `คุณต้องการบันทึก <p><b>${(selectedTag?.key === 'ชมรม' ? selectedTag?.key : '')}${selectedName}</b></p> หรือไม่?`, // Makes selectedName bold
+        html: `คุณต้องการบันทึก <p><b>${selectedTag?.key === 'ชมรม' ? selectedTag?.key : ''}${selectedName}</b></p> หรือไม่?`, // Makes selectedName bold
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'ยืนยัน',
         cancelButtonText: 'ยกเลิก',
-      });
+      })
 
       if (result.isConfirmed) {
-        setIsSubmitting(true);
-        const loadingToastId = toast.loading('กำลังบันทึกข้อมูล...');
+        setIsSubmitting(true)
+        const loadingToastId = toast.loading('กำลังบันทึกข้อมูล...')
 
         try {
-          dataRecord.tag = values.tagOptions;
-          dataRecord.key = values.keyOptions;
-          const response = await postRecord(dataRecord);
+          dataRecord.tag = values.tagOptions
+          dataRecord.key = values.keyOptions
+          const response = await postRecord(dataRecord)
 
           if (response?.status === 201) {
-            toast.success('บันทึกข้อมูลสำเร็จ', { id: loadingToastId });
-            router.push('/account');
-            router.refresh();
+            toast.success('บันทึกข้อมูลสำเร็จ', { id: loadingToastId })
+            router.push('/account')
+            router.refresh()
           } else {
             const errorMessages: Record<number, string> = {
               400: 'มีผู้ใช้ได้บันทึกข้อมูลนี้แล้ว กรุณาติดต่อผู้ดูแล',
               500: 'เกิดข้อผิดพลาด',
-            };
-            toast.error(errorMessages[response?.status] || 'เกิดข้อผิดพลาดที่เซิฟเวอร์', { id: loadingToastId });
+            }
+            toast.error(errorMessages[response?.status] || 'เกิดข้อผิดพลาดที่เซิฟเวอร์', {
+              id: loadingToastId,
+            })
           }
         } catch {
-          toast.error('เกิดข้อผิดพลาดที่เซิฟเวอร์', { id: loadingToastId });
+          toast.error('เกิดข้อผิดพลาดที่เซิฟเวอร์', { id: loadingToastId })
         } finally {
-          setIsSubmitting(false);
+          setIsSubmitting(false)
         }
       }
     },
-    [dataRecord, router, tagOptions]
-  );
-
+    [dataRecord, router, tagOptions],
+  )
 
   return (
     <main className="relative flex h-screen w-screen items-center justify-center overflow-hidden bg-gradient-to-b from-[#ECF5C8] to-[#1A8B6D]">
@@ -124,7 +127,9 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
                     Email
                   </span>
                   <div className="overflow-scroll">
-                    <p className="sm:text-md text-xs text-[#A9A9A9] md:text-lg py-1">{dataRecord.email}</p>
+                    <p className="sm:text-md py-1 text-xs text-[#A9A9A9] md:text-lg">
+                      {dataRecord.email}
+                    </p>
                   </div>
                 </div>
 
@@ -150,17 +155,7 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
                 <Field
                   as="select"
                   name="keyOptions"
-                  className={`
-    form-select 
-    rounded-md 
-    border border-gray 
-    bg-white 
-    px-8 py-2 
-    pl-2
-    w-full  // Ensures the select field takes full width on smaller screens
-    sm:w-48 md:w-60 lg:w-96 xl:w-auto 2xl:w-auto  // Adjust width for larger screens
-    ${values.keyOptions ? 'text-black' : 'text-[#A9A9A9]'}
-  `}
+                  className={`form-select // Ensures the select field takes full width on smaller screens // Adjust width for larger screens w-full rounded-md border border-gray bg-white px-8 py-2 pl-2 sm:w-48 md:w-60 lg:w-96 xl:w-auto 2xl:w-auto ${values.keyOptions ? 'text-black' : 'text-[#A9A9A9]'} `}
                   disabled={isKeyOptionsDisabled}
                 >
                   <option value="" disabled hidden>

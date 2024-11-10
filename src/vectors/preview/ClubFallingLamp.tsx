@@ -51,7 +51,7 @@ const ClubFallingLamp: FC<{
       />
       <mask
         id="mask0_852_1506"
-        style={{maskType:"alpha"}}
+        style={{ maskType: 'alpha' }}
         maskUnits="userSpaceOnUse"
         x="298"
         y="441"
@@ -94,7 +94,7 @@ const ClubFallingLamp: FC<{
       />
       <mask
         id="mask1_852_1506"
-        style={{maskType:"alpha"}}
+        style={{ maskType: 'alpha' }}
         maskUnits="userSpaceOnUse"
         x="246"
         y="246"
@@ -143,7 +143,7 @@ const ClubFallingLamp: FC<{
         />
         <mask
           id="mask2_852_1506"
-          style={{maskType:"alpha"}}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="90"
           y="297"

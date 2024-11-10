@@ -36,17 +36,23 @@ const FormikControl: React.FC = async () => {
     descimg3: data.descimg3,
   }
 
-  const reviews = userReviewData.data
-    .map((review: any, index: number) => ({
-      count: review.count,
-      profile: review.profile,
-      nick: review.nick,
-      gen: review.gen,
-      contact: review.contact,
-      content: review.content,
-    }))
-    
-  const reviewAmount = (reviews.filter((review: any) => review.profile !== "" && review.nick !== "" && review.gen !== "" && review.contact !== "" && review.content !== "")).length
+  const reviews = userReviewData.data.map((review: any, index: number) => ({
+    count: review.count,
+    profile: review.profile,
+    nick: review.nick,
+    gen: review.gen,
+    contact: review.contact,
+    content: review.content,
+  }))
+
+  const reviewAmount = reviews.filter(
+    (review: any) =>
+      review.profile !== '' &&
+      review.nick !== '' &&
+      review.gen !== '' &&
+      review.contact !== '' &&
+      review.content !== '',
+  ).length
 
   return (
     <GeneralForm

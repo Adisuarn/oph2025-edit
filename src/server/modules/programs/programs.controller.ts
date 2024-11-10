@@ -131,9 +131,7 @@ export const createProgramReview = async (name: keyof typeof AllData.Programs) =
       omit: { reviewId: true, updatedAt: true, id: true },
       data: {
         key: programData.key,
-        count: (
-          (await prisma.reviews.count({ where: { key: programData.key } })) + 1
-        ).toString(),
+        count: ((await prisma.reviews.count({ where: { key: programData.key } })) + 1).toString(),
         profile: '',
         nick: '',
         gen: '',

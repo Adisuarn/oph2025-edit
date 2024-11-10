@@ -1,26 +1,18 @@
-import apiFunction from "@/components/api";
-import GeneralForm from "./GeneralForm";
+import apiFunction from '@/components/api'
+import GeneralForm from './GeneralForm'
 
 const FormikControl: React.FC = async () => {
-  const response = await apiFunction("GET", "/user", {});
-  const userData = response.data;
-  const userForm = await apiFunction(
-    "GET",
-    `/${userData.tag}/${userData.key}/`,
-    {},
-  );
-  const userReview = await apiFunction(
-    "GET",
-    `/${userData.tag}/${userData.key}/review`,
-    {},
-  );
+  const response = await apiFunction('GET', '/user', {})
+  const userData = response.data
+  const userForm = await apiFunction('GET', `/${userData.tag}/${userData.key}/`, {})
+  const userReview = await apiFunction('GET', `/${userData.tag}/${userData.key}/review`, {})
 
-  const data = userForm.data.data;
+  const data = userForm.data.data
   let editFormData = {
     error: data.error,
     thainame: data.thainame,
     tag: data.tag,
-    tagThai: "โครงการพัฒนาความสามารถพิเศษ",
+    tagThai: 'โครงการพัฒนาความสามารถพิเศษ',
     members: data.members,
     ig: data.ig,
     fb: data.fb,
@@ -35,7 +27,7 @@ const FormikControl: React.FC = async () => {
     descimg2: data.descimg2,
     captureimg3: data.captureimg3,
     descimg3: data.descimg3,
-  };
+  }
   const reviews = userReview.data.data
     .map((review: any, index: number) => ({
       count: review.count,
@@ -45,7 +37,7 @@ const FormikControl: React.FC = async () => {
       contact: review.contact,
       content: review.content,
     }))
-    .slice(0, 3);
+    .slice(0, 3)
   return (
     <GeneralForm
       userData={userData}
@@ -55,7 +47,7 @@ const FormikControl: React.FC = async () => {
       review2={reviews[1]}
       review3={reviews[2]}
     />
-  );
-};
+  )
+}
 
-export default FormikControl;
+export default FormikControl

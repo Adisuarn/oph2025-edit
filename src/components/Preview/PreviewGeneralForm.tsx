@@ -213,7 +213,7 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               </div>
               {editFormData.tagThai === 'ชมรม' ? (
-                <div className="flex bg-gradient-to-b md:ml-4 from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col md:ml-4">
                   <p className="sm:text-4xl md:text-5xl lg:text-7xl">ประโยชน์</p>
                   <p className="sm:text-lg md:text-2xl lg:text-4xl">ที่ได้รับ</p>
                   <p className="sm:-mt-2 sm:text-lg md:text-lg lg:text-3xl">จากการเข้าชมรม</p>
@@ -222,7 +222,7 @@ const PreviewGeneralForm: React.FC<{
                   </div>
                 </div>
               ) : editFormData.tagThai === 'องค์กร' ? (
-                <div className="flex bg-gradient-to-b md:ml-4 from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col md:ml-4">
                   <p className="sm:text-lg md:text-5xl lg:text-6xl">ตำแหน่ง</p>
                   <p className="sm:text-lg md:text-2xl lg:text-4xl">/หน้าที่</p>
                   <div className="flex justify-center">
@@ -230,7 +230,7 @@ const PreviewGeneralForm: React.FC<{
                   </div>
                 </div>
               ) : (
-                <div className="flex bg-gradient-to-b md:ml-4 from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
+                <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col md:ml-4">
                   <p className="sm:text-2xl md:text-7xl">วิชา /</p>
                   <p className="sm:text-lg md:text-2xl">หลักสูตรเพิ่มเติม</p>
                   <p className="sm:text-lg md:text-2xl">ที่เรียน</p>

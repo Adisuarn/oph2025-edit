@@ -36,15 +36,14 @@ const PreviewClubForm: React.FC = async () => {
     descimg3: data.descimg3,
   }
 
-  const reviews = userReviewData.data
-    .map((review: any, index: number) => ({
-      count: review.count,
-      profile: review.profile,
-      nick: review.nick,
-      gen: review.gen,
-      contact: review.contact,
-      content: review.content,
-    }))
+  const reviews = userReviewData.data.map((review: any, index: number) => ({
+    count: review.count,
+    profile: review.profile,
+    nick: review.nick,
+    gen: review.gen,
+    contact: review.contact,
+    content: review.content,
+  }))
 
   return (
     <PreviewGeneralForm

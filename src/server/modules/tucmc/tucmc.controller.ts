@@ -1,10 +1,11 @@
 import { AllData } from '@libs/data'
 import { getClubReviews } from '@modules/clubs/clubs.controller'
-import { getGiftedReviews } from '@/server/modules/gifted/gifted.controller'
 import { getOrganizationReviews } from '@modules/organizations/organizations.controller'
 import { getProgramReviews } from '@modules/programs/programs.controller'
 import { prisma } from '@utils/db'
 import { Status, Tag } from '@utils/type'
+
+import { getGiftedReviews } from '@/server/modules/gifted/gifted.controller'
 
 export const updateStatus = async (tag: Tag, key: string, status: Status, errorMsg: string) => {
   try {
@@ -142,10 +143,10 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
     where: { email },
   })
 
-  const upperCaseTag = changedTag.charAt(0).toUpperCase() + changedTag.slice(1);
+  const upperCaseTag = changedTag.charAt(0).toUpperCase() + changedTag.slice(1)
 
   const isKeyInTag = Object.keys(AllData[upperCaseTag as keyof typeof AllData]).includes(changedKey)
-  if(!isKeyInTag) return { status: 400, message: 'Key and Tag mismatch' }
+  if (!isKeyInTag) return { status: 400, message: 'Key and Tag mismatch' }
 
   if (!user) return { status: 404, message: 'User not found' }
   if (user.key === changedKey) return { status: 400, message: 'Key is the same' }
@@ -158,7 +159,7 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
           data: {
             email: '',
             updatedBy: '',
-          }
+          },
         })
         break
       case Tag.ORGANIZATION:
@@ -167,7 +168,7 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
           data: {
             email: '',
             updatedBy: '',
-          }
+          },
         })
         break
       case Tag.PROGRAM:
@@ -176,7 +177,7 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
           data: {
             email: '',
             updatedBy: '',
-          }
+          },
         })
         break
       case Tag.GIFTED:
@@ -185,7 +186,7 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
           data: {
             email: '',
             updatedBy: '',
-          }
+          },
         })
         break
     }
@@ -199,14 +200,14 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
           data: {
             email: email,
             updatedBy: email,
-          }
+          },
         })
         await prisma.user.update({
           where: { email },
           data: {
             key: key,
             tag: tag,
-          }
+          },
         })
         break
       case Tag.ORGANIZATION:
@@ -215,14 +216,14 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
           data: {
             email: email,
             updatedBy: email,
-          }
+          },
         })
         await prisma.user.update({
           where: { email },
           data: {
             key: key,
             tag: tag,
-          }
+          },
         })
         break
       case Tag.PROGRAM:
@@ -231,14 +232,14 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
           data: {
             email: email,
             updatedBy: email,
-          }
+          },
         })
         await prisma.user.update({
           where: { email },
           data: {
             key: key,
             tag: tag,
-          }
+          },
         })
         break
       case Tag.GIFTED:
@@ -247,14 +248,14 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
           data: {
             email: email,
             updatedBy: email,
-          }
+          },
         })
         await prisma.user.update({
           where: { email },
           data: {
             key: key,
             tag: tag,
-          }
+          },
         })
         break
     }
@@ -264,19 +265,31 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
     case Tag.CLUB:
       await resetData(user.tag)
       await updateDataByTag(changedTag, changedKey)
-      return { status: 200, message: `Change user ${email} to ${changedTag} and ${changedKey} successfully` }
+      return {
+        status: 200,
+        message: `Change user ${email} to ${changedTag} and ${changedKey} successfully`,
+      }
     case Tag.ORGANIZATION:
       await resetData(user.tag)
       await updateDataByTag(changedTag, changedKey)
-      return { status: 200, message: `Change user ${email} to ${changedTag} and ${changedKey} successfully` }
+      return {
+        status: 200,
+        message: `Change user ${email} to ${changedTag} and ${changedKey} successfully`,
+      }
     case Tag.PROGRAM:
       await resetData(user.tag)
       await updateDataByTag(changedTag, changedKey)
-      return { status: 200, message: `Change user ${email} to ${changedTag} and ${changedKey} successfully` }
+      return {
+        status: 200,
+        message: `Change user ${email} to ${changedTag} and ${changedKey} successfully`,
+      }
     case Tag.GIFTED:
       await resetData(user.tag)
       await updateDataByTag(changedTag, changedKey)
-      return { status: 200, message: `Change user ${email} to ${changedTag} and ${changedKey} successfully` }
+      return {
+        status: 200,
+        message: `Change user ${email} to ${changedTag} and ${changedKey} successfully`,
+      }
     default:
       return { status: 400, message: 'Invalid tag' }
   }

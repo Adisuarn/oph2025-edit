@@ -2,6 +2,7 @@ import '@/app/globals.css'
 
 import { type Metadata } from 'next'
 import { CookiesProvider } from 'next-client-cookies/server'
+
 import Secret from '@/components/Secret'
 
 export const metadata: Metadata = {

@@ -1,11 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Quill from 'quill'
 
 import 'quill/dist/quill.snow.css'
+
 import * as Emoji from 'quill2-emoji'
+
 import 'quill2-emoji/dist/style.css'
 
 Quill.register('modules/emoji', Emoji)
@@ -58,8 +60,8 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
     <>
       <div className="mx-44 mt-24 flex justify-between">
         <div className="flex flex-col text-center">
-          <div className="mb-20 mr-14 h-[300px] w-[500px] rounded-2xl relative">
-            <div className="overflow-hidden rounded-2xl max-w-[500px] max-h-[300px]">
+          <div className="relative mb-20 mr-14 h-[300px] w-[500px] rounded-2xl">
+            <div className="max-h-[300px] max-w-[500px] overflow-hidden rounded-2xl">
               {/* Image with opacity transition */}
               <div
                 className={`transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
@@ -70,19 +72,19 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
                   width={500}
                   height={300}
                   onLoad={handleImageLoad}
-                  className="object-cover w-full h-full"
+                  className="h-full w-full object-cover"
                 />
               </div>
               {/* Loading Spinner */}
               {!imageLoaded && (
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                  <div className="w-8 h-8 border-4 border-t-4 border-green-500 border-solid rounded-full animate-spin"></div>
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
+                  <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
                 </div>
               )}
             </div>
             <input
               type="text"
-              className="w-full border rounded-lg placeholder: mt-3 text-center font-BaiJamjuree text-[16px] font-light text-[#0C453E]"
+              className="placeholder: mt-3 w-full rounded-lg border text-center font-BaiJamjuree text-[16px] font-light text-[#0C453E]"
               value={data.descimg2}
               onChange={handleDescriptionChange}
               placeholder="กรุณาใส่คำอธิบายรูปภาพ"

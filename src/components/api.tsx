@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { getCookies } from 'next-client-cookies/server'
+
 import { env } from '@/env'
 
 export default async function apiFunction(method: string, url: string, body: any) {

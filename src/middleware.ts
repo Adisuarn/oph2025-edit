@@ -8,8 +8,13 @@ import dedupePlugin from 'xior/plugins/dedupe'
 export async function middleware(request: NextRequest) {
   // Ensure required environment variables are set
 
-  if (!process.env.NEXT_PUBLIC_BASE_URL || !process.env.NEXT_PUBLIC_API_KEY || !process.env.NEXT_PUBLIC_COOKIE_NAME || !process.env.NEXT_PUBLIC_SECRET_LINK) {
-    console.error("Missing required environment variables.")
+  if (
+    !process.env.NEXT_PUBLIC_BASE_URL ||
+    !process.env.NEXT_PUBLIC_API_KEY ||
+    !process.env.NEXT_PUBLIC_COOKIE_NAME ||
+    !process.env.NEXT_PUBLIC_SECRET_LINK
+  ) {
+    console.error('Missing required environment variables.')
     return NextResponse.redirect(new URL('/', request.url))
   }
 

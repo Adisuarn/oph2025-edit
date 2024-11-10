@@ -9,6 +9,7 @@ import { FaPen } from 'react-icons/fa'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 import * as Yup from 'yup'
 
+import { env } from '@/env'
 import BackArrow from '@/vectors/edit-page/BackArrow'
 import GalleryIcon from '@/vectors/edit-page/GalleryIcon'
 import Trash from '@/vectors/edit-page/Trash'
@@ -22,39 +23,9 @@ import { useCookies } from 'next-client-cookies'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-import 'react-quill/dist/quill.snow.css'
-
-import * as Emoji from 'quill2-emoji'
-import 'quill2-emoji/dist/style.css'
-import { env } from '@/env'
-import Quill from 'quill'
-
-Quill.register('modules/emoji', Emoji)
-
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
-
-const toolbarOptions = [
-  [{ header: [1, 2, 3, false] }],
-  ['bold', 'italic', 'underline', 'emoji'],
-  [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }, { align: [] }],
-  [{ script: 'sub' }, { script: 'super' }],
-  [{ indent: '-1' }, { indent: '+1' }],
-  [{ direction: 'rtl' }],
-]
-
-const modules = {
-  toolbar: toolbarOptions,
-}
-
-const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => (
-  <ReactQuill
-    value={field.value}
-    onChange={(value) => form.setFieldValue(field.name, value)}
-    onBlur={() => form.setFieldTouched(field.name, true)}
-    theme="snow"
-    modules={modules}
-  />
-)
+const QuillField = dynamic(() => import('@components/Form/FormEditor'), {
+  ssr: false,
+})
 
 interface userData {
   tag: string
@@ -736,33 +707,33 @@ const GeneralForm: React.FC<{
                       </div>
                       <div className="whitespace-nowrapcenter flex items-center sm:space-y-2">
                         <div className="items-center justify-center space-y-1 text-start sm:text-lg">
-                        <div className="flex">
-                          <p className="text-[8px] sm:text-lg">IG : </p>
-                          <Field
-                            type="text"
-                            name="IG"
-                            className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                          />
-                          <FaPen className="h-1 text-white sm:h-2" />
-                        </div>
-                        <div className="flex">
-                          <p className="whitespace-nowrap text-[8px] sm:text-lg">FB : </p>
-                          <Field
-                            type="text"
-                            name="FB"
-                            className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                          />
-                          <FaPen className="h-1 text-white sm:h-2" />
-                        </div>
-                        <div className="flex">
-                          <p className="whitespace-nowrap text-[8px] sm:text-lg">อื่น ๆ : </p>
-                          <Field
-                            type="text"
-                            name="others"
-                            className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                          />
-                          <FaPen className="h-1 text-white sm:h-2" />
-                        </div>
+                          <div className="flex">
+                            <p className="text-[8px] sm:text-lg">IG : </p>
+                            <Field
+                              type="text"
+                              name="IG"
+                              className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
+                          <div className="flex">
+                            <p className="whitespace-nowrap text-[8px] sm:text-lg">FB : </p>
+                            <Field
+                              type="text"
+                              name="FB"
+                              className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
+                          <div className="flex">
+                            <p className="whitespace-nowrap text-[8px] sm:text-lg">อื่น ๆ : </p>
+                            <Field
+                              type="text"
+                              name="others"
+                              className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            />
+                            <FaPen className="h-1 text-white sm:h-2" />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -801,7 +772,7 @@ const GeneralForm: React.FC<{
                       {displayImage1 ? (
                         <div className="relative w-full">
                           <Image
-                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:w-[50vw] xl:w-[40vw] 2xl:w-[27vw] md:h-60 lg:h-72 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                             src={imageUrl1 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -820,13 +791,13 @@ const GeneralForm: React.FC<{
                               setImage1(null)
                               setImageUrl1('')
                             }}
-                            className="absolute -right-2 -top-2 md:top-0 lg:-top-2 2xl:top-0 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white lg:right-4 xl:right-24 2xl:right-[275px]"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white md:top-0 lg:-top-2 lg:right-4 xl:right-24 2xl:right-[275px] 2xl:top-0"
                           >
                             X
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] transition-all hover:bg-[#c1c1c1] sm:h-48 md:w-[50vw] xl:w-[40vw] md:h-60 2xl:w-[27vw] lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] transition-all hover:bg-[#c1c1c1] sm:h-48 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -889,7 +860,7 @@ const GeneralForm: React.FC<{
                       {displayImage2 ? (
                         <div className="relative w-full">
                           <Image
-                            className='mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:w-[50vw] xl:w-[40vw] 2xl:w-[27vw] md:h-60 lg:h-72'
+                            className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]"
                             src={imageUrl2 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -902,13 +873,13 @@ const GeneralForm: React.FC<{
                               setImage2(null)
                               setImageUrl2('')
                             }}
-                            className="absolute -right-2 -top-2 md:top-0 lg:-top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white lg:right-4 xl:right-[88px] 2xl:right-[266px]"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white md:top-0 lg:-top-2 lg:right-4 xl:right-[88px] 2xl:right-[266px]"
                           >
                             X
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] transition-all hover:bg-[#c1c1c1] sm:h-48 md:w-[50vw] xl:w-[40vw] md:h-60 2xl:w-[27vw] lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] transition-all hover:bg-[#c1c1c1] sm:h-48 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>
@@ -973,7 +944,7 @@ const GeneralForm: React.FC<{
                       {displayImage3 ? (
                         <div className="relative w-full">
                           <Image
-                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:w-[50vw] xl:w-[40vw] 2xl:w-[27vw] md:h-60 lg:h-72 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                            className={`mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw] ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                             src={imageUrl3 || ''}
                             alt="uploaded photo"
                             width={800}
@@ -992,13 +963,13 @@ const GeneralForm: React.FC<{
                               setImage3(null)
                               setImageUrl3('')
                             }}
-                            className="absolute -right-2 -top-2 md:top-0 lg:-top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white lg:right-4 xl:right-[88px] 2xl:right-[266px]"
+                            className="absolute -right-2 -top-2 z-10 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-500 font-roboto text-[10px] text-white md:top-0 lg:-top-2 lg:right-4 xl:right-[88px] 2xl:right-[266px]"
                           >
                             X
                           </button>
                         </div>
                       ) : (
-                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] transition-all hover:bg-[#c1c1c1] sm:h-48 md:w-[50vw] xl:w-[40vw] md:h-60 2xl:w-[27vw] lg:h-72">
+                        <label className="flex h-44 w-[80vw] flex-col items-center justify-center rounded-lg bg-[#D9D9D9] transition-all hover:bg-[#c1c1c1] sm:h-48 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]">
                           <div className="flex flex-col items-center justify-center pb-6 pt-5">
                             <GalleryIcon className="h-6 w-6 text-greenText sm:h-12 sm:w-12 md:h-16 md:w-16" />
                           </div>

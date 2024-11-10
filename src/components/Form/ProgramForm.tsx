@@ -32,14 +32,16 @@ const FormikControl: React.FC = async () => {
 
   console.log(editFormData)
 
-  const reviews = userReview.data.data.map((review: any, index: number) => ({
-    count: review.count,
-    profile: review.profile,
-    nick: review.nick,
-    gen: review.gen,
-    contact: review.contact,
-    content: review.content,
-      })).slice(0,3)
+  const reviews = userReview.data.data
+    .map((review: any, index: number) => ({
+      count: review.count,
+      profile: review.profile,
+      nick: review.nick,
+      gen: review.gen,
+      contact: review.contact,
+      content: review.content,
+    }))
+    .slice(0, 3)
 
   return (
     <GeneralForm

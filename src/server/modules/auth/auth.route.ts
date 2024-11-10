@@ -1,5 +1,6 @@
 import { createAuthUrl, getGoogleUser, Logout } from '@modules/auth/auth.controller'
 import { Elysia, error, redirect } from 'elysia'
+
 import { env } from '@/env'
 
 export const authRouter = new Elysia({ prefix: '/auth' })

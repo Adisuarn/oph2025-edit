@@ -16,7 +16,7 @@ import { updateData } from './ViewData.action'
 const MySwal = withReactContent(Swal)
 
 const ViewData = ({ data, type, onStatusUpdate }: any) => {
-  const [loading, setLoading] = useState(false)  // New loading state
+  const [loading, setLoading] = useState(false) // New loading state
 
   const formattedDate = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Bangkok',
@@ -60,7 +60,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
   }
 
   const handleSubmit = async (values: any) => {
-    setLoading(true)  // Start loading when submit is clicked
+    setLoading(true) // Start loading when submit is clicked
     try {
       MySwal.fire({
         title: 'ยืนยันการแก้ไขข้อมูล',
@@ -71,31 +71,33 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
         cancelButtonText: 'ยกเลิก',
       }).then((result) => {
         if (result.isConfirmed) {
-          toast.promise(
-            updateData(values, data.data.tag, data.data.key).then(() => {
-              if (typeof window !== 'undefined') {
-                window.location.reload()
-              }
-              setLoading(false)  // Stop loading on successful update
-            }),
-            {
-              loading: 'กำลังอัปเดตข้อมูล...',
-              success: 'อัปเดตข้อมูลสำเร็จ',
-              error: 'อัปเดตข้อมูลไม่สำเร็จ',
-            },
-          ).finally(() => setLoading(false))  // Stop loading on any result
+          toast
+            .promise(
+              updateData(values, data.data.tag, data.data.key).then(() => {
+                if (typeof window !== 'undefined') {
+                  window.location.reload()
+                }
+                setLoading(false) // Stop loading on successful update
+              }),
+              {
+                loading: 'กำลังอัปเดตข้อมูล...',
+                success: 'อัปเดตข้อมูลสำเร็จ',
+                error: 'อัปเดตข้อมูลไม่สำเร็จ',
+              },
+            )
+            .finally(() => setLoading(false)) // Stop loading on any result
         } else {
-          setLoading(false)  // Stop loading if user cancels
+          setLoading(false) // Stop loading if user cancels
         }
       })
     } catch (error) {
-      setLoading(false)  // Stop loading on error
+      setLoading(false) // Stop loading on error
       toast.error('ไม่สามารถอัปเดตข้อมูลได้')
     }
   }
 
   const handleStatusChange = (status: Status) => {
-    setLoading(true)  // Start loading when status change is clicked
+    setLoading(true) // Start loading when status change is clicked
     const titles: { [key in Status]: string } = {
       [Status.APPROVED]: 'อนุมัติข้อมูลนี้',
       [Status.REJECTED]: 'ปฎิเสธข้อมูลนี้',
@@ -104,29 +106,33 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
 
     MySwal.fire({
       title: titles[status],
-      html: status === Status.REJECTED ? `
+      html:
+        status === Status.REJECTED
+          ? `
         <textarea id="rejection-message" placeholder="เหตุผลที่ปฎิเสธ" style="width:100%; height:100px; border: 1px solid black; border-radius: 20px; padding: 20px;"></textarea>
-      ` : '',
+      `
+          : '',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'ยืนยัน',
       cancelButtonText: 'ยกเลิก',
     }).then((result) => {
       if (result.isConfirmed) {
-        const message = status === Status.REJECTED
-          ? (document.getElementById('rejection-message') as HTMLTextAreaElement).value
-          : ""
+        const message =
+          status === Status.REJECTED
+            ? (document.getElementById('rejection-message') as HTMLTextAreaElement).value
+            : ''
 
         toast.promise(
-          onStatusUpdate(data, status, message).finally(() => setLoading(false)),  // Stop loading on completion
+          onStatusUpdate(data, status, message).finally(() => setLoading(false)), // Stop loading on completion
           {
             loading: 'กำลังกำหนดสถานะ...',
             success: 'อัปเดตสถานะสำเร็จ',
             error: 'อัปเดตสถานะไม่สำเร็จ',
-          }
+          },
         )
       } else {
-        setLoading(false)  // Stop loading if user cancels
+        setLoading(false) // Stop loading if user cancels
       }
     })
   }
@@ -157,8 +163,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
             </div>
             <button
               onClick={() => handleStatusChange(Status.APPROVED)}
-              className={`mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 
-    ${loading ? 'opacity-50 bg-[#19C57C] cursor-not-allowed' : 'bg-[#19C57C]'}`}
+              className={`mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 ${loading ? 'cursor-not-allowed bg-[#19C57C] opacity-50' : 'bg-[#19C57C]'}`}
               disabled={loading}
             >
               <Checkmark />
@@ -166,8 +171,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
 
             <button
               onClick={() => handleStatusChange(Status.REJECTED)}
-              className={`mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 
-    ${loading ? 'opacity-50 bg-[#F83E3E] cursor-not-allowed' : 'bg-[#F83E3E]'}`}
+              className={`mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 ${loading ? 'cursor-not-allowed bg-[#F83E3E] opacity-50' : 'bg-[#F83E3E]'}`}
               disabled={loading}
             >
               <Rejected />
@@ -176,7 +180,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
         </div>
 
         <div className="mt-10 flex flex-col items-center pt-5">
-          {data.data.error !== "" && (
+          {data.data.error !== '' && (
             <div className="mx-20 mb-7 rounded-md border border-red-400 bg-red-100 px-4 py-2 text-center text-red-600">
               <p className="my-5 text-3xl">เหตุผลที่ปฎิเสธ</p>
               <div className="text-left">{data.data.error}</div>
@@ -188,7 +192,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
               โดย
               {emails[data.data.updatedBy as keyof typeof emails]
                 ? ` TUCMC ${emails[data.data.updatedBy as keyof typeof emails]}`
-                : " " + data.data.updatedBy}
+                : ' ' + data.data.updatedBy}
             </div>
           )}
           <Header type={type} data={data} />
@@ -199,22 +203,36 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
           >
             {({ values, setFieldValue, errors, touched }) => (
               <Form className="w-full">
-                <Passage1 type={type} data={values} setFieldValue={setFieldValue} errors={errors}
-                  touched={touched} />
-                <Passage2 type={type} data={values} setFieldValue={setFieldValue} errors={errors}
-                  touched={touched} />
-                <Passage3 type={type} data={values} setFieldValue={setFieldValue} errors={errors}
-                  touched={touched} />
+                <Passage1
+                  type={type}
+                  data={values}
+                  setFieldValue={setFieldValue}
+                  errors={errors}
+                  touched={touched}
+                />
+                <Passage2
+                  type={type}
+                  data={values}
+                  setFieldValue={setFieldValue}
+                  errors={errors}
+                  touched={touched}
+                />
+                <Passage3
+                  type={type}
+                  data={values}
+                  setFieldValue={setFieldValue}
+                  errors={errors}
+                  touched={touched}
+                />
                 <Reviews reviewData={values.reviews} setFieldValue={setFieldValue} />
 
-                <div className="bg-custom-gradient w-full">
+                <div className="w-full bg-custom-gradient">
                   <button
                     type="submit"
-                    className={`w-full text-center transform py-3 text-[#ffffff] transition duration-300 ease-in-out hover:scale-105 hover:bg-[#ff6b6b] active:scale-100 active:bg-[#ff4d4d] 
-    ${loading ? 'opacity-50 bg-gray-400 cursor-not-allowed' : ''}`}
+                    className={`w-full transform py-3 text-center text-[#ffffff] transition duration-300 ease-in-out hover:scale-105 hover:bg-[#ff6b6b] active:scale-100 active:bg-[#ff4d4d] ${loading ? 'bg-gray-400 cursor-not-allowed opacity-50' : ''}`}
                     disabled={loading}
                   >
-                    {loading ? "กำลังอัปเดตข้อมูล..." : "ยืนยันการแก้ไขข้อมูล"}
+                    {loading ? 'กำลังอัปเดตข้อมูล...' : 'ยืนยันการแก้ไขข้อมูล'}
                   </button>
                 </div>
               </Form>

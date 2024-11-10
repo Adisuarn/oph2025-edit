@@ -1,23 +1,23 @@
 import React from 'react'
+import { Toaster } from 'react-hot-toast'
 
 import GoogleOAuthButton from '@/components/GoogleOAuthButton'
 import Brick from '@/vectors/landing/Brick'
 import BrickSmall from '@/vectors/landing/BrickSmall'
 import NiceStuff from '@/vectors/landing/NiceStuff'
 import Window from '@/vectors/landing/Window'
-import { Toaster } from 'react-hot-toast'
 
 const page = async () => {
   return (
     <main className="via-21% to-77% relative h-screen w-screen overflow-hidden bg-gradient-to-b from-[#6FB07C] via-[#4F8D78] to-[#072923] sm:z-0 sm:bg-gradient-to-br">
       <Toaster />
-      <div className="absolute right-0 top-10 w-[110vw] z-30 sm:-right-20 sm:top-20 sm:w-[70vw] md:-right-40">
+      <div className="absolute right-0 top-10 z-30 w-[110vw] sm:-right-20 sm:top-20 sm:w-[70vw] md:-right-40">
         <Window className="h-[50vh] w-full sm:h-40 md:h-[75vh]" />
       </div>
       <div className="absolute bottom-0">
         <Brick className="hidden sm:block sm:h-[30vh] sm:w-screen" />
       </div>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10">
+      <div className="absolute bottom-0 left-1/2 z-10 -translate-x-1/2">
         <BrickSmall className="h-[55vh] sm:hidden" />
       </div>
       <div className="flex h-[90vh] flex-col items-center justify-end text-center sm:flex sm:h-full sm:items-start sm:justify-center md:pl-16 lg:pl-16 xl:pl-32">
@@ -43,7 +43,7 @@ const page = async () => {
               <p>โรงเรียนเตรียมอุดมศึกษา</p>
             </div>
           </div>
-          <div className="relative z-50 justify-center flex">
+          <div className="relative z-50 flex justify-center">
             <GoogleOAuthButton />
           </div>
         </div>
