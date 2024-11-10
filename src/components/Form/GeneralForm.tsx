@@ -736,33 +736,33 @@ const GeneralForm: React.FC<{
                       </div>
                       <div className="whitespace-nowrapcenter flex items-center sm:space-y-2">
                         <div className="items-center justify-center space-y-1 text-start sm:text-lg">
-                          <div className="flex">
-                            <p className="text-[8px] sm:text-lg">IG : </p>
-                            <Field
-                              type="text"
-                              name="IG"
-                              className="ml-1 w-36 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                            />
-                            <FaPen className="h-1 text-white sm:h-2" />
-                          </div>
-                          <div className="flex">
-                            <p className="whitespace-nowrap text-[8px] sm:text-lg">FB : </p>
-                            <Field
-                              type="text"
-                              name="FB"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                            />
-                            <FaPen className="h-1 text-white sm:h-2" />
-                          </div>
-                          <div className="flex">
-                            <p className="whitespace-nowrap text-[8px] sm:text-lg">อื่น ๆ : </p>
-                            <Field
-                              type="text"
-                              name="others"
-                              className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                            />
-                            <FaPen className="h-1 text-white sm:h-2" />
-                          </div>
+                        <div className="flex">
+                          <p className="text-[8px] sm:text-lg">IG : </p>
+                          <Field
+                            type="text"
+                            name="IG"
+                            className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                          />
+                          <FaPen className="h-1 text-white sm:h-2" />
+                        </div>
+                        <div className="flex">
+                          <p className="whitespace-nowrap text-[8px] sm:text-lg">FB : </p>
+                          <Field
+                            type="text"
+                            name="FB"
+                            className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                          />
+                          <FaPen className="h-1 text-white sm:h-2" />
+                        </div>
+                        <div className="flex">
+                          <p className="whitespace-nowrap text-[8px] sm:text-lg">อื่น ๆ : </p>
+                          <Field
+                            type="text"
+                            name="others"
+                            className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                          />
+                          <FaPen className="h-1 text-white sm:h-2" />
+                        </div>
                         </div>
                       </div>
                     </div>
