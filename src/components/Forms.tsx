@@ -73,7 +73,7 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
             router.refresh();
           } else {
             const errorMessages: Record<number, string> = {
-              400: 'มีผู้ใช้ได้บันทึกข้อมูลนี้แล้ว',
+              400: 'มีผู้ใช้ได้บันทึกข้อมูลนี้แล้ว กรุณาติดต่อผู้ดูแล',
               500: 'เกิดข้อผิดพลาด',
             };
             toast.error(errorMessages[response?.status] || 'เกิดข้อผิดพลาดที่เซิฟเวอร์', { id: loadingToastId });
