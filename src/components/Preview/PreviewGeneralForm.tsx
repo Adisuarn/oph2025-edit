@@ -349,7 +349,7 @@ const PreviewGeneralForm: React.FC<{
                   </div>
                 </div>
                 <div className="relative w-4/6 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
-                  <div className="absolute -right-12 -top-40">
+                  <div className="absolute -right-14 -top-40">
                     <Frames className="w-16 sm:hidden" />
                   </div>
                   <div className="absolute -right-20 -top-96 md:-right-36 lg:-right-56 lg:-top-[420px]">

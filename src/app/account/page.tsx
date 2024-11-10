@@ -9,11 +9,12 @@ import LogoutButton from '@/components/LogoutButton'
 import Section from '@/vectors/dashboard/Section'
 
 const StatusMessage = ({ status }: { status: Status }) => {
-  const statusInfo = {
-    [Status.APPROVED]: { color: '#19C57C', text: 'ผ่านการตรวจสอบ' },
-    [Status.REJECTED]: { color: '#E80808', text: 'ไม่ผ่านการตรวจสอบ' },
-    [Status.PENDING]: { color: '#FCB52B', text: 'อยู่ระหว่างการตรวจสอบ' },
-  }[status] || null
+  const statusInfo =
+    {
+      [Status.APPROVED]: { color: '#19C57C', text: 'ผ่านการตรวจสอบ' },
+      [Status.REJECTED]: { color: '#E80808', text: 'ไม่ผ่านการตรวจสอบ' },
+      [Status.PENDING]: { color: '#FCB52B', text: 'อยู่ระหว่างการตรวจสอบ' },
+    }[status] || null
 
   return statusInfo ? (
     <div className="mt-2 flex items-center justify-center space-x-1 sm:mt-0">
@@ -29,7 +30,6 @@ const StatusMessage = ({ status }: { status: Status }) => {
 }
 
 const AccountPage = async () => {
-
   const userResponse = await apiFunction('GET', '/user', {})
 
   const { tag, name, key, picture, TUCMC } = userResponse.data
@@ -45,18 +45,19 @@ const AccountPage = async () => {
   const submittedInit = !!tag
 
   return (
-    <section className="flex h-screen flex-col items-center justify-center text-formText space-y-2 sm:space-y-4">
+    <section className="flex h-screen flex-col items-center justify-center space-y-2 text-formText sm:space-y-4">
       <p className="mb-2 text-xs sm:mb-0 sm:text-lg">
         {submittedInit ? 'ข้อมูลหน่วยงาน' : 'ยินดีต้อนรับ'}
       </p>
       <div className="h-16 w-16 overflow-hidden rounded-full sm:h-20 sm:w-20">
         <Image src={picture} alt="profile" width={150} height={150} />
       </div>
-      <p className="relative -space-y-2 bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-xl font-bold text-center text-transparent sm:flex sm:text-2xl md:text-4xl">
+      <p className="relative -space-y-2 bg-gradient-to-b from-heroFirst via-heroMiddle to-greenText bg-clip-text text-center text-xl font-bold leading-[2.2] text-transparent sm:flex sm:text-2xl sm:leading-[2] md:text-4xl md:leading-[1.8]">
         {submittedInit ? thainame : name}
       </p>
+
       {submittedInit && <p className="opacity-70">จำนวนสมาชิก {members} คน</p>}
-      <Section className="w-[80vw] -my-5 sm:w-full" />
+      <Section className="-my-5 w-[80vw] sm:w-full" />
 
       <Link
         href={
