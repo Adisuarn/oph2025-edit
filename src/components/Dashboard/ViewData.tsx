@@ -176,13 +176,12 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
         </div>
 
         <div className="mt-10 flex flex-col items-center pt-5">
-          {data.data.status === Status.REJECTED && data.data.error && (
+          {data.data.error !== "" && (
             <div className="mx-20 mb-7 rounded-md border border-red-400 bg-red-100 px-4 py-2 text-center text-red-600">
               <p className="my-5 text-3xl">เหตุผลที่ปฎิเสธ</p>
               <div className="text-left">{data.data.error}</div>
             </div>
           )}
-
           <div className="text-[#2f2f2f]"> ข้อมูลอัปเดต {formattedDate}</div>
           {data.data.updatedBy && (
             <div className="text-[#2f2f2f]">

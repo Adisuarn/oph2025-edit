@@ -65,6 +65,7 @@ const DashboardTUCMC: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const [viewDataLoading, setViewDataLoading] = useState<boolean>(false)
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false)
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false); 
@@ -100,6 +101,23 @@ const DashboardTUCMC: React.FC = () => {
       dispatch({ type: 'SET_STATUS', payload: Status.PENDING })
     }
   }, [data])
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobileDevice = window.innerWidth <= 768; // Check if the width is less than or equal to 768px for mobile devices
+      const isMobileLandscape = isMobileDevice && window.innerWidth > window.innerHeight; // Detect mobile landscape (width > height)
+      const isIpad = /iPad|Macintosh/i.test(navigator.userAgent) && window.innerHeight > window.innerWidth; // Detect iPad in portrait mode
+
+      // Set isMobile state for both mobile portrait and landscape, and iPad portrait
+      setIsMobile(isMobileDevice || isMobileLandscape || isIpad);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize); // Add resize listener
+
+    return () => window.removeEventListener('resize', handleResize); // Clean up listener on unmount
+  }, []);
+
 
   const handleStatusUpdate = useCallback(
     async (item: any, status: Status, rejectionMessage: string) => {
@@ -211,6 +229,31 @@ const DashboardTUCMC: React.FC = () => {
     },
     [filterState, handleStatusUpdate, viewDataLoading],
   )
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col items-center justify-center p-6 bg-gray-100 rounded-lg shadow-lg">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          className="w-16 h-16 text-gray-500 mb-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 2v20m-7-7l7 7 7-7"
+          />
+        </svg>
+        <p className="text-center text-xl font-semibold text-gray-800">
+          Content not available for your device.
+        </p>
+      </div>
+    );
+  }
+
 
   return (
     <>
