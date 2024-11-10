@@ -46,7 +46,7 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
   })
 
   const onSubmit = useCallback(
-    async (values: { tagOptions: string ; keyOptions: string }) => {
+    async (values: { tagOptions: string; keyOptions: string }) => {
       const selectedTag = tagOptions.find(tag => tag.value === values.tagOptions);
       const selectedName = selectedTag ? (selectedTag.options as Record<string, string>)[values.keyOptions] || '' : '';
       const result = await Swal.fire({
@@ -123,7 +123,9 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
                   <span className="absolute -top-2 left-3 bg-white px-1 text-xs text-[#A9A9A9]">
                     Email
                   </span>
-                  <p className="sm:text-md text-xs text-[#A9A9A9] md:text-lg">{dataRecord.email}</p>
+                  <div className="overflow-scroll">
+                    <p className="sm:text-md text-xs text-[#A9A9A9] md:text-lg py-1">{dataRecord.email}</p>
+                  </div>
                 </div>
 
                 <div className="flex flex-col space-y-2">
@@ -148,7 +150,17 @@ const Forms: React.FC<FormProps> = ({ dataRecord }) => {
                 <Field
                   as="select"
                   name="keyOptions"
-                  className={`lg:w-auto form-select rounded-md border border-gray md:w-48 bg-white px-8 py-2 pl-2 ${values.keyOptions ? 'text-black' : 'text-[#A9A9A9]'}`}
+                  className={`
+    form-select 
+    rounded-md 
+    border border-gray 
+    bg-white 
+    px-8 py-2 
+    pl-2
+    w-full  // Ensures the select field takes full width on smaller screens
+    sm:w-48 md:w-60 lg:w-96 xl:w-auto 2xl:w-auto  // Adjust width for larger screens
+    ${values.keyOptions ? 'text-black' : 'text-[#A9A9A9]'}
+  `}
                   disabled={isKeyOptionsDisabled}
                 >
                   <option value="" disabled hidden>
