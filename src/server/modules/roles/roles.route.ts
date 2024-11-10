@@ -13,7 +13,7 @@ import { createGifted } from '@/server/modules/gifted/gifted.controller'
 export const rolesRouter = new Elysia({ prefix: '/roles' }).post(
   '/record',
   async ({ body, set }) => {
-    if (!body.email.includes('student.triamudom.ac.th'))
+    if (!body.email.includes('triamudom.ac.th'))
       return error(400, 'Provied Email Not Triam Udom')
     if (!(await prisma.user.findUnique({ where: { email: body.email } })))
       return error(404, 'User Not Found')
