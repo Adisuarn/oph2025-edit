@@ -11,7 +11,7 @@ import {
   updateProgramData,
   updateProgramReview,
 } from '@modules/programs/programs.controller'
-import { getAllData, getDataByKey, updateStatus } from '@modules/tucmc/tucmc.controller'
+import { getAllData, getDataByKey, updateStatus, handlerWrongSubmit } from '@modules/tucmc/tucmc.controller'
 import { createEverything } from '@utils/create'
 import { ReviewData, Status, Tag } from '@utils/type'
 import { Elysia, error, t } from 'elysia'
@@ -22,9 +22,19 @@ import {
   importOrganizationData,
   importProgramData,
 } from '@/server/utils/importdata'
-import { EncodedUnionField, StringField } from '@/server/utils/validate'
+import { EncodedUnionField, StringField, UnionField } from '@/server/utils/validate'
+import { prisma } from '@/server/utils/db'
 
 export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
+  .post('/getuser', async ({ body }) => {
+    const user = await prisma.user.findUnique({ where: { email: body.email } })
+    if (!user) return error(404, 'User not found')
+    return user
+  }, {
+    body: t.Object({
+      email: StringField(true, 'Invalid Email', 'email'),
+    }),
+  })
   .get('/data', async () => {
     const response = await getAllData()
     switch (response.status) {
@@ -276,4 +286,32 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
     await importOrganizationData()
     await importProgramData()
     return { success: true }
+  })
+  .patch('/fixuser', async ({ body }) => {
+    const response = await handlerWrongSubmit(body.email, body.tag, body.key)
+    switch (response.status) {
+      case 200:
+        return response.message
+      case 400:
+        return error(400, response.message)
+      case 404:
+        return error(404, response.message)
+      case 500:
+        return error(500, 'Error while handling wrong submit')
+    }
+  }, {
+    body: t.Object({
+      email: StringField(true, 'Invalid Email', 'email'),
+      tag: t.Enum(Tag, {
+        error() {
+          return 'Invalid Tag'
+        },
+      }),
+      key: UnionField(true, 'Invalid Key', [
+        ...Object.keys(AllData.Organizations),
+        ...Object.keys(AllData.Clubs).map(decodeURIComponent),
+        ...Object.keys(AllData.Programs),
+        ...Object.keys(AllData.Gifted),
+      ]),
+    }),
   })

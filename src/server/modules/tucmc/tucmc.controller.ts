@@ -136,3 +136,148 @@ export const getDataByKey = async (tag: string, key: string) => {
   }
   return { status: 200, message: 'Getting data by key successfully', data }
 }
+
+export const handlerWrongSubmit = async (email: string, changedTag: any, changedKey: any) => {
+  const user = await prisma.user.findUnique({
+    where: { email },
+  })
+
+  const upperCaseTag = changedTag.charAt(0).toUpperCase() + changedTag.slice(1);
+
+  const isKeyInTag = Object.keys(AllData[upperCaseTag as keyof typeof AllData]).includes(changedKey)
+  if(!isKeyInTag) return { status: 400, message: 'Key and Tag mismatch' }
+
+  if (!user) return { status: 404, message: 'User not found' }
+  if (user.key === changedKey) return { status: 400, message: 'Key is the same' }
+
+  const resetData = async (tag: Tag) => {
+    switch (tag) {
+      case Tag.CLUB:
+        await prisma.clubs.update({
+          where: { key: user.key },
+          data: {
+            email: '',
+            updatedBy: '',
+          }
+        })
+        break
+      case Tag.ORGANIZATION:
+        await prisma.organizations.update({
+          where: { key: user.key },
+          data: {
+            email: '',
+            updatedBy: '',
+          }
+        })
+        break
+      case Tag.PROGRAM:
+        await prisma.programs.update({
+          where: { key: user.key },
+          data: {
+            email: '',
+            updatedBy: '',
+          }
+        })
+        break
+      case Tag.GIFTED:
+        await prisma.gifted.update({
+          where: { key: user.key },
+          data: {
+            email: '',
+            updatedBy: '',
+          }
+        })
+        break
+    }
+  }
+
+  const updateDataByTag = async (tag: Tag, key: any) => {
+    switch (tag) {
+      case Tag.CLUB:
+        await prisma.clubs.update({
+          where: { key },
+          data: {
+            email: email,
+            updatedBy: email,
+          }
+        })
+        await prisma.user.update({
+          where: { email },
+          data: {
+            key: key,
+            tag: tag,
+          }
+        })
+        break
+      case Tag.ORGANIZATION:
+        await prisma.organizations.update({
+          where: { key },
+          data: {
+            email: email,
+            updatedBy: email,
+          }
+        })
+        await prisma.user.update({
+          where: { email },
+          data: {
+            key: key,
+            tag: tag,
+          }
+        })
+        break
+      case Tag.PROGRAM:
+        await prisma.programs.update({
+          where: { key },
+          data: {
+            email: email,
+            updatedBy: email,
+          }
+        })
+        await prisma.user.update({
+          where: { email },
+          data: {
+            key: key,
+            tag: tag,
+          }
+        })
+        break
+      case Tag.GIFTED:
+        await prisma.gifted.update({
+          where: { key },
+          data: {
+            email: email,
+            updatedBy: email,
+          }
+        })
+        await prisma.user.update({
+          where: { email },
+          data: {
+            key: key,
+            tag: tag,
+          }
+        })
+        break
+    }
+  }
+
+  switch (user.tag) {
+    case Tag.CLUB:
+      await resetData(user.tag)
+      await updateDataByTag(changedTag, changedKey)
+      return { status: 200, message: `Change user ${email} to ${changedTag} and ${changedKey} successfully` }
+    case Tag.ORGANIZATION:
+      await resetData(user.tag)
+      await updateDataByTag(changedTag, changedKey)
+      return { status: 200, message: `Change user ${email} to ${changedTag} and ${changedKey} successfully` }
+    case Tag.PROGRAM:
+      await resetData(user.tag)
+      await updateDataByTag(changedTag, changedKey)
+      return { status: 200, message: `Change user ${email} to ${changedTag} and ${changedKey} successfully` }
+    case Tag.GIFTED:
+      await resetData(user.tag)
+      await updateDataByTag(changedTag, changedKey)
+      return { status: 200, message: `Change user ${email} to ${changedTag} and ${changedKey} successfully` }
+    default:
+      return { status: 400, message: 'Invalid tag' }
+  }
+}

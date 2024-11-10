@@ -11,6 +11,7 @@ import BookIcon from '@/vectors/dashboard/BookIcon'
 import PeopleIcon from '@/vectors/dashboard/PeopleIcon'
 import { fetchHandler, viewHandler } from './page.action'
 import LoadingSpinner from '@/components/Dashboard/LoadingSpinner'
+import Modal from '@/components/Dashboard/Modal/Modal'
 
 const HamburgerMenu = dynamic(() => import('@components/Dashboard/Hamburger'), { 
   ssr: false,
@@ -63,6 +64,10 @@ const DashboardTUCMC: React.FC = () => {
   const [filterState, dispatch] = useReducer(filterReducer, initialState)
   const [loading, setLoading] = useState<boolean>(false)
   const [viewDataLoading, setViewDataLoading] = useState<boolean>(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false); 
 
   const fetchData = useCallback(async () => {
     setLoading(true)
@@ -232,7 +237,17 @@ const DashboardTUCMC: React.FC = () => {
                     </p>
                   </div>
                 </div>
-                <HamburgerMenu onFilterSelect={(filter) => dispatch({ type: 'SET_FILTER', payload: filter })} selectedFilter={filterState.selectedFilter} />
+                <div className="flex">
+                    <button
+                      type="button"
+                      onClick={openModal}
+                      className="mr-9 font-Thai text-lg text-white bg-[#FCB528] hover:bg-[#f59e0b] px-4 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all"
+                    >
+                      แก้ไขข้อมูลผู้ใช้งาน
+                    </button>
+
+                    <HamburgerMenu onFilterSelect={(filter) => dispatch({ type: 'SET_FILTER', payload: filter })} selectedFilter={filterState.selectedFilter} />
+                </div>
               </div>
 
               <div className="mt-4 flex justify-between space-x-4">
@@ -264,6 +279,7 @@ const DashboardTUCMC: React.FC = () => {
           )}
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
     </>
   )
 }
