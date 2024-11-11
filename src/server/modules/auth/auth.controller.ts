@@ -80,10 +80,18 @@ export const getGoogleUser = async (req: Request) => {
       })
       userId = user.id
     }
+
     const session = await lucia.createSession(userId, {})
     const sessionCookie = lucia.createSessionCookie(session.id)
     cookies().delete('codeVerifier')
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
+
+
+    const userAgent = window.navigator.userAgent
+
+    if (userAgent.includes('Mobile') && (userAgent.includes('iPhone') || userAgent.includes('iPad'))) 
+      return window.location.href = `x-safari-${window.location.href}`
+
     return { status: 200, message: 'Login success' }
   } catch (err) {
     return { status: 500, message: 'Internal Server Error' }

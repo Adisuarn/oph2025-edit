@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import { Status } from '@utils/type'
-import { ErrorMessage, Field, Form, Formik } from 'formik'
+import { ErrorMessage, Field, Form, Formik, useFormikContext } from 'formik'
 import { FaPen } from 'react-icons/fa'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 import * as Yup from 'yup'
@@ -97,7 +97,7 @@ const GeneralForm: React.FC<{
     })
 
   const [image1, setImage1] = useState<File | null>(null)
-  const [imageUrl1, setImageUrl1] = useState<string | null>(editFormData.captureimg1)
+  const [imageUrl1, setImageUrl1] = useState(editFormData.captureimg1)
   const [displayImage1, setDisplayImage1] = useState<boolean>(editFormData.captureimg1)
   const [image2, setImage2] = useState<File | null>(null)
   const [imageUrl2, setImageUrl2] = useState<string | null>(editFormData.captureimg2)
@@ -141,9 +141,16 @@ const GeneralForm: React.FC<{
 
   useEffect(() => {
     if (image1) {
-      const imageUrl1 = URL.createObjectURL(image1)
-      setImageUrl1(imageUrl1)
-      return () => URL.revokeObjectURL(imageUrl1)
+      const urlImg1 = URL.createObjectURL(image1)
+      setImageUrl1(urlImg1)
+
+      const reader = new FileReader()
+      reader.readAsDataURL(image1)
+
+      reader.onloadend = () => {
+        const base64data = reader.result;
+        localStorage.setItem("capimg1", base64data as string)
+      };
     }
   }, [image1])
 
@@ -163,9 +170,16 @@ const GeneralForm: React.FC<{
 
   useEffect(() => {
     if (image2) {
-      const imageUrl2 = URL.createObjectURL(image2)
-      setImageUrl2(imageUrl2)
-      return () => URL.revokeObjectURL(imageUrl2)
+      const urlImg2 = URL.createObjectURL(image2)
+      setImageUrl2(urlImg2)
+
+      const reader = new FileReader()
+      reader.readAsDataURL(image2)
+
+      reader.onloadend = () => {
+        const base64data = reader.result;
+        localStorage.setItem("capimg2", base64data as string)
+      };
     }
   }, [image2])
 
@@ -185,9 +199,16 @@ const GeneralForm: React.FC<{
 
   useEffect(() => {
     if (image3) {
-      const imageUrl3 = URL.createObjectURL(image3)
-      setImageUrl3(imageUrl3)
-      return () => URL.revokeObjectURL(imageUrl3)
+      const urlImg3 = URL.createObjectURL(image3)
+      setImageUrl3(urlImg3)
+
+      const reader = new FileReader()
+      reader.readAsDataURL(image3)
+
+      reader.onloadend = () => {
+        const base64data = reader.result;
+        localStorage.setItem("capimg3", base64data as string)
+      };
     }
   }, [image3])
 
@@ -207,9 +228,16 @@ const GeneralForm: React.FC<{
 
   useEffect(() => {
     if (image4) {
-      const imageUrl4 = URL.createObjectURL(image4)
-      setImageUrl4(imageUrl4)
-      return () => URL.revokeObjectURL(imageUrl4)
+      const urlImg4 = URL.createObjectURL(image4)
+      setImageUrl4(urlImg4)
+
+      const reader = new FileReader()
+      reader.readAsDataURL(image4)
+
+      reader.onloadend = () => {
+        const base64data = reader.result;
+        localStorage.setItem("profile1", base64data as string)
+      };
     }
   }, [image4])
 
@@ -229,9 +257,16 @@ const GeneralForm: React.FC<{
 
   useEffect(() => {
     if (image5) {
-      const imageUrl5 = URL.createObjectURL(image5)
-      setImageUrl5(imageUrl5)
-      return () => URL.revokeObjectURL(imageUrl5)
+      const urlImg5 = URL.createObjectURL(image5)
+      setImageUrl5(urlImg5)
+
+      const reader = new FileReader()
+      reader.readAsDataURL(image5)
+
+      reader.onloadend = () => {
+        const base64data = reader.result;
+        localStorage.setItem("profile2", base64data as string)
+      };
     }
   }, [image5])
 
@@ -251,9 +286,16 @@ const GeneralForm: React.FC<{
 
   useEffect(() => {
     if (image6) {
-      const imageUrl6 = URL.createObjectURL(image6)
-      setImageUrl6(imageUrl6)
-      return () => URL.revokeObjectURL(imageUrl6)
+      const urlImg6 = URL.createObjectURL(image6)
+      setImageUrl6(urlImg6)
+
+      const reader = new FileReader()
+      reader.readAsDataURL(image6)
+
+      reader.onloadend = () => {
+        const base64data = reader.result;
+        localStorage.setItem("profile3", base64data as string)
+      };
     }
   }, [image6])
 
@@ -273,12 +315,61 @@ const GeneralForm: React.FC<{
 
   useEffect(() => {
     if (clubLogo) {
-      const clubLogoUrl = URL.createObjectURL(clubLogo)
-      setClubLogoUrl(clubLogoUrl)
-      return () => URL.revokeObjectURL(clubLogoUrl)
+      const urlLogo = URL.createObjectURL(clubLogo)
+      setClubLogoUrl(urlLogo)
+
+      const reader = new FileReader()
+      reader.readAsDataURL(clubLogo)
+
+      reader.onloadend = () => {
+        const base64data = reader.result;
+        localStorage.setItem("logo", base64data as string)
+      };
     }
   }, [clubLogo])
 
+  useEffect(() => {
+    localStorage.setItem('check', 'true')
+
+    localStorage.setItem('Members', editFormData.members)
+    localStorage.setItem('IG', editFormData.ig)
+    localStorage.setItem('FB', editFormData.fb)
+    localStorage.setItem('Others', editFormData.others)
+
+    localStorage.setItem('P1Gen', review1.gen)
+    localStorage.setItem('P2Gen', review2.gen)
+    localStorage.setItem('P3Gen', review3.gen)
+
+    localStorage.setItem('P1Nick', review1.nick)
+    localStorage.setItem('P2Nick', review2.nick)
+    localStorage.setItem('P3Nick', review3.nick)
+
+    localStorage.setItem('P1Contact', review1.contact)
+    localStorage.setItem('P2Contact', review2.contact)
+    localStorage.setItem('P3Contact', review3.contact)
+
+    localStorage.setItem('PhotoDesc1', editFormData.descimg1)
+    localStorage.setItem('PhotoDesc2', editFormData.descimg2)
+    localStorage.setItem('PhotoDesc3', editFormData.descimg3)
+  
+    localStorage.setItem('capimg1', editFormData.captureimg1)
+    localStorage.setItem('capimg2', editFormData.captureimg2)
+    localStorage.setItem('capimg3', editFormData.captureimg3)
+    
+    localStorage.setItem('profile1', review1.profile)
+    localStorage.setItem('profile2', review2.profile)
+    localStorage.setItem('profile3', review3.profile)
+
+    if (editFormData.tagThai === 'ชมรม') 
+      localStorage.setItem('logo', editFormData.logo)
+    
+  })
+
+  function handleChange(key: string, e: any) {
+      const nv = e.target.value
+      localStorage.setItem(key, nv)
+  }  
+  
   return (
     <section className="mx-10 mt-16 sm:mx-24">
       <ToastContainer />
@@ -616,6 +707,7 @@ const GeneralForm: React.FC<{
                         type="text"
                         name="Members"
                         className="sm:text-md w-12 bg-transparent text-center text-xs text-white md:text-lg"
+                        onKeyUp={(e: any) => handleChange('Members', e)}
                       />
                       <FaPen className="-mt-4 h-2 text-white" />
                       <p className="sm:text-md text-xs md:text-lg">คน</p>
@@ -628,6 +720,7 @@ const GeneralForm: React.FC<{
                             type="text"
                             name="IG"
                             className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            onKeyUp={(e: any) => handleChange('IG', e)}
                           />
                           <FaPen className="h-1 text-white sm:h-2" />
                         </div>
@@ -637,6 +730,7 @@ const GeneralForm: React.FC<{
                             type="text"
                             name="FB"
                             className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            onKeyUp={(e: any) => handleChange('FB', e)}
                           />
                           <FaPen className="h-1 text-white sm:h-2" />
                         </div>
@@ -646,6 +740,7 @@ const GeneralForm: React.FC<{
                             type="text"
                             name="others"
                             className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            onKeyUp={(e: any) => handleChange('Others', e)}
                           />
                           <FaPen className="h-1 text-white sm:h-2" />
                         </div>
@@ -671,6 +766,7 @@ const GeneralForm: React.FC<{
                           </div>
                         )}
                         <button
+                          type='button'
                           onClick={() => {
                             setDisplayClubLogo(false)
                             setClubLogo(null)
@@ -701,6 +797,7 @@ const GeneralForm: React.FC<{
                           type="text"
                           name="Members"
                           className="sm:text-md w-5 bg-transparent text-center text-[8px] text-white sm:w-12 md:text-lg"
+                          onKeyUp={(e: any) => handleChange('Members', e)}
                         />
                         <FaPen className="-mt-2 h-1 text-white sm:h-2 md:-mt-4" />
                         <p className="sm:text-md text-[8px] md:text-lg">คน</p>
@@ -713,6 +810,7 @@ const GeneralForm: React.FC<{
                               type="text"
                               name="IG"
                               className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                              onKeyUp={(e: any) => handleChange('IG', e)}
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -722,6 +820,7 @@ const GeneralForm: React.FC<{
                               type="text"
                               name="FB"
                               className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                              onKeyUp={(e: any) => handleChange('FB', e)}
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -731,6 +830,7 @@ const GeneralForm: React.FC<{
                               type="text"
                               name="others"
                               className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                              onKeyUp={(e: any) => handleChange('Others', e)}
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -786,6 +886,7 @@ const GeneralForm: React.FC<{
                             </div>
                           )}
                           <button
+                            type='button'
                             onClick={() => {
                               setDisplayImage1(false)
                               setImage1(null)
@@ -812,6 +913,7 @@ const GeneralForm: React.FC<{
                           name="photoDescription1"
                           className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
                           placeholder="Photo description"
+                          onKeyUp={(e: any) => handleChange('PhotoDesc1', e)}
                         />
                         <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
                       </div>
@@ -868,6 +970,7 @@ const GeneralForm: React.FC<{
                             quality={100}
                           />
                           <button
+                            type='button'
                             onClick={() => {
                               setDisplayImage2(false)
                               setImage2(null)
@@ -895,6 +998,7 @@ const GeneralForm: React.FC<{
                           name="photoDescription2"
                           className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
                           placeholder="Photo description"
+                          onKeyUp={(e: any) => handleChange('PhotoDesc2', e)}
                         />
                         <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
                       </div>
@@ -958,6 +1062,7 @@ const GeneralForm: React.FC<{
                             </div>
                           )}
                           <button
+                            type='button'
                             onClick={() => {
                               setDisplayImage3(false)
                               setImage3(null)
@@ -985,6 +1090,7 @@ const GeneralForm: React.FC<{
                           name="photoDescription3"
                           className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
                           placeholder="Photo description"
+                          onKeyUp={(e: any) => handleChange('PhotoDesc3', e)}
                         />
                         <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
                       </div>
@@ -1036,6 +1142,7 @@ const GeneralForm: React.FC<{
                               </div>
                             )}
                             <button
+                             type='button'
                               onClick={() => {
                                 setDisplayImage4(false)
                                 setImage4(null)
@@ -1073,12 +1180,14 @@ const GeneralForm: React.FC<{
                           <label className="text-[8px] text-gray sm:text-sm" htmlFor="P1Gen">
                             เตรียมอุดม{' '}
                           </label>
-                          <Field
+                          <Field 
+                            as="input"
                             type="text"
                             id="P1Gen"
                             name="P1Gen"
                             className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
                             placeholder="xx"
+                            onKeyUp={(e: any) => handleChange("P1Gen", e)}
                           />
                         </div>
                         <ErrorMessage
@@ -1145,6 +1254,7 @@ const GeneralForm: React.FC<{
                                 </div>
                               )}
                               <button
+                              type='button'
                                 onClick={() => {
                                   setDisplayImage5(false)
                                   setImage5(null)
@@ -1236,6 +1346,7 @@ const GeneralForm: React.FC<{
                                 </div>
                               )}
                               <button
+                              type='button'
                                 onClick={() => {
                                   setDisplayImage6(false)
                                   setImage6(null)

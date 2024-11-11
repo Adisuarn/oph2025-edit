@@ -19,6 +19,7 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
 
   const toolbarOptions = [
     [{ header: [1, 2, 3, false] }],
+    [{ color: [] }, { background: [] }],
     ['bold', 'italic', 'underline', 'emoji'],
     [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }, { align: [] }],
     [{ script: 'sub' }, { script: 'super' }],

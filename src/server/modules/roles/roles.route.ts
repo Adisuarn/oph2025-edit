@@ -13,7 +13,7 @@ import { createGifted } from '@/server/modules/gifted/gifted.controller'
 export const rolesRouter = new Elysia({ prefix: '/roles' }).post(
   '/record',
   async ({ body, set }) => {
-    if (!RegexMatching(/@triamudom\.ac\.th$/, body.email))
+    if (!RegexMatching(/^[a-zA-Z0-9]+@(student\.)?triamudom\.ac\.th$/, body.email))
       return error(400, 'Provied Email Not Triam Udom')
     if (!(await prisma.user.findUnique({ where: { email: body.email } })))
       return error(404, 'User Not Found')
@@ -23,64 +23,40 @@ export const rolesRouter = new Elysia({ prefix: '/roles' }).post(
           return error(400, 'Invalid Organization Key')
         const response = await createOrganization(body as Organization)
         switch (response.status) {
-          case 201: {
-            set.status = 201
-            return response
-          }
-          case 400: {
-            return error(400, response.message)
-          }
-          case 500: {
-            return error(500, response.message)
-          }
+          case 201: { set.status = 201; return response }
+          case 400: return error(400, response.message)
+          case 500: return error(500, response.message)
+          default: return error(504, "Unknown Error")
         }
       }
       case Tag.CLUB: {
         if (AllData.Clubs[body.key] === undefined) return error(400, 'Invalid Club Key')
         const response = await createClub(body as Club)
         switch (response.status) {
-          case 201: {
-            set.status = 201
-            return response
-          }
-          case 400: {
-            return error(400, response.message)
-          }
-          case 500: {
-            return error(500, response.message)
-          }
+          case 201: { set.status = 201; return response }
+          case 400: return error(400, response.message)
+          case 500: return error(500, response.message)
+          default: return error(504, "Unknown Error")
         }
       }
       case Tag.PROGRAM: {
         if (AllData.Programs[body.key] === undefined) return error(400, 'Invalid Program Key')
         const response = await createProgram(body as Program)
         switch (response.status) {
-          case 201: {
-            set.status = 201
-            return response
-          }
-          case 400: {
-            return error(400, response.message)
-          }
-          case 500: {
-            return error(500, response.message)
-          }
+          case 201: { set.status = 201; return response }
+          case 400: return error(400, response.message)
+          case 500: return error(500, response.message)
+          default: return error(504, "Unknown Error")
         }
       }
       case Tag.GIFTED: {
         if (AllData.Gifted[body.key] === undefined) return error(400, 'Invalid Gifted Key')
         const response = await createGifted(body as Gifted)
         switch (response.status) {
-          case 201: {
-            set.status = 201
-            return response
-          }
-          case 400: {
-            return error(400, response.message)
-          }
-          case 500: {
-            return error(500, response.message)
-          }
+          case 201: { set.status = 201; return response }
+          case 400: return error(400, response.message)
+          case 500: return error(500, response.message)
+          default: return error(504, "Unknown Error")
         }
       }
       default:

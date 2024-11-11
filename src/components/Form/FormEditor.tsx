@@ -8,9 +8,11 @@ import Quill from 'quill'
 
 Quill.register('modules/emoji', Emoji)
 
+
 const toolbarOptions = [
   [{ header: [1, 2, 3, false] }],
   ['bold', 'italic', 'underline', 'emoji'],
+  [{ color: [] }, { background: [] }],
   [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }, { align: [] }],
   [{ script: 'sub' }, { script: 'super' }],
   [{ indent: '-1' }, { indent: '+1' }],
@@ -28,39 +30,63 @@ const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => {
   }, [])
 
   useEffect(() => {
-    if (isClient && quillRef.current && !editorRef.current) {
-      editorRef.current = new Quill(quillRef.current, {
-        theme: 'snow',
-        modules: {
-          toolbar: toolbarOptions,
-          'emoji-toolbar': true,
-        },
-      })
-
-      // Initialize the content of the editor
-      editorRef.current.root.innerHTML = field.value || ''
-
-      // Update form field on text change
-      editorRef.current.on('text-change', () => {
-        form.setFieldValue(field.name, editorRef.current!.root.innerHTML)
-      })
-    }
-
-    // Cleanup on unmount
-    return () => {
-      if (editorRef.current) {
-        editorRef.current.off('text-change')
+    if (isClient && quillRef.current) {
+      const style = document.createElement('style');
+      style.innerHTML = `
+      .ql-editor {
+        font-family: 'Noto Sans Thai', sans-serif;
       }
+    `;
+      document.head.appendChild(style);
+      if (!editorRef.current) {
+        editorRef.current = new Quill(quillRef.current, {
+          theme: 'snow',
+          modules: {
+            toolbar: toolbarOptions,
+            'emoji-toolbar': true,
+            keyboard: {
+              bindings: {
+                tab: {
+                  key: 9,
+                  handler: function (range: any, context: any) {
+                    editorRef.current!.insertText(range.index, '  ', Quill.sources.USER)
+                    editorRef.current!.setSelection(range.index + 4, 0)
+                    return false
+                  },
+                },
+                newline: {
+                  key: 13,
+                  handler: function (range: any, context: any) {
+                    editorRef.current!.insertText(range.index, '\n', Quill.sources.USER)
+                    editorRef.current!.setSelection(range.index + 1, 0)
+                    return false
+                  },
+                },
+              },
+            },
+          },
+        })
+        editorRef.current.on('text-change', () => {
+          const htmlContent = editorRef.current!.root.innerHTML
+          const formattedContent = htmlContent.replace(/\n/g, '<br>')
+          localStorage.setItem(field.name, formattedContent)
+          form.setFieldValue(field.name, formattedContent, true)
+        })
+      }
+
+      if (field.value && editorRef.current.root.innerHTML !== field.value)
+        editorRef.current.root.innerHTML = field.value
+
     }
-  }, [isClient, field.value, form.setFieldValue, field.name])
+  }, [isClient, field.value, form, field.name])
 
   if (!isClient) {
-    return <div>Loading...</div> // Or return null if you prefer
+    return <div>Loading...</div>
   }
 
   return (
     <div>
-      <div ref={quillRef} />
+    <div ref= { quillRef } />
     </div>
   )
 }

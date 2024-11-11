@@ -41,6 +41,7 @@ const PreviewGeneralForm: React.FC<{
 }> = ({ editFormData, review1, review2, review3, reviews }) => {
   const ReviewAmount = reviews
   const [imageLoaded, setImageLoaded] = useState(false)
+
   const handleImageLoad = () => {
     setImageLoaded(true)
   }
@@ -55,10 +56,10 @@ const PreviewGeneralForm: React.FC<{
       {/* <div className="absolute -top-[74px]">
         <FallingLamp className="w-[100vw] lg:hidden" />
       </div> */}
-      <div className="absolute right-0 z-0 overflow-hidden lg:top-12 xl:top-[168px] 2xl:top-96">
+      <div className="absolute right-0 z-0 overflow-hidden lg:top-0 xl:top-[218px] 2xl:top-[500px]">
         <ClubFallingLamp className="hidden lg:block lg:w-[270px] xl:w-80" />
       </div>
-      <section className="relative z-40 mx-12 pt-48 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[520px]">
+      <section className="relative z-40 mx-12 pt-48 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[550px]">
         <section className="flex items-center justify-between">
           <div className="flex items-center justify-center space-x-1 transition-all hover:scale-105">
             <Link href={`/editingform/${editFormData.tag}`}>
@@ -90,7 +91,7 @@ const PreviewGeneralForm: React.FC<{
                     สมาชิก
                   </p>
                   <p className="from-19% to-94% bg-gradient-to-b from-[#75B667] via-[#15786C] via-80% to-[#0C453E] bg-clip-text text-xl font-bold text-transparent sm:text-6xl">
-                    {editFormData.members}
+                    {localStorage.getItem("check") ? localStorage.getItem("Members") : editFormData.members}
                   </p>
                 </div>
               </div>
@@ -159,12 +160,12 @@ const PreviewGeneralForm: React.FC<{
                 <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[490px] lg:top-0">
                   <Stainedglass className="w-16 sm:w-32 lg:hidden" />
                 </div>
-                <div className="absolute lg:-left-[480px] lg:-top-24 xl:-left-[550px] 2xl:-left-[770px]">
+                <div className="absolute lg:-left-[550px] lg:-top-24 xl:-left-[600px] 2xl:-left-[870px]">
                   <BigStainedGlass className="hidden sm:w-32 md:w-48 lg:block xl:w-52 2xl:w-72" />
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]"
-                  src={editFormData.captureimg1 || ''}
+                  src={localStorage.getItem("check") ? localStorage.getItem("capimg1") : editFormData.captureimg1 || ''}
                   alt="uploaded photo"
                   width={800}
                   height={600}
@@ -192,7 +193,7 @@ const PreviewGeneralForm: React.FC<{
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
             <div className="flex flex-col-reverse items-center justify-between sm:flex-row md:mb-8">
               <div className="relative sm:w-[50vw] md:w-[60vw]">
-                <div className="absolute -right-12 -top-52 z-10 sm:-right-[264px] md:-right-[480px] md:-top-10 xl:-right-[550px] 2xl:-right-[770px]">
+                <div className="absolute -right-12 -top-52 z-10 sm:-right-[264px] md:-right-[480px] md:-top-10 xl:-right-[570px] 2xl:-right-[870px]">
                   <Flower className="w-16 sm:w-28 md:w-52 lg:w-72 2xl:w-96" />
                 </div>
                 <Image
@@ -217,7 +218,7 @@ const PreviewGeneralForm: React.FC<{
                   <p className="sm:text-4xl md:text-5xl lg:text-7xl">ประโยชน์</p>
                   <p className="sm:text-lg md:text-2xl lg:text-4xl">ที่ได้รับ</p>
                   <p className="sm:-mt-2 sm:text-lg md:text-lg lg:text-3xl">จากการเข้าชมรม</p>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center 2xl:justify-start">
                     <SLamp2 className="hidden sm:block sm:w-28" />
                   </div>
                 </div>
@@ -225,7 +226,7 @@ const PreviewGeneralForm: React.FC<{
                 <div className="flex bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col md:ml-4">
                   <p className="sm:text-lg md:text-5xl lg:text-6xl">ตำแหน่ง</p>
                   <p className="sm:text-lg md:text-2xl lg:text-4xl">/หน้าที่</p>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center 2xl:justify-start">
                     <SLamp2 className="hidden sm:block sm:w-28" />
                   </div>
                 </div>
@@ -234,7 +235,7 @@ const PreviewGeneralForm: React.FC<{
                   <p className="sm:text-2xl md:text-7xl">วิชา /</p>
                   <p className="sm:text-lg md:text-2xl">หลักสูตรเพิ่มเติม</p>
                   <p className="sm:text-lg md:text-2xl">ที่เรียน</p>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center 2xl:justify-start">
                     <SLamp2 className="hidden sm:block sm:w-28" />
                   </div>
                 </div>
@@ -282,7 +283,7 @@ const PreviewGeneralForm: React.FC<{
                 <div className="absolute -left-10 -top-60 -z-10">
                   <Lamp className="w-32 sm:hidden" />
                 </div>
-                <div className="absolute -left-[344px] -top-48 md:-left-[480px] xl:-left-[570px] 2xl:-left-[770px]">
+                <div className="absolute -left-[344px] -top-48 lg:-left-[5.5rem] xl:-left-[600px] 2xl:-left-[870px]">
                   <LeftFrames className="hidden sm:block sm:w-32 md:w-44 lg:w-52 2xl:w-72" />
                 </div>
                 <Image

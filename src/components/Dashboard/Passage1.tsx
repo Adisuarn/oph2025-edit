@@ -15,10 +15,11 @@ Quill.register('modules/emoji', Emoji)
 const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
   const quillRef = useRef<HTMLDivElement>(null)
   const editorRef = useRef<Quill | null>(null)
-  const [imageLoaded, setImageLoaded] = useState(false) // Track image loading state
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   const toolbarOptions = [
     [{ header: [1, 2, 3, false] }],
+    [{ color: [] }, { background: [] }],
     ['bold', 'italic', 'underline', 'emoji'],
     [{ list: 'ordered' }, { list: 'bullet' }, { list: 'check' }, { align: [] }],
     [{ script: 'sub' }, { script: 'super' }],
