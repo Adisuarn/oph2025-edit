@@ -49,7 +49,7 @@ const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => {
                   key: 9,
                   handler: function (range: any, context: any) {
                     editorRef.current!.insertText(range.index, '  ', Quill.sources.USER)
-                    editorRef.current!.setSelection(range.index + 4, 0)
+                    editorRef.current!.setSelection(range.index + 2, 0)
                     return false
                   },
                 },

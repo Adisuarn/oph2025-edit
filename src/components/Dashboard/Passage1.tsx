@@ -29,11 +29,38 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
 
   useEffect(() => {
     if (!editorRef.current && quillRef.current) {
+      const style = document.createElement('style');
+      style.innerHTML = `
+      .ql-editor {
+        font-family: 'Noto Sans Thai', sans-serif;
+      }
+    `;
+      document.head.appendChild(style);
       editorRef.current = new Quill(quillRef.current as HTMLDivElement, {
         theme: 'snow',
         modules: {
           toolbar: toolbarOptions,
           'emoji-toolbar': true,
+          keyboard: {
+            bindings: {
+              tab: {
+                key: 9,
+                handler: function (range: any, context: any) {
+                  editorRef.current!.insertText(range.index, '  ', Quill.sources.USER)
+                  editorRef.current!.setSelection(range.index + 2, 0)
+                  return false
+                },
+              },
+              newline: {
+                key: 13,
+                handler: function (range: any, context: any) {
+                  editorRef.current!.insertText(range.index, '\n', Quill.sources.USER)
+                  editorRef.current!.setSelection(range.index + 1, 0)
+                  return false
+                },
+              },
+            },
+          },
         },
       })
 
