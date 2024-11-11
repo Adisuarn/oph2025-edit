@@ -1,5 +1,9 @@
 import { t } from 'elysia'
 
+export function RegexMatching(regex: RegExp, word: string): boolean {
+  return regex.test(word)
+}
+
 export function EncodedUnionField(required: boolean, errorMsg: string, fields: string[]) {
   const encodedFields = fields.map((field) => encodeURIComponent(field))
   return required

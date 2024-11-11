@@ -5,7 +5,7 @@ import { createOrganization } from '@modules/organizations/organizations.control
 import { createProgram } from '@modules/programs/programs.controller'
 import { prisma } from '@utils/db'
 import { Tag } from '@utils/type'
-import { DecodedUnionField, StringField } from '@utils/validate'
+import { DecodedUnionField, StringField, RegexMatching } from '@utils/validate'
 import { Elysia, error, t } from 'elysia'
 
 import { createGifted } from '@/server/modules/gifted/gifted.controller'
@@ -13,7 +13,7 @@ import { createGifted } from '@/server/modules/gifted/gifted.controller'
 export const rolesRouter = new Elysia({ prefix: '/roles' }).post(
   '/record',
   async ({ body, set }) => {
-    if (!body.email.includes('triamudom.ac.th'))
+    if (!RegexMatching(/@triamudom\.ac\.th$/, body.email))
       return error(400, 'Provied Email Not Triam Udom')
     if (!(await prisma.user.findUnique({ where: { email: body.email } })))
       return error(404, 'User Not Found')
