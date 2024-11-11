@@ -185,7 +185,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text1 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-semibold text-greenText sm:text-lg"
+              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-normal text-greenText sm:text-lg"
             ></div>
           </div>
           {/* section 2 */}
@@ -244,7 +244,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text2 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-semibold text-greenText sm:text-lg"
+              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-normal text-greenText sm:text-lg"
             ></div>
           </div>
           {/* section 3 */}
@@ -307,7 +307,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text3 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-semibold text-greenText sm:text-lg"
+              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-normal text-greenText sm:text-lg"
             ></div>
           </div>
           {/* section 3 */}

@@ -1,6 +1,6 @@
 import apiFunction from '@/components/api'
 import Forms from '@/components/Forms'
-
+import React from 'react';
 const FormikControl: React.FC = async () => {
   const response = await apiFunction('GET', '/user', {})
 
