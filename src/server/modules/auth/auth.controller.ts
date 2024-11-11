@@ -89,7 +89,8 @@ export const getGoogleUser = async (req: Request) => {
     if (typeof window !== 'undefined') {
       const userAgent = window.navigator.userAgent
       if (userAgent.includes('Mobile') && (userAgent.includes('iPhone') || userAgent.includes('iPad')))
-        return window.location.href = `x-safari-${window.location.href}`
+        window.location.href = `x-safari-${window.location.href}`
+        return { status: 200, message: 'Login success' }
     }
 
     return { status: 200, message: 'Login success' }
