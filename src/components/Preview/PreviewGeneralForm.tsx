@@ -91,7 +91,8 @@ const PreviewGeneralForm: React.FC<{
                     สมาชิก
                   </p>
                   <p className="from-19% to-94% bg-gradient-to-b from-[#75B667] via-[#15786C] via-80% to-[#0C453E] bg-clip-text text-xl font-bold text-transparent sm:text-6xl">
-                    {localStorage.getItem("check") ? localStorage.getItem("Members") : editFormData.members}
+                    {/* {localStorage.getItem("check") ? localStorage.getItem("Members") : editFormData.members} */}
+                    {editFormData.members}
                   </p>
                 </div>
               </div>
@@ -165,7 +166,8 @@ const PreviewGeneralForm: React.FC<{
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]"
-                  src={localStorage.getItem("check") ? localStorage.getItem("capimg1") : editFormData.captureimg1 || ''}
+                  //src={localStorage.getItem("check") ? localStorage.getItem("capimg1") : editFormData.captureimg1 || ''}
+                  src={editFormData.captureimg1 || ''}
                   alt="uploaded photo"
                   width={800}
                   height={600}
