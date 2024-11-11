@@ -24,7 +24,6 @@ const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => {
   const quillRef = useRef<HTMLDivElement>(null)
   const editorRef = useRef<Quill | null>(null)
 
-  // Only run this on the client side
   useEffect(() => {
     setIsClient(true)
   }, [])

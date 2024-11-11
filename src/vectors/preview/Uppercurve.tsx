@@ -34,8 +34,8 @@ const Uppercurve: FC<{
         <path
           d="M1178.31 477.764L1176.88 672.03"
           stroke="url(#paint3_linear_852_1142)"
-          stroke-width="9.99898"
-          stroke-linecap="round"
+          strokeWidth="9.99898"
+          strokeLinecap="round"
         />
       </g>
       <ellipse
@@ -77,8 +77,8 @@ const Uppercurve: FC<{
         <path
           d="M1117.71 422L1117.09 505.821"
           stroke="url(#paint9_linear_852_1142)"
-          stroke-width="5.64101"
-          stroke-linecap="round"
+          strokeWidth="5.64101"
+          strokeLinecap="round"
         />
       </g>
       <ellipse
@@ -120,8 +120,8 @@ const Uppercurve: FC<{
         <path
           d="M63 435L64 606"
           stroke="url(#paint15_linear_852_1142)"
-          stroke-width="11.8286"
-          stroke-linecap="round"
+          strokeWidth="11.8286"
+          strokeLinecap="round"
         />
       </g>
       <ellipse
@@ -170,12 +170,12 @@ const Uppercurve: FC<{
         <path
           d="M126.097 258.317V359.443"
           stroke="url(#paint22_linear_852_1142)"
-          stroke-width="21.0906"
+          strokeWidth="21.0906"
         />
         <path
           d="M246.288 257.483L-25.5918 258.317"
           stroke="url(#paint23_linear_852_1142)"
-          stroke-width="21.0906"
+          strokeWidth="21.0906"
         />
         <path
           d="M369.008 207.168C374.635 204.397 376.951 197.59 374.181 191.963C371.411 186.336 364.603 184.02 358.976 186.79L369.008 207.168ZM-17.0074 543.435C77.3079 434.537 121.676 376.505 169.009 332.162C215.643 288.473 264.952 258.396 369.008 207.168L358.976 186.79C254.465 238.243 202.658 269.515 153.481 315.586C105.002 361.002 58.8629 421.14 -34.1762 528.565L-17.0074 543.435Z"
@@ -244,8 +244,8 @@ const Uppercurve: FC<{
         <path
           d="M-47.2217 394.188H22.7223"
           stroke="url(#paint38_linear_852_1142)"
-          stroke-width="21.0906"
-          stroke-linecap="round"
+          strokeWidth="21.0906"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter11_i_852_1142)">
@@ -268,8 +268,8 @@ const Uppercurve: FC<{
         <path
           d="M1176.24 394.189H1246.18"
           stroke="url(#paint43_linear_852_1142)"
-          stroke-width="21.0906"
-          stroke-linecap="round"
+          strokeWidth="21.0906"
+          strokeLinecap="round"
         />
       </g>
       <g filter="url(#filter12_d_852_1142)">
@@ -300,8 +300,8 @@ const Uppercurve: FC<{
         <path
           d="M547.166 184.409H650.683"
           stroke="url(#paint50_linear_852_1142)"
-          stroke-width="31.214"
-          stroke-linecap="round"
+          strokeWidth="31.214"
+          strokeLinecap="round"
         />
       </g>
       <defs>
@@ -312,9 +312,9 @@ const Uppercurve: FC<{
           width="252.599"
           height="414.958"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feGaussianBlur stdDeviation="0.357106" result="effect1_foregroundBlur_852_1142" />
         </filter>
@@ -325,9 +325,9 @@ const Uppercurve: FC<{
           width="186.329"
           height="306.093"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feGaussianBlur stdDeviation="0.263418" result="effect1_foregroundBlur_852_1142" />
         </filter>
@@ -338,9 +338,9 @@ const Uppercurve: FC<{
           width="298.82"
           height="490.886"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feGaussianBlur stdDeviation="0.422449" result="effect1_foregroundBlur_852_1142" />
         </filter>
@@ -351,9 +351,9 @@ const Uppercurve: FC<{
           width="22.8542"
           height="215.693"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -379,9 +379,9 @@ const Uppercurve: FC<{
           width="12.7037"
           height="95.9083"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -407,9 +407,9 @@ const Uppercurve: FC<{
           width="26.3465"
           height="196.346"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -435,9 +435,9 @@ const Uppercurve: FC<{
           width="422.506"
           height="370.794"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -466,9 +466,9 @@ const Uppercurve: FC<{
           width="427.283"
           height="373.502"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -497,9 +497,9 @@ const Uppercurve: FC<{
           width="630.725"
           height="405.038"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -528,9 +528,9 @@ const Uppercurve: FC<{
           width="630.725"
           height="405.038"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -559,9 +559,9 @@ const Uppercurve: FC<{
           width="143.3"
           height="147.519"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
@@ -582,9 +582,9 @@ const Uppercurve: FC<{
           width="143.299"
           height="147.519"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"
@@ -605,9 +605,9 @@ const Uppercurve: FC<{
           width="225.807"
           height="227.671"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -634,9 +634,9 @@ const Uppercurve: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1178.31 764.164) rotate(90) scale(177.839 98.4631)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.3" stop-color="#FFF7EB" stop-opacity="0.5" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.3" stopColor="#FFF7EB" stopOpacity="0.5" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_852_1142"
@@ -646,9 +646,9 @@ const Uppercurve: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(1118.14 573.783) rotate(90) scale(131.183 72.631)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.3" stop-color="#FFF7EB" stop-opacity="0.5" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.3" stopColor="#FFF7EB" stopOpacity="0.5" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <radialGradient
           id="paint2_radial_852_1142"
@@ -658,9 +658,9 @@ const Uppercurve: FC<{
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(65.3759 715.012) rotate(90) scale(210.38 116.48)"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.3" stop-color="#FFF7EB" stop-opacity="0.5" />
-          <stop offset="1" stop-color="white" stop-opacity="0" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.3" stopColor="#FFF7EB" stopOpacity="0.5" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
         </radialGradient>
         <linearGradient
           id="paint3_linear_852_1142"
@@ -670,9 +670,9 @@ const Uppercurve: FC<{
           y2="428.348"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_852_1142"
@@ -682,8 +682,8 @@ const Uppercurve: FC<{
           y2="786.475"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_852_1142"
@@ -693,10 +693,10 @@ const Uppercurve: FC<{
           y2="870.093"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_852_1142"
@@ -706,10 +706,10 @@ const Uppercurve: FC<{
           y2="870.093"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_852_1142"
@@ -719,8 +719,8 @@ const Uppercurve: FC<{
           y2="764.577"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="1" stop-color="#F5EEBF" stop-opacity="0" />
+          <stop stopColor="#F28041" />
+          <stop offset="1" stopColor="#F5EEBF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint8_linear_852_1142"
@@ -730,8 +730,8 @@ const Uppercurve: FC<{
           y2="733.764"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="1" stop-color="#F5EEBF" stop-opacity="0" />
+          <stop stopColor="#F28041" />
+          <stop offset="1" stopColor="#F5EEBF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint9_linear_852_1142"
@@ -741,9 +741,9 @@ const Uppercurve: FC<{
           y2="399.453"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint10_linear_852_1142"
@@ -753,8 +753,8 @@ const Uppercurve: FC<{
           y2="590.241"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint11_linear_852_1142"
@@ -764,10 +764,10 @@ const Uppercurve: FC<{
           y2="651.457"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint12_linear_852_1142"
@@ -777,10 +777,10 @@ const Uppercurve: FC<{
           y2="651.457"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint13_linear_852_1142"
@@ -790,8 +790,8 @@ const Uppercurve: FC<{
           y2="574.088"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="1" stop-color="#F5EEBF" stop-opacity="0" />
+          <stop stopColor="#F28041" />
+          <stop offset="1" stopColor="#F5EEBF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint14_linear_852_1142"
@@ -801,8 +801,8 @@ const Uppercurve: FC<{
           y2="551.358"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="1" stop-color="#F5EEBF" stop-opacity="0" />
+          <stop stopColor="#F28041" />
+          <stop offset="1" stopColor="#F5EEBF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint15_linear_852_1142"
@@ -812,9 +812,9 @@ const Uppercurve: FC<{
           y2="378.391"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.5" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.5" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint16_linear_852_1142"
@@ -824,8 +824,8 @@ const Uppercurve: FC<{
           y2="741.407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint17_linear_852_1142"
@@ -835,8 +835,8 @@ const Uppercurve: FC<{
           y2="741.407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F9E8BD" stop-opacity="0.29" />
-          <stop offset="1" stop-color="#FFFFFA" />
+          <stop stopColor="#F9E8BD" stopOpacity="0.29" />
+          <stop offset="1" stopColor="#FFFFFA" />
         </linearGradient>
         <linearGradient
           id="paint18_linear_852_1142"
@@ -846,10 +846,10 @@ const Uppercurve: FC<{
           y2="845.127"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.146327" stop-color="#F28041" />
-          <stop offset="0.30957" stop-color="#D9392B" />
-          <stop offset="0.616247" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.146327" stopColor="#F28041" />
+          <stop offset="0.30957" stopColor="#D9392B" />
+          <stop offset="0.616247" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint19_linear_852_1142"
@@ -859,10 +859,10 @@ const Uppercurve: FC<{
           y2="845.127"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.183058" stop-color="#D9523B" />
-          <stop offset="0.350471" stop-color="#D9392B" />
-          <stop offset="0.455" stop-color="#7E0001" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.183058" stopColor="#D9523B" />
+          <stop offset="0.350471" stopColor="#D9392B" />
+          <stop offset="0.455" stopColor="#7E0001" />
         </linearGradient>
         <linearGradient
           id="paint20_linear_852_1142"
@@ -872,8 +872,8 @@ const Uppercurve: FC<{
           y2="715.501"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="1" stop-color="#F5EEBF" stop-opacity="0" />
+          <stop stopColor="#F28041" />
+          <stop offset="1" stopColor="#F5EEBF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint21_linear_852_1142"
@@ -883,8 +883,8 @@ const Uppercurve: FC<{
           y2="679.05"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F28041" />
-          <stop offset="1" stop-color="#F5EEBF" stop-opacity="0" />
+          <stop stopColor="#F28041" />
+          <stop offset="1" stopColor="#F5EEBF" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint22_linear_852_1142"
@@ -894,8 +894,8 @@ const Uppercurve: FC<{
           y2="365.246"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient
           id="paint23_linear_852_1142"
@@ -905,9 +905,9 @@ const Uppercurve: FC<{
           y2="257.983"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.45" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.45" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint24_linear_852_1142"
@@ -917,10 +917,10 @@ const Uppercurve: FC<{
           y2="0.529228"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.232979" stop-color="#15786C" />
-          <stop offset="0.8" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.232979" stopColor="#15786C" />
+          <stop offset="0.8" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint25_linear_852_1142"
@@ -930,8 +930,8 @@ const Uppercurve: FC<{
           y2="365.247"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient
           id="paint26_linear_852_1142"
@@ -941,9 +941,9 @@ const Uppercurve: FC<{
           y2="257.984"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.45" stop-color="#15786C" />
-          <stop offset="1" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.45" stopColor="#15786C" />
+          <stop offset="1" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint27_linear_852_1142"
@@ -953,10 +953,10 @@ const Uppercurve: FC<{
           y2="-12.7336"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.232979" stop-color="#15786C" />
-          <stop offset="0.855" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.232979" stopColor="#15786C" />
+          <stop offset="0.855" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint28_linear_852_1142"
@@ -966,9 +966,9 @@ const Uppercurve: FC<{
           y2="479.831"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint29_linear_852_1142"
@@ -978,9 +978,9 @@ const Uppercurve: FC<{
           y2="323.163"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint30_linear_852_1142"
@@ -990,9 +990,9 @@ const Uppercurve: FC<{
           y2="478.531"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.294828" stop-color="#0C453E" />
-          <stop offset="0.43023" stop-color="#1B9A8A" />
-          <stop offset="0.634221" stop-color="#F4F15B" />
+          <stop offset="0.294828" stopColor="#0C453E" />
+          <stop offset="0.43023" stopColor="#1B9A8A" />
+          <stop offset="0.634221" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint31_linear_852_1142"
@@ -1002,9 +1002,9 @@ const Uppercurve: FC<{
           y2="479.83"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.210261" stop-color="#0C453E" />
-          <stop offset="0.522445" stop-color="#1B9A8A" />
-          <stop offset="0.878074" stop-color="#F4F15B" />
+          <stop offset="0.210261" stopColor="#0C453E" />
+          <stop offset="0.522445" stopColor="#1B9A8A" />
+          <stop offset="0.878074" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint32_linear_852_1142"
@@ -1014,9 +1014,9 @@ const Uppercurve: FC<{
           y2="323.162"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.381257" stop-color="#0C453E" />
-          <stop offset="0.547861" stop-color="#1B9A8A" />
-          <stop offset="0.813664" stop-color="#E2EA5F" />
+          <stop offset="0.381257" stopColor="#0C453E" />
+          <stop offset="0.547861" stopColor="#1B9A8A" />
+          <stop offset="0.813664" stopColor="#E2EA5F" />
         </linearGradient>
         <linearGradient
           id="paint33_linear_852_1142"
@@ -1026,9 +1026,9 @@ const Uppercurve: FC<{
           y2="478.53"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.294828" stop-color="#0C453E" />
-          <stop offset="0.43023" stop-color="#1B9A8A" />
-          <stop offset="0.634221" stop-color="#F4F15B" />
+          <stop offset="0.294828" stopColor="#0C453E" />
+          <stop offset="0.43023" stopColor="#1B9A8A" />
+          <stop offset="0.634221" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint34_linear_852_1142"
@@ -1038,9 +1038,9 @@ const Uppercurve: FC<{
           y2="428.877"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint35_linear_852_1142"
@@ -1050,10 +1050,10 @@ const Uppercurve: FC<{
           y2="353.634"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint36_linear_852_1142"
@@ -1063,9 +1063,9 @@ const Uppercurve: FC<{
           y2="395.937"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.575792" stop-color="#15786C" />
-          <stop offset="0.88" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.575792" stopColor="#15786C" />
+          <stop offset="0.88" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint37_linear_852_1142"
@@ -1075,9 +1075,9 @@ const Uppercurve: FC<{
           y2="466.407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.291331" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.291331" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint38_linear_852_1142"
@@ -1087,8 +1087,8 @@ const Uppercurve: FC<{
           y2="378.688"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient
           id="paint39_linear_852_1142"
@@ -1098,9 +1098,9 @@ const Uppercurve: FC<{
           y2="428.876"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint40_linear_852_1142"
@@ -1110,10 +1110,10 @@ const Uppercurve: FC<{
           y2="353.633"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint41_linear_852_1142"
@@ -1123,9 +1123,9 @@ const Uppercurve: FC<{
           y2="395.937"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.575792" stop-color="#15786C" />
-          <stop offset="0.88" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.575792" stopColor="#15786C" />
+          <stop offset="0.88" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint42_linear_852_1142"
@@ -1135,9 +1135,9 @@ const Uppercurve: FC<{
           y2="466.407"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.291331" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.291331" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint43_linear_852_1142"
@@ -1147,8 +1147,8 @@ const Uppercurve: FC<{
           y2="378.689"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="1" stop-color="#15786C" />
+          <stop stopColor="#0C453E" />
+          <stop offset="1" stopColor="#15786C" />
         </linearGradient>
         <linearGradient
           id="paint44_linear_852_1142"
@@ -1158,9 +1158,9 @@ const Uppercurve: FC<{
           y2="235.744"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint45_linear_852_1142"
@@ -1170,9 +1170,9 @@ const Uppercurve: FC<{
           y2="235.744"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.371996" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.371996" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint46_linear_852_1142"
@@ -1182,10 +1182,10 @@ const Uppercurve: FC<{
           y2="139.262"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint47_linear_852_1142"
@@ -1195,10 +1195,10 @@ const Uppercurve: FC<{
           y2="123.093"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.662224" stop-color="#15786C" />
-          <stop offset="0.908977" stop-color="#0C453E" />
-          <stop offset="1" stop-color="#063B35" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.662224" stopColor="#15786C" />
+          <stop offset="0.908977" stopColor="#0C453E" />
+          <stop offset="1" stopColor="#063B35" />
         </linearGradient>
         <linearGradient
           id="paint48_linear_852_1142"
@@ -1208,9 +1208,9 @@ const Uppercurve: FC<{
           y2="228.477"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#F4F15B" />
-          <stop offset="0.575792" stop-color="#15786C" />
-          <stop offset="0.88" stop-color="#0C453E" />
+          <stop stopColor="#F4F15B" />
+          <stop offset="0.575792" stopColor="#15786C" />
+          <stop offset="0.88" stopColor="#0C453E" />
         </linearGradient>
         <linearGradient
           id="paint49_linear_852_1142"
@@ -1220,9 +1220,9 @@ const Uppercurve: FC<{
           y2="291.293"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.291331" stop-color="#15786C" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.291331" stopColor="#15786C" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
         <linearGradient
           id="paint50_linear_852_1142"
@@ -1232,9 +1232,9 @@ const Uppercurve: FC<{
           y2="153.991"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0C453E" />
-          <stop offset="0.200888" stop-color="#105F55" />
-          <stop offset="1" stop-color="#F4F15B" />
+          <stop stopColor="#0C453E" />
+          <stop offset="0.200888" stopColor="#105F55" />
+          <stop offset="1" stopColor="#F4F15B" />
         </linearGradient>
       </defs>
     </svg>

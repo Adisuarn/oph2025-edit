@@ -97,7 +97,7 @@ const GeneralForm: React.FC<{
     })
 
   const [image1, setImage1] = useState<File | null>(null)
-  const [imageUrl1, setImageUrl1] = useState(editFormData.captureimg1)
+  const [imageUrl1, setImageUrl1] = useState((localStorage.getItem('capimg1')) ? localStorage.getItem('capimg1') : editFormData.captureimg1)
   const [displayImage1, setDisplayImage1] = useState<boolean>(editFormData.captureimg1)
   const [image2, setImage2] = useState<File | null>(null)
   const [imageUrl2, setImageUrl2] = useState<string | null>(editFormData.captureimg2)
@@ -120,6 +120,12 @@ const GeneralForm: React.FC<{
   const [ReviewAmount, setReviewAmount] = useState<number>(reviews)
   const [loading, setLoading] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+
+  useEffect(() => {
+    // Check if the page is loaded after a refresh
+    if(typeof window !== 'undefined')
+      if (window.performance.navigation.type === 1) localStorage.clear();
+  }, []);
 
   const handleImageLoad = () => {
     setImageLoaded(true)
@@ -352,7 +358,7 @@ const GeneralForm: React.FC<{
     localStorage.setItem('PhotoDesc2', editFormData.descimg2)
     localStorage.setItem('PhotoDesc3', editFormData.descimg3)
   
-    localStorage.setItem('capimg1', editFormData.captureimg1)
+    localStorage.getItem('capimg1') ? localStorage.getItem('capimg1') : localStorage.setItem('capimg1', editFormData.captureimg1)
     localStorage.setItem('capimg2', editFormData.captureimg2)
     localStorage.setItem('capimg3', editFormData.captureimg3)
     
@@ -1449,6 +1455,10 @@ const GeneralForm: React.FC<{
                           setFieldValue('P3Gen', '')
                           setFieldValue('P3Contact', '')
                           setReviewAmount(ReviewAmount - 1)
+                          localStorage.removeItem('profile3')
+                          localStorage.removeItem('P3Nick')
+                          localStorage.removeItem('P3Gen')
+                          localStorage.removeItem('P3Contact')
                           await axios.request({
                             method: 'DELETE',
                             headers: {
@@ -1466,6 +1476,10 @@ const GeneralForm: React.FC<{
                           setFieldValue('P2Gen', '')
                           setFieldValue('P2Contact', '')
                           setReviewAmount(ReviewAmount - 1)
+                          localStorage.removeItem('profile2')
+                          localStorage.removeItem('P2Nick')
+                          localStorage.removeItem('P2Gen')
+                          localStorage.removeItem('P2Contact')
                           await axios.request({
                             method: 'DELETE',
                             headers: {

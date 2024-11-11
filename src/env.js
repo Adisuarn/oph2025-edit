@@ -14,7 +14,7 @@ export const env = createEnv({
     IMGUR_CLIENT_ID: z.string(),
     IMGUR_CLIENT_SECRET: z.string(),
     HOSTED_DOMAIN: z.string(),
-    DIRECT_DATABASE_URL: z.string(),
+    //DIRECT_DATABASE_URL: z.string(),
   },
 
   /**
@@ -36,7 +36,7 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
-    DIRECT_DATABASE_URL: process.env.DIRECT_DATABASE_URL,
+    //DIRECT_DATABASE_URL: process.env.DIRECT_DATABASE_URL,
     DATABASE_URL: process.env.DATABASE_URL,
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,

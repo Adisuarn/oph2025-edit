@@ -181,10 +181,10 @@ const DashboardTUCMC: React.FC = () => {
             ...fetchedData.data,
             ...(type === 'gifted' || type === 'program'
               ? {
-                  activities: fetchedData.data.admissions,
-                  benefits: fetchedData.data.courses,
-                  working: fetchedData.data.interests,
-                }
+                activities: fetchedData.data.admissions,
+                benefits: fetchedData.data.courses,
+                working: fetchedData.data.interests,
+              }
               : {}),
             ...(type === 'organization' ? { benefits: fetchedData.data.position } : {}),
           }
@@ -227,13 +227,12 @@ const DashboardTUCMC: React.FC = () => {
               <span className="ml-4 font-Thai text-lg font-medium">{item.thainame}</span>
             </div>
             <button
-              className={`ml-4 rounded-3xl p-2 px-6 font-Thai text-white transition-all duration-300 ${
-                filterState.activeButton &&
+              className={`ml-4 rounded-3xl p-2 px-6 font-Thai text-white transition-all duration-300 ${filterState.activeButton &&
                 filterState.activeButton.type === type &&
                 filterState.activeButton.key === item.key
-                  ? 'bg-custom-gradient-inverse hover:scale-105 hover:opacity-75'
-                  : 'bg-custom-gradient hover:scale-105 hover:opacity-75'
-              } ${viewDataLoading ? 'cursor-not-allowed opacity-50' : ''}`}
+                ? 'bg-custom-gradient-inverse hover:scale-105 hover:opacity-75'
+                : 'bg-custom-gradient hover:scale-105 hover:opacity-75'
+                } ${viewDataLoading ? 'cursor-not-allowed opacity-50' : ''}`}
               onClick={() => {
                 const isActive =
                   filterState.activeButton &&
@@ -254,8 +253,8 @@ const DashboardTUCMC: React.FC = () => {
               {viewDataLoading
                 ? 'กำลังโหลดข้อมูล...'
                 : filterState.activeButton &&
-                    filterState.activeButton.type === type &&
-                    filterState.activeButton.key === item.key
+                  filterState.activeButton.type === type &&
+                  filterState.activeButton.key === item.key
                   ? 'คลิกเพื่อปิด'
                   : `ดูข้อมูล${type === 'organization' ? 'หน่วยงาน' : type === 'program' ? 'สายการเรียน' : type === 'club' ? 'ชมรม' : 'โครงการพัฒนาฯ'}`}
             </button>
@@ -286,9 +285,9 @@ const DashboardTUCMC: React.FC = () => {
           className="text-gray-500 mb-4 h-16 w-16"
         >
           <path
-            stroke-linecap="round"
+            strokeLinecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
+            strokeWidth="2"
             d="M12 2v20m-7-7l7 7 7-7"
           />
         </svg>

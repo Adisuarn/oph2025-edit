@@ -86,14 +86,15 @@ export const getGoogleUser = async (req: Request) => {
     cookies().delete('codeVerifier')
     cookies().set(sessionCookie.name, sessionCookie.value, sessionCookie.attributes)
 
-
-    const userAgent = window.navigator.userAgent
-
-    if (userAgent.includes('Mobile') && (userAgent.includes('iPhone') || userAgent.includes('iPad'))) 
-      return window.location.href = `x-safari-${window.location.href}`
+    if (typeof window !== 'undefined') {
+      const userAgent = window.navigator.userAgent
+      if (userAgent.includes('Mobile') && (userAgent.includes('iPhone') || userAgent.includes('iPad')))
+        return window.location.href = `x-safari-${window.location.href}`
+    }
 
     return { status: 200, message: 'Login success' }
   } catch (err) {
+    console.log(err)
     return { status: 500, message: 'Internal Server Error' }
   }
 }
