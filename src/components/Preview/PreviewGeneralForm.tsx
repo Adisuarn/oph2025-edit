@@ -417,7 +417,7 @@ const PreviewGeneralForm: React.FC<{
             )}
             {ReviewAmount === 3 && (
               <div className="flex flex-col items-center justify-center space-y-5">
-                <div className="flex w-full items-start justify-between">
+                <div className="flex w-full items-start justify-around">
                   <div className="flex flex-col">
                     <div className="flex flex-col items-start justify-center">
                       <Image
