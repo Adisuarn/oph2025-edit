@@ -37,3 +37,17 @@ body {
     transform: rotate(1turn);
   }
 }
+
+.preview-content h1 {
+  font-size: 2rem; 
+}
+
+.preview-content h2 {
+  font-size: 1.75rem;
+}
+
+.preview-content h3 {
+  font-size: 1.5rem;
+}
+
+

@@ -720,7 +720,7 @@ const GeneralForm: React.FC<{
               <section className="w-full rounded-2xl bg-gradient-to-br from-heroFirst via-heroMiddle to-greenText shadow-xl">
                 {editFormData.tagThai !== 'ชมรม' ? (
                   <div className="flex h-40 w-full flex-col items-center justify-center space-y-2 text-xs text-white sm:h-60 sm:w-3/5 sm:space-y-4 md:mx-auto">
-                    <p className="sm:border-3 rounded-full border border-white px-6 py-1 text-lg font-extrabold sm:text-2xl">
+                    <p className="sm:border-3 rounded-full border border-white px-6 py-1 text-lg font-extrabold sm:text-2xl text-center">
                       {editFormData.thainame}
                     </p>
                     <div className="flex items-center justify-center">
@@ -741,7 +741,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="IG"
-                            className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                             //onKeyUp={(e: any) => handleChange('IG', e)}
                           />
                           <FaPen className="h-1 text-white sm:h-2" />
@@ -751,7 +751,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="FB"
-                            className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                             //onKeyUp={(e: any) => handleChange('FB', e)}
                           />
                           <FaPen className="h-1 text-white sm:h-2" />
@@ -761,7 +761,7 @@ const GeneralForm: React.FC<{
                           <Field
                             type="text"
                             name="others"
-                            className="ml-1 w-8 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                            className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                             //onKeyUp={(e: any) => handleChange('Others', e)}
                           />
                           <FaPen className="h-1 text-white sm:h-2" />
@@ -810,7 +810,7 @@ const GeneralForm: React.FC<{
                     )}
                     <div className="h-32 w-[2px] rounded-full bg-white md:ml-4 lg:ml-8 lg:h-48 lg:w-[4px]"></div>
                     <div className="flex w-1/2 flex-col items-center justify-center sm:w-2/3 md:ml-4 lg:space-y-2">
-                      <p className="rounded-full border border-white px-[8px] text-[10px] font-bold md:text-lg md:font-extrabold lg:px-4 lg:py-2 lg:text-2xl">
+                      <p className="rounded-full border border-white px-[8px] text-[10px] font-bold md:text-lg md:font-extrabold lg:px-4 lg:py-2 lg:text-2xl text-center">
                         {editFormData.thainame}
                       </p>
                       <div className="flex items-center justify-center">
@@ -831,7 +831,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="IG"
-                              className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                              className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                               //onKeyUp={(e: any) => handleChange('IG', e)}
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
@@ -841,7 +841,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="FB"
-                              className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                              className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                               //onKeyUp={(e: any) => handleChange('FB', e)}
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
@@ -851,7 +851,7 @@ const GeneralForm: React.FC<{
                             <Field
                               type="text"
                               name="others"
-                              className="ml-1 w-20 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
+                              className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
                               //onKeyUp={(e: any) => handleChange('Others', e)}
                             />
                             <FaPen className="h-1 text-white sm:h-2" />

@@ -56,7 +56,7 @@ const PreviewGeneralForm: React.FC<{
       {/* <div className="absolute -top-[74px]">
         <FallingLamp className="w-[100vw] lg:hidden" />
       </div> */}
-      <div className="absolute right-0 z-0 overflow-hidden lg:top-0 xl:top-[218px] 2xl:top-[500px]">
+      <div className="absolute right-0 z-0 overflow-hidden lg:top-14 xl:top-[198px] 2xl:top-[500px]">
         <ClubFallingLamp className="hidden lg:block lg:w-[270px] xl:w-80" />
       </div>
       <section className="relative z-40 mx-12 pt-48 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[550px]">
@@ -161,7 +161,7 @@ const PreviewGeneralForm: React.FC<{
                 <div className="absolute -left-12 -top-32 -z-10 sm:-left-[344px] md:-left-[490px] lg:top-0">
                   <Stainedglass className="w-16 sm:w-32 lg:hidden" />
                 </div>
-                <div className="absolute lg:-left-[550px] lg:-top-24 xl:-left-[600px] 2xl:-left-[870px]">
+                <div className="absolute lg:-left-[510px] lg:-top-24 xl:-left-[600px] 2xl:-left-[870px]">
                   <BigStainedGlass className="hidden sm:w-32 md:w-48 lg:block xl:w-52 2xl:w-72" />
                 </div>
                 <Image
@@ -188,7 +188,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text1 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-normal text-greenText sm:text-lg"
+              className="w-full preview-content rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree font-normal text-greenText"
             ></div>
           </div>
           {/* section 2 */}
@@ -247,7 +247,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text2 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-normal text-greenText sm:text-lg"
+              className="w-full preview-content rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree font-normal text-greenText"
             ></div>
           </div>
           {/* section 3 */}
@@ -285,7 +285,7 @@ const PreviewGeneralForm: React.FC<{
                 <div className="absolute -left-10 -top-60 -z-10">
                   <Lamp className="w-32 sm:hidden" />
                 </div>
-                <div className="absolute -left-[344px] -top-48 lg:-left-[5.5rem] xl:-left-[600px] 2xl:-left-[870px]">
+                <div className="absolute -left-[344px] -top-48 lg:-left-[480px] xl:-left-[600px] 2xl:-left-[870px]">
                   <LeftFrames className="hidden sm:block sm:w-32 md:w-44 lg:w-52 2xl:w-72" />
                 </div>
                 <Image
@@ -310,7 +310,7 @@ const PreviewGeneralForm: React.FC<{
               dangerouslySetInnerHTML={{
                 __html: editFormData.text3 || '',
               }}
-              className="w-full rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree text-xs font-normal text-greenText sm:text-lg"
+              className="w-full preview-content rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree font-normal text-greenText"
             ></div>
           </div>
           {/* section 3 */}
