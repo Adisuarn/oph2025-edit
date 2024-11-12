@@ -14,7 +14,7 @@ export const rolesRouter = new Elysia({ prefix: '/roles' }).post(
   '/record',
   async ({ body, set }) => {
     if (!RegexMatching(/^[a-zA-Z0-9]+@(student\.)?triamudom\.ac\.th$/, body.email))
-      return error(400, 'Provied Email Not Triam Udom')
+      return error(403, 'Provied Email Not Triam Udom')
     if (!(await prisma.user.findUnique({ where: { email: body.email } })))
       return error(404, 'User Not Found')
     switch (body.tag) {
