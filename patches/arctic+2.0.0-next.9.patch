@@ -12,7 +12,7 @@ index 7e79d2d..d15df5a 100644
      refreshAccessToken(refreshToken: string): Promise<OAuth2Tokens>;
      revokeToken(token: string): Promise<void>;
 diff --git a/node_modules/arctic/dist/providers/google.js b/node_modules/arctic/dist/providers/google.js
-index 34eb862..76e3bb7 100644
+index 34eb862..8fd64bd 100644
 --- a/node_modules/arctic/dist/providers/google.js
 +++ b/node_modules/arctic/dist/providers/google.js
 @@ -12,16 +12,18 @@ export class Google {
@@ -26,7 +26,7 @@ index 34eb862..76e3bb7 100644
          url.searchParams.set("client_id", this.clientId);
          url.searchParams.set("state", state);
          url.searchParams.set("scope", scopes.join(" "));
-+        url.searchParams.set("hd", hd);
++        if(hd) url.searchParams.set("hd", hd);
          url.searchParams.set("redirect_uri", this.redirectURI);
          const codeChallenge = createS256CodeChallenge(codeVerifier);
          url.searchParams.set("code_challenge_method", "S256");

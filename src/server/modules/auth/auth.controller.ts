@@ -25,7 +25,8 @@ export const createAuthUrl = async () => {
       sameSite: 'lax',
     })
 
-    const authUrl = google.createAuthorizationURL(state, codeVerifier, scope, env.HOSTED_DOMAIN)
+    //const authUrl = google.createAuthorizationURL(state, codeVerifier, scope, env.HOSTED_DOMAIN)
+    const authUrl = google.createAuthorizationURL(state, codeVerifier, scope)
     return { status: 200, url: authUrl.toString() }
   } catch (err) {
     return { status: 500, message: 'Internal Server Error' }
@@ -37,9 +38,11 @@ export const getGoogleUser = async (req: Request) => {
     const url = new URL(req.url)
     const code = url.searchParams.get('code')
     const state = url.searchParams.get('state')
-    const hd = url.searchParams.get('hd')
+    //const hd = url.searchParams.get('hd')
 
-    if (!code || !state || !hd) return { status: 400, message: 'Bad Request' }
+    //if (!code || !state || !hd) return { status: 400, message: 'Bad Request' }
+
+    if (!code || !state ) return { status: 400, message: 'Bad Request' }
 
     const codeVerifier = cookies().get('codeVerifier')?.value
     const savedState = cookies().get('state')?.value

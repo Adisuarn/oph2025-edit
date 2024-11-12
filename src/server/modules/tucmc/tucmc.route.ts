@@ -331,4 +331,4 @@ export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
         ]),
       }),
     },
-  )
+)
