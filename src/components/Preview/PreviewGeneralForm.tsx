@@ -50,15 +50,15 @@ const PreviewGeneralForm: React.FC<{
       <div className="absolute -top-[340px] left-1/2 z-10 -translate-x-1/2 sm:-top-20">
         <Uppercurve className="w-[100vw] md:w-[110vw] lg:hidden" />
       </div>
-      <div className="absolute -top-36 left-0 z-10 w-full overflow-hidden">
-        <BigUppercurve className="hidden w-full md:h-[50vw] lg:block" />
+      <div className="absolute lg:-top-72 xl:-top-36 left-0 z-10 overflow-hidden">
+        <BigUppercurve className="hidden w-screen lg:block" />
       </div>
       {/* <div className="absolute -top-[74px]">
         <FallingLamp className="w-[100vw] lg:hidden" />
       </div> */}
-      <div className="absolute right-0 z-0 overflow-hidden lg:top-14 xl:top-[168px] 2xl:top-[500px]">
+      {/* <div className="absolute right-0 z-0 overflow-hidden lg:top-14 xl:top-[168px] 2xl:top-[500px]">
         <ClubFallingLamp className="hidden lg:block lg:w-[270px] xl:w-80" />
-      </div>
+      </div> */}
       <section className="relative z-40 mx-12 pt-48 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[550px]">
         <section className="flex items-center justify-between">
           <div className="flex items-center justify-center space-x-1 transition-all hover:scale-105">
