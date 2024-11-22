@@ -1,9 +1,8 @@
 import type { NextRequest } from 'next/server'
 import { cookies } from 'next/headers'
-import { NextResponse } from 'next/server'
+import { NextResponse, userAgent } from 'next/server'
 import xior from 'xior'
 import dedupePlugin from 'xior/plugins/dedupe'
-import { isWebviewUnsupportedByGoogleOAuth } from 'google-oauth-webview'
 
 // Middleware function
 export async function middleware(request: NextRequest) {
@@ -22,7 +21,7 @@ export async function middleware(request: NextRequest) {
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     headers: {
       'x-api-key': process.env.NEXT_PUBLIC_API_KEY,
-      Authorization: cookies().get(process.env.NEXT_PUBLIC_COOKIE_NAME)?.value || '', // Handle missing cookie gracefully
+      Authorization: cookies().get(process.env.NEXT_PUBLIC_COOKIE_NAME)?.value || '',
     },
   })
 
@@ -50,14 +49,24 @@ export async function middleware(request: NextRequest) {
   const nextUrl = request.nextUrl
 
   try {
-    
-    if (typeof window !== 'undefined') {
-      const deviceType = navigator.userAgent
-      if (!isWebviewUnsupportedByGoogleOAuth(deviceType)) {
-        return NextResponse.redirect(new URL('/error/unsupported', request.url))
-      }
+
+    const userAgent = request.headers.get('user-agent') || '';
+
+    const webViewRegexRules = [
+      'WebView',
+      '(iPhone|iPod|iPad)(?!.*Safari)',
+      'Android.*(;\\s+wv|Version/\\d.\\d\\s+Chrome/\\d+(\\.0){3})',
+      'Linux; U; Android'
+    ];
+
+    const webViewRegExp = new RegExp('(' + webViewRegexRules.join('|') + ')', 'ig')
+
+    const isWebView = webViewRegExp.test(userAgent)
+
+    if (isWebView && !request.nextUrl.pathname.startsWith('/error/unsupported')) {
+      return NextResponse.redirect(new URL('/error/unsupported', request.url))
     }
-    // If accessing '/', redirect authenticated users to /account
+    
     if (nextUrl.pathname === '/') {
       const response = await xiorInstance.get('/user')
       if (response.status === 200) return NextResponse.redirect(new URL('/account', request.url))
