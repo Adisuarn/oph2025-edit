@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 import { cookies } from 'next/headers'
-import { NextResponse, userAgent } from 'next/server'
+import { NextResponse } from 'next/server'
 import xior from 'xior'
 import dedupePlugin from 'xior/plugins/dedupe'
 
@@ -49,23 +49,6 @@ export async function middleware(request: NextRequest) {
   const nextUrl = request.nextUrl
 
   try {
-
-    const userAgent = request.headers.get('user-agent') || '';
-
-    const webViewRegexRules = [
-      'WebView',
-      '(iPhone|iPod|iPad)(?!.*Safari)',
-      'Android.*(;\\s+wv|Version/\\d.\\d\\s+Chrome/\\d+(\\.0){3})',
-      'Linux; U; Android'
-    ];
-
-    const webViewRegExp = new RegExp('(' + webViewRegexRules.join('|') + ')', 'ig')
-
-    const isWebView = webViewRegExp.test(userAgent)
-
-    if (isWebView && !request.nextUrl.pathname.startsWith('/error/unsupported')) {
-      return NextResponse.redirect(new URL('/error/unsupported', request.url))
-    }
     
     if (nextUrl.pathname === '/') {
       const response = await xiorInstance.get('/user')
