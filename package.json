@@ -22,6 +22,7 @@
     "arctic": "^2.0.0-next.7",
     "axios": "^1.7.7",
     "formik": "^2.4.6",
+    "google-oauth-webview": "^1.0.4",
     "lucia": "^3.2.0",
     "next": "^14.2.4",
     "next-client-cookies": "^2.0.0",

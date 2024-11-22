@@ -3,10 +3,10 @@ import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 import xior from 'xior'
 import dedupePlugin from 'xior/plugins/dedupe'
+import { isWebviewUnsupportedByGoogleOAuth } from 'google-oauth-webview'
 
 // Middleware function
 export async function middleware(request: NextRequest) {
-  // Ensure required environment variables are set
 
   if (
     !process.env.NEXT_PUBLIC_BASE_URL ||
@@ -18,7 +18,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url))
   }
 
-  // Initialize Xior instance
   const xiorInstance = xior.create({
     baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     headers: {
@@ -27,7 +26,6 @@ export async function middleware(request: NextRequest) {
     },
   })
 
-  // Use dedupe plugin with logging
   xiorInstance.plugins.use(
     dedupePlugin({
       onDedupe(config) {
@@ -36,7 +34,6 @@ export async function middleware(request: NextRequest) {
     }),
   )
 
-  // Add response interceptors
   xiorInstance.interceptors.response.use(
     (result) => result,
     async (error) => {
@@ -50,10 +47,16 @@ export async function middleware(request: NextRequest) {
     },
   )
 
-  // Process based on the request URL
   const nextUrl = request.nextUrl
 
   try {
+    
+    if (typeof window !== 'undefined') {
+      const deviceType = navigator.userAgent
+      if (isWebviewUnsupportedByGoogleOAuth(deviceType)) {
+        return NextResponse.redirect(new URL('/error/unsupported', request.url))
+      }
+    }
     // If accessing '/', redirect authenticated users to /account
     if (nextUrl.pathname === '/') {
       const response = await xiorInstance.get('/user')
@@ -84,18 +87,15 @@ export async function middleware(request: NextRequest) {
       }
     }
 
-    // If accessing '/error', redirect to the secret link
     if (nextUrl.pathname === '/error') {
       return NextResponse.redirect(new URL(process.env.NEXT_PUBLIC_SECRET_LINK, request.url))
     }
   } catch (error) {
     console.error('Error in middleware processing:', error)
-    // Redirect to home page on error
     return NextResponse.redirect(new URL('/', request.url))
   }
 }
 
-// Middleware config to match specific routes
 export const config = {
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 }
