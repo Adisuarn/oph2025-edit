@@ -58,6 +58,7 @@ const GeneralForm: React.FC<{
       ? review3
       : (review3 = { count: 3, profile: null, nick: '', gen: '', contact: '', content: '' })
   const cookies = useCookies()
+  const MAX_COMBINED_SIZE_MB = 4.5 * 1024 * 1024;
   const notifySuccess = () =>
     toast.success('Successfully Sent!', {
       position: 'top-right',
@@ -123,6 +124,24 @@ const GeneralForm: React.FC<{
     setImageLoaded(true)
   }
 
+  const checkCombinedSize = (images: (File | null)[]) => {
+    const totalSize = images.reduce((acc, file) => acc + (file?.size || 0), 0);
+    if (totalSize > MAX_COMBINED_SIZE_MB) {
+      toast.error("Total image size exceeds 4.5 MB. Please reduce the size of the images.");
+      return false;
+    }
+    return true;
+  };
+
+  const checkCombinedSizeProfile = (profiles: (File | null)[]) => {
+    const totalSize = profiles.reduce((acc, file) => acc + (file?.size || 0), 0);
+    if (totalSize > MAX_COMBINED_SIZE_MB) {
+      toast.error("Total profile image size exceeds 4.5 MB. Please reduce the size of the profile images.");
+      return false;
+    }
+    return true;
+  };
+
   const handleFileSelect1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0]
@@ -131,6 +150,9 @@ const GeneralForm: React.FC<{
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
+
+      const images = [image2, image3, selectedFile];
+      if (!checkCombinedSize(images)) return;
 
       setImage1(selectedFile)
       setDisplayImage1(true)
@@ -151,6 +173,9 @@ const GeneralForm: React.FC<{
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
+
+      const images = [image1, image3, selectedFile];
+      if (!checkCombinedSize(images)) return;
 
       setImage2(selectedFile)
       setDisplayImage2(true)
@@ -173,6 +198,9 @@ const GeneralForm: React.FC<{
         return
       }
 
+      const images = [image3, image2, selectedFile];
+      if (!checkCombinedSize(images)) return;
+
       setImage3(selectedFile)
       setDisplayImage3(true)
     }
@@ -193,6 +221,9 @@ const GeneralForm: React.FC<{
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
+
+      const profiles = [image5, image6, selectedFile];
+      if (!checkCombinedSizeProfile(profiles)) return;
 
       setImage4(selectedFile)
       setDisplayImage4(true)
@@ -215,6 +246,9 @@ const GeneralForm: React.FC<{
         return
       }
 
+      const profiles = [image4, image6, selectedFile];
+      if (!checkCombinedSizeProfile(profiles)) return;
+
       setImage5(selectedFile)
       setDisplayImage5(true)
     }
@@ -235,6 +269,9 @@ const GeneralForm: React.FC<{
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
+
+      const profiles = [image4, image5, selectedFile];
+      if (!checkCombinedSizeProfile(profiles)) return;
 
       setImage6(selectedFile)
       setDisplayImage6(true)
