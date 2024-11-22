@@ -1,5 +1,3 @@
-import { count } from 'console'
-
 import apiFunction from '@/components/api'
 import GeneralForm from './GeneralForm'
 

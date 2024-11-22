@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
-
 import { env } from '@/env'
 import Google from '@/vectors/landing/Google'
 
@@ -35,7 +34,7 @@ const GoogleOAuthButton = () => {
       error: 'ไม่สามารถเข้าสู่ระบบได้ กรุณาติดต่อผู้ดูแล',
     })
 
-    setLoading(false) // Re-enable the button after the request completes
+    setLoading(false)
   }
 
   return (
