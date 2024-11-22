@@ -53,7 +53,7 @@ export async function middleware(request: NextRequest) {
     
     if (typeof window !== 'undefined') {
       const deviceType = navigator.userAgent
-      if (isWebviewUnsupportedByGoogleOAuth(deviceType)) {
+      if (!isWebviewUnsupportedByGoogleOAuth(deviceType)) {
         return NextResponse.redirect(new URL('/error/unsupported', request.url))
       }
     }
