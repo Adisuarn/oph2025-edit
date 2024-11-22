@@ -10,7 +10,10 @@ import { Elysia } from 'elysia'
 
 import { programRouter } from '@/server/modules/programs/programs.route'
 
-export const elysiaApp = new Elysia({ prefix: '/api' })
+export const elysiaApp = new Elysia({
+  prefix: '/api', serve: {
+  maxRequestBodySize: 1024 * 1024 * 256
+} })
   .use(GlobalGuard)
   .use(authRouter)
   .use(clubRouter)
