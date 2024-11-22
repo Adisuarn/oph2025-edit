@@ -365,7 +365,7 @@ const PreviewGeneralForm: React.FC<{
                     dangerouslySetInnerHTML={{
                       __html: review1.content || '',
                     }}
-                    className="text-[12px] text-white sm:text-xl"
+                    className="text-[12px] preview-content text-white sm:text-xl"
                   ></div>
                   <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6">
                     <DoubleQuoteDown className="h-3 w-3 text-greenText md:h-4 md:w-4" />
@@ -387,7 +387,7 @@ const PreviewGeneralForm: React.FC<{
                       dangerouslySetInnerHTML={{
                         __html: review2.content || '',
                       }}
-                      className="text-[12px] text-white sm:text-xl"
+                      className="text-[12px] preview-content text-white sm:text-xl"
                     ></div>
                     <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6">
                       <DoubleQuoteDown className="h-3 w-3 text-greenText md:h-4 md:w-4" />
@@ -451,7 +451,7 @@ const PreviewGeneralForm: React.FC<{
                       dangerouslySetInnerHTML={{
                         __html: review3.content || '',
                       }}
-                      className="text-[12px] text-white sm:text-xl"
+                      className="text-[12px] preview-content text-white sm:text-xl"
                     ></div>
                     <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6">
                       <DoubleQuoteDown className="h-3 w-3 text-greenText md:h-4 md:w-4" />
