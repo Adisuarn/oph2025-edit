@@ -13,7 +13,7 @@ const GoogleOAuthButton = () => {
   const [loading, setLoading] = useState(false)
 
   const handleLoginClick = async () => {
-    setLoading(true) // Disable the button when loading starts
+    setLoading(true) 
 
     const options = {
       method: 'GET',
