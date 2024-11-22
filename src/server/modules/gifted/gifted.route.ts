@@ -33,12 +33,11 @@ export const giftedRouter = new Elysia({ prefix: '/gifted' })
     '/:name',
     async ({ params: { name } }) => {
       const response = await getGiftedByName(name)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -50,14 +49,11 @@ export const giftedRouter = new Elysia({ prefix: '/gifted' })
     '/:name',
     async ({ params: { name }, body, request: { headers } }) => {
       const response = await updateGiftedData(name, body, headers)
-      switch (response.status) {
-        case 200:
-          return response
-        case 400:
-          return error(400, response.message)
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -103,12 +99,11 @@ export const giftedRouter = new Elysia({ prefix: '/gifted' })
     '/:name/review',
     async ({ params: { name } }) => {
       const response = await getGiftedReviews(name)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -120,15 +115,12 @@ export const giftedRouter = new Elysia({ prefix: '/gifted' })
     '/:name/review',
     async ({ params: { name }, set }) => {
       const response = await createGiftedReview(name)
-      switch (response.status) {
-        case 201:
-          set.status = 201
-          return response
-        case 400:
-          return error(400, response.message)
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 201) {
+        return error(response.status, response.message)
       }
+
+      set.status = 201
+      return response
     },
     {
       params: t.Object({
@@ -140,14 +132,11 @@ export const giftedRouter = new Elysia({ prefix: '/gifted' })
     '/:name/review/:id',
     async ({ params: { name, id }, body }) => {
       const response = await updateGiftedReview(name, id, body as ReviewData)
-      switch (response.status) {
-        case 200:
-          return response
-        case 400:
-          return error(400, response.message)
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -173,12 +162,11 @@ export const giftedRouter = new Elysia({ prefix: '/gifted' })
     '/:name/review/:id',
     async ({ params: { name, id } }) => {
       const response = await deleteGiftedReview(name, id)
-      switch (response.status) {
-        case 200:
-          return response.message
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response.message
     },
     {
       params: t.Object({

@@ -33,12 +33,11 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     '/:name',
     async ({ params: { name } }) => {
       const response = await getProgramByName(name)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, 'Error while getting program')
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -50,14 +49,11 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     '/:name',
     async ({ params: { name }, body, request: { headers } }) => {
       const response = await updateProgramData(name, body, headers)
-      switch (response.status) {
-        case 200:
-          return response
-        case 400:
-          return error(400, 'User already created a program')
-        case 500:
-          return error(500, 'Error while updating program')
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -103,12 +99,11 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     '/:name/review',
     async ({ params: { name } }) => {
       const response = await getProgramReviews(name)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, 'Error while getting program reviews')
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -120,14 +115,12 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     '/:name/review',
     async ({ params: { name }, set }) => {
       const response = await createProgramReview(name)
-      switch (response.status) {
-        case 200:
-          return response
-        case 400:
-          return error(400, 'Review reachs limit')
-        case 500:
-          return error(500, 'Error while creating program review')
+      if (response.status !== 201) {
+        return error(response.status, response.message)
       }
+
+      set.status = 201
+      return response
     },
     {
       params: t.Object({
@@ -139,12 +132,11 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     '/:name/review/:id',
     async ({ params: { name, id }, body }) => {
       const response = await updateProgramReview(name, id, body as ReviewData)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, 'Error while updating program review')
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -170,12 +162,11 @@ export const programRouter = new Elysia({ prefix: '/programs' })
     '/:name/review/:id',
     async ({ params: { name, id } }) => {
       const response = await deleteProgramReview(name, id)
-      switch (response.status) {
-        case 200:
-          return response.message
-        case 500:
-          return error(500, 'Error while deleting program review')
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response.message
     },
     {
       params: t.Object({

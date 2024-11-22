@@ -8,8 +8,6 @@ import { ErrorMessage, Field, Form, Formik, useFormikContext } from 'formik'
 import { FaPen } from 'react-icons/fa'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 import * as Yup from 'yup'
-import { base64ToFile } from './utils'
-import { useNavigate, Navigate } from "react-router-dom";
 
 import { env } from '@/env'
 import BackArrow from '@/vectors/edit-page/BackArrow'
@@ -23,7 +21,6 @@ import dynamic from 'next/dynamic'
 import axios from 'axios'
 import { useCookies } from 'next-client-cookies'
 import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
 
 const QuillField = dynamic(() => import('@components/Form/FormEditor'), {
   ssr: false,
@@ -60,7 +57,6 @@ const GeneralForm: React.FC<{
     review3
       ? review3
       : (review3 = { count: 3, profile: null, nick: '', gen: '', contact: '', content: '' })
-  const MySwal = withReactContent(Swal)
   const cookies = useCookies()
   const notifySuccess = () =>
     toast.success('Successfully Sent!', {
@@ -99,7 +95,6 @@ const GeneralForm: React.FC<{
     })
 
   const [image1, setImage1] = useState<File | null>(null)
-  //const [imageUrl1, setImageUrl1] = useState((localStorage.getItem('capimg1')) ? localStorage.getItem('capimg1') : editFormData.captureimg1)
   const [imageUrl1, setImageUrl1] = useState(editFormData.captureimg1)
   const [displayImage1, setDisplayImage1] = useState<boolean>(editFormData.captureimg1)
   const [image2, setImage2] = useState<File | null>(null)
@@ -123,20 +118,6 @@ const GeneralForm: React.FC<{
   const [ReviewAmount, setReviewAmount] = useState<number>(reviews)
   const [loading, setLoading] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
- 
-
-
-  // useEffect(() => {
-  //   // Check if this is the first load by seeing if our object exists in local storage
-  //   if (localStorage.getItem('firstLoadDone') === null) {
-  //     // If it's the first load, set the flag in local storage to true and reload the page
-  //     localStorage.setItem('firstLoadDone', '1');
-  //     console.log('This is the initial load');
-  //   } else {
-  //     console.log('This is a page refresh');
-  //   }
-  // }, []);
-
 
   const handleImageLoad = () => {
     setImageLoaded(true)
@@ -160,15 +141,6 @@ const GeneralForm: React.FC<{
     if (image1) {
       const urlImg1 = URL.createObjectURL(image1)
       setImageUrl1(urlImg1)
-
-      // const reader = new FileReader()   
-
-      // reader.readAsDataURL(image1)
-
-      // reader.onloadend = () => {
-      //   const base64data = reader.result;
-      //   localStorage.setItem("capimg1", base64data as string)
-      // };
     }
   }, [image1])
 
@@ -189,14 +161,6 @@ const GeneralForm: React.FC<{
     if (image2) {
       const urlImg2 = URL.createObjectURL(image2)
       setImageUrl2(urlImg2)
-
-      // const reader = new FileReader()
-      // reader.readAsDataURL(image2)
-
-      // reader.onloadend = () => {
-      //   const base64data = reader.result;
-      //   localStorage.setItem("capimg2", base64data as string)
-      // };
     }
   }, [image2])
 
@@ -218,14 +182,6 @@ const GeneralForm: React.FC<{
     if (image3) {
       const urlImg3 = URL.createObjectURL(image3)
       setImageUrl3(urlImg3)
-
-      // const reader = new FileReader()
-      // reader.readAsDataURL(image3)
-
-      // reader.onloadend = () => {
-      //   const base64data = reader.result;
-      //   localStorage.setItem("capimg3", base64data as string)
-      // };
     }
   }, [image3])
 
@@ -247,14 +203,6 @@ const GeneralForm: React.FC<{
     if (image4) {
       const urlImg4 = URL.createObjectURL(image4)
       setImageUrl4(urlImg4)
-
-      // const reader = new FileReader()
-      // reader.readAsDataURL(image4)
-
-      // reader.onloadend = () => {
-      //   const base64data = reader.result;
-      //   localStorage.setItem("profile1", base64data as string)
-      // };
     }
   }, [image4])
 
@@ -276,14 +224,6 @@ const GeneralForm: React.FC<{
     if (image5) {
       const urlImg5 = URL.createObjectURL(image5)
       setImageUrl5(urlImg5)
-
-      // const reader = new FileReader()
-      // reader.readAsDataURL(image5)
-
-      // reader.onloadend = () => {
-      //   const base64data = reader.result;
-      //   localStorage.setItem("profile2", base64data as string)
-      // };
     }
   }, [image5])
 
@@ -305,14 +245,6 @@ const GeneralForm: React.FC<{
     if (image6) {
       const urlImg6 = URL.createObjectURL(image6)
       setImageUrl6(urlImg6)
-
-      // const reader = new FileReader()
-      // reader.readAsDataURL(image6)
-
-      // reader.onloadend = () => {
-      //   const base64data = reader.result;
-      //   localStorage.setItem("profile3", base64data as string)
-      // };
     }
   }, [image6])
 
@@ -334,63 +266,8 @@ const GeneralForm: React.FC<{
     if (clubLogo) {
       const urlLogo = URL.createObjectURL(clubLogo)
       setClubLogoUrl(urlLogo)
-
-      // const reader = new FileReader()
-      // reader.readAsDataURL(clubLogo)
-
-      // reader.onloadend = () => {
-      //   const base64data = reader.result;
-      //   localStorage.setItem("logo", base64data as string)
-      // };
     }
   }, [clubLogo])
-
-  // useEffect(() => {
-  //   localStorage.setItem('check', 'true')
-
-  //   localStorage.setItem('Members', editFormData.members)
-  //   localStorage.setItem('IG', editFormData.ig)
-  //   localStorage.setItem('FB', editFormData.fb)
-  //   localStorage.setItem('Others', editFormData.others)
-
-  //   localStorage.setItem('P1Gen', review1.gen)
-  //   localStorage.setItem('P2Gen', review2.gen)
-  //   localStorage.setItem('P3Gen', review3.gen)
-
-  //   localStorage.setItem('P1Nick', review1.nick)
-  //   localStorage.setItem('P2Nick', review2.nick)
-  //   localStorage.setItem('P3Nick', review3.nick)
-
-  //   localStorage.setItem('P1Contact', review1.contact)
-  //   localStorage.setItem('P2Contact', review2.contact)
-  //   localStorage.setItem('P3Contact', review3.contact)
-
-  //   localStorage.setItem('PhotoDesc1', editFormData.descimg1)
-  //   localStorage.setItem('PhotoDesc2', editFormData.descimg2)
-  //   localStorage.setItem('PhotoDesc3', editFormData.descimg3)
-
-  //   // if (localStorage.getItem('capimg1')) {
-  //   //   setImage1(base64ToFile(localStorage.getItem('capimg1') as string, 'capimg1'));
-  //   // } else {
-  //     localStorage.setItem('capimg1', editFormData.captureimg1);
-  //   // }
-
-  //   localStorage.setItem('capimg2', editFormData.captureimg2);
-  //   localStorage.setItem('capimg3', editFormData.captureimg3)
-    
-  //   localStorage.setItem('profile1', review1.profile)
-  //   localStorage.setItem('profile2', review2.profile)
-  //   localStorage.setItem('profile3', review3.profile)
-
-  //   if (editFormData.tagThai === 'ชมรม') 
-  //     localStorage.setItem('logo', editFormData.logo)
-    
-  // }, [])
-
-  // function handleChange(key: string, e: any) {
-  //     const nv = e.target.value
-  //     localStorage.setItem(key, nv)
-  // }  
   
   return (
     <section className="mx-10 mt-16 sm:mx-24">

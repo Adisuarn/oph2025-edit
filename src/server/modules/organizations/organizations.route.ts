@@ -32,12 +32,11 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     '/:name',
     async ({ params: { name } }) => {
       const response = await getOrganizationByName(name)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -49,14 +48,11 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     '/:name',
     async ({ params: { name }, body, request: { headers } }) => {
       const response = await updateOrganizationData(name, body, headers)
-      switch (response.status) {
-        case 200:
-          return response
-        case 400:
-          return error(400, response.message)
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -102,12 +98,11 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     '/:name/review',
     async ({ params: { name } }) => {
       const response = await getOrganizationReviews(name)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -119,14 +114,12 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     '/:name/review',
     async ({ params: { name }, set }) => {
       const response = await createOrganizationReview(name)
-      switch (response.status) {
-        case 201:
-          return response
-        case 400:
-          return error(400, response.message)
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 201) {
+        return error(response.status, response.message)
       }
+      
+      set.status = 201
+      return response
     },
     {
       params: t.Object({
@@ -138,12 +131,11 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     '/:name/review/:id',
     async ({ params: { name, id }, body }) => {
       const response = await updateOrganizationReview(name, id, body as ReviewData)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -169,12 +161,11 @@ export const organizationRouter = new Elysia({ prefix: '/organizations' })
     '/:name/review/:id',
     async ({ params: { name, id } }) => {
       const response = await deleteOrganizationReview(name, id)
-      switch (response.status) {
-        case 200:
-          return response.message
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response.message
     },
     {
       params: t.Object({

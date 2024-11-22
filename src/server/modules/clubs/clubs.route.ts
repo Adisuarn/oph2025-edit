@@ -33,12 +33,11 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
     '/:key',
     async ({ params: { key } }) => {
       const response = await getClubByKey(decodeURIComponent(key) as keyof typeof AllData.Clubs)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -54,14 +53,11 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
         body,
         headers,
       )
-      switch (response.status) {
-        case 200:
-          return response
-        case 400:
-          return error(400, response.message)
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -114,12 +110,11 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
     '/:key/review',
     async ({ params: { key } }) => {
       const response = await getClubReviews(decodeURIComponent(key) as keyof typeof AllData.Clubs)
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -131,15 +126,12 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
     '/:key/review',
     async ({ params: { key }, set }) => {
       const response = await createClubReview(decodeURIComponent(key) as keyof typeof AllData.Clubs)
-      switch (response.status) {
-        case 201:
-          set.status = 201
-          return response
-        case 400:
-          return error(400, response.message)
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 201) {
+        return error(response.status, response.message)
       }
+      set.status = 201
+      return response
+
     },
     {
       params: t.Object({
@@ -155,12 +147,11 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
         id,
         body as ReviewData,
       )
-      switch (response.status) {
-        case 200:
-          return response
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response
     },
     {
       params: t.Object({
@@ -189,12 +180,11 @@ export const clubRouter = new Elysia({ prefix: '/clubs' })
         decodeURIComponent(key) as keyof typeof AllData.Clubs,
         id,
       )
-      switch (response.status) {
-        case 200:
-          return response.message
-        case 500:
-          return error(500, response.message)
+      if (response.status !== 200) {
+        return error(response.status, response.message)
       }
+
+      return response.message
     },
     {
       params: t.Object({
