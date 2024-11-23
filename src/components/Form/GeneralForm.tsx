@@ -202,7 +202,7 @@ const GeneralForm: React.FC<{
         return
       }
 
-      const images = [image3, image2, selectedFile];
+      const images = [image1, image2, selectedFile];
       if (!checkCombinedSize(images)) return;
 
       setImage3(selectedFile)
