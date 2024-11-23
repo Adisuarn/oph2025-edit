@@ -124,7 +124,7 @@ const PreviewGeneralForm: React.FC<{
 
           {/* section1 */}
           <div className="mb-14 mt-12 flex flex-col sm:mt-5 md:mb-20 md:mt-20">
-            <div className="flex flex-col items-start justify-between sm:flex-row md:mb-8">
+            <div className="flex flex-col items-start justify-between sm:flex-row md:mb-8 sm:space-x-4">
               {editFormData.tagThai === 'ชมรม' ? (
                 <div className="flex bg-gradient-to-b lg:mr-4 xl:mr-0 from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                   <p className="sm:py-1 sm:text-3xl sm:leading-[1.8] md:py-2 md:text-5xl md:leading-[1.5] lg:py-2 lg:text-7xl lg:leading-[1.3]">
@@ -138,11 +138,11 @@ const PreviewGeneralForm: React.FC<{
                 </div>
               ) : editFormData.tagThai === 'องค์กร' ? (
                 <div className="flex bg-gradient-to-b lg:mr-4 xl:mr-0 from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col sm:items-end">
-                  <p className="-mb-2 sm:py-1 sm:text-xs sm:leading-[1.8] md:py-2 md:text-3xl md:leading-[1.4] lg:py-2 lg:text-5xl lg:leading-[1.3] xl:text-6xl xl:leading-[1.3]">
+                      <p className="-mb-2 sm:py-1 sm:text-xs sm:leading-[1.8] md:py-2 md:text-4xl md:leading-[1.4] lg:py-2 lg:text-6xl lg:leading-[1.3]">
                     องค์กรนี้
                   </p>
 
-                  <p className="sm:text-xl md:text-4xl lg:text-4xl xl:text-5xl">ทำอะไร</p>
+                  <p className="sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl">ทำอะไร</p>
                   <div className="flex justify-center">
                     <SLamp1 className="hidden sm:block sm:w-28" />
                   </div>
@@ -252,7 +252,7 @@ const PreviewGeneralForm: React.FC<{
           </div>
           {/* section 3 */}
           <div className="mb-14 mt-3 flex flex-col sm:mt-5 md:mb-20 md:mt-8">
-            <div className="flex flex-col items-end justify-between sm:flex-row md:mb-8 md:items-center">
+            <div className="flex flex-col items-end justify-between sm:flex-row md:mb-8 md:items-center sm:space-x-4">
               {editFormData.tagThai === 'ชมรม' ? (
                 <div className="flex bg-gradient-to-b lg:mr-4 xl:mr-0 from-heroMiddle to-greenText bg-clip-text text-xl font-bold text-transparent sm:w-2/5 sm:flex-col">
                   <p className="sm:text-5xl md:text-6xl lg:text-7xl">ผลงาน</p>
