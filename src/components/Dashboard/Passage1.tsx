@@ -76,7 +76,6 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
     setFieldValue('descimg1', e.target.value)
   }
 
-  // Handle image load
   const handleImageLoad = () => {
     setImageLoaded(true)
   }
@@ -84,7 +83,7 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
   return (
     <>
       <div className="mx-44 mt-12 flex justify-between">
-        <div>
+        <div> 
           {(() => {
             switch (type) {
               case 'organization':
@@ -102,6 +101,13 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
                   </>
                 )
               case 'program':
+                return (
+                  <>
+                    <p className="text-4xl font-semibold text-[#0C453E]">การรับสมัคร</p>
+                    <p className="text-6xl font-semibold text-[#0C453E]">และ</p>
+                    <p className="text-4xl font-semibold text-[#0C453E]">การสอบเข้า</p>
+                  </>
+                )
               case 'gifted':
                 return (
                   <>
@@ -118,18 +124,18 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
 
         <div className="flex flex-col text-center">
           <div className="relative mb-28 ml-14 h-[300px] w-[500px] rounded-2xl">
-            <div className="max-h-[300px] max-w-[500px] overflow-hidden rounded-2xl">
+            <div className="h-[300px] w-[500px] overflow-hidden rounded-2xl">
               {/* Image with loading animation */}
               <div
-                className={`transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                className={`w-full h-full transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
               >
                 <Image
                   src={data.captureimg1}
                   alt="img1"
-                  width={500}
-                  height={300}
+                  fill
+                  quality={100}
                   onLoad={handleImageLoad}
-                  className="h-full w-full object-cover"
+                  className="object-cover"
                 />
               </div>
               {/* Loading Spinner */}

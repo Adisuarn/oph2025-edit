@@ -14,8 +14,8 @@ Quill.register('modules/emoji', Emoji)
 
 const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
   const quillRef = useRef<HTMLDivElement>(null)
-  const editorRef = useRef<Quill | null>(null) // Add a ref for the Quill editor instance
-  const [imageLoaded, setImageLoaded] = useState(false) // Track image loading state
+  const editorRef = useRef<Quill | null>(null)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   const toolbarOptions = [
     [{ header: [1, 2, 3, false] }],
@@ -64,10 +64,8 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
         },
       })
 
-      // Initialize Quill with current content
       editorRef.current!.root.innerHTML = data.benefits || ''
 
-      // Update Formik state on content change
       editorRef.current!.on('text-change', () => {
         setFieldValue('benefits', editorRef.current!.root.innerHTML)
       })
@@ -75,10 +73,9 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
   }, [setFieldValue, data.benefits])
 
   const handleDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFieldValue('descimg2', e.target.value) // Update Formik state for description
+    setFieldValue('descimg2', e.target.value)
   }
 
-  // Handle image load
   const handleImageLoad = () => {
     setImageLoaded(true)
   }
@@ -88,18 +85,18 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
       <div className="mx-44 mt-24 flex justify-between">
         <div className="flex flex-col text-center">
           <div className="relative mb-20 mr-14 h-[300px] w-[500px] rounded-2xl">
-            <div className="max-h-[300px] max-w-[500px] overflow-hidden rounded-2xl">
+            <div className="h-[300px] w-[500px] overflow-hidden rounded-2xl">
               {/* Image with opacity transition */}
               <div
-                className={`transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                className={`w-full h-full transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
               >
                 <Image
                   src={data.captureimg2}
                   alt="img2"
-                  width={500}
-                  height={300}
+                  fill
+                  quality={100}
                   onLoad={handleImageLoad}
-                  className="h-full w-full object-cover"
+                  className="object-cover"
                 />
               </div>
               {/* Loading Spinner */}

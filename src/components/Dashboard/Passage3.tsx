@@ -14,8 +14,8 @@ Quill.register('modules/emoji', Emoji)
 
 const Passage3 = ({ type, data, setFieldValue, errors, touched }: any) => {
   const quillRef = useRef<HTMLDivElement>(null)
-  const editorRef = useRef<Quill | null>(null) // Add a ref for the Quill editor instance
-  const [imageLoaded, setImageLoaded] = useState(false) // Track image loading state
+  const editorRef = useRef<Quill | null>(null) 
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   const toolbarOptions = [
     [{ header: [1, 2, 3, false] }],
@@ -121,18 +121,18 @@ const Passage3 = ({ type, data, setFieldValue, errors, touched }: any) => {
         </div>
         <div className="flex flex-col text-center">
           <div className="relative mb-28 ml-14 h-[300px] w-[500px] rounded-2xl">
-            <div className="max-h-[300px] max-w-[500px] overflow-hidden rounded-2xl">
+            <div className="h-[300px] w-[500px] overflow-hidden rounded-2xl">
               {/* Image with opacity transition */}
               <div
-                className={`transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+                className={`w-full h-full transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
               >
                 <Image
                   src={data.captureimg3}
                   alt="img3"
-                  width={500}
-                  height={300}
+                  fill
+                  quality={100}
                   onLoad={handleImageLoad}
-                  className="h-full w-full object-cover"
+                  className="object-cover"
                 />
               </div>
               {/* Loading Spinner */}

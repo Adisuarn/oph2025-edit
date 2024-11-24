@@ -380,9 +380,7 @@ const DashboardTUCMC: React.FC = () => {
 
               <hr className="my-9" />
               <ul className="mt-5">
-                {filteredOrganizations.map((item, index) =>
-                  renderItem(item, 'organization', index),
-                )}
+                {filteredOrganizations.map((item, index) => renderItem(item, 'organization', index))}
                 {filteredPrograms.map((item, index) => renderItem(item, 'program', index))}
                 {filteredClubs.map((item, index) => renderItem(item, 'club', index))}
                 {filteredGifted.map((item, index) => renderItem(item, 'gifted', index))}
