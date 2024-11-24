@@ -1055,12 +1055,12 @@ const GeneralForm: React.FC<{
                         <div className="relative w-[70vw] text-center md:w-[30vw]">
                           <Field
                             type="text"
-                            name="photoDescription3"
+                            name="photoDescription2"
                             className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
                             placeholder="กรุณาใส่คำอธิบายรูปภาพ"
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                              setFieldValue('photoDescription3', e.target.value)
-                              handleFieldChange('descimg3', e.target.value)
+                              setFieldValue('photoDescription2', e.target.value)
+                              handleFieldChange('descimg2', e.target.value)
                             }}
                           />
                           <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
