@@ -2,12 +2,11 @@ import apiFunction from '@/components/api'
 import GeneralForm from './GeneralForm'
 
 const FormikControl: React.FC = async () => {
-  const response = await apiFunction('GET', '/user', {})
-  const userData = response.data
-  const userForm = await apiFunction('GET', `/${userData.tag}/${userData.key}/`, {})
-  const userReview = await apiFunction('GET', `/${userData.tag}/${userData.key}/review`, {})
+  const { data: userData } = await apiFunction('GET', '/user', {})
+  const { data: userFormData } = await apiFunction('GET', `/${userData.tag}/${userData.key}/`, {})
+  const { data: userReviewData } = await apiFunction('GET', `/${userData.tag}/${userData.key}/review`, {})
 
-  const data = userForm.data.data
+  const data = userFormData.data
 
   const editFormData = {
     error: data.error,
@@ -30,24 +29,23 @@ const FormikControl: React.FC = async () => {
     captureimg3: data.captureimg3,
     descimg3: data.descimg3,
   }
-  // console.log(editFormData)
 
-  const reviews = userReview.data.data
-    .map((review: any, index: number) => ({
-      count: review.count,
-      profile: review.profile,
-      nick: review.nick,
-      gen: review.gen,
-      contact: review.contact,
-      content: review.content,
-    }))
-    .slice(0, 3)
+  const reviews = userReviewData.data.map((review: any) => ({
+    count: review.count,
+    profile: review.profile,
+    nick: review.nick,
+    gen: review.gen,
+    contact: review.contact,
+    content: review.content,
+  }))
+
+  const reviewAmount = reviews.length
 
   return (
     <GeneralForm
       userData={userData}
       editFormData={editFormData}
-      reviews={userReview.data.data.length}
+      reviews={reviewAmount}
       review1={reviews[0]}
       review2={reviews[1]}
       review3={reviews[2]}

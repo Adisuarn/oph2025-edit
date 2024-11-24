@@ -16,7 +16,7 @@ import { updateData } from './ViewData.action'
 const MySwal = withReactContent(Swal)
 
 const ViewData = ({ data, type, onStatusUpdate }: any) => {
-  const [loading, setLoading] = useState(false) // New loading state
+  const [loading, setLoading] = useState(false)
 
   const formattedDate = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Bangkok',
@@ -60,7 +60,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
   }
 
   const handleSubmit = async (values: any) => {
-    setLoading(true) // Start loading when submit is clicked
+    setLoading(true)
     try {
       MySwal.fire({
         title: 'ยืนยันการแก้ไขข้อมูล',
@@ -77,7 +77,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
                 if (typeof window !== 'undefined') {
                   window.location.reload()
                 }
-                setLoading(false) // Stop loading on successful update
+                setLoading(false) 
               }),
               {
                 loading: 'กำลังอัปเดตข้อมูล...',
@@ -85,19 +85,19 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
                 error: 'อัปเดตข้อมูลไม่สำเร็จ',
               },
             )
-            .finally(() => setLoading(false)) // Stop loading on any result
+            .finally(() => setLoading(false))
         } else {
-          setLoading(false) // Stop loading if user cancels
+          setLoading(false)
         }
       })
     } catch (error) {
-      setLoading(false) // Stop loading on error
+      setLoading(false)
       toast.error('ไม่สามารถอัปเดตข้อมูลได้')
     }
   }
 
   const handleStatusChange = (status: Status) => {
-    setLoading(true) // Start loading when status change is clicked
+    setLoading(true)
     const titles: { [key in Status]: string } = {
       [Status.APPROVED]: 'อนุมัติข้อมูลนี้',
       [Status.REJECTED]: 'ปฎิเสธข้อมูลนี้',
@@ -132,7 +132,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
           },
         )
       } else {
-        setLoading(false) // Stop loading if user cancels
+        setLoading(false)
       }
     })
   }

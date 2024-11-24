@@ -35,7 +35,7 @@ const PreviewGiftedForm: React.FC = async () => {
     descimg3: data.descimg3,
   }
 
-  const reviews = userReviewData.data.map((review: any, index: number) => ({
+  const reviews = userReviewData.data.map((review: any) => ({
     count: review.count,
     profile: review.profile,
     nick: review.nick,

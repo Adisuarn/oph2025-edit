@@ -1,7 +1,6 @@
 import apiFunction from '@/components/api'
 import GeneralForm from './GeneralForm'
 
-//TODO ดัก
 const FormikControl: React.FC = async () => {
   const { data: userData } = await apiFunction('GET', '/user', {})
 
@@ -36,7 +35,7 @@ const FormikControl: React.FC = async () => {
     descimg3: data.descimg3,
   }
 
-  const reviews = userReviewData.data.map((review: any, index: number) => ({
+  const reviews = userReviewData.data.map((review: any) => ({
     count: review.count,
     profile: review.profile,
     nick: review.nick,
@@ -45,14 +44,16 @@ const FormikControl: React.FC = async () => {
     content: review.content,
   }))
 
-  const reviewAmount = reviews.filter(
-    (review: any) =>
-      review.profile !== '' &&
-      review.nick !== '' &&
-      review.gen !== '' &&
-      review.contact !== '' &&
-      review.content !== '',
-  ).length
+  // const reviewAmount = reviews.filter(
+  //   (review: any) =>
+  //     review.profile !== '' &&
+  //     review.nick !== '' &&
+  //     review.gen !== '' &&
+  //     review.contact !== '' &&
+  //     review.content !== '',
+  // ).length
+
+  const reviewAmount = reviews.length
 
   return (
     <GeneralForm
