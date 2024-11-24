@@ -163,9 +163,13 @@ const GeneralForm: React.FC<{
   const MAX_COMBINED_SIZE_MB = 4 * 1024 * 1024;
 
   const checkCombinedSize = (images: (File | null)[]) => {
-    const totalSize = images.reduce((acc, file) => acc + (file?.size || 0), 0);
+    // const totalSize = images.reduce((acc, file) => acc + (file?.size || 0), 0);
+    const totalSize = images
+    .map((image) => image?.size || 0)
+    .reduce((acc, size) => acc + size, 0);
+    console.log(totalSize);
     if (totalSize > MAX_COMBINED_SIZE_MB) {
-      toast.error("Total image size exceeds 4 MB. Please reduce the size of the images.");
+      toast.error("Total image size exceeds 4.5 MB. Please reduce the size of the images.");
       return false;
     }
     return true;
@@ -174,7 +178,7 @@ const GeneralForm: React.FC<{
   const checkCombinedSizeProfile = (profiles: (File | null)[]) => {
     const totalSize = profiles.reduce((acc, file) => acc + (file?.size || 0), 0);
     if (totalSize > MAX_COMBINED_SIZE_MB) {
-      toast.error("Total profile image size exceeds 4 MB. Please reduce the size of the profile images.");
+      toast.error("Total profile image size exceeds 4.5 MB. Please reduce the size of the profile images.");
       return false;
     }
     return true;
@@ -238,7 +242,7 @@ const GeneralForm: React.FC<{
         return
       }
 
-      const images = [image3, image2, selectedFile];
+      const images = [image1, image2, selectedFile];
       if (!checkCombinedSize(images)) return;
 
       setImage3(selectedFile)
