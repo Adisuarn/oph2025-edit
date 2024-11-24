@@ -4,6 +4,7 @@ import 'quill2-emoji/dist/style.css'
 import 'quill/dist/quill.snow.css'
 
 import { useEffect, useRef, useState } from 'react'
+import { useFormStore, useReviewStore1, useReviewStore2, useReviewStore3 } from '@/store/formStore'
 import Quill from 'quill'
 
 Quill.register('modules/emoji', Emoji)
@@ -23,6 +24,30 @@ const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => {
   const [isClient, setIsClient] = useState(false)
   const quillRef = useRef<HTMLDivElement>(null)
   const editorRef = useRef<Quill | null>(null)
+  const updateForm = useFormStore((state) => state.updateForm)
+  const updateReview1 = useReviewStore1((state) => state.updateReview)
+  const updateReview2 = useReviewStore2((state) => state.updateReview)
+  const updateReview3 = useReviewStore3((state) => state.updateReview)
+
+  const handleFieldChange = (fieldName: string, value: any) => {
+    updateForm({ [fieldName]: value })
+  }
+
+  const handleReviewChange = (count: number, fieldName: string, value: any) => { 
+    switch (count) {
+      case 1:
+        updateReview1({ [fieldName]: value })
+        break
+      case 2:
+        updateReview2({ [fieldName]: value })
+        break
+      case 3:
+        updateReview3({ [fieldName]: value })
+        break
+      default:
+        break
+    }
+  }
 
   useEffect(() => {
     setIsClient(true)
@@ -68,8 +93,16 @@ const QuillField: React.FC<{ field: any; form: any }> = ({ field, form }) => {
         editorRef.current.on('text-change', () => {
           const htmlContent = editorRef.current!.root.innerHTML
           const formattedContent = htmlContent.replace(/\n/g, '<br>')
-          localStorage.setItem(field.name, formattedContent)
           form.setFieldValue(field.name, formattedContent, true)
+          if(field.name === 'textField1' || field.name === 'textField2' || field.name === 'textField3')
+            handleFieldChange(field.name === 'textField1' ? 'text1' : field.name === 'textField2' ? 'text2' : field.name === 'textField3' ? 'text3' : '', formattedContent)
+          if(field.name === 'textField4' || field.name === 'textField5' || field.name === 'textField6')
+            if(field.name === 'textField4')
+              handleReviewChange(1, 'content', formattedContent)
+            else if(field.name === 'textField5')
+              handleReviewChange(2, 'content', formattedContent)
+            else if(field.name === 'textField6')
+              handleReviewChange(3, 'content', formattedContent)
         })
       }
 

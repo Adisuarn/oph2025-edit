@@ -118,19 +118,18 @@ const DashboardTUCMC: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const isMobileDevice = window.innerWidth <= 768 // Check if the width is less than or equal to 768px for mobile devices
-      const isMobileLandscape = isMobileDevice && window.innerWidth > window.innerHeight // Detect mobile landscape (width > height)
+      const isMobileDevice = window.innerWidth <= 768 
+      const isMobileLandscape = isMobileDevice && window.innerWidth > window.innerHeight
       const isIpad =
-        /iPad|Macintosh/i.test(navigator.userAgent) && window.innerHeight > window.innerWidth // Detect iPad in portrait mode
+        /iPad|Macintosh/i.test(navigator.userAgent) && window.innerHeight > window.innerWidth
 
-      // Set isMobile state for both mobile portrait and landscape, and iPad portrait
       setIsMobile(isMobileDevice || isMobileLandscape || isIpad)
     }
 
-    handleResize() // Initial check
-    window.addEventListener('resize', handleResize) // Add resize listener
+    handleResize()
+    window.addEventListener('resize', handleResize)
 
-    return () => window.removeEventListener('resize', handleResize) // Clean up listener on unmount
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   const handleStatusUpdate = useCallback(

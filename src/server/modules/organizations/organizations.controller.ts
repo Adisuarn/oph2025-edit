@@ -71,7 +71,6 @@ export const updateOrganizationData = async (
   const userData = (await getUser(headers)).data
   if (organizationData.status === Status.APPROVED)
     return { status: 400, message: 'Organization already approved' }
-  console.log(body.captureimg1)
   try {
     const updatedOrganization = await prisma.organizations.update({
       omit: { organizationId: true, createdAt: true, id: true },

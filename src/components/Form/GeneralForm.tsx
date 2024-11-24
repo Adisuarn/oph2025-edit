@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Status } from '@utils/type'
-import { ErrorMessage, Field, Form, Formik, useFormikContext } from 'formik'
+import { ErrorMessage, Field, Form, Formik } from 'formik'
 import { FaPen } from 'react-icons/fa'
 import { Bounce, toast, ToastContainer } from 'react-toastify'
 import * as Yup from 'yup'
@@ -21,6 +21,8 @@ import dynamic from 'next/dynamic'
 import axios from 'axios'
 import { useCookies } from 'next-client-cookies'
 import Swal from 'sweetalert2'
+import { useFormStore } from '@/store/formStore'
+import { useReviewStore1, useReviewStore2, useReviewStore3 } from '@/store/formStore'
 
 const QuillField = dynamic(() => import('@components/Form/FormEditor'), {
   ssr: false,
@@ -57,8 +59,37 @@ const GeneralForm: React.FC<{
     review3
       ? review3
       : (review3 = { count: 3, profile: null, nick: '', gen: '', contact: '', content: '' })
+
+  const updateForm = useFormStore((state) => state.updateForm)
+  const updateReview1 = useReviewStore1((state) => state.updateReview)
+  const updateReview2 = useReviewStore2((state) => state.updateReview)
+  const updateReview3 = useReviewStore3((state) => state.updateReview)
+  const formState = useFormStore((state) => state.formData)
+  const reviewState1 = useReviewStore1((state) => state.reviewData)
+  const reviewState2 = useReviewStore2((state) => state.reviewData)
+  const reviewState3 = useReviewStore3((state) => state.reviewData)
+
+  const handleFieldChange = (fieldName: string, value: any) => {
+    updateForm({ [fieldName]: value })
+  }
+
+  const handleReviewFieldChange = (count: number, fieldName: string, value: any) => {
+    switch (count) {
+      case 1:
+        updateReview1({ [fieldName]: value })
+        break
+      case 2:
+        updateReview2({ [fieldName]: value })
+        break
+      case 3:
+        updateReview3({ [fieldName]: value })
+        break
+      default:
+        break
+    }
+  }
+
   const cookies = useCookies()
-  const MAX_COMBINED_SIZE_MB = 4.5 * 1000 * 1000;
   const notifySuccess = () =>
     toast.success('Successfully Sent!', {
       position: 'top-right',
@@ -95,34 +126,41 @@ const GeneralForm: React.FC<{
       transition: Bounce,
     })
 
-  const [image1, setImage1] = useState<File | null>(null)
-  const [imageUrl1, setImageUrl1] = useState(editFormData.captureimg1)
+  const [image1, setImage1] = useState<File | null>(formState.captureimg1File ? formState.captureimg1File : null)
+  const [imageUrl1, setImageUrl1] = useState<string | null>(formState.captureimg1 ? formState.captureimg1 : editFormData.captureimg1)
   const [displayImage1, setDisplayImage1] = useState<boolean>(editFormData.captureimg1)
-  const [image2, setImage2] = useState<File | null>(null)
-  const [imageUrl2, setImageUrl2] = useState<string | null>(editFormData.captureimg2)
+  const [image2, setImage2] = useState<File | null>(formState.captureimg2File ? formState.captureimg2File : null)
+  const [imageUrl2, setImageUrl2] = useState<string | null>(formState.captureimg2 ? formState.captureimg2 : editFormData.captureimg2)
   const [displayImage2, setDisplayImage2] = useState<boolean>(editFormData.captureimg2)
-  const [image3, setImage3] = useState<File | null>(null)
-  const [imageUrl3, setImageUrl3] = useState<string | null>(editFormData.captureimg3)
+  const [image3, setImage3] = useState<File | null>(formState.captureimg3File ? formState.captureimg3File : null)
+  const [imageUrl3, setImageUrl3] = useState<string | null>(formState.captureimg3 ? formState.captureimg3 : editFormData.captureimg3)
   const [displayImage3, setDisplayImage3] = useState<boolean>(editFormData.captureimg3)
-  const [image4, setImage4] = useState<File | null>(null)
-  const [imageUrl4, setImageUrl4] = useState<string | null>(review1.profile)
+  const [image4, setImage4] = useState<File | null>(reviewState1.profileFile ? reviewState1.profileFile : null)
+  const [imageUrl4, setImageUrl4] = useState<string | null>(reviewState1.profile ? reviewState1.profile : review1.profile)
   const [displayImage4, setDisplayImage4] = useState<boolean>(review1?.profile)
-  const [image5, setImage5] = useState<File | null>(null)
-  const [imageUrl5, setImageUrl5] = useState<string | null>(review2?.profile)
+  const [image5, setImage5] = useState<File | null>(reviewState2.profileFile ? reviewState2.profileFile : null)
+  const [imageUrl5, setImageUrl5] = useState<string | null>(reviewState2.profile ? reviewState2.profile : review2.profile)
   const [displayImage5, setDisplayImage5] = useState<boolean>(review2?.profile)
-  const [image6, setImage6] = useState<File | null>(null)
-  const [imageUrl6, setImageUrl6] = useState<string | null>(review3?.profile)
+  const [image6, setImage6] = useState<File | null>(reviewState3.profileFile ? reviewState2.profileFile : null)
+  const [imageUrl6, setImageUrl6] = useState<string | null>(reviewState3.profile ? reviewState3.profile : review3.profile)
   const [displayImage6, setDisplayImage6] = useState<boolean>(review3?.profile)
-  const [clubLogo, setClubLogo] = useState<File | null>(null)
-  const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(editFormData.logo)
-  const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(editFormData.logo)
+  const [clubLogo, setClubLogo] = useState<File | null>(formState.logoFile ? formState.logoFile : null)
+  const [clubLogoUrl, setClubLogoUrl] = useState<string | null>(formState.logo ? formState.logo : editFormData.logo)
+  const [displayClubLogo, setDisplayClubLogo] = useState<boolean>(editFormData?.logo)
   const [ReviewAmount, setReviewAmount] = useState<number>(reviews)
   const [loading, setLoading] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
 
+  const reqHeader = {
+    'x-api-key': env.NEXT_PUBLIC_API_KEY,
+    Authorization: `${cookies.get(env.NEXT_PUBLIC_COOKIE_NAME)}`,
+  }
+
   const handleImageLoad = () => {
     setImageLoaded(true)
   }
+
+  const MAX_COMBINED_SIZE_MB = 4 * 1024 * 1024;
 
   const checkCombinedSize = (images: (File | null)[]) => {
     // const totalSize = images.reduce((acc, file) => acc + (file?.size || 0), 0);
@@ -150,7 +188,7 @@ const GeneralForm: React.FC<{
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0]
 
-      if (!selectedFile.type.startsWith('image/')) {
+      if (!(selectedFile.type.startsWith('image/png') || selectedFile.type.startsWith('image/jpg') || selectedFile.type.startsWith('image/jpeg'))) {
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
@@ -167,13 +205,14 @@ const GeneralForm: React.FC<{
     if (image1) {
       const urlImg1 = URL.createObjectURL(image1)
       setImageUrl1(urlImg1)
+      updateForm({ captureimg1File: image1 })
     }
   }, [image1])
 
   const handleFileSelect2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0]
-      if (!selectedFile.type.startsWith('image/')) {
+      if (!(selectedFile.type.startsWith('image/png') || selectedFile.type.startsWith('image/jpg') || selectedFile.type.startsWith('image/jpeg'))) {
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
@@ -190,6 +229,7 @@ const GeneralForm: React.FC<{
     if (image2) {
       const urlImg2 = URL.createObjectURL(image2)
       setImageUrl2(urlImg2)
+      updateForm({ captureimg2File: image2 })
     }
   }, [image2])
 
@@ -197,7 +237,7 @@ const GeneralForm: React.FC<{
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0]
 
-      if (!selectedFile.type.startsWith('image/')) {
+      if (!(selectedFile.type.startsWith('image/png') || selectedFile.type.startsWith('image/jpg') || selectedFile.type.startsWith('image/jpeg'))) {
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
@@ -214,6 +254,7 @@ const GeneralForm: React.FC<{
     if (image3) {
       const urlImg3 = URL.createObjectURL(image3)
       setImageUrl3(urlImg3)
+      updateForm({ captureimg3File: image3 })
     }
   }, [image3])
 
@@ -221,7 +262,7 @@ const GeneralForm: React.FC<{
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0]
 
-      if (!selectedFile.type.startsWith('image/')) {
+      if (!(selectedFile.type.startsWith('image/png') || selectedFile.type.startsWith('image/jpg') || selectedFile.type.startsWith('image/jpeg'))) {
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
@@ -238,6 +279,7 @@ const GeneralForm: React.FC<{
     if (image4) {
       const urlImg4 = URL.createObjectURL(image4)
       setImageUrl4(urlImg4)
+      updateReview1({ profileFile: image4 })
     }
   }, [image4])
 
@@ -245,7 +287,7 @@ const GeneralForm: React.FC<{
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0]
 
-      if (!selectedFile.type.startsWith('image/')) {
+      if (!(selectedFile.type.startsWith('image/png') || selectedFile.type.startsWith('image/jpg') || selectedFile.type.startsWith('image/jpeg'))) {
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
@@ -262,6 +304,7 @@ const GeneralForm: React.FC<{
     if (image5) {
       const urlImg5 = URL.createObjectURL(image5)
       setImageUrl5(urlImg5)
+      updateReview2({ profileFile: image5 })
     }
   }, [image5])
 
@@ -269,7 +312,7 @@ const GeneralForm: React.FC<{
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0]
 
-      if (!selectedFile.type.startsWith('image/')) {
+      if (!(selectedFile.type.startsWith('image/png') || selectedFile.type.startsWith('image/jpg') || selectedFile.type.startsWith('image/jpeg'))) {
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
@@ -286,6 +329,7 @@ const GeneralForm: React.FC<{
     if (image6) {
       const urlImg6 = URL.createObjectURL(image6)
       setImageUrl6(urlImg6)
+      updateReview3({ profileFile: image6 })
     }
   }, [image6])
 
@@ -293,7 +337,7 @@ const GeneralForm: React.FC<{
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0]
 
-      if (!selectedFile.type.startsWith('image/')) {
+      if (!(selectedFile.type.startsWith('image/png') || selectedFile.type.startsWith('image/jpg') || selectedFile.type.startsWith('image/jpeg'))) {
         alert('Please select a valid image file (png, jpg, jpeg).')
         return
       }
@@ -307,56 +351,217 @@ const GeneralForm: React.FC<{
     if (clubLogo) {
       const urlLogo = URL.createObjectURL(clubLogo)
       setClubLogoUrl(urlLogo)
+      updateForm({ logoFile: clubLogo })
     }
   }, [clubLogo])
-  
+
+  useEffect(() => {
+    if (imageUrl1) {
+      updateForm({ captureimg1: imageUrl1 })
+    }
+  }, [imageUrl1])
+
+  useEffect(() => {
+    if (imageUrl2) {
+      updateForm({ captureimg2: imageUrl2 })
+    }
+  }, [imageUrl2])
+
+  useEffect(() => {
+    if (imageUrl3) {
+      updateForm({ captureimg3: imageUrl3 })
+    }
+  }, [imageUrl3])
+
+  useEffect(() => {
+    if (imageUrl4) {
+      updateReview1({ profile: imageUrl4 })
+    }
+  }, [imageUrl4])
+
+  useEffect(() => {
+    if (imageUrl5) {
+      updateReview2({ profile: imageUrl5 })
+    }
+  }, [imageUrl5])
+
+  useEffect(() => {
+    if (imageUrl6) {
+      updateReview3({ profile: imageUrl6 })
+    }
+  }, [imageUrl6])
+
+  useEffect(() => {
+    if (clubLogoUrl) {
+      updateForm({ logo: clubLogoUrl })
+    }
+  }, [clubLogoUrl])
+
+  const validateReviewImages = (reviews: any, images: any) => {
+    reviews.forEach((review: any, index: number) => {
+      if ((review.content || review.nick || review.gen || review.contact) && !images[index]) {
+        notifyWarning({ props: `Profile Review ${index + 1}` });
+        throw new Error(`Missing review profile image ${index + 1}`);
+      }
+    });
+  };
+
+  const prepareReviews = (values: any) => {
+    return [
+      {
+        nick: values.P1Name,
+        gen: values.P1Gen,
+        contact: values.P1Contact,
+        content: values.textField4,
+      },
+      {
+        nick: values.P2Name,
+        gen: values.P2Gen,
+        contact: values.P2Contact,
+        content: values.textField5,
+      },
+      {
+        nick: values.P3Name,
+        gen: values.P3Gen,
+        contact: values.P3Contact,
+        content: values.textField6,
+      }
+    ];
+  };
+
+  const validateImages = () => {
+    if (editFormData.tagThai === 'ชมรม' && !clubLogoUrl) {
+      notifyWarning({ props: 'club logo' });
+      throw new Error('Missing club logo');
+    }
+    if (!imageUrl1 || !imageUrl2 || !imageUrl3) {
+      [imageUrl1, imageUrl2, imageUrl3].forEach((img, idx) => {
+        if (!img) notifyWarning({ props: `Photo ${idx + 1}` });
+      });
+      throw new Error('Missing required images');
+    }
+
+    validateReviewImages([review1, review2, review3], [imageUrl4, imageUrl5, imageUrl6]);
+  };
+
+  const appendImages = (formData: any) => {
+    if (image1) formData.append('captureimg1', image1);
+    if (image2) formData.append('captureimg2', image2);
+    if (image3) formData.append('captureimg3', image3);
+
+    if (editFormData.tagThai === 'ชมรม' && clubLogo) {
+      formData.append('logo', clubLogo);
+    }
+  };
+
+  const buildFormData = (values: any) => {
+    const formData = new FormData();
+
+    formData.append('members', values.Members);
+    formData.append('ig', values.IG);
+    formData.append('fb', values.FB);
+    formData.append('others', values.others);
+
+    if (editFormData.tagThai === 'ชมรม' || editFormData.tagThai === 'องค์กร') {
+      formData.append('activities', values.textField1);
+    } else {
+      formData.append('admissions', values.textField1);
+    }
+
+    if (editFormData.tagThai === 'ชมรม') {
+      formData.append('benefits', values.textField2);
+    } else if (editFormData.tagThai === 'องค์กร') {
+      formData.append('position', values.textField2);
+    } else {
+      formData.append('courses', values.textField2);
+    }
+
+    if (editFormData.tagThai === 'ชมรม' || editFormData.tagThai === 'องค์กร') {
+      formData.append('working', values.textField3);
+    } else {
+      formData.append('interests', values.textField3);
+    }
+
+    appendImages(formData);
+
+    formData.append('descimg1', values.photoDescription1);
+    formData.append('descimg2', values.photoDescription2);
+    formData.append('descimg3', values.photoDescription3);
+
+    return formData;
+  };
+
+  const sendFormData = async (formData: any) => {
+    const options = {
+      method: 'PATCH',
+      url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
+      headers: reqHeader,
+      data: formData,
+    };
+
+    await axios.request(options);
+  };
+
+  const sendReviewsData = async (reviews: any) => {
+    const images = [image4, image5, image6];
+    const reviewPromises = reviews.map((review: any, index: number) => {
+      if (!review.content || !review.nick || !review.gen || !review.contact) return;
+
+      const reviewData = new FormData();
+      const profileImage = images[index];
+      if (profileImage) reviewData.append('profile', profileImage);
+      reviewData.append('nick', review.nick || '');
+      reviewData.append('gen', review.gen || '');
+      reviewData.append('contact', review.contact || '');
+      reviewData.append('content', review.content || '');
+
+      return axios({
+        method: 'PATCH',
+        url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
+        headers: reqHeader,
+        data: reviewData,
+      });
+    });
+
+    await Promise.all(reviewPromises);
+  };
+
   return (
     <section className="mx-10 mt-16 sm:mx-24">
       <ToastContainer />
       <Formik
         initialValues={{
-          textField1: editFormData.text1,
-          textField2: editFormData.text2,
-          textField3: editFormData.text3,
-          photoDescription1: editFormData.descimg1,
-          photoDescription2: editFormData.descimg2,
-          photoDescription3: editFormData.descimg3,
-          textField4: review1.content ? review1.content : '',
-          P1Name: review1.nick ? review1.nick : '',
-          P1Gen: review1.gen ? review1.gen : '',
-          P1Contact: review1.contact ? review1.contact : '',
-          textField5: review2.content ? review2.content : '',
-          P2Name: review2.nick ? review2.nick : '',
-          P2Gen: review2.gen ? review2.gen : '',
-          P2Contact: review2.contact ? review2.contact : '',
-          textField6: review3.content ? review3.content : '',
-          P3Name: review3.nick ? review3.nick : '',
-          P3Gen: review3.gen ? review3.gen : '',
-          P3Contact: review3.contact ? review3.contact : '',
-          Members: editFormData.members ?? '',
-          IG: editFormData.ig ?? '',
-          FB: editFormData.fb ?? '',
-          others: editFormData.others ?? '',
+          textField1: formState.text1 ? formState.text1 : editFormData.text1 ? editFormData.text1 : '',
+          textField2: formState.text2 ? formState.text2 : editFormData.text2 ? editFormData.text2 : '',
+          textField3: formState.text3 ? formState.text3 : editFormData.text3 ? editFormData.text3 : '',
+          photoDescription1: formState.descimg1 ? formState.descimg1 : editFormData.descimg1 ? editFormData.descimg1 : '',
+          photoDescription2: formState.descimg2 ? formState.descimg2 : editFormData.descimg2 ? editFormData.descimg2 : '',
+          photoDescription3: formState.descimg3 ? formState.descimg3 : editFormData.descimg3 ? editFormData.descimg3 : '',
+          textField4: reviewState1.content ? reviewState1.content : review1.content ? review1.content : '',
+          P1Name: reviewState1.nick ? reviewState1.nick : review1.nick ? review1.nick : '',
+          P1Gen: reviewState1.gen ? reviewState1.gen : review1.gen ? review1.gen : '',
+          P1Contact: reviewState1.contact ? reviewState1.contact : review1.contact ? review1.contact : '',
+          textField5: reviewState2.content ? reviewState2.content : review2.content ? review2.content : '',
+          P2Name: reviewState2.nick ? reviewState2.nick : review2.nick ? review2.nick : '',
+          P2Gen: reviewState2.gen ? reviewState2.gen : review2.gen ? review2.gen : '',
+          P2Contact: reviewState2.contact ? reviewState2.contact : review2.contact ? review2.contact : '',
+          textField6: reviewState3.content ? reviewState3.content : review3.content ? review3.content : '',
+          P3Name: reviewState3.nick ? reviewState3.nick : review3.nick ? review3.nick : '',
+          P3Gen: reviewState3.gen ? reviewState3.gen : review3.gen ? review3.gen : '',
+          P3Contact: reviewState3.contact ? reviewState3.contact : review3.contact ? review3.contact : '',
+          Members: formState.members ? formState.members : editFormData.members ? editFormData.members : '',
+          IG: formState.ig ? formState.ig : editFormData.ig ? editFormData.ig : '',
+          FB: formState.fb ? formState.fb : editFormData.fb ? editFormData.fb : '',
+          others: formState.others ? formState.others : editFormData.others ? editFormData.others : '',
         }}
         validationSchema={Yup.object({
-          //.min(150, "Required More than 150 words ")
-          textField1: Yup.string()
-            // .min(150, "Required More than 150 words ")
-            .required('Required Description'),
-          textField2: Yup.string()
-            // .min(150, "Required More than 150 words ")
-            .required('Required Description'),
-          textField3: Yup.string()
-            // .min(150, "Required More than 150 words ")
-            .required('Required Description'),
-          textField4: Yup.string().required('Required Description'),
-          photoDescription1: Yup.string().required('Required Description'),
-          photoDescription2: Yup.string().required('Required Description'),
-          photoDescription3: Yup.string().required('Required Description'),
-          P1Name: Yup.string().required('Required Description'),
-          P1Gen: Yup.string().required('Required Description'),
-          P1Contact: Yup.string().required('Required Description'),
-          Members: Yup.string().required('Required Description'),
+          textField1: Yup.string().required('กรุณาใส่ข้อความ'),
+          textField2: Yup.string().required('กรุณาใส่ข้อความ'),
+          textField3: Yup.string().required('กรุณาใส่ข้อความ'),
+          photoDescription1: Yup.string().required('กรุณาใส่คำอธิบายรูปภาพ 1'),
+          photoDescription2: Yup.string().required('กรุณาใส่คำอธิบายรูปภาพ 2'),
+          photoDescription3: Yup.string().required('กรุณาใส่คำอธิบายรูปภาพ 3'),
+          Members: Yup.string().required('กรุณาใส่จำนวนสมาชิก'),
         })}
         onSubmit={async (
           values: {
@@ -392,150 +597,35 @@ const GeneralForm: React.FC<{
             confirmButtonText: 'ยืนยัน',
             cancelButtonText: 'ยกเลิก',
           })
-          if (userConfirmed.isConfirmed) {
-            try {
-              setLoading(true)
-              editFormData.members = values.Members
-              editFormData.ig = values.IG
-              editFormData.fb = values.FB
-              editFormData.others = values.others
-              editFormData.text1 = values.textField1
-              editFormData.text2 = values.textField2
-              editFormData.text3 = values.textField3
-              if (
-                (editFormData.tagThai === 'ชมรม' && clubLogoUrl === undefined) ||
-                clubLogoUrl === '' ||
-                clubLogoUrl === null
-              ) {
-                notifyWarning({ props: 'club logo' })
-                throw new Error('')
-              }
-              if (imageUrl1 === null || imageUrl1 === '' || imageUrl1 === undefined) {
-                notifyWarning({ props: 'Photo 1' })
-                throw new Error('')
-              }
-              if (imageUrl2 === null || imageUrl2 === '' || imageUrl2 === undefined) {
-                notifyWarning({ props: 'Photo 2' })
-                throw new Error('')
-              }
-              if (imageUrl3 === null || imageUrl3 === '' || imageUrl3 === undefined) {
-                notifyWarning({ props: 'Photo 3' })
-                throw new Error('')
-              }
-              if (imageUrl4 === null || imageUrl4 === '' || imageUrl4 === undefined) {
-                notifyWarning({ props: 'Review Photo' })
-                throw new Error('')
-              }
-              editFormData.captureimg1 = image1
-              editFormData.captureimg2 = image2
-              editFormData.captureimg3 = image3
-              review1.profile = image4
-              review2.profile = image5
-              review3.profile = image6
-              review1.nick = values.P1Name
-              review2.nick = values.P2Name
-              review3.nick = values.P3Name
-              review1.gen = values.P1Gen
-              review2.gen = values.P2Gen
-              review3.gen = values.P3Gen
-              review1.contact = values.P1Contact
-              review2.contact = values.P2Contact
-              review3.contact = values.P3Contact
-              review1.content = values.textField4
-              review2.content = values.textField5
-              review3.content = values.textField6
-              editFormData.descimg1 = values.photoDescription1
-              editFormData.descimg2 = values.photoDescription2
-              editFormData.descimg3 = values.photoDescription3
-              editFormData.sendForm = true
-              const formData = new FormData()
-              formData.append('members', editFormData.members)
-              formData.append('ig', editFormData.ig)
-              formData.append('fb', editFormData.fb)
-              formData.append('others', editFormData.others)
-              if (editFormData.tagThai === 'ชมรม' || editFormData.tagThai === 'องค์กร') {
-                formData.append('activities', editFormData.text1)
-              } else {
-                formData.append('admissions', editFormData.text1)
-              }
 
-              if (editFormData.tagThai === 'ชมรม') {
-                formData.append('benefits', editFormData.text2)
-              } else if (editFormData.tagThai === 'องค์กร') {
-                formData.append('position', editFormData.text2)
-              } else {
-                formData.append('courses', editFormData.text2)
-              }
+          if (!userConfirmed.isConfirmed) {
+            setSubmitting(false);
+            return;
+          }
 
-              if (editFormData.tagThai === 'ชมรม' || editFormData.tagThai === 'องค์กร') {
-                formData.append('working', editFormData.text3)
-              } else {
-                formData.append('interests', editFormData.text3)
-              }
+          try {
+            setLoading(true);
+            setSubmitting(true);
 
-              if (image1 !== null) formData.append('captureimg1', image1)
-              if (image2 !== null) formData.append('captureimg2', image2)
-              if (image3 !== null) formData.append('captureimg3', image3)
+            validateImages();
 
-              if (editFormData.tagThai === 'ชมรม' && clubLogo !== null) {
-                formData.append('logo', clubLogo)
-              }
-              formData.append('descimg1', editFormData.descimg1)
-              formData.append('descimg2', editFormData.descimg2)
-              formData.append('descimg3', editFormData.descimg3)
-              formData.append('sendForm', editFormData.sendForm)
-              const options = {
-                method: 'PATCH',
-                url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}`,
-                headers: {
-                  'x-api-key': env.NEXT_PUBLIC_API_KEY,
-                  Authorization: `${cookies.get(env.NEXT_PUBLIC_COOKIE_NAME)}`,
-                },
-                data: formData,
-              }
+            const reviews = prepareReviews(values);
+            const formData = buildFormData(values);
 
-              await axios.request(options)
+            await sendFormData(formData);
+            await sendReviewsData(reviews);
 
-              //send review data
-              const postReviews = [review1, review2, review3]
-              const images = [image4, image5, image6]
-              const reviewPromises = postReviews.map(async (review: any, index: number) => {
-                if (
-                  review.content === '' ||
-                  review.nick === '' ||
-                  review.gen === '' ||
-                  review.contact === ''
-                )
-                  return
-                const reviewData = new FormData()
-                const profileImage = images[index]
-                if (profileImage) reviewData.append('profile', profileImage)
-                reviewData.append('nick', review.nick || '')
-                reviewData.append('gen', review.gen || '')
-                reviewData.append('contact', review.contact || '')
-                reviewData.append('content', review.content || '')
-                return axios({
-                  method: 'PATCH',
-                  url: `${env.NEXT_PUBLIC_BASE_URL}/${userData.tag}/${userData.key}/review/${index + 1}`,
-                  headers: {
-                    'x-api-key': env.NEXT_PUBLIC_API_KEY,
-                    Authorization: `${cookies.get(env.NEXT_PUBLIC_COOKIE_NAME)}`,
-                  },
-                  data: reviewData,
-                })
-              })
-              await Promise.all(reviewPromises)
-              notifySuccess()
-              if (typeof window !== 'undefined') window.location.reload()
-            } catch (error) {
-              console.log(error)
-              notifyError()
-            } finally {
-              setSubmitting(false)
-              setLoading(false)
-            }
-          } else {
-            setSubmitting(false)
+            setSubmitting(false);
+            notifySuccess();
+            if (typeof window !== 'undefined') window.location.reload();
+
+          } catch (error) {
+            console.error(error);
+            setSubmitting(false);
+            notifyError();
+          } finally {
+            setLoading(false);
+            setSubmitting(false);
           }
         }}
       >
@@ -647,7 +737,10 @@ const GeneralForm: React.FC<{
                         type="text"
                         name="Members"
                         className="sm:text-md w-12 bg-transparent text-center text-xs text-white md:text-lg"
-                        //onKeyUp={(e: any) => handleChange('Members', e)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                          setFieldValue('Members', e.target.value)
+                          handleFieldChange('members', e.target.value)
+                        }}
                       />
                       <FaPen className="-mt-4 h-2 text-white" />
                       <p className="sm:text-md text-xs md:text-lg">คน</p>
@@ -660,7 +753,10 @@ const GeneralForm: React.FC<{
                             type="text"
                             name="IG"
                             className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                            //onKeyUp={(e: any) => handleChange('IG', e)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('IG', e.target.value)
+                              handleFieldChange('ig', e.target.value)
+                            }}
                           />
                           <FaPen className="h-1 text-white sm:h-2" />
                         </div>
@@ -670,7 +766,10 @@ const GeneralForm: React.FC<{
                             type="text"
                             name="FB"
                             className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                            //onKeyUp={(e: any) => handleChange('FB', e)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('FB', e.target.value)
+                              handleFieldChange('fb', e.target.value)
+                            }}
                           />
                           <FaPen className="h-1 text-white sm:h-2" />
                         </div>
@@ -680,7 +779,10 @@ const GeneralForm: React.FC<{
                             type="text"
                             name="others"
                             className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                            //onKeyUp={(e: any) => handleChange('Others', e)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('others', e.target.value)
+                              handleFieldChange('others', e.target.value)
+                            }}
                           />
                           <FaPen className="h-1 text-white sm:h-2" />
                         </div>
@@ -737,7 +839,10 @@ const GeneralForm: React.FC<{
                           type="text"
                           name="Members"
                           className="sm:text-md w-5 bg-transparent text-center text-[8px] text-white sm:w-12 md:text-lg"
-                          //onKeyUp={(e: any) => handleChange('Members', e)}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            setFieldValue('Members', e.target.value)
+                            handleFieldChange('members', e.target.value)
+                          }}
                         />
                         <FaPen className="-mt-2 h-1 text-white sm:h-2 md:-mt-4" />
                         <p className="sm:text-md text-[8px] md:text-lg">คน</p>
@@ -750,7 +855,10 @@ const GeneralForm: React.FC<{
                               type="text"
                               name="IG"
                               className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                              //onKeyUp={(e: any) => handleChange('IG', e)}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                setFieldValue('IG', e.target.value)
+                                handleFieldChange('ig', e.target.value)
+                              }}
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -760,7 +868,10 @@ const GeneralForm: React.FC<{
                               type="text"
                               name="FB"
                               className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                              //onKeyUp={(e: any) => handleChange('FB', e)}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                setFieldValue('FB', e.target.value)
+                                handleFieldChange('fb', e.target.value)
+                              }}
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -770,7 +881,10 @@ const GeneralForm: React.FC<{
                               type="text"
                               name="others"
                               className="ml-1 w-24 bg-transparent text-center text-[8px] text-white sm:text-lg md:ml-2 md:w-[200px]"
-                              //onKeyUp={(e: any) => handleChange('Others', e)}
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                setFieldValue('others', e.target.value)
+                                handleFieldChange('others', e.target.value)
+                              }}
                             />
                             <FaPen className="h-1 text-white sm:h-2" />
                           </div>
@@ -846,18 +960,23 @@ const GeneralForm: React.FC<{
                         </label>
                       )}
                     </div>
-                    <div className="mb-3 flex items-center justify-center">
-                      <div className="relative w-[70vw] text-center md:w-[30vw]">
-                        <Field
-                          type="text"
-                          name="photoDescription1"
-                          className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
-                          placeholder="Photo description"
-                          //onKeyUp={(e: any) => handleChange('PhotoDesc1', e)}
-                        />
-                        <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
+                    <div className="mb-3 flex flex-col items-center justify-center">
+                      <div className="flex">
+                        <div className="relative w-[70vw] text-center md:w-[30vw]">
+                          <Field
+                            type="text"
+                            name="photoDescription1"
+                            className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
+                            placeholder="กรุณาใส่คำอธิบายรูปภาพ"
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('photoDescription1', e.target.value)
+                              handleFieldChange('descimg1', e.target.value)
+                            }}
+                          />
+                          <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
+                        </div>
+                        <FaPen className="ml-2 h-2 text-greenText" />
                       </div>
-                      <FaPen className="ml-2 h-2 text-greenText" />
                       <ErrorMessage
                         name="photoDescription1"
                         component="div"
@@ -871,7 +990,7 @@ const GeneralForm: React.FC<{
                   name="textField1"
                   component={QuillField}
                   className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
-                  placeholder="Your description here"
+                  placeholder="กรุณาใส่ข้อความ"
                   rows="5"
                 />
                 <ErrorMessage name="textField1" component="div" className="text-red-400" />
@@ -931,18 +1050,23 @@ const GeneralForm: React.FC<{
                       )}
                     </div>
 
-                    <div className="mb-3 flex items-center justify-center">
-                      <div className="relative w-[70vw] text-center md:w-[30vw]">
-                        <Field
-                          type="text"
-                          name="photoDescription2"
-                          className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
-                          placeholder="Photo description"
-                          //onKeyUp={(e: any) => handleChange('PhotoDesc2', e)}
-                        />
-                        <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
+                    <div className="mb-3 flex flex-col items-center justify-center">
+                      <div className="flex">
+                        <div className="relative w-[70vw] text-center md:w-[30vw]">
+                          <Field
+                            type="text"
+                            name="photoDescription3"
+                            className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
+                            placeholder="กรุณาใส่คำอธิบายรูปภาพ"
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('photoDescription3', e.target.value)
+                              handleFieldChange('descimg3', e.target.value)
+                            }}
+                          />
+                          <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
+                        </div>
+                        <FaPen className="ml-2 h-2 text-greenText" />
                       </div>
-                      <FaPen className="ml-2 h-2 text-greenText" />
                       <ErrorMessage
                         name="photoDescription2"
                         component="div"
@@ -956,7 +1080,7 @@ const GeneralForm: React.FC<{
                   name="textField2"
                   component={QuillField}
                   className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
-                  placeholder="Your description here"
+                  placeholder="กรุณาใส่ข้อความ"
                   rows="5"
                 />
                 <ErrorMessage name="textField2" component="div" className="text-red-400" />
@@ -1023,22 +1147,27 @@ const GeneralForm: React.FC<{
                       )}
                     </div>
 
-                    <div className="mb-3 flex items-center justify-center">
-                      <div className="relative w-[70vw] text-center md:w-[30vw]">
-                        <Field
-                          type="text"
-                          name="photoDescription3"
-                          className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
-                          placeholder="Photo description"
-                          //onKeyUp={(e: any) => handleChange('PhotoDesc3', e)}
-                        />
-                        <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
+                    <div className="mb-3 flex flex-col items-center justify-center">
+                      <div className="flex">
+                        <div className="relative w-[70vw] text-center md:w-[30vw]">
+                          <Field
+                            type="text"
+                            name="photoDescription3"
+                            className="md:text-md w-full text-center text-xs text-greenText sm:text-sm"
+                            placeholder="กรุณาใส่คำอธิบายรูปภาพ"
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('photoDescription3', e.target.value)
+                              handleFieldChange('descimg3', e.target.value)
+                            }}
+                          />
+                          <span className="absolute bottom-0 left-1/4 w-1/2 border-b border-greenText"></span>
+                        </div>
+                        <FaPen className="ml-2 h-2 text-greenText" />
                       </div>
-                      <FaPen className="ml-2 h-2 text-greenText" />
                       <ErrorMessage
                         name="photoDescription3"
                         component="div"
-                        className="text-xs text-red-400 sm:text-sm"
+                        className="text-xs text-red-400 sm:text-sm mt-2"
                       />
                     </div>
                   </div>
@@ -1048,7 +1177,7 @@ const GeneralForm: React.FC<{
                   name="textField3"
                   component={QuillField}
                   className="rounded-xl border border-greenText pb-28 pl-3 pt-3 text-xs text-greenText shadow-lg sm:text-lg md:text-xl"
-                  placeholder="Your description here"
+                  placeholder="กรุณาใส่ข้อความ"
                   rows="5"
                 />
                 <ErrorMessage name="textField3" component="div" className="text-red-400" />
@@ -1061,7 +1190,6 @@ const GeneralForm: React.FC<{
               </div>
 
               <section className="flex flex-col space-y-10">
-                {/* {ReviewAmount >= 1 && ( */}
                 <div className="flex flex-col items-center justify-center space-y-5">
                   <div className="flex w-full items-start justify-around">
                     <div className="flex flex-col">
@@ -1082,7 +1210,7 @@ const GeneralForm: React.FC<{
                               </div>
                             )}
                             <button
-                             type='button'
+                              type='button'
                               onClick={() => {
                                 setDisplayImage4(false)
                                 setImage4(null)
@@ -1110,6 +1238,10 @@ const GeneralForm: React.FC<{
                           name="P1Name"
                           className="w-full text-sm font-bold text-greenText sm:text-lg"
                           placeholder="ชื่อเล่น"
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            setFieldValue('P1Name', e.target.value)
+                            handleReviewFieldChange(1, 'nick', e.target.value)
+                          }}
                         />
                         <ErrorMessage
                           name="P1Name"
@@ -1120,14 +1252,17 @@ const GeneralForm: React.FC<{
                           <label className="text-[8px] text-gray sm:text-sm" htmlFor="P1Gen">
                             เตรียมอุดม{' '}
                           </label>
-                          <Field 
+                          <Field
                             as="input"
                             type="text"
                             id="P1Gen"
                             name="P1Gen"
                             className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
                             placeholder="xx"
-                            //onKeyUp={(e: any) => handleChange("P1Gen", e)}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('P1Gen', e.target.value)
+                              handleReviewFieldChange(1, 'gen', e.target.value)
+                            }}
                           />
                         </div>
                         <ErrorMessage
@@ -1140,6 +1275,10 @@ const GeneralForm: React.FC<{
                           name="P1Contact"
                           className="w-full text-[8px] text-heroMiddle sm:text-sm"
                           placeholder="contact"
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            setFieldValue('P1Contact', e.target.value)
+                            handleReviewFieldChange(1, 'contact', e.target.value)
+                          }}
                         />
                         <ErrorMessage
                           name="P1Contact"
@@ -1161,7 +1300,6 @@ const GeneralForm: React.FC<{
                     </div>
                   </div>
                 </div>
-                {/* )} */}
                 {ReviewAmount >= 2 && (
                   <div className="flex flex-col items-center justify-center space-y-3">
                     <div className="flex w-full items-start justify-around">
@@ -1194,7 +1332,7 @@ const GeneralForm: React.FC<{
                                 </div>
                               )}
                               <button
-                              type='button'
+                                type='button'
                                 onClick={() => {
                                   setDisplayImage5(false)
                                   setImage5(null)
@@ -1226,6 +1364,10 @@ const GeneralForm: React.FC<{
                             name="P2Name"
                             className="w-full text-end text-sm font-bold text-greenText sm:text-lg"
                             placeholder="ชื่อเล่น"
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('P2Name', e.target.value)
+                              handleReviewFieldChange(2, 'nick', e.target.value)
+                            }}
                           />
                           <ErrorMessage
                             name="P2Name"
@@ -1242,6 +1384,10 @@ const GeneralForm: React.FC<{
                               name="P2Gen"
                               className="w-5 text-end text-[8px] text-heroMiddle sm:text-sm"
                               placeholder="xx"
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                setFieldValue('P2Gen', e.target.value)
+                                handleReviewFieldChange(2, 'gen', e.target.value)
+                              }}
                             />
                           </div>
                           <ErrorMessage
@@ -1254,6 +1400,10 @@ const GeneralForm: React.FC<{
                             name="P2Contact"
                             className="w-full text-end text-[8px] text-heroMiddle sm:text-sm"
                             placeholder="contact"
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('P2Contact', e.target.value)
+                              handleReviewFieldChange(2, 'contact', e.target.value)
+                            }}
                           />
                           <ErrorMessage
                             name="P2Contact"
@@ -1286,7 +1436,7 @@ const GeneralForm: React.FC<{
                                 </div>
                               )}
                               <button
-                              type='button'
+                                type='button'
                                 onClick={() => {
                                   setDisplayImage6(false)
                                   setImage6(null)
@@ -1318,6 +1468,10 @@ const GeneralForm: React.FC<{
                             name="P3Name"
                             className="w-full text-sm font-bold text-greenText sm:text-lg"
                             placeholder="ชื่อเล่น"
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('P3Name', e.target.value)
+                              handleReviewFieldChange(3, 'nick', e.target.value)
+                            }}
                           />
                           <ErrorMessage
                             name="P3Name"
@@ -1334,6 +1488,10 @@ const GeneralForm: React.FC<{
                               name="P3Gen"
                               className="ml-1 w-5 text-[8px] text-heroMiddle sm:w-8 sm:text-sm"
                               placeholder="xx"
+                              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                setFieldValue('P3Gen', e.target.value)
+                                handleReviewFieldChange(3, 'gen', e.target.value)
+                              }}
                             />
                           </div>
                           <ErrorMessage
@@ -1346,6 +1504,10 @@ const GeneralForm: React.FC<{
                             name="P3Contact"
                             className="w-full text-[8px] text-heroMiddle sm:text-sm"
                             placeholder="contact"
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                              setFieldValue('P3Contact', e.target.value)
+                              handleReviewFieldChange(3, 'contact', e.target.value)
+                            }}
                           />
                           <ErrorMessage
                             name="P3Contact"
@@ -1389,10 +1551,6 @@ const GeneralForm: React.FC<{
                           setFieldValue('P3Gen', '')
                           setFieldValue('P3Contact', '')
                           setReviewAmount(ReviewAmount - 1)
-                          // localStorage.removeItem('profile3')
-                          // localStorage.removeItem('P3Nick')
-                          // localStorage.removeItem('P3Gen')
-                          // localStorage.removeItem('P3Contact')
                           await axios.request({
                             method: 'DELETE',
                             headers: {
@@ -1410,10 +1568,6 @@ const GeneralForm: React.FC<{
                           setFieldValue('P2Gen', '')
                           setFieldValue('P2Contact', '')
                           setReviewAmount(ReviewAmount - 1)
-                          // localStorage.removeItem('profile2')
-                          // localStorage.removeItem('P2Nick')
-                          // localStorage.removeItem('P2Gen')
-                          // localStorage.removeItem('P2Contact')
                           await axios.request({
                             method: 'DELETE',
                             headers: {

@@ -1,5 +1,3 @@
-import { Status } from '@utils/type'
-
 import apiFunction from '@/components/api'
 import PreviewGeneralForm from './PreviewGeneralForm'
 
@@ -34,7 +32,7 @@ const PreviewProgramForm: React.FC = async () => {
     captureimg3: data.captureimg3,
     descimg3: data.descimg3,
   }
-  const reviews = userReviewData.data.map((review: any, index: number) => ({
+  const reviews = userReviewData.data.map((review: any) => ({
     count: review.count,
     profile: review.profile,
     nick: review.nick,

@@ -31,6 +31,7 @@ import SLamp3 from '@/vectors/preview/SLamp3'
 import Stainedglass from '@/vectors/preview/Stainedglass'
 import Uppercurve from '@/vectors/preview/Uppercurve'
 import Vase from '@/vectors/preview/Vase'
+import { useFormStore, useReviewStore1, useReviewStore2, useReviewStore3 } from '@/store/formStore'
 
 const PreviewGeneralForm: React.FC<{
   editFormData: any
@@ -39,6 +40,10 @@ const PreviewGeneralForm: React.FC<{
   review3: any
   reviews: any
 }> = ({ editFormData, review1, review2, review3, reviews }) => {
+  const formData = useFormStore((state) => state.formData)
+  const reviewData1 = useReviewStore1((state) => state.reviewData)
+  const reviewData2 = useReviewStore2((state) => state.reviewData)
+  const reviewData3 = useReviewStore3((state) => state.reviewData)
   const ReviewAmount = reviews
   const [imageLoaded, setImageLoaded] = useState(false)
 
@@ -53,12 +58,6 @@ const PreviewGeneralForm: React.FC<{
       <div className="absolute lg:-top-72 xl:-top-36 left-0 z-10 overflow-hidden">
         <BigUppercurve className="hidden w-screen lg:block" />
       </div>
-      {/* <div className="absolute -top-[74px]">
-        <FallingLamp className="w-[100vw] lg:hidden" />
-      </div> */}
-      {/* <div className="absolute right-0 z-0 overflow-hidden lg:top-14 xl:top-[168px] 2xl:top-[500px]">
-        <ClubFallingLamp className="hidden lg:block lg:w-[270px] xl:w-80" />
-      </div> */}
       <section className="relative z-40 mx-12 pt-48 sm:mx-28 sm:pt-72 md:mx-36 md:pt-[300px] lg:mx-48 xl:mx-60 2xl:pt-[550px]">
         <section className="flex items-center justify-between">
           <div className="flex items-center justify-center space-x-1 transition-all hover:scale-105">
@@ -91,8 +90,7 @@ const PreviewGeneralForm: React.FC<{
                     สมาชิก
                   </p>
                   <p className="from-19% to-94% bg-gradient-to-b from-[#75B667] via-[#15786C] via-80% to-[#0C453E] bg-clip-text text-xl font-bold text-transparent sm:text-6xl">
-                    {/* {localStorage.getItem("check") ? localStorage.getItem("Members") : editFormData.members} */}
-                    {editFormData.members}
+                    {formData.members ? formData.members : editFormData.members}
                   </p>
                 </div>
               </div>
@@ -101,21 +99,21 @@ const PreviewGeneralForm: React.FC<{
               )}
               <div className="sm:space-y-2">
                 <div>
-                  {editFormData.ig && (
+                  {/* {editFormData.ig && ( */}
                     <p className="bg-gradient-to-b from-greenText to-heroMiddle bg-clip-text text-xs text-transparent sm:text-lg">
-                      IG : {editFormData.ig}
+                      IG : {formData.ig ? formData.ig : editFormData.ig}
                     </p>
-                  )}
-                  {editFormData.fb && (
+                  {/* )} */}
+                  {/* {editFormData.fb && ( */}
                     <p className="bg-gradient-to-b from-greenText to-heroMiddle bg-clip-text text-xs text-transparent sm:text-lg">
-                      FB : {editFormData.fb}
+                      FB : {formData.fb ? formData.fb : editFormData.fb}
                     </p>
-                  )}
-                  {editFormData.others && (
+                  {/* )} */}
+                  {/* {editFormData.others && ( */}
                     <p className="bg-gradient-to-b from-greenText to-heroMiddle bg-clip-text text-xs text-transparent sm:text-lg">
-                      อื่น ๆ : {editFormData.others}
+                      อื่น ๆ : {formData.others ? formData.others : editFormData.others}
                     </p>
-                  )}
+                  {/* )} */}
                 </div>
               </div>
             </div>
@@ -166,8 +164,7 @@ const PreviewGeneralForm: React.FC<{
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]"
-                  //src={localStorage.getItem("check") ? localStorage.getItem("capimg1") : editFormData.captureimg1 || ''}
-                  src={editFormData.captureimg1 || ''}
+                  src={formData.captureimg1 ? formData.captureimg1 : editFormData.captureimg1}
                   alt="uploaded photo"
                   width={800}
                   height={600}
@@ -180,13 +177,13 @@ const PreviewGeneralForm: React.FC<{
                   </div>
                 )}
                 <div className="mb-3 flex items-center justify-center">
-                  <p className="text-xs text-greenText sm:text-sm">{editFormData.descimg1}</p>
+                  <p className="text-xs text-greenText sm:text-sm">{formData.descimg1 ? formData.descimg1 : editFormData.descimg1}</p>
                 </div>
               </div>
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: editFormData.text1 || '',
+                __html: formData.text1 ? formData.text1 : editFormData.text1
               }}
               className="w-full preview-content rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree font-normal text-greenText"
             ></div>
@@ -200,7 +197,7 @@ const PreviewGeneralForm: React.FC<{
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]"
-                  src={editFormData.captureimg2 || ''}
+                  src={formData.captureimg2 ? formData.captureimg2 : editFormData.captureimg2}
                   alt="uploaded photo"
                   width={800}
                   height={800}
@@ -212,7 +209,7 @@ const PreviewGeneralForm: React.FC<{
                   </div>
                 )}
                 <div className="mb-3 flex items-center justify-center">
-                  <p className="text-greenText">{editFormData.descimg2}</p>
+                  <p className="text-greenText">{formData.descimg2 ? formData.descimg2 : editFormData.descimg2}</p>
                 </div>
               </div>
               {editFormData.tagThai === 'ชมรม' ? (
@@ -245,7 +242,7 @@ const PreviewGeneralForm: React.FC<{
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: editFormData.text2 || '',
+                __html: formData.text2 ? formData.text2 : editFormData.text2,
               }}
               className="w-full preview-content rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree font-normal text-greenText"
             ></div>
@@ -290,7 +287,7 @@ const PreviewGeneralForm: React.FC<{
                 </div>
                 <Image
                   className="mx-auto mb-3 h-44 w-[80vw] rounded-lg object-cover transition-opacity duration-500 sm:h-48 sm:w-2/3 md:h-60 md:w-[50vw] lg:h-72 xl:w-[40vw] 2xl:w-[27vw]"
-                  src={editFormData.captureimg3 || ''}
+                  src={formData.captureimg3 ? formData.captureimg3 : editFormData.captureimg3}
                   alt="uploaded photo"
                   width={800}
                   height={600}
@@ -302,21 +299,20 @@ const PreviewGeneralForm: React.FC<{
                   </div>
                 )}
                 <div className="mb-3 flex items-center justify-center">
-                  <p className="text-xs text-greenText sm:text-sm">{editFormData.descimg3}</p>
+                  <p className="text-xs text-greenText sm:text-sm">{formData.descimg3 ? formData.descimg3 : editFormData.descimg3}</p>
                 </div>
               </div>
             </div>
             <div
               dangerouslySetInnerHTML={{
-                __html: editFormData.text3 || '',
+                __html: formData.text3 ? formData.text3 : editFormData.text3
               }}
               className="w-full preview-content rounded-3xl bg-[#FFF7EB] bg-opacity-50 p-6 font-BaiJamjuree font-normal text-greenText"
             ></div>
           </div>
-          {/* section 3 */}
-
           {/* end section3 */}
 
+          {/* Review */}
           <div className="mb-4 flex items-center justify-center space-x-4 md:mb-10">
             <div className="h-[2px] w-16 rounded-full bg-greenText md:w-28 lg:w-36 xl:w-48"></div>
             <p className="inline-block h-full bg-gradient-to-b from-heroMiddle to-greenText bg-clip-text text-center text-2xl font-bold leading-[1.85] text-transparent sm:text-4xl sm:leading-[1.6] md:text-5xl md:leading-[1.4]">
@@ -332,7 +328,7 @@ const PreviewGeneralForm: React.FC<{
                   <div className="flex flex-col items-start justify-center">
                     <Image
                       className={`mb-3 h-[66px] w-16 rounded-md transition-opacity duration-500 sm:h-24 sm:w-24 md:h-[150px] md:w-36 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                      src={review1.profile || ''}
+                      src={reviewData1.profile ? reviewData1.profile : review1.profile}
                       alt="photo"
                       width={100}
                       height={100}
@@ -346,9 +342,9 @@ const PreviewGeneralForm: React.FC<{
                   </div>
 
                   <div className="mt-2 flex flex-col text-greenText">
-                    <p className="text-lg font-bold md:text-3xl">{review1.nick}</p>
-                    <p className="text-xs md:text-lg">เตรียมอุดม {review1.gen}</p>
-                    <p className="text-xs md:text-lg">{review1.contact}</p>
+                    <p className="text-lg font-bold md:text-3xl">{reviewData1.nick ? reviewData1.nick : review1.nick}</p>
+                    <p className="text-xs md:text-lg">เตรียมอุดม {reviewData1.gen ? reviewData1.gen : review1.gen}</p>
+                    <p className="text-xs md:text-lg">{reviewData1.contact ? reviewData1.contact : review1.contact}</p>
                   </div>
                 </div>
                 <div className="relative w-4/6 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
@@ -363,7 +359,7 @@ const PreviewGeneralForm: React.FC<{
                   </div>
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: review1.content || '',
+                      __html: reviewData1.content ? reviewData1.content : review1.content,
                     }}
                     className="text-[12px] preview-content text-white sm:text-xl"
                   ></div>
@@ -385,7 +381,7 @@ const PreviewGeneralForm: React.FC<{
                     </div>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: review2.content || '',
+                        __html: reviewData2.content ? reviewData2.content : review2.content,
                       }}
                       className="text-[12px] preview-content text-white sm:text-xl"
                     ></div>
@@ -397,7 +393,7 @@ const PreviewGeneralForm: React.FC<{
                     <div className="flex flex-col items-end justify-center">
                       <Image
                         className={`mb-3 h-[66px] w-16 rounded-md transition-opacity duration-500 sm:h-24 sm:w-24 md:h-[150px] md:w-36 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                        src={review2.profile || ''}
+                        src={reviewData2.profile ? reviewData2.profile : review2.profile}
                         alt="photo"
                         width={100}
                         height={100}
@@ -410,9 +406,9 @@ const PreviewGeneralForm: React.FC<{
                       )}
                     </div>
                     <div className="mt-2 flex flex-col items-end text-end text-greenText">
-                      <p className="text-lg font-bold md:text-3xl">{review2.nick}</p>
-                      <p className="text-xs md:text-lg">เตรียมอุดม {review2.gen}</p>
-                      <p className="text-xs md:text-lg">{review2.contact}</p>
+                      <p className="text-lg font-bold md:text-3xl">{reviewData2.nick ? reviewData2.nick : review2.nick}</p>
+                      <p className="text-xs md:text-lg">เตรียมอุดม {reviewData2.gen ? reviewData2.gen : review2.gen}</p>
+                      <p className="text-xs md:text-lg">{reviewData2.contact ? reviewData2.contact : review2.contact}</p>
                     </div>
                   </div>
                 </div>
@@ -425,7 +421,7 @@ const PreviewGeneralForm: React.FC<{
                     <div className="flex flex-col items-start justify-center">
                       <Image
                         className={`mb-3 h-[66px] w-16 rounded-md transition-opacity duration-500 sm:h-24 sm:w-24 md:h-[150px] md:w-36 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                        src={review3.profile || ''}
+                        src={reviewData3.profile ? reviewData3.profile : review3.profile}
                         alt="photo"
                         width={100}
                         height={100}
@@ -438,9 +434,9 @@ const PreviewGeneralForm: React.FC<{
                       )}
                     </div>
                     <div className="mt-2 flex flex-col text-greenText">
-                      <p className="text-lg font-bold md:text-3xl">{review3.nick}</p>
-                      <p className="text-xs md:text-lg">เตรียมอุดม {review3.gen}</p>
-                      <p className="text-xs md:text-lg">{review3.contact}</p>
+                      <p className="text-lg font-bold md:text-3xl">{reviewData3.nick ? reviewData3.nick : review3.nick}</p>
+                      <p className="text-xs md:text-lg">เตรียมอุดม {reviewData3.gen ? reviewData3.gen : review3.gen}</p>
+                      <p className="text-xs md:text-lg">{reviewData3.contact ? reviewData3.contact : review3.contact}</p>
                     </div>
                   </div>
                   <div className="relative w-4/6 rounded-3xl bg-gradient-to-br from-[#6FB07C] via-[#4F8D78] to-[#072923] p-6 text-[8px] shadow-md sm:p-10 sm:text-xs">
@@ -449,7 +445,7 @@ const PreviewGeneralForm: React.FC<{
                     </div>
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: review3.content || '',
+                        __html: reviewData3.content ? reviewData3.content : review3.content,
                       }}
                       className="text-[12px] preview-content text-white sm:text-xl"
                     ></div>

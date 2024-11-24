@@ -74,7 +74,6 @@ export const updateClubData = async (
   if (clubData.status === Status.APPROVED)
     return { status: 400, message: 'Club was already approved' }
   try {
-    console.log(body)
     const updatedClub = await prisma.clubs.update({
       omit: { clubId: true, createdAt: true, id: true },
       where: { key: key },
