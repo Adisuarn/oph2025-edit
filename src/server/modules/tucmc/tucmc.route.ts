@@ -1,3 +1,4 @@
+import { prisma } from '@/server/utils/db'
 import { AllData } from '@libs/data'
 import { ClubData, updateClubData, updateClubReview } from '@modules/clubs/clubs.controller'
 import {
@@ -15,6 +16,7 @@ import {
   getDataByKey,
   handlerWrongSubmit,
   updateStatus,
+  exportAllData,
 } from '@modules/tucmc/tucmc.controller'
 import { createEverything } from '@utils/create'
 import { ReviewData, Status, Tag } from '@utils/type'
@@ -25,7 +27,6 @@ import {
   updateGiftedData,
   updateGiftedReview,
 } from '@/server/modules/gifted/gifted.controller'
-import { prisma } from '@/server/utils/db'
 import {
   importClubData,
   importGiftedData,
@@ -35,6 +36,9 @@ import {
 import { EncodedUnionField, StringField, UnionField } from '@/server/utils/validate'
 
 export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
+  .get('/export', async () => { 
+    return await exportAllData()
+  })
   .post(
     '/getuser',
     async ({ body }) => {

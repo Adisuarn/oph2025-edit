@@ -1,5 +1,3 @@
-import { Status } from '@utils/type'
-
 import apiFunction from '@/components/api'
 import PreviewGeneralForm from './PreviewGeneralForm'
 

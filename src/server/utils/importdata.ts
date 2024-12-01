@@ -166,16 +166,6 @@ export async function importClubData() {
           contact: review.contact,
           content: review.review,
         }
-
-        // await prisma.reviews.upsert({
-        //   where: { key: key!, count: count.toString() },
-        //   update: reviewData,
-        //   create: {
-        //     key: key!,
-        //     count: count.toString(),
-        //     ...reviewData,
-        //   },
-        // })
         await prisma.reviews.create({
           data: {
             key: key!,
@@ -229,16 +219,6 @@ export async function importProgramData() {
           contact: review.contact,
           content: review.review,
         }
-
-        // await prisma.reviews.upsert({
-        //   where: { key: key!, count: count.toString() },
-        //   update: reviewData,
-        //   create: {
-        //     key: key!,
-        //     count: count.toString(),
-        //     ...reviewData,
-        //   },
-        // })
         await prisma.reviews.create({
           data: {
             key: key!,
@@ -292,16 +272,6 @@ export async function importGiftedData() {
           contact: review.contact,
           content: review.review,
         }
-
-        // await prisma.reviews.upsert({
-        //   where: { key: key!, count: count.toString() },
-        //   update: reviewData,
-        //   create: {
-        //     key: key!,
-        //     count: count.toString(),
-        //     ...reviewData,
-        //   },
-        // })
         await prisma.reviews.create({
           data: {
             key: key!,
@@ -356,16 +326,6 @@ export async function importOrganizationData() {
             contact: review.contact,
             content: review.review,
           }
-
-          // await prisma.reviews.upsert({
-          //   where: { key: key!, count: count.toString() },
-          //   update: reviewData,
-          //   create: {
-          //     key: key!,
-          //     count: count.toString(),
-          //     ...reviewData,
-          //   },
-          // })
           await prisma.reviews.create({
             data: {
               key: key!,

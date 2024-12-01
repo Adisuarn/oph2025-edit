@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Header, Passage1, Passage2, Passage3, Reviews } from '@components/Dashboard'
 import { emails } from '@libs/admin'
 import { Status } from '@utils/type'
@@ -17,6 +17,29 @@ const MySwal = withReactContent(Swal)
 
 const ViewData = ({ data, type, onStatusUpdate }: any) => {
   const [loading, setLoading] = useState(false)
+  const [hasChanged, setHasChanged] = useState(false)
+
+  const checkForChanges = (values: any) => {
+    const hasPassageChanges =
+      values.activities !== data.data.activities ||
+      values.descimg1 !== data.data.descimg1 ||
+      values.benefits !== data.data.benefits ||
+      values.descimg2 !== data.data.descimg2 ||
+      values.working !== data.data.working ||
+      values.descimg3 !== data.data.descimg3;
+
+    const hasReviewChanges = values.reviews.some((review: any, index: number) => {
+      const originalReview = data.data.reviews.data[index];
+      return (
+        review.nick !== originalReview.nick ||
+        review.gen !== originalReview.gen ||
+        review.content !== originalReview.content ||
+        review.contact !== originalReview.contact
+      );
+    });
+
+    return hasPassageChanges || hasReviewChanges;
+  };
 
   const formattedDate = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Bangkok',
@@ -77,7 +100,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
                 if (typeof window !== 'undefined') {
                   window.location.reload()
                 }
-                setLoading(false) 
+                setLoading(false)
               }),
               {
                 loading: 'กำลังอัปเดตข้อมูล...',
@@ -124,7 +147,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
             : ''
 
         toast.promise(
-          onStatusUpdate(data, status, message).finally(() => setLoading(false)), // Stop loading on completion
+          onStatusUpdate(data, status, message).finally(() => setLoading(false)), 
           {
             loading: 'กำลังกำหนดสถานะ...',
             success: 'อัปเดตสถานะสำเร็จ',
@@ -136,6 +159,8 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
       }
     })
   }
+
+
 
   return (
     <>
@@ -201,42 +226,55 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
             validationSchema={valuesSchema}
             onSubmit={handleSubmit}
           >
-            {({ values, setFieldValue, errors, touched }) => (
-              <Form className="w-full">
-                <Passage1
-                  type={type}
-                  data={values}
-                  setFieldValue={setFieldValue}
-                  errors={errors}
-                  touched={touched}
-                />
-                <Passage2
-                  type={type}
-                  data={values}
-                  setFieldValue={setFieldValue}
-                  errors={errors}
-                  touched={touched}
-                />
-                <Passage3
-                  type={type}
-                  data={values}
-                  setFieldValue={setFieldValue}
-                  errors={errors}
-                  touched={touched}
-                />
-                <Reviews reviewData={values.reviews} setFieldValue={setFieldValue} />
+            {({ values, setFieldValue, errors, touched }) => {
+              useEffect(() => {
+                setHasChanged(checkForChanges(values));
+              }, [values]);
+              return (
+                <Form className="w-full">
+                  <Passage1
+                    type={type}
+                    data={values}
+                    setFieldValue={setFieldValue}
+                    errors={errors}
+                    touched={touched}
+                  />
+                  <Passage2
+                    type={type}
+                    data={values}
+                    setFieldValue={setFieldValue}
+                    errors={errors}
+                    touched={touched}
+                  />
+                  <Passage3
+                    type={type}
+                    data={values}
+                    setFieldValue={setFieldValue}
+                    errors={errors}
+                    touched={touched}
+                  />
+                  <Reviews reviewData={values.reviews} setFieldValue={setFieldValue} />
 
-                <div className="w-full bg-custom-gradient">
-                  <button
-                    type="submit"
-                    className={`w-full transform py-3 text-center text-[#ffffff] transition duration-300 ease-in-out hover:scale-105 hover:bg-[#ff6b6b] active:scale-100 active:bg-[#ff4d4d] ${loading ? 'bg-gray-400 cursor-not-allowed opacity-50' : ''}`}
-                    disabled={loading}
-                  >
-                    {loading ? 'กำลังอัปเดตข้อมูล...' : 'ยืนยันการแก้ไขข้อมูล'}
-                  </button>
-                </div>
-              </Form>
-            )}
+                  <div className="w-full bg-custom-gradient">
+                    <button
+                      type="submit"
+                      className={`w-full transform py-3 text-center text-[#ffffff] transition duration-300 ease-in-out 
+                  ${!hasChanged || loading
+                          ? 'bg-gray-400 cursor-not-allowed opacity-50'
+                          : 'hover:scale-105 hover:bg-[#ff6b6b] active:scale-100 active:bg-[#ff4d4d]'
+                        }`}
+                      disabled={!hasChanged || loading}
+                    >
+                      {loading
+                        ? 'กำลังอัปเดตข้อมูล...'
+                        : hasChanged
+                          ? 'ยืนยันการแก้ไขข้อมูล'
+                          : 'ไม่มีการแก้ไขข้อมูล'}
+                    </button>
+                  </div>
+                </Form>
+              )
+            }}
           </Formik>
         </div>
       </div>

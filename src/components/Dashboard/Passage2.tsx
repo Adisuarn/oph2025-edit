@@ -84,9 +84,8 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
     <>
       <div className="mx-44 mt-24 flex justify-between">
         <div className="flex flex-col text-center">
-          <div className="relative mb-20 mr-14 h-[300px] w-[500px] rounded-2xl">
-            <div className="h-[300px] w-[500px] overflow-hidden rounded-2xl">
-              {/* Image with opacity transition */}
+          <div className="relative mb-20 mr-14 h-[300px] w-[500px]">
+            <div className="h-[300px] w-[500px]">
               <div
                 className={`w-full h-full transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
               >
@@ -96,10 +95,9 @@ const Passage2 = ({ type, data, setFieldValue, errors, touched }: any) => {
                   fill
                   quality={100}
                   onLoad={handleImageLoad}
-                  className="object-cover"
+                  className="object-cover overflow-hidden rounded-2xl"
                 />
               </div>
-              {/* Loading Spinner */}
               {!imageLoaded && (
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
                   <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>

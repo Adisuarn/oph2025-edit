@@ -123,9 +123,8 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
         </div>
 
         <div className="flex flex-col text-center">
-          <div className="relative mb-28 ml-14 h-[300px] w-[500px] rounded-2xl">
-            <div className="h-[300px] w-[500px] overflow-hidden rounded-2xl">
-              {/* Image with loading animation */}
+          <div className="relative mb-28 ml-14 h-[300px] w-[500px] ">
+            <div className="h-[300px] w-[500px] overflow-hidden ">
               <div
                 className={`w-full h-full transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
               >
@@ -135,10 +134,9 @@ const Passage1 = ({ type, data, setFieldValue, errors, touched }: any) => {
                   fill
                   quality={100}
                   onLoad={handleImageLoad}
-                  className="object-cover"
+                  className="object-cover overflow-hidden rounded-2xl"
                 />
               </div>
-              {/* Loading Spinner */}
               {!imageLoaded && (
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
                   <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>

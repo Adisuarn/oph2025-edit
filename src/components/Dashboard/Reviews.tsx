@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import ReviewEditor from './ReviewEditor'
 
 const Reviews = ({ reviewData, setFieldValue }: any) => {
-  const [imageLoaded, setImageLoaded] = useState<{ [key: number]: boolean }>({}) // Track each image's loading state
+  const [imageLoaded, setImageLoaded] = useState<{ [key: number]: boolean }>({}) 
 
   const handleImageLoad = (index: number) => {
     setImageLoaded((prevState) => ({ ...prevState, [index]: true }))
@@ -25,7 +25,6 @@ const Reviews = ({ reviewData, setFieldValue }: any) => {
                 />
               </div>
               <div className="flex flex-col items-end">
-                {/* Profile Image with fade-in */}
                 <div className="relative mb-5 h-[150px] w-[150px] overflow-hidden rounded-2xl">
                   <div
                     className={`transition-opacity duration-500 ${imageLoaded[index] ? 'opacity-100' : 'opacity-0'}`}
@@ -44,7 +43,6 @@ const Reviews = ({ reviewData, setFieldValue }: any) => {
                       }}
                     />
                   </div>
-                  {/* Loading Spinner */}
                   {!imageLoaded[index] && (
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
                       <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>
@@ -61,7 +59,6 @@ const Reviews = ({ reviewData, setFieldValue }: any) => {
           <div key={index} className="mx-44 mt-28 flex w-[100%] justify-center">
             <div className="flex w-4/5 justify-evenly">
               <div>
-                {/* Profile Image with fade-in */}
                 <div className="relative mb-5 h-[150px] w-[150px] overflow-hidden rounded-2xl">
                   <div
                     className={`transition-opacity duration-500 ${imageLoaded[index] ? 'opacity-100' : 'opacity-0'} max-h-[150px] min-h-[150px] min-w-[150px] max-w-[150px]`}
@@ -80,7 +77,6 @@ const Reviews = ({ reviewData, setFieldValue }: any) => {
                       }}
                     />
                   </div>
-                  {/* Loading Spinner */}
                   {!imageLoaded[index] && (
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
                       <div className="h-8 w-8 animate-spin rounded-full border-4 border-t-4 border-solid border-green-500"></div>

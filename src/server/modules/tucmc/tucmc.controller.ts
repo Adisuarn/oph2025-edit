@@ -2,10 +2,11 @@ import { AllData } from '@libs/data'
 import { getClubReviews } from '@modules/clubs/clubs.controller'
 import { getOrganizationReviews } from '@modules/organizations/organizations.controller'
 import { getProgramReviews } from '@modules/programs/programs.controller'
+import { getGiftedReviews } from '@/server/modules/gifted/gifted.controller'
 import { prisma } from '@utils/db'
 import { Status, Tag } from '@utils/type'
-
-import { getGiftedReviews } from '@/server/modules/gifted/gifted.controller'
+import fs from 'fs/promises'
+import path from 'path'
 
 export const updateStatus = async (tag: Tag, key: string, status: Status, errorMsg: string) => {
   try {
@@ -294,3 +295,85 @@ export const handlerWrongSubmit = async (email: string, changedTag: any, changed
       return { status: 400, message: 'Invalid tag' }
   }
 }
+
+const exportEntityData = async (
+  entityType: 'organizations' | 'gifted' | 'clubs' | 'programs',
+  getReviewsFn: Function
+) => {
+  const data = await (prisma[entityType] as any).findMany();
+
+  return Promise.all(
+    data.map(async (item: any) => {
+      const reviewsData = await getReviewsFn(
+        item.key as any
+      );
+
+      const filteredReviews = reviewsData.data?.map((review: any) => ({
+        count: review.count,
+        nick: review.nick,
+        gen: review.gen,
+        contact: review.contact,
+        content: review.content
+      })) ?? [];
+
+      const {
+        updatedAt,
+        updatedBy,
+        organizationId,
+        clubId,
+        programId,
+        giftedId,
+        createdAt,
+        error,
+        isAdmin,
+        status,
+        id,
+        email,
+        ...filteredItem
+      } = item;
+
+      return {
+        ...filteredItem,
+        reviews: filteredReviews
+      };
+    })
+  );
+};
+
+export const exportAllData = async () => {
+  try {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const exportDir = path.join(process.cwd(), 'exports');
+    await fs.mkdir(exportDir, { recursive: true });
+
+    
+    const exports = await Promise.all([
+      exportEntityData('organizations', getOrganizationReviews),
+      exportEntityData('gifted', getGiftedReviews),
+      exportEntityData('clubs', getClubReviews),
+      exportEntityData('programs', getProgramReviews)
+    ]);
+
+    
+    const fileNames = ['organizations', 'gifted', 'clubs', 'programs'];
+    await Promise.all(
+      exports.map(async (data: any, index: any) => {
+        const filename = `${fileNames[index]}-${timestamp}.json`;
+        const filePath = path.join(exportDir, filename);
+        await fs.writeFile(
+          filePath,
+          JSON.stringify(data, null, 2)
+        );
+      })
+    );
+
+    return {
+      status: 200,
+      message: `Data exported successfully for all entities at ${timestamp}`,
+    };
+
+  } catch (err) {
+    console.error('Error exporting data:', err);
+    return { status: 500, message: 'Error while exporting data' };
+  }
+};

@@ -1227,7 +1227,7 @@ const GeneralForm: React.FC<{
                               <div className="flex flex-col items-center justify-center pb-6 pt-5">
                                 <UserIcon className="h-3 w-3 text-greenText sm:h-6 sm:w-6" />
                               </div>
-                              <input type="file" className="hidden" onChange={handleFileSelect4} />
+                                <input type="file" className="hidden" onChange={handleFileSelect4}/>
                             </label>
                           </div>
                         )}
@@ -1242,6 +1242,7 @@ const GeneralForm: React.FC<{
                             setFieldValue('P1Name', e.target.value)
                             handleReviewFieldChange(1, 'nick', e.target.value)
                           }}
+                          required
                         />
                         <ErrorMessage
                           name="P1Name"
@@ -1263,6 +1264,7 @@ const GeneralForm: React.FC<{
                               setFieldValue('P1Gen', e.target.value)
                               handleReviewFieldChange(1, 'gen', e.target.value)
                             }}
+                            required
                           />
                         </div>
                         <ErrorMessage
@@ -1279,6 +1281,7 @@ const GeneralForm: React.FC<{
                             setFieldValue('P1Contact', e.target.value)
                             handleReviewFieldChange(1, 'contact', e.target.value)
                           }}
+                          required
                         />
                         <ErrorMessage
                           name="P1Contact"
@@ -1368,6 +1371,7 @@ const GeneralForm: React.FC<{
                               setFieldValue('P2Name', e.target.value)
                               handleReviewFieldChange(2, 'nick', e.target.value)
                             }}
+                            required
                           />
                           <ErrorMessage
                             name="P2Name"
@@ -1388,6 +1392,7 @@ const GeneralForm: React.FC<{
                                 setFieldValue('P2Gen', e.target.value)
                                 handleReviewFieldChange(2, 'gen', e.target.value)
                               }}
+                              required
                             />
                           </div>
                           <ErrorMessage
@@ -1404,6 +1409,7 @@ const GeneralForm: React.FC<{
                               setFieldValue('P2Contact', e.target.value)
                               handleReviewFieldChange(2, 'contact', e.target.value)
                             }}
+                            required
                           />
                           <ErrorMessage
                             name="P2Contact"
@@ -1472,6 +1478,7 @@ const GeneralForm: React.FC<{
                               setFieldValue('P3Name', e.target.value)
                               handleReviewFieldChange(3, 'nick', e.target.value)
                             }}
+                            required
                           />
                           <ErrorMessage
                             name="P3Name"
@@ -1492,6 +1499,7 @@ const GeneralForm: React.FC<{
                                 setFieldValue('P3Gen', e.target.value)
                                 handleReviewFieldChange(3, 'gen', e.target.value)
                               }}
+                              required
                             />
                           </div>
                           <ErrorMessage
@@ -1508,6 +1516,7 @@ const GeneralForm: React.FC<{
                               setFieldValue('P3Contact', e.target.value)
                               handleReviewFieldChange(3, 'contact', e.target.value)
                             }}
+                            required
                           />
                           <ErrorMessage
                             name="P3Contact"
