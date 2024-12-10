@@ -17,6 +17,8 @@ import {
   handlerWrongSubmit,
   updateStatus,
   exportAllData,
+  notSendInfo,
+  mapAllData
 } from '@modules/tucmc/tucmc.controller'
 import { createEverything } from '@utils/create'
 import { ReviewData, Status, Tag } from '@utils/type'
@@ -36,6 +38,12 @@ import {
 import { EncodedUnionField, StringField, UnionField } from '@/server/utils/validate'
 
 export const tucmcRouter = new Elysia({ prefix: '/tucmc' })
+  .get('/mapdata', async () => {
+    return await mapAllData()
+  })
+  .get('/unsendinfo', async () => {
+    return await notSendInfo()
+  })
   .get('/export', async () => { 
     return await exportAllData()
   })

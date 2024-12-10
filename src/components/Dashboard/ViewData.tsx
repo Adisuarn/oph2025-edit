@@ -188,7 +188,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
             </div>
             <button
               onClick={() => handleStatusChange(Status.APPROVED)}
-              className={`mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 ${loading ? 'cursor-not-allowed bg-[#19C57C] opacity-50' : 'bg-[#19C57C]'}`}
+              className={`${data.data.status === Status.APPROVED ? 'cursor-not-allowed opacity-50' : ''} mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 ${loading ? 'cursor-not-allowed bg-[#19C57C] opacity-50' : 'bg-[#19C57C]'}`}
               disabled={loading}
             >
               <Checkmark />
@@ -196,7 +196,7 @@ const ViewData = ({ data, type, onStatusUpdate }: any) => {
 
             <button
               onClick={() => handleStatusChange(Status.REJECTED)}
-              className={`mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 ${loading ? 'cursor-not-allowed bg-[#F83E3E] opacity-50' : 'bg-[#F83E3E]'}`}
+              className={`${data.data.status === Status.REJECTED ? 'cursor-not-allowed opacity-50' : '' } mr-4 rounded-md transition-all duration-300 hover:scale-105 hover:brightness-125 ${loading ? 'cursor-not-allowed bg-[#F83E3E] opacity-50' : 'bg-[#F83E3E]'}`}
               disabled={loading}
             >
               <Rejected />

@@ -555,13 +555,13 @@ const GeneralForm: React.FC<{
           others: formState.others ? formState.others : editFormData.others ? editFormData.others : '',
         }}
         validationSchema={Yup.object({
-          textField1: Yup.string().required('กรุณาใส่ข้อความ'),
-          textField2: Yup.string().required('กรุณาใส่ข้อความ'),
-          textField3: Yup.string().required('กรุณาใส่ข้อความ'),
+          Members: Yup.string().required('กรุณาใส่จำนวนสมาชิก'),
+          textField1: Yup.string().min(150, 'กรุณาเขียนอย่างต่ำ 150 คำ').required('กรุณาใส่ข้อความ'),
+          textField2: Yup.string().min(150, 'กรุณาเขียนอย่างต่ำ 150 คำ').required('กรุณาใส่ข้อความ'),
+          textField3: Yup.string().min(150, 'กรุณาเขียนอย่างต่ำ 150 คำ').required('กรุณาใส่ข้อความ'),
           photoDescription1: Yup.string().required('กรุณาใส่คำอธิบายรูปภาพ 1'),
           photoDescription2: Yup.string().required('กรุณาใส่คำอธิบายรูปภาพ 2'),
           photoDescription3: Yup.string().required('กรุณาใส่คำอธิบายรูปภาพ 3'),
-          Members: Yup.string().required('กรุณาใส่จำนวนสมาชิก'),
         })}
         onSubmit={async (
           values: {

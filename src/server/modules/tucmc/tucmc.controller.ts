@@ -5,6 +5,8 @@ import { getProgramReviews } from '@modules/programs/programs.controller'
 import { getGiftedReviews } from '@/server/modules/gifted/gifted.controller'
 import { prisma } from '@utils/db'
 import { Status, Tag } from '@utils/type'
+import { Workbook } from 'exceljs'
+import axios from 'axios'
 import fs from 'fs/promises'
 import path from 'path'
 
@@ -310,6 +312,7 @@ const exportEntityData = async (
 
       const filteredReviews = reviewsData.data?.map((review: any) => ({
         count: review.count,
+        profile: review.profile,
         nick: review.nick,
         gen: review.gen,
         contact: review.contact,
@@ -338,6 +341,132 @@ const exportEntityData = async (
       };
     })
   );
+};
+
+export const mapAllData = async () => {
+  const exportDir = path.join(process.cwd(), 'exports/_maps');
+  const imageDir = path.join(process.cwd(), 'exports/assets/all-images');
+  const outputFile = path.join(exportDir, 'mapData.json');
+
+  await fs.mkdir(imageDir, { recursive: true });
+  await fs.mkdir(exportDir, { recursive: true });
+
+  const mapData: any[] = [];
+
+  const entities = [
+    {
+      type: 'organizations',
+      getReviews: getOrganizationReviews,
+      model: prisma.organizations
+    },
+    {
+      type: 'clubs',
+      getReviews: getClubReviews,
+      model: prisma.clubs
+    },
+    {
+      type: 'gifted',
+      getReviews: getGiftedReviews,
+      model: prisma.gifted
+    },
+    {
+      type: 'programs',
+      getReviews: getProgramReviews,
+      model: prisma.programs
+    }
+  ];
+
+  for (const entity of entities) {
+    const items = await (entity.model as any).findMany();
+
+    for (const item of items) {
+      const {
+        id, updatedAt, updatedBy, createdAt, error,
+        isAdmin, status, email, captureimg1, captureimg2,
+        captureimg3, descimg1, descimg2, descimg3,
+        ig, fb, others, organizationId, clubId, programId, giftedId,
+        ...filteredItem
+      } = item;
+
+      console.log(`Mapping ${entity.type}/${filteredItem.key}`);
+
+      if (item.logo) {
+        try {
+          const logoPath = path.join(imageDir, `${filteredItem.key}-logo.png`);
+          const response = await axios({
+            method: 'GET',
+            url: item.logo,
+            responseType: 'arraybuffer',
+            headers: { 'User-Agent': 'Mozilla/5.0' }
+          });
+          await fs.writeFile(logoPath, response.data);
+          filteredItem.logo = `/assets/all-images/${filteredItem.key}-logo.png`;
+        } catch (error) {
+          console.error(`Error downloading logo for ${filteredItem.key}:`, error);
+        }
+      }
+
+      const images = [captureimg1, captureimg2, captureimg3];
+      const captureimages = await Promise.all(images.map(async (img, index) => {
+        if (!img) return null;
+        try {
+          const imgPath = path.join(imageDir, `${filteredItem.key}-${index + 1}.png`);
+          const response = await axios({
+            method: 'GET',
+            url: img,
+            responseType: 'arraybuffer',
+            headers: { 'User-Agent': 'Mozilla/5.0' }
+          });
+          await fs.writeFile(imgPath, response.data);
+          return {
+            url: `/assets/all-images/${filteredItem.key}-${index + 1}.png`,
+            description: item[`descimg${index + 1}`]
+          };
+        } catch (error) {
+          console.error(`Error downloading image for ${filteredItem.key}:`, error);
+          return null;
+        }
+      }));
+
+      const reviews = (await entity.getReviews(filteredItem.key as never)).data || [];
+      const filteredReviews = await Promise.all(reviews.map(async ({ key, createdAt, updatedAt, updatedBy, profile, ...rest }, index) => {
+        if (!profile) return null;
+        try {
+          const imgPath = path.join(imageDir, `profile-${key}-${index + 1}.png`);
+          const response = await axios({
+            method: 'GET',
+            url: profile,
+            responseType: 'arraybuffer',
+            headers: { 'User-Agent': 'Mozilla/5.0' }
+          });
+          await fs.writeFile(imgPath, response.data);
+          return {
+            profile: `/assets/all-images/profile-${key}-${index + 1}.png`,
+            ...rest
+          };
+        } catch (error) {
+          console.error(`Error downloading profile for ${key}:`, error);
+          return null;
+        }
+      }));
+
+      mapData.push({
+        type: entity.type,
+        ...filteredItem,
+        images: captureimages.filter(Boolean),
+        reviews: filteredReviews.filter(Boolean),
+        contacts: {
+          ig: ig,
+          fb: fb,
+          others: others
+        }
+      });
+    }
+
+    await fs.writeFile(outputFile, JSON.stringify(mapData, null, 2));
+  }
+
+  return mapData;
 };
 
 export const exportAllData = async () => {
@@ -377,3 +506,56 @@ export const exportAllData = async () => {
     return { status: 500, message: 'Error while exporting data' };
   }
 };
+
+export const notSendInfo = async () => {
+  const unSendClubs = await prisma.clubs.findMany({
+    where: { status: "" },
+    select: {
+      key: true,
+      thainame: true,
+    }
+  })
+  const unSendOrg = await prisma.organizations.findMany({
+    where: { status: "" },
+    select: {
+      key: true,
+      thainame: true,
+    }
+  })
+  const unSendPrograms = await prisma.programs.findMany({
+    where: { status: "" },
+    select: {
+      key: true,
+      thainame: true,
+    }
+  })
+  const unSendGifted = await prisma.gifted.findMany({
+    where: { status: "" },
+    select: {
+      key: true,
+      thainame: true,
+    }
+  })
+
+  const workbook = new Workbook()
+
+  const sheets = {
+    'ชมรม': unSendClubs,
+    'องค์กร': unSendOrg,
+    'สายการเรียน': unSendPrograms,
+    'โครงการพัฒนาฯ': unSendGifted
+  }
+
+  for (const [sheetName, data] of Object.entries(sheets)) {
+    const worksheet = workbook.addWorksheet(sheetName);
+
+    worksheet.columns = [
+      { header: 'รหัส', key: 'key', width: 15 },
+      { header: 'ชื่อ', key: 'thainame', width: 30 }
+    ];
+
+    worksheet.addRows(data);
+  }
+
+  await workbook.xlsx.writeFile('not-send-info.xlsx');
+}
